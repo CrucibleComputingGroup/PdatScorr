@@ -101,7 +101,10 @@ module {module_name} (
   input logic        rst_ni,
   input logic        instr_valid_i,
   input logic [31:0] instr_rdata_i,
-  input logic        instr_is_compressed_i
+  input logic        instr_is_compressed_i,
+  // Decoder outputs - for direct constraints on execution units
+  input logic        mult_en_dec_i,
+  input logic        div_en_dec_i
 );
 
 """
@@ -109,17 +112,36 @@ module {module_name} (
     # Group by width (assume all 32-bit for now, can add 16-bit later)
     patterns_32 = [(p, m, d) for p, m, d in patterns if m <= 0xFFFFFFFF]
 
+    # Check if we have MUL/DIV instructions in the outlawed list
+    has_mul = any('MUL' in desc for _, _, desc in patterns_32)
+    has_div = any('DIV' in desc or 'REM' in desc for _, _, desc in patterns_32)
+
     if patterns_32:
         sv_code += "  // 32-bit outlawed instruction patterns\n"
+        sv_code += "  // Using combinational 'assume' so ABC can use them as don't-care conditions\n"
+        sv_code += "  // This allows ABC to optimize away logic for these instructions\n"
         for i, (pattern, mask, desc) in enumerate(patterns_32):
             sv_code += f"  // {desc}\n"
             sv_code += f"  // Pattern: 0x{pattern:08x}, Mask: 0x{mask:08x}\n"
-            sv_code += f"  always @(posedge clk_i) begin\n"
+            sv_code += f"  // Combinational assumption: when valid, this pattern doesn't occur\n"
+            sv_code += f"  always_comb begin\n"
             sv_code += f"    if (rst_ni && instr_valid_i && !instr_is_compressed_i) begin\n"
-            sv_code += f"      assert ((instr_rdata_i & 32'h{mask:08x}) != 32'h{pattern:08x}) else\n"
-            sv_code += f"        $error(\"Outlawed instruction: {desc} - instr=0x%08x\", instr_rdata_i);\n"
+            sv_code += f"      assume ((instr_rdata_i & 32'h{mask:08x}) != 32'h{pattern:08x});\n"
             sv_code += f"    end\n"
             sv_code += f"  end\n\n"
+
+    # Add direct assumptions on decoder outputs for better optimization
+    if has_mul or has_div:
+        sv_code += "  // Direct assumptions on decoder outputs for better ABC optimization\n"
+        sv_code += "  // These help ABC directly see that execution units are disabled\n"
+        if has_mul:
+            sv_code += "  always_comb begin\n"
+            sv_code += "    assume (mult_en_dec_i == 1'b0);  // Multiplier never enabled\n"
+            sv_code += "  end\n\n"
+        if has_div:
+            sv_code += "  always_comb begin\n"
+            sv_code += "    assume (div_en_dec_i == 1'b0);   // Divider never enabled\n"
+            sv_code += "  end\n\n"
 
     if not patterns_32:
         sv_code += "  // No outlawed instruction patterns specified\n\n"
@@ -143,28 +165,57 @@ bind ibex_core.id_stage_i {module_name} checker_inst (
 """
     return bind_code
 
+def generate_inline_assumptions(patterns):
+    """Generate assumptions to inject directly into ID stage (no separate module)."""
+
+    code = "\n  // ========================================\n"
+    code += "  // Auto-generated instruction constraints\n"
+    code += "  // ========================================\n\n"
+
+    if not patterns:
+        code += "  // No outlawed instruction patterns specified\n\n"
+        return code
+
+    # Check if we have MUL/DIV instructions
+    has_mul = any('MUL' in desc for _, _, desc in patterns)
+    has_div = any('DIV' in desc or 'REM' in desc for _, _, desc in patterns)
+
+    code += "  // Instruction encoding constraints (unconditional form for ABC)\n"
+    code += "  // When out of reset and instruction is uncompressed, these patterns don't occur\n"
+    code += "  // Written as: assume (!rst_ni || instr_is_compressed_i || pattern_mismatch)\n"
+    for pattern, mask, desc in patterns:
+        code += f"  // {desc}: Pattern=0x{pattern:08x}, Mask=0x{mask:08x}\n"
+        code += f"  always_comb begin\n"
+        code += f"    assume (!rst_ni || instr_is_compressed_i || ((instr_rdata_i & 32'h{mask:08x}) != 32'h{pattern:08x}));\n"
+        code += f"  end\n\n"
+
+    # Add direct decoder output constraints
+    # ABC cannot propagate instruction constraints through decoder, so we help it
+    if has_mul or has_div:
+        code += "  // Direct decoder output constraints (for effective ABC optimization)\n"
+        code += "  // ABC cannot automatically derive these from instruction constraints\n"
+        if has_mul:
+            code += "  always_comb assume (mult_en_dec == 1'b0);  // Multiplier never enabled\n"
+        if has_div:
+            code += "  always_comb assume (div_en_dec == 1'b0);   // Divider never enabled\n"
+        code += "\n"
+
+    return code
+
 def main():
     parser = argparse.ArgumentParser(
         description='Generate SystemVerilog assertion module from instruction DSL'
     )
     parser.add_argument('input_file', help='DSL file containing instruction rules')
-    parser.add_argument('output_file', help='Output SystemVerilog file')
+    parser.add_argument('output_file', help='Output file')
+    parser.add_argument('--inline', action='store_true',
+                       help='Generate inline assumptions code (not a module)')
     parser.add_argument('-m', '--module-name', default='instr_outlawed_checker',
                        help='Name of generated module (default: instr_outlawed_checker)')
     parser.add_argument('-b', '--bind-file',
                        help='Output bind file (default: <output_file_base>_bind.sv)')
 
     args = parser.parse_args()
-
-    # Determine bind file name
-    if args.bind_file:
-        bind_file = args.bind_file
-    else:
-        # Default: replace .sv with _bind.sv
-        if args.output_file.endswith('.sv'):
-            bind_file = args.output_file[:-3] + '_bind.sv'
-        else:
-            bind_file = args.output_file + '_bind.sv'
 
     # Read input file
     with open(args.input_file, 'r') as f:
@@ -192,20 +243,38 @@ def main():
 
     print(f"Generated {len(patterns)} patterns")
 
-    # Generate SystemVerilog
-    print(f"Generating SystemVerilog module '{args.module_name}'...")
-    sv_code = generate_sv_module(patterns, args.module_name)
+    # Generate code
+    if args.inline:
+        # Generate inline assumptions code only
+        code = generate_inline_assumptions(patterns)
+        with open(args.output_file, 'w') as f:
+            f.write(code)
+        print(f"Successfully wrote inline assumptions to {args.output_file}")
+    else:
+        # Generate full module + bind file
+        # Determine bind file name
+        if args.bind_file:
+            bind_file = args.bind_file
+        else:
+            # Default: replace .sv with _bind.sv
+            if args.output_file.endswith('.sv'):
+                bind_file = args.output_file[:-3] + '_bind.sv'
+            else:
+                bind_file = args.output_file + '_bind.sv'
 
-    # Write checker module
-    with open(args.output_file, 'w') as f:
-        f.write(sv_code)
-    print(f"Successfully wrote {args.output_file}")
+        print(f"Generating SystemVerilog module '{args.module_name}'...")
+        sv_code = generate_sv_module(patterns, args.module_name)
 
-    # Generate and write bind file
-    bind_code = generate_bind_file(args.module_name)
-    with open(bind_file, 'w') as f:
-        f.write(bind_code)
-    print(f"Successfully wrote {bind_file}")
+        # Write checker module
+        with open(args.output_file, 'w') as f:
+            f.write(sv_code)
+        print(f"Successfully wrote {args.output_file}")
+
+        # Generate and write bind file
+        bind_code = generate_bind_file(args.module_name)
+        with open(bind_file, 'w') as f:
+            f.write(bind_code)
+        print(f"Successfully wrote {bind_file}")
 
 if __name__ == '__main__':
     main()
