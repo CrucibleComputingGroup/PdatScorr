@@ -64,7 +64,23 @@ Supported extensions:
 - `ZICSR` - CSR instructions
 - `PRIV` - Privileged instructions
 
-#### 2. **Instruction Rules** (Negative Constraints)
+#### 2. **Register Constraints**
+
+Limit which registers can be used across ALL instructions. This effectively reduces the register file size.
+
+```dsl
+# Only allow registers 0-16 (eliminate 17-31)
+require_registers x0-x16
+
+# Or with numeric syntax
+require_registers 0-16
+```
+
+This generates constraints ensuring that for ANY instruction, ALL register fields (rd, rs1, rs2) must be in the allowed range. This allows the optimizer to remove logic for the upper registers.
+
+**Example use case**: Implementing a 16-register subset of RISC-V for area optimization.
+
+#### 3. **Instruction Rules** (Negative Constraints)
 
 Outlaw specific instructions by name:
 
@@ -84,7 +100,7 @@ instruction ADD { rd = x0 }
 instruction LW { rs1 = x10 }
 ```
 
-#### 3. **Pattern Rules** (Low-Level)
+#### 4. **Pattern Rules** (Low-Level)
 
 Specify exact bit patterns to outlaw:
 
@@ -100,6 +116,9 @@ pattern 0x02000033 mask 0xFE00707F  # MUL instruction encoding
 # Specify valid extensions (positive constraints)
 require RV32I
 require RV32M
+
+# Limit to 17 registers (x0-x16)
+require_registers x0-x16
 
 # Outlaw multiply/divide (negative constraints)
 instruction MUL
@@ -117,7 +136,7 @@ instruction ADD { rd = x0 }
 
 ### How Constraints Work
 
-The DSL generates **two types** of SystemVerilog assumptions:
+The DSL generates **three types** of SystemVerilog assumptions:
 
 1. **Positive constraints** (from `require`):
    ```systemverilog
@@ -125,7 +144,16 @@ The DSL generates **two types** of SystemVerilog assumptions:
    ```
    Tells ABC: "instruction bits must match a valid encoding"
 
-2. **Negative constraints** (from `instruction`/`pattern`):
+2. **Register constraints** (from `require_registers`):
+   ```systemverilog
+   // Format-aware: only constrains fields that are actually registers
+   assume (!is_r_type || (rd <= 16 && rs1 <= 16 && rs2 <= 16));  // R-type: all 3
+   assume (!is_i_type || (rd <= 16 && rs1 <= 16));              // I-type: rd, rs1
+   assume (!is_s_type || (rs1 <= 16 && rs2 <= 16));             // S-type: rs1, rs2
+   ```
+   Tells ABC: "register fields (when present) must be in allowed range"
+
+3. **Negative constraints** (from `instruction`/`pattern`):
    ```systemverilog
    assume (instr != MUL);
    assume (instr != DIV);
@@ -135,6 +163,7 @@ The DSL generates **two types** of SystemVerilog assumptions:
 Combined, this allows ABC's `scorr` to:
 - Remove decode logic for invalid/garbage instructions
 - Remove decode logic for outlawed instructions
+- Remove register file entries for unused registers
 - Optimize away data paths that are never used
 
 ## Synthesis Script

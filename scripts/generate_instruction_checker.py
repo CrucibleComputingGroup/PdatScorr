@@ -10,10 +10,11 @@ This script:
 
 import sys
 import argparse
-from typing import List, Tuple
-from instruction_dsl_parser import parse_dsl, InstructionRule, PatternRule, FieldConstraint
+from typing import List, Tuple, Set, Optional
+from instruction_dsl_parser import parse_dsl, InstructionRule, PatternRule, FieldConstraint, RequireRule, RegisterConstraintRule
 from riscv_encodings import (
-    get_instruction_encoding, parse_register, set_field, create_field_mask
+    get_instruction_encoding, parse_register, set_field, create_field_mask,
+    get_extension_instructions
 )
 
 def instruction_rule_to_pattern(rule: InstructionRule) -> List[Tuple[int, int, str]]:
@@ -165,15 +166,114 @@ bind ibex_core.id_stage_i {module_name} checker_inst (
 """
     return bind_code
 
-def generate_inline_assumptions(patterns):
+def generate_inline_assumptions(patterns, required_extensions: Set[str] = None,
+                               register_constraint: Optional[RegisterConstraintRule] = None):
     """Generate assumptions to inject directly into ID stage (no separate module)."""
 
     code = "\n  // ========================================\n"
     code += "  // Auto-generated instruction constraints\n"
     code += "  // ========================================\n\n"
 
+    # Generate register constraints
+    if register_constraint:
+        min_reg = register_constraint.min_reg
+        max_reg = register_constraint.max_reg
+        code += f"  // Register constraint: only x{min_reg}-x{max_reg} allowed ({max_reg - min_reg + 1} registers)\n"
+        code += "  // Constraints applied based on instruction format (not all instructions use all fields)\n\n"
+
+        # RISC-V instruction formats and which register fields they use:
+        # Opcode is bits [6:0], we use this to determine format
+
+        # R-type (opcode[6:2] = 01100, 01110, 10100, 10110): rd, rs1, rs2
+        code += "  // R-type instructions (OP, OP-32): rd, rs1, rs2\n"
+        code += "  wire is_r_type = (instr_rdata_i[6:2] == 5'b01100) ||  // OP (ADD, SUB, etc.)\n"
+        code += "                   (instr_rdata_i[6:2] == 5'b01110) ||  // OP-32 (ADDW, SUBW, etc.)\n"
+        code += "                   (instr_rdata_i[6:2] == 5'b10100) ||  // OP-FP\n"
+        code += "                   (instr_rdata_i[6:2] == 5'b10110);    // OP-V\n"
+        code += "  always_comb begin\n"
+        code += f"    assume (!rst_ni || instr_is_compressed_i || !is_r_type ||\n"
+        code += f"            ((instr_rdata_i[11:7] <= 5'd{max_reg}) &&   // rd\n"
+        code += f"             (instr_rdata_i[19:15] <= 5'd{max_reg}) &&  // rs1\n"
+        code += f"             (instr_rdata_i[24:20] <= 5'd{max_reg})));\n"
+        code += "  end\n\n"
+
+        # I-type (loads, JALR, OP-IMM): rd, rs1
+        code += "  // I-type instructions (LOAD, OP-IMM, JALR): rd, rs1\n"
+        code += "  wire is_i_type = (instr_rdata_i[6:2] == 5'b00000) ||  // LOAD\n"
+        code += "                   (instr_rdata_i[6:2] == 5'b00100) ||  // OP-IMM\n"
+        code += "                   (instr_rdata_i[6:2] == 5'b00110) ||  // OP-IMM-32\n"
+        code += "                   (instr_rdata_i[6:2] == 5'b11001);    // JALR\n"
+        code += "  always_comb begin\n"
+        code += f"    assume (!rst_ni || instr_is_compressed_i || !is_i_type ||\n"
+        code += f"            ((instr_rdata_i[11:7] <= 5'd{max_reg}) &&   // rd\n"
+        code += f"             (instr_rdata_i[19:15] <= 5'd{max_reg})));\n"
+        code += "  end\n\n"
+
+        # S-type (stores): rs1, rs2 (no rd - bits [11:7] are immediate)
+        code += "  // S-type instructions (STORE): rs1, rs2 (no rd)\n"
+        code += "  wire is_s_type = (instr_rdata_i[6:2] == 5'b01000);    // STORE\n"
+        code += "  always_comb begin\n"
+        code += f"    assume (!rst_ni || instr_is_compressed_i || !is_s_type ||\n"
+        code += f"            ((instr_rdata_i[19:15] <= 5'd{max_reg}) &&  // rs1\n"
+        code += f"             (instr_rdata_i[24:20] <= 5'd{max_reg})));\n"
+        code += "  end\n\n"
+
+        # B-type (branches): rs1, rs2 (no rd)
+        code += "  // B-type instructions (BRANCH): rs1, rs2 (no rd)\n"
+        code += "  wire is_b_type = (instr_rdata_i[6:2] == 5'b11000);    // BRANCH\n"
+        code += "  always_comb begin\n"
+        code += f"    assume (!rst_ni || instr_is_compressed_i || !is_b_type ||\n"
+        code += f"            ((instr_rdata_i[19:15] <= 5'd{max_reg}) &&  // rs1\n"
+        code += f"             (instr_rdata_i[24:20] <= 5'd{max_reg})));\n"
+        code += "  end\n\n"
+
+        # U-type (LUI, AUIPC): rd only
+        code += "  // U-type instructions (LUI, AUIPC): rd only\n"
+        code += "  wire is_u_type = (instr_rdata_i[6:2] == 5'b01101) ||  // LUI\n"
+        code += "                   (instr_rdata_i[6:2] == 5'b00101);    // AUIPC\n"
+        code += "  always_comb begin\n"
+        code += f"    assume (!rst_ni || instr_is_compressed_i || !is_u_type ||\n"
+        code += f"            (instr_rdata_i[11:7] <= 5'd{max_reg}));\n"
+        code += "  end\n\n"
+
+        # J-type (JAL): rd only
+        code += "  // J-type instructions (JAL): rd only\n"
+        code += "  wire is_j_type = (instr_rdata_i[6:2] == 5'b11011);    // JAL\n"
+        code += "  always_comb begin\n"
+        code += f"    assume (!rst_ni || instr_is_compressed_i || !is_j_type ||\n"
+        code += f"            (instr_rdata_i[11:7] <= 5'd{max_reg}));\n"
+        code += "  end\n\n"
+
+    # Generate positive constraints from required extensions
+    if required_extensions:
+        code += "  // Positive constraint: instruction must be from required extensions\n"
+        code += f"  // Required: {', '.join(sorted(required_extensions))}\n"
+
+        # Collect all valid instruction patterns from required extensions
+        valid_patterns = []
+        for ext in required_extensions:
+            ext_instrs = get_extension_instructions(ext)
+            if ext_instrs:
+                for name, encoding in ext_instrs.items():
+                    valid_patterns.append((encoding.base_pattern, encoding.base_mask, f"{name} ({ext})"))
+
+        if valid_patterns:
+            code += "  // Instruction must match one of these valid patterns (OR of all valid instructions)\n"
+            code += "  always_comb begin\n"
+            code += "    assume (!rst_ni || instr_is_compressed_i || (\n"
+
+            # Generate OR of all valid instruction patterns
+            for i, (pattern, mask, desc) in enumerate(valid_patterns):
+                is_last = (i == len(valid_patterns) - 1)
+                connector = "" if is_last else " ||"
+                code += f"      ((instr_rdata_i & 32'h{mask:08x}) == 32'h{pattern:08x}){connector}  // {desc}\n"
+
+            code += "    ));\n"
+            code += "  end\n\n"
+
     if not patterns:
-        code += "  // No outlawed instruction patterns specified\n\n"
+        if not required_extensions:
+            code += "  // No instruction constraints specified\n\n"
         return code
 
     # Check if we have MUL/DIV instructions
@@ -231,22 +331,35 @@ def main():
 
     print(f"Found {len(ast.rules)} rules")
 
-    # Convert to patterns
+    # Separate rules into required extensions, register constraints, and outlawed patterns
+    required_extensions = set()
+    register_constraint = None
     patterns = []
+
     for rule in ast.rules:
-        if isinstance(rule, InstructionRule):
+        if isinstance(rule, RequireRule):
+            required_extensions.add(rule.extension)
+        elif isinstance(rule, RegisterConstraintRule):
+            if register_constraint is not None:
+                print(f"Warning: Multiple register constraints found, using the last one (x{rule.min_reg}-x{rule.max_reg})")
+            register_constraint = rule
+        elif isinstance(rule, InstructionRule):
             rule_patterns = instruction_rule_to_pattern(rule)
             patterns.extend(rule_patterns)
         elif isinstance(rule, PatternRule):
             desc = rule.description if rule.description else f"Pattern at line {rule.line}"
             patterns.append((rule.pattern, rule.mask, desc))
 
-    print(f"Generated {len(patterns)} patterns")
+    if required_extensions:
+        print(f"Required extensions: {', '.join(sorted(required_extensions))}")
+    if register_constraint:
+        print(f"Register constraint: x{register_constraint.min_reg}-x{register_constraint.max_reg} ({register_constraint.max_reg - register_constraint.min_reg + 1} registers)")
+    print(f"Generated {len(patterns)} outlawed patterns")
 
     # Generate code
     if args.inline:
         # Generate inline assumptions code only
-        code = generate_inline_assumptions(patterns)
+        code = generate_inline_assumptions(patterns, required_extensions, register_constraint)
         with open(args.output_file, 'w') as f:
             f.write(code)
         print(f"Successfully wrote inline assumptions to {args.output_file}")
