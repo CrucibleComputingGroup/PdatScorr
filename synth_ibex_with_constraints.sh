@@ -91,7 +91,7 @@ fi
 
 # Step 1: Generate assumptions code (inline, no module)
 echo "[1/$TOTAL_STEPS] Generating instruction assumptions..."
-python3 generate_instruction_checker.py --inline "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+python3 scripts/generate_instruction_checker.py --inline "$INPUT_DSL" "$ASSUMPTIONS_CODE"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to generate assumptions"
@@ -100,7 +100,7 @@ fi
 
 # Step 2: Inject assumptions into ibex_id_stage.sv
 echo "[2/$TOTAL_STEPS] Injecting assumptions into ibex_id_stage.sv..."
-python3 inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" ./cores/ibex/rtl/ibex_id_stage.sv "$ID_STAGE_SV"
+python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" ./cores/ibex/rtl/ibex_id_stage.sv "$ID_STAGE_SV"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to inject assumptions"
@@ -109,7 +109,7 @@ fi
 
 # Step 3: Generate synthesis script
 echo "[3/$TOTAL_STEPS] Generating synthesis script..."
-python3 make_synthesis_script.py "$ID_STAGE_SV" \
+python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
     -o "$SYNTH_SCRIPT" -a "${BASE}"
 
 if [ $? -ne 0 ]; then
@@ -172,7 +172,7 @@ echo ""
 # Step 6 (optional): Gate-level synthesis
 if [ "$SYNTHESIZE_GATES" = true ]; then
     echo "Synthesizing to gate level with Skywater PDK..."
-    ./synth_to_gates.sh "$BASE"
+    ./scripts/synth_to_gates.sh "$BASE"
 
     if [ $? -ne 0 ]; then
         echo "ERROR: Gate-level synthesis failed"
@@ -180,7 +180,7 @@ if [ "$SYNTHESIZE_GATES" = true ]; then
     fi
 else
     echo "To synthesize to gates, run:"
-    echo "  ./synth_to_gates.sh $BASE"
+    echo "  ./scripts/synth_to_gates.sh $BASE"
     echo "Or use --gates flag with this script."
 fi
 
