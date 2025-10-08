@@ -4,7 +4,7 @@
 # Specify valid instruction set
 require RV32I
 
-# Limit to 16 registers (effectively RV32E + 1 more)
+# Limit to 16 registers (effectively RV32E)
 require_registers x0-x15
 
 # Still outlaw multiplication if not needed

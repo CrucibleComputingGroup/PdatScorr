@@ -7,16 +7,26 @@ set -e
 
 # Parse arguments
 SYNTHESIZE_GATES=false
+ABC_DEPTH=2
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --gates) SYNTHESIZE_GATES=true; shift ;;
+        --abc-depth)
+            ABC_DEPTH="$2"
+            if ! [[ "$ABC_DEPTH" =~ ^[0-9]+$ ]] || [ "$ABC_DEPTH" -lt 1 ]; then
+                echo "ERROR: --abc-depth must be a positive integer"
+                exit 1
+            fi
+            shift 2
+            ;;
         -h|--help)
-            echo "Usage: $0 [--gates] <rules.dsl> [output_dir|output.il]"
+            echo "Usage: $0 [OPTIONS] <rules.dsl> [output_dir|output.il]"
             echo ""
             echo "Generates optimized Ibex core with instruction constraints from DSL file"
             echo ""
             echo "Options:"
-            echo "  --gates         Also synthesize to gate-level netlist with Skywater PDK"
+            echo "  --gates           Also synthesize to gate-level netlist with Skywater PDK"
+            echo "  --abc-depth N     Set ABC k-induction depth (default: 2, matches Ibex pipeline)"
             echo ""
             echo "Arguments:"
             echo "  rules.dsl       DSL file with instruction constraints"
@@ -26,6 +36,7 @@ while [[ "$#" -gt 0 ]]; do
             echo "Examples:"
             echo "  $0 my_rules.dsl                         # RTLIL to output/ibex_optimized.il"
             echo "  $0 --gates my_rules.dsl                 # RTLIL + gate-level netlist"
+            echo "  $0 --abc-depth 1 my_rules.dsl           # Try k=1 induction"
             echo "  $0 my_rules.dsl output/my_design        # Outputs to output/my_design/"
             echo "  $0 my_rules.dsl output/custom.il        # Outputs to output/custom.il"
             echo ""
@@ -151,7 +162,8 @@ if command -v abc &> /dev/null; then
         echo "Output: $ABC_OUTPUT"
         echo ""
 
-        abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F 2 -v; print_stats; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
+        echo "ABC k-induction depth: $ABC_DEPTH (should match pipeline depth)"
+        abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
 
         if [ ${PIPESTATUS[0]} -eq 0 ] && [ -f "$ABC_OUTPUT" ]; then
             echo ""
