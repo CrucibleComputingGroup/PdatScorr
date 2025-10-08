@@ -1,4 +1,4 @@
-# ScorrPdat - Sequential Equivalence-Based Processor Customization
+# PDabcT - Sequential Equivalence-Based Processor Customization
 
 A tool for constraining and optimizing RISC-V processors by outlawing specific instructions. Uses formal methods (SystemVerilog assumptions + ABC's sequential equivalence checking) to automatically remove unused instruction decode logic.
 
