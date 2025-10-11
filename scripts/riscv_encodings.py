@@ -201,6 +201,16 @@ ALL_INSTRUCTIONS = {
     **CSR_INSTRUCTIONS,
 }
 
+# Extension name to instruction set mapping
+EXTENSION_MAP = {
+    "RV32I": RV32I_INSTRUCTIONS,
+    "RV32M": RV32M_INSTRUCTIONS,
+    "RV64I": RV64I_INSTRUCTIONS,
+    "RV64M": RV64M_INSTRUCTIONS,
+    "PRIV": PRIVILEGED_INSTRUCTIONS,
+    "ZICSR": CSR_INSTRUCTIONS,
+}
+
 # Register name to number mapping
 REGISTER_MAP = {
     "x0": 0, "zero": 0,
@@ -236,6 +246,10 @@ REGISTER_MAP = {
     "x30": 30, "t5": 30,
     "x31": 31, "t6": 31,
 }
+
+def get_extension_instructions(extension: str) -> Optional[Dict[str, InstructionEncoding]]:
+    """Get all instructions for a given extension (e.g., 'RV32I', 'RV32M')"""
+    return EXTENSION_MAP.get(extension.upper())
 
 def get_instruction_encoding(name: str) -> Optional[InstructionEncoding]:
     """Get the encoding for an instruction by name (case-insensitive)"""

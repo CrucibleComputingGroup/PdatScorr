@@ -4,9 +4,12 @@ Parser for the instruction outlawing DSL.
 
 Grammar:
     program = { rule }
-    rule = instruction_rule | pattern_rule | comment
+    rule = require_rule | register_constraint_rule | instruction_rule | pattern_rule | comment
+    require_rule = "require" extension_name
+    register_constraint_rule = "require_registers" register_range
     instruction_rule = "instruction" identifier [ field_constraints ]
     pattern_rule = "pattern" hex_value "mask" hex_value [ description ]
+    register_range = register_name "-" register_name | number "-" number
     field_constraints = "{" field_constraint { "," field_constraint } "}"
     field_constraint = field_name "=" field_value
     field_value = wildcard | number | register_name
@@ -24,6 +27,8 @@ from enum import Enum
 
 class TokenType(Enum):
     # Keywords
+    REQUIRE = "require"
+    REQUIRE_REGISTERS = "require_registers"
     INSTRUCTION = "instruction"
     PATTERN = "pattern"
     MASK = "mask"
@@ -38,6 +43,7 @@ class TokenType(Enum):
     RBRACE = "}"
     COMMA = ","
     EQUALS = "="
+    DASH = "-"
 
     # Other
     COMMENT = "comment"
@@ -62,6 +68,19 @@ class FieldConstraint:
     field_value: Union[str, int]  # Can be wildcard "*", register "x5", or number
 
 @dataclass
+class RequireRule:
+    """Require directive like 'require RV32I' specifying valid instruction extensions"""
+    extension: str
+    line: int
+
+@dataclass
+class RegisterConstraintRule:
+    """Register constraint like 'require_registers x0-x16' limiting which registers can be used"""
+    min_reg: int  # Minimum register number (inclusive)
+    max_reg: int  # Maximum register number (inclusive)
+    line: int
+
+@dataclass
 class InstructionRule:
     """High-level instruction rule like 'instruction MUL { rd = x0 }'"""
     name: str
@@ -79,7 +98,7 @@ class PatternRule:
 @dataclass
 class Program:
     """Root AST node containing all rules"""
-    rules: List[Union[InstructionRule, PatternRule]]
+    rules: List[Union[RequireRule, RegisterConstraintRule, InstructionRule, PatternRule]]
 
 # ============================================================================
 # Lexer
@@ -172,12 +191,16 @@ class Lexer:
         start_col = self.column
 
         ident = ""
-        while self.peek() and (self.peek().isalnum() or self.peek() in '_.-'):
+        while self.peek() and (self.peek().isalnum() or self.peek() == '_'):
             ident += self.peek()
             self.advance()
 
         # Check if it's a keyword
-        if ident == "instruction":
+        if ident == "require":
+            return Token(TokenType.REQUIRE, ident, start_line, start_col)
+        elif ident == "require_registers":
+            return Token(TokenType.REQUIRE_REGISTERS, ident, start_line, start_col)
+        elif ident == "instruction":
             return Token(TokenType.INSTRUCTION, ident, start_line, start_col)
         elif ident == "pattern":
             return Token(TokenType.PATTERN, ident, start_line, start_col)
@@ -229,6 +252,11 @@ class Lexer:
 
             if ch == '=':
                 tokens.append(Token(TokenType.EQUALS, ch, self.line, self.column))
+                self.advance()
+                continue
+
+            if ch == '-':
+                tokens.append(Token(TokenType.DASH, ch, self.line, self.column))
                 self.advance()
                 continue
 
@@ -297,19 +325,84 @@ class Parser:
 
         return Program(rules)
 
-    def parse_rule(self) -> Optional[Union[InstructionRule, PatternRule]]:
+    def parse_rule(self) -> Optional[Union[RequireRule, RegisterConstraintRule, InstructionRule, PatternRule]]:
         """Parse a single rule"""
         tok = self.peek()
 
         if not tok or tok.type == TokenType.EOF:
             return None
 
-        if tok.type == TokenType.INSTRUCTION:
+        if tok.type == TokenType.REQUIRE:
+            return self.parse_require_rule()
+        elif tok.type == TokenType.REQUIRE_REGISTERS:
+            return self.parse_register_constraint_rule()
+        elif tok.type == TokenType.INSTRUCTION:
             return self.parse_instruction_rule()
         elif tok.type == TokenType.PATTERN:
             return self.parse_pattern_rule()
         else:
-            self.error(f"Expected 'instruction' or 'pattern', got {tok.type}")
+            self.error(f"Expected 'require', 'require_registers', 'instruction' or 'pattern', got {tok.type}")
+
+    def parse_require_rule(self) -> RequireRule:
+        """Parse: require IDENTIFIER"""
+        require_tok = self.expect(TokenType.REQUIRE)
+        extension_tok = self.expect(TokenType.IDENTIFIER)
+
+        return RequireRule(extension_tok.value, require_tok.line)
+
+    def parse_register_constraint_rule(self) -> RegisterConstraintRule:
+        """Parse: require_registers x0-x16 or require_registers 0-16"""
+        require_reg_tok = self.expect(TokenType.REQUIRE_REGISTERS)
+
+        # Parse start register (can be identifier like "x0" or number like "0")
+        start_tok = self.peek()
+        if start_tok.type == TokenType.IDENTIFIER:
+            self.advance()
+            # Parse register name like "x0", "x10", etc.
+            reg_str = start_tok.value.lower()
+            if reg_str.startswith('x'):
+                try:
+                    min_reg = int(reg_str[1:])
+                except ValueError:
+                    self.error(f"Invalid register name: {start_tok.value}")
+            else:
+                self.error(f"Expected register name like 'x0' or number, got {start_tok.value}")
+        elif start_tok.type == TokenType.NUMBER:
+            self.advance()
+            min_reg = start_tok.value
+        else:
+            self.error(f"Expected register name or number, got {start_tok.type}")
+
+        # Expect dash
+        self.expect(TokenType.DASH)
+
+        # Parse end register
+        end_tok = self.peek()
+        if end_tok.type == TokenType.IDENTIFIER:
+            self.advance()
+            reg_str = end_tok.value.lower()
+            if reg_str.startswith('x'):
+                try:
+                    max_reg = int(reg_str[1:])
+                except ValueError:
+                    self.error(f"Invalid register name: {end_tok.value}")
+            else:
+                self.error(f"Expected register name like 'x16' or number, got {end_tok.value}")
+        elif end_tok.type == TokenType.NUMBER:
+            self.advance()
+            max_reg = end_tok.value
+        else:
+            self.error(f"Expected register name or number, got {end_tok.type}")
+
+        # Validate range
+        if min_reg < 0 or min_reg > 31:
+            self.error(f"Register number {min_reg} out of range (0-31)")
+        if max_reg < 0 or max_reg > 31:
+            self.error(f"Register number {max_reg} out of range (0-31)")
+        if min_reg > max_reg:
+            self.error(f"Invalid register range: {min_reg}-{max_reg} (min > max)")
+
+        return RegisterConstraintRule(min_reg, max_reg, require_reg_tok.line)
 
     def parse_instruction_rule(self) -> InstructionRule:
         """Parse: instruction IDENTIFIER [ field_constraints ]"""
@@ -471,7 +564,11 @@ DSL Syntax:
             print("\nRules:")
             for i, rule in enumerate(ast.rules, 1):
                 print(f"\n{i}. {type(rule).__name__}:")
-                if isinstance(rule, InstructionRule):
+                if isinstance(rule, RequireRule):
+                    print(f"   Extension: {rule.extension}")
+                elif isinstance(rule, RegisterConstraintRule):
+                    print(f"   Register range: x{rule.min_reg}-x{rule.max_reg} ({rule.max_reg - rule.min_reg + 1} registers)")
+                elif isinstance(rule, InstructionRule):
                     print(f"   Name: {rule.name}")
                     if rule.constraints:
                         print(f"   Constraints:")
@@ -484,8 +581,14 @@ DSL Syntax:
                         print(f"   Description: {rule.description}")
         else:
             # Summary
+            require_count = sum(1 for r in ast.rules if isinstance(r, RequireRule))
+            reg_constraint_count = sum(1 for r in ast.rules if isinstance(r, RegisterConstraintRule))
             instr_count = sum(1 for r in ast.rules if isinstance(r, InstructionRule))
             pattern_count = sum(1 for r in ast.rules if isinstance(r, PatternRule))
+            if require_count > 0:
+                print(f"  - {require_count} require rules")
+            if reg_constraint_count > 0:
+                print(f"  - {reg_constraint_count} register constraint rules")
             print(f"  - {instr_count} instruction rules")
             print(f"  - {pattern_count} pattern rules")
             print("\nUse -v for detailed output")
