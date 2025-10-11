@@ -5,7 +5,7 @@ Generate a Yosys/Synlig synthesis script for Ibex with instruction checker.
 
 import argparse
 
-def generate_synthesis_script(id_stage_modified: str, output_aig: str) -> str:
+def generate_synthesis_script(id_stage_modified: str, output_aig: str, writeback_stage: bool = False) -> str:
     """Generate the Yosys synthesis script."""
 
     import os
@@ -54,7 +54,16 @@ read_systemverilog \\
   ./cores/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv \\
   ./cores/ibex/rtl/ibex_core.sv
 
-# Prepare the design for synthesis using ibex_core as top
+"""
+
+    # Add parameter override if writeback stage requested
+    if writeback_stage:
+        script += """# Enable 3-stage pipeline (IF, ID/EX, WB) instead of default 2-stage
+chparam -set WritebackStage 1 ibex_core
+
+"""
+
+    script += f"""# Prepare the design for synthesis using ibex_core as top
 hierarchy -check -top ibex_core
 
 # Flatten to enable sequential optimizations across module boundaries
@@ -113,7 +122,7 @@ write_aiger -zinit {output_aig}_pre_abc.aig
 
 # NOTE: External ABC will be run by the shell script to optimize this AIGER:
 #   abc -c "read_aiger {output_aig}_pre_abc.aig; strash; scorr; dc2; dretime; write_aiger {output_aig}_post_abc.aig"
-# The optimized AIGER ({output_aig}_post_abc.aig) is the final output for sequential optimization.
+# The optimized AIGER ({{output_aig}}_post_abc.aig) is the final output for sequential optimization.
 
 # For gate-level synthesis, the synth_to_gates.sh script will read the optimized AIGER
 # and map it to the PDK standard cells.
@@ -129,11 +138,13 @@ def main():
                        help='Output synthesis script file (default: synth_ibex.ys)')
     parser.add_argument('-a', '--aiger-output', default='ibex_core.aig',
                        help='Output AIGER file base name (default: ibex_core.aig)')
+    parser.add_argument('--writeback-stage', action='store_true',
+                       help='Enable 3-stage pipeline with separate writeback stage (default: 2-stage)')
 
     args = parser.parse_args()
 
     # Generate the script
-    script = generate_synthesis_script(args.id_stage_modified, args.aiger_output)
+    script = generate_synthesis_script(args.id_stage_modified, args.aiger_output, args.writeback_stage)
 
     # Write to file
     with open(args.output, 'w') as f:

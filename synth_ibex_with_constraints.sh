@@ -8,9 +8,11 @@ set -e
 # Parse arguments
 SYNTHESIZE_GATES=false
 ABC_DEPTH=2
+WRITEBACK_STAGE=false
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --gates) SYNTHESIZE_GATES=true; shift ;;
+        --3stage) WRITEBACK_STAGE=true; ABC_DEPTH=3; shift ;;
         --abc-depth)
             ABC_DEPTH="$2"
             if ! [[ "$ABC_DEPTH" =~ ^[0-9]+$ ]] || [ "$ABC_DEPTH" -lt 1 ]; then
@@ -26,7 +28,8 @@ while [[ "$#" -gt 0 ]]; do
             echo ""
             echo "Options:"
             echo "  --gates           Also synthesize to gate-level netlist with Skywater PDK"
-            echo "  --abc-depth N     Set ABC k-induction depth (default: 2, matches Ibex pipeline)"
+            echo "  --3stage          Enable Ibex 3-stage pipeline (IF, ID/EX, WB) and set ABC depth=3"
+            echo "  --abc-depth N     Set ABC k-induction depth (default: 2, matches 2-stage pipeline)"
             echo ""
             echo "Arguments:"
             echo "  rules.dsl       DSL file with instruction constraints"
@@ -36,6 +39,7 @@ while [[ "$#" -gt 0 ]]; do
             echo "Examples:"
             echo "  $0 my_rules.dsl                         # RTLIL to output/ibex_optimized.il"
             echo "  $0 --gates my_rules.dsl                 # RTLIL + gate-level netlist"
+            echo "  $0 --3stage my_rules.dsl                # Use 3-stage pipeline (tests k=3)"
             echo "  $0 --abc-depth 1 my_rules.dsl           # Try k=1 induction"
             echo "  $0 my_rules.dsl output/my_design        # Outputs to output/my_design/"
             echo "  $0 my_rules.dsl output/custom.il        # Outputs to output/custom.il"
@@ -120,8 +124,14 @@ fi
 
 # Step 3: Generate synthesis script
 echo "[3/$TOTAL_STEPS] Generating synthesis script..."
-python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-    -o "$SYNTH_SCRIPT" -a "${BASE}"
+if [ "$WRITEBACK_STAGE" = true ]; then
+    echo "  Enabling 3-stage pipeline (WritebackStage=1)"
+    python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
+        -o "$SYNTH_SCRIPT" -a "${BASE}" --writeback-stage
+else
+    python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
+        -o "$SYNTH_SCRIPT" -a "${BASE}"
+fi
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to generate synthesis script"

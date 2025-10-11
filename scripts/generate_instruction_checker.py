@@ -289,17 +289,6 @@ def generate_inline_assumptions(patterns, required_extensions: Set[str] = None,
         code += f"    assume (!rst_ni || instr_is_compressed_i || ((instr_rdata_i & 32'h{mask:08x}) != 32'h{pattern:08x}));\n"
         code += f"  end\n\n"
 
-    # Add direct decoder output constraints
-    # ABC cannot propagate instruction constraints through decoder, so we help it
-    if has_mul or has_div:
-        code += "  // Direct decoder output constraints (for effective ABC optimization)\n"
-        code += "  // ABC cannot automatically derive these from instruction constraints\n"
-        if has_mul:
-            code += "  always_comb assume (mult_en_dec == 1'b0);  // Multiplier never enabled\n"
-        if has_div:
-            code += "  always_comb assume (div_en_dec == 1'b0);   // Divider never enabled\n"
-        code += "\n"
-
     return code
 
 def main():
