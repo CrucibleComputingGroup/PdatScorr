@@ -159,10 +159,44 @@ CSR_INSTRUCTIONS = {
     "CSRRCI": InstructionEncoding("CSRRCI", 0x00007073, 0x0000707F, "I", I_TYPE_FIELDS),
 }
 
+# RV64I Base Instruction Set (64-bit specific instructions)
+RV64I_INSTRUCTIONS = {
+    # 64-bit Loads
+    "LWU":   InstructionEncoding("LWU",   0x00006003, 0x0000707F, "I", I_TYPE_FIELDS),
+    "LD":    InstructionEncoding("LD",    0x00003003, 0x0000707F, "I", I_TYPE_FIELDS),
+
+    # 64-bit Stores
+    "SD":    InstructionEncoding("SD",    0x00003023, 0x0000707F, "S", S_TYPE_FIELDS),
+
+    # 64-bit ALU Immediate (operate on lower 32 bits)
+    "ADDIW": InstructionEncoding("ADDIW", 0x0000001B, 0x0000707F, "I", I_TYPE_FIELDS),
+    "SLLIW": InstructionEncoding("SLLIW", 0x0000101B, 0xFE00707F, "I", I_TYPE_FIELDS),
+    "SRLIW": InstructionEncoding("SRLIW", 0x0000501B, 0xFE00707F, "I", I_TYPE_FIELDS),
+    "SRAIW": InstructionEncoding("SRAIW", 0x4000501B, 0xFE00707F, "I", I_TYPE_FIELDS),
+
+    # 64-bit ALU Register-Register (operate on lower 32 bits)
+    "ADDW":  InstructionEncoding("ADDW",  0x0000003B, 0xFE00707F, "R", R_TYPE_FIELDS),
+    "SUBW":  InstructionEncoding("SUBW",  0x4000003B, 0xFE00707F, "R", R_TYPE_FIELDS),
+    "SLLW":  InstructionEncoding("SLLW",  0x0000103B, 0xFE00707F, "R", R_TYPE_FIELDS),
+    "SRLW":  InstructionEncoding("SRLW",  0x0000503B, 0xFE00707F, "R", R_TYPE_FIELDS),
+    "SRAW":  InstructionEncoding("SRAW",  0x4000503B, 0xFE00707F, "R", R_TYPE_FIELDS),
+}
+
+# RV64M Extension (64-bit Multiply/Divide)
+RV64M_INSTRUCTIONS = {
+    "MULW":  InstructionEncoding("MULW",  0x0200003B, 0xFE00707F, "R", R_TYPE_FIELDS),
+    "DIVW":  InstructionEncoding("DIVW",  0x0200403B, 0xFE00707F, "R", R_TYPE_FIELDS),
+    "DIVUW": InstructionEncoding("DIVUW", 0x0200503B, 0xFE00707F, "R", R_TYPE_FIELDS),
+    "REMW":  InstructionEncoding("REMW",  0x0200603B, 0xFE00707F, "R", R_TYPE_FIELDS),
+    "REMUW": InstructionEncoding("REMUW", 0x0200703B, 0xFE00707F, "R", R_TYPE_FIELDS),
+}
+
 # Combined instruction database
 ALL_INSTRUCTIONS = {
     **RV32I_INSTRUCTIONS,
     **RV32M_INSTRUCTIONS,
+    **RV64I_INSTRUCTIONS,
+    **RV64M_INSTRUCTIONS,
     **PRIVILEGED_INSTRUCTIONS,
     **CSR_INSTRUCTIONS,
 }
