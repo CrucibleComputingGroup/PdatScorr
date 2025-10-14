@@ -1,0 +1,53 @@
+# Yosys script for RTL-level equivalence checking with preserved names
+# This keeps hierarchy to enable signal-level dead code reporting
+
+# Read design (reuse paths from main synthesis)
+# NOTE: Update these paths based on your modified ID stage location
+# __ID_STAGE__ will be replaced by script
+
+read_systemverilog \
+  -I./cores/ibex/rtl \
+  -I./cores/ibex/shared/rtl \
+  -I./cores/ibex/vendor/lowrisc_ip/ip/prim/rtl \
+  -I./cores/ibex/vendor/lowrisc_ip/dv/sv/dv_utils \
+  ./cores/ibex/rtl/ibex_pkg.sv \
+  ./cores/ibex/rtl/ibex_decoder.sv \
+  ./cores/ibex/rtl/ibex_alu.sv \
+  __ID_STAGE__ \
+  ./cores/ibex/rtl/ibex_ex_block.sv \
+  ./cores/ibex/rtl/ibex_multdiv_fast.sv \
+  ./cores/ibex/rtl/ibex_controller.sv \
+  ./cores/ibex/rtl/ibex_core.sv
+
+# Set top module
+hierarchy -check -top ibex_core
+
+# Process but DON'T flatten - preserve hierarchy!
+proc
+opt
+
+# Show current module structure
+echo "=== Module Hierarchy ==="
+ls
+
+# Check if specific signals exist and their values
+echo ""
+echo "=== Checking Decoder Outputs ==="
+select -module ibex_decoder
+ls *_dec
+stat -sel *_dec
+
+# Try equivalence induction
+echo ""
+echo "=== Running Equivalence Induction ==="
+equiv_make
+equiv_simple
+equiv_induct -undef
+
+echo ""
+echo "=== Equivalence Status ==="
+equiv_status
+
+# Clean and show final statistics
+clean
+stat

@@ -106,7 +106,7 @@ fi
 
 # Step 1: Generate assumptions code (inline, no module)
 echo "[1/$TOTAL_STEPS] Generating instruction assumptions..."
-python3 scripts/generate_instruction_checker.py --inline "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+pdat-dsl codegen --inline "$INPUT_DSL" "$ASSUMPTIONS_CODE"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to generate assumptions"
@@ -115,7 +115,7 @@ fi
 
 # Step 2: Inject assumptions into ibex_id_stage.sv
 echo "[2/$TOTAL_STEPS] Injecting assumptions into ibex_id_stage.sv..."
-python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" ./cores/ibex/rtl/ibex_id_stage.sv "$ID_STAGE_SV"
+python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" ../CoreSim/cores/ibex/rtl/ibex_id_stage.sv "$ID_STAGE_SV"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to inject assumptions"

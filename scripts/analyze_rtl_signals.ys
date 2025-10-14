@@ -1,0 +1,33 @@
+# Yosys script to analyze which RTL signals became constant after optimization
+#
+# Usage: yosys -s analyze_rtl_signals.ys
+#
+# This script compares the original synthesized design with the ABC-optimized
+# version to identify RTL signals that became constant or were removed.
+
+# Read the original synthesis output (before ABC)
+# This preserves RTL signal names through the synthesis flow
+read_rtlil __DESIGN_PRE__.il
+
+# Rename for comparison
+rename ibex_core ibex_core_original
+
+# Show signals that are constants
+select -set const_signals t:$_BUF_ t:$_NOT_ %u w:* %i
+echo "=== Signals tied to constants in original design ==="
+ls @const_signals
+
+# Get all sequential elements
+select -set all_ffs t:$_DFF_* t:$dff* %u
+echo "=== Sequential elements (latches/FFs) ==="
+stat -sel @all_ffs
+
+# Show decoder outputs
+select -set decoder_signals ibex_core_original/id_stage_i/decoder_i/*_dec
+echo "=== Decoder output signals ==="
+ls @decoder_signals
+
+# Show multiplier signals
+select -set mult_signals ibex_core_original/*mult*
+echo "=== Multiplier-related signals ==="
+ls @mult_signals
