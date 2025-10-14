@@ -124,13 +124,17 @@ fi
 
 # Step 3: Generate synthesis script
 echo "[3/$TOTAL_STEPS] Generating synthesis script..."
+
+# Set Ibex root path (use env var if set, otherwise default to CoreSim)
+IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
+
 if [ "$WRITEBACK_STAGE" = true ]; then
     echo "  Enabling 3-stage pipeline (WritebackStage=1)"
     python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-        -o "$SYNTH_SCRIPT" -a "${BASE}" --writeback-stage
+        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" --writeback-stage
 else
     python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-        -o "$SYNTH_SCRIPT" -a "${BASE}"
+        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT"
 fi
 
 if [ $? -ne 0 ]; then

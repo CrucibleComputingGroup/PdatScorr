@@ -5,54 +5,61 @@ Generate a Yosys/Synlig synthesis script for Ibex with instruction checker.
 
 import argparse
 
-def generate_synthesis_script(id_stage_modified: str, output_aig: str, writeback_stage: bool = False) -> str:
+def generate_synthesis_script(id_stage_modified: str, output_aig: str, ibex_root: str = None, writeback_stage: bool = False) -> str:
     """Generate the Yosys synthesis script."""
 
     import os
 
-    # Use absolute paths for include directories to ensure they're found
-    cwd = os.getcwd()
+    # Determine Ibex core path:
+    # 1. Use provided ibex_root argument
+    # 2. Fall back to IBEX_ROOT environment variable
+    # 3. Default to ../CoreSim/cores/ibex (relative to ScorrPdat)
+    if ibex_root is None:
+        ibex_root = os.environ.get('IBEX_ROOT', '../CoreSim/cores/ibex')
+
+    # Convert to absolute path
+    ibex_root = os.path.abspath(os.path.expanduser(ibex_root))
 
     script = f"""# Synlig script to convert ibex core (with inline assumptions) to AIGER format
 # Auto-generated synthesis script
+# Ibex core path: {ibex_root}
 
-# Set include directories (using absolute paths for reliability)
-verilog_defaults -add -I{cwd}/cores/ibex/rtl
-verilog_defaults -add -I{cwd}/cores/ibex/shared/rtl
-verilog_defaults -add -I{cwd}/cores/ibex/vendor/lowrisc_ip/ip/prim/rtl
-verilog_defaults -add -I{cwd}/cores/ibex/vendor/lowrisc_ip/dv/sv/dv_utils
+# Set include directories
+verilog_defaults -add -I{ibex_root}/rtl
+verilog_defaults -add -I{ibex_root}/shared/rtl
+verilog_defaults -add -I{ibex_root}/vendor/lowrisc_ip/ip/prim/rtl
+verilog_defaults -add -I{ibex_root}/vendor/lowrisc_ip/dv/sv/dv_utils
 
 # Read all Ibex files together so packages are available to all modules
 # This ensures ibex_pkg is visible to all modules that import it
-# Include -I flags directly in read command as verilog_defaults may not propagate to Surelog
 read_systemverilog \\
-  -I{cwd}/cores/ibex/rtl \\
-  -I{cwd}/cores/ibex/shared/rtl \\
-  -I{cwd}/cores/ibex/vendor/lowrisc_ip/ip/prim/rtl \\
-  -I{cwd}/cores/ibex/vendor/lowrisc_ip/dv/sv/dv_utils \\
-  ./cores/ibex/rtl/ibex_pkg.sv \\
-  ./cores/ibex/rtl/ibex_alu.sv \\
-  ./cores/ibex/rtl/ibex_branch_predict.sv \\
-  ./cores/ibex/rtl/ibex_compressed_decoder.sv \\
-  ./cores/ibex/rtl/ibex_controller.sv \\
-  ./cores/ibex/rtl/ibex_counter.sv \\
-  ./cores/ibex/rtl/ibex_cs_registers.sv \\
-  ./cores/ibex/rtl/ibex_csr.sv \\
-  ./cores/ibex/rtl/ibex_decoder.sv \\
-  ./cores/ibex/rtl/ibex_dummy_instr.sv \\
-  ./cores/ibex/rtl/ibex_ex_block.sv \\
-  ./cores/ibex/rtl/ibex_fetch_fifo.sv \\
+  -I{ibex_root}/rtl \\
+  -I{ibex_root}/shared/rtl \\
+  -I{ibex_root}/vendor/lowrisc_ip/ip/prim/rtl \\
+  -I{ibex_root}/vendor/lowrisc_ip/dv/sv/dv_utils \\
+  {ibex_root}/rtl/ibex_pkg.sv \\
+  {ibex_root}/rtl/ibex_alu.sv \\
+  {ibex_root}/rtl/ibex_branch_predict.sv \\
+  {ibex_root}/rtl/ibex_compressed_decoder.sv \\
+  {ibex_root}/rtl/ibex_controller.sv \\
+  {ibex_root}/rtl/ibex_counter.sv \\
+  {ibex_root}/rtl/ibex_cs_registers.sv \\
+  {ibex_root}/rtl/ibex_csr.sv \\
+  {ibex_root}/rtl/ibex_decoder.sv \\
+  {ibex_root}/rtl/ibex_dummy_instr.sv \\
+  {ibex_root}/rtl/ibex_ex_block.sv \\
+  {ibex_root}/rtl/ibex_fetch_fifo.sv \\
   ./{id_stage_modified} \\
-  ./cores/ibex/rtl/ibex_if_stage.sv \\
-  ./cores/ibex/rtl/ibex_load_store_unit.sv \\
-  ./cores/ibex/rtl/ibex_multdiv_fast.sv \\
-  ./cores/ibex/rtl/ibex_multdiv_slow.sv \\
-  ./cores/ibex/rtl/ibex_pmp.sv \\
-  ./cores/ibex/rtl/ibex_prefetch_buffer.sv \\
-  ./cores/ibex/rtl/ibex_register_file_ff.sv \\
-  ./cores/ibex/rtl/ibex_wb_stage.sv \\
-  ./cores/ibex/vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv \\
-  ./cores/ibex/rtl/ibex_core.sv
+  {ibex_root}/rtl/ibex_if_stage.sv \\
+  {ibex_root}/rtl/ibex_load_store_unit.sv \\
+  {ibex_root}/rtl/ibex_multdiv_fast.sv \\
+  {ibex_root}/rtl/ibex_multdiv_slow.sv \\
+  {ibex_root}/rtl/ibex_pmp.sv \\
+  {ibex_root}/rtl/ibex_prefetch_buffer.sv \\
+  {ibex_root}/rtl/ibex_register_file_ff.sv \\
+  {ibex_root}/rtl/ibex_wb_stage.sv \\
+  {ibex_root}/vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv \\
+  {ibex_root}/rtl/ibex_core.sv
 
 """
 
@@ -138,13 +145,15 @@ def main():
                        help='Output synthesis script file (default: synth_ibex.ys)')
     parser.add_argument('-a', '--aiger-output', default='ibex_core.aig',
                        help='Output AIGER file base name (default: ibex_core.aig)')
+    parser.add_argument('--ibex-root', default=None,
+                       help='Path to Ibex core (default: $IBEX_ROOT or ../CoreSim/cores/ibex)')
     parser.add_argument('--writeback-stage', action='store_true',
                        help='Enable 3-stage pipeline with separate writeback stage (default: 2-stage)')
 
     args = parser.parse_args()
 
     # Generate the script
-    script = generate_synthesis_script(args.id_stage_modified, args.aiger_output, args.writeback_stage)
+    script = generate_synthesis_script(args.id_stage_modified, args.aiger_output, args.ibex_root, args.writeback_stage)
 
     # Write to file
     with open(args.output, 'w') as f:
