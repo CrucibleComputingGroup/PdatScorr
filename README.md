@@ -142,5 +142,5 @@ Free for non-commercial use. Contact for commercial licensing.
 ## Related Projects
 
 - **PdatDsl** - ISA subset specification DSL
-- **CoreSim** - Processor simulation framework
+- **CoreSim** - Processor simulation framework --- includes Ibex core as submodule
 - **RtlScorr** - Yosys plugin for formal verification
