@@ -51,14 +51,8 @@ def generate_assumptions_from_patterns(patterns, module_name="ibex_id_stage"):
         code += f"    end\n"
         code += f"  end\n\n"
 
-    # Add direct decoder output constraints
-    if has_mul or has_div:
-        code += "  // Direct decoder output constraints (unconditional)\n"
-        if has_mul:
-            code += "  always_comb assume (mult_en_dec == 1'b0);  // Multiplier disabled\n"
-        if has_div:
-            code += "  always_comb assume (div_en_dec == 1'b0);   // Divider disabled\n"
-        code += "\n"
+    # Direct decoder output constraints removed for testing
+    # MUL/DIV will only be constrained through pattern matching above
 
     return code
 
