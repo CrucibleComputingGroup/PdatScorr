@@ -177,7 +177,7 @@ if command -v abc &> /dev/null; then
         echo ""
 
         echo "ABC k-induction depth: $ABC_DEPTH (should match pipeline depth)"
-        abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
+        abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; constr -p; print_stats; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
 
         if [ ${PIPESTATUS[0]} -eq 0 ] && [ -f "$ABC_OUTPUT" ]; then
             echo ""
