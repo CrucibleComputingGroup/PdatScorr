@@ -52,6 +52,71 @@ cd rtl_scorr
 
 Full RTL-level signal correspondence with SMT proving and cone extraction.
 
+### Synthesis with Timing Constraints
+
+```bash
+./synth_ibex_with_isa_and_timing.sh <dsl_file> [output_dir]
+```
+
+Adds timing constraints on top of ISA constraints to further guide ABC optimization.
+
+**What it does:**
+- Generates ISA constraints from DSL (same as `synth_ibex_with_constraints.sh`)
+- Adds timing bounds on memory latency (instruction fetch ≤5 cycles, data stall ≤4 cycles)
+- Provides relational constraints to help ABC prove equivalences
+
+**Trade-offs:**
+- **Overhead**: ~6 flip-flops (2 counters × 3 bits) = ~0.14% area overhead
+- **Benefit**: Helps ABC prune unreachable states, potentially reducing final area
+- **Result quality**: Depends on how well constraints match real hardware timing
+
+**Why explicit counters?**
+
+Synlig/Yosys only supports immediate `assume(expression)` - NOT SVA temporal operators like:
+```systemverilog
+assume property (@(posedge clk) req |-> ##[0:5] done);  // ❌ Not supported
+```
+
+To specify "within N cycles" for ABC optimization, explicit counters are required:
+```systemverilog
+logic [2:0] counter_q;
+always_ff @(posedge clk) begin
+  if (req && !done) counter_q <= counter_q + 1;
+  else counter_q <= 0;
+end
+assume(counter_q <= 3'd5);  // ✓ Supported
+```
+
+The counters add minimal hardware but enable multi-cycle timing constraints for ABC's `scorr -c` optimization.
+
+### Batch Comparison
+
+```bash
+./batch_compare_simple.sh <dsl_file> [output_dir]
+```
+
+Runs parallel comparison of ISA-only vs ISA+timing across multiple ABC depths.
+- Tests depths 2, 3, 4, 5
+- Includes both 2-stage and 3-stage pipeline variants
+- Generates CSV with chip area (µm²) for each configuration
+
+## ABC Scorr Tuning
+
+The `scorr` command has been tuned for stability across different k-induction depths:
+
+```bash
+scorr -c -m -F <depth> -C 10000 -S 10 -X 3 -v
+```
+
+**Key parameters:**
+- `-C 10000`: Conflict limit (10x default) - critical for higher depths
+- `-S 10`: Simulation frames for counter-examples (5x default)
+- `-X 3`: Stop after 3 iterations of no improvement
+- `-m`: Full merge mode with constraints
+
+**Why tuning matters:**
+Default `-C 1000` is too low for depth ≥4, causing area to increase instead of decrease. Higher conflict limits ensure ABC doesn't give up prematurely when searching for register equivalences.
+
 ## Directory Structure
 
 ```
@@ -77,7 +142,9 @@ ScorrPdat/
 ## Key Scripts
 
 ### Synthesis & Optimization
-- `synth_ibex_with_constraints.sh` - Main entry point for constrained synthesis
+- `synth_ibex_with_constraints.sh` - ISA constraints only (main entry point)
+- `synth_ibex_with_isa_and_timing.sh` - ISA + timing constraints
+- `batch_compare_simple.sh` - Parallel comparison across ABC depths
 - `scripts/inject_checker.py` - Inject DSL-generated assumptions into RTL
 - `scripts/make_synthesis_script.py` - Generate Yosys synthesis scripts
 - `scripts/synth_to_gates.sh` - Gate-level synthesis with SKY130
@@ -107,11 +174,58 @@ ScorrPdat/
 
 ## Workflow Integration
 
+### Overall Architecture
 ```
 PdatDsl → ScorrPdat → Optimized RTL → ABC → Gate-level
    ↓                      ↓
 CoreSim → VCDs → RtlScorr → Proven Equivalences
 ```
+
+### Detailed Synthesis Flow (with Timing Constraints)
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ 1. DSL → Assumptions                                         │
+│    pdat-dsl codegen rv32im.dsl → assumptions.sv             │
+│    (ISA constraints as SystemVerilog assume statements)     │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│ 2. Add Timing Constraints (if using timing script)          │
+│    Appends counter logic + timing assumptions               │
+│    (Overhead: ~6 flip-flops, enables multi-cycle bounds)    │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│ 3. Inject into Ibex RTL                                     │
+│    inject_checker.py → ibex_id_stage.sv (modified)          │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│ 4. SYNLIG - SystemVerilog → AIGER                           │
+│    synlig -s synth.ys                                       │
+│    • Converts assume() → AIGER constraint outputs (c=N)     │
+│    • Result: i/o = 1338/432(c=1) for ISA-only              │
+│    • Result: i/o = 1344/434(c=3) for ISA+timing            │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│ 5. ABC - Sequential Optimization with Constraints           │
+│    abc -c "scorr -c -m -F <depth> -C 10000 -S 10 -X 3"     │
+│    • Uses constraints to find register equivalences         │
+│    • Removes redundant logic                                │
+│    • Tuned parameters for stability across depths           │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│ 6. Gate-Level Synthesis (optional, with --gates)            │
+│    yosys/synlig + abc -liberty sky130.lib                   │
+│    • Maps to standard cells                                 │
+│    • Outputs chip area in µm²                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Key Insight:** Synlig doesn't support SVA temporal operators (`##[0:5]`), only immediate `assume()`. This is why explicit counters are needed for multi-cycle timing constraints.
 
 ## Example Workflow
 
