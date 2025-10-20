@@ -208,7 +208,7 @@ if command -v abc &> /dev/null; then
             #   -S 10: More simulation frames (vs default 2) for better counter-examples
             #   -X 3: Stop after 3 iterations of no improvement (avoid local optima)
             #   -m: Full merge with constraints
-            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -m -F $ABC_DEPTH -C 10000 -S 10 -X 3 -v; print_stats; write_aiger ${BASE}_temp_opt.aig" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
+            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -m -F $ABC_DEPTH -C 20000 -S 10 -X 3 -v; print_stats; write_aiger ${BASE}_temp_opt.aig" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
 
             # Now process the optimized circuit to remove constraints
             # dretime; dc2; fraig
