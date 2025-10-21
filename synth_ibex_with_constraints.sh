@@ -33,16 +33,20 @@ while [[ "$#" -gt 0 ]]; do
             echo ""
             echo "Arguments:"
             echo "  rules.dsl       DSL file with instruction constraints"
-            echo "  output_dir      Directory for all outputs (default: output/)"
+            echo "  output_dir      Base directory for outputs (default: output/)"
             echo "  output.il       Specific output file path (if ends with .il)"
             echo ""
+            echo "Output organization:"
+            echo "  - Files are organized in subfolders named after the DSL file"
+            echo "  - e.g., my_rules.dsl → output/my_rules/ibex_optimized.il"
+            echo ""
             echo "Examples:"
-            echo "  $0 my_rules.dsl                         # RTLIL to output/ibex_optimized.il"
-            echo "  $0 --gates my_rules.dsl                 # RTLIL + gate-level netlist"
-            echo "  $0 --3stage my_rules.dsl                # Use 3-stage pipeline (tests k=3)"
-            echo "  $0 --abc-depth 1 my_rules.dsl           # Try k=1 induction"
-            echo "  $0 my_rules.dsl output/my_design        # Outputs to output/my_design/"
-            echo "  $0 my_rules.dsl output/custom.il        # Outputs to output/custom.il"
+            echo "  $0 my_rules.dsl                         # Outputs to output/my_rules/"
+            echo "  $0 --gates my_rules.dsl                 # RTLIL + gates in output/my_rules/"
+            echo "  $0 --3stage my_rules.dsl                # 3-stage pipeline in output/my_rules/"
+            echo "  $0 --abc-depth 1 my_rules.dsl           # k=1 induction in output/my_rules/"
+            echo "  $0 my_rules.dsl results                 # Outputs to results/my_rules/"
+            echo "  $0 my_rules.dsl output/custom.il        # Specific path output/custom.il"
             echo ""
             echo "All intermediate files are placed in the same directory as the final output."
             exit 0
@@ -66,18 +70,21 @@ fi
 
 INPUT_DSL="$1"
 
+# Extract DSL base name (without path and extension) for subfolder
+DSL_BASENAME=$(basename "$INPUT_DSL" .dsl)
+
 # Handle output argument:
-# - If not provided: output/ibex_optimized.il
+# - If not provided: output/<dsl_name>/ibex_optimized.il
 # - If ends with .il: use as full path
-# - Otherwise: treat as directory and use ibex_optimized.il as filename
+# - Otherwise: treat as directory and use <dsl_name>/ibex_optimized.il
 if [ -z "$2" ]; then
-    OUTPUT_IL="output/ibex_optimized.il"
-    OUTPUT_DIR="output"
+    OUTPUT_DIR="output/$DSL_BASENAME"
+    OUTPUT_IL="$OUTPUT_DIR/ibex_optimized.il"
 elif [[ "$2" == *.il ]]; then
     OUTPUT_IL="$2"
     OUTPUT_DIR=$(dirname "$OUTPUT_IL")
 else
-    OUTPUT_DIR="$2"
+    OUTPUT_DIR="$2/$DSL_BASENAME"
     OUTPUT_IL="$OUTPUT_DIR/ibex_optimized.il"
 fi
 
@@ -93,8 +100,9 @@ SYNTH_SCRIPT="${BASE}_synth.ys"
 echo "=========================================="
 echo "Ibex Synthesis with Instruction Constraints"
 echo "=========================================="
-echo "Input DSL:    $INPUT_DSL"
-echo "Output AIGER: ${BASE}_post_abc.aig"
+echo "Input DSL:     $INPUT_DSL"
+echo "Output folder: $OUTPUT_DIR"
+echo "Output AIGER:  ${BASE}_post_abc.aig"
 echo ""
 
 # Determine total steps
@@ -177,7 +185,33 @@ if command -v abc &> /dev/null; then
         echo ""
 
         echo "ABC k-induction depth: $ABC_DEPTH (should match pipeline depth)"
-        abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; constr -p; print_stats; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
+        # Two-stage optimization for best results:
+        # 1. First optimize WITH constraints for maximum reduction
+        # 2. Then extract clean outputs without constraints
+
+        # Get the number of real outputs (before constraints)
+        ABC_STATS=$(abc -c "read_aiger $ABC_INPUT; print_stats" 2>&1 | grep "i/o")
+        if echo "$ABC_STATS" | grep -q "(c="; then
+            TOTAL_OUTPUTS=$(echo "$ABC_STATS" | sed -n 's/.*i\/o = *[0-9]*\/ *\([0-9]*\).*/\1/p')
+            NUM_CONSTRAINTS=$(echo "$ABC_STATS" | sed -n 's/.*c=\([0-9]*\).*/\1/p')
+            REAL_OUTPUTS=$((TOTAL_OUTPUTS - NUM_CONSTRAINTS))
+            echo "Detected $NUM_CONSTRAINTS constraints, will extract $REAL_OUTPUTS real outputs"
+        else
+            REAL_OUTPUTS=""
+            echo "No constraints detected"
+        fi
+
+        if [ -n "$REAL_OUTPUTS" ]; then
+            # Optimize with constraints, then remove them completely
+            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; write_aiger ${BASE}_temp_opt.aig" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
+
+            # Now process the optimized circuit to remove constraints
+            echo "Removing constraint outputs..."
+            abc -c "read_aiger ${BASE}_temp_opt.aig; cone -O 0 -R $REAL_OUTPUTS; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee -a "$ABC_LOG" | grep -E "^output|i/o =|lat =|and ="
+        else
+            # No constraints, use standard flow
+            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -F $ABC_DEPTH -v; print_stats; fraig; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|Removed equivs"
+        fi
 
         if [ ${PIPESTATUS[0]} -eq 0 ] && [ -f "$ABC_OUTPUT" ]; then
             echo ""
