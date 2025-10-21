@@ -206,7 +206,6 @@ if command -v abc &> /dev/null; then
             abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; write_aiger ${BASE}_temp_opt.aig" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
 
             # Now process the optimized circuit to remove constraints
-            # dretime; dc2; fraig
             echo "Removing constraint outputs..."
             abc -c "read_aiger ${BASE}_temp_opt.aig; cone -O 0 -R $REAL_OUTPUTS; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee -a "$ABC_LOG" | grep -E "^output|i/o =|lat =|and ="
         else
