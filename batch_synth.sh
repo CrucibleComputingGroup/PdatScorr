@@ -318,7 +318,7 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
                 chip_area=""
                 if [ "$HAS_CHIP_AREA" = true ] && [ -f "$synth_log" ]; then
                     # Format: "Chip area: 41676.220800 µm²"
-                    chip_area=$(grep "Chip area:" "$synth_log" | tail -1 | sed -n 's/.*Chip area: *\([0-9.]*\).*/\1/p')
+                    chip_area=$(grep "Chip area:" "$synth_log" | tail -1 | sed -n 's/.*Chip area: *\([0-9]*\.?[0-9]*\).*/\1/p')
                     chip_area=${chip_area:-"N/A"}
                 fi
 
