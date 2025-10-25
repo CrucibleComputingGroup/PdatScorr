@@ -535,14 +535,14 @@ if [ "$SYNTHESIZE_GATES" = true ]; then
 read_rtlil $OPTIMIZED_RTLIL
 hierarchy -check -top ibex_core
 flatten
-write_aiger ${BASE}_pre_abc.aig
+write_aiger ${BASE}_yosys.aig
 EOF
 
     synlig -s "$OUTPUT_DIR/to_aiger.ys" > "$OUTPUT_DIR/to_aiger.log" 2>&1
 
-    if [ -f "${BASE}_pre_abc.aig" ]; then
+    if [ -f "${BASE}_yosys.aig" ]; then
         echo "  Running ABC optimization..."
-        abc -c "read_aiger ${BASE}_pre_abc.aig; strash; cycle 100; scorr -c -F $ABC_DEPTH -v; dc2; dretime; write_aiger ${BASE}_post_abc.aig" \
+        abc -c "read_aiger ${BASE}_yosys.aig; strash; cycle 100; scorr -c -F $ABC_DEPTH -v; dc2; dretime; write_aiger ${BASE}_post_abc.aig" \
             2>&1 | tee "${BASE}_abc.log" | grep -E "i/o =|and =|lat =|Proved"
 
         echo ""

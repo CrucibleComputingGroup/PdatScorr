@@ -123,7 +123,30 @@ fi
 
 # Step 2: Inject assumptions into ibex_id_stage.sv
 echo "[2/$TOTAL_STEPS] Injecting assumptions into ibex_id_stage.sv..."
-python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" ../CoreSim/cores/ibex/rtl/ibex_id_stage.sv "$ID_STAGE_SV"
+
+# Find Ibex core path:
+# 1. Use IBEX_ROOT environment variable if set
+# 2. Try ../PdatCoreSim/cores/ibex
+# 3. Try ../CoreSim/cores/ibex
+# 4. Error if none found
+if [ -z "$IBEX_ROOT" ]; then
+    if [ -d "../PdatCoreSim/cores/ibex" ]; then
+        IBEX_ROOT="../PdatCoreSim/cores/ibex"
+    elif [ -d "../CoreSim/cores/ibex" ]; then
+        IBEX_ROOT="../CoreSim/cores/ibex"
+    else
+        echo "ERROR: Could not find Ibex core directory. Tried:"
+        echo "  - ../PdatCoreSim/cores/ibex"
+        echo "  - ../CoreSim/cores/ibex"
+        echo ""
+        echo "Please set IBEX_ROOT environment variable or ensure Ibex is in one of these locations"
+        exit 1
+    fi
+fi
+
+echo "Using Ibex core: $IBEX_ROOT"
+
+python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" "$IBEX_ROOT/rtl/ibex_id_stage.sv" "$ID_STAGE_SV"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to inject assumptions"
@@ -132,9 +155,6 @@ fi
 
 # Step 3: Generate synthesis script
 echo "[3/$TOTAL_STEPS] Generating synthesis script..."
-
-# Set Ibex root path (use env var if set, otherwise default to CoreSim)
-IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
 
 if [ "$WRITEBACK_STAGE" = true ]; then
     echo "  Enabling 3-stage pipeline (WritebackStage=1)"
@@ -168,13 +188,13 @@ echo "Generated files:"
 echo "  - $ASSUMPTIONS_CODE (assumption code)"
 echo "  - $ID_STAGE_SV (modified ibex_id_stage.sv with assumptions)"
 echo "  - $SYNTH_SCRIPT (synthesis script)"
-echo "  - ${BASE}_pre_abc.aig (AIGER for external ABC)"
+echo "  - ${BASE}_yosys.aig (AIGER from Yosys, before ABC)"
 echo "  - $YOSYS_LOG (Yosys synthesis log)"
 echo ""
 
 # Step 5: Run external ABC if available
 if command -v abc &> /dev/null; then
-    ABC_INPUT="${BASE}_pre_abc.aig"
+    ABC_INPUT="${BASE}_yosys.aig"
     ABC_OUTPUT="${BASE}_post_abc.aig"
     ABC_LOG="${BASE}_abc.log"
 
@@ -203,11 +223,16 @@ if command -v abc &> /dev/null; then
 
         if [ -n "$REAL_OUTPUTS" ]; then
             # Optimize with constraints, then remove them completely
-            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; write_aiger ${BASE}_temp_opt.aig" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
+            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; write_aiger ${BASE}_after_scorr.aig" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
 
-            # Now process the optimized circuit to remove constraints
+            # Remove constraint markers by converting through BLIF
+            # BLIF format has no constraint field, so constraints become regular outputs
+            # Then we can use cone to extract only the real outputs
             echo "Removing constraint outputs..."
-            abc -c "read_aiger ${BASE}_temp_opt.aig; cone -O 0 -R $REAL_OUTPUTS; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee -a "$ABC_LOG" | grep -E "^output|i/o =|lat =|and ="
+            abc -c "read_aiger ${BASE}_after_scorr.aig; write_blif ${BASE}_temp.blif; read_blif ${BASE}_temp.blif; cone -O 0 -R $REAL_OUTPUTS; strash; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee -a "$ABC_LOG" | grep -E "^output|i/o =|lat =|and ="
+
+            # Clean up temp file
+            rm -f "${BASE}_temp.blif"
         else
             # No constraints, use standard flow
             abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -F $ABC_DEPTH -v; print_stats; fraig; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|Removed equivs"
