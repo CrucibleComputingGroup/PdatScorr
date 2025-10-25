@@ -127,7 +127,7 @@ def main():
         sys.exit(1)
 
     base_path = sys.argv[1]
-    pre_aig = f"{base_path}_pre_abc.aig"
+    pre_aig = f"{base_path}_yosys.aig"
     post_aig = f"{base_path}_post_abc.aig"
     abc_log = f"{base_path}_abc.log"
 

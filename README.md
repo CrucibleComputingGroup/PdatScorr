@@ -133,7 +133,7 @@ ScorrPdat/
 
 ### External Projects
 - **PdatDsl** - DSL parser and code generation (installed via requirements.txt)
-- **CoreSim** - Simulation framework (for generating VCDs/JSONs)
+- **CoreSim/PdatCoreSim** - Simulation framework with Ibex core (auto-detected from ../PdatCoreSim or ../CoreSim)
 - **RtlScorr** - Yosys plugin for signal correspondence (separate repo)
 
 ### System Tools
@@ -178,5 +178,19 @@ Free for non-commercial use. Contact for commercial licensing.
 ## Related Projects
 
 - **PdatDsl** - ISA subset specification DSL
-- **CoreSim** - Processor simulation framework --- includes Ibex core as submodule
+- **CoreSim/PdatCoreSim** - Processor simulation framework --- includes Ibex core as submodule
 - **RtlScorr** - Yosys plugin for formal verification
+
+## Configuration
+
+**Ibex Core Path:** The scripts automatically detect the Ibex core location:
+1. If `IBEX_ROOT` environment variable is set, uses that path
+2. Otherwise, checks for `../PdatCoreSim/cores/ibex`
+3. Falls back to `../CoreSim/cores/ibex`
+4. Errors if none are found
+
+To use a custom location:
+```bash
+export IBEX_ROOT=/path/to/your/ibex
+./synth_ibex_with_constraints.sh my_rules.dsl
+```
