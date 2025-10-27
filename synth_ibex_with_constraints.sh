@@ -202,21 +202,11 @@ if command -v abc &> /dev/null; then
         fi
 
         if [ -n "$REAL_OUTPUTS" ]; then
-            # Optimize with constraints, then remove them completely
-            # Tuned scorr parameters for stability:
-            #   -C 10000: Higher conflict limit (vs default 1000) for deeper k-induction
-            #   -S 10: More simulation frames (vs default 2) for better counter-examples
-            #   -X 3: Stop after 3 iterations of no improvement (avoid local optima)
-            #   -m: Full merge with constraints
-            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -m -F $ABC_DEPTH -C 20000 -S 10 -X 3 -v; print_stats; write_aiger ${BASE}_temp_opt.aig" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
-
-            # Now process the optimized circuit to remove constraints
-            # dretime; dc2; fraig
-            echo "Removing constraint outputs..."
-            abc -c "read_aiger ${BASE}_temp_opt.aig; cone -O 0 -R $REAL_OUTPUTS; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee -a "$ABC_LOG" | grep -E "^output|i/o =|lat =|and ="
+            # Optimize with constraints using scorr
+            abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -c -m -F $ABC_DEPTH -C 30000 -S 15 -X 5 -v; constr -r; removepo -N 431; rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
         else
             # No constraints, use standard flow
-            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -F $ABC_DEPTH -v; print_stats; fraig; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|Removed equivs"
+            abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -F $ABC_DEPTH -v; rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|Removed equivs"
         fi
 
         if [ ${PIPESTATUS[0]} -eq 0 ] && [ -f "$ABC_OUTPUT" ]; then
