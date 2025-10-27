@@ -6,7 +6,7 @@ set -e
 
 # Parse arguments (EXACTLY same as original)
 SYNTHESIZE_GATES=false
-ABC_DEPTH=5
+ABC_DEPTH=2
 WRITEBACK_STAGE=false
 while [[ "$#" -gt 0 ]]; do
     case $1 in
@@ -374,28 +374,43 @@ if command -v abc &> /dev/null; then
             TOTAL_OUTPUTS=$(echo "$ABC_STATS" | sed -n 's/.*i\/o = *[0-9]*\/ *\([0-9]*\).*/\1/p')
             NUM_CONSTRAINTS=$(echo "$ABC_STATS" | sed -n 's/.*c=\([0-9]*\).*/\1/p')
             REAL_OUTPUTS=$((TOTAL_OUTPUTS - NUM_CONSTRAINTS))
-            echo "Detected $NUM_CONSTRAINTS constraints (ISA + timing), will extract $REAL_OUTPUTS real outputs"
+            echo "Detected $NUM_CONSTRAINTS constraints, will extract $REAL_OUTPUTS real outputs"
         else
             REAL_OUTPUTS=""
             echo "No constraints detected"
         fi
 
         if [ -n "$REAL_OUTPUTS" ]; then
-            # Optimize with constraints, then remove them completely
-            # Tuned scorr parameters for stability:
-            #   -C 10000: Higher conflict limit (vs default 1000) for deeper k-induction
-            #   -S 10: More simulation frames (vs default 2) for better counter-examples
-            #   -X 3: Stop after 3 iterations of no improvement (avoid local optima)
-            #   -m: Full merge with constraints
-            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -m -F $ABC_DEPTH -C 30000 -S 15 -X 5 -v; print_stats; write_aiger ${BASE}_temp_opt.aig" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
-
-            # Now process the optimized circuit to remove constraints
-            echo "Removing constraint outputs..."
-            abc -c "read_aiger ${BASE}_temp_opt.aig; write_blif ${BASE}_temp.blif; read_blif ${BASE}_temp.blif; cone -O 0 -R $REAL_OUTPUTS; fraig; dc2; dretime; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee -a "$ABC_LOG" | grep -E "^output|i/o =|lat =|and ="
+            # Optimize with constraints using scorr
+            abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -c -m -F $ABC_DEPTH -C 30000 -S 15 -v; constr -r; removepo -N 431; rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
         else
             # No constraints, use standard flow
-            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; fraig; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|Removed equivs"
+            abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -F $ABC_DEPTH -v; rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|Removed equivs"
         fi
+
+        # # Get the number of real outputs (before constraints)
+        # ABC_STATS=$(abc -c "read_aiger $ABC_INPUT; print_stats" 2>&1 | grep "i/o")
+        # if echo "$ABC_STATS" | grep -q "(c="; then
+        #     TOTAL_OUTPUTS=$(echo "$ABC_STATS" | sed -n 's/.*i\/o = *[0-9]*\/ *\([0-9]*\).*/\1/p')
+        #     NUM_CONSTRAINTS=$(echo "$ABC_STATS" | sed -n 's/.*c=\([0-9]*\).*/\1/p')
+        #     REAL_OUTPUTS=$((TOTAL_OUTPUTS - NUM_CONSTRAINTS))
+        #     echo "Detected $NUM_CONSTRAINTS constraints, will extract $REAL_OUTPUTS real outputs"
+        #     # Build constraint removal commands
+        #     CONSTRAINT_CMDS="constr -r; removepo -N $REAL_OUTPUTS;"
+        # else
+        #     REAL_OUTPUTS=""
+        #     NUM_CONSTRAINTS=0
+        #     echo "No constraints detected"
+        #     # No constraint removal needed
+        #     CONSTRAINT_CMDS=""
+        # fi
+
+        # # Pre-optimize without constraints
+        # abc -c "read_aiger $ABC_INPUT; strash; dc2 -l -b; dretime; write_aiger ${BASE}_preopt.aig" 2>&1 | tee -a "$ABC_LOG"
+        # # Single unified optimization flow
+        # # Always use -c -m flags (they work fine even without constraints)
+        # abc -c "read_aiger ${BASE}_preopt.aig; strash; cycle 100; scorr -c -m -F $ABC_DEPTH -C 30000 -S 15 -v; $CONSTRAINT_CMDS rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
+
 
         if [ ${PIPESTATUS[0]} -eq 0 ] && [ -f "$ABC_OUTPUT" ]; then
             echo ""

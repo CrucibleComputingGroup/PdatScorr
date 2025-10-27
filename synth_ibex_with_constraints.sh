@@ -187,7 +187,7 @@ if command -v abc &> /dev/null; then
         echo "ABC k-induction depth: $ABC_DEPTH (should match pipeline depth)"
         # Two-stage optimization for best results:
         # 1. First optimize WITH constraints for maximum reduction
-        # 2. Then extract clean outputs without constraints
+        # 2. Then extract clean outputs without constraints   
 
         # Get the number of real outputs (before constraints)
         ABC_STATS=$(abc -c "read_aiger $ABC_INPUT; print_stats" 2>&1 | grep "i/o")
@@ -203,7 +203,7 @@ if command -v abc &> /dev/null; then
 
         if [ -n "$REAL_OUTPUTS" ]; then
             # Optimize with constraints using scorr
-            abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -c -m -F $ABC_DEPTH -C 30000 -S 15 -X 5 -v; constr -r; removepo -N 431; rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
+            abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -c -m -F $ABC_DEPTH -C 30000 -S 15 -v; constr -r; removepo -N 431; rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
         else
             # No constraints, use standard flow
             abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -F $ABC_DEPTH -v; rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|Removed equivs"

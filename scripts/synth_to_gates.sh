@@ -92,7 +92,7 @@ flatten
 # Technology mapping to PDK standard cells
 dfflibmap -liberty $LIBERTY_FILE
 
-abc -liberty $LIBERTY_FILE
+abc -liberty $LIBERTY_FILE -fast
 
 # Cleanup
 opt_clean
