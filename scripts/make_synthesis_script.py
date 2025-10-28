@@ -25,7 +25,7 @@ def generate_synthesis_script(id_stage_modified: str, output_aig: str, ibex_root
             for candidate in candidates:
                 candidate_abs = os.path.abspath(os.path.expanduser(candidate))
                 if os.path.isdir(candidate_abs):
-                    ibex_root = candidate
+                    ibex_root = candidate_abs
                     break
 
             if ibex_root is None:
