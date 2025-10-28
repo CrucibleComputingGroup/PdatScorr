@@ -13,9 +13,27 @@ def generate_synthesis_script(id_stage_modified: str, output_aig: str, ibex_root
     # Determine Ibex core path:
     # 1. Use provided ibex_root argument
     # 2. Fall back to IBEX_ROOT environment variable
-    # 3. Default to ../CoreSim/cores/ibex (relative to ScorrPdat)
+    # 3. Try ../PdatCoreSim/cores/ibex
+    # 4. Try ../CoreSim/cores/ibex
+    # 5. Error if none found
     if ibex_root is None:
-        ibex_root = os.environ.get('IBEX_ROOT', '../CoreSim/cores/ibex')
+        ibex_root = os.environ.get('IBEX_ROOT')
+
+        if ibex_root is None:
+            # Try both PdatCoreSim and CoreSim
+            candidates = ['../PdatCoreSim/cores/ibex', '../CoreSim/cores/ibex']
+            for candidate in candidates:
+                candidate_abs = os.path.abspath(os.path.expanduser(candidate))
+                if os.path.isdir(candidate_abs):
+                    ibex_root = candidate_abs
+                    break
+
+            if ibex_root is None:
+                raise FileNotFoundError(
+                    "Could not find Ibex core directory. Tried:\n" +
+                    "\n".join(f"  - {c}" for c in candidates) +
+                    "\n\nPlease set IBEX_ROOT environment variable or use --ibex-root argument"
+                )
 
     # Convert to absolute path
     ibex_root = os.path.abspath(os.path.expanduser(ibex_root))
@@ -125,10 +143,10 @@ clean
 # Export to AIGER with constraints
 # AIGER format: latches + AND gates + constraints (bad state properties)
 # -zinit maps init values to zero during export
-write_aiger -zinit {output_aig}_pre_abc.aig
+write_aiger -zinit {output_aig}_yosys.aig
 
 # NOTE: External ABC will be run by the shell script to optimize this AIGER:
-#   abc -c "read_aiger {output_aig}_pre_abc.aig; strash; scorr; dc2; dretime; write_aiger {output_aig}_post_abc.aig"
+#   abc -c "read_aiger {output_aig}_yosys.aig; strash; scorr; dc2; dretime; write_aiger {output_aig}_post_abc.aig"
 # The optimized AIGER ({{output_aig}}_post_abc.aig) is the final output for sequential optimization.
 
 # For gate-level synthesis, the synth_to_gates.sh script will read the optimized AIGER
@@ -146,7 +164,7 @@ def main():
     parser.add_argument('-a', '--aiger-output', default='ibex_core.aig',
                        help='Output AIGER file base name (default: ibex_core.aig)')
     parser.add_argument('--ibex-root', default=None,
-                       help='Path to Ibex core (default: $IBEX_ROOT or ../CoreSim/cores/ibex)')
+                       help='Path to Ibex core (default: $IBEX_ROOT or auto-detect ../PdatCoreSim/cores/ibex or ../CoreSim/cores/ibex)')
     parser.add_argument('--writeback-stage', action='store_true',
                        help='Enable 3-stage pipeline with separate writeback stage (default: 2-stage)')
 
