@@ -116,13 +116,11 @@ cat > "$TIMING_CODE" << 'EOF'
   // Instruction cache timing tracking
   logic [2:0] instr_stall_counter_q;
   logic instr_likely_miss;
-  logic [6:0] instr_last_cache_line_q;  // Only upper 7 bits [31:25] - minimal overhead
 
   always_ff @(posedge clk_i or negedge rst_ni) begin
     if (!rst_ni) begin
       instr_stall_counter_q <= 3'b0;
       instr_likely_miss <= 1'b0;
-      instr_last_cache_line_q <= 7'h0;
     end else begin
       if (instr_req_o && !instr_gnt_i) begin
         instr_stall_counter_q <= instr_stall_counter_q + 1;
@@ -133,22 +131,17 @@ cat > "$TIMING_CODE" << 'EOF'
         instr_likely_miss <= 1'b0;
       end
 
-      if (instr_gnt_i) begin
-        instr_last_cache_line_q <= instr_addr_o[31:25];  // Only upper bits
-      end
     end
   end
 
   // Data cache timing tracking
   logic [2:0] data_stall_counter_q;
   logic data_likely_miss;
-  logic [6:0] data_last_cache_line_q;  // Only upper 7 bits [31:25] - minimal overhead
 
   always_ff @(posedge clk_i or negedge rst_ni) begin
     if (!rst_ni) begin
       data_stall_counter_q <= 3'b0;
       data_likely_miss <= 1'b0;
-      data_last_cache_line_q <= 7'h0;
     end else begin
       if (data_req_out && !data_gnt_i) begin
         data_stall_counter_q <= data_stall_counter_q + 1;
@@ -158,28 +151,21 @@ cat > "$TIMING_CODE" << 'EOF'
         data_likely_miss <= 1'b0;
       end
 
-      if (data_gnt_i) begin
-        data_last_cache_line_q <= data_addr_o[31:25];  // Only upper bits
-      end
     end
   end
-
-  // Check locality (same upper address bits = likely sequential/same region)
-  wire instr_same_line = (instr_addr_o[31:25] == instr_last_cache_line_q);
-  wire data_same_line = (data_addr_o[31:25] == data_last_cache_line_q);
 
   // Cache-aware timing assumptions
   always_comb begin
     if (rst_ni) begin
       // Instruction cache: different bounds for hit vs miss
-      if (instr_same_line && !instr_likely_miss) begin
+      if (!instr_likely_miss) begin
         assume(instr_stall_counter_q <= 3'd1);  // Cache hit: 1 cycle max
       end else begin
         assume(instr_stall_counter_q <= 3'd5);  // Cache miss: up to 5 cycles
       end
 
       // Data cache: different bounds for hit vs miss
-      if (data_same_line && !data_likely_miss) begin
+      if (!data_likely_miss) begin
         assume(data_stall_counter_q <= 3'd1);   // Cache hit: 1 cycle max
       end else begin
         assume(data_stall_counter_q <= 3'd4);   // Cache miss: up to 4 cycles

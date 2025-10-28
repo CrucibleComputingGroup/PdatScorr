@@ -52,6 +52,88 @@ cd rtl_scorr
 
 Full RTL-level signal correspondence with SMT proving and cone extraction.
 
+### Batch Synthesis of Multiple DSLs
+
+```bash
+./batch_synth.sh [OPTIONS] <dsl_files_or_dirs>...
+```
+
+Run multiple DSL synthesis jobs in parallel with automatic result comparison.
+
+**Options:**
+- `-j, --jobs N` - Maximum parallel jobs (default: 4)
+- `--runs N` - Number of runs per DSL file (default: 1)
+- `--gates` - Synthesize to gate-level netlist
+- `--3stage` - Enable 3-stage pipeline
+- `--abc-depth N` - Set k-induction depth
+- `-v, --verbose` - Show detailed output
+
+**Examples:**
+```bash
+# Process all DSL files in a directory
+./batch_synth.sh --gates -j 8 ../PdatDsl/workload/
+
+# Run each DSL 5 times, use best result (handles ABC non-determinism)
+./batch_synth.sh --runs 5 -j 40 --gates ../PdatDsl/workload/
+
+# Mix directories and specific files
+./batch_synth.sh -j 12 ../PdatDsl/examples/ custom.dsl
+```
+
+**Handling Non-Determinism:**
+
+ABC's `scorr` optimization can produce varying results across runs due to SAT solver randomness. The `--runs N` option:
+- Runs each DSL N times independently in parallel
+- Automatically selects the best result (minimum chip area)
+- Organizes outputs in `output/run_1/`, `output/run_2/`, etc.
+- Creates `output/dsl_name/best/` symlink to the best run
+
+**Output Structure with `--runs 3`:**
+```
+output/
+  run_1/
+    rv32im_no_add/
+    rv32im/
+    baseline/
+  run_2/
+    rv32im_no_add/
+    ...
+  run_3/
+    ...
+  rv32im_no_add/
+    best/ → ../run_2/rv32im_no_add/  (symlink to best run)
+  synthesis_comparison.csv  (uses best runs)
+```
+
+### Batch Timing Comparison
+
+```bash
+./batch_compare_timing.sh <dsl_file> [output_dir] [runs_per_config]
+```
+
+Parallel comparison of ISA-only vs ISA+timing across multiple ABC depths and pipeline configurations.
+
+**Parameters:**
+- `dsl_file` - DSL specification file
+- `output_dir` - Base output directory (default: output/comparison)
+- `runs_per_config` - Number of runs per configuration (default: 1)
+
+**Example:**
+```bash
+# Single run (fast)
+./batch_compare_timing.sh ../PdatDsl/workload/rv32im.dsl
+
+# 3 runs per configuration, use best results
+./batch_compare_timing.sh ../PdatDsl/workload/rv32im.dsl output/test 3
+```
+
+Tests all combinations of:
+- ABC depths: 2, 3, 4, 5, 6, 7, 8
+- ISA-only vs ISA+timing constraints
+- 2-stage vs 3-stage pipeline (depth ≥ 3)
+
+With `--runs N`, each configuration is run N times and the best result is automatically selected.
+
 ### Synthesis with Timing Constraints
 
 ```bash
@@ -89,33 +171,49 @@ assume(counter_q <= 3'd5);  // ✓ Supported
 
 The counters add minimal hardware but enable multi-cycle timing constraints for ABC's `scorr -c` optimization.
 
-### Batch Comparison
-
-```bash
-./batch_compare_simple.sh <dsl_file> [output_dir]
-```
-
-Runs parallel comparison of ISA-only vs ISA+timing across multiple ABC depths.
-- Tests depths 2, 3, 4, 5
-- Includes both 2-stage and 3-stage pipeline variants
-- Generates CSV with chip area (µm²) for each configuration
-
 ## ABC Scorr Tuning
 
-The `scorr` command has been tuned for stability across different k-induction depths:
+The `scorr` command has been tuned for stability and optimal area reduction:
 
 ```bash
-scorr -c -m -F <depth> -C 10000 -S 10 -X 3 -v
+scorr -c -m -F <depth> -C 30000 -S 15 -X 5 -v
 ```
 
 **Key parameters:**
-- `-C 10000`: Conflict limit (10x default) - critical for higher depths
-- `-S 10`: Simulation frames for counter-examples (5x default)
-- `-X 3`: Stop after 3 iterations of no improvement
+- `-c`: Enable constraint-based optimization (uses AIGER constraint outputs)
 - `-m`: Full merge mode with constraints
+- `-F <depth>`: K-induction depth (should match pipeline depth: 2 or 3)
+- `-C 30000`: Conflict limit (30x default) - critical for deep induction
+- `-S 15`: Simulation frames for counter-examples (7.5x default)
+- `-X 5`: Slow refinement detector threshold
+
+**Critical: Understanding -X Parameter**
+
+The `-X` parameter is NOT "iterations without improvement". Instead, it's a **slow refinement detector**:
+- After 4 iterations, checks if candidate reduction < `4 × X`
+- If too slow, **aborts and returns the UNOPTIMIZED circuit**
+- Higher X = easier to trigger abort = worse results
+
+**Recommended values:**
+- `-X 5`: Good balance (stops if < 20 candidates eliminated over 4 iterations)
+- `-X 0` or omit: Disables the check entirely (let scorr run to completion)
+- **Avoid `-X 10+`**: Too easy to abort, returns unoptimized circuits
 
 **Why tuning matters:**
-Default `-C 1000` is too low for depth ≥4, causing area to increase instead of decrease. Higher conflict limits ensure ABC doesn't give up prematurely when searching for register equivalences.
+- Default `-C 1000` is too low for depth ≥3, causing incomplete optimization
+- Constraint-based optimization requires more SAT solver conflicts
+- Higher conflict limits ensure ABC finds all register equivalences
+- Proper `-X` tuning prevents premature termination
+
+**Constraint Removal:**
+After optimization with constraints, use:
+```bash
+constr -r; removepo -N <num_real_outputs>; rewrite -l; balance -l
+```
+
+- `constr -r`: Converts constraints back to regular outputs
+- `removepo -N <N>`: Removes the last N outputs (constraint outputs)
+- `rewrite -l; balance -l`: Re-optimize while preserving logic depth
 
 ## Directory Structure
 
