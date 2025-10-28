@@ -229,7 +229,16 @@ if command -v abc &> /dev/null; then
             # BLIF format has no constraint field, so constraints become regular outputs
             # Then we can use cone to extract only the real outputs
             echo "Removing constraint outputs..."
-            abc -c "read_aiger ${BASE}_after_scorr.aig; write_blif ${BASE}_temp.blif; read_blif ${BASE}_temp.blif; cone -O 0 -R $REAL_OUTPUTS; strash; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee -a "$ABC_LOG" | grep -E "^output|i/o =|lat =|and ="
+            abc -c "read_aiger ${BASE}_after_scorr.aig; write_blif ${BASE}_temp.blif; read_blif ${BASE}_temp.blif; cone -O 0 -R $REAL_OUTPUTS; strash; print_stats; write_aiger $ABC_OUTPUT" > "${BASE}_abc_temp.log" 2>&1
+            ABC_EXIT_STATUS=$?
+            cat "${BASE}_abc_temp.log" >> "$ABC_LOG"
+            if [ $ABC_EXIT_STATUS -ne 0 ]; then
+                echo "ERROR: ABC command failed during constraint removal. See log below:"
+                cat "${BASE}_abc_temp.log"
+            else
+                grep -E "^output|i/o =|lat =|and =" "${BASE}_abc_temp.log"
+            fi
+            rm -f "${BASE}_abc_temp.log"
 
             # Clean up temp file
             rm -f "${BASE}_temp.blif"
