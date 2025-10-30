@@ -74,7 +74,7 @@ mkdir -p "$OUTPUT_DIR"
 # Derive intermediate filenames
 BASE="${OUTPUT_IL%.il}"
 ASSUMPTIONS_CODE="${BASE}_assumptions.sv"  # ISA constraints
-TIMING_CODE="${BASE}_cache_timing.sv"      # Cache timing constraints
+TIMING_CODE="${BASE}_assumptions_timing.sv"      # Cache timing constraints
 ID_STAGE_SV="${BASE}_id_stage.sv"          # Modified id_stage with ISA
 CORE_SV="${BASE}_core.sv"                  # Modified core with cache timing
 SYNTH_SCRIPT="${BASE}_synth.ys"

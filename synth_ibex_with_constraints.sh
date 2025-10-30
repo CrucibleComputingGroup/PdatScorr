@@ -97,6 +97,9 @@ ASSUMPTIONS_CODE="${BASE}_assumptions.sv"
 ID_STAGE_SV="${BASE}_id_stage.sv"
 SYNTH_SCRIPT="${BASE}_synth.ys"
 
+TIMING_CODE="${BASE}_assumptions_timing.sv"      # Cache timing constraints
+CORE_SV="${BASE}_core.sv"                  # Modified core with cache timing
+
 echo "=========================================="
 echo "Ibex Synthesis with Instruction Constraints"
 echo "=========================================="
@@ -121,28 +124,54 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Step 2: Inject assumptions into ibex_id_stage.sv
-echo "[2/$TOTAL_STEPS] Injecting assumptions into ibex_id_stage.sv..."
+# Step 2: Inject ISA assumptions into ibex_id_stage.sv
+echo "[2/$TOTAL_STEPS] Injecting ISA assumptions into ibex_id_stage.sv..."
 python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" ../CoreSim/cores/ibex/rtl/ibex_id_stage.sv "$ID_STAGE_SV"
 
 if [ $? -ne 0 ]; then
-    echo "ERROR: Failed to inject assumptions"
+    echo "ERROR: Failed to inject ISA assumptions"
     exit 1
+fi
+
+# Step 2.5: Check if timing constraints were generated and inject into ibex_core.sv
+CORE_MODIFIED_FLAG=""
+if [ -f "$TIMING_CODE" ]; then
+    echo "[2.5/$TOTAL_STEPS] Detected timing constraints, injecting into ibex_core.sv..."
+
+    # Set Ibex root path early (needed for core injection)
+    IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
+
+    python3 scripts/inject_core_timing.py \
+        --timing-file "$TIMING_CODE" \
+        "$IBEX_ROOT/rtl/ibex_core.sv" \
+        "$CORE_SV"
+
+    if [ $? -ne 0 ]; then
+        echo "ERROR: Failed to inject timing constraints into ibex_core.sv"
+        exit 1
+    fi
+
+    CORE_MODIFIED_FLAG="--core-modified $CORE_SV"
+    echo "  Timing constraints injected successfully"
+else
+    echo "  No timing constraints detected (this is normal for ISA-only optimization)"
 fi
 
 # Step 3: Generate synthesis script
 echo "[3/$TOTAL_STEPS] Generating synthesis script..."
 
-# Set Ibex root path (use env var if set, otherwise default to CoreSim)
+# Set Ibex root path if not already set
 IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
 
 if [ "$WRITEBACK_STAGE" = true ]; then
     echo "  Enabling 3-stage pipeline (WritebackStage=1)"
     python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" --writeback-stage
+        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" --writeback-stage \
+        $CORE_MODIFIED_FLAG
 else
     python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT"
+        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" \
+        $CORE_MODIFIED_FLAG
 fi
 
 if [ $? -ne 0 ]; then
@@ -165,8 +194,12 @@ echo "=========================================="
 echo "SUCCESS!"
 echo "=========================================="
 echo "Generated files:"
-echo "  - $ASSUMPTIONS_CODE (assumption code)"
-echo "  - $ID_STAGE_SV (modified ibex_id_stage.sv with assumptions)"
+echo "  - $ASSUMPTIONS_CODE (ISA assumptions)"
+echo "  - $ID_STAGE_SV (modified ibex_id_stage.sv)"
+if [ -f "$TIMING_CODE" ]; then
+    echo "  - $TIMING_CODE (cache timing constraints)"
+    echo "  - $CORE_SV (modified ibex_core.sv)"
+fi
 echo "  - $SYNTH_SCRIPT (synthesis script)"
 echo "  - ${BASE}_pre_abc.aig (AIGER for external ABC)"
 echo "  - $YOSYS_LOG (Yosys synthesis log)"
@@ -248,5 +281,12 @@ else
 fi
 
 echo ""
-echo "The design has been synthesized with constraints. Logic for outlawed"
-echo "instructions should be optimized away via assumptions and ABC optimization."
+if [ -f "$TIMING_CODE" ]; then
+    echo "The design has been synthesized with ISA + timing constraints."
+    echo "Logic for outlawed instructions and impossible timing scenarios"
+    echo "should be optimized away via assumptions and ABC optimization."
+else
+    echo "The design has been synthesized with ISA constraints."
+    echo "Logic for outlawed instructions should be optimized away via"
+    echo "assumptions and ABC optimization."
+fi
