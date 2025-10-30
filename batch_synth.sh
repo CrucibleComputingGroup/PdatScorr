@@ -10,6 +10,7 @@ BASE_OUTPUT_DIR="output"
 EXTRA_ARGS=""
 USE_GNU_PARALLEL=false
 VERBOSE=false
+RUNS_PER_DSL=1
 
 # Color codes for output
 RED='\033[0;31m'
@@ -45,6 +46,10 @@ while [[ "$#" -gt 0 ]]; do
             USE_GNU_PARALLEL=true
             shift
             ;;
+        --runs)
+            RUNS_PER_DSL="$2"
+            shift 2
+            ;;
         -v|--verbose)
             VERBOSE=true
             shift
@@ -57,6 +62,7 @@ while [[ "$#" -gt 0 ]]; do
             echo "Options:"
             echo "  -j, --jobs N          Maximum parallel jobs (default: 4)"
             echo "  -o, --output-dir DIR  Base output directory (default: output)"
+            echo "  --runs N              Number of runs per DSL file (default: 1)"
             echo "  --gates               Pass --gates to synthesis script"
             echo "  --3stage              Pass --3stage to synthesis script"
             echo "  --abc-depth N         Pass --abc-depth N to synthesis script"
@@ -132,6 +138,7 @@ echo "=========================================="
 echo "Batch Synthesis Configuration"
 echo "=========================================="
 echo "DSL files:        ${#DSL_FILES[@]} files"
+echo "Runs per DSL:     $RUNS_PER_DSL"
 echo "Max parallel:     $MAX_PARALLEL"
 echo "Output directory: $BASE_OUTPUT_DIR"
 echo "Extra arguments:  $EXTRA_ARGS"
@@ -145,27 +152,42 @@ run_synthesis() {
     local dsl_file="$1"
     local job_num="$2"
     local total_jobs="$3"
+    local run_num="${4:-1}"  # Default to run 1 if not specified
 
     # Get base name for status display
     local dsl_basename=$(basename "$dsl_file" .dsl)
 
-    # Determine log file location
-    local log_file="$BASE_OUTPUT_DIR/${dsl_basename}/synthesis.log"
-    mkdir -p "$BASE_OUTPUT_DIR/${dsl_basename}"
+    # Determine output directory based on whether we have multiple runs
+    if [ "$RUNS_PER_DSL" -gt 1 ]; then
+        # Pass parent directory - synth script will create dsl_basename subdirectory
+        local parent_dir="$BASE_OUTPUT_DIR/run_${run_num}"
+        local actual_output_dir="${parent_dir}/${dsl_basename}"
+        local display_name="${dsl_basename} (run ${run_num})"
+    else
+        local parent_dir="$BASE_OUTPUT_DIR"
+        local actual_output_dir="$BASE_OUTPUT_DIR/${dsl_basename}"
+        local display_name="${dsl_basename}"
+    fi
+
+    # Determine log file location (will be created by synth script)
+    local log_file="${actual_output_dir}/synthesis.log"
+
+    # Create parent and actual output directories
+    mkdir -p "${actual_output_dir}"
 
     # Print start message
-    echo -e "${BLUE}[$job_num/$total_jobs] Starting: ${dsl_basename}${NC}"
+    echo -e "${BLUE}[$job_num/$total_jobs] Starting: ${display_name}${NC}"
 
     # Run synthesis
     local start_time=$(date +%s)
 
     if [ "$VERBOSE" = true ]; then
         # Show output directly
-        ./synth_ibex_with_constraints.sh $EXTRA_ARGS "$dsl_file" "$BASE_OUTPUT_DIR" 2>&1 | tee "$log_file"
+        ./synth_ibex_with_constraints.sh $EXTRA_ARGS "$dsl_file" "$parent_dir" 2>&1 | tee "$log_file"
         local exit_code=${PIPESTATUS[0]}
     else
         # Redirect to log file
-        ./synth_ibex_with_constraints.sh $EXTRA_ARGS "$dsl_file" "$BASE_OUTPUT_DIR" > "$log_file" 2>&1
+        ./synth_ibex_with_constraints.sh $EXTRA_ARGS "$dsl_file" "$parent_dir" > "$log_file" 2>&1
         local exit_code=$?
     fi
 
@@ -174,25 +196,78 @@ run_synthesis() {
 
     # Print completion message
     if [ $exit_code -eq 0 ]; then
-        echo -e "${GREEN}[$job_num/$total_jobs] ✓ Completed: ${dsl_basename} (${duration}s)${NC}"
+        echo -e "${GREEN}[$job_num/$total_jobs] ✓ Completed: ${display_name} (${duration}s)${NC}"
         # Show key metrics if available
-        if [ -f "$BASE_OUTPUT_DIR/${dsl_basename}/ibex_optimized_abc.log" ]; then
-            local stats=$(grep "and =" "$BASE_OUTPUT_DIR/${dsl_basename}/ibex_optimized_abc.log" | tail -1)
+        if [ -f "$actual_output_dir/ibex_optimized_abc.log" ]; then
+            local stats=$(grep "and =" "$actual_output_dir/ibex_optimized_abc.log" | tail -1)
             if [ ! -z "$stats" ]; then
                 echo "  └─ Final: $stats"
             fi
         fi
+        # Store area if available for later comparison
+        if [ -f "$actual_output_dir/synthesis.log" ]; then
+            grep "Chip area:" "$actual_output_dir/synthesis.log" | tail -1 | sed -n 's/.*Chip area: *\([0-9.]*\).*/\1/p' > "$actual_output_dir/area.txt" 2>/dev/null || true
+        fi
     else
-        echo -e "${RED}[$job_num/$total_jobs] ✗ Failed: ${dsl_basename} (${duration}s)${NC}"
+        echo -e "${RED}[$job_num/$total_jobs] ✗ Failed: ${display_name} (${duration}s)${NC}"
         echo "  └─ Check log: $log_file"
     fi
 
     return $exit_code
 }
 
+# Function to select the best run for a given DSL
+select_best_run() {
+    local dsl_basename="$1"
+    local best_area=999999999999
+    local best_run=""
+    local best_and_gates=999999999
+
+    # Only needed if we have multiple runs
+    if [ "$RUNS_PER_DSL" -eq 1 ]; then
+        return 0
+    fi
+
+    # Find run with minimum area (or AND gates if area not available)
+    # New structure: output/run_N/dsl_name/
+    for run_num in $(seq 1 $RUNS_PER_DSL); do
+        local run_dir="$BASE_OUTPUT_DIR/run_${run_num}/${dsl_basename}"
+
+        if [ ! -d "$run_dir" ]; then
+            continue
+        fi
+
+        # First try to get chip area
+        if [ -f "$run_dir/area.txt" ] && [ -s "$run_dir/area.txt" ]; then
+            local area=$(cat "$run_dir/area.txt")
+            if [ ! -z "$area" ] && (( $(echo "$area < $best_area" | bc -l 2>/dev/null || echo 0) )); then
+                best_area=$area
+                best_run="run_${run_num}"
+            fi
+        elif [ -f "$run_dir/ibex_optimized_abc.log" ]; then
+            # Fall back to AND gate count if no area
+            local and_gates=$(grep "and =" "$run_dir/ibex_optimized_abc.log" | tail -1 | sed -n 's/.*and = *\([0-9]*\).*/\1/p')
+            if [ ! -z "$and_gates" ] && [ "$and_gates" -lt "$best_and_gates" ]; then
+                best_and_gates=$and_gates
+                best_run="run_${run_num}"
+                best_area=$and_gates  # For display
+            fi
+        fi
+    done
+
+    # Create symlink to best run
+    if [ -n "$best_run" ]; then
+        mkdir -p "$BASE_OUTPUT_DIR/${dsl_basename}"
+        ln -sfn "../${best_run}/${dsl_basename}" "$BASE_OUTPUT_DIR/${dsl_basename}/best"
+        echo "$best_run (area/gates: $best_area)"
+    else
+        echo "No successful runs found"
+    fi
+}
+
 # Export function for parallel execution
 export -f run_synthesis
-export EXTRA_ARGS BASE_OUTPUT_DIR VERBOSE RED GREEN YELLOW BLUE NC
+export EXTRA_ARGS BASE_OUTPUT_DIR VERBOSE RED GREEN YELLOW BLUE NC RUNS_PER_DSL
 
 # Track start time
 OVERALL_START=$(date +%s)
@@ -202,38 +277,76 @@ echo ""
 
 # Run jobs based on method
 if [ "$USE_GNU_PARALLEL" = true ]; then
-    # Use GNU parallel
-    printf '%s\n' "${DSL_FILES[@]}" | \
-        parallel -j "$MAX_PARALLEL" --line-buffer --tagstring "[{#}/${#DSL_FILES[@]}]" \
-        run_synthesis {} {#} ${#DSL_FILES[@]}
+    # Use GNU parallel - generate all combinations of files and run numbers
+    TOTAL_JOBS=$((${#DSL_FILES[@]} * RUNS_PER_DSL))
+
+    # Generate all job combinations
+    for dsl_file in "${DSL_FILES[@]}"; do
+        for run_num in $(seq 1 $RUNS_PER_DSL); do
+            echo "$dsl_file $run_num"
+        done
+    done | parallel -j "$MAX_PARALLEL" --line-buffer --colsep ' ' \
+        --tagstring "[{#}/$TOTAL_JOBS]" \
+        run_synthesis {1} {#} $TOTAL_JOBS {2}
+
     EXIT_CODE=$?
+
+    # Select best run for each DSL
+    if [ "$RUNS_PER_DSL" -gt 1 ]; then
+        echo ""
+        echo "Selecting best runs..."
+        for dsl_file in "${DSL_FILES[@]}"; do
+            dsl_basename=$(basename "$dsl_file" .dsl)
+            echo -n "  $dsl_basename: "
+            best=$(select_best_run "$dsl_basename")
+            echo "$best"
+        done
+    fi
 else
     # Use bash job control
     JOB_COUNT=0
     FAILED_JOBS=()
+    TOTAL_JOBS=$((${#DSL_FILES[@]} * RUNS_PER_DSL))
 
     # Start all jobs, respecting MAX_PARALLEL limit
     for i in "${!DSL_FILES[@]}"; do
         dsl_file="${DSL_FILES[$i]}"
-        job_num=$((i + 1))
+        dsl_basename=$(basename "$dsl_file" .dsl)
 
-        # Start job in background
-        run_synthesis "$dsl_file" "$job_num" "${#DSL_FILES[@]}" &
-        JOB_COUNT=$((JOB_COUNT + 1))
+        # Run multiple times for each DSL
+        for run_num in $(seq 1 $RUNS_PER_DSL); do
+            # Calculate job number for display
+            job_num=$(( i * RUNS_PER_DSL + run_num ))
 
-        # Only throttle if we have more files than max parallel
-        # and we haven't started the last job yet
-        if [ "$JOB_COUNT" -lt "${#DSL_FILES[@]}" ] && [ "$JOB_COUNT" -ge "$MAX_PARALLEL" ]; then
-            # Wait for at least one job to finish before continuing
-            while [ $(jobs -r | wc -l) -ge "$MAX_PARALLEL" ]; do
-                sleep 0.5
-            done
-        fi
+            # Start job in background
+            run_synthesis "$dsl_file" "$job_num" "$TOTAL_JOBS" "$run_num" &
+            JOB_COUNT=$((JOB_COUNT + 1))
+
+            # Throttle if needed
+            if [ "$JOB_COUNT" -lt "$TOTAL_JOBS" ] && [ $(jobs -r | wc -l) -ge "$MAX_PARALLEL" ]; then
+                # Wait for at least one job to finish before continuing
+                while [ $(jobs -r | wc -l) -ge "$MAX_PARALLEL" ]; do
+                    sleep 0.5
+                done
+            fi
+        done
     done
 
     # Wait for all jobs to complete
     wait
     EXIT_CODE=$?
+
+    # Select best run for each DSL
+    if [ "$RUNS_PER_DSL" -gt 1 ]; then
+        echo ""
+        echo "Selecting best runs..."
+        for dsl_file in "${DSL_FILES[@]}"; do
+            dsl_basename=$(basename "$dsl_file" .dsl)
+            echo -n "  $dsl_basename: "
+            best=$(select_best_run "$dsl_basename")
+            echo "$best"
+        done
+    fi
 fi
 
 # Calculate total time
@@ -253,10 +366,29 @@ echo ""
 echo "Results:"
 for dsl_file in "${DSL_FILES[@]}"; do
     dsl_basename=$(basename "$dsl_file" .dsl)
-    if [ -f "$BASE_OUTPUT_DIR/${dsl_basename}/ibex_optimized_post_abc.aig" ]; then
-        echo -e "  ${GREEN}✓${NC} $dsl_basename"
+
+    # Check for success based on whether we have multiple runs
+    if [ "$RUNS_PER_DSL" -gt 1 ]; then
+        # Check if any run succeeded
+        success=false
+        for run_num in $(seq 1 $RUNS_PER_DSL); do
+            if [ -f "$BASE_OUTPUT_DIR/run_${run_num}/${dsl_basename}/ibex_optimized_post_abc.aig" ]; then
+                success=true
+                break
+            fi
+        done
+        if [ "$success" = true ]; then
+            echo -e "  ${GREEN}✓${NC} $dsl_basename"
+        else
+            echo -e "  ${RED}✗${NC} $dsl_basename"
+        fi
     else
-        echo -e "  ${RED}✗${NC} $dsl_basename"
+        # Single run - check directly
+        if [ -f "$BASE_OUTPUT_DIR/${dsl_basename}/ibex_optimized_post_abc.aig" ]; then
+            echo -e "  ${GREEN}✓${NC} $dsl_basename"
+        else
+            echo -e "  ${RED}✗${NC} $dsl_basename"
+        fi
     fi
 done
 
@@ -266,8 +398,20 @@ echo ""
 SUCCESS_COUNT=0
 for dsl_file in "${DSL_FILES[@]}"; do
     dsl_basename=$(basename "$dsl_file" .dsl)
-    if [ -f "$BASE_OUTPUT_DIR/${dsl_basename}/ibex_optimized_post_abc.aig" ]; then
-        SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+
+    # Check for success based on whether we have multiple runs
+    if [ "$RUNS_PER_DSL" -gt 1 ]; then
+        # Check if any run succeeded
+        for run_num in $(seq 1 $RUNS_PER_DSL); do
+            if [ -f "$BASE_OUTPUT_DIR/run_${run_num}/${dsl_basename}/ibex_optimized_post_abc.aig" ]; then
+                SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+                break
+            fi
+        done
+    else
+        if [ -f "$BASE_OUTPUT_DIR/${dsl_basename}/ibex_optimized_post_abc.aig" ]; then
+            SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+        fi
     fi
 done
 
@@ -296,8 +440,16 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
     # Process each result
     for dsl_file in "${DSL_FILES[@]}"; do
         dsl_basename=$(basename "$dsl_file" .dsl)
-        log_file="$BASE_OUTPUT_DIR/${dsl_basename}/ibex_optimized_abc.log"
-        synth_log="$BASE_OUTPUT_DIR/${dsl_basename}/synthesis.log"
+
+        # Determine which directory to use
+        if [ "$RUNS_PER_DSL" -gt 1 ] && [ -L "$BASE_OUTPUT_DIR/${dsl_basename}/best" ]; then
+            result_dir="$BASE_OUTPUT_DIR/${dsl_basename}/best"
+        else
+            result_dir="$BASE_OUTPUT_DIR/${dsl_basename}"
+        fi
+
+        log_file="$result_dir/ibex_optimized_abc.log"
+        synth_log="$result_dir/synthesis.log"
 
         if [ -f "$log_file" ]; then
             # Extract final stats from ABC log

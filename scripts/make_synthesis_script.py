@@ -5,8 +5,16 @@ Generate a Yosys/Synlig synthesis script for Ibex with instruction checker.
 
 import argparse
 
-def generate_synthesis_script(id_stage_modified: str, output_aig: str, ibex_root: str = None, writeback_stage: bool = False) -> str:
-    """Generate the Yosys synthesis script."""
+def generate_synthesis_script(id_stage_modified: str, output_aig: str, ibex_root: str = None, writeback_stage: bool = False, core_modified: str = None) -> str:
+    """Generate the Yosys synthesis script.
+
+    Args:
+        id_stage_modified: Path to modified ibex_id_stage.sv with ISA constraints
+        output_aig: Base name for output AIGER file
+        ibex_root: Path to Ibex core (optional)
+        writeback_stage: Enable 3-stage pipeline (optional)
+        core_modified: Path to modified ibex_core.sv with timing constraints (optional)
+    """
 
     import os
 
@@ -77,7 +85,7 @@ read_systemverilog \\
   {ibex_root}/rtl/ibex_register_file_ff.sv \\
   {ibex_root}/rtl/ibex_wb_stage.sv \\
   {ibex_root}/vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv \\
-  {ibex_root}/rtl/ibex_core.sv
+  {'./' + core_modified if core_modified else ibex_root + '/rtl/ibex_core.sv'}
 
 """
 
@@ -167,11 +175,13 @@ def main():
                        help='Path to Ibex core (default: $IBEX_ROOT or auto-detect ../PdatCoreSim/cores/ibex or ../CoreSim/cores/ibex)')
     parser.add_argument('--writeback-stage', action='store_true',
                        help='Enable 3-stage pipeline with separate writeback stage (default: 2-stage)')
+    parser.add_argument('--core-modified', default=None,
+                       help='Path to modified ibex_core.sv with timing constraints (optional)')
 
     args = parser.parse_args()
 
     # Generate the script
-    script = generate_synthesis_script(args.id_stage_modified, args.aiger_output, args.ibex_root, args.writeback_stage)
+    script = generate_synthesis_script(args.id_stage_modified, args.aiger_output, args.ibex_root, args.writeback_stage, args.core_modified)
 
     # Write to file
     with open(args.output, 'w') as f:

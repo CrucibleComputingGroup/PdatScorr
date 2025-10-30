@@ -97,6 +97,9 @@ ASSUMPTIONS_CODE="${BASE}_assumptions.sv"
 ID_STAGE_SV="${BASE}_id_stage.sv"
 SYNTH_SCRIPT="${BASE}_synth.ys"
 
+TIMING_CODE="${BASE}_assumptions_timing.sv"      # Cache timing constraints
+CORE_SV="${BASE}_core.sv"                  # Modified core with cache timing
+
 echo "=========================================="
 echo "Ibex Synthesis with Instruction Constraints"
 echo "=========================================="
@@ -114,7 +117,7 @@ fi
 
 # Step 1: Generate assumptions code (inline, no module)
 echo "[1/$TOTAL_STEPS] Generating instruction assumptions..."
-pdat-dsl codegen --inline "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+pdat-dsl codegen "$INPUT_DSL" "$ASSUMPTIONS_CODE"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to generate assumptions"
@@ -149,20 +152,49 @@ echo "Using Ibex core: $IBEX_ROOT"
 python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" "$IBEX_ROOT/rtl/ibex_id_stage.sv" "$ID_STAGE_SV"
 
 if [ $? -ne 0 ]; then
-    echo "ERROR: Failed to inject assumptions"
+    echo "ERROR: Failed to inject ISA assumptions"
     exit 1
+fi
+
+# Step 2.5: Check if timing constraints were generated and inject into ibex_core.sv
+CORE_MODIFIED_FLAG=""
+if [ -f "$TIMING_CODE" ]; then
+    echo "[2.5/$TOTAL_STEPS] Detected timing constraints, injecting into ibex_core.sv..."
+
+    # Set Ibex root path early (needed for core injection)
+    IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
+
+    python3 scripts/inject_core_timing.py \
+        --timing-file "$TIMING_CODE" \
+        "$IBEX_ROOT/rtl/ibex_core.sv" \
+        "$CORE_SV"
+
+    if [ $? -ne 0 ]; then
+        echo "ERROR: Failed to inject timing constraints into ibex_core.sv"
+        exit 1
+    fi
+
+    CORE_MODIFIED_FLAG="--core-modified $CORE_SV"
+    echo "  Timing constraints injected successfully"
+else
+    echo "  No timing constraints detected (this is normal for ISA-only optimization)"
 fi
 
 # Step 3: Generate synthesis script
 echo "[3/$TOTAL_STEPS] Generating synthesis script..."
 
+# Set Ibex root path if not already set
+IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
+
 if [ "$WRITEBACK_STAGE" = true ]; then
     echo "  Enabling 3-stage pipeline (WritebackStage=1)"
     python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" --writeback-stage
+        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" --writeback-stage \
+        $CORE_MODIFIED_FLAG
 else
     python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT"
+        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" \
+        $CORE_MODIFIED_FLAG
 fi
 
 if [ $? -ne 0 ]; then
@@ -185,8 +217,12 @@ echo "=========================================="
 echo "SUCCESS!"
 echo "=========================================="
 echo "Generated files:"
-echo "  - $ASSUMPTIONS_CODE (assumption code)"
-echo "  - $ID_STAGE_SV (modified ibex_id_stage.sv with assumptions)"
+echo "  - $ASSUMPTIONS_CODE (ISA assumptions)"
+echo "  - $ID_STAGE_SV (modified ibex_id_stage.sv)"
+if [ -f "$TIMING_CODE" ]; then
+    echo "  - $TIMING_CODE (cache timing constraints)"
+    echo "  - $CORE_SV (modified ibex_core.sv)"
+fi
 echo "  - $SYNTH_SCRIPT (synthesis script)"
 echo "  - ${BASE}_yosys.aig (AIGER from Yosys, before ABC)"
 echo "  - $YOSYS_LOG (Yosys synthesis log)"
@@ -207,7 +243,7 @@ if command -v abc &> /dev/null; then
         echo "ABC k-induction depth: $ABC_DEPTH (should match pipeline depth)"
         # Two-stage optimization for best results:
         # 1. First optimize WITH constraints for maximum reduction
-        # 2. Then extract clean outputs without constraints
+        # 2. Then extract clean outputs without constraints   
 
         # Get the number of real outputs (before constraints)
         ABC_STATS=$(abc -c "read_aiger $ABC_INPUT; print_stats" 2>&1 | grep "i/o")
@@ -216,36 +252,25 @@ if command -v abc &> /dev/null; then
             NUM_CONSTRAINTS=$(echo "$ABC_STATS" | sed -n 's/.*c=\([0-9]*\).*/\1/p')
             REAL_OUTPUTS=$((TOTAL_OUTPUTS - NUM_CONSTRAINTS))
             echo "Detected $NUM_CONSTRAINTS constraints, will extract $REAL_OUTPUTS real outputs"
+
+            # Build constraint removal commands for ALL constraints
+            CONSTRAINT_CMDS="constr -r;"
+            # Remove each constraint output from highest index downward
+            for ((i=TOTAL_OUTPUTS-1; i>=REAL_OUTPUTS; i--)); do
+                CONSTRAINT_CMDS="$CONSTRAINT_CMDS removepo -N $i;"
+            done
         else
             REAL_OUTPUTS=""
+            NUM_CONSTRAINTS=0
+            TOTAL_OUTPUTS=0
             echo "No constraints detected"
+            # No constraint removal needed
+            CONSTRAINT_CMDS=""
         fi
 
-        if [ -n "$REAL_OUTPUTS" ]; then
-            # Optimize with constraints, then remove them completely
-            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -c -F $ABC_DEPTH -v; print_stats; write_aiger ${BASE}_after_scorr.aig" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
-
-            # Remove constraint markers by converting through BLIF
-            # BLIF format has no constraint field, so constraints become regular outputs
-            # Then we can use cone to extract only the real outputs
-            echo "Removing constraint outputs..."
-            abc -c "read_aiger ${BASE}_after_scorr.aig; write_blif ${BASE}_temp.blif; read_blif ${BASE}_temp.blif; cone -O 0 -R $REAL_OUTPUTS; strash; print_stats; write_aiger $ABC_OUTPUT" > "${BASE}_abc_temp.log" 2>&1
-            ABC_EXIT_STATUS=$?
-            cat "${BASE}_abc_temp.log" >> "$ABC_LOG"
-            if [ $ABC_EXIT_STATUS -ne 0 ]; then
-                echo "ERROR: ABC command failed during constraint removal. See log below:"
-                cat "${BASE}_abc_temp.log"
-            else
-                grep -E "^output|i/o =|lat =|and =" "${BASE}_abc_temp.log"
-            fi
-            rm -f "${BASE}_abc_temp.log"
-
-            # Clean up temp file
-            rm -f "${BASE}_temp.blif"
-        else
-            # No constraints, use standard flow
-            abc -c "read_aiger $ABC_INPUT; print_stats; strash; print_stats; cycle 100; scorr -F $ABC_DEPTH -v; print_stats; fraig; dc2; dretime; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|Removed equivs"
-        fi
+        # Single unified optimization flow
+        # Always use -c -m flags (they work fine even without constraints)
+        abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -c -m -F $ABC_DEPTH -C 30000 -S 20 -v; $CONSTRAINT_CMDS rewrite -l; fraig; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
 
         if [ ${PIPESTATUS[0]} -eq 0 ] && [ -f "$ABC_OUTPUT" ]; then
             echo ""
@@ -279,5 +304,12 @@ else
 fi
 
 echo ""
-echo "The design has been synthesized with constraints. Logic for outlawed"
-echo "instructions should be optimized away via assumptions and ABC optimization."
+if [ -f "$TIMING_CODE" ]; then
+    echo "The design has been synthesized with ISA + timing constraints."
+    echo "Logic for outlawed instructions and impossible timing scenarios"
+    echo "should be optimized away via assumptions and ABC optimization."
+else
+    echo "The design has been synthesized with ISA constraints."
+    echo "Logic for outlawed instructions should be optimized away via"
+    echo "assumptions and ABC optimization."
+fi
