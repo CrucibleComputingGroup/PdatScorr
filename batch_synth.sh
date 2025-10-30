@@ -470,7 +470,7 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
                 chip_area=""
                 if [ "$HAS_CHIP_AREA" = true ] && [ -f "$synth_log" ]; then
                     # Format: "Chip area: 41676.220800 µm²"
-                    chip_area=$(grep "Chip area:" "$synth_log" | tail -1 | sed -n 's/.*Chip area: *\([0-9.]*\).*/\1/p')
+                    chip_area=$(grep "Chip area:" "$synth_log" | tail -1 | sed -n 's/.*Chip area: *\([0-9]*\.?[0-9]*\).*/\1/p')
                     chip_area=${chip_area:-"N/A"}
                 fi
 
@@ -489,8 +489,12 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
     echo ""
     if [ "$HAS_CHIP_AREA" = true ]; then
         echo "Quick comparison (sorted by chip area):"
-        # Skip header, sort by chip area column (8), show in table format
-        tail -n +2 "$CSV_FILE" | sort -t',' -k8 -g | head -10 | \
+        # Skip header, replace non-numeric chip area with a large value, sort by chip area column (8), show in table format
+        tail -n +2 "$CSV_FILE" | awk -F',' '{
+            # If chip area (column 8) is not a number, replace with a large value for sorting
+            if ($8 !~ /^[0-9.]+$/) $8 = "999999999";
+            print $0;
+        }' OFS=',' | sort -t',' -k8 -g | head -10 | \
             awk -F',' 'BEGIN {printf "%-20s %8s %8s %12s\n", "DSL", "AND_gates", "Levels", "Chip_area(µm²)"}
                        {printf "%-20s %8s %8s %12s\n", $1, $6, $7, $8}'
     else
