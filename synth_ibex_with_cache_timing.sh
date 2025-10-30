@@ -361,18 +361,25 @@ if command -v abc &> /dev/null; then
             NUM_CONSTRAINTS=$(echo "$ABC_STATS" | sed -n 's/.*c=\([0-9]*\).*/\1/p')
             REAL_OUTPUTS=$((TOTAL_OUTPUTS - NUM_CONSTRAINTS))
             echo "Detected $NUM_CONSTRAINTS constraints, will extract $REAL_OUTPUTS real outputs"
+
+            # Build constraint removal commands for ALL constraints
+            CONSTRAINT_CMDS="constr -r;"
+            # Remove each constraint output from highest index downward
+            for ((i=TOTAL_OUTPUTS-1; i>=REAL_OUTPUTS; i--)); do
+                CONSTRAINT_CMDS="$CONSTRAINT_CMDS removepo -N $i;"
+            done
         else
             REAL_OUTPUTS=""
+            NUM_CONSTRAINTS=0
+            TOTAL_OUTPUTS=0
             echo "No constraints detected"
+            # No constraint removal needed
+            CONSTRAINT_CMDS=""
         fi
 
-        if [ -n "$REAL_OUTPUTS" ]; then
-            # Optimize with constraints using scorr
-            abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -c -m -F $ABC_DEPTH -C 30000 -S 15 -v; constr -r; removepo -N 431; rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
-        else
-            # No constraints, use standard flow
-            abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -F $ABC_DEPTH -v; rewrite -l; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|Removed equivs"
-        fi
+        # Single unified optimization flow
+        # Always use -c -m flags (they work fine even without constraints)
+        abc -c "read_aiger $ABC_INPUT; strash; cycle 100; scorr -c -m -F $ABC_DEPTH -C 30000 -S 20 -v; scleanup; $CONSTRAINT_CMDS rewrite -l; fraig; balance -l; print_stats; write_aiger $ABC_OUTPUT" 2>&1 | tee "$ABC_LOG" | grep -E "^output|i/o =|lat =|and =|constraint|Removed equivs"
 
         # # Get the number of real outputs (before constraints)
         # ABC_STATS=$(abc -c "read_aiger $ABC_INPUT; print_stats" 2>&1 | grep "i/o")
