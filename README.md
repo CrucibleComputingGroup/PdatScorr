@@ -1,5 +1,7 @@
 # ScorrPdat - RTL Scorecard and Synthesis Optimization
 
+[![Regression Tests](https://github.com/CrucibleComputingGroup/PdatScorr/actions/workflows/regression-tests.yml/badge.svg)](https://github.com/CrucibleComputingGroup/PdatScorr/actions/workflows/regression-tests.yml)
+
 Tools for RTL analysis, synthesis optimization, and formal equivalence checking of RISC-V processors with DSL-based instruction constraints.
 
 ## Overview
