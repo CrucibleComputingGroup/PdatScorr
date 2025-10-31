@@ -43,6 +43,42 @@ Generates optimized Ibex RTLIL with instruction constraints applied.
 ./synth_ibex_with_constraints.sh my_rules.dsl --gates --3stage
 ```
 
+### Data Type Constraints (NEW)
+
+ScorrPdat now supports **data type constraints** from PdatDsl, allowing you to specify operand widths and signedness. This enables powerful optimizations by indicating which bits of operands are actually used.
+
+**Example DSL with data type constraints:**
+```dsl
+# Require RISC-V extensions
+require RV32I
+require RV32M
+
+# Allow MUL to only use narrow signed operands (8/16-bit)
+# Note: When allowing i16, must also allow i8 (narrower types included)
+# Upper 16 bits can be optimized when values are narrow
+instruction MUL { dtype = ~(i8 | i16) }
+
+# Allow DIV to use only 8-bit or 16-bit signed values
+instruction DIV { dtype = ~(i8 | i16) }
+
+# Per-operand constraints for fine control
+instruction MULHU { rs1_dtype = ~(u8 | u16), rs2_dtype = ~(u8 | u16) }
+```
+
+**Data type syntax:**
+- `i8`, `i16`, `i32`, `i64` - Signed types (sign-extended)
+- `u8`, `u16`, `u32`, `u64` - Unsigned types (zero-extended)
+- `|` operator - Union of types (e.g., `i8 | u8`)
+- `~` prefix - Negation (allow ONLY these types, forbid all others)
+
+**Benefits:**
+1. **Hardware Optimization**: Synthesis tools optimize away unused upper bits
+2. **ABC Optimization**: Sequential optimization can use narrower data paths
+3. **Power Reduction**: Reduced switching activity on unused bits
+4. **Documentation**: Captures high-level intent in machine-readable form
+
+See `examples/` for complete examples with data constraints.
+
 ### RTL-Scorr (SMT-based equivalence checking)
 
 ```bash
