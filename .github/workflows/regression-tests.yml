@@ -23,11 +23,11 @@ jobs:
       with:
         path: PdatScorr
 
-    - name: Checkout PdatDsl
+    - name: Checkout PdatRiscvDsl
       uses: actions/checkout@v4
       with:
-        repository: ${{ github.repository_owner }}/PdatDsl
-        path: PdatDsl
+        repository: ${{ github.repository_owner }}/PdatRiscvDsl
+        path: PdatRiscvDsl
 
     - name: Checkout PdatCoreSim (for Ibex core)
       uses: actions/checkout@v4

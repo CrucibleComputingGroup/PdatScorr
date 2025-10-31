@@ -1,6 +1,10 @@
 # ScorrPdat Dependencies
 # RTL Scorecard and synthesis optimization tools
 
+# PDAT DSL - Install from local package in development mode
+# In CI/CD, this will be checked out to ../PdatRiscvDsl
+-e ../PdatRiscvDsl
+
 # Testing dependencies
 pytest>=7.0.0
 pytest-xdist>=3.0.0  # For parallel test execution
