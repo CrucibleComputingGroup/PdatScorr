@@ -1,0 +1,167 @@
+name: Regression Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:  # Allow manual triggering
+
+env:
+  # Cache key version - increment to invalidate caches
+  CACHE_VERSION: v1
+
+jobs:
+  test:
+    name: Run Regression Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+    - name: Checkout PdatScorr
+      uses: actions/checkout@v4
+      with:
+        path: PdatScorr
+
+    - name: Checkout PdatDsl
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository_owner }}/PdatDsl
+        path: PdatDsl
+
+    - name: Checkout PdatCoreSim (for Ibex core)
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository_owner }}/PdatCoreSim
+        path: PdatCoreSim
+        submodules: recursive  # Important: pulls Ibex core submodule
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: Cache Synlig
+      id: cache-synlig
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/synlig-install
+        key: ${{ runner.os }}-synlig-${{ env.CACHE_VERSION }}-${{ hashFiles('.github/workflows/regression-tests.yml') }}
+
+    - name: Install Synlig
+      if: steps.cache-synlig.outputs.cache-hit != 'true'
+      run: |
+        echo "Installing Synlig..."
+
+        # Install dependencies
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake git libfl-dev
+
+        # Clone and build Synlig
+        cd ~
+        git clone https://github.com/chipsalliance/synlig.git
+        cd synlig
+        git submodule sync
+        git submodule update --init --recursive third_party/{surelog,yosys}
+
+        # Build
+        make install -j$(nproc) PREFIX=~/synlig-install
+
+        echo "Synlig installed to ~/synlig-install"
+
+    - name: Add Synlig to PATH
+      run: |
+        echo "$HOME/synlig-install/bin" >> $GITHUB_PATH
+
+    - name: Cache ABC
+      id: cache-abc
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/abc-install
+        key: ${{ runner.os }}-abc-${{ env.CACHE_VERSION }}
+
+    - name: Install ABC
+      if: steps.cache-abc.outputs.cache-hit != 'true'
+      run: |
+        echo "Installing ABC..."
+
+        # Install dependencies
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake libreadline-dev
+
+        # Clone and build ABC
+        cd ~
+        git clone https://github.com/berkeley-abc/abc.git
+        cd abc
+        make -j$(nproc)
+
+        # Install to local directory
+        mkdir -p ~/abc-install/bin
+        cp abc ~/abc-install/bin/
+
+        echo "ABC installed to ~/abc-install"
+
+    - name: Add ABC to PATH
+      run: |
+        echo "$HOME/abc-install/bin" >> $GITHUB_PATH
+
+    - name: Verify tool installations
+      run: |
+        echo "=== Tool Versions ==="
+        python3 --version
+        synlig --version || echo "Synlig version check failed (expected)"
+        abc -q "help" || echo "ABC help failed (expected)"
+        echo "====================="
+
+    - name: Install Python dependencies
+      run: |
+        cd PdatScorr
+        pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Set IBEX_ROOT environment variable
+      run: |
+        echo "IBEX_ROOT=$GITHUB_WORKSPACE/PdatCoreSim/cores/ibex" >> $GITHUB_ENV
+
+    - name: Verify Ibex core exists
+      run: |
+        if [ -d "$IBEX_ROOT" ]; then
+          echo "✓ Ibex core found at $IBEX_ROOT"
+          ls -la "$IBEX_ROOT/rtl/" | head -10
+        else
+          echo "✗ Ibex core not found at $IBEX_ROOT"
+          exit 1
+        fi
+
+    - name: Run regression tests
+      run: |
+        cd PdatScorr/tests
+        ./run_regression.sh -v
+      timeout-minutes: 20
+
+    - name: Upload test artifacts on failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-failure-outputs
+        path: |
+          PdatScorr/tests/regression/.pytest_cache/
+          /tmp/pytest-*
+        retention-days: 7
+
+    - name: Generate test summary
+      if: always()
+      run: |
+        cd PdatScorr/tests
+        echo "## Regression Test Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+
+        if [ -f regression/.pytest_cache/v/cache/lastfailed ]; then
+          echo "### ❌ Failed Tests" >> $GITHUB_STEP_SUMMARY
+          cat regression/.pytest_cache/v/cache/lastfailed >> $GITHUB_STEP_SUMMARY
+        else
+          echo "### ✅ All Tests Passed" >> $GITHUB_STEP_SUMMARY
+        fi
