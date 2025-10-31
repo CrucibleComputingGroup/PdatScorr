@@ -46,6 +46,11 @@ def generate_synthesis_script(id_stage_modified: str, output_aig: str, ibex_root
     # Convert to absolute path
     ibex_root = os.path.abspath(os.path.expanduser(ibex_root))
 
+    # Convert modified file paths to absolute paths
+    id_stage_modified = os.path.abspath(os.path.expanduser(id_stage_modified))
+    if core_modified:
+        core_modified = os.path.abspath(os.path.expanduser(core_modified))
+
     script = f"""# Synlig script to convert ibex core (with inline assumptions) to AIGER format
 # Auto-generated synthesis script
 # Ibex core path: {ibex_root}
@@ -75,7 +80,7 @@ read_systemverilog \\
   {ibex_root}/rtl/ibex_dummy_instr.sv \\
   {ibex_root}/rtl/ibex_ex_block.sv \\
   {ibex_root}/rtl/ibex_fetch_fifo.sv \\
-  ./{id_stage_modified} \\
+  {id_stage_modified} \\
   {ibex_root}/rtl/ibex_if_stage.sv \\
   {ibex_root}/rtl/ibex_load_store_unit.sv \\
   {ibex_root}/rtl/ibex_multdiv_fast.sv \\
@@ -85,7 +90,7 @@ read_systemverilog \\
   {ibex_root}/rtl/ibex_register_file_ff.sv \\
   {ibex_root}/rtl/ibex_wb_stage.sv \\
   {ibex_root}/vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv \\
-  {'./' + core_modified if core_modified else ibex_root + '/rtl/ibex_core.sv'}
+  {core_modified if core_modified else ibex_root + '/rtl/ibex_core.sv'}
 
 """
 
