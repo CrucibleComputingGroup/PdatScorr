@@ -124,9 +124,32 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Step 2: Inject ISA assumptions into ibex_id_stage.sv
-echo "[2/$TOTAL_STEPS] Injecting ISA assumptions into ibex_id_stage.sv..."
-python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" ../CoreSim/cores/ibex/rtl/ibex_id_stage.sv "$ID_STAGE_SV"
+# Step 2: Inject assumptions into ibex_id_stage.sv
+echo "[2/$TOTAL_STEPS] Injecting assumptions into ibex_id_stage.sv..."
+
+# Find Ibex core path:
+# 1. Use IBEX_ROOT environment variable if set
+# 2. Try ../PdatCoreSim/cores/ibex
+# 3. Try ../CoreSim/cores/ibex
+# 4. Error if none found
+if [ -z "$IBEX_ROOT" ]; then
+    if [ -d "../PdatCoreSim/cores/ibex" ]; then
+        IBEX_ROOT="../PdatCoreSim/cores/ibex"
+    elif [ -d "../CoreSim/cores/ibex" ]; then
+        IBEX_ROOT="../CoreSim/cores/ibex"
+    else
+        echo "ERROR: Could not find Ibex core directory. Tried:"
+        echo "  - ../PdatCoreSim/cores/ibex"
+        echo "  - ../CoreSim/cores/ibex"
+        echo ""
+        echo "Please set IBEX_ROOT environment variable or ensure Ibex is in one of these locations"
+        exit 1
+    fi
+fi
+
+echo "Using Ibex core: $IBEX_ROOT"
+
+python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" "$IBEX_ROOT/rtl/ibex_id_stage.sv" "$ID_STAGE_SV"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to inject ISA assumptions"
@@ -201,13 +224,13 @@ if [ -f "$TIMING_CODE" ]; then
     echo "  - $CORE_SV (modified ibex_core.sv)"
 fi
 echo "  - $SYNTH_SCRIPT (synthesis script)"
-echo "  - ${BASE}_pre_abc.aig (AIGER for external ABC)"
+echo "  - ${BASE}_yosys.aig (AIGER from Yosys, before ABC)"
 echo "  - $YOSYS_LOG (Yosys synthesis log)"
 echo ""
 
 # Step 5: Run external ABC if available
 if command -v abc &> /dev/null; then
-    ABC_INPUT="${BASE}_pre_abc.aig"
+    ABC_INPUT="${BASE}_yosys.aig"
     ABC_OUTPUT="${BASE}_post_abc.aig"
     ABC_LOG="${BASE}_abc.log"
 
