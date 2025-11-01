@@ -59,13 +59,18 @@ jobs:
         cd ~
         wget https://github.com/chipsalliance/synlig/releases/download/2024-12-10-2d838ed/synlig-2d838ed-2024-12-10.tar.gz
 
-        # Extract directly to install location
-        mkdir -p ~/synlig-install
-        tar -xzf synlig-2d838ed-2024-12-10.tar.gz -C ~/synlig-install --strip-components=1
+        # Extract (structure: synlig/synlig and synlig/share/)
+        tar -xzf synlig-2d838ed-2024-12-10.tar.gz
 
-        # Verify extraction
+        # Move to install location and create bin/ subdirectory
+        mkdir -p ~/synlig-install/bin
+        mv synlig/synlig ~/synlig-install/bin/
+        mv synlig/share ~/synlig-install/
+
+        # Verify installation
         ls -la ~/synlig-install/
         ls -la ~/synlig-install/bin/
+        file ~/synlig-install/bin/synlig
 
         # Install runtime dependencies
         sudo apt-get update
