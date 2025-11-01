@@ -14,7 +14,7 @@ env:
 jobs:
   test:
     name: Run Regression Tests
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04  # 24.04 has Synlig double-free issues
     timeout-minutes: 120  # 2 hours for Synlig build from source
 
     steps:
