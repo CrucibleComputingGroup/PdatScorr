@@ -246,6 +246,92 @@ class TestLogParsing:
             "Errors found in Yosys log"
 
 
+class TestConfigMode:
+    """Test config-based synthesis mode."""
+
+    def test_synthesis_with_config_file(self, temp_output_dir):
+        """Test synthesis using config file."""
+        dsl_file = FIXTURES_DIR / "baseline.dsl"
+        config_file = FIXTURES_DIR / "ibex_test.yaml"
+
+        # Verify config file exists
+        assert config_file.exists(), f"Config file not found: {config_file}"
+
+        result = run_synthesis(
+            dsl_file,
+            temp_output_dir,
+            extra_args=["--config", str(config_file)]
+        )
+
+        assert result.success, f"Synthesis with config failed:\nSTDOUT:\n{result.stdout}\n\nSTDERR:\n{result.stderr}"
+
+        # Check success message
+        assert "SUCCESS!" in result.stdout
+
+        # Check core output files exist
+        assert result.has_file("ibex_optimized_assumptions.sv")
+        assert result.has_file("ibex_optimized_id_stage.sv")
+        assert result.has_file("ibex_optimized_synth.ys")
+        assert result.has_file("ibex_optimized_yosys.aig")
+
+        # Check files are non-empty
+        assert result.file_size("ibex_optimized_assumptions.sv") > 0
+        assert result.file_size("ibex_optimized_yosys.aig") > 0
+
+    def test_synthesis_with_core_name(self, temp_output_dir):
+        """Test synthesis using --core flag for auto-config lookup."""
+        dsl_file = FIXTURES_DIR / "baseline.dsl"
+
+        # Copy test config to configs/ directory temporarily for auto-lookup
+        import shutil
+        test_config_src = FIXTURES_DIR / "ibex_test.yaml"
+        test_config_dst = PROJECT_ROOT / "configs" / "test_core.yaml"
+
+        try:
+            shutil.copy(test_config_src, test_config_dst)
+
+            result = run_synthesis(
+                dsl_file,
+                temp_output_dir,
+                extra_args=["--core", "test_core"]
+            )
+
+            assert result.success, f"Synthesis with --core failed:\n{result.stdout}"
+            assert "SUCCESS!" in result.stdout
+            assert result.has_file("ibex_optimized_yosys.aig")
+
+        finally:
+            # Cleanup
+            if test_config_dst.exists():
+                test_config_dst.unlink()
+
+    def test_config_not_found(self, temp_output_dir):
+        """Test error handling when config file doesn't exist."""
+        dsl_file = FIXTURES_DIR / "baseline.dsl"
+        bad_config = FIXTURES_DIR / "nonexistent.yaml"
+
+        result = run_synthesis(
+            dsl_file,
+            temp_output_dir,
+            extra_args=["--config", str(bad_config)]
+        )
+
+        # Should fail gracefully
+        assert not result.success
+        assert "ERROR" in result.stdout or "not found" in result.stdout.lower()
+
+    def test_backward_compatibility(self, temp_output_dir):
+        """Ensure legacy mode (without --config) still works."""
+        dsl_file = FIXTURES_DIR / "baseline.dsl"
+
+        # Run WITHOUT --config flag (legacy mode)
+        result = run_synthesis(dsl_file, temp_output_dir)
+
+        assert result.success, f"Legacy mode synthesis failed:\n{result.stdout}"
+        assert "SUCCESS!" in result.stdout
+        assert result.has_file("ibex_optimized_yosys.aig")
+
+
 if __name__ == "__main__":
     # Allow running directly for quick testing
     pytest.main([__file__, "-v"])

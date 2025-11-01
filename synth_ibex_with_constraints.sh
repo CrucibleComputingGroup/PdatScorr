@@ -9,6 +9,8 @@ set -e
 SYNTHESIZE_GATES=false
 ABC_DEPTH=2
 WRITEBACK_STAGE=false
+CONFIG_FILE=""
+CORE_NAME=""
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --gates) SYNTHESIZE_GATES=true; shift ;;
@@ -21,20 +23,35 @@ while [[ "$#" -gt 0 ]]; do
             fi
             shift 2
             ;;
+        --config)
+            CONFIG_FILE="$2"
+            shift 2
+            ;;
+        --core)
+            CORE_NAME="$2"
+            shift 2
+            ;;
         -h|--help)
             echo "Usage: $0 [OPTIONS] <rules.dsl> [output_dir|output.il]"
             echo ""
-            echo "Generates optimized Ibex core with instruction constraints from DSL file"
+            echo "Generates optimized RISC-V core with instruction constraints from DSL file"
             echo ""
             echo "Options:"
             echo "  --gates           Also synthesize to gate-level netlist with Skywater PDK"
             echo "  --3stage          Enable Ibex 3-stage pipeline (IF, ID/EX, WB) and set ABC depth=3"
             echo "  --abc-depth N     Set ABC k-induction depth (default: 2, matches 2-stage pipeline)"
+            echo "  --config FILE     Use YAML config file (enables config mode)"
+            echo "  --core NAME       Core name for auto-config lookup (default: ibex, looks for configs/NAME.yaml)"
             echo ""
             echo "Arguments:"
             echo "  rules.dsl       DSL file with instruction constraints"
             echo "  output_dir      Base directory for outputs (default: output/)"
             echo "  output.il       Specific output file path (if ends with .il)"
+            echo ""
+            echo "Config Mode:"
+            echo "  When --config or --core is specified, source files and paths are read from"
+            echo "  a YAML configuration file instead of being hardcoded. This allows supporting"
+            echo "  multiple cores (Ibex, BOOM, Rocket, etc.) with the same script."
             echo ""
             echo "Output organization:"
             echo "  - Files are organized in subfolders named after the DSL file"
@@ -47,6 +64,8 @@ while [[ "$#" -gt 0 ]]; do
             echo "  $0 --abc-depth 1 my_rules.dsl           # k=1 induction in output/my_rules/"
             echo "  $0 my_rules.dsl results                 # Outputs to results/my_rules/"
             echo "  $0 my_rules.dsl output/custom.il        # Specific path output/custom.il"
+            echo "  $0 --config configs/ibex.yaml my_rules.dsl    # Use config file"
+            echo "  $0 --core ibex my_rules.dsl             # Auto-load configs/ibex.yaml"
             echo ""
             echo "All intermediate files are placed in the same directory as the final output."
             exit 0
@@ -54,6 +73,18 @@ while [[ "$#" -gt 0 ]]; do
         *) break ;;
     esac
 done
+
+# Handle --core flag: auto-find config file
+if [ -n "$CORE_NAME" ] && [ -z "$CONFIG_FILE" ]; then
+    CONFIG_FILE="configs/${CORE_NAME}.yaml"
+    if [ ! -f "$CONFIG_FILE" ]; then
+        echo "ERROR: Config file not found: $CONFIG_FILE"
+        echo "Available configs:"
+        ls -1 configs/*.yaml 2>/dev/null | grep -v schema.yaml | sed 's/configs\//  - /' || echo "  (none)"
+        exit 1
+    fi
+    echo "Using config file: $CONFIG_FILE"
+fi
 
 # Check DSL file exists
 if [ "$#" -lt 1 ]; then
@@ -183,18 +214,36 @@ fi
 # Step 3: Generate synthesis script
 echo "[3/$TOTAL_STEPS] Generating synthesis script..."
 
-# Set Ibex root path if not already set
-IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
+if [ -n "$CONFIG_FILE" ]; then
+    # Config mode
+    echo "  Using config file: $CONFIG_FILE"
 
-if [ "$WRITEBACK_STAGE" = true ]; then
-    echo "  Enabling 3-stage pipeline (WritebackStage=1)"
-    python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" --writeback-stage \
-        $CORE_MODIFIED_FLAG
+    # Build modified-files argument
+    MODIFIED_FILES_ARGS="--modified-files id_stage_isa=${ID_STAGE_SV}"
+    if [ -f "$CORE_SV" ]; then
+        MODIFIED_FILES_ARGS="$MODIFIED_FILES_ARGS core_timing=${CORE_SV}"
+    fi
+
+    python3 scripts/make_synthesis_script.py \
+        --config "$CONFIG_FILE" \
+        $MODIFIED_FILES_ARGS \
+        -o "$SYNTH_SCRIPT" \
+        -a "${BASE}"
 else
-    python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-        -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" \
-        $CORE_MODIFIED_FLAG
+    # Legacy mode
+    # Set Ibex root path if not already set
+    IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
+
+    if [ "$WRITEBACK_STAGE" = true ]; then
+        echo "  Enabling 3-stage pipeline (WritebackStage=1)"
+        python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
+            -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" --writeback-stage \
+            $CORE_MODIFIED_FLAG
+    else
+        python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
+            -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" \
+            $CORE_MODIFIED_FLAG
+    fi
 fi
 
 if [ $? -ne 0 ]; then
