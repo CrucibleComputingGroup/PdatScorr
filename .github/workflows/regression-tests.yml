@@ -42,14 +42,13 @@ jobs:
         python-version: '3.10'
         cache: 'pip'
 
-    - name: Cache Synlig
+    - name: Restore Synlig Cache
       id: cache-synlig
-      uses: actions/cache@v4
+      uses: actions/cache/restore@v4
       with:
         path: |
           ~/synlig-install
         key: ${{ runner.os }}-synlig-${{ env.CACHE_VERSION }}-2024-12-10
-        save-always: true  # Save cache even if tests fail later
 
     - name: Install Synlig (from pre-built binary)
       if: steps.cache-synlig.outputs.cache-hit != 'true'
@@ -77,16 +76,15 @@ jobs:
       run: |
         echo "$HOME/synlig-install/bin" >> $GITHUB_PATH
 
-    - name: Cache ABC
+    - name: Restore ABC Cache
       id: cache-abc
-      uses: actions/cache@v4
+      uses: actions/cache/restore@v4
       with:
         path: |
           ~/abc-install
         key: ${{ runner.os }}-abc-stable-v1
         restore-keys: |
           ${{ runner.os }}-abc-
-        save-always: true  # Save cache even if tests fail later
 
     - name: Install ABC
       if: steps.cache-abc.outputs.cache-hit != 'true'
@@ -156,6 +154,22 @@ jobs:
           PdatScorr/tests/regression/.pytest_cache/
           /tmp/pytest-*
         retention-days: 7
+
+    - name: Save Synlig Cache
+      if: always() && steps.cache-synlig.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v4
+      with:
+        path: |
+          ~/synlig-install
+        key: ${{ runner.os }}-synlig-${{ env.CACHE_VERSION }}-2024-12-10
+
+    - name: Save ABC Cache
+      if: always() && steps.cache-abc.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v4
+      with:
+        path: |
+          ~/abc-install
+        key: ${{ runner.os }}-abc-stable-v1
 
     - name: Generate test summary
       if: always()
