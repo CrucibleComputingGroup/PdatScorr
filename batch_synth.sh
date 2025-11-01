@@ -42,6 +42,14 @@ while [[ "$#" -gt 0 ]]; do
             EXTRA_ARGS="$EXTRA_ARGS --abc-depth $2"
             shift 2
             ;;
+        --config)
+            EXTRA_ARGS="$EXTRA_ARGS --config $2"
+            shift 2
+            ;;
+        --core)
+            EXTRA_ARGS="$EXTRA_ARGS --core $2"
+            shift 2
+            ;;
         --gnu-parallel)
             USE_GNU_PARALLEL=true
             shift
@@ -66,6 +74,8 @@ while [[ "$#" -gt 0 ]]; do
             echo "  --gates               Pass --gates to synthesis script"
             echo "  --3stage              Pass --3stage to synthesis script"
             echo "  --abc-depth N         Pass --abc-depth N to synthesis script"
+            echo "  --config FILE         Pass --config FILE to synthesis script (config mode)"
+            echo "  --core NAME           Pass --core NAME to synthesis script (auto-config)"
             echo "  --gnu-parallel        Use GNU parallel if available (faster)"
             echo "  -v, --verbose         Show detailed output from each job"
             echo "  -h, --help            Show this help message"
@@ -79,6 +89,7 @@ while [[ "$#" -gt 0 ]]; do
             echo "  $0 --gates -j 4 ../PdatDsl/examples/  # All files with gates"
             echo "  $0 rules/*.dsl                    # Wildcard expansion"
             echo "  $0 -j 8 test1.dsl test2.dsl      # Specific files"
+            echo "  $0 --config configs/ibex.yaml rules/*.dsl  # Use config file"
             echo ""
             echo "Each DSL file will be processed to its own subfolder:"
             echo "  test.dsl → output/test/"
