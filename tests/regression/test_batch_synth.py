@@ -70,6 +70,11 @@ def run_batch_synth(dsl_files: List[Path], output_dir: Path,
         BatchSynthResult with execution details
     """
     cmd = [str(BATCH_SCRIPT)]
+
+    # Force -j 1 to avoid nested parallelism when pytest runs tests in parallel
+    # (otherwise we could have pytest -n 4 * batch -j 4 = 16 concurrent processes)
+    cmd.extend(["-j", "1"])
+
     if extra_args:
         cmd.extend(extra_args)
 
