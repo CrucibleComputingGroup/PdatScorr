@@ -4,10 +4,11 @@
 # Usage: ./run_regression.sh [pytest-options]
 #
 # Examples:
-#   ./run_regression.sh                    # Run all tests
+#   ./run_regression.sh                    # Run all tests in parallel
 #   ./run_regression.sh -v                 # Verbose output
 #   ./run_regression.sh -k test_baseline   # Run specific test
-#   ./run_regression.sh -m "not slow"      # Skip slow tests
+#   ./run_regression.sh -m "not slow"      # Skip slow tests (faster)
+#   ./run_regression.sh -n 4               # Override parallelism (default: auto)
 
 set -e
 
@@ -76,9 +77,9 @@ cd "$SCRIPT_DIR/regression"
 
 # Default options if none provided
 if [ $# -eq 0 ]; then
-    pytest -v
+    pytest -n auto -v
 else
-    pytest "$@"
+    pytest -n auto "$@"
 fi
 
 exit_code=$?
