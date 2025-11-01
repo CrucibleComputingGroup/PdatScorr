@@ -205,6 +205,11 @@ fi
 # Step 4: Run synthesis
 echo "[4/$TOTAL_STEPS] Running synthesis with Synlig (this may take several minutes)..."
 YOSYS_LOG="${BASE}_yosys.log"
+
+# Set unique Surelog cache directory to avoid conflicts with parallel runs
+export SLPP_ALL="$OUTPUT_DIR/slpp_all"
+mkdir -p "$SLPP_ALL"
+
 synlig -s "$SYNTH_SCRIPT" 2>&1 | tee "$YOSYS_LOG"
 
 if [ ${PIPESTATUS[0]} -ne 0 ]; then

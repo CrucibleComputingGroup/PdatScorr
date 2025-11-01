@@ -127,13 +127,11 @@ class TestBasicSynthesis:
         assert result.file_size("ibex_optimized_assumptions.sv") > 0, "Assumptions file is empty"
         assert result.file_size("ibex_optimized_yosys.aig") > 0, "AIGER file is empty"
 
-        # Check ABC outputs (if abc available and succeeded)
-        # Note: ABC may fail for various reasons (constraints, etc), which is acceptable
+        # Check ABC outputs (if abc available)
         if shutil.which("abc"):
             assert result.has_file("ibex_optimized_abc.log"), "ABC log not generated"
-            # Only check for post_abc.aig if ABC succeeded
-            if result.has_file("ibex_optimized_post_abc.aig"):
-                assert result.file_size("ibex_optimized_post_abc.aig") > 0, "Post-ABC AIGER is empty"
+            assert result.has_file("ibex_optimized_post_abc.aig"), "ABC optimization failed - post_abc.aig not created"
+            assert result.file_size("ibex_optimized_post_abc.aig") > 0, "Post-ABC AIGER is empty"
 
     def test_instruction_constraints(self, temp_output_dir):
         """Test synthesis with instruction constraints (data types)."""
