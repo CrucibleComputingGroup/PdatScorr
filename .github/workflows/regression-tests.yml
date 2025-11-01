@@ -14,8 +14,8 @@ env:
 jobs:
   test:
     name: Run Regression Tests
-    runs-on: self-hosted
-    timeout-minutes: 45
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120  # 2 hours for Synlig build from source
 
     steps:
     - name: Checkout PdatScorr
@@ -36,6 +36,92 @@ jobs:
         path: PdatCoreSim
         submodules: recursive  # Important: pulls Ibex core submodule
 
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: Restore Synlig Cache
+      id: cache-synlig
+      uses: actions/cache/restore@v4
+      with:
+        path: synlig-install
+        key: ${{ runner.os }}-synlig-source-${{ env.CACHE_VERSION }}
+
+    - name: Build Synlig from source
+      if: steps.cache-synlig.outputs.cache-matched-key == ''
+      run: |
+        echo "Building Synlig from source (this takes ~60 minutes)..."
+
+        # Install Python dependencies for Surelog
+        pip install orderedmultidict
+
+        # Install system dependencies
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential cmake git \
+          tclsh tcl-dev \
+          ant default-jre \
+          swig \
+          python3 python3-dev python3-pip \
+          uuid uuid-dev \
+          flex libfl-dev \
+          pkg-config libreadline-dev \
+          bison libffi-dev \
+          wget
+
+        # Clone and build Synlig
+        git clone https://github.com/chipsalliance/synlig.git
+        cd synlig
+        git submodule sync
+        git submodule update --init --recursive third_party/{surelog,yosys}
+
+        # Build with limited parallelism to avoid OOM
+        echo "Starting build at $(date)"
+        make install -j2 PREFIX=$GITHUB_WORKSPACE/synlig-install
+        echo "Build completed at $(date)"
+
+        echo "Synlig built and installed successfully"
+
+    - name: Add Synlig to PATH
+      run: |
+        echo "$GITHUB_WORKSPACE/synlig-install/bin" >> $GITHUB_PATH
+
+    - name: Restore ABC Cache
+      id: cache-abc
+      uses: actions/cache/restore@v4
+      with:
+        path: abc-install
+        key: ${{ runner.os }}-abc-stable-v1
+        restore-keys: |
+          ${{ runner.os }}-abc-
+
+    - name: Build ABC
+      if: steps.cache-abc.outputs.cache-matched-key == ''
+      run: |
+        echo "Building ABC..."
+
+        # Install dependencies
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake libreadline-dev
+
+        # Clone and build ABC
+        git clone https://github.com/berkeley-abc/abc.git
+        cd abc
+        make -j$(nproc)
+
+        # Install to workspace directory
+        cd ..
+        mkdir -p abc-install/bin
+        cp abc/abc abc-install/bin/
+
+        echo "ABC built successfully"
+
+    - name: Add ABC to PATH
+      run: |
+        echo "$GITHUB_WORKSPACE/abc-install/bin" >> $GITHUB_PATH
+
     - name: Install Python dependencies
       run: |
         cd PdatScorr
@@ -46,13 +132,13 @@ jobs:
       run: |
         echo "IBEX_ROOT=$GITHUB_WORKSPACE/PdatCoreSim/cores/ibex" >> $GITHUB_ENV
 
-    - name: Verify dependencies
+    - name: Verify tool installations
       run: |
         echo "=== Tool Versions ==="
         python3 --version
-        synlig --version || echo "WARNING: synlig not found in PATH"
-        abc --version || echo "WARNING: abc not found in PATH"
-        pdat-dsl --help | head -5 || echo "WARNING: pdat-dsl not installed"
+        which synlig && synlig --version || echo "ERROR: synlig not found"
+        which abc || echo "ERROR: abc not found"
+        pdat-dsl --help | head -3 || echo "ERROR: pdat-dsl not installed"
         echo ""
         echo "=== Ibex Core ==="
         if [ -d "$IBEX_ROOT" ]; then
@@ -70,6 +156,20 @@ jobs:
         # to avoid Synlig/Surelog double-free issues
         pytest -v --maxfail=5
       timeout-minutes: 30
+
+    - name: Save Synlig Cache
+      if: always() && steps.cache-synlig.outputs.cache-matched-key == ''
+      uses: actions/cache/save@v4
+      with:
+        path: synlig-install
+        key: ${{ runner.os }}-synlig-source-${{ env.CACHE_VERSION }}
+
+    - name: Save ABC Cache
+      if: always() && steps.cache-abc.outputs.cache-matched-key == ''
+      uses: actions/cache/save@v4
+      with:
+        path: abc-install
+        key: ${{ runner.os }}-abc-stable-v1
 
     - name: Generate test summary
       if: always()
