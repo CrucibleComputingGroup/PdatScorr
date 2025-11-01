@@ -7,6 +7,7 @@ Handles environment variable expansion and path resolution.
 """
 
 import os
+import sys
 import yaml
 from pathlib import Path
 from typing import Dict, Any, Optional, List
@@ -123,7 +124,7 @@ class ConfigLoader:
             for fallback in fallback_paths:
                 fallback_abs = fallback.resolve()
                 if fallback_abs.is_dir():
-                    print(f"Warning: ${var_name} not set, using fallback: {fallback_abs}")
+                    print(f"Warning: ${var_name} not set, using fallback: {fallback_abs}", file=sys.stderr)
                     return str(fallback_abs)
 
             raise FileNotFoundError(

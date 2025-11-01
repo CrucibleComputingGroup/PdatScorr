@@ -155,53 +155,134 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Step 2: Inject assumptions into ibex_id_stage.sv
-echo "[2/$TOTAL_STEPS] Injecting assumptions into ibex_id_stage.sv..."
+# Step 2: Inject assumptions into ID stage
+echo "[2/$TOTAL_STEPS] Injecting assumptions into ID stage..."
 
-# Find Ibex core path:
-# 1. Use IBEX_ROOT environment variable if set
-# 2. Try ../PdatCoreSim/cores/ibex
-# 3. Try ../CoreSim/cores/ibex
-# 4. Error if none found
-if [ -z "$IBEX_ROOT" ]; then
-    if [ -d "../PdatCoreSim/cores/ibex" ]; then
-        IBEX_ROOT="../PdatCoreSim/cores/ibex"
-    elif [ -d "../CoreSim/cores/ibex" ]; then
-        IBEX_ROOT="../CoreSim/cores/ibex"
-    else
-        echo "ERROR: Could not find Ibex core directory. Tried:"
-        echo "  - ../PdatCoreSim/cores/ibex"
-        echo "  - ../CoreSim/cores/ibex"
-        echo ""
-        echo "Please set IBEX_ROOT environment variable or ensure Ibex is in one of these locations"
+# Determine core root path based on mode
+if [ -n "$CONFIG_FILE" ]; then
+    # Config mode: Validate config file exists first
+    if [ ! -f "$CONFIG_FILE" ]; then
+        echo "ERROR: Config file not found: $CONFIG_FILE"
         exit 1
     fi
+
+    # Get core root from config file
+    CORE_ROOT=$(python3 -c "
+import sys
+sys.path.insert(0, 'scripts')
+try:
+    from config_loader import ConfigLoader
+    config = ConfigLoader.load_config('$CONFIG_FILE')
+    print(config.synthesis.core_root_resolved)
+except Exception as e:
+    print(f'ERROR: {e}', file=sys.stderr)
+    sys.exit(1)
+")
+
+    if [ $? -ne 0 ] || [ -z "$CORE_ROOT" ] || [[ "$CORE_ROOT" == ERROR:* ]]; then
+        echo "ERROR: Failed to load core root from config file"
+        echo "$CORE_ROOT"
+        exit 1
+    fi
+
+    # Get ID stage source file from config
+    ID_STAGE_SOURCE=$(python3 -c "
+import sys
+sys.path.insert(0, 'scripts')
+try:
+    from config_loader import ConfigLoader
+    config = ConfigLoader.load_config('$CONFIG_FILE')
+    inj = config.get_injection('isa')
+    if inj:
+        print(f'{config.synthesis.core_root_resolved}/{inj.source_file}')
+    else:
+        print('ERROR: No ISA injection point found', file=sys.stderr)
+        sys.exit(1)
+except Exception as e:
+    print(f'ERROR: {e}', file=sys.stderr)
+    sys.exit(1)
+")
+
+    if [ $? -ne 0 ] || [ -z "$ID_STAGE_SOURCE" ] || [[ "$ID_STAGE_SOURCE" == ERROR:* ]]; then
+        echo "ERROR: Could not find ISA injection point in config"
+        echo "$ID_STAGE_SOURCE"
+        exit 1
+    fi
+else
+    # Legacy mode: Use IBEX_ROOT
+    # 1. Use IBEX_ROOT environment variable if set
+    # 2. Try ../PdatCoreSim/cores/ibex
+    # 3. Try ../CoreSim/cores/ibex
+    # 4. Error if none found
+    if [ -z "$IBEX_ROOT" ]; then
+        if [ -d "../PdatCoreSim/cores/ibex" ]; then
+            IBEX_ROOT="../PdatCoreSim/cores/ibex"
+        elif [ -d "../CoreSim/cores/ibex" ]; then
+            IBEX_ROOT="../CoreSim/cores/ibex"
+        else
+            echo "ERROR: Could not find Ibex core directory. Tried:"
+            echo "  - ../PdatCoreSim/cores/ibex"
+            echo "  - ../CoreSim/cores/ibex"
+            echo ""
+            echo "Please set IBEX_ROOT environment variable or ensure Ibex is in one of these locations"
+            exit 1
+        fi
+    fi
+
+    CORE_ROOT="$IBEX_ROOT"
+    ID_STAGE_SOURCE="$IBEX_ROOT/rtl/ibex_id_stage.sv"
 fi
 
-echo "Using Ibex core: $IBEX_ROOT"
+echo "Using core root: $CORE_ROOT"
 
-python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" "$IBEX_ROOT/rtl/ibex_id_stage.sv" "$ID_STAGE_SV"
+python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" "$ID_STAGE_SOURCE" "$ID_STAGE_SV"
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to inject ISA assumptions"
     exit 1
 fi
 
-# Step 2.5: Check if timing constraints were generated and inject into ibex_core.sv
+# Step 2.5: Check if timing constraints were generated and inject into core
 CORE_MODIFIED_FLAG=""
 if [ -f "$TIMING_CODE" ]; then
-    echo "[2.5/$TOTAL_STEPS] Detected timing constraints, injecting into ibex_core.sv..."
+    echo "[2.5/$TOTAL_STEPS] Detected timing constraints, injecting into core..."
 
-    # Set Ibex root path early (needed for core injection)
-    IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
+    if [ -n "$CONFIG_FILE" ]; then
+        # Config mode: Get core source file from config
+        CORE_SOURCE=$(python3 -c "
+import sys
+sys.path.insert(0, 'scripts')
+try:
+    from config_loader import ConfigLoader
+    config = ConfigLoader.load_config('$CONFIG_FILE')
+    inj = config.get_injection('timing')
+    if inj:
+        print(f'{config.synthesis.core_root_resolved}/{inj.source_file}')
+    else:
+        print('ERROR: No timing injection point found', file=sys.stderr)
+        sys.exit(1)
+except Exception as e:
+    print(f'ERROR: {e}', file=sys.stderr)
+    sys.exit(1)
+")
+
+        if [ $? -ne 0 ] || [ -z "$CORE_SOURCE" ] || [[ "$CORE_SOURCE" == ERROR:* ]]; then
+            echo "ERROR: Could not find timing injection point in config"
+            echo "$CORE_SOURCE"
+            exit 1
+        fi
+    else
+        # Legacy mode
+        CORE_SOURCE="$CORE_ROOT/rtl/ibex_core.sv"
+    fi
 
     python3 scripts/inject_core_timing.py \
         --timing-file "$TIMING_CODE" \
-        "$IBEX_ROOT/rtl/ibex_core.sv" \
+        "$CORE_SOURCE" \
         "$CORE_SV"
 
     if [ $? -ne 0 ]; then
-        echo "ERROR: Failed to inject timing constraints into ibex_core.sv"
+        echo "ERROR: Failed to inject timing constraints"
         exit 1
     fi
 
@@ -231,17 +312,14 @@ if [ -n "$CONFIG_FILE" ]; then
         -a "${BASE}"
 else
     # Legacy mode
-    # Set Ibex root path if not already set
-    IBEX_ROOT="${IBEX_ROOT:-../CoreSim/cores/ibex}"
-
     if [ "$WRITEBACK_STAGE" = true ]; then
         echo "  Enabling 3-stage pipeline (WritebackStage=1)"
         python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-            -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" --writeback-stage \
+            -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$CORE_ROOT" --writeback-stage \
             $CORE_MODIFIED_FLAG
     else
         python3 scripts/make_synthesis_script.py "$ID_STAGE_SV" \
-            -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$IBEX_ROOT" \
+            -o "$SYNTH_SCRIPT" -a "${BASE}" --ibex-root "$CORE_ROOT" \
             $CORE_MODIFIED_FLAG
     fi
 fi
