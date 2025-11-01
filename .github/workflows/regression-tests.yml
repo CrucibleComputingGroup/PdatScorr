@@ -163,14 +163,11 @@ jobs:
 
     - name: Run regression tests
       run: |
-        cd PdatScorr/tests
-        # Run tests with limited parallelism to avoid Synlig/Surelog conflicts
-        # The -n 1 flag runs tests sequentially
-        ./run_regression.sh -v -n 1
+        cd PdatScorr/tests/regression
+        # Run pytest directly without xdist parallelism
+        # to avoid Synlig/Surelog double-free issues
+        pytest -v --maxfail=5
       timeout-minutes: 30
-      env:
-        # Set malloc debugging to get better error messages
-        MALLOC_CHECK_: 0
 
     - name: Upload test artifacts on failure
       if: failure()
