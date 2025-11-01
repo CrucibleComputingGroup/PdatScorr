@@ -49,6 +49,7 @@ jobs:
         path: |
           ~/synlig-install
         key: ${{ runner.os }}-synlig-${{ env.CACHE_VERSION }}-2024-12-10
+        save-always: true  # Save cache even if tests fail later
 
     - name: Install Synlig (from pre-built binary)
       if: steps.cache-synlig.outputs.cache-hit != 'true'
@@ -82,7 +83,10 @@ jobs:
       with:
         path: |
           ~/abc-install
-        key: ${{ runner.os }}-abc-${{ env.CACHE_VERSION }}
+        key: ${{ runner.os }}-abc-stable-v1
+        restore-keys: |
+          ${{ runner.os }}-abc-
+        save-always: true  # Save cache even if tests fail later
 
     - name: Install ABC
       if: steps.cache-abc.outputs.cache-hit != 'true'
