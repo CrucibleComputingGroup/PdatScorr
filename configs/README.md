@@ -18,10 +18,10 @@ The configuration system replaces hardcoded paths and settings with flexible, va
 
 ```bash
 # Synthesize with config file
-./synth_ibex_with_constraints.sh --config configs/ibex.yaml my_rules.dsl
+./synth_core.sh --config configs/ibex.yaml my_rules.dsl
 
 # Auto-load config by core name
-./synth_ibex_with_constraints.sh --core ibex my_rules.dsl
+./synth_core.sh --core ibex my_rules.dsl
 
 # Batch synthesis with config
 ./batch_synth.sh --config configs/ibex.yaml rules/*.dsl
@@ -31,7 +31,7 @@ The configuration system replaces hardcoded paths and settings with flexible, va
 
 ```bash
 # Works exactly as before - no config needed
-./synth_ibex_with_constraints.sh my_rules.dsl
+./synth_core.sh my_rules.dsl
 ```
 
 ## Configuration File Structure
@@ -218,7 +218,7 @@ If an environment variable is not set, the loader will try common fallback paths
 
 7. **Test Synthesis:**
    ```bash
-   ./synth_ibex_with_constraints.sh --config configs/newcore.yaml test.dsl
+   ./synth_core.sh --config configs/newcore.yaml test.dsl
    ```
 
 ## Validation
@@ -257,7 +257,7 @@ python3 scripts/config_loader.py configs/yourcore.yaml --dump
 ### Test Synthesis
 ```bash
 # Quick test with minimal DSL
-./synth_ibex_with_constraints.sh --config configs/yourcore.yaml \
+./synth_core.sh --config configs/yourcore.yaml \
     tests/regression/fixtures/baseline.dsl /tmp/test_output
 ```
 
@@ -285,13 +285,13 @@ Parameters in the config can be overridden by command-line flags:
 ```bash
 # Config has writeback_stage: false
 # Override to 3-stage mode
-./synth_ibex_with_constraints.sh --config configs/ibex.yaml --3stage rules.dsl
+./synth_core.sh --config configs/ibex.yaml --3stage rules.dsl
 ```
 
 ### Custom ABC Depth
 
 ```bash
-./synth_ibex_with_constraints.sh --config configs/ibex.yaml --abc-depth 4 rules.dsl
+./synth_core.sh --config configs/ibex.yaml --abc-depth 4 rules.dsl
 ```
 
 ### Batch Synthesis
@@ -306,20 +306,20 @@ Parameters in the config can be overridden by command-line flags:
 **Old (hardcoded):**
 ```bash
 export IBEX_ROOT=/path/to/ibex
-./synth_ibex_with_constraints.sh my_rules.dsl
+./synth_core.sh my_rules.dsl
 ```
 
 **New (config-based):**
 ```bash
 # Option 1: Use environment variable (no change needed)
-./synth_ibex_with_constraints.sh --config configs/ibex.yaml my_rules.dsl
+./synth_core.sh --config configs/ibex.yaml my_rules.dsl
 
 # Option 2: Set path in config file
 # Edit configs/ibex.yaml: core_root: "/path/to/ibex"
-./synth_ibex_with_constraints.sh --config configs/ibex.yaml my_rules.dsl
+./synth_core.sh --config configs/ibex.yaml my_rules.dsl
 
 # Option 3: Auto-load by core name
-./synth_ibex_with_constraints.sh --core ibex my_rules.dsl
+./synth_core.sh --core ibex my_rules.dsl
 ```
 
 **Advantages:**

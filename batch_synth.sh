@@ -132,8 +132,8 @@ if [ ${#DSL_FILES[@]} -eq 0 ]; then
 fi
 
 # Check if synthesis script exists
-if [ ! -f "./synth_ibex_with_constraints.sh" ]; then
-    echo -e "${RED}Error: synth_ibex_with_constraints.sh not found in current directory${NC}"
+if [ ! -f "./synth_core.sh" ]; then
+    echo -e "${RED}Error: synth_core.sh not found in current directory${NC}"
     exit 1
 fi
 
@@ -194,11 +194,11 @@ run_synthesis() {
 
     if [ "$VERBOSE" = true ]; then
         # Show output directly
-        ./synth_ibex_with_constraints.sh $EXTRA_ARGS "$dsl_file" "$parent_dir" 2>&1 | tee "$log_file"
+        ./synth_core.sh $EXTRA_ARGS "$dsl_file" "$parent_dir" 2>&1 | tee "$log_file"
         local exit_code=${PIPESTATUS[0]}
     else
         # Redirect to log file
-        ./synth_ibex_with_constraints.sh $EXTRA_ARGS "$dsl_file" "$parent_dir" > "$log_file" 2>&1
+        ./synth_core.sh $EXTRA_ARGS "$dsl_file" "$parent_dir" > "$log_file" 2>&1
         local exit_code=$?
     fi
 

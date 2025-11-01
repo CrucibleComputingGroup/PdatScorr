@@ -17,7 +17,7 @@ from typing import List, Tuple
 
 # Path to project root (2 levels up from this file)
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-SYNTH_SCRIPT = PROJECT_ROOT / "synth_ibex_with_constraints.sh"
+SYNTH_SCRIPT = PROJECT_ROOT / "synth_core.sh"
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
 
 
