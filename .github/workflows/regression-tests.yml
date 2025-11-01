@@ -93,9 +93,9 @@ jobs:
       uses: actions/cache/restore@v4
       with:
         path: abc-install
-        key: ${{ runner.os }}-abc-stable-v1
+        key: ${{ runner.os }}-abc-workspace-v1
         restore-keys: |
-          ${{ runner.os }}-abc-
+          ${{ runner.os }}-abc-workspace-
 
     - name: Build ABC
       if: steps.cache-abc.outputs.cache-matched-key == ''
@@ -169,7 +169,7 @@ jobs:
       uses: actions/cache/save@v4
       with:
         path: abc-install
-        key: ${{ runner.os }}-abc-stable-v1
+        key: ${{ runner.os }}-abc-workspace-v1
 
     - name: Generate test summary
       if: always()

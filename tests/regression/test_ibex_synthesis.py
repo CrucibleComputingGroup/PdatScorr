@@ -76,7 +76,8 @@ def run_synthesis(dsl_file: Path, output_dir: Path,
             capture_output=True,
             text=True,
             timeout=600,  # 10 minute timeout
-            cwd=PROJECT_ROOT
+            cwd=PROJECT_ROOT,
+            env=os.environ.copy()  # Inherit environment including PATH
         )
 
         # Determine actual output directory (script creates subdirectory)
