@@ -76,10 +76,12 @@ echo ""
 cd "$SCRIPT_DIR/regression"
 
 # Default options if none provided
+# Use -n 4 instead of -n auto to avoid overwhelming the system
+# Synthesis tests are heavy (CPU, memory, I/O) so limit parallelism
 if [ $# -eq 0 ]; then
-    pytest -n auto -v
+    pytest -n 4 -v
 else
-    pytest -n auto "$@"
+    pytest -n 4 "$@"
 fi
 
 exit_code=$?
