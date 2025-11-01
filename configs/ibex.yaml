@@ -1,0 +1,96 @@
+# Ibex Core Configuration for PDAT Synthesis
+# https://github.com/lowRISC/ibex
+#
+# This configuration file specifies signal names, hierarchy details,
+# and synthesis settings for the lowRISC Ibex RISC-V core.
+
+core_name: "ibex"
+architecture: "rv32"  # Ibex is RV32IMC
+
+# Multiple injection points for different constraint types
+injections:
+  # ISA constraints injected into ID stage
+  - name: "id_stage_isa"
+    source_file: "rtl/ibex_id_stage.sv"
+    constraint_type: "isa"
+    module_path: "ibex_core.id_stage_i"
+    description: "ID/Decode stage - where ISA instruction constraints are injected"
+
+  # Timing constraints injected into core top-level
+  - name: "core_timing"
+    source_file: "rtl/ibex_core.sv"
+    constraint_type: "timing"
+    module_path: "ibex_core"
+    description: "Core top-level - where cache timing constraints are injected"
+
+# Signal naming conventions for Ibex
+signals:
+  # Instruction and PC signals
+  instruction_data: "instr_rdata_i"
+  pc: "pc_if_o"
+
+  # Operand signals by execution unit
+  operands:
+    # ALU operands (used by most arithmetic/logic instructions)
+    alu:
+      rs1: "alu_operand_a_ex_i"
+      rs2: "alu_operand_b_ex_i"
+
+    # Multiply/Divide unit operands
+    multdiv:
+      rs1: "multdiv_operand_a_ex_i"
+      rs2: "multdiv_operand_b_ex_i"
+
+# VCD analysis configuration
+vcd:
+  testbench_prefix: "tb_ibex_random.dut"
+
+# Synthesis configuration
+synthesis:
+  # Core root path - tries environment variable first, then fallback paths
+  core_root: "$IBEX_ROOT"
+
+  # Top-level module to synthesize
+  top_module: "ibex_core"
+
+  # Include directories (relative to core_root)
+  include_dirs:
+    - "rtl"
+    - "shared/rtl"
+    - "vendor/lowrisc_ip/ip/prim/rtl"
+    - "vendor/lowrisc_ip/dv/sv/dv_utils"
+
+  # Source files in dependency order (relative to core_root)
+  # NOTE: Files listed in injections will be replaced with modified versions
+  source_files:
+    - "rtl/ibex_pkg.sv"
+    - "rtl/ibex_alu.sv"
+    - "rtl/ibex_branch_predict.sv"
+    - "rtl/ibex_compressed_decoder.sv"
+    - "rtl/ibex_controller.sv"
+    - "rtl/ibex_counter.sv"
+    - "rtl/ibex_cs_registers.sv"
+    - "rtl/ibex_csr.sv"
+    - "rtl/ibex_decoder.sv"
+    - "rtl/ibex_dummy_instr.sv"
+    - "rtl/ibex_ex_block.sv"
+    - "rtl/ibex_fetch_fifo.sv"
+    - "rtl/ibex_id_stage.sv"        # Will be replaced with modified version
+    - "rtl/ibex_if_stage.sv"
+    - "rtl/ibex_load_store_unit.sv"
+    - "rtl/ibex_multdiv_fast.sv"
+    - "rtl/ibex_multdiv_slow.sv"
+    - "rtl/ibex_pmp.sv"
+    - "rtl/ibex_prefetch_buffer.sv"
+    - "rtl/ibex_register_file_ff.sv"
+    - "rtl/ibex_wb_stage.sv"
+    - "vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv"
+    - "rtl/ibex_core.sv"             # Will be replaced with modified version
+
+  # Synthesis parameters
+  parameters:
+    writeback_stage: false  # 2-stage pipeline by default (set to true for 3-stage)
+
+  # ABC optimization settings
+  abc:
+    default_depth: 2  # k-induction depth matching 2-stage pipeline
