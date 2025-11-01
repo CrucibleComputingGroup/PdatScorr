@@ -369,8 +369,9 @@ echo "[4/$TOTAL_STEPS] Running synthesis with Synlig (this may take several minu
 YOSYS_LOG="${BASE}_yosys.log"
 
 # Set unique Surelog cache directory to avoid conflicts with parallel runs
-# Use PID to ensure uniqueness even when running in parallel
-export SLPP_ALL="$OUTPUT_DIR/slpp_all_$$"
+# Use PID + random to ensure uniqueness even in nested parallel execution
+# (e.g., batch_synth.sh running multiple jobs in parallel)
+export SLPP_ALL="$OUTPUT_DIR/slpp_all_$$_$RANDOM"
 mkdir -p "$SLPP_ALL"
 
 synlig -s "$SYNTH_SCRIPT" 2>&1 | tee "$YOSYS_LOG"
