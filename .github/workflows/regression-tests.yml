@@ -47,11 +47,11 @@ jobs:
       uses: actions/cache/restore@v4
       with:
         path: |
-          ~/synlig-install
+          /home/runner/synlig-install
         key: ${{ runner.os }}-synlig-${{ env.CACHE_VERSION }}-2024-12-10
 
     - name: Install Synlig (from pre-built binary)
-      if: steps.cache-synlig.outputs.cache-hit != 'true'
+      if: steps.cache-synlig.outputs.cache-matched-key == ''
       run: |
         echo "Installing Synlig from pre-built binary..."
 
@@ -83,13 +83,13 @@ jobs:
       uses: actions/cache/restore@v4
       with:
         path: |
-          ~/abc-install
+          /home/runner/abc-install
         key: ${{ runner.os }}-abc-stable-v1
         restore-keys: |
           ${{ runner.os }}-abc-
 
     - name: Install ABC
-      if: steps.cache-abc.outputs.cache-hit != 'true'
+      if: steps.cache-abc.outputs.cache-matched-key == ''
       run: |
         echo "Installing ABC..."
 
@@ -117,8 +117,18 @@ jobs:
       run: |
         echo "=== Tool Versions ==="
         python3 --version
-        synlig --version || echo "Synlig version check failed (expected)"
-        abc -q "help" || echo "ABC help failed (expected)"
+        echo ""
+        echo "=== PATH ==="
+        echo "$PATH"
+        echo ""
+        echo "=== Synlig ==="
+        which synlig || echo "synlig not in PATH"
+        ls -la ~/synlig-install/bin/synlig || echo "synlig binary not found"
+        ~/synlig-install/bin/synlig --version || echo "Synlig direct call failed"
+        echo ""
+        echo "=== ABC ==="
+        which abc || echo "abc not in PATH"
+        ls -la ~/abc-install/bin/abc || echo "abc binary not found"
         echo "====================="
 
     - name: Install Python dependencies
@@ -158,19 +168,19 @@ jobs:
         retention-days: 7
 
     - name: Save Synlig Cache
-      if: always() && steps.cache-synlig.outputs.cache-hit != 'true'
+      if: always() && steps.cache-synlig.outputs.cache-matched-key == ''
       uses: actions/cache/save@v4
       with:
         path: |
-          ~/synlig-install
+          /home/runner/synlig-install
         key: ${{ runner.os }}-synlig-${{ env.CACHE_VERSION }}-2024-12-10
 
     - name: Save ABC Cache
-      if: always() && steps.cache-abc.outputs.cache-hit != 'true'
+      if: always() && steps.cache-abc.outputs.cache-matched-key == ''
       uses: actions/cache/save@v4
       with:
         path: |
-          ~/abc-install
+          /home/runner/abc-install
         key: ${{ runner.os }}-abc-stable-v1
 
     - name: Generate test summary
