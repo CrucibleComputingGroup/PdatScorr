@@ -59,12 +59,13 @@ jobs:
         cd ~
         wget https://github.com/chipsalliance/synlig/releases/download/2024-12-10-2d838ed/synlig-2d838ed-2024-12-10.tar.gz
 
-        # Extract
-        tar -xzf synlig-2d838ed-2024-12-10.tar.gz
-
-        # Move to install location
+        # Extract directly to install location
         mkdir -p ~/synlig-install
-        mv synlig/* ~/synlig-install/
+        tar -xzf synlig-2d838ed-2024-12-10.tar.gz -C ~/synlig-install --strip-components=1
+
+        # Verify extraction
+        ls -la ~/synlig-install/
+        ls -la ~/synlig-install/bin/
 
         # Install runtime dependencies
         sudo apt-get update
@@ -75,6 +76,7 @@ jobs:
     - name: Add Synlig to PATH
       run: |
         echo "$HOME/synlig-install/bin" >> $GITHUB_PATH
+        ls -la ~/synlig-install/bin/ || echo "Synlig install directory not found"
 
     - name: Restore ABC Cache
       id: cache-abc
