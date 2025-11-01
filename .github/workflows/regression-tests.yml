@@ -46,8 +46,7 @@ jobs:
       id: cache-synlig
       uses: actions/cache/restore@v4
       with:
-        path: |
-          /home/runner/synlig-install
+        path: synlig-install
         key: ${{ runner.os }}-synlig-${{ env.CACHE_VERSION }}-2024-12-10
 
     - name: Install Synlig (from pre-built binary)
@@ -56,21 +55,20 @@ jobs:
         echo "Installing Synlig from pre-built binary..."
 
         # Download latest release
-        cd ~
         wget https://github.com/chipsalliance/synlig/releases/download/2024-12-10-2d838ed/synlig-2d838ed-2024-12-10.tar.gz
 
         # Extract (structure: synlig/synlig and synlig/share/)
         tar -xzf synlig-2d838ed-2024-12-10.tar.gz
 
-        # Move to install location and create bin/ subdirectory
-        mkdir -p ~/synlig-install/bin
-        mv synlig/synlig ~/synlig-install/bin/
-        mv synlig/share ~/synlig-install/
+        # Rename to synlig-install and create bin/ subdirectory
+        mv synlig synlig-install
+        mkdir -p synlig-install/bin
+        mv synlig-install/synlig synlig-install/bin/
 
         # Verify installation
-        ls -la ~/synlig-install/
-        ls -la ~/synlig-install/bin/
-        file ~/synlig-install/bin/synlig
+        ls -la synlig-install/
+        ls -la synlig-install/bin/
+        file synlig-install/bin/synlig
 
         # Install runtime dependencies
         sudo apt-get update
@@ -80,15 +78,14 @@ jobs:
 
     - name: Add Synlig to PATH
       run: |
-        echo "$HOME/synlig-install/bin" >> $GITHUB_PATH
-        ls -la ~/synlig-install/bin/ || echo "Synlig install directory not found"
+        echo "$GITHUB_WORKSPACE/synlig-install/bin" >> $GITHUB_PATH
+        ls -la $GITHUB_WORKSPACE/synlig-install/bin/ || echo "Synlig install directory not found"
 
     - name: Restore ABC Cache
       id: cache-abc
       uses: actions/cache/restore@v4
       with:
-        path: |
-          /home/runner/abc-install
+        path: abc-install
         key: ${{ runner.os }}-abc-stable-v1
         restore-keys: |
           ${{ runner.os }}-abc-
@@ -103,20 +100,20 @@ jobs:
         sudo apt-get install -y build-essential cmake libreadline-dev
 
         # Clone and build ABC
-        cd ~
         git clone https://github.com/berkeley-abc/abc.git
         cd abc
         make -j$(nproc)
 
-        # Install to local directory
-        mkdir -p ~/abc-install/bin
-        cp abc ~/abc-install/bin/
+        # Install to workspace directory
+        cd ..
+        mkdir -p abc-install/bin
+        cp abc/abc abc-install/bin/
 
-        echo "ABC installed to ~/abc-install"
+        echo "ABC installed to abc-install"
 
     - name: Add ABC to PATH
       run: |
-        echo "$HOME/abc-install/bin" >> $GITHUB_PATH
+        echo "$GITHUB_WORKSPACE/abc-install/bin" >> $GITHUB_PATH
 
     - name: Verify tool installations
       run: |
@@ -128,12 +125,12 @@ jobs:
         echo ""
         echo "=== Synlig ==="
         which synlig || echo "synlig not in PATH"
-        ls -la ~/synlig-install/bin/synlig || echo "synlig binary not found"
-        ~/synlig-install/bin/synlig --version || echo "Synlig direct call failed"
+        ls -la $GITHUB_WORKSPACE/synlig-install/bin/synlig || echo "synlig binary not found"
+        $GITHUB_WORKSPACE/synlig-install/bin/synlig --version || echo "Synlig direct call failed"
         echo ""
         echo "=== ABC ==="
         which abc || echo "abc not in PATH"
-        ls -la ~/abc-install/bin/abc || echo "abc binary not found"
+        ls -la $GITHUB_WORKSPACE/abc-install/bin/abc || echo "abc binary not found"
         echo "====================="
 
     - name: Install Python dependencies
@@ -176,16 +173,14 @@ jobs:
       if: always() && steps.cache-synlig.outputs.cache-matched-key == ''
       uses: actions/cache/save@v4
       with:
-        path: |
-          /home/runner/synlig-install
+        path: synlig-install
         key: ${{ runner.os }}-synlig-${{ env.CACHE_VERSION }}-2024-12-10
 
     - name: Save ABC Cache
       if: always() && steps.cache-abc.outputs.cache-matched-key == ''
       uses: actions/cache/save@v4
       with:
-        path: |
-          /home/runner/abc-install
+        path: abc-install
         key: ${{ runner.os }}-abc-stable-v1
 
     - name: Generate test summary
