@@ -14,8 +14,8 @@ env:
 jobs:
   test:
     name: Run Regression Tests
-    runs-on: ubuntu-latest
-    timeout-minutes: 45  # Enough for binary install + ABC build + tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120  # 2 hours for Synlig build from source
 
     steps:
     - name: Checkout PdatScorr
@@ -49,32 +49,38 @@ jobs:
         path: synlig-install
         key: ${{ runner.os }}-synlig-${{ env.CACHE_VERSION }}-2024-12-10
 
-    - name: Install Synlig (from pre-built binary)
+    - name: Build Synlig from source
       if: steps.cache-synlig.outputs.cache-matched-key == ''
       run: |
-        echo "Installing Synlig from pre-built binary..."
+        echo "Building Synlig from source (this takes ~60 minutes)..."
 
-        # Download latest release
-        wget https://github.com/chipsalliance/synlig/releases/download/2024-12-10-2d838ed/synlig-2d838ed-2024-12-10.tar.gz
+        # Install Python dependencies for Surelog
+        pip install orderedmultidict
 
-        # Extract (structure: synlig/synlig and synlig/share/)
-        tar -xzf synlig-2d838ed-2024-12-10.tar.gz
-
-        # Rename to synlig-install and create bin/ subdirectory
-        mv synlig synlig-install
-        mkdir -p synlig-install/bin
-        mv synlig-install/synlig synlig-install/bin/
-
-        # Verify installation
-        ls -la synlig-install/
-        ls -la synlig-install/bin/
-        file synlig-install/bin/synlig
-
-        # Install runtime dependencies
+        # Install system dependencies
         sudo apt-get update
-        sudo apt-get install -y tcl tk
+        sudo apt-get install -y \
+          build-essential cmake git \
+          tclsh tcl-dev \
+          ant default-jre \
+          swig \
+          python3 python3-dev python3-pip \
+          uuid uuid-dev \
+          flex libfl-dev \
+          pkg-config libreadline-dev \
+          bison libffi-dev \
+          wget
 
-        echo "Synlig installed to ~/synlig-install"
+        # Clone and build Synlig
+        git clone https://github.com/chipsalliance/synlig.git
+        cd synlig
+        git submodule sync
+        git submodule update --init --recursive third_party/{surelog,yosys}
+
+        # Build with limited parallelism to avoid OOM
+        make install -j2 PREFIX=$GITHUB_WORKSPACE/synlig-install
+
+        echo "Synlig built and installed successfully"
 
     - name: Add Synlig to PATH
       run: |
@@ -126,6 +132,8 @@ jobs:
         echo "=== Synlig ==="
         which synlig || echo "synlig not in PATH"
         ls -la $GITHUB_WORKSPACE/synlig-install/bin/synlig || echo "synlig binary not found"
+        file $GITHUB_WORKSPACE/synlig-install/bin/synlig || echo "file check failed"
+        ldd $GITHUB_WORKSPACE/synlig-install/bin/synlig || echo "ldd check failed"
         $GITHUB_WORKSPACE/synlig-install/bin/synlig --version || echo "Synlig direct call failed"
         echo ""
         echo "=== ABC ==="
