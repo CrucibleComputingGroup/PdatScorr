@@ -374,7 +374,9 @@ YOSYS_LOG="${BASE}_yosys.log"
 export SLPP_ALL="$OUTPUT_DIR/slpp_all_$$_$RANDOM"
 mkdir -p "$SLPP_ALL"
 
-synlig -s "$SYNTH_SCRIPT" 2>&1 | tee "$YOSYS_LOG"
+# Run Synlig from OUTPUT_DIR to ensure slpp_all is created there, not in current directory
+# This prevents race conditions when running multiple synthesis jobs in parallel
+(cd "$OUTPUT_DIR" && synlig -s "$(basename "$SYNTH_SCRIPT")") 2>&1 | tee "$YOSYS_LOG"
 
 if [ ${PIPESTATUS[0]} -ne 0 ]; then
     echo "ERROR: Synthesis failed"
