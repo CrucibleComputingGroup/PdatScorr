@@ -270,7 +270,7 @@ clean
 # Export to AIGER with constraints
 # AIGER format: latches + AND gates + constraints (bad state properties)
 # -zinit maps init values to zero during export
-write_aiger -zinit {os.path.abspath(output_aig)}_yosys.aig
+write_aiger -zinit {os.path.abspath(output_aig + "_yosys.aig")}
 
 # NOTE: External ABC will be run by the shell script to optimize this AIGER:
 #   abc -c "read_aiger {output_aig}_yosys.aig; strash; scorr; dc2; dretime; write_aiger {output_aig}_post_abc.aig"
