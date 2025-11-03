@@ -1,12 +1,122 @@
 #!/usr/bin/env python3
 """
-Generate a Yosys/Synlig synthesis script for Ibex with instruction checker.
+Generate a Yosys/Synlig synthesis script for RISC-V cores with instruction constraints.
+
+Supports both legacy mode (hardcoded paths) and config-based mode (YAML config files).
 """
 
 import argparse
+import os
+import sys
+from pathlib import Path
+from typing import Optional, Dict, Any
+
+# Add scripts directory to path for imports
+SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
+
+try:
+    from config_loader import ConfigLoader, CoreConfig
+    CONFIG_SUPPORT = True
+except ImportError:
+    CONFIG_SUPPORT = False
+
+
+def generate_synthesis_script_from_config(
+    config: 'CoreConfig',
+    modified_files: Dict[str, str],
+    output_aig: str
+) -> str:
+    """Generate synthesis script from a config file.
+
+    Args:
+        config: Loaded CoreConfig object
+        modified_files: Dict mapping injection names to modified file paths
+        output_aig: Base name for output AIGER file
+
+    Returns:
+        Synthesis script content
+    """
+    core_root = config.synthesis.core_root_resolved
+    include_dirs = config.synthesis.include_dirs
+    source_files = config.synthesis.source_files
+    top_module = config.synthesis.top_module
+    params = config.synthesis.parameters
+
+    # Build include directory flags
+    inc_flags = "\n".join(f"verilog_defaults -add -I{core_root}/{inc}" for inc in include_dirs)
+
+    # Build source file list, replacing injected files with modified versions
+    source_list = []
+    injection_map = {inj.source_file: inj.name for inj in config.injections}
+
+    for src_file in source_files:
+        # Check if this file should be replaced
+        if src_file in injection_map:
+            inj_name = injection_map[src_file]
+            if inj_name in modified_files:
+                # Use modified version
+                source_list.append(os.path.abspath(modified_files[inj_name]))
+            else:
+                # Use original (no injection for this type)
+                source_list.append(f"{core_root}/{src_file}")
+        else:
+            # Use original
+            source_list.append(f"{core_root}/{src_file}")
+
+    # Build read_systemverilog command
+    include_args = " \\\n  ".join(f"-I{core_root}/{inc}" for inc in include_dirs)
+    file_args = " \\\n  ".join(source_list)
+
+    script = f"""# Synlig script to synthesize {config.core_name} core with constraints
+# Auto-generated synthesis script
+# Core: {config.core_name} ({config.architecture})
+# Core root: {core_root}
+
+# Set include directories
+{inc_flags}
+
+# Read all source files together so packages are available to all modules
+read_systemverilog \\
+  {include_args} \\
+  {file_args}
+
+"""
+
+    # Add parameter overrides
+    if params:
+        has_params = False
+        param_commands = []
+
+        for param_name, param_value in params.items():
+            # Special handling for writeback_stage -> WritebackStage
+            if param_name == "writeback_stage":
+                if param_value:  # Only set if true
+                    param_commands.append(f"chparam -set WritebackStage 1 {top_module}\n")
+                    has_params = True
+                # Skip if false (default)
+            elif isinstance(param_value, bool):
+                # For other booleans, set them
+                param_commands.append(f"chparam -set {param_name} {1 if param_value else 0} {top_module}\n")
+                has_params = True
+            elif isinstance(param_value, int):
+                param_commands.append(f"chparam -set {param_name} {param_value} {top_module}\n")
+                has_params = True
+            elif isinstance(param_value, str):
+                param_commands.append(f"chparam -set {param_name} \"{param_value}\" {top_module}\n")
+                has_params = True
+
+        if has_params:
+            script += "# Parameter overrides\n"
+            script += "".join(param_commands)
+            script += "\n"
+
+    script += _generate_synthesis_commands(top_module, output_aig)
+    return script
+
 
 def generate_synthesis_script(id_stage_modified: str, output_aig: str, ibex_root: str = None, writeback_stage: bool = False, core_modified: str = None) -> str:
-    """Generate the Yosys synthesis script.
+    """Generate the Yosys synthesis script (legacy mode).
 
     Args:
         id_stage_modified: Path to modified ibex_id_stage.sv with ISA constraints
@@ -15,8 +125,6 @@ def generate_synthesis_script(id_stage_modified: str, output_aig: str, ibex_root
         writeback_stage: Enable 3-stage pipeline (optional)
         core_modified: Path to modified ibex_core.sv with timing constraints (optional)
     """
-
-    import os
 
     # Determine Ibex core path:
     # 1. Use provided ibex_root argument
@@ -101,8 +209,14 @@ chparam -set WritebackStage 1 ibex_core
 
 """
 
-    script += f"""# Prepare the design for synthesis using ibex_core as top
-hierarchy -check -top ibex_core
+    script += _generate_synthesis_commands("ibex_core", output_aig)
+    return script
+
+
+def _generate_synthesis_commands(top_module: str, output_aig: str) -> str:
+    """Generate common synthesis commands (shared between legacy and config modes)."""
+    return f"""# Prepare the design for synthesis using {top_module} as top
+hierarchy -check -top {top_module}
 
 # Flatten to enable sequential optimizations across module boundaries
 flatten
@@ -165,38 +279,98 @@ write_aiger -zinit {output_aig}_yosys.aig
 # For gate-level synthesis, the synth_to_gates.sh script will read the optimized AIGER
 # and map it to the PDK standard cells.
 """
-    return script
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Generate Yosys synthesis script for Ibex with instruction assumptions'
+        description='Generate Yosys synthesis script for RISC-V cores with instruction constraints'
     )
-    parser.add_argument('id_stage_modified', help='Path to modified ibex_id_stage.sv with inline assumptions')
+
+    # Config-based mode
+    parser.add_argument('--config', '-c', help='Path to YAML config file (enables config mode)')
+    parser.add_argument('--modified-files', nargs='*', default=[],
+                       help='Modified files in format name=path (e.g., id_stage_isa=/path/to/file.sv)')
+
+    # Legacy mode arguments
+    parser.add_argument('id_stage_modified', nargs='?',
+                       help='[Legacy] Path to modified ibex_id_stage.sv with inline assumptions')
+    parser.add_argument('--ibex-root', default=None,
+                       help='[Legacy] Path to Ibex core')
+    parser.add_argument('--writeback-stage', action='store_true',
+                       help='[Legacy] Enable 3-stage pipeline')
+    parser.add_argument('--core-modified', default=None,
+                       help='[Legacy] Path to modified ibex_core.sv with timing constraints')
+
+    # Common arguments
     parser.add_argument('-o', '--output', default='synth_ibex.ys',
                        help='Output synthesis script file (default: synth_ibex.ys)')
     parser.add_argument('-a', '--aiger-output', default='ibex_core.aig',
                        help='Output AIGER file base name (default: ibex_core.aig)')
-    parser.add_argument('--ibex-root', default=None,
-                       help='Path to Ibex core (default: $IBEX_ROOT or auto-detect ../PdatCoreSim/cores/ibex or ../CoreSim/cores/ibex)')
-    parser.add_argument('--writeback-stage', action='store_true',
-                       help='Enable 3-stage pipeline with separate writeback stage (default: 2-stage)')
-    parser.add_argument('--core-modified', default=None,
-                       help='Path to modified ibex_core.sv with timing constraints (optional)')
 
     args = parser.parse_args()
 
-    # Generate the script
-    script = generate_synthesis_script(args.id_stage_modified, args.aiger_output, args.ibex_root, args.writeback_stage, args.core_modified)
+    # Determine mode
+    if args.config:
+        # Config-based mode
+        if not CONFIG_SUPPORT:
+            print("ERROR: Config mode requires PyYAML. Install with: pip install pyyaml")
+            return 1
+
+        # Parse modified files argument
+        modified_files = {}
+        for mf_arg in args.modified_files:
+            if '=' not in mf_arg:
+                print(f"ERROR: Invalid --modified-files format: {mf_arg}")
+                print("Expected format: name=path (e.g., id_stage_isa=/path/to/file.sv)")
+                return 1
+            name, path = mf_arg.split('=', 1)
+            modified_files[name] = path
+
+        # Load config
+        try:
+            config = ConfigLoader.load_config(args.config)
+        except Exception as e:
+            print(f"ERROR loading config: {e}")
+            return 1
+
+        # Generate script
+        try:
+            script = generate_synthesis_script_from_config(config, modified_files, args.aiger_output)
+        except Exception as e:
+            print(f"ERROR generating synthesis script: {e}")
+            return 1
+
+        print(f"Generated synthesis script (config mode): {args.output}")
+        print(f"  Config:      {args.config}")
+        print(f"  Core:        {config.core_name}")
+        print(f"  Injections:  {len(modified_files)} modified files")
+
+    else:
+        # Legacy mode
+        if not args.id_stage_modified:
+            print("ERROR: id_stage_modified argument required in legacy mode")
+            print("Use --config for config-based mode or provide id_stage_modified")
+            return 1
+
+        # Generate the script
+        script = generate_synthesis_script(
+            args.id_stage_modified,
+            args.aiger_output,
+            args.ibex_root,
+            args.writeback_stage,
+            args.core_modified
+        )
+
+        print(f"Generated synthesis script (legacy mode): {args.output}")
+        print(f"  Modified ID stage:  {args.id_stage_modified}")
 
     # Write to file
     with open(args.output, 'w') as f:
         f.write(script)
 
-    print(f"Generated synthesis script: {args.output}")
-    print(f"  Modified ID stage:  {args.id_stage_modified}")
     print(f"  Output AIGER:       {args.aiger_output}")
     print()
     print(f"Run with: synlig -s {args.output}")
+    return 0
 
 if __name__ == '__main__':
-    main()
+    exit(main())

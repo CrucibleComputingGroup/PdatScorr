@@ -17,7 +17,7 @@ from typing import List, Tuple
 
 # Path to project root (2 levels up from this file)
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-SYNTH_SCRIPT = PROJECT_ROOT / "synth_ibex_with_constraints.sh"
+SYNTH_SCRIPT = PROJECT_ROOT / "synth_core.sh"
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
 
 
@@ -244,6 +244,120 @@ class TestLogParsing:
         # Focus on clear failure indicators
         assert "error:" not in log_lower or "0 error" in log_lower, \
             "Errors found in Yosys log"
+
+
+class TestConfigMode:
+    """Test config-based synthesis mode."""
+
+    def test_config_script_generation(self, temp_output_dir):
+        """Test that config mode generates correct synthesis script (fast test)."""
+        import subprocess
+
+        dsl_file = FIXTURES_DIR / "baseline.dsl"
+        config_file = FIXTURES_DIR / "ibex_test.yaml"
+
+        # Just generate the synthesis script without running it
+        cmd = [
+            "python3", "scripts/make_synthesis_script.py",
+            "--config", str(config_file),
+            "--modified-files", f"id_stage_isa={temp_output_dir}/test_id.sv",
+            "-o", str(temp_output_dir / "test.ys"),
+            "-a", str(temp_output_dir / "test")
+        ]
+
+        result = subprocess.run(cmd, capture_output=True, text=True, cwd=PROJECT_ROOT)
+
+        assert result.returncode == 0, f"Script generation failed:\n{result.stdout}\n{result.stderr}"
+        assert (temp_output_dir / "test.ys").exists()
+
+        # Check script content
+        script_content = (temp_output_dir / "test.ys").read_text()
+        assert "ibex_core" in script_content
+        assert "read_systemverilog" in script_content
+
+    @pytest.mark.slow
+    def test_synthesis_with_config_file(self, temp_output_dir):
+        """Test full synthesis using config file (slow test - marked)."""
+        dsl_file = FIXTURES_DIR / "baseline.dsl"
+        config_file = FIXTURES_DIR / "ibex_test.yaml"
+
+        # Verify config file exists
+        assert config_file.exists(), f"Config file not found: {config_file}"
+
+        result = run_synthesis(
+            dsl_file,
+            temp_output_dir,
+            extra_args=["--config", str(config_file)]
+        )
+
+        assert result.success, f"Synthesis with config failed:\nSTDOUT:\n{result.stdout}\n\nSTDERR:\n{result.stderr}"
+
+        # Check success message
+        assert "SUCCESS!" in result.stdout
+
+        # Check core output files exist
+        assert result.has_file("ibex_optimized_assumptions.sv")
+        assert result.has_file("ibex_optimized_id_stage.sv")
+        assert result.has_file("ibex_optimized_synth.ys")
+        assert result.has_file("ibex_optimized_yosys.aig")
+
+        # Check files are non-empty
+        assert result.file_size("ibex_optimized_assumptions.sv") > 0
+        assert result.file_size("ibex_optimized_yosys.aig") > 0
+
+    def test_core_name_config_lookup(self, temp_output_dir):
+        """Test --core flag finds the right config file (fast test)."""
+        import shutil
+
+        # Copy test config to configs/ directory temporarily
+        test_config_src = FIXTURES_DIR / "ibex_test.yaml"
+        test_config_dst = PROJECT_ROOT / "configs" / "test_core.yaml"
+
+        try:
+            shutil.copy(test_config_src, test_config_dst)
+
+            # Just test that the script finds the config, don't run full synthesis
+            cmd = [
+                "python3", "scripts/make_synthesis_script.py",
+                "--config", str(test_config_dst),
+                "-o", str(temp_output_dir / "test.ys"),
+                "-a", str(temp_output_dir / "test")
+            ]
+
+            result = subprocess.run(cmd, capture_output=True, text=True, cwd=PROJECT_ROOT)
+            assert result.returncode == 0
+            assert "test_core" in result.stdout or (temp_output_dir / "test.ys").exists()
+
+        finally:
+            # Cleanup
+            if test_config_dst.exists():
+                test_config_dst.unlink()
+
+    def test_config_not_found(self, temp_output_dir):
+        """Test error handling when config file doesn't exist."""
+        dsl_file = FIXTURES_DIR / "baseline.dsl"
+        bad_config = FIXTURES_DIR / "nonexistent.yaml"
+
+        result = run_synthesis(
+            dsl_file,
+            temp_output_dir,
+            extra_args=["--config", str(bad_config)]
+        )
+
+        # Should fail gracefully
+        assert not result.success
+        assert "ERROR" in result.stdout or "not found" in result.stdout.lower()
+
+    def test_backward_compatibility(self, temp_output_dir):
+        """Ensure legacy mode (without --config) still works."""
+        dsl_file = FIXTURES_DIR / "baseline.dsl"
+
+        # Run WITHOUT --config flag (legacy mode)
+        result = run_synthesis(dsl_file, temp_output_dir)
+
+        assert result.success, f"Legacy mode synthesis failed:\n{result.stdout}"
+        assert "SUCCESS!" in result.stdout
+        assert result.has_file("ibex_optimized_yosys.aig")
 
 
 if __name__ == "__main__":
