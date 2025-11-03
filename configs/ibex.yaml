@@ -23,6 +23,14 @@ injections:
     module_path: "ibex_core"
     description: "Core top-level - where cache timing constraints are injected"
 
+  # ODC error injection into ALU
+  - name: "alu_odc"
+    source_file: "rtl/ibex_alu.sv"
+    constraint_type: "odc_error"
+    module_path: "ibex_core.ex_block_i.alu_i"
+    injection_line_after: 288  # After shift_amt assignment
+    description: "ALU execution unit - where ODC error forcing is injected"
+
 # Signal naming conventions for Ibex
 signals:
   # Instruction and PC signals
@@ -40,6 +48,18 @@ signals:
     multdiv:
       rs1: "multdiv_operand_a_ex_i"
       rs2: "multdiv_operand_b_ex_i"
+
+  # Barrel shifter signals (for ODC analysis)
+  # Located in ibex_alu.sv, used for shift instruction execution
+  barrel_shifter:
+    module: "ibex_alu"
+    shift_amount: "shift_amt"           # [5:0] actual shift amount (line 247)
+    shift_amount_bits: "shift_amt[4:0]" # [4:0] lower 5 bits used for shift
+    shift_left: "shift_left"            # Direction control (line 242)
+    shift_ones: "shift_ones"            # Arithmetic shift fill value (line 243)
+    shift_operand: "shift_operand"      # [32:0] operand being shifted (line 244)
+    shifter_result: "shifter_result"    # [31:0] shift output (line 246)
+    operand_b: "operand_b_i"            # [31:0] source of shift amount (rs2)
 
 # VCD analysis configuration
 vcd:

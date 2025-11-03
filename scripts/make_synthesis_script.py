@@ -215,6 +215,10 @@ chparam -set WritebackStage 1 ibex_core
 
 def _generate_synthesis_commands(top_module: str, output_aig: str) -> str:
     """Generate common synthesis commands (shared between legacy and config modes)."""
+    # Use basename for AIGER output since synlig runs from OUTPUT_DIR
+    import os
+    output_aig_basename = os.path.basename(output_aig)
+
     return f"""# Prepare the design for synthesis using {top_module} as top
 hierarchy -check -top {top_module}
 
@@ -270,7 +274,8 @@ clean
 # Export to AIGER with constraints
 # AIGER format: latches + AND gates + constraints (bad state properties)
 # -zinit maps init values to zero during export
-write_aiger -zinit {output_aig}_yosys.aig
+# NOTE: Use basename since synlig runs from OUTPUT_DIR (for slpp_all isolation)
+write_aiger -zinit {output_aig_basename}_yosys.aig
 
 # NOTE: External ABC will be run by the shell script to optimize this AIGER:
 #   abc -c "read_aiger {output_aig}_yosys.aig; strash; scorr; dc2; dretime; write_aiger {output_aig}_post_abc.aig"

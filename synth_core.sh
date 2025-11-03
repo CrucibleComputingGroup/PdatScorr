@@ -12,6 +12,7 @@ ABC_DEPTH=2
 WRITEBACK_STAGE=false
 CONFIG_FILE=""
 CORE_NAME=""
+RUN_ODC_ANALYSIS=false
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --gates) SYNTHESIZE_GATES=true; shift ;;
@@ -32,6 +33,7 @@ while [[ "$#" -gt 0 ]]; do
             CORE_NAME="$2"
             shift 2
             ;;
+        --odc-analysis) RUN_ODC_ANALYSIS=true; shift ;;
         -h|--help)
             echo "Usage: $0 [OPTIONS] <rules.dsl> [output_dir|output.il]"
             echo ""
@@ -43,6 +45,7 @@ while [[ "$#" -gt 0 ]]; do
             echo "  --abc-depth N     Set ABC k-induction depth (default: 2, matches 2-stage pipeline)"
             echo "  --config FILE     Use YAML config file (enables config mode)"
             echo "  --core NAME       Core name for auto-config lookup (default: ibex, looks for configs/NAME.yaml)"
+            echo "  --odc-analysis    Run ODC analysis after optimization (error injection + SEC)"
             echo ""
             echo "Arguments:"
             echo "  rules.dsl       DSL file with instruction constraints"
@@ -69,6 +72,7 @@ while [[ "$#" -gt 0 ]]; do
             echo "  $0 my_rules.dsl output/custom.il        # Specific path output/custom.il"
             echo "  $0 --config configs/ibex.yaml my_rules.dsl    # Use config file"
             echo "  $0 --core ibex my_rules.dsl             # Auto-load configs/ibex.yaml"
+            echo "  $0 --odc-analysis my_rules.dsl          # Run ODC analysis after optimization"
             echo ""
             echo "All intermediate files are placed in the same directory as the final output."
             exit 0
@@ -458,6 +462,61 @@ else
 fi
 
 echo ""
+
+# Step 5.5 (optional): ODC Analysis
+if [ "$RUN_ODC_ANALYSIS" = true ]; then
+    echo "=========================================="
+    echo "ODC Analysis (Error Injection + Bounded SEC)"
+    echo "=========================================="
+    echo ""
+
+    # Determine which config file to use
+    if [ -n "$CONFIG_FILE" ]; then
+        ODC_CONFIG="$CONFIG_FILE"
+    else
+        # Legacy mode - use default ibex config
+        ODC_CONFIG="configs/ibex.yaml"
+    fi
+
+    # Determine baseline AIGER file
+    # Use Yosys output (NOT ABC-optimized) to ensure both circuits have same structure
+    # ABC optimization removes constraints which causes miter issues
+    if [ -f "${BASE}_yosys.aig" ]; then
+        BASELINE_AIG="${BASE}_yosys.aig"
+        echo "Using Yosys-generated circuit as baseline: $BASELINE_AIG"
+    else
+        echo "ERROR: No Yosys AIGER file found for baseline. Cannot run ODC analysis."
+        RUN_ODC_ANALYSIS=false
+    fi
+
+    if [ "$RUN_ODC_ANALYSIS" = true ]; then
+        ODC_OUTPUT_DIR="$OUTPUT_DIR/odc_analysis"
+
+        echo "Running ODC analysis with k=$ABC_DEPTH..."
+        echo "  DSL: $INPUT_DSL"
+        echo "  Baseline: $BASELINE_AIG"
+        echo "  Config: $ODC_CONFIG"
+        echo "  Output: $ODC_OUTPUT_DIR"
+        echo ""
+
+        python3 scripts/odc_analysis.py "$INPUT_DSL" \
+            --baseline-aig "$BASELINE_AIG" \
+            --output-dir "$ODC_OUTPUT_DIR" \
+            --k-depth "$ABC_DEPTH" \
+            --config "$ODC_CONFIG"
+
+        if [ $? -eq 0 ]; then
+            echo ""
+            echo "ODC analysis complete!"
+            echo "  Reports: $ODC_OUTPUT_DIR/odc_report.{json,md}"
+            echo ""
+        else
+            echo ""
+            echo "WARNING: ODC analysis failed or incomplete"
+            echo ""
+        fi
+    fi
+fi
 
 # Step 6 (optional): Gate-level synthesis
 if [ "$SYNTHESIZE_GATES" = true ]; then
