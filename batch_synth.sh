@@ -50,6 +50,10 @@ while [[ "$#" -gt 0 ]]; do
             EXTRA_ARGS="$EXTRA_ARGS --core $2"
             shift 2
             ;;
+        --odc-analysis)
+            EXTRA_ARGS="$EXTRA_ARGS --odc-analysis"
+            shift
+            ;;
         --gnu-parallel)
             USE_GNU_PARALLEL=true
             shift
@@ -76,6 +80,7 @@ while [[ "$#" -gt 0 ]]; do
             echo "  --abc-depth N         Pass --abc-depth N to synthesis script"
             echo "  --config FILE         Pass --config FILE to synthesis script (config mode)"
             echo "  --core NAME           Pass --core NAME to synthesis script (auto-config)"
+            echo "  --odc-analysis        Run ODC analysis after synthesis for each DSL"
             echo "  --gnu-parallel        Use GNU parallel if available (faster)"
             echo "  -v, --verbose         Show detailed output from each job"
             echo "  -h, --help            Show this help message"
@@ -90,6 +95,7 @@ while [[ "$#" -gt 0 ]]; do
             echo "  $0 rules/*.dsl                    # Wildcard expansion"
             echo "  $0 -j 8 test1.dsl test2.dsl      # Specific files"
             echo "  $0 --config configs/ibex.yaml rules/*.dsl  # Use config file"
+            echo "  $0 --odc-analysis -j 8 rules/*.dsl  # Run ODC analysis on all files"
             echo ""
             echo "Each DSL file will be processed to its own subfolder:"
             echo "  test.dsl → output/test/"
