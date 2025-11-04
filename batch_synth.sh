@@ -508,12 +508,16 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
                 # Default to 0 if not found
                 constraints=${constraints:-0}
 
-                # Extract chip area if available
+                # Extract chip area if available (from gates.log)
                 chip_area=""
-                if [ "$HAS_CHIP_AREA" = true ] && [ -f "$synth_log" ]; then
-                    # Format: "Chip area: 41676.220800 µm²"
-                    # Extract just the numeric value (3rd field)
-                    chip_area=$(grep "Chip area:" "$synth_log" | tail -1 | awk '{print $3}')
+                if [ "$HAS_CHIP_AREA" = true ]; then
+                    # Check ODC-optimized gates.log first, then baseline
+                    # Format: "Chip area for module 'name': 39250.144000"
+                    if [ -f "$result_dir/odc_optimized_synthesis/ibex_alu_optimized_gates.log" ]; then
+                        chip_area=$(grep "Chip area for module" "$result_dir/odc_optimized_synthesis/ibex_alu_optimized_gates.log" | tail -1 | awk '{print $NF}')
+                    elif [ -f "$result_dir/ibex_optimized_gates.log" ]; then
+                        chip_area=$(grep "Chip area for module" "$result_dir/ibex_optimized_gates.log" | tail -1 | awk '{print $NF}')
+                    fi
                     chip_area=${chip_area:-"N/A"}
                 fi
 
