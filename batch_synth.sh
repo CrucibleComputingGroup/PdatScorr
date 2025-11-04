@@ -438,14 +438,32 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
 
     # Check if we have chip area data (from --gates)
     HAS_CHIP_AREA=false
-    for dsl_file in "${DSL_FILES[@]}"; do
-        dsl_basename=$(basename "$dsl_file" .dsl)
-        synth_log="$BASE_OUTPUT_DIR/${dsl_basename}/synthesis.log"
-        if grep -q "Chip area:" "$synth_log" 2>/dev/null; then
-            HAS_CHIP_AREA=true
-            break
-        fi
-    done
+
+    # Only check for chip area if --gates flag was specified
+    if [[ "$EXTRA_ARGS" == *"--gates"* ]]; then
+        for dsl_file in "${DSL_FILES[@]}"; do
+            dsl_basename=$(basename "$dsl_file" .dsl)
+
+            # Check appropriate location based on run count
+            if [ "$RUNS_PER_DSL" -gt 1 ]; then
+                # Check any run directory for chip area
+                for run_num in $(seq 1 $RUNS_PER_DSL); do
+                    synth_log="$BASE_OUTPUT_DIR/run_${run_num}/${dsl_basename}/synthesis.log"
+                    if grep -q "Chip area:" "$synth_log" 2>/dev/null; then
+                        HAS_CHIP_AREA=true
+                        break 2  # Break both loops
+                    fi
+                done
+            else
+                # Single run - check base directory
+                synth_log="$BASE_OUTPUT_DIR/${dsl_basename}/synthesis.log"
+                if grep -q "Chip area:" "$synth_log" 2>/dev/null; then
+                    HAS_CHIP_AREA=true
+                    break
+                fi
+            fi
+        done
+    fi
 
     # Header - include chip area if available
     if [ "$HAS_CHIP_AREA" = true ]; then
