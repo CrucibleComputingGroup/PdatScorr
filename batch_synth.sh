@@ -483,8 +483,15 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
             result_dir="$BASE_OUTPUT_DIR/${dsl_basename}"
         fi
 
-        log_file="$result_dir/ibex_optimized_abc.log"
-        synth_log="$result_dir/synthesis.log"
+        # Check if ODC-optimized results exist (prefer these over baseline)
+        odc_optimized_log="$result_dir/odc_optimized_synthesis/abc.log"
+        if [ -f "$odc_optimized_log" ]; then
+            log_file="$odc_optimized_log"
+            synth_log="$result_dir/odc_optimized_synthesis/synthesis.log"
+        else
+            log_file="$result_dir/ibex_optimized_abc.log"
+            synth_log="$result_dir/synthesis.log"
+        fi
 
         if [ -f "$log_file" ]; then
             # Extract final stats from ABC log
