@@ -93,7 +93,7 @@ class ConstraintAnalyzer:
                 if field_name not in encoding.fields:
                     continue
                 field_pos, field_width = encoding.fields[field_name]
-            except:
+            except Exception:
                 # Default widths for common fields
                 field_width = {
                     "shamt": 5,
