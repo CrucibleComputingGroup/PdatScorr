@@ -7,7 +7,6 @@ circuits are equivalent under given constraints.
 """
 
 import subprocess
-import tempfile
 from pathlib import Path
 from dataclasses import dataclass
 from typing import Optional, Tuple
