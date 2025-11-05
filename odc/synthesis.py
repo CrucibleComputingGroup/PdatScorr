@@ -9,7 +9,7 @@ for SEC checking.
 import sys
 import subprocess
 from pathlib import Path
-from typing import Optional, List
+from typing import Optional
 
 # Add scripts to path for config loader
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))

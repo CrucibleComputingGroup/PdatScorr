@@ -134,10 +134,16 @@ class ErrorInjector:
         # Determine which file to modify based on field
         if constant_bit.field_name == "shamt":
             source_file = self.core_rtl_dir / "ibex_alu.sv"
-            output_filename = f"ibex_alu_odc_{constant_bit.field_name}_bit{constant_bit.bit_position}_forced{constant_bit.constant_value if not test_opposite else 1-constant_bit.constant_value}.sv"
+            forced_value = constant_bit.constant_value if not test_opposite else 1 - constant_bit.constant_value
+            output_filename = (
+                f"ibex_alu_odc_{constant_bit.field_name}_bit{constant_bit.bit_position}_forced{forced_value}.sv"
+            )
         elif constant_bit.field_name == "imm":
             source_file = self.core_rtl_dir / "ibex_id_stage.sv"
-            output_filename = f"ibex_id_stage_odc_{constant_bit.field_name}_bit{constant_bit.bit_position}_forced{constant_bit.constant_value if not test_opposite else 1-constant_bit.constant_value}.sv"
+            forced_value = constant_bit.constant_value if not test_opposite else 1 - constant_bit.constant_value
+            output_filename = (
+                f"ibex_id_stage_odc_{constant_bit.field_name}_bit{constant_bit.bit_position}_forced{forced_value}.sv"
+            )
         else:
             raise ValueError(f"Unsupported field for error injection: {constant_bit.field_name}")
 
