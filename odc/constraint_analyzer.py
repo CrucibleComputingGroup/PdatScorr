@@ -10,7 +10,7 @@ candidates for ODC analysis.
 import sys
 from pathlib import Path
 from dataclasses import dataclass
-from typing import Dict, List, Set, Tuple, Optional
+from typing import Dict, List, Optional
 from collections import defaultdict
 
 # Add parent directory to path to import pdat_dsl
