@@ -465,6 +465,14 @@ echo ""
 
 # Step 5.5 (optional): ODC Analysis
 if [ "$RUN_ODC_ANALYSIS" = true ]; then
+    # If we're doing ODC analysis with gate synthesis, synthesize baseline to gates first
+    # so we have something to compare against
+    if [ "$SYNTHESIZE_GATES" = true ] && [ ! -f "$OUTPUT_DIR/${OUTPUT_PREFIX}_gates.log" ]; then
+        echo "Synthesizing baseline to gates before ODC analysis (for comparison)..."
+        ./scripts/synth_to_gates.sh "$BASE"
+        echo ""
+    fi
+
     echo "=========================================="
     echo "ODC Analysis (Error Injection + Bounded SEC)"
     echo "=========================================="
@@ -698,9 +706,13 @@ fi
 # Step 6 (optional): Gate-level synthesis (baseline only if ODC didn't run)
 if [ "$SYNTHESIZE_GATES" = true ]; then
     # Check if ODC optimization already ran gate synthesis
-    if [ ! -f "$OUTPUT_DIR/odc_optimized_synthesis/synthesis.log" ]; then
+    if [ ! -f "$OUTPUT_DIR/odc_optimized_synthesis/ibex_alu_optimized_gates.log" ]; then
         echo "Synthesizing to gate level with Skywater PDK..."
         ./scripts/synth_to_gates.sh "$BASE"
+    else
+        echo ""
+        echo "Gate synthesis already completed during ODC optimization"
+        echo "(ODC-optimized gates in output/baseline/odc_optimized_synthesis/)"
     fi
 
     if [ $? -ne 0 ]; then
