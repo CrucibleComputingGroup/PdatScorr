@@ -31,6 +31,7 @@ from odc.error_injector import ErrorInjector
 from odc.sec_checker import SecChecker, SecResult
 from odc.report_generator import ReportGenerator, OdcTestResult
 from odc.synthesis import synthesize_error_injected_circuit
+from odc.mux_reachability_analyzer import MuxReachabilityAnalyzer
 
 
 def find_ibex_root() -> Path:
@@ -87,6 +88,8 @@ Examples:
                        help="Output directory (default: output/odc_analysis)")
     parser.add_argument("--scope", choices=["shamt", "all"], default="shamt",
                        help="Analysis scope: shamt only or all fields")
+    parser.add_argument("--analysis-level", choices=["bit", "mux", "both"], default="both",
+                       help="ODC analysis level: bit-level, mux-level, or both (default: both)")
     parser.add_argument("--k-depth", type=int, default=2,
                        help="Bounded SEC induction depth (default: 2)")
     parser.add_argument("--config", type=Path, default=Path("configs/ibex.yaml"),
@@ -133,125 +136,210 @@ Examples:
     print("="*70)
     print(f"DSL file: {args.dsl_file}")
     print(f"Baseline: {args.baseline_aig}")
+    print(f"Analysis level: {args.analysis_level}")
     print(f"Scope: {args.scope}")
     print(f"K-depth: {args.k_depth}")
     print(f"Output: {args.output_dir}")
     print()
     
-    # Step 1: Analyze DSL to find constant bits
-    print("[1/4] Analyzing DSL constraints...")
-    analyzer = ConstraintAnalyzer(args.dsl_file)
-    constant_bits = analyzer.get_candidate_odc_bits(args.scope)
-    
-    if not constant_bits:
-        print("  No constant bits found - nothing to test")
-        return 0
-    
-    print(f"  Found {len(constant_bits)} candidate ODC bits:")
-    for cb in constant_bits:
-        print(f"    {cb}")
-    print()
-    
-    # Step 2: For each candidate, inject error and test
-    print(f"[2/4] Testing {len(constant_bits)} candidates...")
-    
-    injector = ErrorInjector(core_root / "rtl")
-    checker = SecChecker(conflict_limit=30000, timeout_sec=600)
+    # Step 1: Bit-level ODC Analysis (if enabled)
     test_results = []
-    
-    for i, constant_bit in enumerate(constant_bits, 1):
-        print(f"  [{i}/{len(constant_bits)}] Testing {constant_bit}")
-        
-        # Generate error-injected RTL
+    if args.analysis_level in ["bit", "both"]:
+        print("[1] BIT-LEVEL ODC ANALYSIS")
+        print("-" * 70)
+        print("Analyzing DSL constraints for constant bits...")
+        analyzer = ConstraintAnalyzer(args.dsl_file)
+        constant_bits = analyzer.get_candidate_odc_bits(args.scope)
+
+        if not constant_bits:
+            print("  No constant bits found")
+        else:
+            print(f"  Found {len(constant_bits)} candidate ODC bits:")
+            for cb in constant_bits:
+                print(f"    {cb}")
+            print()
+
+            # Test each candidate
+            print(f"Testing {len(constant_bits)} bit-level candidates...")
+
+            injector = ErrorInjector(core_root / "rtl")
+            checker = SecChecker(conflict_limit=30000, timeout_sec=600)
+
+            for i, constant_bit in enumerate(constant_bits, 1):
+                print(f"  [{i}/{len(constant_bits)}] Testing {constant_bit}")
+
+                # Generate error-injected RTL
+                try:
+                    error_rtl = injector.inject_constant_bit(
+                        constant_bit,
+                        error_injection_dir,
+                        test_opposite=False  # Force to constraint-specified value
+                    )
+                    print(f"    Generated: {error_rtl.name}")
+                except Exception as e:
+                    print(f"    ERROR: Injection failed: {e}")
+                    # Create dummy failed result
+                    from odc.sec_checker import SecStatus
+                    test_results.append(OdcTestResult(
+                        constant_bit,
+                        SecResult(SecStatus.ERROR, 0.0, abc_output=str(e))
+                    ))
+                    continue
+
+                if args.skip_synthesis:
+                    # Create dummy result for testing
+                    print(f"    Skipping synthesis (--skip-synthesis)")
+                    from odc.sec_checker import SecStatus
+                    # Alternate between equivalent and not equivalent for testing
+                    status = SecStatus.EQUIVALENT if i % 2 == 0 else SecStatus.NOT_EQUIVALENT
+                    test_results.append(OdcTestResult(
+                        constant_bit,
+                        SecResult(status, 1.0 + i*0.1)
+                    ))
+                    continue
+
+                # Synthesize error-injected circuit
+                error_aig = synthesize_error_injected_circuit(
+                    error_rtl, args.dsl_file, error_injection_dir, args.config, args.k_depth
+                )
+
+                if error_aig is None:
+                    print(f"    ERROR: Synthesis failed or not implemented")
+                    from odc.sec_checker import SecStatus
+                    test_results.append(OdcTestResult(
+                        constant_bit,
+                        SecResult(SecStatus.ERROR, 0.0, abc_output="Synthesis failed")
+                    ))
+                    continue
+
+                # Run bounded SEC
+                print(f"    Running SEC (k={args.k_depth})...")
+                sec_result = checker.check_equivalence(
+                    args.baseline_aig,
+                    error_aig,
+                    args.k_depth
+                )
+
+                print(f"    Result: {sec_result.status.value} ({sec_result.runtime_sec:.2f}s)")
+
+                # Save SEC log
+                log_file = sec_logs_dir / f"{constant_bit.field_name}_bit{constant_bit.bit_position}.log"
+                log_file.write_text(sec_result.abc_output)
+
+                test_results.append(OdcTestResult(constant_bit, sec_result))
+                print()
+
+        print()
+
+    # Step 2: Mux-level ODC Analysis (if enabled)
+    unreachable_mux_cases = []
+    if args.analysis_level in ["mux", "both"]:
+        print("[2] MUX-LEVEL ODC ANALYSIS")
+        print("-" * 70)
+        print("Analyzing result mux reachability...")
+
         try:
-            error_rtl = injector.inject_constant_bit(
-                constant_bit, 
-                error_injection_dir,
-                test_opposite=False  # Force to constraint-specified value
+            mux_analyzer = MuxReachabilityAnalyzer(
+                config_path=args.config,
+                output_dir=args.output_dir / "mux_reachability"
             )
-            print(f"    Generated: {error_rtl.name}")
+
+            unreachable_mux_cases = mux_analyzer.analyze(
+                dsl_file=args.dsl_file,
+                baseline_aig=args.baseline_aig,
+                k_depth=args.k_depth,
+                skip_synthesis=args.skip_synthesis,
+            )
         except Exception as e:
-            print(f"    ERROR: Injection failed: {e}")
-            # Create dummy failed result
-            from odc.sec_checker import SecStatus
-            test_results.append(OdcTestResult(
-                constant_bit,
-                SecResult(SecStatus.ERROR, 0.0, abc_output=str(e))
-            ))
-            continue
-        
-        if args.skip_synthesis:
-            # Create dummy result for testing
-            print(f"    Skipping synthesis (--skip-synthesis)")
-            from odc.sec_checker import SecStatus
-            # Alternate between equivalent and not equivalent for testing
-            status = SecStatus.EQUIVALENT if i % 2 == 0 else SecStatus.NOT_EQUIVALENT
-            test_results.append(OdcTestResult(
-                constant_bit,
-                SecResult(status, 1.0 + i*0.1)
-            ))
-            continue
-        
-        # Synthesize error-injected circuit
-        error_aig = synthesize_error_injected_circuit(
-            error_rtl, args.dsl_file, error_injection_dir, args.config, args.k_depth
-        )
-        
-        if error_aig is None:
-            print(f"    ERROR: Synthesis failed or not implemented")
-            from odc.sec_checker import SecStatus
-            test_results.append(OdcTestResult(
-                constant_bit,
-                SecResult(SecStatus.ERROR, 0.0, abc_output="Synthesis failed")
-            ))
-            continue
-        
-        # Run bounded SEC
-        print(f"    Running SEC (k={args.k_depth})...")
-        sec_result = checker.check_equivalence(
-            args.baseline_aig,
-            error_aig,
-            args.k_depth
-        )
-        
-        print(f"    Result: {sec_result.status.value} ({sec_result.runtime_sec:.2f}s)")
-        
-        # Save SEC log
-        log_file = sec_logs_dir / f"{constant_bit.field_name}_bit{constant_bit.bit_position}.log"
-        log_file.write_text(sec_result.abc_output)
-        
-        test_results.append(OdcTestResult(constant_bit, sec_result))
+            print(f"ERROR in mux analysis: {e}")
+            import traceback
+            traceback.print_exc()
+            unreachable_mux_cases = []
+
+        if unreachable_mux_cases:
+            print(f"\nFound {len(unreachable_mux_cases)} unreachable mux cases:")
+            for case in unreachable_mux_cases:
+                status = "✓ VERIFIED" if case.sec_verified else "✗ NOT VERIFIED"
+                print(f"  {status} - {case.functional_unit} ({case.result_signal})")
+                print(f"      Operations: {', '.join(case.alu_operations)}")
+                print(f"      Reason: {case.reason}")
+                if case.sec_verified:
+                    print(f"      SEC runtime: {case.proof_runtime:.2f}s")
+        else:
+            print("  No unreachable mux cases found")
+
         print()
     
     # Step 3: Generate reports
-    print("[3/4] Generating reports...")
+    print("[3] GENERATING REPORTS")
+    print("-" * 70)
     generator = ReportGenerator(args.dsl_file, args.output_dir)
     generator.generate_reports(test_results)
+
+    # Also save mux-level results to JSON
+    if unreachable_mux_cases:
+        import json
+        mux_report = {
+            "dsl_file": str(args.dsl_file),
+            "analysis_type": "mux_reachability",
+            "unreachable_mux_cases": [
+                {
+                    "result_signal": case.result_signal,
+                    "alu_operations": case.alu_operations,
+                    "functional_unit": case.functional_unit,
+                    "reason": case.reason,
+                    "sec_verified": case.sec_verified,
+                    "proof_runtime": case.proof_runtime,
+                }
+                for case in unreachable_mux_cases
+            ]
+        }
+        mux_json_path = args.output_dir / "mux_odc_analysis.json"
+        with open(mux_json_path, 'w') as f:
+            json.dump(mux_report, f, indent=2)
+        print(f"Saved mux-level ODC report to: {mux_json_path}")
+
     print()
-    
+
     # Step 4: Summary
-    print("[4/4] Summary")
+    print("[4] SUMMARY")
     print("="*70)
-    
-    odc_count = sum(1 for r in test_results if r.is_odc)
-    non_odc_count = len(test_results) - odc_count
-    
-    print(f"Total tests: {len(test_results)}")
-    print(f"Confirmed ODCs: {odc_count}")
-    print(f"Not ODCs: {non_odc_count}")
-    print()
-    
-    if odc_count > 0:
-        print("Confirmed ODC bits (can be tied to constants):")
-        for result in test_results:
-            if result.is_odc:
-                cb = result.constant_bit
-                print(f"  ✓ {cb.field_name}[{cb.bit_position}] = {cb.constant_value}")
-    else:
-        print("No ODCs confirmed.")
-    
-    print()
-    print(f"Reports saved to: {args.output_dir}")
+
+    # Bit-level summary
+    if args.analysis_level in ["bit", "both"]:
+        odc_count = sum(1 for r in test_results if r.is_odc)
+        non_odc_count = len(test_results) - odc_count
+
+        print("Bit-level ODC Analysis:")
+        print(f"  Total tests: {len(test_results)}")
+        print(f"  Confirmed ODCs: {odc_count}")
+        print(f"  Not ODCs: {non_odc_count}")
+
+        if odc_count > 0:
+            print("\n  Confirmed ODC bits (can be tied to constants):")
+            for result in test_results:
+                if result.is_odc:
+                    cb = result.constant_bit
+                    print(f"    ✓ {cb.field_name}[{cb.bit_position}] = {cb.constant_value}")
+        print()
+
+    # Mux-level summary
+    if args.analysis_level in ["mux", "both"]:
+        verified_count = sum(1 for c in unreachable_mux_cases if c.sec_verified)
+
+        print("Mux-level ODC Analysis:")
+        print(f"  Candidates: {len(unreachable_mux_cases)}")
+        print(f"  Verified unreachable: {verified_count}")
+
+        if verified_count > 0:
+            print("\n  Verified unreachable functional units:")
+            for case in unreachable_mux_cases:
+                if case.sec_verified:
+                    print(f"    ✓ {case.functional_unit} ({case.result_signal})")
+                    print(f"       Can remove: {', '.join(case.alu_operations[:3])}{'...' if len(case.alu_operations) > 3 else ''}")
+        print()
+
+    print(f"All reports saved to: {args.output_dir}")
     print("="*70)
     
     return 0

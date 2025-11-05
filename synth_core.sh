@@ -510,6 +510,183 @@ if [ "$RUN_ODC_ANALYSIS" = true ]; then
             echo "ODC analysis complete!"
             echo "  Reports: $ODC_OUTPUT_DIR/odc_report.{json,md}"
             echo ""
+
+            # Check if any ODCs were found (bit-level or mux-level)
+            ODC_REPORT="$ODC_OUTPUT_DIR/odc_report.json"
+            MUX_ODC_REPORT="$ODC_OUTPUT_DIR/mux_odc_analysis.json"
+
+            ODC_COUNT=$(python3 -c "
+import json
+count = 0
+try:
+    with open('$ODC_REPORT') as f:
+        report = json.load(f)
+    count = report.get('metadata', {}).get('confirmed_odcs', 0)
+except:
+    pass
+print(count)
+" 2>/dev/null || echo "0")
+
+            MUX_ODC_COUNT=$(python3 -c "
+import json
+count = 0
+try:
+    with open('$MUX_ODC_REPORT') as f:
+        report = json.load(f)
+    count = len([c for c in report.get('unreachable_mux_cases', []) if c.get('sec_verified', False)])
+except:
+    pass
+print(count)
+" 2>/dev/null || echo "0")
+
+            TOTAL_ODC_COUNT=$((ODC_COUNT + MUX_ODC_COUNT))
+
+            if [ "$TOTAL_ODC_COUNT" -gt 0 ]; then
+                echo "Found $ODC_COUNT bit-level ODCs and $MUX_ODC_COUNT mux-level ODCs - applying optimizations..."
+                echo ""
+
+                # Apply ODC optimizations
+                OPTIMIZED_RTL_DIR="$OUTPUT_DIR/odc_optimized_rtl"
+                OPTIMIZED_SYNTH_DIR="$OUTPUT_DIR/odc_optimized_synthesis"
+
+                # Apply bit-level optimizations (if any)
+                if [ "$ODC_COUNT" -gt 0 ]; then
+                    echo "Applying bit-level ODC optimizations..."
+                    python3 scripts/apply_odc_optimizations.py "$ODC_REPORT" \
+                        --rtl-dir "$CORE_ROOT/rtl" \
+                        --output-dir "$OPTIMIZED_RTL_DIR"
+                fi
+
+                # Apply mux-level optimizations (if any)
+                if [ "$MUX_ODC_COUNT" -gt 0 ]; then
+                    echo "Applying mux-level ODC optimizations..."
+                    # If bit-level already ran, use its output as input; otherwise use original
+                    if [ -f "$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv" ]; then
+                        INPUT_ALU="$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv"
+                    else
+                        INPUT_ALU="$CORE_ROOT/rtl/ibex_alu.sv"
+                        mkdir -p "$OPTIMIZED_RTL_DIR"
+                    fi
+
+                    python3 scripts/apply_mux_optimizations.py "$MUX_ODC_REPORT" \
+                        --config "$ODC_CONFIG" \
+                        --output-dir "$OPTIMIZED_RTL_DIR"
+
+                    # The output is ibex_alu_mux_optimized.sv, rename to ibex_alu_optimized.sv
+                    if [ -f "$OPTIMIZED_RTL_DIR/ibex_alu_mux_optimized.sv" ]; then
+                        mv "$OPTIMIZED_RTL_DIR/ibex_alu_mux_optimized.sv" "$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv"
+                    fi
+                fi
+
+                # Check if we have an optimized ALU file
+                if [ -f "$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv" ]; then
+                    # Copy optimized RTL to synthesis directory
+                    mkdir -p "$OPTIMIZED_SYNTH_DIR"
+                    cp "$OPTIMIZED_RTL_DIR"/ibex_alu_optimized.sv "$OPTIMIZED_SYNTH_DIR/"
+
+                    echo "Re-synthesizing with ODC optimizations..."
+
+                    # Synthesize optimized version
+                    python3 << PYEOF
+import sys
+from pathlib import Path
+sys.path.insert(0, 'odc')
+from synthesis import synthesize_error_injected_circuit
+
+result = synthesize_error_injected_circuit(
+    error_injected_rtl=Path('$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized.sv'),
+    dsl_file=Path('$INPUT_DSL'),
+    output_dir=Path('$OPTIMIZED_SYNTH_DIR'),
+    config_file=Path('$ODC_CONFIG'),
+    k_depth=$ABC_DEPTH
+)
+sys.exit(0 if result else 1)
+PYEOF
+
+                    if [ $? -eq 0 ]; then
+                        # Run ABC optimization on optimized circuit
+                        OPTIMIZED_YOSYS_AIG="$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized_yosys.aig"
+                        OPTIMIZED_ABC_AIG="$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized_post_abc.aig"
+
+                        # Get constraint info
+                        ABC_STATS_OPT=$(abc -c "read_aiger $OPTIMIZED_YOSYS_AIG; print_stats" 2>&1 | grep "i/o")
+
+                        if echo "$ABC_STATS_OPT" | grep -q "(c="; then
+                            TOTAL_OUTPUTS=$(echo "$ABC_STATS_OPT" | grep -oP 'i/o\s*=\s*\d+/\s*\K\d+')
+                            CONSTR_COUNT=$(echo "$ABC_STATS_OPT" | grep -oP '\(c=\K\d+')
+                            REAL_OUTPUTS=$((TOTAL_OUTPUTS - CONSTR_COUNT))
+
+                            CONSTRAINT_CMDS="constr -r;"
+                            for ((i=TOTAL_OUTPUTS-1; i>=REAL_OUTPUTS; i--)); do
+                                CONSTRAINT_CMDS="$CONSTRAINT_CMDS removepo -N $i;"
+                            done
+                        else
+                            CONSTRAINT_CMDS=""
+                        fi
+
+                        abc -c "
+                            read_aiger $OPTIMIZED_YOSYS_AIG;
+                            strash;
+                            cycle 100;
+                            scorr -c -m -F $ABC_DEPTH -C 30000 -S 20 -v;
+                            $CONSTRAINT_CMDS
+                            rewrite -l;
+                            fraig;
+                            balance -l;
+                            print_stats;
+                            write_aiger $OPTIMIZED_ABC_AIG;
+                        " > "$OPTIMIZED_SYNTH_DIR/abc.log" 2>&1
+
+                        # Compare results
+                        BASELINE_STATS=$(abc -c "read_aiger $ABC_OUTPUT; print_stats" 2>&1 | grep "i/o =")
+                        OPTIMIZED_STATS=$(abc -c "read_aiger $OPTIMIZED_ABC_AIG; print_stats" 2>&1 | grep "i/o =")
+
+                        BASELINE_AND=$(echo "$BASELINE_STATS" | grep -oP 'and\s*=\s*\K\d+')
+                        OPTIMIZED_AND=$(echo "$OPTIMIZED_STATS" | grep -oP 'and\s*=\s*\K\d+')
+
+                        if [ -n "$BASELINE_AND" ] && [ -n "$OPTIMIZED_AND" ]; then
+                            REDUCTION=$((BASELINE_AND - OPTIMIZED_AND))
+                            PERCENT=$(python3 -c "print(f'{100.0 * $REDUCTION / $BASELINE_AND:.2f}')")
+
+                            echo ""
+                            echo "ODC Optimization Results:"
+                            echo "  Baseline:  $BASELINE_AND AND gates"
+                            echo "  Optimized: $OPTIMIZED_AND AND gates"
+                            echo "  Reduction: $REDUCTION gates ($PERCENT%)"
+
+                            if [ "$REDUCTION" -gt 0 ]; then
+                                echo "  ✓ ODC optimization successful!"
+                            fi
+
+                            # Run gate-level synthesis on ODC-optimized circuit if requested
+                            if [ "$SYNTHESIZE_GATES" = true ]; then
+                                echo ""
+                                echo "Synthesizing ODC-optimized circuit to gate level..."
+                                OPTIMIZED_BASE="$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized"
+                                ./scripts/synth_to_gates.sh "$OPTIMIZED_BASE"
+
+                                if [ $? -eq 0 ]; then
+                                    # Extract and show chip area comparison
+                                    # Format: "Chip area for module 'name': 39250.144000"
+                                    BASELINE_AREA=$(grep "Chip area for module" "$OUTPUT_DIR/${OUTPUT_PREFIX}_gates.log" 2>/dev/null | tail -1 | awk '{print $NF}')
+                                    OPTIMIZED_AREA=$(grep "Chip area for module" "$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized_gates.log" 2>/dev/null | tail -1 | awk '{print $NF}')
+
+                                    if [ -n "$BASELINE_AREA" ] && [ -n "$OPTIMIZED_AREA" ]; then
+                                        AREA_REDUCTION=$(python3 -c "print(f'{float('$BASELINE_AREA') - float('$OPTIMIZED_AREA'):.2f}')")
+                                        AREA_PERCENT=$(python3 -c "print(f'{100.0 * (float('$BASELINE_AREA') - float('$OPTIMIZED_AREA')) / float('$BASELINE_AREA'):.2f}')")
+
+                                        echo ""
+                                        echo "Chip Area Comparison:"
+                                        echo "  Baseline:  $BASELINE_AREA µm²"
+                                        echo "  Optimized: $OPTIMIZED_AREA µm²"
+                                        echo "  Reduction: $AREA_REDUCTION µm² ($AREA_PERCENT%)"
+                                    fi
+                                fi
+                            fi
+                        fi
+                    fi
+                fi
+            fi
         else
             echo ""
             echo "WARNING: ODC analysis failed or incomplete"
@@ -518,10 +695,13 @@ if [ "$RUN_ODC_ANALYSIS" = true ]; then
     fi
 fi
 
-# Step 6 (optional): Gate-level synthesis
+# Step 6 (optional): Gate-level synthesis (baseline only if ODC didn't run)
 if [ "$SYNTHESIZE_GATES" = true ]; then
-    echo "Synthesizing to gate level with Skywater PDK..."
-    ./scripts/synth_to_gates.sh "$BASE"
+    # Check if ODC optimization already ran gate synthesis
+    if [ ! -f "$OUTPUT_DIR/odc_optimized_synthesis/synthesis.log" ]; then
+        echo "Synthesizing to gate level with Skywater PDK..."
+        ./scripts/synth_to_gates.sh "$BASE"
+    fi
 
     if [ $? -ne 0 ]; then
         echo "ERROR: Gate-level synthesis failed"

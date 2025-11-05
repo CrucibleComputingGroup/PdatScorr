@@ -133,15 +133,15 @@ class SecChecker:
         Returns:
             ABC command string
         """
-        # Use ABC's & space commands for sequential CEC
-        # &cec supports sequential circuits and constraints properly
-        # Use -v for verbose output to get more details
+        # Use dsec for proper sequential equivalence checking with induction
+        # -F sets the induction depth (k-BMC bound)
+        # -v for verbose output
+        # -n to match CIs/COs by name (not order) since circuits have same signal names
+        # -r enables forward retiming (default=yes, helps with sequential optimization)
 
         script = f"""
 read_aiger {baseline_aig};
-&get;
-&read {modified_aig};
-&cec -v;
+dsec -F {k_depth} -v -n {modified_aig};
 """.strip()
 
         return script

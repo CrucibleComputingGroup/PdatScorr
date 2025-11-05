@@ -114,3 +114,78 @@ synthesis:
   # ABC optimization settings
   abc:
     default_depth: 2  # k-induction depth matching 2-stage pipeline
+
+# ALU Result Mux Structure (for higher-level ODC analysis)
+# Describes which mux cases select which result signals
+result_muxes:
+  - name: "alu_result_mux"
+    location: "rtl/ibex_alu.sv:1322"
+    selector_signal: "operator_i"
+    selector_type: "alu_op_e"  # Enum type from ibex_pkg.sv
+    module_path: "ibex_core.ex_block_i.alu_i"
+    description: "Main ALU result multiplexer - selects between functional unit outputs"
+
+    # Each case maps ALU operations to a result signal
+    cases:
+      - result_signal: "bwlogic_result"
+        alu_operations: ["ALU_XOR", "ALU_XNOR", "ALU_OR", "ALU_ORN", "ALU_AND", "ALU_ANDN"]
+        description: "Bitwise logic operations"
+
+      - result_signal: "adder_result"
+        alu_operations: ["ALU_ADD", "ALU_SUB", "ALU_SH1ADD", "ALU_SH2ADD", "ALU_SH3ADD"]
+        description: "Addition/subtraction (also used for address calculation)"
+        never_odc: true  # Adder always needed for LOAD/STORE address calculation
+
+      - result_signal: "shift_result"
+        alu_operations: ["ALU_SLL", "ALU_SRL", "ALU_SRA", "ALU_SLO", "ALU_SRO"]
+        description: "Barrel shifter output"
+
+      - result_signal: "shuffle_result"
+        alu_operations: ["ALU_SHFL", "ALU_UNSHFL"]
+        description: "Shuffle operations (RV32B)"
+
+      - result_signal: "xperm_result"
+        alu_operations: ["ALU_XPERM_N", "ALU_XPERM_B", "ALU_XPERM_H"]
+        description: "Crossbar permutation (RV32B)"
+
+      - result_signal: "cmp_result"
+        alu_operations: ["ALU_EQ", "ALU_NE", "ALU_GE", "ALU_GEU", "ALU_LT", "ALU_LTU", "ALU_SLT", "ALU_SLTU"]
+        description: "Comparison results (used by branches)"
+
+      - result_signal: "minmax_result"
+        alu_operations: ["ALU_MIN", "ALU_MAX", "ALU_MINU", "ALU_MAXU"]
+        description: "Min/Max operations (RV32B)"
+
+      - result_signal: "bitcnt_result"
+        alu_operations: ["ALU_CLZ", "ALU_CTZ", "ALU_CPOP"]
+        description: "Bit counting operations (RV32B)"
+
+      - result_signal: "pack_result"
+        alu_operations: ["ALU_PACK", "ALU_PACKH", "ALU_PACKU"]
+        description: "Pack operations (RV32B)"
+
+      - result_signal: "sext_result"
+        alu_operations: ["ALU_SEXTB", "ALU_SEXTH"]
+        description: "Sign-extend operations (RV32B)"
+
+      - result_signal: "multicycle_result"
+        alu_operations: ["ALU_CMIX", "ALU_CMOV", "ALU_FSL", "ALU_FSR", "ALU_ROL", "ALU_ROR",
+                        "ALU_CRC32_B", "ALU_CRC32C_B", "ALU_CRC32_H", "ALU_CRC32C_H",
+                        "ALU_CRC32_W", "ALU_CRC32C_W", "ALU_BCOMPRESS", "ALU_BDECOMPRESS"]
+        description: "Multi-cycle operations (RV32B)"
+
+      - result_signal: "singlebit_result"
+        alu_operations: ["ALU_BSET", "ALU_BCLR", "ALU_BINV", "ALU_BEXT"]
+        description: "Single-bit operations (RV32B)"
+
+      - result_signal: "rev_result"
+        alu_operations: ["ALU_GREV", "ALU_GORC"]
+        description: "Reverse operations (RV32B)"
+
+      - result_signal: "bfp_result"
+        alu_operations: ["ALU_BFP"]
+        description: "Bit field place (RV32B)"
+
+      - result_signal: "clmul_result"
+        alu_operations: ["ALU_CLMUL", "ALU_CLMULR", "ALU_CLMULH"]
+        description: "Carry-less multiply (RV32B)"
