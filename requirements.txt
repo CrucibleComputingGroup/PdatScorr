@@ -5,6 +5,10 @@
 # In CI/CD, this will be checked out to ../PdatRiscvDsl
 -e ../PdatRiscvDsl
 
+# Core dependencies
+pyyaml>=5.0          # YAML config file parsing
+aigverse>=0.0.25     # AIGER manipulation library (used by pdat-dsl)
+
 # Testing dependencies
 pytest>=7.0.0
 pytest-xdist>=3.0.0  # For parallel test execution
