@@ -369,26 +369,36 @@ def main():
         print(f"Processing register fields (rd/rs1/rs2): {len(register_odcs)} total ODCs")
 
         # Target the register file for optimization
-        # For Ibex: ibex_register_file_ff.sv
-        # TODO: Make this config-driven - add register_file entry to config
-        # For now, use common naming patterns
-        register_file_candidates = [
-            "ibex_register_file_ff.sv",
-            "register_file.sv",
-            "regfile.sv",
-            "rf.sv"
-        ]
-
+        # Use config to find register file from source_files list
         source_file = None
-        for candidate in register_file_candidates:
-            candidate_path = args.rtl_dir / candidate
-            if candidate_path.exists():
-                source_file = candidate_path
-                break
+
+        # Search config source_files for register file
+        for src_file in config.synthesis.source_files:
+            if "regfile" in src_file.lower() or "register_file" in src_file.lower():
+                # Found it - construct full path
+                source_file = Path(config.synthesis.core_root_resolved) / src_file
+                if source_file.exists():
+                    break
+                source_file = None  # Reset if file doesn't exist
+
+        # Fallback: try common patterns in rtl_dir
+        if source_file is None:
+            register_file_candidates = [
+                "ibex_register_file_ff.sv",
+                "register_file.sv",
+                "regfile.sv",
+                "rf.sv"
+            ]
+
+            for candidate in register_file_candidates:
+                candidate_path = args.rtl_dir / candidate
+                if candidate_path.exists():
+                    source_file = candidate_path
+                    break
 
         if source_file is None:
-            print(f"  ERROR: Could not find register file in {args.rtl_dir}")
-            print(f"  Tried: {', '.join(register_file_candidates)}")
+            print(f"  ERROR: Could not find register file")
+            print(f"  Searched in config source_files and {args.rtl_dir}")
         else:
             # Generate output filename
             output_filename = f"{source_file.stem}_optimized.sv"

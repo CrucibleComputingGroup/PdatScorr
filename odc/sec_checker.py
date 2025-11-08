@@ -83,24 +83,35 @@ class SecChecker:
             # Create ABC command script
             abc_script = self._generate_sec_script(baseline_aig, modified_aig, k_depth)
             
-            # Run ABC
+            # Run ABC - use absolute paths or ensure we're in the right directory
+            # Note: ABC script uses the Path objects which may be relative
+            # Use stdout=PIPE, stderr=STDOUT to avoid buffering issues
             result = subprocess.run(
                 [self.abc_path, "-c", abc_script],
-                capture_output=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
                 text=True,
                 timeout=self.timeout_sec
             )
             
             runtime = time.time() - start_time
-            
+
+            # Get output (stderr is merged into stdout)
+            full_output = result.stdout
+
+            # Debug: Uncomment to diagnose output capture issues
+            # print(f"[DEBUG] ABC output: {len(full_output)} chars, exit={result.returncode}")
+            # if len(full_output) < 500:
+            #     print(f"[DEBUG] Full output: {repr(full_output[:200])}")
+
             # Parse ABC output to determine result
-            status, counterexample = self._parse_abc_output(result.stdout + result.stderr)
-            
+            status, counterexample = self._parse_abc_output(full_output)
+
             return SecResult(
                 status=status,
                 runtime_sec=runtime,
                 counterexample=counterexample,
-                abc_output=result.stdout + result.stderr
+                abc_output=full_output
             )
             
         except subprocess.TimeoutExpired:
@@ -140,14 +151,12 @@ class SecChecker:
         # Note: If modified circuit has constraint outputs, remove them first
         # to ensure both circuits have the same number of outputs
 
-        script = f"""
-read_aiger {baseline_aig};
-read_aiger {modified_aig};
-# Remove constraint outputs from second network if present
-constr -r;
-# Compare the two networks
-dsec -F {k_depth} -v;
-""".strip()
+        # Use absolute paths to ensure ABC can find files regardless of cwd
+        baseline_abs = baseline_aig.absolute() if not baseline_aig.is_absolute() else baseline_aig
+        modified_abs = modified_aig.absolute() if not modified_aig.is_absolute() else modified_aig
+
+        # IMPORTANT: Use single-line command - multi-line scripts with comments cause ABC to truncate output
+        script = f"read_aiger {baseline_abs}; read_aiger {modified_abs}; constr -r; dsec -F {k_depth} -v;"
 
         return script
     
