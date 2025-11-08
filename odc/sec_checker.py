@@ -137,9 +137,16 @@ class SecChecker:
         # -n to match CIs/COs by name (not order) since circuits have same signal names
         # -r enables forward retiming (default=yes, helps with sequential optimization)
 
+        # Note: If modified circuit has constraint outputs, remove them first
+        # to ensure both circuits have the same number of outputs
+
         script = f"""
 read_aiger {baseline_aig};
-dsec -F {k_depth} -v -n {modified_aig};
+read_aiger {modified_aig};
+# Remove constraint outputs from second network if present
+constr -r;
+# Compare the two networks
+dsec -F {k_depth} -v;
 """.strip()
 
         return script

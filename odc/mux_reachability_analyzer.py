@@ -154,8 +154,13 @@ class MuxReachabilityAnalyzer:
                     instr_name = rule.instruction_pattern.instruction_name.upper()
                     allowed.add(instr_name)
             elif rule_type == "ForbidRule":
-                # v2 DSL: forbid INSTR
+                # v2 DSL: forbid INSTR or forbid xN-xM (register range)
                 if hasattr(rule, "expr"):
+                    # Check if this is a register range expression (not an instruction)
+                    if type(rule.expr).__name__ == "RegisterRangeExpression":
+                        # Skip register range constraints - they don't affect instruction allowlist
+                        continue
+                    # It's an instruction name string
                     instr_name = rule.expr.upper()
                     forbidden.add(instr_name)
             elif rule_type == "InstructionRule":

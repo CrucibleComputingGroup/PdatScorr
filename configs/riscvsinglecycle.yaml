@@ -1,0 +1,75 @@
+# RiscvSingleCycle Core Configuration for PDAT Synthesis
+# Single-cycle RISC-V implementation with RV32E (16 registers)
+#
+# This is a minimal, educational single-cycle RISC-V core written in Veryl.
+# It implements the RV32E base ISA without multiply/divide extensions.
+
+core_name: "riscvsinglecycle"
+architecture: "rv32"  # RV32E (16 registers)
+
+# Injection points for different constraint types
+injections:
+  # ISA constraints injected into control unit
+  - name: "control_isa"
+    source_file: "target/control.sv"
+    constraint_type: "isa"
+    module_path: "RiscvSingleCycle_riscv_core.control_inst"
+    description: "Control unit - where ISA instruction decoding and constraints are injected"
+
+# Signal naming conventions for RiscvSingleCycle
+signals:
+  # Instruction and PC signals
+  instruction_data: "imem_rdata"
+  pc: "pc"
+
+  # Operand signals
+  operands:
+    # ALU operands (single execution unit for all arithmetic/logic)
+    alu:
+      rs1: "rs1_data"  # Register file output for source register 1
+      rs2: "rs2_data"  # Register file output for source register 2
+
+    # Additional operand signals available for analysis
+    alu_inputs:
+      alu_a: "alu_a"  # ALU input A (can be rs1_data, pc, or zero)
+      alu_b: "alu_b"  # ALU input B (can be rs2_data or immediate)
+
+# VCD analysis configuration
+vcd:
+  testbench_prefix: "tb_riscv.dut"
+
+# Synthesis configuration
+synthesis:
+  # Core root path (relative to PdatScorr)
+  core_root: "../PdatCoreSim/cores/RiscvSingleCycle"
+
+  # Top-level module to synthesize
+  top_module: "RiscvSingleCycle_riscv_core"
+
+  # Include directories (empty for this simple core)
+  include_dirs: []
+
+  # Source files in dependency order (relative to core_root)
+  # These are the Veryl-generated SystemVerilog files
+  source_files:
+    - "target/regfile.sv"       # Register file (16 registers for RV32E)
+    - "target/immgen.sv"        # Immediate generator
+    - "target/alu.sv"           # Arithmetic/logic unit
+    - "target/branch_comp.sv"   # Branch comparator
+    - "target/control.sv"       # Control unit (instruction decoder)
+    - "target/datapath.sv"      # Datapath (connects all functional units)
+    - "target/riscv_core.sv"    # Top-level core
+
+  # Synthesis parameters (none needed for this simple core)
+  parameters: {}
+
+  # ABC optimization settings
+  abc:
+    default_depth: 1  # Single-cycle design, so depth = 1
+
+# Core-specific notes
+# - This is a single-cycle design (CPI = 1)
+# - Implements RV32E: only 16 registers (x0-x15)
+# - Base I instructions only: no M (multiply/divide), no A (atomic), no F/D (floating-point)
+# - Harvard architecture: separate instruction and data memory interfaces
+# - Written in Veryl, compiled to SystemVerilog (target/ directory)

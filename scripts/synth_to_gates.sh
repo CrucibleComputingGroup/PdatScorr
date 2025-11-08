@@ -100,7 +100,10 @@ opt_clean
 # Write gate-level Verilog netlist
 write_verilog -noattr -noexpr -nohex $OUTPUT_V
 
-# Print statistics
+# Print statistics (with all cell types)
+stat
+
+# Print statistics with liberty (combinational only - skips sequential cells)
 stat -liberty $LIBERTY_FILE
 EOF
 
@@ -110,8 +113,18 @@ echo "Running gate-level synthesis..."
 yosys -s "$SCRIPT" 2>&1 | tee "$GATES_LOG"
 
 if [ ${PIPESTATUS[0]} -eq 0 ]; then
-    # Extract chip area from log
-    CHIP_AREA=$(grep "Chip area" "$GATES_LOG" | tail -1 | awk '{print $NF}')
+    # Extract chip area from log (combinational only)
+    CHIP_AREA_COMB=$(grep "Chip area" "$GATES_LOG" | tail -1 | awk '{print $NF}')
+
+    # Extract flip-flop count and calculate their area
+    # DFF cells: sky130_fd_sc_hd__dfxtp_1 (area ~20 µm²), dfxtp_2, dfxtp_4, etc.
+    DFF_COUNT=$(grep -E "sky130_fd_sc_hd__dfx" "$GATES_LOG" | grep -oP 'sky130_fd_sc_hd__dfx\w+\s+\K\d+' | awk '{sum+=$1} END {print sum+0}')
+
+    # Estimate DFF area: assume average ~20 µm² per flip-flop
+    DFF_AREA=$(python3 -c "print(f'{$DFF_COUNT * 20.0:.2f}')" 2>/dev/null || echo "0")
+
+    # Total area = combinational + sequential
+    CHIP_AREA=$(python3 -c "print(f'{float('${CHIP_AREA_COMB:-0}') + float('${DFF_AREA:-0}'):.2f}')" 2>/dev/null || echo "$CHIP_AREA_COMB")
 
     echo ""
     echo "=========================================="
@@ -126,8 +139,16 @@ if [ ${PIPESTATUS[0]} -eq 0 ]; then
     if [ "$USE_SKYWATER" = true ]; then
         echo "Standard cell library: sky130_fd_sc_hd (high density)"
         echo "Corner: tt_025C_1v80 (typical, 25°C, 1.8V)"
+        if [ -n "$CHIP_AREA_COMB" ]; then
+            echo "Combinational area: $CHIP_AREA_COMB µm²"
+        fi
+        if [ -n "$DFF_COUNT" ] && [ "$DFF_COUNT" -gt 0 ]; then
+            echo "Flip-flops: $DFF_COUNT (estimated area: $DFF_AREA µm²)"
+        fi
         if [ -n "$CHIP_AREA" ]; then
-            echo "Chip area: $CHIP_AREA µm²"
+            echo "Total chip area: $CHIP_AREA µm² (comb + seq)"
+            # Save total area to file for comparison scripts
+            echo "$CHIP_AREA" > "${INPUT_BASE}_total_area.txt"
         fi
     fi
 else

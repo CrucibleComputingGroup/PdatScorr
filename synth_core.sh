@@ -19,6 +19,7 @@ while [[ "$#" -gt 0 ]]; do
         --3stage) WRITEBACK_STAGE=true; ABC_DEPTH=3; shift ;;
         --abc-depth)
             ABC_DEPTH="$2"
+            ABC_DEPTH_USER_SET=true
             if ! [[ "$ABC_DEPTH" =~ ^[0-9]+$ ]] || [ "$ABC_DEPTH" -lt 1 ]; then
                 echo "ERROR: --abc-depth must be a positive integer"
                 exit 1
@@ -120,17 +121,30 @@ DSL_BASENAME=$(basename "$INPUT_DSL" .dsl)
 
 # Determine output file prefix based on mode
 if [ -n "$CONFIG_FILE" ]; then
-    # Get core name from config
-    OUTPUT_PREFIX=$(python3 -c "
+    # Get core name and default ABC depth from config
+    CONFIG_VALUES=$(python3 -c "
 import sys
 sys.path.insert(0, 'scripts')
 try:
     from config_loader import ConfigLoader
     config = ConfigLoader.load_config('$CONFIG_FILE')
-    print(f'{config.core_name}_optimized')
-except:
-    print('core_optimized')  # Fallback
+    core_name = config.core_name
+    default_depth = config.synthesis.abc_config.get('default_depth', 2) if config.synthesis.abc_config else 2
+    print(f'{core_name}_optimized')
+    print(default_depth)
+except Exception as e:
+    print('core_optimized')
+    print('2')
 ")
+    OUTPUT_PREFIX=$(echo "$CONFIG_VALUES" | head -1)
+    CONFIG_DEFAULT_DEPTH=$(echo "$CONFIG_VALUES" | tail -1)
+
+    # Override ABC_DEPTH with config default if not explicitly set via --abc-depth
+    # Check if ABC_DEPTH is still at default value (2) - if so, use config default
+    if [ "$ABC_DEPTH" -eq 2 ] && [ -z "$ABC_DEPTH_USER_SET" ]; then
+        ABC_DEPTH=$CONFIG_DEFAULT_DEPTH
+        echo "  Using ABC depth from config: $ABC_DEPTH"
+    fi
 else
     # Legacy mode: use ibex prefix
     OUTPUT_PREFIX="ibex_optimized"
@@ -194,7 +208,21 @@ fi
 
 # Step 1: Generate assumptions code (inline, no module)
 echo "[1/$TOTAL_STEPS] Generating instruction assumptions..."
-pdat-dsl codegen "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+
+# Pass config file to codegen if in config mode (for signal name mappings)
+if [ -n "$CONFIG_FILE" ]; then
+    # pdat-dsl needs config from PdatRiscvDsl/configs/, not PdatScorr/configs/
+    # Try to find corresponding config in PdatRiscvDsl
+    DSL_CONFIG="../PdatRiscvDsl/configs/$(basename "$CONFIG_FILE")"
+    if [ -f "$DSL_CONFIG" ]; then
+        pdat-dsl codegen --config "$DSL_CONFIG" "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+    else
+        echo "  Warning: DSL config not found at $DSL_CONFIG, generating without config"
+        pdat-dsl codegen "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+    fi
+else
+    pdat-dsl codegen "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+fi
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to generate assumptions"

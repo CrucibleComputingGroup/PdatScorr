@@ -86,8 +86,8 @@ Examples:
     parser.add_argument("--output-dir", type=Path,
                        default=Path("output/odc_analysis"),
                        help="Output directory (default: output/odc_analysis)")
-    parser.add_argument("--scope", choices=["shamt", "all"], default="shamt",
-                       help="Analysis scope: shamt only or all fields")
+    parser.add_argument("--scope", choices=["shamt", "all"], default="all",
+                       help="Analysis scope: 'shamt' for shift amount only, 'all' for all fields (shamt, rd, rs1, rs2, imm) - default: all")
     parser.add_argument("--analysis-level", choices=["bit", "mux", "both"], default="both",
                        help="ODC analysis level: bit-level, mux-level, or both (default: both)")
     parser.add_argument("--k-depth", type=int, default=2,

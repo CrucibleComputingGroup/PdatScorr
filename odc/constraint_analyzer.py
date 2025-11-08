@@ -16,7 +16,7 @@ from collections import defaultdict
 # Add parent directory to path to import pdat_dsl
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "PdatRiscvDsl"))
 
-from pdat_dsl.parser import parse_dsl, BitPattern, FieldConstraint, IncludeRule, ForbidRule, InstructionPattern
+from pdat_dsl.parser import parse_dsl, BitPattern, FieldConstraint, IncludeRule, ForbidRule, InstructionPattern, RegisterRangeExpression
 from pdat_dsl.encodings import get_instruction_encoding
 
 
@@ -155,14 +155,61 @@ class ConstraintAnalyzer:
                 constant_bits[bit_pos] = bit_values.pop()
         
         return constant_bits
-    
+
+    def analyze_register_ranges(self) -> List[ConstantBit]:
+        """
+        Analyze register range constraints (v2 DSL) to find constant register address bits.
+
+        For `forbid xN-x31`, the allowed range is x0-x(N-1), which constrains
+        upper address bits to be constant.
+
+        Examples:
+            forbid x16-x31 → allow x0-x15 → rd[4] = 0
+            forbid x4-x31 → allow x0-x3 → rd[4:2] = 3'b000
+            forbid x8-x31 → allow x0-x7 → rd[4:3] = 2'b00
+
+        Returns:
+            List of ConstantBit objects for register address bits
+        """
+        constant_bits = []
+
+        # Look for ForbidRule with RegisterRangeExpression
+        for rule in self.dsl_spec.rules:
+            if isinstance(rule, ForbidRule) and isinstance(rule.expr, RegisterRangeExpression):
+                reg_range = rule.expr
+                min_reg = min(reg_range.registers)
+                max_reg = max(reg_range.registers)
+
+                # Check if this is forbidding upper registers (common case)
+                if max_reg == 31 and min_reg > 0:
+                    # Forbidding [min_reg, 31] → allowing [0, min_reg-1]
+                    max_allowed = min_reg - 1
+
+                    # Determine which bits must be constant
+                    # For x0-x(N-1), find upper bits that must be 0
+                    # Example: x0-x3 (max=3=0b00011), bits [4:2] must be 0
+                    for bit_pos in range(5):  # 5-bit register addresses
+                        bit_mask = 1 << bit_pos
+                        if bit_mask > max_allowed:
+                            # This bit must be 0 for all allowed registers
+                            # Add constant bit for each register field
+                            for field in ["rd", "rs1", "rs2"]:
+                                constant_bits.append(ConstantBit(
+                                    field_name=field,
+                                    bit_position=bit_pos,
+                                    constant_value=0,
+                                    instruction=None  # Global constraint, applies to all
+                                ))
+
+        return constant_bits
+
     def analyze_all_fields(self, scope: str = "shamt") -> List[ConstantBit]:
         """
         Analyze all relevant fields based on scope.
-        
+
         Args:
             scope: "shamt" for shift amount only, "all" for all fields
-            
+
         Returns:
             List of all constant bits found
         """
@@ -170,8 +217,14 @@ class ConstraintAnalyzer:
             fields = ["shamt"]
         else:
             fields = ["shamt", "imm", "rd", "rs1", "rs2"]
-        
+
         all_constant_bits = []
+
+        # First, check for global register range constraints (v2 DSL)
+        register_range_bits = self.analyze_register_ranges()
+        all_constant_bits.extend(register_range_bits)
+
+        # Then analyze per-instruction bit patterns
         for field in fields:
             constant_bits = self.analyze_field(field)
             all_constant_bits.extend(constant_bits)
