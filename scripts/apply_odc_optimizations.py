@@ -40,6 +40,101 @@ def read_odc_report(report_json: Path) -> List[Dict]:
     return confirmed_odcs
 
 
+def _apply_register_file_simple_array_style(lines: List[str], source_file: Path,
+                                            output_file: Path, num_registers: int,
+                                            max_usable_reg: int) -> bool:
+    """
+    Apply register file optimization for simple array style (Veryl/educational cores).
+
+    Handles: logic [31:0] regs [0:N-1]; with simple for loops
+
+    Args:
+        lines: Source file lines (already modified with NUM_WORDS_ODC parameter)
+        source_file: Original source file path
+        output_file: Output file path
+        num_registers: Number of registers to keep
+        max_usable_reg: Maximum register index (e.g., 3 for x0-x3)
+
+    Returns:
+        True if successful
+    """
+    print(f"  Applying simple array style transformation...")
+
+    # Step 1: Find and modify array declaration
+    # Looking for: logic [32-1:0] regs [0:16-1];
+    for i, line in enumerate(lines):
+        if 'logic' in line and 'regs' in line and '[0:' in line and '-1]' in line:
+            # Extract array size
+            import re
+            match = re.search(r'\[0:(\d+)-1\]', line)
+            if match:
+                original_size = int(match.group(1))
+                print(f"  Found register array at line {i+1}: {line.strip()}")
+                print(f"    Original size: {original_size}, new size: {num_registers}")
+                # Replace with new size
+                lines[i] = re.sub(r'\[0:\d+-1\]', f'[0:{num_registers}-1]', line)
+                print(f"    Modified to: {lines[i].strip()}")
+                break
+
+    # Step 2: Modify read logic to add bounds checking
+    # Looking for: rs1_data = ((rs1_addr == 0) ? ... : regs[rs1_addr])
+    for i, line in enumerate(lines):
+        if 'rs1_data' in line and 'rs1_addr' in line and '?' in line:
+            print(f"  Modifying rs1 read at line {i+1}")
+            # Add bounds check: (rs1_addr < NUM) ? regs[rs1_addr] : 32'h0
+            if 'regs[rs1_addr]' in line:
+                lines[i] = line.replace(
+                    'regs[rs1_addr]',
+                    f'(rs1_addr < {num_registers}) ? regs[rs1_addr] : 32\'h0'
+                )
+
+        if 'rs2_data' in line and 'rs2_addr' in line and '?' in line:
+            print(f"  Modifying rs2 read at line {i+1}")
+            if 'regs[rs2_addr]' in line:
+                lines[i] = line.replace(
+                    'regs[rs2_addr]',
+                    f'(rs2_addr < {num_registers}) ? regs[rs2_addr] : 32\'h0'
+                )
+
+    # Step 3: Modify always_ff for loop bounds
+    # Looking for: for (int unsigned i = 0; i < 16; i++)
+    for i, line in enumerate(lines):
+        if 'for' in line and 'int unsigned i' in line and 'i <' in line:
+            import re
+            # Replace loop bound
+            match = re.search(r'i\s*<\s*(\d+)', line)
+            if match:
+                original_bound = match.group(1)
+                print(f"  Found for loop at line {i+1}: i < {original_bound}")
+                lines[i] = re.sub(r'i\s*<\s*\d+', f'i < {num_registers}', line)
+                print(f"    Modified to: i < {num_registers}")
+
+    # Step 4: Add bounds check to write logic
+    # Looking for: if (we && rd_addr != 0) begin
+    for i, line in enumerate(lines):
+        if 'if' in line and 'we' in line and 'rd_addr' in line and '!=' in line:
+            print(f"  Modifying write condition at line {i+1}")
+            # Add bounds check
+            if 'rd_addr < ' not in line:
+                lines[i] = line.replace(')', f' && rd_addr < {num_registers})')
+                print(f"    Added bounds check: rd_addr < {num_registers}")
+
+    # Step 5: Add ODC comment at the top of the file
+    for i, line in enumerate(lines):
+        if 'module' in line:
+            lines.insert(i, f"// ODC OPTIMIZATION: Reduced to {num_registers} registers (x0-x{max_usable_reg})")
+            break
+
+    # Write output file
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_file, 'w') as f:
+        f.write('\n'.join(lines))
+
+    print(f"  Modified register file: {num_registers} active registers, {16 - num_registers} eliminated")
+    print(f"  ✓ Created: {output_file.name}")
+    return True
+
+
 def apply_register_field_tie_offs_combined(source_file: Path, output_file: Path,
                                            odc_bits: List[Dict]) -> bool:
     """
@@ -156,9 +251,10 @@ def apply_register_field_tie_offs_combined(source_file: Path, output_file: Path,
                 print(f"  WARNING: Could not find matching 'end' for loop")
             break
 
+    # If generate-block style not found, try simple array style (Veryl/simple cores)
     if gen_loop_start is None or gen_loop_end is None:
-        print(f"  ERROR: gen_loop_start={gen_loop_start}, gen_loop_end={gen_loop_end}")
-        raise ValueError(f"Could not find register generation loop in {source_file.name}")
+        print(f"  Generate-block style not found, trying simple array style...")
+        return _apply_register_file_simple_array_style(lines, source_file, output_file, num_registers, max_usable_reg)
 
     print(f"  Found register generation loop at lines {gen_loop_start+1}-{gen_loop_end+1}")
 
