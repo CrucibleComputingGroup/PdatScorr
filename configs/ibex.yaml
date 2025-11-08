@@ -40,6 +40,10 @@ injections:
 
 # Signal naming conventions for Ibex
 signals:
+  # Clock and reset signals
+  clk: "clk_i"
+  rst_n: "rst_ni"  # Active-low reset
+
   # Instruction and PC signals
   instruction_data: "instr_rdata_i"
   pc: "pc_if_o"
@@ -55,6 +59,16 @@ signals:
     multdiv:
       rs1: "multdiv_operand_a_ex_i"
       rs2: "multdiv_operand_b_ex_i"
+
+  # Memory interface signals (for timing constraint generation)
+  memory:
+    # Instruction memory interface
+    instr_req: "instr_req_o"     # Instruction request
+    instr_gnt: "instr_gnt_i"     # Instruction grant
+    # Data memory interface
+    data_req: "data_req_out"     # Data request
+    data_gnt: "data_gnt_i"       # Data grant
+    data_rvalid: "data_rvalid_i" # Data response valid
 
   # Barrel shifter signals (for ODC analysis)
   # Located in ibex_alu.sv, used for shift instruction execution

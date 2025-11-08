@@ -162,7 +162,7 @@ Examples:
             # Test each candidate
             print(f"Testing {len(constant_bits)} bit-level candidates...")
 
-            injector = ErrorInjector(core_root / "rtl")
+            injector = ErrorInjector(core_root / "rtl", config)
             checker = SecChecker(conflict_limit=30000, timeout_sec=600)
 
             for i, constant_bit in enumerate(constant_bits, 1):

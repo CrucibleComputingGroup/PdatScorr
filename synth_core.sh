@@ -121,7 +121,7 @@ DSL_BASENAME=$(basename "$INPUT_DSL" .dsl)
 
 # Determine output file prefix based on mode
 if [ -n "$CONFIG_FILE" ]; then
-    # Get core name and default ABC depth from config
+    # Get core name, default ABC depth, and clock name from config
     CONFIG_VALUES=$(python3 -c "
 import sys
 sys.path.insert(0, 'scripts')
@@ -130,14 +130,18 @@ try:
     config = ConfigLoader.load_config('$CONFIG_FILE')
     core_name = config.core_name
     default_depth = config.synthesis.abc_config.get('default_depth', 2) if config.synthesis.abc_config else 2
+    clk_name = config.signals.get('clk', 'clk_i') if hasattr(config, 'signals') and config.signals else 'clk_i'
     print(f'{core_name}_optimized')
     print(default_depth)
+    print(clk_name)
 except Exception as e:
     print('core_optimized')
     print('2')
+    print('clk_i')
 ")
-    OUTPUT_PREFIX=$(echo "$CONFIG_VALUES" | head -1)
-    CONFIG_DEFAULT_DEPTH=$(echo "$CONFIG_VALUES" | tail -1)
+    OUTPUT_PREFIX=$(echo "$CONFIG_VALUES" | sed -n '1p')
+    CONFIG_DEFAULT_DEPTH=$(echo "$CONFIG_VALUES" | sed -n '2p')
+    CLK_NAME=$(echo "$CONFIG_VALUES" | sed -n '3p')
 
     # Override ABC_DEPTH with config default if not explicitly set via --abc-depth
     # Check if ABC_DEPTH is still at default value (2) - if so, use config default
@@ -146,8 +150,9 @@ except Exception as e:
         echo "  Using ABC depth from config: $ABC_DEPTH"
     fi
 else
-    # Legacy mode: use ibex prefix
+    # Legacy mode: use ibex prefix and default clock name
     OUTPUT_PREFIX="ibex_optimized"
+    CLK_NAME="clk_i"
 fi
 
 # Handle output argument:
@@ -511,7 +516,7 @@ if [ "$RUN_ODC_ANALYSIS" = true ]; then
     # so we have something to compare against
     if [ "$SYNTHESIZE_GATES" = true ] && [ ! -f "$OUTPUT_DIR/${OUTPUT_PREFIX}_gates.log" ]; then
         echo "Synthesizing baseline to gates before ODC analysis (for comparison)..."
-        ./scripts/synth_to_gates.sh "$BASE"
+        ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME"
         echo ""
     fi
 
@@ -767,7 +772,7 @@ PYEOF
                                 echo "Synthesizing ODC-optimized circuit to gate level..."
                                 # Use the correct base name (already computed earlier)
                                 OPTIMIZED_BASE_PATH="$OPTIMIZED_SYNTH_DIR/$OPTIMIZED_BASE"
-                                ./scripts/synth_to_gates.sh "$OPTIMIZED_BASE_PATH"
+                                ./scripts/synth_to_gates.sh "$OPTIMIZED_BASE_PATH" "" "$CLK_NAME"
 
                                 if [ $? -eq 0 ]; then
                                     # Extract and show chip area comparison
@@ -812,7 +817,7 @@ if [ "$SYNTHESIZE_GATES" = true ]; then
     OPTIMIZED_GATES_LOG=$(ls "$OUTPUT_DIR/odc_optimized_synthesis/"*"_optimized_gates.log" 2>/dev/null | head -1)
     if [ -z "$OPTIMIZED_GATES_LOG" ]; then
         echo "Synthesizing to gate level with Skywater PDK..."
-        ./scripts/synth_to_gates.sh "$BASE"
+        ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME"
     else
         echo ""
         echo "Gate synthesis already completed during ODC optimization"
@@ -825,7 +830,7 @@ if [ "$SYNTHESIZE_GATES" = true ]; then
     fi
 else
     echo "To synthesize to gates, run:"
-    echo "  ./scripts/synth_to_gates.sh $BASE"
+    echo "  ./scripts/synth_to_gates.sh $BASE \"\" \"$CLK_NAME\""
     echo "Or use --gates flag with this script."
 fi
 
