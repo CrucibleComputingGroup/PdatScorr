@@ -13,8 +13,19 @@ injections:
   - name: "control_isa"
     source_file: "target/control.sv"
     constraint_type: "isa"
-    module_path: "RiscvSingleCycle_riscv_core.control_inst"
+    module_path: "RiscvSingleCycle_riscv_core.datapath_inst.control_inst"
     description: "Control unit - where ISA instruction decoding and constraints are injected"
+    # Signal name mapping for this injection point
+    signals:
+      instruction: "instruction"  # Control uses 'instruction' input (not 'instr_rdata_i')
+      reset: null  # Control module is combinational (no reset signal)
+
+  # Register file optimization - replaced with reduced register count version
+  - name: "register_file_opt"
+    source_file: "target/regfile.sv"
+    constraint_type: "odc_opt"
+    module_path: "RiscvSingleCycle_riscv_core.datapath_inst.regfile_inst"
+    description: "Register file - replaced with ODC-optimized version (reduced register count)"
 
 # Signal naming conventions for RiscvSingleCycle
 signals:

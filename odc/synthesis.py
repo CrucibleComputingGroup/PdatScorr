@@ -113,10 +113,16 @@ def synthesize_error_injected_circuit(
     # Check if there's an optimized register file in the same directory
     # Look for any file matching *register_file*_optimized.sv
     regfile_optimized = None
-    for candidate in error_injected_rtl.parent.glob("*register_file*_optimized.sv"):
-        regfile_optimized = candidate
-        print(f"      Found optimized register file: {regfile_optimized.name}")
-        break
+    # Search for optimized register file in parent's odc_optimized_rtl directory
+    odc_rtl_dir = error_injected_rtl.parent.parent / "odc_optimized_rtl"
+    if odc_rtl_dir.exists():
+        for pattern in ["*register_file*_optimized.sv", "*regfile*_optimized.sv"]:
+            for candidate in odc_rtl_dir.glob(pattern):
+                regfile_optimized = candidate
+                print(f"      Found optimized register file: {regfile_optimized.name}")
+                break
+            if regfile_optimized:
+                break
 
     _generate_synthesis_script(
         config=config,
@@ -215,6 +221,9 @@ def _generate_synthesis_script(
     # Register file optimization
     if regfile_modified:
         rf_injection = config.get_injection("odc_opt")
+        if not rf_injection:
+            # Try alternative names
+            rf_injection = config.get_injection("register_file_opt")
         if rf_injection:
             modified_map[rf_injection.name] = str(regfile_modified.absolute())
 
