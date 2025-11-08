@@ -17,6 +17,7 @@ sys.path.insert(0, str(SCRIPT_DIR))
 
 try:
     from config_loader import ConfigLoader, CoreConfig
+    from synthesis_utils import process_source_files
     CONFIG_SUPPORT = True
 except ImportError:
     CONFIG_SUPPORT = False
@@ -48,22 +49,13 @@ def generate_synthesis_script_from_config(
         f"verilog_defaults -add -I{core_root}/{inc}" for inc in include_dirs)
 
     # Build source file list, replacing injected files with modified versions
-    source_list = []
     injection_map = {inj.source_file: inj.name for inj in config.injections}
-
-    for src_file in source_files:
-        # Check if this file should be replaced
-        if src_file in injection_map:
-            inj_name = injection_map[src_file]
-            if inj_name in modified_files:
-                # Use modified version
-                source_list.append(os.path.abspath(modified_files[inj_name]))
-            else:
-                # Use original (no injection for this type)
-                source_list.append(f"{core_root}/{src_file}")
-        else:
-            # Use original
-            source_list.append(f"{core_root}/{src_file}")
+    source_list = process_source_files(
+        source_files=source_files,
+        core_root=Path(core_root),
+        injection_map=injection_map,
+        modified_files=modified_files
+    )
 
     # Build read_systemverilog command
     include_args = " \\\n  ".join(

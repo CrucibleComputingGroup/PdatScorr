@@ -11,7 +11,7 @@ SYNTHESIZE_GATES=false
 ABC_DEPTH=2
 WRITEBACK_STAGE=false
 CONFIG_FILE=""
-CORE_NAME=""
+CORE_NAME="ibex"  # Default to ibex for this project
 RUN_ODC_ANALYSIS=false
 while [[ "$#" -gt 0 ]]; do
     case $1 in
@@ -33,6 +33,11 @@ while [[ "$#" -gt 0 ]]; do
             CORE_NAME="$2"
             shift 2
             ;;
+        --no-config)
+            CORE_NAME=""  # Disable default, force legacy mode
+            CONFIG_FILE=""
+            shift
+            ;;
         --odc-analysis) RUN_ODC_ANALYSIS=true; shift ;;
         -h|--help)
             echo "Usage: $0 [OPTIONS] <rules.dsl> [output_dir|output.il]"
@@ -43,19 +48,21 @@ while [[ "$#" -gt 0 ]]; do
             echo "  --gates           Also synthesize to gate-level netlist with Skywater PDK"
             echo "  --3stage          Enable Ibex 3-stage pipeline (IF, ID/EX, WB) and set ABC depth=3"
             echo "  --abc-depth N     Set ABC k-induction depth (default: 2, matches 2-stage pipeline)"
-            echo "  --config FILE     Use YAML config file (enables config mode)"
+            echo "  --config FILE     Use YAML config file (overrides --core default)"
             echo "  --core NAME       Core name for auto-config lookup (default: ibex, looks for configs/NAME.yaml)"
-            echo "  --odc-analysis    Run ODC analysis after optimization (error injection + SEC)"
+            echo "  --no-config       Disable config mode and use legacy hardcoded paths"
+            echo "  --odc-analysis    Run complete ODC analysis on ALL fields (shamt, rd, rs1, rs2, imm)"
+            echo "                    Automatically detects, verifies, and applies all ODC optimizations"
             echo ""
             echo "Arguments:"
             echo "  rules.dsl       DSL file with instruction constraints"
             echo "  output_dir      Base directory for outputs (default: output/)"
             echo "  output.il       Specific output file path (if ends with .il)"
             echo ""
-            echo "Config Mode:"
-            echo "  When --config or --core is specified, source files and paths are read from"
-            echo "  a YAML configuration file instead of being hardcoded. This allows supporting"
-            echo "  multiple cores (Ibex, BOOM, Rocket, etc.) with the same script."
+            echo "Config Mode (DEFAULT):"
+            echo "  Config mode is enabled by default (--core ibex). Source files and paths are"
+            echo "  read from configs/ibex.yaml. Use --no-config to force legacy mode with"
+            echo "  hardcoded paths. Config mode supports multiple cores (Ibex, BOOM, Rocket, etc.)"
             echo ""
             echo "Output organization:"
             echo "  - Files are organized in subfolders named after the DSL file"
@@ -344,6 +351,13 @@ if [ -n "$CONFIG_FILE" ]; then
         MODIFIED_FILES_ARGS="$MODIFIED_FILES_ARGS core_timing=${CORE_SV}"
     fi
 
+    # Check for ODC-optimized register file
+    RF_OPT="${OUTPUT_DIR}/odc_optimized_rtl/ibex_register_file_ff_optimized.sv"
+    if [ -f "$RF_OPT" ]; then
+        echo "  Found ODC-optimized register file: $RF_OPT"
+        MODIFIED_FILES_ARGS="$MODIFIED_FILES_ARGS register_file_opt=${RF_OPT}"
+    fi
+
     python3 scripts/make_synthesis_script.py \
         --config "$CONFIG_FILE" \
         $MODIFIED_FILES_ARGS \
@@ -511,7 +525,8 @@ if [ "$RUN_ODC_ANALYSIS" = true ]; then
             --baseline-aig "$BASELINE_AIG" \
             --output-dir "$ODC_OUTPUT_DIR" \
             --k-depth "$ABC_DEPTH" \
-            --config "$ODC_CONFIG"
+            --config "$ODC_CONFIG" \
+            --scope all
 
         if [ $? -eq 0 ]; then
             echo ""
@@ -562,7 +577,8 @@ print(count)
                     echo "Applying bit-level ODC optimizations..."
                     python3 scripts/apply_odc_optimizations.py "$ODC_REPORT" \
                         --rtl-dir "$CORE_ROOT/rtl" \
-                        --output-dir "$OPTIMIZED_RTL_DIR"
+                        --output-dir "$OPTIMIZED_RTL_DIR" \
+                        --config "$ODC_CONFIG"
                 fi
 
                 # Apply mux-level optimizations (if any)
@@ -586,13 +602,61 @@ print(count)
                     fi
                 fi
 
-                # Check if we have an optimized ALU file
-                if [ -f "$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv" ]; then
-                    # Copy optimized RTL to synthesis directory
+                # Check if we have optimized RTL files (discover dynamically)
+                OPTIMIZED_FILES=$(ls "$OPTIMIZED_RTL_DIR"/*_optimized.sv 2>/dev/null || true)
+
+                if [ -n "$OPTIMIZED_FILES" ]; then
+                    # Copy all optimized RTL to synthesis directory
                     mkdir -p "$OPTIMIZED_SYNTH_DIR"
-                    cp "$OPTIMIZED_RTL_DIR"/ibex_alu_optimized.sv "$OPTIMIZED_SYNTH_DIR/"
+
+                    echo "Found optimized RTL files:"
+                    for opt_file in $OPTIMIZED_FILES; do
+                        cp "$opt_file" "$OPTIMIZED_SYNTH_DIR/"
+                        filename=$(basename $opt_file)
+                        echo "  - $filename"
+
+                        # Track what type of optimization this is
+                        if [[ "$filename" == *"register_file"* ]]; then
+                            echo "    (Register file optimization - eliminates unused register storage)"
+                        elif [[ "$filename" == *"alu"* ]]; then
+                            echo "    (ALU optimization - eliminates unused functional units)"
+                        elif [[ "$filename" == *"id_stage"* ]]; then
+                            echo "    (ID stage optimization - may include multiple optimizations)"
+                        fi
+                    done
 
                     echo "Re-synthesizing with ODC optimizations..."
+
+                    # Determine which optimized file to use as primary for synthesis
+                    # Priority: register_file > ALU > ID stage
+                    # (Register file is most fundamental - all others can use it)
+                    OPTIMIZED_RTL_FILE=""
+
+                    # Check for optimized register file (highest priority - eliminates storage)
+                    REGFILE_OPT=$(ls "$OPTIMIZED_SYNTH_DIR"/*register_file*_optimized.sv 2>/dev/null | head -1)
+                    if [ -n "$REGFILE_OPT" ]; then
+                        OPTIMIZED_RTL_FILE=$(basename "$REGFILE_OPT")
+                        echo "  Primary: $OPTIMIZED_RTL_FILE (register file - eliminates unused storage)"
+                    else
+                        # Check for ALU optimization
+                        ALU_OPT=$(ls "$OPTIMIZED_SYNTH_DIR"/*alu*_optimized.sv 2>/dev/null | head -1)
+                        if [ -n "$ALU_OPT" ]; then
+                            OPTIMIZED_RTL_FILE=$(basename "$ALU_OPT")
+                            echo "  Primary: $OPTIMIZED_RTL_FILE (ALU optimization)"
+                        else
+                            # Fallback to ID stage or any optimized file
+                            ANY_OPT=$(ls "$OPTIMIZED_SYNTH_DIR"/*_optimized.sv 2>/dev/null | head -1)
+                            if [ -n "$ANY_OPT" ]; then
+                                OPTIMIZED_RTL_FILE=$(basename "$ANY_OPT")
+                                echo "  Primary: $OPTIMIZED_RTL_FILE"
+                            fi
+                        fi
+                    fi
+
+                    if [ -z "$OPTIMIZED_RTL_FILE" ]; then
+                        echo "  ERROR: No optimized RTL file found in $OPTIMIZED_SYNTH_DIR"
+                        exit 1
+                    fi
 
                     # Synthesize optimized version
                     python3 << PYEOF
@@ -602,7 +666,7 @@ sys.path.insert(0, 'odc')
 from synthesis import synthesize_error_injected_circuit
 
 result = synthesize_error_injected_circuit(
-    error_injected_rtl=Path('$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized.sv'),
+    error_injected_rtl=Path('$OPTIMIZED_SYNTH_DIR/$OPTIMIZED_RTL_FILE'),
     dsl_file=Path('$INPUT_DSL'),
     output_dir=Path('$OPTIMIZED_SYNTH_DIR'),
     config_file=Path('$ODC_CONFIG'),
@@ -611,10 +675,13 @@ result = synthesize_error_injected_circuit(
 sys.exit(0 if result else 1)
 PYEOF
 
-                    if [ $? -eq 0 ]; then
+                    ODC_SYNTH_EXIT=$?
+                    if [ $ODC_SYNTH_EXIT -eq 0 ]; then
                         # Run ABC optimization on optimized circuit
-                        OPTIMIZED_YOSYS_AIG="$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized_yosys.aig"
-                        OPTIMIZED_ABC_AIG="$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized_post_abc.aig"
+                        # Use the base name from the optimized RTL file
+                        OPTIMIZED_BASE="${OPTIMIZED_RTL_FILE%.sv}"
+                        OPTIMIZED_YOSYS_AIG="$OPTIMIZED_SYNTH_DIR/${OPTIMIZED_BASE}_yosys.aig"
+                        OPTIMIZED_ABC_AIG="$OPTIMIZED_SYNTH_DIR/${OPTIMIZED_BASE}_post_abc.aig"
 
                         # Get constraint info
                         ABC_STATS_OPT=$(abc -c "read_aiger $OPTIMIZED_YOSYS_AIG; print_stats" 2>&1 | grep "i/o")
@@ -670,14 +737,15 @@ PYEOF
                             if [ "$SYNTHESIZE_GATES" = true ]; then
                                 echo ""
                                 echo "Synthesizing ODC-optimized circuit to gate level..."
-                                OPTIMIZED_BASE="$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized"
-                                ./scripts/synth_to_gates.sh "$OPTIMIZED_BASE"
+                                # Use the correct base name (already computed earlier)
+                                OPTIMIZED_BASE_PATH="$OPTIMIZED_SYNTH_DIR/$OPTIMIZED_BASE"
+                                ./scripts/synth_to_gates.sh "$OPTIMIZED_BASE_PATH"
 
                                 if [ $? -eq 0 ]; then
                                     # Extract and show chip area comparison
                                     # Format: "Chip area for module 'name': 39250.144000"
                                     BASELINE_AREA=$(grep "Chip area for module" "$OUTPUT_DIR/${OUTPUT_PREFIX}_gates.log" 2>/dev/null | tail -1 | awk '{print $NF}')
-                                    OPTIMIZED_AREA=$(grep "Chip area for module" "$OPTIMIZED_SYNTH_DIR/ibex_alu_optimized_gates.log" 2>/dev/null | tail -1 | awk '{print $NF}')
+                                    OPTIMIZED_AREA=$(grep "Chip area for module" "$OPTIMIZED_SYNTH_DIR/${OPTIMIZED_BASE}_gates.log" 2>/dev/null | tail -1 | awk '{print $NF}')
 
                                     if [ -n "$BASELINE_AREA" ] && [ -n "$OPTIMIZED_AREA" ]; then
                                         AREA_REDUCTION=$(python3 -c "print(f'{float('$BASELINE_AREA') - float('$OPTIMIZED_AREA'):.2f}')")
@@ -692,6 +760,12 @@ PYEOF
                                 fi
                             fi
                         fi
+                    else
+                        echo ""
+                        echo "ERROR: ODC-optimized synthesis failed"
+                        echo "  Check log: $OPTIMIZED_SYNTH_DIR/${OPTIMIZED_RTL_FILE%.sv}_synlig.log"
+                        echo ""
+                        exit 1
                     fi
                 fi
             fi
@@ -706,7 +780,9 @@ fi
 # Step 6 (optional): Gate-level synthesis (baseline only if ODC didn't run)
 if [ "$SYNTHESIZE_GATES" = true ]; then
     # Check if ODC optimization already ran gate synthesis
-    if [ ! -f "$OUTPUT_DIR/odc_optimized_synthesis/ibex_alu_optimized_gates.log" ]; then
+    # Check for any optimized gates log (use wildcard to match any core)
+    OPTIMIZED_GATES_LOG=$(ls "$OUTPUT_DIR/odc_optimized_synthesis/"*"_optimized_gates.log" 2>/dev/null | head -1)
+    if [ -z "$OPTIMIZED_GATES_LOG" ]; then
         echo "Synthesizing to gate level with Skywater PDK..."
         ./scripts/synth_to_gates.sh "$BASE"
     else

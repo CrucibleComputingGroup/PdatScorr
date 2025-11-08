@@ -26,7 +26,7 @@ while [[ "$#" -gt 0 ]]; do
             MAX_PARALLEL="$2"
             shift 2
             ;;
-        -o|--output-dir)
+        -o|--output-dir|--output)
             BASE_OUTPUT_DIR="$2"
             shift 2
             ;;
@@ -72,8 +72,8 @@ while [[ "$#" -gt 0 ]]; do
             echo "Run multiple DSL synthesis jobs in parallel"
             echo ""
             echo "Options:"
-            echo "  -j, --jobs N          Maximum parallel jobs (default: 4)"
-            echo "  -o, --output-dir DIR  Base output directory (default: output)"
+            echo "  -j, --jobs N              Maximum parallel jobs (default: 4)"
+            echo "  -o, --output-dir, --output DIR  Base output directory (default: output)"
             echo "  --runs N              Number of runs per DSL file (default: 1)"
             echo "  --gates               Pass --gates to synthesis script"
             echo "  --3stage              Pass --3stage to synthesis script"
@@ -467,9 +467,9 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
 
     # Header - include chip area if available
     if [ "$HAS_CHIP_AREA" = true ]; then
-        echo "DSL,Inputs,Outputs,Constraints,Latches,AND_gates,Levels,Chip_area_um2" > "$CSV_FILE"
+        echo "DSL,Result_Type,Inputs,Outputs,Constraints,Latches,AND_gates,Levels,Chip_area_um2" > "$CSV_FILE"
     else
-        echo "DSL,Inputs,Outputs,Constraints,Latches,AND_gates,Levels" > "$CSV_FILE"
+        echo "DSL,Result_Type,Inputs,Outputs,Constraints,Latches,AND_gates,Levels" > "$CSV_FILE"
     fi
 
     # Process each result
@@ -483,17 +483,36 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
             result_dir="$BASE_OUTPUT_DIR/${dsl_basename}"
         fi
 
-        # Check if ODC-optimized results exist (prefer these over baseline)
+        # Check if ODC-optimized results exist and are newer than baseline
         odc_optimized_log="$result_dir/odc_optimized_synthesis/abc.log"
-        if [ -f "$odc_optimized_log" ]; then
+        baseline_log="$result_dir/ibex_optimized_abc.log"
+
+        if [ -f "$odc_optimized_log" ] && [ -f "$baseline_log" ]; then
+            # Both exist - use the newer one
+            if [ "$odc_optimized_log" -nt "$baseline_log" ]; then
+                log_file="$odc_optimized_log"
+                synth_log="$result_dir/odc_optimized_synthesis/synthesis.log"
+            else
+                log_file="$baseline_log"
+                synth_log="$result_dir/synthesis.log"
+            fi
+        elif [ -f "$odc_optimized_log" ]; then
+            # Only ODC exists
             log_file="$odc_optimized_log"
             synth_log="$result_dir/odc_optimized_synthesis/synthesis.log"
         else
-            log_file="$result_dir/ibex_optimized_abc.log"
+            # Use baseline (or neither exists)
+            log_file="$baseline_log"
             synth_log="$result_dir/synthesis.log"
         fi
 
         if [ -f "$log_file" ]; then
+            # Determine which result type we're using for reporting
+            result_type="baseline"
+            if [[ "$log_file" == *"odc_optimized"* ]]; then
+                result_type="ODC-optimized"
+            fi
+
             # Extract final stats from ABC log
             # Format: "i/o = 1338/  432(c=1)  lat =  761  and =  14372  lev =115"
             stats=$(grep "i/o =" "$log_file" | tail -1)
@@ -522,9 +541,9 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
                 fi
 
                 if [ "$HAS_CHIP_AREA" = true ]; then
-                    echo "$dsl_basename,$inputs,$outputs,$constraints,$latches,$and_gates,$levels,$chip_area" >> "$CSV_FILE"
+                    echo "$dsl_basename,$result_type,$inputs,$outputs,$constraints,$latches,$and_gates,$levels,$chip_area" >> "$CSV_FILE"
                 else
-                    echo "$dsl_basename,$inputs,$outputs,$constraints,$latches,$and_gates,$levels" >> "$CSV_FILE"
+                    echo "$dsl_basename,$result_type,$inputs,$outputs,$constraints,$latches,$and_gates,$levels" >> "$CSV_FILE"
                 fi
             fi
         fi
@@ -536,17 +555,17 @@ if [ $SUCCESS_COUNT -gt 1 ]; then
     echo ""
     if [ "$HAS_CHIP_AREA" = true ]; then
         echo "Quick comparison (sorted by chip area):"
-        # Skip header, replace non-numeric chip area with a large value, sort by chip area column (8), show in table format
+        # Skip header, replace non-numeric chip area with a large value, sort by chip area column (9), show in table format
         tail -n +2 "$CSV_FILE" | awk -F',' '{
-            # If chip area (column 8) is not a number, replace with a large value for sorting
-            if ($8 !~ /^[0-9.]+$/) $8 = "999999999";
+            # If chip area (column 9) is not a number, replace with a large value for sorting
+            if ($9 !~ /^[0-9.]+$/) $9 = "999999999";
             print $0;
-        }' OFS=',' | sort -t',' -k8 -g | head -10 | \
-            awk -F',' 'BEGIN {printf "%-20s %8s %8s %12s\n", "DSL", "AND_gates", "Levels", "Chip_area(µm²)"}
-                       {printf "%-20s %8s %8s %12s\n", $1, $6, $7, $8}'
+        }' OFS=',' | sort -t',' -k9 -g | head -10 | \
+            awk -F',' 'BEGIN {printf "%-10s %-15s %8s %8s %12s\n", "DSL", "Result_Type", "AND_gates", "Levels", "Chip_area(µm²)"}
+                       {printf "%-10s %-15s %8s %8s %12s\n", $1, $2, $7, $8, $9}'
     else
         echo "Quick comparison (sorted by AND gates):"
-        sort -t',' -k6 -n "$CSV_FILE" | column -t -s',' | head -10
+        sort -t',' -k7 -n "$CSV_FILE" | column -t -s',' | head -10
     fi
 fi
 

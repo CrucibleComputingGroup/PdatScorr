@@ -13,23 +13,30 @@ injections:
   - name: "id_stage_isa"
     source_file: "rtl/ibex_id_stage.sv"
     constraint_type: "isa"
-    module_path: "ibex_core.id_stage_i"
+    module_path: "ibex_core_with_rf.core_i.id_stage_i"
     description: "ID/Decode stage - where ISA instruction constraints are injected"
 
   # Timing constraints injected into core top-level
   - name: "core_timing"
     source_file: "rtl/ibex_core.sv"
     constraint_type: "timing"
-    module_path: "ibex_core"
+    module_path: "ibex_core_with_rf.core_i"
     description: "Core top-level - where cache timing constraints are injected"
 
   # ODC error injection into ALU
   - name: "alu_odc"
     source_file: "rtl/ibex_alu.sv"
     constraint_type: "odc_error"
-    module_path: "ibex_core.ex_block_i.alu_i"
+    module_path: "ibex_core_with_rf.core_i.ex_block_i.alu_i"
     injection_line_after: 288  # After shift_amt assignment
     description: "ALU execution unit - where ODC error forcing is injected"
+
+  # Register file optimization - replaced with reduced register count version
+  - name: "register_file_opt"
+    source_file: "rtl/ibex_register_file_ff.sv"
+    constraint_type: "odc_opt"
+    module_path: "ibex_core_with_rf.register_file_i"
+    description: "Register file - replaced with ODC-optimized version (reduced register count)"
 
 # Signal naming conventions for Ibex
 signals:
@@ -71,7 +78,8 @@ synthesis:
   core_root: "$IBEX_ROOT"
 
   # Top-level module to synthesize
-  top_module: "ibex_core"
+  # Uses wrapper module that instantiates ibex_core + register file
+  top_module: "ibex_core_with_rf"
 
   # Include directories (relative to core_root)
   include_dirs:
@@ -102,10 +110,11 @@ synthesis:
     - "rtl/ibex_multdiv_slow.sv"
     - "rtl/ibex_pmp.sv"
     - "rtl/ibex_prefetch_buffer.sv"
-    - "rtl/ibex_register_file_ff.sv"
+    - "rtl/ibex_register_file_ff.sv" # Will be replaced with optimized version
     - "rtl/ibex_wb_stage.sv"
     - "vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv"
     - "rtl/ibex_core.sv"             # Will be replaced with modified version
+    - "@WRAPPER@ibex_core_with_rf.sv"  # Wrapper connecting core + register file
 
   # Synthesis parameters
   parameters:
@@ -122,7 +131,7 @@ result_muxes:
     location: "rtl/ibex_alu.sv:1322"
     selector_signal: "operator_i"
     selector_type: "alu_op_e"  # Enum type from ibex_pkg.sv
-    module_path: "ibex_core.ex_block_i.alu_i"
+    module_path: "ibex_core_with_rf.core_i.ex_block_i.alu_i"
     description: "Main ALU result multiplexer - selects between functional unit outputs"
 
     # Each case maps ALU operations to a result signal

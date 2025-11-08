@@ -15,6 +15,7 @@ from typing import Optional
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
 from config_loader import ConfigLoader
+from synthesis_utils import process_source_files
 
 
 def synthesize_error_injected_circuit(
@@ -45,16 +46,21 @@ def synthesize_error_injected_circuit(
     config = ConfigLoader.load_config(str(config_file))
     core_root = Path(config.synthesis.core_root_resolved)
     
-    # Determine which original file this replaces
-    if "ibex_alu" in error_injected_rtl.name:
-        original_filename = "ibex_alu.sv"
+    # Determine which original file this replaces (use generic pattern matching)
+    is_alu = "alu" in error_injected_rtl.name.lower()
+    is_id_stage = "id_stage" in error_injected_rtl.name.lower() or "control" in error_injected_rtl.name.lower()
+    is_regfile = "register_file" in error_injected_rtl.name.lower() or "regfile" in error_injected_rtl.name.lower()
+
+    if is_alu:
         injection_type = "odc_error"
-    elif "ibex_id_stage" in error_injected_rtl.name:
-        original_filename = "ibex_id_stage.sv"
+    elif is_id_stage:
         injection_type = "isa"
+    elif is_regfile:
+        injection_type = "regfile"  # New type for register file optimizations
     else:
-        raise ValueError(f"Unknown RTL file type: {error_injected_rtl.name}")
-    
+        # Default to ISA injection
+        injection_type = "isa"
+
     # Create output base name
     base_name = error_injected_rtl.stem
     output_base = output_dir / base_name
@@ -103,11 +109,21 @@ def synthesize_error_injected_circuit(
     yosys_aig = output_base.with_name(f"{base_name}_yosys.aig")
     
     print(f"      Generating synthesis script...")
+
+    # Check if there's an optimized register file in the same directory
+    # Look for any file matching *register_file*_optimized.sv
+    regfile_optimized = None
+    for candidate in error_injected_rtl.parent.glob("*register_file*_optimized.sv"):
+        regfile_optimized = candidate
+        print(f"      Found optimized register file: {regfile_optimized.name}")
+        break
+
     _generate_synthesis_script(
         config=config,
         synth_script=synth_script,
         id_stage_modified=id_stage_modified,
-        alu_modified=error_injected_rtl if "alu" in original_filename else None,
+        alu_modified=error_injected_rtl if is_alu else None,
+        regfile_modified=regfile_optimized,
         output_aig=yosys_aig
     )
     
@@ -149,46 +165,85 @@ def _generate_synthesis_script(
     synth_script: Path,
     id_stage_modified: Path,
     alu_modified: Optional[Path],
-    output_aig: Path
+    output_aig: Path,
+    regfile_modified: Optional[Path] = None
 ) -> None:
     """
     Generate Yosys synthesis script using config file.
-    
+
     Args:
         config: CoreConfig object with synthesis settings
         synth_script: Path to output synthesis script
         id_stage_modified: Modified ID stage with assumptions
         alu_modified: Modified ALU with error injection (if applicable)
+        regfile_modified: Modified register file with unused registers tied off (if applicable)
         output_aig: Output AIGER path
     """
     core_root = Path(config.synthesis.core_root_resolved)
     
     # Build include paths from config
-    include_args_list = [f"-I{core_root / inc}" for inc in config.synthesis.include_dirs]
+    # IMPORTANT: Only include vendor/package directories, NOT main rtl directory
+    # to avoid conflicts when we have modified versions of RTL files
+    include_args_list = []
+    for inc in config.synthesis.include_dirs:
+        # Skip main rtl directory to avoid module name conflicts
+        if inc == "rtl" or inc.endswith("/rtl"):
+            continue
+        include_args_list.append(f"-I{core_root / inc}")
     include_args = " \\\n  ".join(include_args_list)
 
     # Build list of all source files (with modifications)
-    source_file_list = []
+    # Build injection map for process_source_files utility
+    injection_to_file_map = {}
+    for inj in config.injections:
+        injection_to_file_map[inj.source_file] = inj.name
 
-    for source_file in config.synthesis.source_files:
-        source_path = core_root / source_file
+    # Build modified files map
+    modified_map = {}
 
-        # Use modified versions if they exist
-        # Since Synlig runs from same dir as modified files, use basename for those
-        if source_file == "rtl/ibex_id_stage.sv":
-            source_file_list.append(id_stage_modified.name)
-        elif source_file == "rtl/ibex_alu.sv" and alu_modified:
-            source_file_list.append(alu_modified.name)
-        else:
-            source_file_list.append(str(source_path))
+    # ISA injection
+    isa_injection = config.get_injection("isa")
+    if isa_injection:
+        modified_map[isa_injection.name] = str(id_stage_modified.absolute())
+
+    # ODC error injection (ALU)
+    if alu_modified:
+        odc_injection = config.get_injection("odc_error")
+        if odc_injection:
+            modified_map[odc_injection.name] = str(alu_modified.absolute())
+
+    # Register file optimization
+    if regfile_modified:
+        rf_injection = config.get_injection("odc_opt")
+        if rf_injection:
+            modified_map[rf_injection.name] = str(regfile_modified.absolute())
+
+    # Use shared utility to process all source files
+    source_file_list = process_source_files(
+        source_files=config.synthesis.source_files,
+        core_root=core_root,
+        injection_map=injection_to_file_map,
+        modified_files=modified_map
+    )
 
     file_args = " \\\n  ".join(source_file_list)
+
+    # Separate modified files from original files
+    modified_file_list = []
+    original_file_list = []
+
+    for source in source_file_list:
+        # Modified files use absolute paths
+        if source.startswith('/'):
+            modified_file_list.append(source)
+        else:
+            original_file_list.append(source)
 
     script_lines = [
         "# Auto-generated synthesis script for ODC error-injected circuit",
         f"# Core: {config.core_name}",
         "",
-        "# Set include directories",
+        "# Set include directories (for vendor libs and packages only)",
     ]
 
     for inc_dir in include_args_list:
@@ -197,11 +252,19 @@ def _generate_synthesis_script(
     script_lines.extend([
         "",
         "# Read all source files together so packages are available to all modules",
+        "# Modified files use absolute paths to take precedence over include path versions",
         f"read_systemverilog \\",
-        f"  {include_args} \\",
-        f"  {file_args}",
-        "",
     ])
+
+    # Add include args to read command
+    for inc_arg in include_args_list:
+        script_lines.append(f"  {inc_arg} \\")
+
+    # Add all source files (modified with absolute paths come first due to sorting)
+    for source in sorted(source_file_list, key=lambda s: (0 if s.startswith('/') else 1, s)):
+        script_lines.append(f"  {source} \\")
+
+    script_lines.append("")
     
     # Add full synthesis flow (same as main synthesis script)
     # Use basename for output since Synlig runs from same directory
