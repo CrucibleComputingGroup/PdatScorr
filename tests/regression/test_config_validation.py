@@ -43,10 +43,11 @@ class TestConfigLoading:
         config = ConfigLoader.load_config(str(config_file))
 
         assert config.core_name == "ibex"
-        assert len(config.injections) == 3
+        assert len(config.injections) == 4
         assert config.get_injection("isa") is not None
         assert config.get_injection("timing") is not None
         assert config.get_injection("odc_error") is not None
+        assert config.get_injection("odc_opt") is not None
 
     def test_config_not_found(self):
         """Test error handling for missing config file."""

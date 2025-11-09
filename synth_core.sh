@@ -391,9 +391,17 @@ if [ -n "$CONFIG_FILE" ]; then
         MODIFIED_FILES_ARGS="$MODIFIED_FILES_ARGS register_file_opt=${RF_OPT}"
     fi
 
+    # Build writeback-stage flag if needed
+    WRITEBACK_FLAG=""
+    if [ "$WRITEBACK_STAGE" = true ]; then
+        echo "  Enabling 3-stage pipeline (WritebackStage=1)"
+        WRITEBACK_FLAG="--writeback-stage"
+    fi
+
     python3 scripts/make_synthesis_script.py \
         --config "$CONFIG_FILE" \
         $MODIFIED_FILES_ARGS \
+        $WRITEBACK_FLAG \
         -o "$SYNTH_SCRIPT" \
         -a "${BASE}"
 else

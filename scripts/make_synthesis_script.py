@@ -293,14 +293,14 @@ def main():
         '--config', '-c', help='Path to YAML config file (enables config mode)')
     parser.add_argument('--modified-files', nargs='*', default=[],
                         help='Modified files in format name=path (e.g., id_stage_isa=/path/to/file.sv)')
+    parser.add_argument('--writeback-stage', action='store_true',
+                        help='Enable 3-stage pipeline (overrides config parameter)')
 
     # Legacy mode arguments
     parser.add_argument('id_stage_modified', nargs='?',
                         help='[Legacy] Path to modified ibex_id_stage.sv with inline assumptions')
     parser.add_argument('--ibex-root', default=None,
                         help='[Legacy] Path to Ibex core')
-    parser.add_argument('--writeback-stage', action='store_true',
-                        help='[Legacy] Enable 3-stage pipeline')
     parser.add_argument('--core-modified', default=None,
                         help='[Legacy] Path to modified ibex_core.sv with timing constraints')
 
@@ -335,6 +335,10 @@ def main():
         except Exception as e:
             print(f"ERROR loading config: {e}")
             return 1
+
+        # Override writeback_stage parameter if --writeback-stage flag is set
+        if args.writeback_stage:
+            config.synthesis.parameters['writeback_stage'] = True
 
         # Generate script
         try:
