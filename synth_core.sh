@@ -121,7 +121,7 @@ DSL_BASENAME=$(basename "$INPUT_DSL" .dsl)
 
 # Determine output file prefix based on mode
 if [ -n "$CONFIG_FILE" ]; then
-    # Get core name, default ABC depth, and clock name from config
+    # Get core name, default ABC depth, clock name, and module name from config
     CONFIG_VALUES=$(python3 -c "
 import sys
 sys.path.insert(0, 'scripts')
@@ -131,17 +131,21 @@ try:
     core_name = config.core_name
     default_depth = config.synthesis.abc_config.get('default_depth', 2) if config.synthesis.abc_config else 2
     clk_name = config.signals.get('clk', 'clk_i') if hasattr(config, 'signals') and config.signals else 'clk_i'
+    top_module = config.synthesis.top_module if hasattr(config.synthesis, 'top_module') else 'ibex_core'
     print(f'{core_name}_optimized')
     print(default_depth)
     print(clk_name)
+    print(top_module)
 except Exception as e:
     print('core_optimized')
     print('2')
     print('clk_i')
+    print('ibex_core')
 ")
     OUTPUT_PREFIX=$(echo "$CONFIG_VALUES" | sed -n '1p')
     CONFIG_DEFAULT_DEPTH=$(echo "$CONFIG_VALUES" | sed -n '2p')
     CLK_NAME=$(echo "$CONFIG_VALUES" | sed -n '3p')
+    MODULE_NAME=$(echo "$CONFIG_VALUES" | sed -n '4p')
 
     # Override ABC_DEPTH with config default if not explicitly set via --abc-depth
     # Check if ABC_DEPTH is still at default value (2) - if so, use config default
@@ -150,9 +154,10 @@ except Exception as e:
         echo "  Using ABC depth from config: $ABC_DEPTH"
     fi
 else
-    # Legacy mode: use ibex prefix and default clock name
+    # Legacy mode: use ibex prefix, default clock name, and default module
     OUTPUT_PREFIX="ibex_optimized"
     CLK_NAME="clk_i"
+    MODULE_NAME="ibex_core"
 fi
 
 # Handle output argument:
@@ -524,7 +529,7 @@ if [ "$RUN_ODC_ANALYSIS" = true ]; then
     # so we have something to compare against
     if [ "$SYNTHESIZE_GATES" = true ] && [ ! -f "$OUTPUT_DIR/${OUTPUT_PREFIX}_gates.log" ]; then
         echo "Synthesizing baseline to gates before ODC analysis (for comparison)..."
-        ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME"
+        ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME" "$MODULE_NAME"
         echo ""
     fi
 
@@ -780,7 +785,7 @@ PYEOF
                                 echo "Synthesizing ODC-optimized circuit to gate level..."
                                 # Use the correct base name (already computed earlier)
                                 OPTIMIZED_BASE_PATH="$OPTIMIZED_SYNTH_DIR/$OPTIMIZED_BASE"
-                                ./scripts/synth_to_gates.sh "$OPTIMIZED_BASE_PATH" "" "$CLK_NAME"
+                                ./scripts/synth_to_gates.sh "$OPTIMIZED_BASE_PATH" "" "$CLK_NAME" "$MODULE_NAME"
 
                                 if [ $? -eq 0 ]; then
                                     # Extract and show chip area comparison
@@ -797,6 +802,26 @@ PYEOF
                                         echo "  Baseline:  $BASELINE_AREA µm²"
                                         echo "  Optimized: $OPTIMIZED_AREA µm²"
                                         echo "  Reduction: $AREA_REDUCTION µm² ($AREA_PERCENT%)"
+                                    fi
+
+                                    # Compare timing if metrics are available
+                                    BASELINE_TIMING="${BASE}_timing_metrics.json"
+                                    OPTIMIZED_TIMING="${OPTIMIZED_BASE_PATH}_timing_metrics.json"
+
+                                    if [ -f "$BASELINE_TIMING" ] && [ -f "$OPTIMIZED_TIMING" ]; then
+                                        BASELINE_FREQ=$(python3 -c "import json; print(json.load(open('$BASELINE_TIMING')).get('max_frequency_mhz', 'N/A'))" 2>/dev/null || echo "N/A")
+                                        OPTIMIZED_FREQ=$(python3 -c "import json; print(json.load(open('$OPTIMIZED_TIMING')).get('max_frequency_mhz', 'N/A'))" 2>/dev/null || echo "N/A")
+
+                                        if [ "$BASELINE_FREQ" != "N/A" ] && [ "$OPTIMIZED_FREQ" != "N/A" ]; then
+                                            FREQ_CHANGE=$(python3 -c "print(f'{float('$OPTIMIZED_FREQ') - float('$BASELINE_FREQ'):.2f}')" 2>/dev/null || echo "0.00")
+                                            FREQ_PERCENT=$(python3 -c "print(f'{100.0 * (float('$OPTIMIZED_FREQ') - float('$BASELINE_FREQ')) / float('$BASELINE_FREQ'):.2f}')" 2>/dev/null || echo "0.00")
+
+                                            echo ""
+                                            echo "Timing Comparison (10ns target period):"
+                                            echo "  Baseline:  $BASELINE_FREQ MHz"
+                                            echo "  Optimized: $OPTIMIZED_FREQ MHz"
+                                            echo "  Change:    $FREQ_CHANGE MHz ($FREQ_PERCENT%)"
+                                        fi
                                     fi
                                 fi
                             fi
@@ -825,7 +850,7 @@ if [ "$SYNTHESIZE_GATES" = true ]; then
     OPTIMIZED_GATES_LOG=$(ls "$OUTPUT_DIR/odc_optimized_synthesis/"*"_optimized_gates.log" 2>/dev/null | head -1)
     if [ -z "$OPTIMIZED_GATES_LOG" ]; then
         echo "Synthesizing to gate level with Skywater PDK..."
-        ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME"
+        ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME" "$MODULE_NAME"
     else
         echo ""
         echo "Gate synthesis already completed during ODC optimization"
@@ -838,7 +863,7 @@ if [ "$SYNTHESIZE_GATES" = true ]; then
     fi
 else
     echo "To synthesize to gates, run:"
-    echo "  ./scripts/synth_to_gates.sh $BASE \"\" \"$CLK_NAME\""
+    echo "  ./scripts/synth_to_gates.sh $BASE \"\" \"$CLK_NAME\" \"$MODULE_NAME\""
     echo "Or use --gates flag with this script."
 fi
 

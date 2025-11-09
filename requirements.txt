@@ -13,6 +13,7 @@ aigverse>=0.0.25     # AIGER manipulation library (used by pdat-dsl)
 pytest>=7.0.0
 pytest-xdist>=3.0.0  # For parallel test execution
 
-# Note: Requires Yosys/Synlig and ABC to be installed separately
-# - Synlig: https://github.com/chipsalliance/synlig
-# - ABC: https://github.com/berkeley-abc/abc
+# Note: Requires external EDA tools to be installed separately
+# - Synlig: https://github.com/chipsalliance/synlig (required)
+# - ABC: https://github.com/berkeley-abc/abc (required)
+# - OpenSTA: https://github.com/The-OpenROAD-Project/OpenSTA (optional, for timing analysis)

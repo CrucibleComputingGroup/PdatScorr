@@ -1,30 +1,32 @@
 #!/bin/bash
 # Convert optimized AIGER to gate-level netlist using open source PDK
 #
-# Usage: ./synth_to_gates.sh <input_base> [output.v] [clk_name]
+# Usage: ./synth_to_gates.sh <input_base> [output.v] [clk_name] [module_name]
 #        where <input_base>_post_abc.aig is the optimized AIGER from external ABC
 
 set -e
 
 if [ "$#" -lt 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-    echo "Usage: $0 <input_base> [output.v] [clk_name]"
+    echo "Usage: $0 <input_base> [output.v] [clk_name] [module_name]"
     echo ""
     echo "Convert ABC-optimized AIGER to gate-level Verilog using Skywater PDK"
     echo ""
     echo "Arguments:"
-    echo "  input_base  Base path (e.g., output/ibex_optimized)"
-    echo "              Will read <input_base>_post_abc.aig"
-    echo "  output.v    Output gate-level Verilog (default: <input_base>_gates.v)"
-    echo "  clk_name    Clock signal name in AIGER (default: clk_i)"
+    echo "  input_base   Base path (e.g., output/ibex_optimized)"
+    echo "               Will read <input_base>_post_abc.aig"
+    echo "  output.v     Output gate-level Verilog (default: <input_base>_gates.v)"
+    echo "  clk_name     Clock signal name in AIGER (default: clk_i)"
+    echo "  module_name  Top module name for timing analysis (default: auto-detect)"
     echo ""
     echo "Environment Variables:"
     echo "  SKYWATER_PDK    Path to Skywater PDK (default: /opt/pdk/skywater-pdk)"
     echo "  CLK_NAME        Clock signal name (overridden by clk_name argument)"
+    echo "  MODULE_NAME     Top module name (overridden by module_name argument)"
     echo ""
     echo "Examples:"
     echo "  $0 output/ibex_optimized"
-    echo "  $0 output/ibex_optimized output/ibex_gates.v"
-    echo "  $0 output/ibex_optimized output/ibex_gates.v clk"
+    echo "  $0 output/ibex_optimized output/ibex_gates.v clk_i"
+    echo "  $0 output/ibex_optimized output/ibex_gates.v clk_i ibex_core_with_rf"
     exit 0
 fi
 
@@ -54,6 +56,15 @@ elif [ -n "$CLK_NAME" ]; then
     CLK_NAME="$CLK_NAME"
 else
     CLK_NAME="clk_i"
+fi
+
+# Module name: priority is argument > env var > auto-detect
+if [ -n "$4" ]; then
+    MODULE_NAME="$4"
+elif [ -n "$MODULE_NAME" ]; then
+    MODULE_NAME="$MODULE_NAME"
+else
+    MODULE_NAME=""  # Will be auto-detected from Verilog
 fi
 
 # Skywater PDK configuration
@@ -91,6 +102,15 @@ echo ""
 # Create Yosys script for gate-level synthesis
 SCRIPT="${INPUT_BASE}_gate_synth.ys"
 
+# Determine clean top module name for output Verilog
+# Use MODULE_NAME if provided, otherwise derive from input base
+if [ -n "$MODULE_NAME" ]; then
+    TOP_MODULE="$MODULE_NAME"
+else
+    # Extract basename and create clean module name
+    TOP_MODULE=$(basename "$INPUT_BASE" | sed 's/[^a-zA-Z0-9_]/_/g')
+fi
+
 if [ "$USE_SKYWATER" = true ]; then
 cat > "$SCRIPT" << EOF
 # Gate-level synthesis script
@@ -120,6 +140,9 @@ dfflibmap -liberty $LIBERTY_FILE
 # Map combinational logic
 abc -liberty $LIBERTY_FILE -fast
 opt_clean
+
+# Rename module to clean name (Yosys uses AIGER path as module name)
+rename -top $TOP_MODULE
 
 # Write gate-level Verilog netlist
 write_verilog -noattr -noexpr -nohex $OUTPUT_V
@@ -155,6 +178,9 @@ abc -fast
 
 # Cleanup
 opt_clean
+
+# Rename module to clean name (Yosys uses AIGER path as module name)
+rename -top $TOP_MODULE
 
 # Write gate-level Verilog netlist
 write_verilog -noattr -noexpr -nohex $OUTPUT_V
@@ -212,6 +238,19 @@ if [ ${PIPESTATUS[0]} -eq 0 ]; then
             echo "Total chip area: $CHIP_AREA µm² (comb + seq)"
             # Save total area to file for comparison scripts
             echo "$CHIP_AREA" > "${INPUT_BASE}_total_area.txt"
+        fi
+
+        # Run timing analysis if OpenSTA is available
+        echo ""
+        TIMING_SCRIPT="$(dirname "$0")/analyze_timing.sh"
+        if [ -x "$TIMING_SCRIPT" ] && command -v sta &> /dev/null; then
+            echo "Running static timing analysis..."
+            # Pass INPUT_BASE so metrics are saved at correct location for comparison
+            "$TIMING_SCRIPT" "$OUTPUT_V" "$CLK_NAME" 10.0 "$MODULE_NAME" "$INPUT_BASE"
+        else
+            echo "Static timing analysis skipped (OpenSTA not installed)"
+            echo "To enable timing analysis, install OpenSTA:"
+            echo "  https://github.com/The-OpenROAD-Project/OpenSTA"
         fi
     fi
 else
