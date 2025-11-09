@@ -35,6 +35,23 @@ properties:
       - instruction_data
       - pc
     properties:
+      clk:
+        type: string
+        description: "Clock signal name"
+        default: "clk_i"
+        examples:
+          - "clk_i"
+          - "clk"
+
+      rst_n:
+        type: string
+        description: "Reset signal name (active-low assumed)"
+        default: "rst_ni"
+        examples:
+          - "rst_ni"
+          - "rst_n"
+          - "reset_n"
+
       instruction_data:
         type: string
         description: "Signal name for the instruction word being decoded/executed"
@@ -78,6 +95,36 @@ properties:
               rs2:
                 type: string
                 description: "Source register 2 data for MUL/DIV operations"
+
+      memory:
+        type: object
+        description: "Memory interface signals (optional - for timing constraints)"
+        properties:
+          instr_req:
+            type: string
+            description: "Instruction memory request signal"
+            examples:
+              - "instr_req_o"
+          instr_gnt:
+            type: string
+            description: "Instruction memory grant signal"
+            examples:
+              - "instr_gnt_i"
+          data_req:
+            type: string
+            description: "Data memory request signal"
+            examples:
+              - "data_req_out"
+          data_gnt:
+            type: string
+            description: "Data memory grant signal"
+            examples:
+              - "data_gnt_i"
+          data_rvalid:
+            type: string
+            description: "Data memory response valid signal"
+            examples:
+              - "data_rvalid_i"
 
   # Multiple injection points configuration (REDESIGNED)
   injections:
@@ -224,6 +271,8 @@ additionalProperties: false
 #     description: "Core top-level - cache timing constraints"
 #
 # signals:
+#   clk: "clk_i"         # Optional - defaults to "clk_i"
+#   rst_n: "rst_ni"      # Optional - defaults to "rst_ni"
 #   instruction_data: "instr_rdata_i"
 #   pc: "pc_if_o"
 #   operands:
@@ -233,6 +282,12 @@ additionalProperties: false
 #     multdiv:
 #       rs1: "multdiv_operand_a_ex_i"
 #       rs2: "multdiv_operand_b_ex_i"
+#   memory:  # Optional - for timing constraint generation
+#     instr_req: "instr_req_o"
+#     instr_gnt: "instr_gnt_i"
+#     data_req: "data_req_out"
+#     data_gnt: "data_gnt_i"
+#     data_rvalid: "data_rvalid_i"
 #
 # vcd:
 #   testbench_prefix: "tb_ibex_random.dut"

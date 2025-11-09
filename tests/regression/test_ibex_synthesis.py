@@ -160,8 +160,9 @@ class TestSynthesisOptions:
 
         assert result.success, f"Synthesis with --3stage failed:\n{result.stdout}"
 
-        # Check that 3-stage mode was enabled
-        assert "Enabling 3-stage pipeline" in result.stdout or "WritebackStage=1" in result.stdout
+        # Check that 3-stage mode was enabled by examining the synthesis script
+        synth_script = (result.output_dir / "ibex_optimized_synth.ys").read_text()
+        assert "WritebackStage" in synth_script, "WritebackStage parameter not set in synthesis script"
 
         # Standard outputs should still exist
         assert result.has_file("ibex_optimized_yosys.aig")

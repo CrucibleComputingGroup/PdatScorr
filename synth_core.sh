@@ -11,13 +11,15 @@ SYNTHESIZE_GATES=false
 ABC_DEPTH=2
 WRITEBACK_STAGE=false
 CONFIG_FILE=""
-CORE_NAME=""
+CORE_NAME="ibex"  # Default to ibex for this project
+RUN_ODC_ANALYSIS=false
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --gates) SYNTHESIZE_GATES=true; shift ;;
         --3stage) WRITEBACK_STAGE=true; ABC_DEPTH=3; shift ;;
         --abc-depth)
             ABC_DEPTH="$2"
+            ABC_DEPTH_USER_SET=true
             if ! [[ "$ABC_DEPTH" =~ ^[0-9]+$ ]] || [ "$ABC_DEPTH" -lt 1 ]; then
                 echo "ERROR: --abc-depth must be a positive integer"
                 exit 1
@@ -32,6 +34,12 @@ while [[ "$#" -gt 0 ]]; do
             CORE_NAME="$2"
             shift 2
             ;;
+        --no-config)
+            CORE_NAME=""  # Disable default, force legacy mode
+            CONFIG_FILE=""
+            shift
+            ;;
+        --odc-analysis) RUN_ODC_ANALYSIS=true; shift ;;
         -h|--help)
             echo "Usage: $0 [OPTIONS] <rules.dsl> [output_dir|output.il]"
             echo ""
@@ -41,18 +49,21 @@ while [[ "$#" -gt 0 ]]; do
             echo "  --gates           Also synthesize to gate-level netlist with Skywater PDK"
             echo "  --3stage          Enable Ibex 3-stage pipeline (IF, ID/EX, WB) and set ABC depth=3"
             echo "  --abc-depth N     Set ABC k-induction depth (default: 2, matches 2-stage pipeline)"
-            echo "  --config FILE     Use YAML config file (enables config mode)"
+            echo "  --config FILE     Use YAML config file (overrides --core default)"
             echo "  --core NAME       Core name for auto-config lookup (default: ibex, looks for configs/NAME.yaml)"
+            echo "  --no-config       Disable config mode and use legacy hardcoded paths"
+            echo "  --odc-analysis    Run complete ODC analysis on ALL fields (shamt, rd, rs1, rs2, imm)"
+            echo "                    Automatically detects, verifies, and applies all ODC optimizations"
             echo ""
             echo "Arguments:"
             echo "  rules.dsl       DSL file with instruction constraints"
             echo "  output_dir      Base directory for outputs (default: output/)"
             echo "  output.il       Specific output file path (if ends with .il)"
             echo ""
-            echo "Config Mode:"
-            echo "  When --config or --core is specified, source files and paths are read from"
-            echo "  a YAML configuration file instead of being hardcoded. This allows supporting"
-            echo "  multiple cores (Ibex, BOOM, Rocket, etc.) with the same script."
+            echo "Config Mode (DEFAULT):"
+            echo "  Config mode is enabled by default (--core ibex). Source files and paths are"
+            echo "  read from configs/ibex.yaml. Use --no-config to force legacy mode with"
+            echo "  hardcoded paths. Config mode supports multiple cores (Ibex, BOOM, Rocket, etc.)"
             echo ""
             echo "Output organization:"
             echo "  - Files are organized in subfolders named after the DSL file"
@@ -69,6 +80,7 @@ while [[ "$#" -gt 0 ]]; do
             echo "  $0 my_rules.dsl output/custom.il        # Specific path output/custom.il"
             echo "  $0 --config configs/ibex.yaml my_rules.dsl    # Use config file"
             echo "  $0 --core ibex my_rules.dsl             # Auto-load configs/ibex.yaml"
+            echo "  $0 --odc-analysis my_rules.dsl          # Run ODC analysis after optimization"
             echo ""
             echo "All intermediate files are placed in the same directory as the final output."
             exit 0
@@ -109,20 +121,43 @@ DSL_BASENAME=$(basename "$INPUT_DSL" .dsl)
 
 # Determine output file prefix based on mode
 if [ -n "$CONFIG_FILE" ]; then
-    # Get core name from config
-    OUTPUT_PREFIX=$(python3 -c "
+    # Get core name, default ABC depth, clock name, and module name from config
+    CONFIG_VALUES=$(python3 -c "
 import sys
 sys.path.insert(0, 'scripts')
 try:
     from config_loader import ConfigLoader
     config = ConfigLoader.load_config('$CONFIG_FILE')
-    print(f'{config.core_name}_optimized')
-except:
-    print('core_optimized')  # Fallback
+    core_name = config.core_name
+    default_depth = config.synthesis.abc_config.get('default_depth', 2) if config.synthesis.abc_config else 2
+    clk_name = config.signals.get('clk', 'clk_i') if hasattr(config, 'signals') and config.signals else 'clk_i'
+    top_module = config.synthesis.top_module if hasattr(config.synthesis, 'top_module') else 'ibex_core'
+    print(f'{core_name}_optimized')
+    print(default_depth)
+    print(clk_name)
+    print(top_module)
+except Exception as e:
+    print('core_optimized')
+    print('2')
+    print('clk_i')
+    print('ibex_core')
 ")
+    OUTPUT_PREFIX=$(echo "$CONFIG_VALUES" | sed -n '1p')
+    CONFIG_DEFAULT_DEPTH=$(echo "$CONFIG_VALUES" | sed -n '2p')
+    CLK_NAME=$(echo "$CONFIG_VALUES" | sed -n '3p')
+    MODULE_NAME=$(echo "$CONFIG_VALUES" | sed -n '4p')
+
+    # Override ABC_DEPTH with config default if not explicitly set via --abc-depth
+    # Check if ABC_DEPTH is still at default value (2) - if so, use config default
+    if [ "$ABC_DEPTH" -eq 2 ] && [ -z "$ABC_DEPTH_USER_SET" ]; then
+        ABC_DEPTH=$CONFIG_DEFAULT_DEPTH
+        echo "  Using ABC depth from config: $ABC_DEPTH"
+    fi
 else
-    # Legacy mode: use ibex prefix
+    # Legacy mode: use ibex prefix, default clock name, and default module
     OUTPUT_PREFIX="ibex_optimized"
+    CLK_NAME="clk_i"
+    MODULE_NAME="ibex_core"
 fi
 
 # Handle output argument:
@@ -183,7 +218,21 @@ fi
 
 # Step 1: Generate assumptions code (inline, no module)
 echo "[1/$TOTAL_STEPS] Generating instruction assumptions..."
-pdat-dsl codegen "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+
+# Pass config file to codegen if in config mode (for signal name mappings)
+if [ -n "$CONFIG_FILE" ]; then
+    # pdat-dsl needs config from PdatRiscvDsl/configs/, not PdatScorr/configs/
+    # Try to find corresponding config in PdatRiscvDsl
+    DSL_CONFIG="../PdatRiscvDsl/configs/$(basename "$CONFIG_FILE")"
+    if [ -f "$DSL_CONFIG" ]; then
+        pdat-dsl codegen --config "$DSL_CONFIG" "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+    else
+        echo "  Warning: DSL config not found at $DSL_CONFIG, generating without config"
+        pdat-dsl codegen "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+    fi
+else
+    pdat-dsl codegen "$INPUT_DSL" "$ASSUMPTIONS_CODE"
+fi
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to generate assumptions"
@@ -340,9 +389,24 @@ if [ -n "$CONFIG_FILE" ]; then
         MODIFIED_FILES_ARGS="$MODIFIED_FILES_ARGS core_timing=${CORE_SV}"
     fi
 
+    # Check for ODC-optimized register file
+    RF_OPT="${OUTPUT_DIR}/odc_optimized_rtl/ibex_register_file_ff_optimized.sv"
+    if [ -f "$RF_OPT" ]; then
+        echo "  Found ODC-optimized register file: $RF_OPT"
+        MODIFIED_FILES_ARGS="$MODIFIED_FILES_ARGS register_file_opt=${RF_OPT}"
+    fi
+
+    # Build writeback-stage flag if needed
+    WRITEBACK_FLAG=""
+    if [ "$WRITEBACK_STAGE" = true ]; then
+        echo "  Enabling 3-stage pipeline (WritebackStage=1)"
+        WRITEBACK_FLAG="--writeback-stage"
+    fi
+
     python3 scripts/make_synthesis_script.py \
         --config "$CONFIG_FILE" \
         $MODIFIED_FILES_ARGS \
+        $WRITEBACK_FLAG \
         -o "$SYNTH_SCRIPT" \
         -a "${BASE}"
 else
@@ -459,10 +523,339 @@ fi
 
 echo ""
 
-# Step 6 (optional): Gate-level synthesis
+# Step 5.5 (optional): ODC Analysis
+if [ "$RUN_ODC_ANALYSIS" = true ]; then
+    # If we're doing ODC analysis with gate synthesis, synthesize baseline to gates first
+    # so we have something to compare against
+    if [ "$SYNTHESIZE_GATES" = true ] && [ ! -f "$OUTPUT_DIR/${OUTPUT_PREFIX}_gates.log" ]; then
+        echo "Synthesizing baseline to gates before ODC analysis (for comparison)..."
+        ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME" "$MODULE_NAME"
+        echo ""
+    fi
+
+    echo "=========================================="
+    echo "ODC Analysis (Error Injection + Bounded SEC)"
+    echo "=========================================="
+    echo ""
+
+    # Determine which config file to use
+    if [ -n "$CONFIG_FILE" ]; then
+        ODC_CONFIG="$CONFIG_FILE"
+    else
+        # Legacy mode - use default ibex config
+        ODC_CONFIG="configs/ibex.yaml"
+    fi
+
+    # Determine baseline AIGER file
+    # Use Yosys output (NOT ABC-optimized) to ensure both circuits have same structure
+    # ABC optimization removes constraints which causes miter issues
+    if [ -f "${BASE}_yosys.aig" ]; then
+        BASELINE_AIG="${BASE}_yosys.aig"
+        echo "Using Yosys-generated circuit as baseline: $BASELINE_AIG"
+    else
+        echo "ERROR: No Yosys AIGER file found for baseline. Cannot run ODC analysis."
+        RUN_ODC_ANALYSIS=false
+    fi
+
+    if [ "$RUN_ODC_ANALYSIS" = true ]; then
+        ODC_OUTPUT_DIR="$OUTPUT_DIR/odc_analysis"
+
+        echo "Running ODC analysis with k=$ABC_DEPTH..."
+        echo "  DSL: $INPUT_DSL"
+        echo "  Baseline: $BASELINE_AIG"
+        echo "  Config: $ODC_CONFIG"
+        echo "  Output: $ODC_OUTPUT_DIR"
+        echo ""
+
+        python3 scripts/odc_analysis.py "$INPUT_DSL" \
+            --baseline-aig "$BASELINE_AIG" \
+            --output-dir "$ODC_OUTPUT_DIR" \
+            --k-depth "$ABC_DEPTH" \
+            --config "$ODC_CONFIG" \
+            --scope all
+
+        if [ $? -eq 0 ]; then
+            echo ""
+            echo "ODC analysis complete!"
+            echo "  Reports: $ODC_OUTPUT_DIR/odc_report.{json,md}"
+            echo ""
+
+            # Check if any ODCs were found (bit-level or mux-level)
+            ODC_REPORT="$ODC_OUTPUT_DIR/odc_report.json"
+            MUX_ODC_REPORT="$ODC_OUTPUT_DIR/mux_odc_analysis.json"
+
+            ODC_COUNT=$(python3 -c "
+import json
+count = 0
+try:
+    with open('$ODC_REPORT') as f:
+        report = json.load(f)
+    count = report.get('metadata', {}).get('confirmed_odcs', 0)
+except:
+    pass
+print(count)
+" 2>/dev/null || echo "0")
+
+            MUX_ODC_COUNT=$(python3 -c "
+import json
+count = 0
+try:
+    with open('$MUX_ODC_REPORT') as f:
+        report = json.load(f)
+    count = len([c for c in report.get('unreachable_mux_cases', []) if c.get('sec_verified', False)])
+except:
+    pass
+print(count)
+" 2>/dev/null || echo "0")
+
+            TOTAL_ODC_COUNT=$((ODC_COUNT + MUX_ODC_COUNT))
+
+            if [ "$TOTAL_ODC_COUNT" -gt 0 ]; then
+                echo "Found $ODC_COUNT bit-level ODCs and $MUX_ODC_COUNT mux-level ODCs - applying optimizations..."
+                echo ""
+
+                # Apply ODC optimizations
+                OPTIMIZED_RTL_DIR="$OUTPUT_DIR/odc_optimized_rtl"
+                OPTIMIZED_SYNTH_DIR="$OUTPUT_DIR/odc_optimized_synthesis"
+
+                # Apply bit-level optimizations (if any)
+                if [ "$ODC_COUNT" -gt 0 ]; then
+                    echo "Applying bit-level ODC optimizations..."
+                    python3 scripts/apply_odc_optimizations.py "$ODC_REPORT" \
+                        --rtl-dir "$CORE_ROOT/rtl" \
+                        --output-dir "$OPTIMIZED_RTL_DIR" \
+                        --config "$ODC_CONFIG"
+                fi
+
+                # Apply mux-level optimizations (if any)
+                if [ "$MUX_ODC_COUNT" -gt 0 ]; then
+                    echo "Applying mux-level ODC optimizations..."
+                    # If bit-level already ran, use its output as input; otherwise use original
+                    if [ -f "$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv" ]; then
+                        INPUT_ALU="$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv"
+                    else
+                        INPUT_ALU="$CORE_ROOT/rtl/ibex_alu.sv"
+                        mkdir -p "$OPTIMIZED_RTL_DIR"
+                    fi
+
+                    python3 scripts/apply_mux_optimizations.py "$MUX_ODC_REPORT" \
+                        --config "$ODC_CONFIG" \
+                        --output-dir "$OPTIMIZED_RTL_DIR"
+
+                    # The output is ibex_alu_mux_optimized.sv, rename to ibex_alu_optimized.sv
+                    if [ -f "$OPTIMIZED_RTL_DIR/ibex_alu_mux_optimized.sv" ]; then
+                        mv "$OPTIMIZED_RTL_DIR/ibex_alu_mux_optimized.sv" "$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv"
+                    fi
+                fi
+
+                # Check if we have optimized RTL files (discover dynamically)
+                OPTIMIZED_FILES=$(ls "$OPTIMIZED_RTL_DIR"/*_optimized.sv 2>/dev/null || true)
+
+                if [ -n "$OPTIMIZED_FILES" ]; then
+                    # Copy all optimized RTL to synthesis directory
+                    mkdir -p "$OPTIMIZED_SYNTH_DIR"
+
+                    echo "Found optimized RTL files:"
+                    for opt_file in $OPTIMIZED_FILES; do
+                        cp "$opt_file" "$OPTIMIZED_SYNTH_DIR/"
+                        filename=$(basename $opt_file)
+                        echo "  - $filename"
+
+                        # Track what type of optimization this is
+                        if [[ "$filename" == *"register_file"* ]]; then
+                            echo "    (Register file optimization - eliminates unused register storage)"
+                        elif [[ "$filename" == *"alu"* ]]; then
+                            echo "    (ALU optimization - eliminates unused functional units)"
+                        elif [[ "$filename" == *"id_stage"* ]]; then
+                            echo "    (ID stage optimization - may include multiple optimizations)"
+                        fi
+                    done
+
+                    echo "Re-synthesizing with ODC optimizations..."
+
+                    # Determine which optimized file to use as primary for synthesis
+                    # Priority: register_file > ALU > ID stage
+                    # (Register file is most fundamental - all others can use it)
+                    OPTIMIZED_RTL_FILE=""
+
+                    # Check for optimized register file (highest priority - eliminates storage)
+                    REGFILE_OPT=$(ls "$OPTIMIZED_SYNTH_DIR"/*register_file*_optimized.sv 2>/dev/null | head -1)
+                    if [ -n "$REGFILE_OPT" ]; then
+                        OPTIMIZED_RTL_FILE=$(basename "$REGFILE_OPT")
+                        echo "  Primary: $OPTIMIZED_RTL_FILE (register file - eliminates unused storage)"
+                    else
+                        # Check for ALU optimization
+                        ALU_OPT=$(ls "$OPTIMIZED_SYNTH_DIR"/*alu*_optimized.sv 2>/dev/null | head -1)
+                        if [ -n "$ALU_OPT" ]; then
+                            OPTIMIZED_RTL_FILE=$(basename "$ALU_OPT")
+                            echo "  Primary: $OPTIMIZED_RTL_FILE (ALU optimization)"
+                        else
+                            # Fallback to ID stage or any optimized file
+                            ANY_OPT=$(ls "$OPTIMIZED_SYNTH_DIR"/*_optimized.sv 2>/dev/null | head -1)
+                            if [ -n "$ANY_OPT" ]; then
+                                OPTIMIZED_RTL_FILE=$(basename "$ANY_OPT")
+                                echo "  Primary: $OPTIMIZED_RTL_FILE"
+                            fi
+                        fi
+                    fi
+
+                    if [ -z "$OPTIMIZED_RTL_FILE" ]; then
+                        echo "  ERROR: No optimized RTL file found in $OPTIMIZED_SYNTH_DIR"
+                        exit 1
+                    fi
+
+                    # Synthesize optimized version
+                    python3 << PYEOF
+import sys
+from pathlib import Path
+sys.path.insert(0, 'odc')
+from synthesis import synthesize_error_injected_circuit
+
+result = synthesize_error_injected_circuit(
+    error_injected_rtl=Path('$OPTIMIZED_SYNTH_DIR/$OPTIMIZED_RTL_FILE'),
+    dsl_file=Path('$INPUT_DSL'),
+    output_dir=Path('$OPTIMIZED_SYNTH_DIR'),
+    config_file=Path('$ODC_CONFIG'),
+    k_depth=$ABC_DEPTH
+)
+sys.exit(0 if result else 1)
+PYEOF
+
+                    ODC_SYNTH_EXIT=$?
+                    if [ $ODC_SYNTH_EXIT -eq 0 ]; then
+                        # Run ABC optimization on optimized circuit
+                        # Use the base name from the optimized RTL file
+                        OPTIMIZED_BASE="${OPTIMIZED_RTL_FILE%.sv}"
+                        OPTIMIZED_YOSYS_AIG="$OPTIMIZED_SYNTH_DIR/${OPTIMIZED_BASE}_yosys.aig"
+                        OPTIMIZED_ABC_AIG="$OPTIMIZED_SYNTH_DIR/${OPTIMIZED_BASE}_post_abc.aig"
+
+                        # Get constraint info
+                        ABC_STATS_OPT=$(abc -c "read_aiger $OPTIMIZED_YOSYS_AIG; print_stats" 2>&1 | grep "i/o")
+
+                        if echo "$ABC_STATS_OPT" | grep -q "(c="; then
+                            TOTAL_OUTPUTS=$(echo "$ABC_STATS_OPT" | grep -oP 'i/o\s*=\s*\d+/\s*\K\d+')
+                            CONSTR_COUNT=$(echo "$ABC_STATS_OPT" | grep -oP '\(c=\K\d+')
+                            REAL_OUTPUTS=$((TOTAL_OUTPUTS - CONSTR_COUNT))
+
+                            CONSTRAINT_CMDS="constr -r;"
+                            for ((i=TOTAL_OUTPUTS-1; i>=REAL_OUTPUTS; i--)); do
+                                CONSTRAINT_CMDS="$CONSTRAINT_CMDS removepo -N $i;"
+                            done
+                        else
+                            CONSTRAINT_CMDS=""
+                        fi
+
+                        abc -c "
+                            read_aiger $OPTIMIZED_YOSYS_AIG;
+                            strash;
+                            cycle 100;
+                            scorr -c -m -F $ABC_DEPTH -C 30000 -S 20 -v;
+                            $CONSTRAINT_CMDS
+                            rewrite -l;
+                            fraig;
+                            balance -l;
+                            print_stats;
+                            write_aiger $OPTIMIZED_ABC_AIG;
+                        " > "$OPTIMIZED_SYNTH_DIR/abc.log" 2>&1
+
+                        # Compare results
+                        BASELINE_STATS=$(abc -c "read_aiger $ABC_OUTPUT; print_stats" 2>&1 | grep "i/o =")
+                        OPTIMIZED_STATS=$(abc -c "read_aiger $OPTIMIZED_ABC_AIG; print_stats" 2>&1 | grep "i/o =")
+
+                        BASELINE_AND=$(echo "$BASELINE_STATS" | grep -oP 'and\s*=\s*\K\d+')
+                        OPTIMIZED_AND=$(echo "$OPTIMIZED_STATS" | grep -oP 'and\s*=\s*\K\d+')
+
+                        if [ -n "$BASELINE_AND" ] && [ -n "$OPTIMIZED_AND" ]; then
+                            REDUCTION=$((BASELINE_AND - OPTIMIZED_AND))
+                            PERCENT=$(python3 -c "print(f'{100.0 * $REDUCTION / $BASELINE_AND:.2f}')")
+
+                            echo ""
+                            echo "ODC Optimization Results:"
+                            echo "  Baseline:  $BASELINE_AND AND gates"
+                            echo "  Optimized: $OPTIMIZED_AND AND gates"
+                            echo "  Reduction: $REDUCTION gates ($PERCENT%)"
+
+                            if [ "$REDUCTION" -gt 0 ]; then
+                                echo "  ✓ ODC optimization successful!"
+                            fi
+
+                            # Run gate-level synthesis on ODC-optimized circuit if requested
+                            if [ "$SYNTHESIZE_GATES" = true ]; then
+                                echo ""
+                                echo "Synthesizing ODC-optimized circuit to gate level..."
+                                # Use the correct base name (already computed earlier)
+                                OPTIMIZED_BASE_PATH="$OPTIMIZED_SYNTH_DIR/$OPTIMIZED_BASE"
+                                ./scripts/synth_to_gates.sh "$OPTIMIZED_BASE_PATH" "" "$CLK_NAME" "$MODULE_NAME"
+
+                                if [ $? -eq 0 ]; then
+                                    # Extract and show chip area comparison
+                                    # Format: "Chip area for module 'name': 39250.144000"
+                                    BASELINE_AREA=$(grep "Chip area for module" "$OUTPUT_DIR/${OUTPUT_PREFIX}_gates.log" 2>/dev/null | tail -1 | awk '{print $NF}')
+                                    OPTIMIZED_AREA=$(grep "Chip area for module" "$OPTIMIZED_SYNTH_DIR/${OPTIMIZED_BASE}_gates.log" 2>/dev/null | tail -1 | awk '{print $NF}')
+
+                                    if [ -n "$BASELINE_AREA" ] && [ -n "$OPTIMIZED_AREA" ]; then
+                                        AREA_REDUCTION=$(python3 -c "print(f'{float('$BASELINE_AREA') - float('$OPTIMIZED_AREA'):.2f}')")
+                                        AREA_PERCENT=$(python3 -c "print(f'{100.0 * (float('$BASELINE_AREA') - float('$OPTIMIZED_AREA')) / float('$BASELINE_AREA'):.2f}')")
+
+                                        echo ""
+                                        echo "Chip Area Comparison:"
+                                        echo "  Baseline:  $BASELINE_AREA µm²"
+                                        echo "  Optimized: $OPTIMIZED_AREA µm²"
+                                        echo "  Reduction: $AREA_REDUCTION µm² ($AREA_PERCENT%)"
+                                    fi
+
+                                    # Compare timing if metrics are available
+                                    BASELINE_TIMING="${BASE}_timing_metrics.json"
+                                    OPTIMIZED_TIMING="${OPTIMIZED_BASE_PATH}_timing_metrics.json"
+
+                                    if [ -f "$BASELINE_TIMING" ] && [ -f "$OPTIMIZED_TIMING" ]; then
+                                        BASELINE_FREQ=$(python3 -c "import json; print(json.load(open('$BASELINE_TIMING')).get('max_frequency_mhz', 'N/A'))" 2>/dev/null || echo "N/A")
+                                        OPTIMIZED_FREQ=$(python3 -c "import json; print(json.load(open('$OPTIMIZED_TIMING')).get('max_frequency_mhz', 'N/A'))" 2>/dev/null || echo "N/A")
+
+                                        if [ "$BASELINE_FREQ" != "N/A" ] && [ "$OPTIMIZED_FREQ" != "N/A" ]; then
+                                            FREQ_CHANGE=$(python3 -c "print(f'{float('$OPTIMIZED_FREQ') - float('$BASELINE_FREQ'):.2f}')" 2>/dev/null || echo "0.00")
+                                            FREQ_PERCENT=$(python3 -c "print(f'{100.0 * (float('$OPTIMIZED_FREQ') - float('$BASELINE_FREQ')) / float('$BASELINE_FREQ'):.2f}')" 2>/dev/null || echo "0.00")
+
+                                            echo ""
+                                            echo "Timing Comparison (10ns target period):"
+                                            echo "  Baseline:  $BASELINE_FREQ MHz"
+                                            echo "  Optimized: $OPTIMIZED_FREQ MHz"
+                                            echo "  Change:    $FREQ_CHANGE MHz ($FREQ_PERCENT%)"
+                                        fi
+                                    fi
+                                fi
+                            fi
+                        fi
+                    else
+                        echo ""
+                        echo "ERROR: ODC-optimized synthesis failed"
+                        echo "  Check log: $OPTIMIZED_SYNTH_DIR/${OPTIMIZED_RTL_FILE%.sv}_synlig.log"
+                        echo ""
+                        exit 1
+                    fi
+                fi
+            fi
+        else
+            echo ""
+            echo "WARNING: ODC analysis failed or incomplete"
+            echo ""
+        fi
+    fi
+fi
+
+# Step 6 (optional): Gate-level synthesis (baseline only if ODC didn't run)
 if [ "$SYNTHESIZE_GATES" = true ]; then
-    echo "Synthesizing to gate level with Skywater PDK..."
-    ./scripts/synth_to_gates.sh "$BASE"
+    # Check if ODC optimization already ran gate synthesis
+    # Check for any optimized gates log (use wildcard to match any core)
+    OPTIMIZED_GATES_LOG=$(ls "$OUTPUT_DIR/odc_optimized_synthesis/"*"_optimized_gates.log" 2>/dev/null | head -1)
+    if [ -z "$OPTIMIZED_GATES_LOG" ]; then
+        echo "Synthesizing to gate level with Skywater PDK..."
+        ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME" "$MODULE_NAME"
+    else
+        echo ""
+        echo "Gate synthesis already completed during ODC optimization"
+        echo "(ODC-optimized gates in output/baseline/odc_optimized_synthesis/)"
+    fi
 
     if [ $? -ne 0 ]; then
         echo "ERROR: Gate-level synthesis failed"
@@ -470,7 +863,7 @@ if [ "$SYNTHESIZE_GATES" = true ]; then
     fi
 else
     echo "To synthesize to gates, run:"
-    echo "  ./scripts/synth_to_gates.sh $BASE"
+    echo "  ./scripts/synth_to_gates.sh $BASE \"\" \"$CLK_NAME\" \"$MODULE_NAME\""
     echo "Or use --gates flag with this script."
 fi
 

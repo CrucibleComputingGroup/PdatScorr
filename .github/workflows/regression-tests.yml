@@ -155,7 +155,7 @@ jobs:
         # Run pytest directly without xdist parallelism
         # to avoid Synlig/Surelog double-free issues
         pytest -v --maxfail=5
-      timeout-minutes: 30
+      timeout-minutes: 60
 
     - name: Save Synlig Cache
       if: always() && steps.cache-synlig.outputs.cache-matched-key == ''

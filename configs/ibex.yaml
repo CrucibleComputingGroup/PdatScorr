@@ -13,18 +13,37 @@ injections:
   - name: "id_stage_isa"
     source_file: "rtl/ibex_id_stage.sv"
     constraint_type: "isa"
-    module_path: "ibex_core.id_stage_i"
+    module_path: "ibex_core_with_rf.core_i.id_stage_i"
     description: "ID/Decode stage - where ISA instruction constraints are injected"
 
   # Timing constraints injected into core top-level
   - name: "core_timing"
     source_file: "rtl/ibex_core.sv"
     constraint_type: "timing"
-    module_path: "ibex_core"
+    module_path: "ibex_core_with_rf.core_i"
     description: "Core top-level - where cache timing constraints are injected"
+
+  # ODC error injection into ALU
+  - name: "alu_odc"
+    source_file: "rtl/ibex_alu.sv"
+    constraint_type: "odc_error"
+    module_path: "ibex_core_with_rf.core_i.ex_block_i.alu_i"
+    injection_line_after: 288  # After shift_amt assignment
+    description: "ALU execution unit - where ODC error forcing is injected"
+
+  # Register file optimization - replaced with reduced register count version
+  - name: "register_file_opt"
+    source_file: "rtl/ibex_register_file_ff.sv"
+    constraint_type: "odc_opt"
+    module_path: "ibex_core_with_rf.register_file_i"
+    description: "Register file - replaced with ODC-optimized version (reduced register count)"
 
 # Signal naming conventions for Ibex
 signals:
+  # Clock and reset signals
+  clk: "clk_i"
+  rst_n: "rst_ni"  # Active-low reset
+
   # Instruction and PC signals
   instruction_data: "instr_rdata_i"
   pc: "pc_if_o"
@@ -41,6 +60,28 @@ signals:
       rs1: "multdiv_operand_a_ex_i"
       rs2: "multdiv_operand_b_ex_i"
 
+  # Memory interface signals (for timing constraint generation)
+  memory:
+    # Instruction memory interface
+    instr_req: "instr_req_o"     # Instruction request
+    instr_gnt: "instr_gnt_i"     # Instruction grant
+    # Data memory interface
+    data_req: "data_req_out"     # Data request
+    data_gnt: "data_gnt_i"       # Data grant
+    data_rvalid: "data_rvalid_i" # Data response valid
+
+  # Barrel shifter signals (for ODC analysis)
+  # Located in ibex_alu.sv, used for shift instruction execution
+  barrel_shifter:
+    module: "ibex_alu"
+    shift_amount: "shift_amt"           # [5:0] actual shift amount (line 247)
+    shift_amount_bits: "shift_amt[4:0]" # [4:0] lower 5 bits used for shift
+    shift_left: "shift_left"            # Direction control (line 242)
+    shift_ones: "shift_ones"            # Arithmetic shift fill value (line 243)
+    shift_operand: "shift_operand"      # [32:0] operand being shifted (line 244)
+    shifter_result: "shifter_result"    # [31:0] shift output (line 246)
+    operand_b: "operand_b_i"            # [31:0] source of shift amount (rs2)
+
 # VCD analysis configuration
 vcd:
   testbench_prefix: "tb_ibex_random.dut"
@@ -51,7 +92,8 @@ synthesis:
   core_root: "$IBEX_ROOT"
 
   # Top-level module to synthesize
-  top_module: "ibex_core"
+  # Uses wrapper module that instantiates ibex_core + register file
+  top_module: "ibex_core_with_rf"
 
   # Include directories (relative to core_root)
   include_dirs:
@@ -82,10 +124,11 @@ synthesis:
     - "rtl/ibex_multdiv_slow.sv"
     - "rtl/ibex_pmp.sv"
     - "rtl/ibex_prefetch_buffer.sv"
-    - "rtl/ibex_register_file_ff.sv"
+    - "rtl/ibex_register_file_ff.sv" # Will be replaced with optimized version
     - "rtl/ibex_wb_stage.sv"
     - "vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv"
     - "rtl/ibex_core.sv"             # Will be replaced with modified version
+    - "@WRAPPER@ibex_core_with_rf.sv"  # Wrapper connecting core + register file
 
   # Synthesis parameters
   parameters:
@@ -94,3 +137,78 @@ synthesis:
   # ABC optimization settings
   abc:
     default_depth: 2  # k-induction depth matching 2-stage pipeline
+
+# ALU Result Mux Structure (for higher-level ODC analysis)
+# Describes which mux cases select which result signals
+result_muxes:
+  - name: "alu_result_mux"
+    location: "rtl/ibex_alu.sv:1322"
+    selector_signal: "operator_i"
+    selector_type: "alu_op_e"  # Enum type from ibex_pkg.sv
+    module_path: "ibex_core_with_rf.core_i.ex_block_i.alu_i"
+    description: "Main ALU result multiplexer - selects between functional unit outputs"
+
+    # Each case maps ALU operations to a result signal
+    cases:
+      - result_signal: "bwlogic_result"
+        alu_operations: ["ALU_XOR", "ALU_XNOR", "ALU_OR", "ALU_ORN", "ALU_AND", "ALU_ANDN"]
+        description: "Bitwise logic operations"
+
+      - result_signal: "adder_result"
+        alu_operations: ["ALU_ADD", "ALU_SUB", "ALU_SH1ADD", "ALU_SH2ADD", "ALU_SH3ADD"]
+        description: "Addition/subtraction (also used for address calculation)"
+        never_odc: true  # Adder always needed for LOAD/STORE address calculation
+
+      - result_signal: "shift_result"
+        alu_operations: ["ALU_SLL", "ALU_SRL", "ALU_SRA", "ALU_SLO", "ALU_SRO"]
+        description: "Barrel shifter output"
+
+      - result_signal: "shuffle_result"
+        alu_operations: ["ALU_SHFL", "ALU_UNSHFL"]
+        description: "Shuffle operations (RV32B)"
+
+      - result_signal: "xperm_result"
+        alu_operations: ["ALU_XPERM_N", "ALU_XPERM_B", "ALU_XPERM_H"]
+        description: "Crossbar permutation (RV32B)"
+
+      - result_signal: "cmp_result"
+        alu_operations: ["ALU_EQ", "ALU_NE", "ALU_GE", "ALU_GEU", "ALU_LT", "ALU_LTU", "ALU_SLT", "ALU_SLTU"]
+        description: "Comparison results (used by branches)"
+
+      - result_signal: "minmax_result"
+        alu_operations: ["ALU_MIN", "ALU_MAX", "ALU_MINU", "ALU_MAXU"]
+        description: "Min/Max operations (RV32B)"
+
+      - result_signal: "bitcnt_result"
+        alu_operations: ["ALU_CLZ", "ALU_CTZ", "ALU_CPOP"]
+        description: "Bit counting operations (RV32B)"
+
+      - result_signal: "pack_result"
+        alu_operations: ["ALU_PACK", "ALU_PACKH", "ALU_PACKU"]
+        description: "Pack operations (RV32B)"
+
+      - result_signal: "sext_result"
+        alu_operations: ["ALU_SEXTB", "ALU_SEXTH"]
+        description: "Sign-extend operations (RV32B)"
+
+      - result_signal: "multicycle_result"
+        alu_operations: ["ALU_CMIX", "ALU_CMOV", "ALU_FSL", "ALU_FSR", "ALU_ROL", "ALU_ROR",
+                        "ALU_CRC32_B", "ALU_CRC32C_B", "ALU_CRC32_H", "ALU_CRC32C_H",
+                        "ALU_CRC32_W", "ALU_CRC32C_W", "ALU_BCOMPRESS", "ALU_BDECOMPRESS"]
+        description: "Multi-cycle operations (RV32B)"
+
+      - result_signal: "singlebit_result"
+        alu_operations: ["ALU_BSET", "ALU_BCLR", "ALU_BINV", "ALU_BEXT"]
+        description: "Single-bit operations (RV32B)"
+
+      - result_signal: "rev_result"
+        alu_operations: ["ALU_GREV", "ALU_GORC"]
+        description: "Reverse operations (RV32B)"
+
+      - result_signal: "bfp_result"
+        alu_operations: ["ALU_BFP"]
+        description: "Bit field place (RV32B)"
+
+      - result_signal: "clmul_result"
+        alu_operations: ["ALU_CLMUL", "ALU_CLMULR", "ALU_CLMULH"]
+        description: "Carry-less multiply (RV32B)"

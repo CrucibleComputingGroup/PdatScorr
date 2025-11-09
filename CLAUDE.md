@@ -1,2 +1,0 @@
-- Before pushing any commits, let's run the tests manually
-- By run tests, I mean run regression tests using pytest

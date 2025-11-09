@@ -21,9 +21,40 @@ ScorrPdat provides synthesis and analysis tools that work with PDAT DSL specific
 pip install -r requirements.txt
 
 # Requires external tools:
-# - Synlig (SystemVerilog frontend for Yosys)
-# - ABC (sequential optimization)
+# - Synlig (SystemVerilog frontend for Yosys) - REQUIRED
+# - ABC (sequential optimization) - REQUIRED
+# - OpenSTA (static timing analysis) - OPTIONAL
 ```
+
+### Installing Required Tools
+
+**Synlig** (SystemVerilog support for Yosys):
+```bash
+# See: https://github.com/chipsalliance/synlig
+```
+
+**ABC** (sequential optimization):
+```bash
+# See: https://github.com/berkeley-abc/abc
+```
+
+### Installing Optional Tools
+
+**OpenSTA** (for post-synthesis timing analysis):
+```bash
+# Option 1: Standalone OpenSTA
+git clone https://github.com/The-OpenROAD-Project/OpenSTA
+cd OpenSTA
+mkdir build && cd build
+cmake ..
+make
+sudo make install
+
+# Option 2: Install OpenROAD (includes OpenSTA + many other tools)
+# See: https://github.com/The-OpenROAD-Project/OpenROAD
+```
+
+**Note:** Gate-level synthesis automatically runs timing analysis when OpenSTA is installed. Without it, only area metrics are reported.
 
 ## Usage
 
@@ -80,6 +111,45 @@ instruction MULHU { rs1_dtype = ~(u8 | u16), rs2_dtype = ~(u8 | u16) }
 4. **Documentation**: Captures high-level intent in machine-readable form
 
 See `examples/` for complete examples with data constraints.
+
+### Timing Analysis (Gate-Level)
+
+When OpenSTA is installed, gate-level synthesis automatically performs static timing analysis:
+
+```bash
+# Synthesize with timing analysis (if OpenSTA installed)
+./synth_ibex_with_constraints.sh my_rules.dsl --gates
+
+# Manual timing analysis on existing netlist
+./scripts/analyze_timing.sh output/my_rules/ibex_optimized_gates.v [clk_name] [period_ns]
+```
+
+**Output Metrics:**
+- **WNS (Worst Negative Slack)** - Critical path slack (positive = meets timing)
+- **TNS (Total Negative Slack)** - Sum of all timing violations
+- **Max Frequency** - Maximum achievable clock frequency
+- **Chip Area** - Total area in µm² (combinational + sequential)
+
+**Output Files:**
+- `*_timing_report.txt` - Full STA report with critical path details
+- `*_timing_metrics.json` - Machine-readable metrics for scripting
+- `*_timing.sdc` - Timing constraints (SDC format)
+
+**Timing Comparison:**
+When using `--odc` flag with `--gates`, both baseline and optimized circuits are analyzed:
+```
+Chip Area Comparison:
+  Baseline:  35705.49 µm²
+  Optimized: 28432.16 µm²
+  Reduction: 7273.33 µm² (20.38%)
+
+Timing Comparison (10ns target period):
+  Baseline:  245.12 MHz
+  Optimized: 267.89 MHz
+  Change:    +22.77 MHz (+9.29%)
+```
+
+**Note:** Timing analysis requires OpenSTA to be installed. See Installation section.
 
 ### RTL-Scorr (SMT-based equivalence checking)
 
@@ -283,7 +353,8 @@ ScorrPdat/
 - `batch_compare_simple.sh` - Parallel comparison across ABC depths
 - `scripts/inject_checker.py` - Inject DSL-generated assumptions into RTL
 - `scripts/make_synthesis_script.py` - Generate Yosys synthesis scripts
-- `scripts/synth_to_gates.sh` - Gate-level synthesis with SKY130
+- `scripts/synth_to_gates.sh` - Gate-level synthesis with SKY130 (auto-runs timing analysis if OpenSTA available)
+- `scripts/analyze_timing.sh` - Static timing analysis using OpenSTA
 
 ### RTL Analysis
 - `scripts/detect_rtl_dead_code.py` - Find unused logic
@@ -303,10 +374,14 @@ ScorrPdat/
 - **CoreSim/PdatCoreSim** - Simulation framework with Ibex core (auto-detected from ../PdatCoreSim or ../CoreSim)
 - **RtlScorr** - Yosys plugin for signal correspondence (separate repo)
 
-### System Tools
+### System Tools (Required)
 - **Synlig** - SystemVerilog frontend for Yosys
 - **ABC** - Sequential logic optimization
-- **Z3** - SMT solver (for some scripts)
+- **Skywater PDK** - Sky130 standard cell library (for gate-level synthesis)
+
+### System Tools (Optional)
+- **OpenSTA** - Static timing analysis (enables post-synthesis timing reports)
+- **Z3** - SMT solver (for some verification scripts)
 
 ## Workflow Integration
 

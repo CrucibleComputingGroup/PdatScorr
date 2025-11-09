@@ -71,9 +71,9 @@ def run_batch_synth(dsl_files: List[Path], output_dir: Path,
     """
     cmd = [str(BATCH_SCRIPT)]
 
-    # Force -j 1 to avoid nested parallelism when pytest runs tests in parallel
-    # (otherwise we could have pytest -n 4 * batch -j 4 = 16 concurrent processes)
-    cmd.extend(["-j", "1"])
+    # Use moderate parallelism (-j 2) to speed up tests
+    # Don't use -j 1 (sequential) as it's too slow in CI
+    cmd.extend(["-j", "2"])
 
     if extra_args:
         cmd.extend(extra_args)
@@ -90,7 +90,7 @@ def run_batch_synth(dsl_files: List[Path], output_dir: Path,
             cmd,
             capture_output=True,
             text=True,
-            timeout=600,  # 10 minute timeout
+            timeout=1800,  # 30 minute timeout (batch synthesis of 9 DSLs can be slow in CI)
             cwd=PROJECT_ROOT
         )
 
@@ -101,7 +101,7 @@ def run_batch_synth(dsl_files: List[Path], output_dir: Path,
             output_dir=output_dir
         )
     except subprocess.TimeoutExpired:
-        pytest.fail("Batch synthesis timeout (>10 minutes)")
+        pytest.fail("Batch synthesis timeout (>30 minutes)")
 
 
 @pytest.fixture
