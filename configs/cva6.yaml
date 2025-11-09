@@ -1,0 +1,121 @@
+# CVA6 Core Configuration for PDAT Synthesis
+# https://github.com/openhwgroup/cva6
+#
+# This configuration file specifies signal names, hierarchy details,
+# and synthesis settings for the CVA6 RISC-V core.
+#
+# Note: CVA6 uses pre-synthesized Verilog as Synlig cannot directly
+# synthesize the full CVA6 SystemVerilog design.
+
+core_name: "cva6"
+architecture: "rv64"  # CVA6 is RV64IMAFDCV
+
+# Multiple injection points for different constraint types
+injections:
+  # ISA constraints injected into ID stage
+  - name: "id_stage_isa"
+    source_file: "core/id_stage.v"
+    constraint_type: "isa"
+    module_path: "cva6.id_stage_i"
+    description: "ID/Decode stage - where ISA instruction constraints are injected"
+
+  # Timing constraints injected into core top-level
+  - name: "core_timing"
+    source_file: "core/cva6.v"
+    constraint_type: "timing"
+    module_path: "cva6"
+    description: "Core top-level - where cache timing constraints are injected"
+
+# Signal naming conventions for CVA6
+signals:
+  # Clock and reset signals
+  clk: "clk_i"
+  rst_n: "rst_ni"  # Active-low reset
+
+  # Instruction and PC signals
+  # These are in the fetch_entry_t struct passed to id_stage
+  instruction_data: "fetch_entry_i[0].instruction"  # [31:0] instruction word
+  pc: "fetch_entry_i[0].address"  # [VLEN-1:0] program counter
+
+  # Operand signals by execution unit
+  # CVA6 uses fu_data_t struct containing operand_a and operand_b
+  operands:
+    # ALU operands (from issue_read_operands module)
+    alu:
+      rs1: "fu_data_o[0].operand_a"  # [XLEN-1:0] source operand 1
+      rs2: "fu_data_o[0].operand_b"  # [XLEN-1:0] source operand 2
+
+    # Note: CVA6 has unified operand handling through fu_data_t
+    # All functional units use the same operand signals
+
+  # Memory interface signals (for timing constraint generation)
+  # CVA6 uses AXI interfaces for memory
+  memory:
+    # Instruction memory interface
+    instr_req: "instr_if.aw_valid"  # Instruction request
+    instr_gnt: "instr_if.aw_ready"  # Instruction grant
+    # Data memory interface
+    data_req: "data_if.aw_valid"    # Data request
+    data_gnt: "data_if.aw_ready"    # Data grant
+    data_rvalid: "data_if.r_valid"  # Data response valid
+
+# VCD analysis configuration
+vcd:
+  testbench_prefix: "tb_cva6.dut"
+
+# Synthesis configuration
+synthesis:
+  # Core root path - uses pre-synthesized version
+  # CVA6 is too complex for Synlig to synthesize from SystemVerilog
+  core_root: "$CVA6_ROOT"
+
+  # Top-level module to synthesize
+  top_module: "cva6"
+
+  # Flag indicating this core uses pre-synthesized (gate-level) Verilog
+  pre_synthesized: true
+
+  # Standard cell library for pre-synthesized cores
+  cell_library: "/opt/pdk/nangate45/nangate45_behavioral.v"
+
+  # Include directories (relative to core_root)
+  # Note: For pre-synthesized Verilog, these may not be needed
+  include_dirs:
+    - "core/include"
+    - "vendor/pulp-platform/common_cells/include"
+    - "common/local/util"
+    - "corev_apu/register_interface/include"
+
+  # Source files in dependency order (relative to core_root)
+  # For CVA6, we use the pre-synthesized Verilog files (split from monolithic file)
+  # These must be loaded in dependency order:
+  # 1. Common modules (all helper modules)
+  # 2. Decoder (used by id_stage)
+  # 3. ID stage (used by cva6 top)
+  # 4. CVA6 top module
+  source_files:
+    - "core/cva6_common_modules.v"
+    - "core/decoder.v"
+    - "core/id_stage.v"
+    - "core/cva6.v"
+
+  # Synthesis parameters
+  parameters:
+    # CVA6 specific parameters can be added here
+    # The pre-synthesized version has fixed configuration
+
+  # ABC optimization settings
+  abc:
+    default_depth: 3  # CVA6 has deeper pipeline than Ibex
+
+# ALU/Execution Unit Structure
+# CVA6 has multiple functional units:
+# - ALU (arithmetic/logic operations)
+# - Branch Unit (branch resolution)
+# - LSU (load/store unit)
+# - Multiplier
+# - FPU (floating point unit)
+# - CSR Unit
+#
+# All units receive operands through the unified fu_data_t structure
+# which contains operand_a, operand_b, and immediate values
