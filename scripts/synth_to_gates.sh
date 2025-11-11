@@ -235,7 +235,7 @@ if [ ${PIPESTATUS[0]} -eq 0 ]; then
             echo "Flip-flops: $DFF_COUNT (estimated area: $DFF_AREA µm²)"
         fi
         if [ -n "$CHIP_AREA" ]; then
-            echo "Total chip area: $CHIP_AREA µm² (comb $CHIP_AREA_COMB+ seq$DFF_AREA)"
+            echo "Total chip area: $CHIP_AREA µm² (comb $CHIP_AREA_COMB + seq $DFF_AREA)"
             # Save total area to file for comparison scripts
             echo "$CHIP_AREA" > "${INPUT_BASE}_total_area.txt"
         fi
