@@ -804,7 +804,6 @@ PYEOF
                                         echo "  Reduction: $AREA_REDUCTION µm² ($AREA_PERCENT%)"
                                     fi
 
-                                    
 
                                     # Compare timing if metrics are available
                                     BASELINE_TIMING="${BASE}_timing_metrics.json"
