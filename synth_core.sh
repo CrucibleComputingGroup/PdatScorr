@@ -794,8 +794,8 @@ PYEOF
                                     OPTIMIZED_AREA=$(grep "Chip area for module" "$OPTIMIZED_SYNTH_DIR/${OPTIMIZED_BASE}_gates.log" 2>/dev/null | tail -1 | awk '{print $NF}')
 
                                     if [ -n "$BASELINE_AREA" ] && [ -n "$OPTIMIZED_AREA" ]; then
-                                        AREA_REDUCTION=$(python3 -c "print(f'{float('$BASELINE_AREA') - float('$OPTIMIZED_AREA'):.2f}')")
-                                        AREA_PERCENT=$(python3 -c "print(f'{100.0 * (float('$BASELINE_AREA') - float('$OPTIMIZED_AREA')) / float('$BASELINE_AREA'):.2f}')")
+                                        AREA_REDUCTION=$(python3 -c "print(f'{float(${BASELINE_AREA:-0}) - float(${OPTIMIZED_AREA:-0}):.2f}')")
+                                        AREA_PERCENT=$(python3 -c "print(f'{100.0 * (float(${BASELINE_AREA:-0}) - float(${OPTIMIZED_AREA:-0})) / float(${BASELINE_AREA:-1}):.2f}')")
 
                                         echo ""
                                         echo "Chip Area Comparison:"
@@ -803,6 +803,8 @@ PYEOF
                                         echo "  Optimized: $OPTIMIZED_AREA µm²"
                                         echo "  Reduction: $AREA_REDUCTION µm² ($AREA_PERCENT%)"
                                     fi
+
+                                    
 
                                     # Compare timing if metrics are available
                                     BASELINE_TIMING="${BASE}_timing_metrics.json"
@@ -813,8 +815,8 @@ PYEOF
                                         OPTIMIZED_FREQ=$(python3 -c "import json; print(json.load(open('$OPTIMIZED_TIMING')).get('max_frequency_mhz', 'N/A'))" 2>/dev/null || echo "N/A")
 
                                         if [ "$BASELINE_FREQ" != "N/A" ] && [ "$OPTIMIZED_FREQ" != "N/A" ]; then
-                                            FREQ_CHANGE=$(python3 -c "print(f'{float('$OPTIMIZED_FREQ') - float('$BASELINE_FREQ'):.2f}')" 2>/dev/null || echo "0.00")
-                                            FREQ_PERCENT=$(python3 -c "print(f'{100.0 * (float('$OPTIMIZED_FREQ') - float('$BASELINE_FREQ')) / float('$BASELINE_FREQ'):.2f}')" 2>/dev/null || echo "0.00")
+                                            FREQ_CHANGE=$(python3 -c "print(f'{float(${OPTIMIZED_FREQ:-0}) - float(${BASELINE_FREQ:-0}):.2f}')")
+                                            FREQ_PERCENT=$(python3 -c "print(f'{100.0 * (float(${OPTIMIZED_FREQ:-0}) - float(${BASELINE_FREQ:-0})) / float(${BASELINE_FREQ:-1}):.2f}')")
 
                                             echo ""
                                             echo "Timing Comparison (10ns target period):"
@@ -822,6 +824,7 @@ PYEOF
                                             echo "  Optimized: $OPTIMIZED_FREQ MHz"
                                             echo "  Change:    $FREQ_CHANGE MHz ($FREQ_PERCENT%)"
                                         fi
+
                                     fi
                                 fi
                             fi
