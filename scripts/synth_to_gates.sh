@@ -208,7 +208,7 @@ if [ ${PIPESTATUS[0]} -eq 0 ]; then
         DFF_AREA=$(python3 -c "print(f'{$DFF_COUNT * 20.0:.2f}')" 2>/dev/null || echo "0")
 
         # Total area = combinational + sequential
-        CHIP_AREA=$(python3 -c "print(f'{float('${CHIP_AREA_COMB:-0}') + float('${DFF_AREA:-0}'):.2f}')" 2>/dev/null || echo "$CHIP_AREA_COMB")
+        CHIP_AREA=$(python3 -c "print(f'{float(${CHIP_AREA_COMB:-0}) + float(${DFF_AREA:-0}):.2f}')")
     else
         # Generic cells - extract gate and FF counts instead of area
         DFF_COUNT=$(grep -oP '\$_DFF_P_\s+\K\d+' "$GATES_LOG" | head -1)
@@ -235,7 +235,7 @@ if [ ${PIPESTATUS[0]} -eq 0 ]; then
             echo "Flip-flops: $DFF_COUNT (estimated area: $DFF_AREA µm²)"
         fi
         if [ -n "$CHIP_AREA" ]; then
-            echo "Total chip area: $CHIP_AREA µm² (comb + seq)"
+            echo "Total chip area: $CHIP_AREA µm² (comb $CHIP_AREA_COMB + seq $DFF_AREA)"
             # Save total area to file for comparison scripts
             echo "$CHIP_AREA" > "${INPUT_BASE}_total_area.txt"
         fi
