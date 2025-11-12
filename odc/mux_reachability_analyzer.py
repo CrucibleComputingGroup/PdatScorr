@@ -14,14 +14,8 @@ import re
 
 from pdat_dsl.parser import parse_dsl
 
-from .alu_mapping import (
-    get_alu_op_for_instruction,
-    FUNCTIONAL_UNITS,
-    FunctionalUnit,
-    is_adder_used_for_memory,
-    MEMORY_INSTRUCTIONS,
-    BRANCH_TO_ALU_OP,
-)
+# NOTE: alu_mapping.py contains Ibex-specific mappings - no longer used
+# Mux structure now comes from config.result_muxes instead
 from .synthesis import synthesize_error_injected_circuit
 from .sec_checker import SecChecker
 
@@ -219,47 +213,56 @@ class MuxReachabilityAnalyzer:
 
         A functional unit is a candidate if ALL instructions that use it are forbidden.
         """
-        logger.debug(f"Finding unreachable candidates from {len(FUNCTIONAL_UNITS)} functional units")
+        # Load config to get result_muxes
+        try:
+            config = ConfigLoader.load_config(str(self.config_path))
+            if not config.result_muxes:
+                logger.info(f"Core '{config.core_name}' does not have result_muxes defined - skipping mux analysis")
+                logger.info(f"Mux-level ODC analysis is only supported for cores with explicit result mux configurations")
+                return []
+        except Exception as e:
+            logger.error(f"Failed to load config: {e}")
+            return []
+
+        # Convert config result_muxes to functional units
+        logger.info(f"Loading {len(config.result_muxes)} result muxes from config")
         candidates = []
 
-        for unit in FUNCTIONAL_UNITS:
-            # Get all instructions that use this functional unit
-            unit_instructions = unit.get_instructions()
-            logger.debug(f"Checking {unit.name}: {len(unit_instructions)} instructions")
+        for mux in config.result_muxes:
+            logger.info(f"Analyzing mux: {mux.get('name', 'unnamed')}")
+            for case in mux.get('cases', []):
+                result_sig = case.get('result_signal', 'unknown')
+                case_ops = case.get('alu_operations', [])
+                logger.info(f"  Checking case: {result_sig} with {len(case_ops)} operations")
 
-            # Check if ANY allowed instruction uses this unit
-            used_by_allowed = bool(unit_instructions & allowed_instructions)
-
-            if used_by_allowed:
-                logger.debug(f"{unit.name}: used by allowed instructions")
-                continue
-
-            # Special case: Adder is used for LOAD/STORE address calculation
-            if unit.name == "adder" and is_adder_used_for_memory(allowed_instructions):
-                logger.debug(f"{unit.name}: used for memory address calculation")
-                continue
-
-            # Special case: Comparator is used by branch instructions
-            if unit.name == "comparator":
-                branch_instrs = set(BRANCH_TO_ALU_OP.keys())
-                if branch_instrs & allowed_instructions:
-                    logger.debug(f"{unit.name}: used by branch instructions")
+                # Skip if marked as never_odc
+                if case.get('never_odc', False):
+                    logger.info(f"    Skipping (marked never_odc)")
                     continue
 
-            # This functional unit is not used by any allowed instruction
-            logger.info(f"{unit.name}: candidate for unreachable (no allowed instructions use it)")
+                case_instructions = set(case_ops)
+                logger.info(f"    Case operations: {sorted(case_instructions)}")
 
-            reason = f"All instructions using {unit.name} are forbidden by DSL"
-            candidate = UnreachableMuxCase(
-                result_signal=unit.result_signal,
-                alu_operations=unit.alu_operations,
-                functional_unit=unit.name,
-                reason=reason,
-                sec_verified=False,
-                proof_runtime=0.0,
-            )
-            candidates.append(candidate)
+                # Check if ANY allowed instruction uses this mux case
+                overlap = case_instructions & allowed_instructions
+                logger.info(f"    Overlap with allowed: {sorted(overlap) if overlap else 'NONE'}")
 
+                if overlap:
+                    logger.info(f"    → Used by allowed instructions")
+                    continue
+
+                # All instructions for this case are forbidden - it's unreachable!
+                logger.info(f"    → UNREACHABLE! All {len(case_instructions)} operations forbidden")
+                candidates.append(UnreachableMuxCase(
+                    result_signal=case['result_signal'],
+                    alu_operations=list(case_instructions),
+                    functional_unit=case.get('description', case['result_signal']),
+                    reason=f"All {len(case_instructions)} operations forbidden by DSL",
+                    sec_verified=False,
+                    proof_runtime=0.0
+                ))
+
+        logger.info(f"Found {len(candidates)} unreachable mux case candidates")
         return candidates
 
     def _prove_unreachable_with_sec(

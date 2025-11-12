@@ -8,6 +8,7 @@ set -e
 MAX_PARALLEL=4
 BASE_OUTPUT_DIR="output"
 EXTRA_ARGS=""
+CORE_NAME="ibex"  # Default to ibex for backwards compatibility
 USE_GNU_PARALLEL=false
 VERBOSE=false
 RUNS_PER_DSL=1
@@ -47,6 +48,7 @@ while [[ "$#" -gt 0 ]]; do
             shift 2
             ;;
         --core)
+            CORE_NAME="$2"
             EXTRA_ARGS="$EXTRA_ARGS --core $2"
             shift 2
             ;;
@@ -215,8 +217,8 @@ run_synthesis() {
     if [ $exit_code -eq 0 ]; then
         echo -e "${GREEN}[$job_num/$total_jobs] ✓ Completed: ${display_name} (${duration}s)${NC}"
         # Show key metrics if available
-        if [ -f "$actual_output_dir/ibex_optimized_abc.log" ]; then
-            local stats=$(grep "and =" "$actual_output_dir/ibex_optimized_abc.log" | tail -1)
+        if [ -f "$actual_output_dir/${CORE_NAME}_optimized_abc.log" ]; then
+            local stats=$(grep "and =" "$actual_output_dir/${CORE_NAME}_optimized_abc.log" | tail -1)
             if [ ! -z "$stats" ]; then
                 echo "  └─ Final: $stats"
             fi
@@ -261,9 +263,9 @@ select_best_run() {
                 best_area=$area
                 best_run="run_${run_num}"
             fi
-        elif [ -f "$run_dir/ibex_optimized_abc.log" ]; then
+        elif [ -f "$run_dir/${CORE_NAME}_optimized_abc.log" ]; then
             # Fall back to AND gate count if no area
-            local and_gates=$(grep "and =" "$run_dir/ibex_optimized_abc.log" | tail -1 | sed -n 's/.*and = *\([0-9]*\).*/\1/p')
+            local and_gates=$(grep "and =" "$run_dir/${CORE_NAME}_optimized_abc.log" | tail -1 | sed -n 's/.*and = *\([0-9]*\).*/\1/p')
             if [ ! -z "$and_gates" ] && [ "$and_gates" -lt "$best_and_gates" ]; then
                 best_and_gates=$and_gates
                 best_run="run_${run_num}"
@@ -378,36 +380,75 @@ echo "=========================================="
 echo "Total time: ${OVERALL_DURATION} seconds"
 echo "Output directory: $BASE_OUTPUT_DIR"
 
-# List results
-echo ""
-echo "Results:"
+# Collect results with metrics
+declare -a results_data
+success_count=0
+fail_count=0
+
 for dsl_file in "${DSL_FILES[@]}"; do
     dsl_basename=$(basename "$dsl_file" .dsl)
 
     # Check for success based on whether we have multiple runs
+    success=false
+    result_dir=""
+
     if [ "$RUNS_PER_DSL" -gt 1 ]; then
         # Check if any run succeeded
-        success=false
         for run_num in $(seq 1 $RUNS_PER_DSL); do
-            if [ -f "$BASE_OUTPUT_DIR/run_${run_num}/${dsl_basename}/ibex_optimized_post_abc.aig" ]; then
+            if [ -f "$BASE_OUTPUT_DIR/run_${run_num}/${dsl_basename}/${CORE_NAME}_optimized_post_abc.aig" ]; then
                 success=true
+                result_dir="$BASE_OUTPUT_DIR/run_${run_num}/${dsl_basename}"
                 break
             fi
         done
-        if [ "$success" = true ]; then
-            echo -e "  ${GREEN}✓${NC} $dsl_basename"
-        else
-            echo -e "  ${RED}✗${NC} $dsl_basename"
-        fi
     else
         # Single run - check directly
-        if [ -f "$BASE_OUTPUT_DIR/${dsl_basename}/ibex_optimized_post_abc.aig" ]; then
-            echo -e "  ${GREEN}✓${NC} $dsl_basename"
-        else
-            echo -e "  ${RED}✗${NC} $dsl_basename"
+        if [ -f "$BASE_OUTPUT_DIR/${dsl_basename}/${CORE_NAME}_optimized_post_abc.aig" ]; then
+            success=true
+            result_dir="$BASE_OUTPUT_DIR/${dsl_basename}"
         fi
     fi
+
+    if [ "$success" = true ]; then
+        success_count=$((success_count + 1))
+
+        # Extract area
+        area="N/A"
+        if [ -f "$result_dir/${CORE_NAME}_optimized_total_area.txt" ]; then
+            area=$(cat "$result_dir/${CORE_NAME}_optimized_total_area.txt")
+        fi
+
+        # Extract frequency from timing metrics JSON
+        freq="N/A"
+        if [ -f "$result_dir/${CORE_NAME}_optimized_timing_metrics.json" ]; then
+            freq=$(grep -o '"max_frequency_mhz": [0-9.]*' "$result_dir/${CORE_NAME}_optimized_timing_metrics.json" | cut -d' ' -f2)
+        fi
+
+        results_data+=("$dsl_basename|✓|$area|$freq")
+    else
+        fail_count=$((fail_count + 1))
+        results_data+=("$dsl_basename|✗|N/A|N/A")
+    fi
 done
+
+# Print detailed results table
+echo ""
+echo "Detailed Results:"
+echo "--------------------------------------------------------------------------------"
+printf "%-25s %-8s %-15s %-15s\n" "Design" "Status" "Area (µm²)" "Max Freq (MHz)"
+echo "--------------------------------------------------------------------------------"
+
+for result in "${results_data[@]}"; do
+    IFS='|' read -r name status area freq <<< "$result"
+    if [ "$status" = "✓" ]; then
+        printf "${GREEN}%-25s %-8s${NC} %-15s %-15s\n" "$name" "$status" "$area" "$freq"
+    else
+        printf "${RED}%-25s %-8s${NC} %-15s %-15s\n" "$name" "$status" "$area" "$freq"
+    fi
+done
+
+echo "--------------------------------------------------------------------------------"
+echo "Summary: $success_count passed, $fail_count failed"
 
 echo ""
 

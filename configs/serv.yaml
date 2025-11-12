@@ -1,0 +1,116 @@
+# SERV Core Configuration for PDAT Synthesis
+# https://github.com/olofk/serv
+#
+# SERV is an award-winning bit-serial RISC-V core that processes instructions
+# one bit at a time, taking approximately 32 cycles per instruction.
+# This makes it extremely small but slower than traditional pipelined cores.
+
+core_name: "serv"
+architecture: "rv32"  # RV32I (can be extended with M, C extensions)
+
+# Injection points for different constraint types
+injections:
+  # ISA constraints injected into decode stage
+  - name: "decode_isa"
+    source_file: "rtl/serv_decode.v"
+    constraint_type: "isa"
+    module_path: "serv_synth_wrapper.cpu.decode"
+    description: "SERV decode stage - where ISA instruction decoding and constraints are injected"
+    # Signal name mapping for this injection point
+    signals:
+      instruction: "i_wb_rdt"  # Instruction data input (bits [31:2])
+      reset: null  # Decode uses PRE_REGISTER, but constraints applied after registration
+
+# Signal naming conventions for SERV
+signals:
+  # Clock and reset signals
+  clk: "clk"
+  rst_n: "i_rst"  # Active-high reset (opposite of Ibex)
+
+  # Instruction signals
+  # Note: SERV is bit-serial, so instruction arrives over multiple cycles
+  instruction_data: "i_ibus_rdt"  # Instruction bus read data (32-bit)
+  pc: "o_ibus_adr"  # Program counter / instruction bus address
+
+  # Operand signals
+  # SERV processes operands bit-serially, so these are 1-bit wide internally
+  operands:
+    alu:
+      # SERV's register file interface is bit-serial
+      rs1: "i_rdata0"  # Register read data 0 (1-bit wide)
+      rs2: "i_rdata1"  # Register read data 1 (1-bit wide)
+
+# VCD analysis configuration (for future simulation support)
+vcd:
+  testbench_prefix: "tb_serv.dut"
+
+# Synthesis configuration
+synthesis:
+  # Core root path (relative to PdatScorr)
+  core_root: "../PdatCoreSim/cores/serv"
+
+  # Top-level module to synthesize
+  # Using synthesis wrapper which includes register file interface
+  top_module: "serv_synth_wrapper"
+
+  # Include directories (SERV uses flat rtl/ directory)
+  include_dirs: []
+
+  # Source files in dependency order (relative to core_root)
+  # List all SERV RTL modules needed for synthesis
+  source_files:
+    # Basic building blocks
+    - "rtl/serv_bufreg.v"       # Buffer register for operand buffering
+    - "rtl/serv_bufreg2.v"      # Two-stage buffer register
+    - "rtl/serv_immdec.v"       # Immediate decoder (bit-serial)
+    - "rtl/serv_decode.v"       # Instruction decoder (ISA constraints injected here)
+    - "rtl/serv_compdec.v"      # Compressed instruction decoder (RV32C)
+
+    # Execution units
+    - "rtl/serv_alu.v"          # Arithmetic/logic unit (bit-serial)
+    - "rtl/serv_aligner.v"      # Data alignment for memory operations
+
+    # State and control
+    - "rtl/serv_state.v"        # State machine for bit-serial execution
+    - "rtl/serv_ctrl.v"         # Control unit
+
+    # Memory and CSR interface
+    - "rtl/serv_mem_if.v"       # Memory interface
+    - "rtl/serv_csr.v"          # Control and Status Registers
+
+    # Register file components
+    - "rtl/serv_rf_ram.v"       # Register file RAM primitive
+    - "rtl/serv_rf_ram_if.v"    # Register file RAM interface (bit-serial)
+    - "rtl/serv_rf_if.v"        # Register file interface
+    - "rtl/serv_rf_top.v"       # Register file top-level
+
+    # Debug support (optional)
+    - "rtl/serv_debug.v"        # Debug interface
+
+    # Top-level modules
+    - "rtl/serv_top.v"          # SERV core top-level
+    - "rtl/serv_synth_wrapper.v"  # Synthesis wrapper (includes RF interface)
+
+  # Synthesis parameters
+  # Using defaults from serv_synth_wrapper.v:
+  # PRE_REGISTER = 1, RESET_STRATEGY = "MINI", WITH_CSR = 1, RF_WIDTH = 2
+  parameters:
+    MDU: 1  # Enable multiply/divide unit (RV32M extension)
+
+  # ABC optimization settings
+  abc:
+    # SERV processes instructions bit-serially over ~32 cycles
+    # Options:
+    #   1: Abstract bit-serial as single-cycle (fast, less accurate)
+    #   32: Match full instruction execution (accurate, slower)
+    # Starting with 1 for simplicity, can increase if needed
+    default_depth: 1
+
+# Core-specific notes
+# - SERV is a bit-serial core: processes data 1 bit per cycle
+# - Instruction execution takes ~32 cycles (vs 2-3 for Ibex)
+# - Extremely area-efficient: world's smallest RISC-V core
+# - Trade-off: much slower than pipelined cores like Ibex
+# - ISA support: RV32I base, optional M (multiply/divide), C (compressed)
+# - ABC depth of 1 treats bit-serial execution abstractly as combinational
+# - For more accurate optimization, could increase depth to 32, but synthesis time increases

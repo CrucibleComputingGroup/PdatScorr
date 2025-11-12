@@ -52,6 +52,7 @@ class CoreConfig:
     synthesis: SynthesisConfig
     injections: List[InjectionPoint]
     vcd: Optional[Dict[str, Any]] = None
+    result_muxes: Optional[List[Dict[str, Any]]] = None  # For ODC mux-level analysis
 
     def get_injection(self, constraint_type: str) -> Optional[InjectionPoint]:
         """Get injection point by constraint type."""
@@ -228,7 +229,8 @@ class ConfigLoader:
             signals=data['signals'],
             synthesis=synthesis,
             injections=injections,
-            vcd=data.get('vcd')
+            vcd=data.get('vcd'),
+            result_muxes=data.get('result_muxes')  # For ODC analysis
         )
 
     @staticmethod

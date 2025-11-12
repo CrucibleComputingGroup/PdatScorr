@@ -214,12 +214,27 @@ STA_EXIT=${PIPESTATUS[0]}
 if [ $STA_EXIT -eq 0 ]; then
     echo ""
     echo "=========================================="
-    echo "STA COMPLETE"
+    echo "SYNTHESIS & TIMING SUMMARY"
     echo "=========================================="
-    echo "Generated:"
-    echo "  - $STA_REPORT (detailed timing report)"
-    echo "  - $SDC_FILE (timing constraints)"
-    echo "  - $STA_SCRIPT (OpenSTA script)"
+
+    # Extract area from gates log if available
+    GATES_LOG="${OUTPUT_PREFIX}_gates.log"
+    CHIP_AREA=""
+    if [ -f "$GATES_LOG" ]; then
+        CHIP_AREA=$(grep "Chip area for module" "$GATES_LOG" | tail -1 | awk '{print $NF}')
+    fi
+
+    # Show area first
+    if [ -n "$CHIP_AREA" ]; then
+        echo "Area:"
+        echo "  Chip Area: $CHIP_AREA µm²"
+        echo ""
+    fi
+
+    echo "Timing:"
+    echo "  Report:      $STA_REPORT"
+    echo "  Constraints: $SDC_FILE"
+    echo "  STA Script:  $STA_SCRIPT"
     echo ""
 
     # Extract key metrics for easy access

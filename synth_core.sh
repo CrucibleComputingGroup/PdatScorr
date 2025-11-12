@@ -216,6 +216,32 @@ else
     TOTAL_STEPS=3
 fi
 
+# Step 0: Synthesize unmodified core as TRUE baseline (before any assumptions)
+if [ -n "$CONFIG_FILE" ] && [ "$SYNTHESIZE_GATES" = true ]; then
+    echo "[0] Synthesizing unmodified core as baseline..."
+    BASELINE_SYNTH_SCRIPT="${BASE}_baseline_synth.ys"
+    BASELINE_AIG="${BASE}_baseline.aig"
+
+    # Generate synthesis script WITHOUT any modified files
+    python3 scripts/make_synthesis_script.py \
+        --config "$CONFIG_FILE" \
+        -o "$BASELINE_SYNTH_SCRIPT" \
+        -a "${BASE}_baseline" > /dev/null 2>&1
+
+    if [ $? -eq 0 ]; then
+        # Synthesize baseline
+        export SLPP_ALL_BASELINE="/tmp/slpp_all_baseline_$$_$RANDOM"
+        mkdir -p "$SLPP_ALL_BASELINE"
+        (cd "$OUTPUT_DIR" && synlig -s "$(basename "$BASELINE_SYNTH_SCRIPT")") > "${BASE}_baseline_yosys.log" 2>&1
+        rm -rf "$SLPP_ALL_BASELINE"
+
+        if [ -f "$BASELINE_AIG" ]; then
+            echo "  ✓ True baseline: $BASELINE_AIG"
+        fi
+    fi
+    echo ""
+fi
+
 # Step 1: Generate assumptions code (inline, no module)
 echo "[1/$TOTAL_STEPS] Generating instruction assumptions..."
 
@@ -383,10 +409,34 @@ if [ -n "$CONFIG_FILE" ]; then
     # Config mode
     echo "  Using config file: $CONFIG_FILE"
 
-    # Build modified-files argument
-    MODIFIED_FILES_ARGS="--modified-files id_stage_isa=${ID_STAGE_SV}"
+    # Build modified-files argument using actual injection names from config
+    # Extract the ISA injection name dynamically (first injection with constraint_type=isa)
+    ISA_INJECTION_NAME=$(python3 -c "
+import sys
+sys.path.insert(0, 'scripts')
+from config_loader import ConfigLoader
+config = ConfigLoader.load_config('$CONFIG_FILE')
+for inj in config.injections:
+    if inj.constraint_type == 'isa':
+        print(inj.name)
+        break
+" 2>/dev/null || echo "id_stage_isa")
+
+    MODIFIED_FILES_ARGS="--modified-files ${ISA_INJECTION_NAME}=${ID_STAGE_SV}"
+
     if [ -f "$CORE_SV" ]; then
-        MODIFIED_FILES_ARGS="$MODIFIED_FILES_ARGS core_timing=${CORE_SV}"
+        # Find timing injection name
+        TIMING_INJECTION_NAME=$(python3 -c "
+import sys
+sys.path.insert(0, 'scripts')
+from config_loader import ConfigLoader
+config = ConfigLoader.load_config('$CONFIG_FILE')
+for inj in config.injections:
+    if inj.constraint_type == 'timing':
+        print(inj.name)
+        break
+" 2>/dev/null || echo "core_timing")
+        MODIFIED_FILES_ARGS="$MODIFIED_FILES_ARGS ${TIMING_INJECTION_NAME}=${CORE_SV}"
     fi
 
     # Check for ODC-optimized register file
@@ -435,10 +485,11 @@ YOSYS_LOG="${BASE}_yosys.log"
 # Set unique Surelog cache directory to avoid conflicts with parallel runs
 # Use PID + random to ensure uniqueness even in nested parallel execution
 # (e.g., batch_synth.sh running multiple jobs in parallel)
-export SLPP_ALL="$OUTPUT_DIR/slpp_all_$$_$RANDOM"
+# Store in /tmp to avoid polluting output directory
+export SLPP_ALL="/tmp/slpp_all_$$_$RANDOM"
 mkdir -p "$SLPP_ALL"
 
-# Run Synlig from OUTPUT_DIR to ensure slpp_all is created there, not in current directory
+# Run Synlig from OUTPUT_DIR
 # This prevents race conditions when running multiple synthesis jobs in parallel
 (cd "$OUTPUT_DIR" && synlig -s "$(basename "$SYNTH_SCRIPT")") 2>&1 | tee "$YOSYS_LOG"
 
@@ -843,19 +894,25 @@ PYEOF
     fi
 fi
 
-# Step 6 (optional): Gate-level synthesis (baseline only if ODC didn't run)
+# Step 6 (optional): Gate-level synthesis - synthesize BOTH baseline and optimized
 if [ "$SYNTHESIZE_GATES" = true ]; then
-    # Check if ODC optimization already ran gate synthesis
-    # Check for any optimized gates log (use wildcard to match any core)
-    OPTIMIZED_GATES_LOG=$(ls "$OUTPUT_DIR/odc_optimized_synthesis/"*"_optimized_gates.log" 2>/dev/null | head -1)
-    if [ -z "$OPTIMIZED_GATES_LOG" ]; then
-        echo "Synthesizing to gate level with Skywater PDK..."
-        ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME" "$MODULE_NAME"
-    else
-        echo ""
-        echo "Gate synthesis already completed during ODC optimization"
-        echo "(ODC-optimized gates in output/baseline/odc_optimized_synthesis/)"
-    fi
+    # For baseline, copy Yosys output to a temp location that synth_to_gates expects
+    echo "Synthesizing baseline (Yosys output) to gates..."
+    BASELINE_TEMP="${BASE}_baseline"
+    cp "${BASE}_yosys.aig" "${BASELINE_TEMP}_post_abc.aig"
+    ./scripts/synth_to_gates.sh "$BASELINE_TEMP" "" "$CLK_NAME" "$MODULE_NAME"
+
+    # Rename outputs to indicate they're from baseline
+    mv "${BASELINE_TEMP}_gates.v" "${BASE}_yosys_gates.v" 2>/dev/null || true
+    mv "${BASELINE_TEMP}_gates.log" "${BASE}_yosys_gates.log" 2>/dev/null || true
+    mv "${BASELINE_TEMP}_timing_metrics.json" "${BASE}_yosys_timing_metrics.json" 2>/dev/null || true
+    mv "${BASELINE_TEMP}_timing_report.txt" "${BASE}_yosys_timing_report.txt" 2>/dev/null || true
+    mv "${BASELINE_TEMP}_total_area.txt" "${BASE}_yosys_total_area.txt" 2>/dev/null || true
+    rm -f "${BASELINE_TEMP}_post_abc.aig" "${BASELINE_TEMP}"*.{sdc,tcl}
+
+    echo ""
+    echo "Synthesizing optimized (ABC output) to gates..."
+    ./scripts/synth_to_gates.sh "$BASE" "" "$CLK_NAME" "$MODULE_NAME"
 
     if [ $? -ne 0 ]; then
         echo "ERROR: Gate-level synthesis failed"
@@ -867,13 +924,97 @@ else
     echo "Or use --gates flag with this script."
 fi
 
-echo ""
-if [ -f "$TIMING_CODE" ]; then
-    echo "The design has been synthesized with ISA + timing constraints."
-    echo "Logic for outlawed instructions and impossible timing scenarios"
-    echo "should be optimized away via assumptions and ABC optimization."
-else
-    echo "The design has been synthesized with ISA constraints."
-    echo "Logic for outlawed instructions should be optimized away via"
-    echo "assumptions and ABC optimization."
+# Cleanup Synlig temporary directory
+if [ -n "$SLPP_ALL" ] && [ -d "$SLPP_ALL" ]; then
+    rm -rf "$SLPP_ALL"
 fi
+
+# Cleanup Synlig temporary directory
+if [ -n "$SLPP_ALL" ] && [ -d "$SLPP_ALL" ]; then
+    rm -rf "$SLPP_ALL"
+fi
+
+echo ""
+echo "=========================================="
+echo "SYNTHESIS SUMMARY"
+echo "=========================================="
+
+# ABC Optimization Results
+# Compare against TRUE baseline (unmodified core) if it exists
+BASELINE_AIG="${BASE}_baseline.aig"
+if [ -f "$BASELINE_AIG" ]; then
+    # Use true baseline (unmodified core)
+    BASELINE_STATS=$(abc -c "read_aiger $BASELINE_AIG; print_stats" 2>/dev/null | grep "and =")
+else
+    # Fallback to Yosys output (with assumptions)
+    BASELINE_STATS=$(abc -c "read_aiger ${BASE}_yosys.aig; print_stats" 2>/dev/null | grep "and =")
+    OPTIMIZED_STATS=$(abc -c "read_aiger $ABC_OUTPUT; print_stats" 2>/dev/null | grep "and =")
+
+    if [ -n "$BASELINE_STATS" ] && [ -n "$OPTIMIZED_STATS" ]; then
+        BASELINE_AND=$(echo "$BASELINE_STATS" | sed -n 's/.*and = *\([0-9]*\).*/\1/p')
+        OPTIMIZED_AND=$(echo "$OPTIMIZED_STATS" | sed -n 's/.*and = *\([0-9]*\).*/\1/p')
+
+        if [ -n "$BASELINE_AND" ] && [ -n "$OPTIMIZED_AND" ]; then
+            REDUCTION=$((BASELINE_AND - OPTIMIZED_AND))
+            if [ "$BASELINE_AND" -gt 0 ]; then
+                PERCENT=$(python3 -c "print(f'{100.0 * $REDUCTION / $BASELINE_AND:.2f}')" 2>/dev/null || echo "0.00")
+            else
+                PERCENT="0.00"
+            fi
+
+            echo "Logic Optimization (ABC scorr):"
+            echo "  Baseline:  $BASELINE_AND AND gates"
+            echo "  Optimized: $OPTIMIZED_AND AND gates"
+            echo "  Reduction: $REDUCTION gates ($PERCENT%)"
+            echo ""
+        fi
+    fi
+fi
+
+# Area Comparison - baseline (Yosys) vs optimized (ABC)
+BASELINE_GATES_LOG="${BASE}_yosys_gates.log"
+OPTIMIZED_GATES_LOG="${BASE}_gates.log"
+
+if [ -f "$BASELINE_GATES_LOG" ] && [ -f "$OPTIMIZED_GATES_LOG" ]; then
+    BASELINE_AREA=$(grep "Chip area for module" "$BASELINE_GATES_LOG" | tail -1 | awk '{print $NF}')
+    OPTIMIZED_AREA=$(grep "Chip area for module" "$OPTIMIZED_GATES_LOG" | tail -1 | awk '{print $NF}')
+
+    if [ -n "$BASELINE_AREA" ] && [ -n "$OPTIMIZED_AREA" ]; then
+        AREA_REDUCTION=$(python3 -c "print(f'{float(\"$BASELINE_AREA\") - float(\"$OPTIMIZED_AREA\"):.2f}')" 2>/dev/null || echo "0.00")
+        AREA_PERCENT=$(python3 -c "print(f'{100.0 * (float(\"$BASELINE_AREA\") - float(\"$OPTIMIZED_AREA\")) / float(\"$BASELINE_AREA\"):.2f}')" 2>/dev/null || echo "0.00")
+
+        echo "Tech-Mapped Area (SkyWater 130nm):"
+        echo "  Baseline:  $BASELINE_AREA µm²"
+        echo "  Optimized: $OPTIMIZED_AREA µm²"
+        echo "  Reduction: $AREA_REDUCTION µm² ($AREA_PERCENT%)"
+        echo ""
+    fi
+fi
+
+# Frequency Comparison - baseline (Yosys) vs optimized (ABC)
+BASELINE_TIMING="${BASE}_yosys_timing_metrics.json"
+OPTIMIZED_TIMING="${BASE}_timing_metrics.json"
+
+if [ -f "$BASELINE_TIMING" ] && [ -f "$OPTIMIZED_TIMING" ]; then
+    BASELINE_FREQ=$(python3 -c "import json; print(json.load(open('$BASELINE_TIMING')).get('max_frequency_mhz', 'N/A'))" 2>/dev/null || echo "N/A")
+    OPTIMIZED_FREQ=$(python3 -c "import json; print(json.load(open('$OPTIMIZED_TIMING')).get('max_frequency_mhz', 'N/A'))" 2>/dev/null || echo "N/A")
+
+    if [ "$BASELINE_FREQ" != "N/A" ] && [ "$OPTIMIZED_FREQ" != "N/A" ]; then
+        FREQ_CHANGE=$(python3 -c "print(f'{float(\"$OPTIMIZED_FREQ\") - float(\"$BASELINE_FREQ\"):.2f}')" 2>/dev/null || echo "0.00")
+        FREQ_PERCENT=$(python3 -c "print(f'{100.0 * (float(\"$OPTIMIZED_FREQ\") - float(\"$BASELINE_FREQ\")) / float(\"$BASELINE_FREQ\"):.2f}')" 2>/dev/null || echo "0.00")
+
+        echo "Max Frequency:"
+        echo "  Baseline:  $BASELINE_FREQ MHz"
+        echo "  Optimized: $OPTIMIZED_FREQ MHz"
+        echo "  Change:    $FREQ_CHANGE MHz ($FREQ_PERCENT%)"
+        echo ""
+    fi
+fi
+
+if [ -f "$TIMING_CODE" ]; then
+    echo "Constraints: ISA + timing"
+else
+    echo "Constraints: ISA only"
+fi
+
+echo "=========================================="

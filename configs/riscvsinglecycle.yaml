@@ -1,24 +1,31 @@
 # RiscvSingleCycle Core Configuration for PDAT Synthesis
-# Single-cycle RISC-V implementation with RV32E (16 registers)
+# Single-cycle RISC-V implementation with RV32E (16 registers) + RV32M
 #
 # This is a minimal, educational single-cycle RISC-V core written in Veryl.
-# It implements the RV32E base ISA without multiply/divide extensions.
+# Now includes RV32M multiply/divide extension with combinational MDU.
 
 core_name: "riscvsinglecycle"
-architecture: "rv32"  # RV32E (16 registers)
+architecture: "rv32"  # RV32E (16 registers) + RV32M extension
 
 # Injection points for different constraint types
 injections:
-  # ISA constraints injected into control unit
-  - name: "control_isa"
-    source_file: "target/control.sv"
+  # ISA constraints injected into datapath (has sequential elements)
+  - name: "datapath_isa"
+    source_file: "target/riscv_core.sv"
     constraint_type: "isa"
-    module_path: "RiscvSingleCycle_riscv_core.datapath_inst.control_inst"
-    description: "Control unit - where ISA instruction decoding and constraints are injected"
+    module_path: "RiscvSingleCycle_riscv_core"
+    description: "Core - ISA constraints (has sequential context with PC/regfile)"
     # Signal name mapping for this injection point
     signals:
-      instruction: "instruction"  # Control uses 'instruction' input (not 'instr_rdata_i')
-      reset: null  # Control module is combinational (no reset signal)
+      instruction: "imem_rdata"  # Instruction input to datapath
+      reset: "rst_n"  # Reset signal in datapath
+
+  # MDU optimization - can be optimized away if M-extension not used
+  - name: "mdu_odc"
+    source_file: "target/mdu.sv"
+    constraint_type: "odc_opt"
+    module_path: "RiscvSingleCycle_riscv_core.datapath_inst.mdu_inst"
+    description: "MDU - can be replaced with constant 0 output if M-extension unused"
 
   # Register file optimization - replaced with reduced register count version
   - name: "register_file_opt"
@@ -29,6 +36,10 @@ injections:
 
 # Signal naming conventions for RiscvSingleCycle
 signals:
+  # Clock and reset
+  clk: "clk"
+  rst_n: "rst_n"  # Active-high reset (Veryl reset type)
+
   # Instruction and PC signals
   instruction_data: "imem_rdata"
   pc: "pc"
@@ -66,6 +77,7 @@ synthesis:
     - "target/regfile.sv"       # Register file (16 registers for RV32E)
     - "target/immgen.sv"        # Immediate generator
     - "target/alu.sv"           # Arithmetic/logic unit
+    - "target/mdu.sv"           # Multiply/Divide unit (RV32M extension)
     - "target/branch_comp.sv"   # Branch comparator
     - "target/control.sv"       # Control unit (instruction decoder)
     - "target/datapath.sv"      # Datapath (connects all functional units)
@@ -78,9 +90,31 @@ synthesis:
   abc:
     default_depth: 1  # Single-cycle design, so depth = 1
 
+# Result Mux Structure (for ODC analysis)
+result_muxes:
+  - name: "exec_result_mux"
+    location: "target/datapath.sv:149"
+    selector_signal: "mdu_en"
+    selector_type: "logic"
+    module_path: "RiscvSingleCycle_riscv_core.datapath_inst"
+    description: "Execution result mux - selects between ALU and MDU outputs"
+
+    # Mux cases
+    cases:
+      - result_signal: "alu_result"
+        alu_operations: ["ADD", "SUB", "SLL", "SLT", "SLTU", "XOR", "SRL", "SRA", "OR", "AND"]
+        description: "ALU operations (RV32I)"
+        never_odc: true  # ALU always needed for address calculation, branches, etc.
+
+      - result_signal: "mdu_result"
+        alu_operations: ["MUL", "MULH", "MULHSU", "MULHU", "DIV", "DIVU", "REM", "REMU"]
+        description: "Multiply/Divide operations (RV32M)"
+
 # Core-specific notes
 # - This is a single-cycle design (CPI = 1)
 # - Implements RV32E: only 16 registers (x0-x15)
-# - Base I instructions only: no M (multiply/divide), no A (atomic), no F/D (floating-point)
+# - Implements RV32M: multiply/divide extension with combinational MDU
+# - Combinational multiply/divide: very slow but functional in single cycle
+# - No A (atomic) or F/D (floating-point) extensions
 # - Harvard architecture: separate instruction and data memory interfaces
 # - Written in Veryl, compiled to SystemVerilog (target/ directory)
