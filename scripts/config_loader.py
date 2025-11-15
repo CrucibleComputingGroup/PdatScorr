@@ -35,6 +35,8 @@ class SynthesisConfig:
     top_module: str = "ibex_core"
     parameters: Dict[str, Any] = None
     abc_config: Dict[str, Any] = None
+    pre_synthesized: bool = False  # Whether core uses pre-synthesized (gate-level) Verilog
+    cell_library: Optional[str] = None  # Path to standard cell library for pre-synthesized cores
 
     def __post_init__(self):
         if self.parameters is None:
@@ -115,11 +117,14 @@ class ConfigLoader:
             # Extract the variable name
             var_name = expanded.split('/')[0][1:]  # Remove leading $
 
+            # Infer core name from environment variable (e.g., IBEX_ROOT -> ibex)
+            core_name = var_name.replace('_ROOT', '').lower()
+
             # Try common fallback paths (relative to this script's parent directory)
             script_dir = Path(__file__).parent.parent  # Go up to project root
             fallback_paths = [
-                script_dir.parent / 'PdatCoreSim' / 'cores' / 'ibex',
-                script_dir.parent / 'CoreSim' / 'cores' / 'ibex',
+                script_dir.parent / 'PdatCoreSim' / 'cores' / core_name,
+                script_dir.parent / 'CoreSim' / 'cores' / core_name,
             ]
 
             for fallback in fallback_paths:
@@ -200,7 +205,9 @@ class ConfigLoader:
             include_dirs=synth_data['include_dirs'],
             top_module=synth_data.get('top_module', 'ibex_core'),
             parameters=synth_data.get('parameters', {}),
-            abc_config=synth_data.get('abc', {'default_depth': 2})
+            abc_config=synth_data.get('abc', {'default_depth': 2}),
+            pre_synthesized=synth_data.get('pre_synthesized', False),
+            cell_library=synth_data.get('cell_library')
         )
 
         # Parse injection points

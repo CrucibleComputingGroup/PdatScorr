@@ -57,12 +57,38 @@ def generate_synthesis_script_from_config(
         modified_files=modified_files
     )
 
-    # Build read_systemverilog command
-    include_args = " \\\n  ".join(
-        f"-I{core_root}/{inc}" for inc in include_dirs)
-    file_args = " \\\n  ".join(source_list)
+    # Check if core is pre-synthesized
+    is_pre_synth = getattr(config.synthesis, 'pre_synthesized', False)
 
-    script = f"""# Synlig script to synthesize {config.core_name} core with constraints
+    if is_pre_synth:
+        # For pre-synthesized cores, use read_verilog and simpler options
+        file_args = " \\\n  ".join(source_list)
+
+        # Check if cell library is specified
+        cell_lib_cmd = ""
+        if config.synthesis.cell_library:
+            cell_lib_cmd = f"""# Read standard cell library (as library modules)
+read_verilog -lib {config.synthesis.cell_library}
+
+"""
+
+        script = f"""# Synlig script to process pre-synthesized {config.core_name} core
+# Auto-generated synthesis script
+# Core: {config.core_name} ({config.architecture})
+# Core root: {core_root}
+# Note: Core uses pre-synthesized (gate-level) Verilog with SystemVerilog features
+
+{cell_lib_cmd}# Read pre-synthesized Verilog files (using Synlig for SystemVerilog support)
+read_systemverilog \\
+  {file_args}
+
+"""
+    else:
+        # For RTL cores, use read_systemverilog with include paths
+        include_args = " \\\n  ".join(
+            f"-I{core_root}/{inc}" for inc in include_dirs)
+        file_args = " \\\n  ".join(source_list)
+        script = f"""# Synlig script to synthesize {config.core_name} core with constraints
 # Auto-generated synthesis script
 # Core: {config.core_name} ({config.architecture})
 # Core root: {core_root}

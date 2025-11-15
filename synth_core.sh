@@ -345,7 +345,29 @@ fi
 
 echo "Using core root: $CORE_ROOT"
 
-python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" "$ID_STAGE_SOURCE" "$ID_STAGE_SV"
+# Check if core is pre-synthesized (gate-level) and use appropriate injection script
+if [ -n "$CONFIG_FILE" ]; then
+    IS_PRE_SYNTH=$(python3 -c "
+import sys
+sys.path.insert(0, 'scripts')
+try:
+    from config_loader import ConfigLoader
+    config = ConfigLoader.load_config('$CONFIG_FILE')
+    pre_synth = getattr(config.synthesis, 'pre_synthesized', False)
+    print('true' if pre_synth else 'false')
+except:
+    print('false')
+")
+else
+    IS_PRE_SYNTH="false"
+fi
+
+if [ "$IS_PRE_SYNTH" = "true" ]; then
+    echo "  Detected pre-synthesized core, using synthesized injection script..."
+    python3 scripts/inject_assumptions_synthesized.py "$ID_STAGE_SOURCE" "$ID_STAGE_SV" --assumptions-file "$ASSUMPTIONS_CODE"
+else
+    python3 scripts/inject_checker.py --assumptions-file "$ASSUMPTIONS_CODE" "$ID_STAGE_SOURCE" "$ID_STAGE_SV"
+fi
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to inject ISA assumptions"
