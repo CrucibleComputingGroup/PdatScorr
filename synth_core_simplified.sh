@@ -221,9 +221,9 @@ echo "[1/$TOTAL_STEPS] Generating instruction assumptions..."
 
 # Pass config file to codegen if in config mode (for signal name mappings)
 if [ -n "$CONFIG_FILE" ]; then
-    # pdat-dsl needs config from PdatRiscvDsl/configs/, not PdatScorr/configs/
-    # Try to find corresponding config in PdatRiscvDsl
-    DSL_CONFIG="../PdatRiscvDsl/configs/$(basename "$CONFIG_FILE")"
+    # pdat-dsl needs config from PdatDsl/configs/, not ScorrPdat/configs/
+    # Try to find corresponding config in PdatDsl
+    DSL_CONFIG="../PdatDsl/configs/$(basename "$CONFIG_FILE")"
     if [ -f "$DSL_CONFIG" ]; then
         pdat-dsl codegen --config "$DSL_CONFIG" "$INPUT_DSL" "$ASSUMPTIONS_CODE"
     else
@@ -326,55 +326,55 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Step 2.5: Check if timing constraints were generated and inject into core
-CORE_MODIFIED_FLAG=""
-if [ -f "$TIMING_CODE" ]; then
-    echo "[2.5/$TOTAL_STEPS] Detected timing constraints, injecting into core..."
+# # Step 2.5: Check if timing constraints were generated and inject into core
+# CORE_MODIFIED_FLAG=""
+# if [ -f "$TIMING_CODE" ]; then
+#     echo "[2.5/$TOTAL_STEPS] Detected timing constraints, injecting into core..."
 
-    if [ -n "$CONFIG_FILE" ]; then
-        # Config mode: Get core source file from config
-        CORE_SOURCE=$(python3 -c "
-import sys
-sys.path.insert(0, 'scripts')
-try:
-    from config_loader import ConfigLoader
-    config = ConfigLoader.load_config('$CONFIG_FILE')
-    inj = config.get_injection('timing')
-    if inj:
-        print(f'{config.synthesis.core_root_resolved}/{inj.source_file}')
-    else:
-        print('ERROR: No timing injection point found', file=sys.stderr)
-        sys.exit(1)
-except Exception as e:
-    print(f'ERROR: {e}', file=sys.stderr)
-    sys.exit(1)
-")
+#     if [ -n "$CONFIG_FILE" ]; then
+#         # Config mode: Get core source file from config
+#         CORE_SOURCE=$(python3 -c "
+# import sys
+# sys.path.insert(0, 'scripts')
+# try:
+#     from config_loader import ConfigLoader
+#     config = ConfigLoader.load_config('$CONFIG_FILE')
+#     inj = config.get_injection('timing')
+#     if inj:
+#         print(f'{config.synthesis.core_root_resolved}/{inj.source_file}')
+#     else:
+#         print('ERROR: No timing injection point found', file=sys.stderr)
+#         sys.exit(1)
+# except Exception as e:
+#     print(f'ERROR: {e}', file=sys.stderr)
+#     sys.exit(1)
+# ")
 
-        if [ $? -ne 0 ] || [ -z "$CORE_SOURCE" ] || [[ "$CORE_SOURCE" == ERROR:* ]]; then
-            echo "ERROR: Could not find timing injection point in config"
-            echo "$CORE_SOURCE"
-            exit 1
-        fi
-    else
-        # Legacy mode
-        CORE_SOURCE="$CORE_ROOT/rtl/ibex_core.sv"
-    fi
+#         if [ $? -ne 0 ] || [ -z "$CORE_SOURCE" ] || [[ "$CORE_SOURCE" == ERROR:* ]]; then
+#             echo "ERROR: Could not find timing injection point in config"
+#             echo "$CORE_SOURCE"
+#             exit 1
+#         fi
+#     else
+#         # Legacy mode
+#         CORE_SOURCE="$CORE_ROOT/rtl/ibex_core.sv"
+#     fi
 
-    python3 scripts/inject_core_timing.py \
-        --timing-file "$TIMING_CODE" \
-        "$CORE_SOURCE" \
-        "$CORE_SV"
+#     python3 scripts/inject_core_timing.py \
+#         --timing-file "$TIMING_CODE" \
+#         "$CORE_SOURCE" \
+#         "$CORE_SV"
 
-    if [ $? -ne 0 ]; then
-        echo "ERROR: Failed to inject timing constraints"
-        exit 1
-    fi
+#     if [ $? -ne 0 ]; then
+#         echo "ERROR: Failed to inject timing constraints"
+#         exit 1
+#     fi
 
-    CORE_MODIFIED_FLAG="--core-modified $CORE_SV"
-    echo "  Timing constraints injected successfully"
-else
-    echo "  No timing constraints detected (this is normal for ISA-only optimization)"
-fi
+#     CORE_MODIFIED_FLAG="--core-modified $CORE_SV"
+#     echo "  Timing constraints injected successfully"
+# else
+#     echo "  No timing constraints detected (this is normal for ISA-only optimization)"
+# fi
 
 # Step 3: Generate synthesis script
 echo "[3/$TOTAL_STEPS] Generating synthesis script..."
@@ -383,8 +383,24 @@ if [ -n "$CONFIG_FILE" ]; then
     # Config mode
     echo "  Using config file: $CONFIG_FILE"
 
+    # Get ISA injection name from config
+    ISA_INJECTION_NAME=$(python3 -c "
+import sys
+sys.path.insert(0, 'scripts')
+try:
+    from config_loader import ConfigLoader
+    config = ConfigLoader.load_config('$CONFIG_FILE')
+    inj = config.get_injection('isa')
+    if inj:
+        print(inj.name)
+    else:
+        print('id_stage_isa')  # fallback to legacy name
+except:
+    print('id_stage_isa')  # fallback to legacy name
+")
+
     # Build modified-files argument
-    MODIFIED_FILES_ARGS="--modified-files id_stage_isa=${ID_STAGE_SV}"
+    MODIFIED_FILES_ARGS="--modified-files ${ISA_INJECTION_NAME}=${ID_STAGE_SV}"
     if [ -f "$CORE_SV" ]; then
         MODIFIED_FILES_ARGS="$MODIFIED_FILES_ARGS core_timing=${CORE_SV}"
     fi
