@@ -42,14 +42,16 @@ def remove_mux_cases_from_alu(
     alu_path: Path,
     unreachable_cases: List[Dict],
     output_path: Path,
+    mux_line_num: int = None,
 ) -> bool:
     """
-    Remove unreachable mux cases from ibex_alu.sv result mux.
+    Remove unreachable mux cases from result mux in RTL.
 
     Args:
-        alu_path: Path to original ibex_alu.sv
+        alu_path: Path to original source file (e.g., datapath.sv or ibex_alu.sv)
         unreachable_cases: List of unreachable mux case dicts
-        output_path: Path to write optimized ALU
+        output_path: Path to write optimized file
+        mux_line_num: Line number of mux (from config), if known
 
     Returns:
         True if any optimizations were applied
@@ -71,78 +73,159 @@ def remove_mux_cases_from_alu(
     for op in sorted(ops_to_remove):
         logger.info(f"  - {op}")
 
-    # Find the result mux (around line 1322)
+    # Find the result mux
     mux_start_idx = None
     mux_end_idx = None
 
-    for i, line in enumerate(lines):
-        if "Result mux" in line:
-            # Find the always_comb block
-            for j in range(i, min(i + 10, len(lines))):
-                if "always_comb begin" in lines[j]:
-                    mux_start_idx = j
+    # Strategy 1: Use line number from config if provided
+    if mux_line_num is not None:
+        # Config line numbers are 1-indexed, convert to 0-indexed
+        search_start = mux_line_num - 1
+        logger.debug(f"Searching for mux near line {mux_line_num} (from config)")
+
+        # Search in a wider range around the specified line
+        for i in range(max(0, search_start - 30), min(search_start + 30, len(lines))):
+            line = lines[i]
+            # Look for mux assignment patterns (ternary or case)
+            # Pattern 1: ternary with exec_result or result_o
+            if ("exec_result" in line or "result_o" in line) and "?" in line:
+                mux_start_idx = i
+                mux_end_idx = i  # Single line for ternary
+                logger.debug(f"Found ternary mux at line {i+1}: {line.strip()}")
+                break
+            # Pattern 2: always_comb with exec_result nearby
+            if "always_comb" in line:
+                # Check next few lines for exec_result
+                for j in range(i, min(i+3, len(lines))):
+                    if "exec_result" in lines[j] or "result_o" in lines[j]:
+                        mux_start_idx = i
+                        # Find end (semicolon or endcase)
+                        for k in range(i, min(i + 50, len(lines))):
+                            if lines[k].strip().endswith(';') or lines[k].strip() == "endcase":
+                                mux_end_idx = k
+                                logger.debug(f"Found always_comb mux at lines {i+1}-{k+1}")
+                                break
+                        break
+                if mux_start_idx:
                     break
 
-            # Find the end of the case statement
-            if mux_start_idx:
-                for j in range(mux_start_idx, min(mux_start_idx + 200, len(lines))):
-                    if lines[j].strip() == "endcase":
-                        mux_end_idx = j
+    # Strategy 2: Search for "Result mux" comment (Ibex-style)
+    if mux_start_idx is None:
+        for i, line in enumerate(lines):
+            if "Result mux" in line:
+                # Find the always_comb block
+                for j in range(i, min(i + 10, len(lines))):
+                    if "always_comb begin" in lines[j]:
+                        mux_start_idx = j
                         break
-            break
+
+                # Find the end of the case statement
+                if mux_start_idx:
+                    for j in range(mux_start_idx, min(mux_start_idx + 200, len(lines))):
+                        if lines[j].strip() == "endcase":
+                            mux_end_idx = j
+                            break
+                break
 
     if mux_start_idx is None or mux_end_idx is None:
-        raise RuntimeError("Could not find result mux in ibex_alu.sv")
+        raise RuntimeError(f"Could not find result mux in {alu_path.name}. "
+                          f"Expected near line {mux_line_num if mux_line_num else 'unknown'}. "
+                          f"Make sure config.result_muxes[].location is correct.")
 
     logger.debug(f"Found result mux at lines {mux_start_idx}-{mux_end_idx}")
 
-    # Parse and modify the case statement
-    modified_lines = lines[:mux_start_idx]
-    removed_count = 0
+    # Determine mux style: ternary or case statement
+    mux_region = ''.join(lines[mux_start_idx:mux_end_idx+1])
+    is_ternary = '?' in mux_region and 'case' not in mux_region
 
-    i = mux_start_idx
-    while i <= mux_end_idx:
-        line = lines[i]
+    if is_ternary:
+        # Handle ternary mux (e.g., RiscvSingleCycle)
+        # Pattern: exec_result = ((mdu_en) ? ( mdu_result ) : ( alu_result ));
+        # If MDU is unreachable, replace with: exec_result = alu_result;
+        logger.debug("Detected ternary mux style")
 
-        # Check if this line contains any of the operations to remove
-        contains_removed_op = any(op in line for op in ops_to_remove)
+        modified_lines = lines[:mux_start_idx]
 
-        if contains_removed_op:
-            # This is a case we want to remove
-            # Collect the full case (may span multiple lines)
-            case_lines = [line]
-            j = i + 1
+        for i in range(mux_start_idx, mux_end_idx + 1):
+            line = lines[i]
 
-            # Keep collecting until we hit the result assignment
-            while j <= mux_end_idx:
-                case_lines.append(lines[j])
-                if "result_o =" in lines[j]:
+            # Check if this is the mux line with mdu_en or similar
+            if 'mdu_en' in line and '?' in line:
+                # Extract the result signal and fallback value
+                # Pattern: exec_result = ((mdu_en) ? ( mdu_result ) : ( alu_result ));
+                # We want to keep just the alu_result part
+
+                # Simple pattern matching for ternary
+                match = re.search(r'(\w+)\s*=\s*\(\((\w+)\)\s*\?\s*\([^)]+\)\s*:\s*\(([^)]+)\)\s*\)', line)
+                if match:
+                    result_signal = match.group(1).strip()
+                    fallback_value = match.group(3).strip()
+
+                    indent = len(line) - len(line.lstrip())
+                    optimized_line = f"{' ' * indent}// ODC: MDU unreachable, simplified from ternary mux\n"
+                    optimized_line += f"{' ' * indent}always_comb {result_signal} = {fallback_value};\n"
+
+                    modified_lines.append(optimized_line)
+                    logger.info(f"Simplified ternary mux: {result_signal} = {fallback_value}")
+                else:
+                    # Couldn't parse, keep original
+                    modified_lines.append(line)
+            else:
+                modified_lines.append(line)
+
+        # Add remaining lines
+        modified_lines.extend(lines[mux_end_idx + 1:])
+
+    else:
+        # Handle case statement mux (e.g., Ibex)
+        logger.debug("Detected case statement mux style")
+
+        modified_lines = lines[:mux_start_idx]
+        removed_count = 0
+
+        i = mux_start_idx
+        while i <= mux_end_idx:
+            line = lines[i]
+
+            # Check if this line contains any of the operations to remove
+            contains_removed_op = any(op in line for op in ops_to_remove)
+
+            if contains_removed_op:
+                # This is a case we want to remove
+                # Collect the full case (may span multiple lines)
+                case_lines = [line]
+                j = i + 1
+
+                # Keep collecting until we hit the result assignment
+                while j <= mux_end_idx:
+                    case_lines.append(lines[j])
+                    if "result_o =" in lines[j]:
+                        j += 1
+                        break
                     j += 1
-                    break
-                j += 1
 
-            # Add comment explaining removal
-            ops_in_case = [op for op in ops_to_remove if any(op in l for l in case_lines)]
-            comment = f"  // ODC: Removed unreachable case - operations never occur: {', '.join(ops_in_case)}\n"
-            modified_lines.append(comment)
+                # Add comment explaining removal
+                ops_in_case = [op for op in ops_to_remove if any(op in l for l in case_lines)]
+                comment = f"  // ODC: Removed unreachable case - operations never occur: {', '.join(ops_in_case)}\n"
+                modified_lines.append(comment)
 
-            removed_count += 1
-            i = j
-        else:
-            # Keep this line
-            modified_lines.append(line)
-            i += 1
+                removed_count += 1
+                i = j
+            else:
+                # Keep this line
+                modified_lines.append(line)
+                i += 1
 
-    # Add remaining lines after mux
-    modified_lines.extend(lines[mux_end_idx + 1:])
+        # Add remaining lines after mux
+        modified_lines.extend(lines[mux_end_idx + 1:])
 
-    logger.info(f"Removed {removed_count} mux cases")
+        logger.info(f"Removed {removed_count} mux cases")
 
     # Write optimized file
     with open(output_path, 'w') as f:
         f.writelines(modified_lines)
 
-    logger.info(f"Wrote optimized ALU to {output_path}")
+    logger.info(f"Wrote optimized file to {output_path}")
     return True
 
 
@@ -242,10 +325,28 @@ def main():
     # Load configuration
     config = ConfigLoader.load_config(str(args.config))
     core_root = Path(config.synthesis.core_root_resolved)
-    alu_path = core_root / "rtl" / "ibex_alu.sv"
+
+    # Get mux source file from config
+    if not config.result_muxes:
+        logger.error("No result_muxes defined in config")
+        return 1
+
+    mux_def = config.result_muxes[0]
+    mux_location = mux_def['location']  # e.g., "target/datapath.sv:149"
+    source_file = mux_location.split(':')[0]
+    alu_path = core_root / source_file
+    module_name = Path(source_file).stem  # e.g., "datapath"
+
+    # Extract line number from location if present
+    mux_line_num = None
+    if ':' in mux_location:
+        try:
+            mux_line_num = int(mux_location.split(':')[1])
+        except (ValueError, IndexError):
+            pass
 
     if not alu_path.exists():
-        logger.error(f"ALU file not found: {alu_path}")
+        logger.error(f"Mux source file not found: {alu_path}")
         return 1
 
     # Load unreachable mux cases
@@ -258,8 +359,8 @@ def main():
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
     # Step 1: Remove unreachable mux cases
-    optimized_alu_path = args.output_dir / "ibex_alu_mux_optimized.sv"
-    modified = remove_mux_cases_from_alu(alu_path, unreachable_cases, optimized_alu_path)
+    optimized_alu_path = args.output_dir / f"{module_name}_mux_optimized.sv"
+    modified = remove_mux_cases_from_alu(alu_path, unreachable_cases, optimized_alu_path, mux_line_num)
 
     if not modified:
         logger.info("No mux optimizations applied")
@@ -271,7 +372,7 @@ def main():
             if case.get("sec_verified", False):
                 unit_name = case["functional_unit"]
                 logger.info(f"Commenting out unused unit: {unit_name}")
-                temp_path = args.output_dir / f"ibex_alu_temp.sv"
+                temp_path = args.output_dir / f"{module_name}_temp.sv"
                 comment_out_unused_functional_unit(
                     optimized_alu_path,
                     unit_name,

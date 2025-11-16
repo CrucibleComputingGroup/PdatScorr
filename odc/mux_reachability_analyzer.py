@@ -117,11 +117,14 @@ class MuxReachabilityAnalyzer:
 
             if is_unreachable:
                 logger.info(f"  ✓ Verified unreachable (BMC proved UNSAT, {runtime:.2f}s)")
-                verified_cases.append(candidate)
             else:
-                logger.info(f"  ✗ NOT unreachable (BMC found reachable, {runtime:.2f}s)")
+                logger.info(f"  ✗ NOT verified / BMC failed ({runtime:.2f}s)")
 
-        logger.info(f"Verified {len(verified_cases)} unreachable mux cases")
+            # Add candidate regardless of verification status
+            # (Unverified candidates can still be useful for manual inspection)
+            verified_cases.append(candidate)
+
+        logger.info(f"Returning {len(verified_cases)} candidates ({sum(1 for c in verified_cases if c.sec_verified)} verified)")
         return verified_cases
 
     def _parse_allowed_instructions(self, dsl_file: Path) -> Set[str]:
@@ -211,7 +214,8 @@ class MuxReachabilityAnalyzer:
         """
         Find functional units that are candidates for being unreachable.
 
-        A functional unit is a candidate if ALL instructions that use it are forbidden.
+        Returns ALL mux cases from config (except those marked never_odc).
+        BMC will determine which are actually unreachable.
         """
         # Load config to get result_muxes
         try:
@@ -222,15 +226,19 @@ class MuxReachabilityAnalyzer:
                 return []
         except Exception as e:
             logger.error(f"Failed to load config: {e}")
+            import traceback
+            traceback.print_exc()
             return []
 
-        # Convert config result_muxes to functional units
-        logger.info(f"Loading {len(config.result_muxes)} result muxes from config")
+        # Convert config result_muxes to candidates
+        # Test ALL cases - let BMC determine if they're actually reachable
+        logger.info(f"Loading {len(config.result_muxes)} result_muxes from config")
         candidates = []
 
         for mux in config.result_muxes:
             logger.info(f"Analyzing mux: {mux.get('name', 'unnamed')}")
-            for case in mux.get('cases', []):
+            cases = mux.get('cases', [])
+            for case in cases:
                 result_sig = case.get('result_signal', 'unknown')
                 case_ops = case.get('alu_operations', [])
                 logger.info(f"  Checking case: {result_sig} with {len(case_ops)} operations")
@@ -240,29 +248,19 @@ class MuxReachabilityAnalyzer:
                     logger.info(f"    Skipping (marked never_odc)")
                     continue
 
+                # Add as candidate - BMC will verify if actually unreachable
                 case_instructions = set(case_ops)
-                logger.info(f"    Case operations: {sorted(case_instructions)}")
-
-                # Check if ANY allowed instruction uses this mux case
-                overlap = case_instructions & allowed_instructions
-                logger.info(f"    Overlap with allowed: {sorted(overlap) if overlap else 'NONE'}")
-
-                if overlap:
-                    logger.info(f"    → Used by allowed instructions")
-                    continue
-
-                # All instructions for this case are forbidden - it's unreachable!
-                logger.info(f"    → UNREACHABLE! All {len(case_instructions)} operations forbidden")
+                logger.info(f"    → Adding as ODC candidate (will verify with BMC)")
                 candidates.append(UnreachableMuxCase(
                     result_signal=case['result_signal'],
                     alu_operations=list(case_instructions),
                     functional_unit=case.get('description', case['result_signal']),
-                    reason=f"All {len(case_instructions)} operations forbidden by DSL",
+                    reason=f"Testing if {len(case_instructions)} operations are unreachable",
                     sec_verified=False,
                     proof_runtime=0.0
                 ))
 
-        logger.info(f"Found {len(candidates)} unreachable mux case candidates")
+        logger.info(f"Found {len(candidates)} mux case candidates to test with BMC")
         return candidates
 
     def _prove_unreachable_with_sec(
@@ -346,21 +344,33 @@ class MuxReachabilityAnalyzer:
 
     def _generate_bmc_monitor(self, alu_operations: List[str]) -> Dict[str, str]:
         """
-        Generate SystemVerilog monitor code that outputs 1 when operator_i matches target operations.
+        Generate SystemVerilog monitor code that outputs 1 when the mux selects forbidden operations.
 
         Returns a dict with:
-        - 'monitor_code': Code to inject in ALU body
+        - 'monitor_code': Code to inject in mux module body
         - 'port_declaration': Port to add to module interface
         - 'monitor_name': Name of the monitor signal
         """
-        # Create OR condition for any of the target operations
-        conditions = [f"(operator_i == ibex_pkg::{op})" for op in alu_operations]
-        condition_str = " || ".join(conditions)
+        # Load config to get core-specific signal names and mux structure
+        config = ConfigLoader.load_config(str(self.config_path))
 
+        # Get signal names from config
+        clk_signal = config.signals.get('clk', 'clk')
+        rst_signal = config.signals.get('rst_n', 'rst_n')
+
+        # Determine if this is Ibex (has operator_i) or another core (uses different mechanism)
+        core_name = config.core_name.lower()
+
+        # Generate monitor name
         ops_str = "_".join([op.replace("ALU_", "") for op in alu_operations[:3]])
         monitor_name = f"bmc_monitor_{ops_str}_o"
 
-        monitor_code = f"""
+        if core_name == 'ibex':
+            # Ibex-specific: check operator_i signal
+            conditions = [f"(operator_i == ibex_pkg::{op})" for op in alu_operations]
+            condition_str = " || ".join(conditions)
+
+            monitor_code = f"""
   // ========================================
   // BMC REACHABILITY MONITOR
   // Monitors if operator_i ever equals forbidden ALU operations
@@ -371,15 +381,36 @@ class MuxReachabilityAnalyzer:
 
   // synthesis translate_off
   // For debugging: warn if this ever happens
-  assert property (@(posedge clk_i) disable iff (!rst_ni)
+  assert property (@(posedge {clk_signal}) disable iff (!{rst_signal})
     !{monitor_name}
   ) else $display("WARNING: operator_i reached forbidden value: %0d", operator_i);
+  // synthesis translate_on
+"""
+        else:
+            # Generic core: check if mdu_en is asserted (indicates M-extension operation)
+            # For RiscvSingleCycle and similar cores, mdu_en=1 means using MDU result
+            # This assumes mdu_result is selected for M-extension operations
+
+            monitor_code = f"""
+  // ========================================
+  // BMC REACHABILITY MONITOR
+  // Monitors if MDU operations are ever used
+  // ========================================
+
+  // Monitor output: 1 if MDU is enabled (indicating M-extension operation)
+  assign {monitor_name} = mdu_en;
+
+  // synthesis translate_off
+  // For debugging: warn if this ever happens
+  assert property (@(posedge {clk_signal}) disable iff (!{rst_signal})
+    !{monitor_name}
+  ) else $display("WARNING: MDU enabled for M-extension operations");
   // synthesis translate_on
 """
 
         return {
             'monitor_code': monitor_code,
-            'port_declaration': f"  output logic {monitor_name},\n",
+            'port_declaration': f"    output var logic {monitor_name}\n",
             'monitor_name': monitor_name
         }
 
@@ -456,10 +487,10 @@ bmc3 -F {k_depth} -v;
         output_dir: Path,
     ) -> Path:
         """
-        Synthesize RTL with BMC monitor injected into ALU.
+        Synthesize RTL with BMC monitor injected into mux source file.
 
-        The monitor creates an output signal that becomes 1 when operator_i
-        matches the target operations. BMC will check if this output is reachable.
+        The monitor creates an output signal that becomes 1 when the mux selector
+        reaches certain values. BMC will check if this output is reachable.
 
         Args:
             dsl_file: DSL specification
@@ -469,59 +500,116 @@ bmc3 -F {k_depth} -v;
         Returns:
             Path to synthesized AIGER file
         """
-        # Read original ibex_alu.sv
+        # Read source file containing the mux (from config)
         config = ConfigLoader.load_config(str(self.config_path))
         core_root = Path(config.synthesis.core_root_resolved)
-        alu_path = core_root / "rtl" / "ibex_alu.sv"
 
-        with open(alu_path, 'r') as f:
+        # Get mux location from config
+        if hasattr(config, 'result_muxes') and len(config.result_muxes) > 0:
+            # Use first mux definition
+            mux_def = config.result_muxes[0]
+            mux_location = mux_def['location']  # e.g., "target/datapath.sv:149"
+            source_file = mux_location.split(':')[0]  # Extract file path
+            source_path = core_root / source_file
+            module_name = Path(source_file).stem  # e.g., "datapath" from "target/datapath.sv"
+        else:
+            # Fallback to Ibex
+            source_path = core_root / "rtl" / "ibex_alu.sv"
+            module_name = "ibex_alu"
+
+        with open(source_path, 'r') as f:
             alu_lines = f.readlines()
 
-        # Step 1: Add monitor output port to module declaration
-        # Find "module ibex_alu" and add port before closing paren
+        # Step 1: Find the actual module name in the file (may have prefix like "RiscvSingleCycle_")
+        actual_module_name = None
+        for line in alu_lines:
+            if line.strip().startswith('module '):
+                # Extract module name: "module Foo #(" or "module Foo (" or "module Foo;"
+                import re
+                match = re.match(r'\s*module\s+(\w+)', line)
+                if match:
+                    actual_module_name = match.group(1)
+                    break
+
+        if not actual_module_name:
+            raise RuntimeError(f"Could not find module declaration in {source_path.name}")
+
+        # Step 2: Add monitor output port to module declaration
+        # Find "module <actual_module_name>" and add port before closing paren
         module_port_idx = None
         for i, line in enumerate(alu_lines):
-            if "module ibex_alu" in line:
+            if f"module" in line and actual_module_name in line:
                 # Find the closing paren of port list
-                for j in range(i, min(i + 50, len(alu_lines))):
+                for j in range(i, min(i + 100, len(alu_lines))):
                     if ");" in alu_lines[j]:
-                        # Insert before the closing paren
-                        # Find the last comma
-                        for k in range(j, max(0, j-10), -1):
-                            if "," in alu_lines[k] and "output" in alu_lines[k]:
-                                module_port_idx = k + 1
-                                break
-                        if module_port_idx:
-                            break
+                        # Insert before the closing paren (just before the ); line)
+                        module_port_idx = j
+                        break
                 break
 
         if module_port_idx is None:
-            raise RuntimeError("Could not find module port list in ibex_alu.sv")
+            raise RuntimeError(f"Could not find module port list in {source_path.name}")
+
+        # Need to add a comma to the last port before inserting the new one
+        # Find the last non-empty, non-comment line before the );
+        last_port_idx = module_port_idx - 1
+        while last_port_idx >= 0:
+            line_stripped = alu_lines[last_port_idx].strip()
+            # Skip empty lines and comment-only lines
+            if line_stripped and not line_stripped.startswith('//'):
+                break
+            last_port_idx -= 1
+
+        # Add comma to the last port line if it doesn't already have one
+        if last_port_idx >= 0:
+            last_port_line = alu_lines[last_port_idx]
+            # Check if line ends with a port declaration (not already has comma or comment or paren)
+            stripped = last_port_line.rstrip()
+            if stripped and not stripped.endswith(',') and not stripped.endswith(';') and not stripped.endswith(')'):
+                # Add comma after the port name/type
+                alu_lines[last_port_idx] = stripped + ',\n'
 
         # Insert port declaration
         alu_lines.insert(module_port_idx, monitor_info['port_declaration'])
 
-        # Step 2: Find injection point for monitor code: after the result mux
+        # Step 3: Find injection point for monitor code
+        # Try to use line number from config, otherwise search for "Result mux" comment
         injection_idx = None
-        for i, line in enumerate(alu_lines):
-            if "Result mux" in line:
-                for j in range(i, min(i + 100, len(alu_lines))):
-                    line_stripped = alu_lines[j].strip()
-                    if line_stripped == "end":
-                        context = "".join(alu_lines[i:j])
-                        if "always_comb" in context:
-                            injection_idx = j + 1
-                            break
-                break
+
+        if hasattr(config, 'result_muxes') and len(config.result_muxes) > 0:
+            mux_def = config.result_muxes[0]
+            mux_location = mux_def.get('location', '')
+            if ':' in mux_location:
+                line_num_str = mux_location.split(':')[1]
+                try:
+                    # Config line number is 1-indexed, convert to 0-indexed
+                    config_line = int(line_num_str) - 1
+                    # Inject after that line
+                    injection_idx = config_line + 1
+                except ValueError:
+                    pass
+
+        # Fallback: search for "Result mux" comment (Ibex-specific)
+        if injection_idx is None:
+            for i, line in enumerate(alu_lines):
+                if "Result mux" in line:
+                    for j in range(i, min(i + 100, len(alu_lines))):
+                        line_stripped = alu_lines[j].strip()
+                        if line_stripped == "end":
+                            context = "".join(alu_lines[i:j])
+                            if "always_comb" in context:
+                                injection_idx = j + 1
+                                break
+                    break
 
         if injection_idx is None:
-            raise RuntimeError("Could not find injection point in ibex_alu.sv for monitor")
+            raise RuntimeError(f"Could not find injection point in {source_path.name} for monitor")
 
         # Inject monitor code
         alu_lines.insert(injection_idx, monitor_info['monitor_code'])
 
-        # Write modified ALU
-        modified_alu_path = output_dir / "ibex_alu_modified.sv"
+        # Write modified file
+        modified_alu_path = output_dir / f"{module_name}_modified.sv"
         output_dir.mkdir(parents=True, exist_ok=True)
         with open(modified_alu_path, 'w') as f:
             f.writelines(alu_lines)
@@ -559,12 +647,23 @@ bmc3 -F {k_depth} -v;
         Returns:
             Path to synthesized AIGER file
         """
-        # Read original ibex_alu.sv
+        # Read source file containing the mux (from config)
         config = ConfigLoader.load_config(str(self.config_path))
         core_root = Path(config.synthesis.core_root_resolved)
-        alu_path = core_root / "rtl" / "ibex_alu.sv"
 
-        with open(alu_path, 'r') as f:
+        # Get mux location from config
+        if hasattr(config, 'result_muxes') and len(config.result_muxes) > 0:
+            mux_def = config.result_muxes[0]
+            mux_location = mux_def['location']
+            source_file = mux_location.split(':')[0]
+            source_path = core_root / source_file
+            module_name = Path(source_file).stem
+        else:
+            # Fallback to Ibex
+            source_path = core_root / "rtl" / "ibex_alu.sv"
+            module_name = "ibex_alu"
+
+        with open(source_path, 'r') as f:
             alu_lines = f.readlines()
 
         # Find injection point: after the result mux (around line 1390)
@@ -574,7 +673,6 @@ bmc3 -F {k_depth} -v;
         for i, line in enumerate(alu_lines):
             if "Result mux" in line:
                 result_mux_line = i
-                print(f"[MUX DEBUG] Found 'Result mux' at line {i}", flush=True)
                 # Find the end of the always_comb block
                 found_end_lines = []
                 for j in range(i, min(i + 100, len(alu_lines))):
@@ -584,27 +682,24 @@ bmc3 -F {k_depth} -v;
                         # Check if there's an always_comb in the preceding lines (check from Result mux comment)
                         context = "".join(alu_lines[i:j])
                         has_always_comb = "always_comb" in context
-                        print(f"[MUX DEBUG]   Found 'end' at line {j}, has always_comb in context: {has_always_comb}", flush=True)
                         if has_always_comb:
                             injection_idx = j + 1
-                            print(f"[MUX DEBUG] Found injection point at line {j+1}", flush=True)
                             break
                 if not found_end_lines:
-                    print(f"[MUX DEBUG]   No 'end' lines found in range {i} to {min(i+100, len(alu_lines))}", flush=True)
+                    pass  # No end lines found
                 break
 
         if injection_idx is None:
-            error_msg = f"Could not find injection point in ibex_alu.sv"
+            error_msg = f"Could not find injection point in {source_path.name}"
             if result_mux_line is not None:
                 error_msg += f" (found 'Result mux' at line {result_mux_line} but no matching 'end')"
-            print(f"[MUX DEBUG] {error_msg}", flush=True)
             raise RuntimeError(error_msg)
 
         # Inject assertion
         alu_lines.insert(injection_idx, assertion_code)
 
-        # Write modified ALU
-        modified_alu_path = output_dir / "ibex_alu_modified.sv"
+        # Write modified file
+        modified_alu_path = output_dir / f"{module_name}_modified.sv"
         output_dir.mkdir(parents=True, exist_ok=True)
         with open(modified_alu_path, 'w') as f:
             f.writelines(alu_lines)

@@ -703,21 +703,18 @@ print(count)
                 # Apply mux-level optimizations (if any)
                 if [ "$MUX_ODC_COUNT" -gt 0 ]; then
                     echo "Applying mux-level ODC optimizations..."
-                    # If bit-level already ran, use its output as input; otherwise use original
-                    if [ -f "$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv" ]; then
-                        INPUT_ALU="$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv"
+                    mkdir -p "$OPTIMIZED_RTL_DIR"
+
+                    # Use core-specific mux optimization script
+                    if [ "$CORE_NAME" = "riscvsinglecycle" ]; then
+                        python3 scripts/apply_riscv_single_cycle_mux_opt.py "$MUX_ODC_REPORT" \
+                            --config "$ODC_CONFIG" \
+                            --output-dir "$OPTIMIZED_RTL_DIR"
                     else
-                        INPUT_ALU="$CORE_ROOT/rtl/ibex_alu.sv"
-                        mkdir -p "$OPTIMIZED_RTL_DIR"
-                    fi
-
-                    python3 scripts/apply_mux_optimizations.py "$MUX_ODC_REPORT" \
-                        --config "$ODC_CONFIG" \
-                        --output-dir "$OPTIMIZED_RTL_DIR"
-
-                    # The output is ibex_alu_mux_optimized.sv, rename to ibex_alu_optimized.sv
-                    if [ -f "$OPTIMIZED_RTL_DIR/ibex_alu_mux_optimized.sv" ]; then
-                        mv "$OPTIMIZED_RTL_DIR/ibex_alu_mux_optimized.sv" "$OPTIMIZED_RTL_DIR/ibex_alu_optimized.sv"
+                        # Ibex: use config-based paths with Ibex-specific mux modification
+                        python3 scripts/apply_mux_optimizations.py "$MUX_ODC_REPORT" \
+                            --config "$ODC_CONFIG" \
+                            --output-dir "$OPTIMIZED_RTL_DIR"
                     fi
                 fi
 
@@ -1003,14 +1000,38 @@ if [ -f "$BASELINE_GATES_LOG" ] && [ -f "$OPTIMIZED_GATES_LOG" ]; then
     BASELINE_AREA=$(grep "Chip area for module" "$BASELINE_GATES_LOG" | tail -1 | awk '{print $NF}')
     OPTIMIZED_AREA=$(grep "Chip area for module" "$OPTIMIZED_GATES_LOG" | tail -1 | awk '{print $NF}')
 
+    # Extract sequential area breakdown
+    BASELINE_SEQ=$(grep "of which used for sequential elements:" "$BASELINE_GATES_LOG" | tail -1 | awk '{print $7}')
+    OPTIMIZED_SEQ=$(grep "of which used for sequential elements:" "$OPTIMIZED_GATES_LOG" | tail -1 | awk '{print $7}')
+
     if [ -n "$BASELINE_AREA" ] && [ -n "$OPTIMIZED_AREA" ]; then
         AREA_REDUCTION=$(python3 -c "print(f'{float(\"$BASELINE_AREA\") - float(\"$OPTIMIZED_AREA\"):.2f}')" 2>/dev/null || echo "0.00")
         AREA_PERCENT=$(python3 -c "print(f'{100.0 * (float(\"$BASELINE_AREA\") - float(\"$OPTIMIZED_AREA\")) / float(\"$BASELINE_AREA\"):.2f}')" 2>/dev/null || echo "0.00")
 
+        # Calculate combinational areas
+        if [ -n "$BASELINE_SEQ" ] && [ -n "$OPTIMIZED_SEQ" ]; then
+            BASELINE_COMB=$(python3 -c "print(f'{float(\"$BASELINE_AREA\") - float(\"$BASELINE_SEQ\"):.2f}')" 2>/dev/null)
+            OPTIMIZED_COMB=$(python3 -c "print(f'{float(\"$OPTIMIZED_AREA\") - float(\"$OPTIMIZED_SEQ\"):.2f}')" 2>/dev/null)
+            COMB_REDUCTION=$(python3 -c "print(f'{float(\"$BASELINE_COMB\") - float(\"$OPTIMIZED_COMB\"):.2f}')" 2>/dev/null)
+            SEQ_REDUCTION=$(python3 -c "print(f'{float(\"$BASELINE_SEQ\") - float(\"$OPTIMIZED_SEQ\"):.2f}')" 2>/dev/null)
+        fi
+
         echo "Tech-Mapped Area (SkyWater 130nm):"
-        echo "  Baseline:  $BASELINE_AREA µm²"
-        echo "  Optimized: $OPTIMIZED_AREA µm²"
+        echo "  Baseline Total:  $BASELINE_AREA µm²"
+        if [ -n "$BASELINE_COMB" ]; then
+            echo "    - Combinational: $BASELINE_COMB µm²"
+            echo "    - Sequential:    $BASELINE_SEQ µm²"
+        fi
+        echo "  Optimized Total: $OPTIMIZED_AREA µm²"
+        if [ -n "$OPTIMIZED_COMB" ]; then
+            echo "    - Combinational: $OPTIMIZED_COMB µm²"
+            echo "    - Sequential:    $OPTIMIZED_SEQ µm²"
+        fi
         echo "  Reduction: $AREA_REDUCTION µm² ($AREA_PERCENT%)"
+        if [ -n "$COMB_REDUCTION" ]; then
+            echo "    - Combinational: $COMB_REDUCTION µm²"
+            echo "    - Sequential:    $SEQ_REDUCTION µm²"
+        fi
         echo ""
     fi
 fi

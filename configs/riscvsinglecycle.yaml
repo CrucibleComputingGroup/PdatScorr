@@ -18,7 +18,7 @@ injections:
     # Signal name mapping for this injection point
     signals:
       instruction: "imem_rdata"  # Instruction input to datapath
-      reset: "rst_n"  # Reset signal in datapath
+      reset: "rst"  # Reset signal in datapath
 
   # MDU optimization - can be optimized away if M-extension not used
   - name: "mdu_odc"
@@ -38,7 +38,7 @@ injections:
 signals:
   # Clock and reset
   clk: "clk"
-  rst_n: "rst_n"  # Active-high reset (Veryl reset type)
+  rst_n: "rst"  # Active-high reset (note: signal name is 'rst' in datapath)
 
   # Instruction and PC signals
   instruction_data: "imem_rdata"

@@ -50,8 +50,9 @@ def synthesize_error_injected_circuit(
     is_alu = "alu" in error_injected_rtl.name.lower()
     is_id_stage = "id_stage" in error_injected_rtl.name.lower() or "control" in error_injected_rtl.name.lower()
     is_regfile = "register_file" in error_injected_rtl.name.lower() or "regfile" in error_injected_rtl.name.lower()
+    is_datapath = "datapath" in error_injected_rtl.name.lower()
 
-    if is_alu:
+    if is_alu or is_datapath:
         injection_type = "odc_error"
     elif is_id_stage:
         injection_type = "isa"
@@ -128,7 +129,7 @@ def synthesize_error_injected_circuit(
         config=config,
         synth_script=synth_script,
         id_stage_modified=id_stage_modified,
-        alu_modified=error_injected_rtl if is_alu else None,
+        alu_modified=error_injected_rtl if (is_alu or is_datapath) else None,
         regfile_modified=regfile_optimized,
         output_aig=yosys_aig
     )
@@ -212,11 +213,27 @@ def _generate_synthesis_script(
     if isa_injection:
         modified_map[isa_injection.name] = str(id_stage_modified.absolute())
 
-    # ODC error injection (ALU)
+    # ODC error injection (ALU, datapath, or other mux-containing files)
     if alu_modified:
+        # Try to find matching injection point by type
         odc_injection = config.get_injection("odc_error")
         if odc_injection:
             modified_map[odc_injection.name] = str(alu_modified.absolute())
+            print(f"      Using injection point '{odc_injection.name}' for {alu_modified.name}")
+        else:
+            # No odc_error injection - use result_muxes to determine source file
+            if config.result_muxes:
+                mux_location = config.result_muxes[0]['location']  # e.g., "target/datapath.sv:149"
+                source_file = mux_location.split(':')[0]  # "target/datapath.sv"
+
+                # Create synthetic injection for this file
+                injection_name = "synthetic_mux_odc"
+                injection_to_file_map[source_file] = injection_name
+                modified_map[injection_name] = str(alu_modified.absolute())
+                print(f"      Mapped {alu_modified.name} to replace {source_file} (from result_muxes)")
+            else:
+                print(f"      WARNING: No odc_error injection or result_muxes - cannot map {alu_modified.name}")
+
 
     # Register file optimization
     if regfile_modified:

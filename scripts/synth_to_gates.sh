@@ -197,18 +197,23 @@ yosys -s "$SCRIPT" 2>&1 | tee "$GATES_LOG"
 
 if [ ${PIPESTATUS[0]} -eq 0 ]; then
     if [ "$USE_SKYWATER" = true ]; then
-        # Extract chip area from log (combinational only)
-        CHIP_AREA_COMB=$(grep "Chip area" "$GATES_LOG" | tail -1 | awk '{print $NF}')
+        # Extract chip area from log
+        # NOTE: "Chip area for module" is the TOTAL area (comb + seq), not just combinational!
+        CHIP_AREA=$(grep "Chip area for module" "$GATES_LOG" | tail -1 | awk '{print $NF}')
 
-        # Extract flip-flop count and calculate their area
-        # DFF cells: sky130_fd_sc_hd__dfxtp_1 (area ~20 µm²), dfxtp_2, dfxtp_4, etc.
+        # Extract sequential area breakdown from Yosys output
+        DFF_AREA=$(grep "of which used for sequential elements:" "$GATES_LOG" | tail -1 | awk '{print $7}')
+
+        # Calculate combinational area = total - sequential
+        if [ -n "$CHIP_AREA" ] && [ -n "$DFF_AREA" ]; then
+            CHIP_AREA_COMB=$(python3 -c "print(f'{float(${CHIP_AREA:-0}) - float(${DFF_AREA:-0}):.2f}')" 2>/dev/null || echo "$CHIP_AREA")
+        else
+            CHIP_AREA_COMB="$CHIP_AREA"
+            DFF_AREA="0"
+        fi
+
+        # Extract flip-flop count for reporting
         DFF_COUNT=$(grep -E "sky130_fd_sc_hd__dfx" "$GATES_LOG" | grep -oP 'sky130_fd_sc_hd__dfx\w+\s+\K\d+' | awk '{sum+=$1} END {print sum+0}')
-
-        # Estimate DFF area: assume average ~20 µm² per flip-flop
-        DFF_AREA=$(python3 -c "print(f'{$DFF_COUNT * 20.0:.2f}')" 2>/dev/null || echo "0")
-
-        # Total area = combinational + sequential
-        CHIP_AREA=$(python3 -c "print(f'{float(${CHIP_AREA_COMB:-0}) + float(${DFF_AREA:-0}):.2f}')")
     else
         # Generic cells - extract gate and FF counts instead of area
         DFF_COUNT=$(grep -oP '\$_DFF_P_\s+\K\d+' "$GATES_LOG" | head -1)
