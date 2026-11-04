@@ -1,0 +1,951 @@
+{
+  "status": "passed",
+  "scope": "Original-component local mechanism proof; not full-core equivalence, workload adherence, or hardware area",
+  "rsd_revision": "7b65f6ba0bce58d4d859082660123b7100aae975",
+  "baseline_manifest_sha256": "a1248f3322b7cb8a4883639555319e73cf442be3329c62c7f3584d06a560a38a",
+  "baseline_json_sha256": "a917caae3c7a139b8c892a7271e95d962a83ab0a4c82e18c5b79232123193264",
+  "baseline_verilog_sha256": "e93431c553519ce0e01c8dad196a5918dd02cc2f3fe1b3d5887c3b49e14e5273",
+  "source_file_count": 31,
+  "port_bits": {
+    "input": 631,
+    "output": 545
+  },
+  "flip_flop_bits": 343,
+  "equality_cells": 42,
+  "contract": {
+    "min_spacing": 3,
+    "max_latency": 5,
+    "ordered": true
+  },
+  "assertion_count": 18,
+  "coverage": {
+    "two_waiting_mshrs_and_pending_reads": [
+      {
+        "trace": "results/proof_v6/cover_0.vcd",
+        "cycle": 6
+      },
+      {
+        "trace": "results/proof_v6/cover_1.vcd",
+        "cycle": 8
+      }
+    ],
+    "owner0_raw_high_match_false": [
+      {
+        "trace": "results/proof_v6/cover_2.vcd",
+        "cycle": 8
+      }
+    ],
+    "owner1_raw_high_match_false": [
+      {
+        "trace": "results/proof_v6/cover_1.vcd",
+        "cycle": 8
+      },
+      {
+        "trace": "results/proof_v6/cover_3.vcd",
+        "cycle": 9
+      }
+    ],
+    "allocated_id_wrap_3_to_0": [
+      {
+        "trace": "results/proof_v6/cover_3.vcd",
+        "cycles": [
+          10,
+          13
+        ]
+      }
+    ]
+  },
+  "cover_traces": [
+    {
+      "path": "results/proof_v6/cover_0.vcd",
+      "sha256": "4c6652ecb9fdfed538ba973bf23975ff1466a987b2264dec123a4d47b6fca732",
+      "rows": [
+        {
+          "cycle": 0,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 1,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 1,
+          "allocated_id": 0,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 2,
+          "allocated_id": 0,
+          "read_accept": 1,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 3,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 4,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 5,
+          "allocated_id": 1,
+          "read_accept": 1,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 6,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 2,
+          "waiting0": 1,
+          "waiting1": 1
+        }
+      ]
+    },
+    {
+      "path": "results/proof_v6/cover_1.vcd",
+      "sha256": "fd187ca2cb0faeeeb9b5f89ba46e884a5125771cc6dff0802520d24ef6d804b4",
+      "rows": [
+        {
+          "cycle": 0,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 1,
+          "saved0": 2,
+          "saved1": 2,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 1,
+          "allocated_id": 0,
+          "read_accept": 1,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 2,
+          "saved1": 2,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 2,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 2,
+          "saved1": 2,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 3,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 2,
+          "saved1": 2,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 4,
+          "allocated_id": 1,
+          "read_accept": 1,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 5,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 2,
+          "waiting0": 1,
+          "waiting1": 0
+        },
+        {
+          "cycle": 6,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 2,
+          "waiting0": 1,
+          "waiting1": 0
+        },
+        {
+          "cycle": 7,
+          "allocated_id": 2,
+          "read_accept": 1,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 1,
+          "waiting1": 0
+        },
+        {
+          "cycle": 8,
+          "allocated_id": 3,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 2,
+          "service.count": 2,
+          "waiting0": 1,
+          "waiting1": 1
+        }
+      ]
+    },
+    {
+      "path": "results/proof_v6/cover_2.vcd",
+      "sha256": "5e8c8bd67bb5ebb83e481e843aa18513b5ab2dda393c45701322bb2acca92e7b",
+      "rows": [
+        {
+          "cycle": 0,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 1,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 1,
+          "allocated_id": 0,
+          "read_accept": 1,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 2,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 3,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 3,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 4,
+          "allocated_id": 1,
+          "read_accept": 1,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 5,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 6,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 3,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 7,
+          "allocated_id": 2,
+          "read_accept": 1,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 8,
+          "allocated_id": 3,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 2,
+          "saved1": 0,
+          "service.count": 2,
+          "waiting0": 1,
+          "waiting1": 0
+        }
+      ]
+    },
+    {
+      "path": "results/proof_v6/cover_3.vcd",
+      "sha256": "c79b95912544ba9934e54c69be46a69ff5480e2358673348279f715f2681cbe2",
+      "rows": [
+        {
+          "cycle": 0,
+          "allocated_id": 0,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 1,
+          "saved0": 2,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 1,
+          "allocated_id": 0,
+          "read_accept": 1,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 2,
+          "saved1": 0,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 2,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 3,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 4,
+          "allocated_id": 1,
+          "read_accept": 1,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 5,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 2,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 6,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 7,
+          "allocated_id": 2,
+          "read_accept": 1,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 8,
+          "allocated_id": 3,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 2,
+          "service.count": 2,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 9,
+          "allocated_id": 3,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 2,
+          "service.count": 2,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 10,
+          "allocated_id": 3,
+          "read_accept": 1,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 2,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 11,
+          "allocated_id": 0,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 2,
+          "service.count": 2,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 12,
+          "allocated_id": 0,
+          "read_accept": 0,
+          "response_id": 2,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 2,
+          "service.count": 2,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 13,
+          "allocated_id": 0,
+          "read_accept": 1,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 2,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        }
+      ]
+    }
+  ],
+  "historical_negative_controls": [
+    {
+      "path": "results/negative_deadline_v1",
+      "contract": {
+        "min_spacing": 3,
+        "max_latency": 9,
+        "ordered": true
+      },
+      "scope": "Historical baseline_v3 with extra external read-busy input; not the final native baseline_v5 boundary",
+      "summary_sha256": "ba8c28fea41bdc92317cead8a0acd7f82acd2744d2bdeb42b50f69cba420ddc5",
+      "trace_sha256": "2c5c0162da4bdd20087598e7267abf728e90d04b7cbcbab0554d6f877127cd38",
+      "model_sha256": "66af75c79ff13d2dd48d36d4339026a131b878095936be1b641e3f6c8f7beba7",
+      "failures": [
+        {
+          "cycle": 8,
+          "owners": [
+            1
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "cycle": 0,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 1,
+          "saved0": 1,
+          "saved1": 1,
+          "service.count": 3,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 1,
+          "allocated_id": 0,
+          "read_accept": 1,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 1,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 2,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 1,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 3,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 1,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 4,
+          "allocated_id": 1,
+          "read_accept": 1,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 1,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 5,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 3,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 1,
+          "service.count": 2,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 6,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 2,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 7,
+          "allocated_id": 2,
+          "read_accept": 1,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 0,
+          "service.count": 2,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 8,
+          "allocated_id": 3,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 2,
+          "service.count": 3,
+          "waiting0": 0,
+          "waiting1": 1
+        }
+      ]
+    },
+    {
+      "path": "results/negative_order_v1",
+      "contract": {
+        "min_spacing": 3,
+        "max_latency": 5,
+        "ordered": false
+      },
+      "scope": "Historical baseline_v3 with extra external read-busy input; not the final native baseline_v5 boundary",
+      "summary_sha256": "8eb2145ea6be8e7c9610214232900d3576668585d2909a6d36cc4f3ffdeb85bf",
+      "trace_sha256": "86cdf21aaddb4b243ec14f5a851e4be1499f3e0e0e0de1c3f9b3c8ed8c719942",
+      "model_sha256": "f583d07964f030a9df1a2b89f9816c8b14d9e136a0509fbb71204a073c78d629",
+      "failures": [
+        {
+          "cycle": 14,
+          "owners": [
+            1
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "cycle": 0,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 1,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 6,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 1,
+          "allocated_id": 0,
+          "read_accept": 1,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 2,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 3,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 3,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 4,
+          "allocated_id": 1,
+          "read_accept": 1,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 5,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 2,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 6,
+          "allocated_id": 2,
+          "read_accept": 0,
+          "response_id": 0,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 7,
+          "allocated_id": 2,
+          "read_accept": 1,
+          "response_id": 0,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 8,
+          "allocated_id": 3,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 9,
+          "allocated_id": 3,
+          "read_accept": 0,
+          "response_id": 2,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 10,
+          "allocated_id": 3,
+          "read_accept": 1,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 0,
+          "service.count": 0,
+          "waiting0": 0,
+          "waiting1": 0
+        },
+        {
+          "cycle": 11,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 3,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 12,
+          "allocated_id": 1,
+          "read_accept": 0,
+          "response_id": 2,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 3,
+          "saved1": 3,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 13,
+          "allocated_id": 1,
+          "read_accept": 1,
+          "response_id": 1,
+          "response_valid": 0,
+          "rst": 0,
+          "saved0": 0,
+          "saved1": 3,
+          "service.count": 1,
+          "waiting0": 0,
+          "waiting1": 1
+        },
+        {
+          "cycle": 14,
+          "allocated_id": 0,
+          "read_accept": 0,
+          "response_id": 1,
+          "response_valid": 1,
+          "rst": 0,
+          "saved0": 1,
+          "saved1": 3,
+          "service.count": 2,
+          "waiting0": 1,
+          "waiting1": 1
+        }
+      ]
+    }
+  ],
+  "proof_summary_sha256": "706eb838e6c6b8ac9eac55b080b114b7e4dae1688c9d29a99b1fb5c090882338",
+  "binding_manifest_sha256": "58e260ed88e0fdc0542e59a599a83e22abe30854f64d3e6399d57ce5f0542a90"
+}

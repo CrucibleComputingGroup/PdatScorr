@@ -1,0 +1,32 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/proof/miter.aig"; fold; orpos; pdr -T 120 -v; testcex -a; write_cex -n -c "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/witness/counterexample.txt"; write_cex -a "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/witness/counterexample.aiw"; write_aiger "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/witness/folded.aig"".
+
+Warning: The last 15 outputs are interpreted as constraints.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 386                                                               1   386      0.56 sec
+  2 : 0 302 443                                                           3   426      1.19 sec
+  3 : 0 31 89 462                                                         6   462      1.48 sec
+  4 : 0 31 32 343 1143                                                    3   474      3.37 sec
+  5 : 0 31 38 67 424 817                                                  7   669      4.86 sec
+  6 : 0 31 31 54 79 556 751                                               4   673      5.99 sec
+  7 : 0 31 32 56 82 246 336 903                                          14   687      7.41 sec
+  8 : 0 31 32 56 76 209 171 99 917                                       13   691      7.93 sec
+  9 : 0 31 32 56 71 201 164 78 337 1202                                   6   691      9.51 sec
+ 10 : 0 31 32 56 71 200 163 77 67 343 1169                               10   691     11.17 sec
+ 11 : 0 31 32 56 72 201 166 81 78 78 383 1208                            21   691     13.38 sec
+ 12 : 0 31 32 56 72 191 169 83 79 78 148 498 1434                        21   691     16.45 sec
+ 13 : 0 31 32 55 72 191 165 80 58 54 94 99 382 1036                       5   691     17.45 sec
+ 14 : 0 31 32 55 72 191 165 81 63 64 108 127 142 497 709                 34   691     18.57 sec
+Block = 5334  Oblig =  9082  Clause =  7306  Call = 86090 (sat=57.1%)  Cex =   0  Start = 262
+SAT solving =    12.26 sec ( 65.98 %)
+  unsat     =     2.16 sec ( 11.65 %)
+  sat       =    10.09 sec ( 54.33 %)
+Generalize  =     8.91 sec ( 47.98 %)
+Push clause =     2.85 sec ( 15.34 %)
+Ternary sim =     3.80 sec ( 20.45 %)
+Containment =     0.08 sec (  0.44 %)
+CNF compute =     0.25 sec (  1.37 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =    18.58 sec (100.00 %)
+Output 0 of miter "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/proof/miter" was asserted in frame 18.  Time =    18.60 sec
+Main AIG: The cex is correct.

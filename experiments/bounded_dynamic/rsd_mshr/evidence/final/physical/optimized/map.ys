@@ -1,0 +1,10 @@
+read_verilog -sv "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/optimized.v"
+hierarchy -check -top MshrCandidate
+select -assert-none t:$assume t:$assert t:$check
+select *
+synth -top MshrCandidate
+dfflibmap -liberty "/opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib"
+abc -liberty "/opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib"
+clean
+write_verilog -noattr -noexpr "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/physical_v2/optimized/mapped.v"
+tee -o "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/physical_v2/optimized/stat.json" stat -json -liberty "/opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib"

@@ -1,0 +1,26 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/optimized.json"
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_optimized_v1/PscorrControl.sv" "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_optimized_v1/ReadServiceContract.sv"
+hierarchy -check -top PscorrControl
+proc
+flatten
+setundef -anyseq
+opt -keepdc
+memory_map
+opt -keepdc
+chformal -lower
+select -assert-min 1 t:$assume
+select -assert-none t:$assert
+select *
+async2sync
+techmap
+opt -keepdc
+simplemap
+dfflegalize -cell $_DFF_P_ 01 -mince 99999
+clean
+setundef -anyseq
+delete t:$anyseq
+setundef -undriven -expose
+aigmap
+clean
+check -assert
+write_aiger -zinit -symbols -map /home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_optimized_v1/input.map "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_optimized_v1/input.aig"

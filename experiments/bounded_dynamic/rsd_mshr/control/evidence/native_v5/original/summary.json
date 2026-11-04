@@ -1,0 +1,196 @@
+{
+  "status": "complete_formal_control",
+  "scope": "Matched formal-AIG correspondence control only; no physical area or RTL equivalence certificate claimed",
+  "baseline": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/baseline_v5/baseline.json",
+  "baseline_sha256": "a917caae3c7a139b8c892a7271e95d962a83ab0a4c82e18c5b79232123193264",
+  "monitor": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/ReadServiceContract.sv",
+  "monitor_sha256": "66854a5606df6316600af8b339732135b42241774f7306d37d7bef59e63b7783",
+  "contract": {
+    "min_spacing": 3,
+    "max_latency": 5,
+    "ordered": true
+  },
+  "functional_input_bits": 631,
+  "functional_output_bits": 545,
+  "native_ff_bits": 343,
+  "top": "PscorrControl",
+  "wrapper_sha256": "d1a50ba8d211aa9dfd9bfcc89146edf8dbf7871e927ee502230a958d5aac3640",
+  "initial_state": "Original reset retained; AIGER zinit introduces formal initialization inputs and initial-cycle state. No random-state cycling.",
+  "undefined_values": "Nondeterministic extra inputs before first opt and after techmap, with opt -keepdc; not zero constants.",
+  "physical_mapping_permitted": false,
+  "stages": {
+    "prepare": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_original_v1/prepare.ys"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "timeout": false,
+      "seconds": 0.9187239650636911,
+      "log": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_original_v1/prepare.log",
+      "log_sha256": "c270d7109203d53082c100a542235fc8963622f18195471f4a9f5c486de1f3ee"
+    }
+  },
+  "variants": {
+    "no_scorr": {
+      "command_result": {
+        "argv": [
+          "/usr/bin/yosys-abc",
+          "-f",
+          "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_original_v1/no_scorr/run.abc"
+        ],
+        "returncode": 0,
+        "executable": "/usr/bin/yosys-abc",
+        "executable_sha256": "001a99fb8648794076dd238e42f3bd8c5112a4b8bd89660883325a7e0d006043",
+        "timeout": false,
+        "seconds": 0.13200241513550282,
+        "log": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_original_v1/no_scorr/abc.log",
+        "log_sha256": "42c1251b57aa824b3e629bacb2673cc93b408a9d6ad043a17b12c15ad8255f60"
+      },
+      "scorr": false,
+      "depth": 6,
+      "initial": {
+        "variables": 9625,
+        "inputs": 1443,
+        "latches": 368,
+        "outputs": 545,
+        "ands": 7814,
+        "bad": 0,
+        "constraints": 15,
+        "justice": 0,
+        "fairness": 0
+      },
+      "final": {
+        "variables": 8292,
+        "inputs": 1443,
+        "latches": 368,
+        "outputs": 545,
+        "ands": 6481,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "aig_sha256": "4934523ed734d3ca712a5b39497a78bee7cf707888c8970ff76294ce4ba6663e",
+      "outputs_preserved": true,
+      "status": "complete",
+      "nonhardware_state_lower_bound": 25
+    },
+    "scorr": {
+      "command_result": {
+        "argv": [
+          "/usr/bin/yosys-abc",
+          "-f",
+          "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_original_v1/scorr/run.abc"
+        ],
+        "returncode": 0,
+        "executable": "/usr/bin/yosys-abc",
+        "executable_sha256": "001a99fb8648794076dd238e42f3bd8c5112a4b8bd89660883325a7e0d006043",
+        "timeout": false,
+        "seconds": 1.229171238373965,
+        "log": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_original_v1/scorr/abc.log",
+        "log_sha256": "7143f2720dcdc73f7e97eeff5818f391a5b815c8c3c902ef2950a8359bae8849"
+      },
+      "scorr": true,
+      "depth": 6,
+      "initial": {
+        "variables": 9625,
+        "inputs": 1443,
+        "latches": 368,
+        "outputs": 545,
+        "ands": 7814,
+        "bad": 0,
+        "constraints": 15,
+        "justice": 0,
+        "fairness": 0
+      },
+      "final": {
+        "variables": 7230,
+        "inputs": 1443,
+        "latches": 342,
+        "outputs": 545,
+        "ands": 5445,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "aig_sha256": "98cf578af47983bd818c98903e50438e5375b4b0ddfa8bf76dde9713310c61dc",
+      "outputs_preserved": true,
+      "status": "complete"
+    }
+  },
+  "provenance": {
+    "argv": [
+      "experiments/bounded_dynamic/rsd_mshr/control/run_scorr_control.py",
+      "--baseline",
+      "experiments/bounded_dynamic/rsd_mshr/results/baseline_v5/baseline.json",
+      "--output",
+      "experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_original_v1",
+      "--spacing",
+      "3",
+      "--latency",
+      "5",
+      "--depth",
+      "6",
+      "--timeout",
+      "120"
+    ],
+    "script_sha256": "5fe4e48bed1dc3996e2b8cb96fd13ec96dead797d9498936698dce0cc520075b",
+    "temporal_sha256": "f56d74528b22638e65ad9f12e045c1386b86eecd0856c768d6676182f9cbe8c2",
+    "git_head": "8fe4e9cd2ec531bc4ed0b8f0e60c9b4b66ce6582",
+    "tools": {
+      "yosys": {
+        "path": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "version_command": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-V"
+        ],
+        "version_returncode": 0,
+        "version_output": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)"
+      },
+      "abc": {
+        "path": "/usr/bin/yosys-abc",
+        "sha256": "001a99fb8648794076dd238e42f3bd8c5112a4b8bd89660883325a7e0d006043",
+        "version_command": [
+          "/usr/bin/yosys-abc",
+          "-c",
+          "version"
+        ],
+        "version_returncode": 0,
+        "version_output": "ABC command line: \"version\".\n\nUC Berkeley, ABC 1.01 (compiled Apr  1 2024 04:53:45)"
+      }
+    }
+  },
+  "formal_input": {
+    "variables": 9625,
+    "inputs": 1443,
+    "latches": 368,
+    "outputs": 545,
+    "ands": 7814,
+    "bad": 0,
+    "constraints": 15,
+    "justice": 0,
+    "fairness": 0
+  },
+  "formal_logic_reduction": {
+    "ands": {
+      "before": 6481,
+      "after": 5445,
+      "difference": 1036,
+      "fraction": 0.1598518747106928
+    },
+    "latches": {
+      "before": 368,
+      "after": 342,
+      "difference": 26,
+      "fraction": 0.07065217391304347
+    }
+  }
+}

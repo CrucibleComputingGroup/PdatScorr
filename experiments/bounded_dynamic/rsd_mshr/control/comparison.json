@@ -1,0 +1,89 @@
+{
+  "scope": "Formal encoding counts only; not physical area and not a standalone equivalence certificate",
+  "contract": {
+    "min_spacing": 3,
+    "max_latency": 5,
+    "ordered": true
+  },
+  "monitor_sha256": "66854a5606df6316600af8b339732135b42241774f7306d37d7bef59e63b7783",
+  "native_ff_bits": 343,
+  "changed_hardware_cells": [
+    {
+      "cell": "$116",
+      "original_width": 2,
+      "optimized_width": 1
+    },
+    {
+      "cell": "$326",
+      "original_width": 2,
+      "optimized_width": 1
+    }
+  ],
+  "rows": [
+    {
+      "hardware_input": "original",
+      "correspondence": "no_scorr",
+      "formal_ands": 6307,
+      "formal_latches": 364,
+      "formal_inputs": 1423,
+      "functional_outputs": 546,
+      "source_json_sha256": "31fa3255cd5e7f24d8e95826a22942c7221ab0b84b930fa054de8599a0b7654f"
+    },
+    {
+      "hardware_input": "original",
+      "correspondence": "scorr",
+      "formal_ands": 5310,
+      "formal_latches": 338,
+      "formal_inputs": 1423,
+      "functional_outputs": 546,
+      "source_json_sha256": "31fa3255cd5e7f24d8e95826a22942c7221ab0b84b930fa054de8599a0b7654f"
+    },
+    {
+      "hardware_input": "automatic_equality_cut",
+      "correspondence": "no_scorr",
+      "formal_ands": 6277,
+      "formal_latches": 362,
+      "formal_inputs": 1419,
+      "functional_outputs": 546,
+      "source_json_sha256": "fe531043f7aa4e87a145acf78d5c8e6b9325652cbc3115221440a702cd7080e0"
+    },
+    {
+      "hardware_input": "automatic_equality_cut",
+      "correspondence": "scorr",
+      "formal_ands": 5282,
+      "formal_latches": 336,
+      "formal_inputs": 1419,
+      "functional_outputs": 546,
+      "source_json_sha256": "fe531043f7aa4e87a145acf78d5c8e6b9325652cbc3115221440a702cd7080e0"
+    }
+  ],
+  "limitations": [
+    "Formal monitor and initialization encoding may remain in these AIGs.",
+    "Nondeterministic undefined values and initial-state inputs are not hardware input ports.",
+    "Automatic candidate proof must be checked separately; these controls never authorize an RTL rewrite."
+  ],
+  "artifact_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/summary.json": "44df5fdc2fe7223ceb67233c001dc98034b08b4c44469502acf6bc81d1dbeaf1",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/prepare.ys": "fe21999cfe7cea0323ae2e4247ba4f25c32ed010961d7e7bc273028cea8214ac",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/prepare.log": "d1916213e5cad8577cea82ee370e5dab83cdfa37c913866a40b58169e64a4e95",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/PscorrControl.sv": "4242b535f0de372c14b545b5e7a5e819d1080061b2c7b9a0c6b2807ef1438791",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/ReadServiceContract.sv": "66854a5606df6316600af8b339732135b42241774f7306d37d7bef59e63b7783",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/no_scorr/abc.log": "3881bb7b750d71e017c822d864a067d7a9595a9e5a380ebaf5cd75b5cd5869b1",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/no_scorr/run.abc": "609229cb404858ff36e26c32d0740ae23d4332b45248081220ec43d4ffa48b6e",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/no_scorr/logic.aig": "6676b394dcb6131aa2fe60b842e68636f278ed3083783cb27fadda1805753f62",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/scorr/abc.log": "10417d27cd22c0e8e1db2d419f2a78698c9aa1e54c09030cbed513ab6e6ef043",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/scorr/run.abc": "071a4e38e1e9791fd99acf6a33b9ceb9f5dd05d1ea3f21280c8f717fe1f5acdb",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_v2/scorr/logic.aig": "cdcbf970b1c75ae911397d24485c0877ccb627648026d9c12fccec8d28f19f2a",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/summary.json": "611956b2750612cee71f8f5c3632fa15d922f4ea3d3efa5bccb5ce33b2df78cc",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/prepare.ys": "c056aa622bd7cc40eef925b161900321e87df6eb395f2f77cf762c4943557b86",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/prepare.log": "8eb16d4efd1081b0cce8577f1f27d033c661d14d7296ee8b81d60df521211f85",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/PscorrControl.sv": "4242b535f0de372c14b545b5e7a5e819d1080061b2c7b9a0c6b2807ef1438791",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/ReadServiceContract.sv": "66854a5606df6316600af8b339732135b42241774f7306d37d7bef59e63b7783",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/no_scorr/abc.log": "d81348aab906a0a6de4d19f2ed87bff36a540494f6ad5f50c2bb7f90e66cb99c",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/no_scorr/run.abc": "80b581c2eab2f6bc815f775df73f35f670005c7a25f479a8e7189c83078cd50e",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/no_scorr/logic.aig": "ddb01386472bf519e18bb85964737f0490779387b76890d51aaaa33c0eed92d6",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/scorr/abc.log": "0a31c721c57e954abeb51e5c048aa47af6b646990805ea5e742d735a1190b3a3",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/scorr/run.abc": "99e5da0f3945cd4e1eae4518727a797d3b4c2486f99f055b5e6dc60a945fdee3",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/delta3_latency5_optimized_v1/scorr/logic.aig": "846d6b670dcd03c9268afcea18c9d65d7611fc83e7aa9a2c4740d14ebf07eac1"
+  }
+}

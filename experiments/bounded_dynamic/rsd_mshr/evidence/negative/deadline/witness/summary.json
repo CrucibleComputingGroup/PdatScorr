@@ -1,0 +1,30 @@
+{
+  "status": "validated_functional_counterexample",
+  "scope": "Same archived functional-only miter and PDR command; ABC testcex -a validates before write_cex",
+  "input_aig_sha256": "1f3e1b73c712912f086a414a29a15345c49a76af4f3fb48ba71552268ff8b679",
+  "negative_summary_sha256": "0f28c197abe7cc39baa8b7704d40a080da203465a054e24ba34ac81e7b205dec",
+  "abc_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/proof/miter.aig\"; fold; orpos; pdr -T 120 -v; testcex -a; write_cex -n -c \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/witness/counterexample.txt\"; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/witness/counterexample.aiw\"; write_aiger \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/witness/folded.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 10.902565354015678,
+    "log": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/witness/abc.log",
+    "log_sha256": "b6313b30394bba786f6fb4979d4941718b37a31bade5625d1a32116c495543fc"
+  },
+  "counterexample_result": [
+    "Output 0 of miter \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/proof/miter\" was asserted in frame 11.  Time =    10.68 sec"
+  ],
+  "artifact_sha256": {
+    "counterexample.txt": "e172c8545f2a36628e2af467a96d151befde029675f865bf2612fba47216c3a2",
+    "counterexample.aiw": "b437c5fe58cb4b48b180826dd58e0b039874c897fccc6b27744b7fcb723fefe1",
+    "folded.aig": "1852b9fb0a032151d4eeb701fdeb3baee58729ffbc0346c9ab90ece1dd9b51bb",
+    "run.abc": "c6297e8a5f641d25ead21a5bf0fdaec4f4638e451187dfc5cdc9710b7d57d196"
+  }
+}

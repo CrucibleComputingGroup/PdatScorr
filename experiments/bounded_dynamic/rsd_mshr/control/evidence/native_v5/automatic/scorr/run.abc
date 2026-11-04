@@ -1,0 +1,11 @@
+read_aiger /home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_optimized_v1/input.aig
+strash
+print_stats
+scorr -c -m -F 6 -C 30000 -S 20 -v
+print_stats
+write_aiger /home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_optimized_v1/scorr/optimized_with_constraints.aig
+constr -r -p
+rewrite -l
+balance -l
+print_stats
+write_aiger /home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/control/runs/native_v5_optimized_v1/scorr/logic.aig

@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "baseline": "results/baseline_v5",
+  "baseline_json_sha256": "a917caae3c7a139b8c892a7271e95d962a83ab0a4c82e18c5b79232123193264",
+  "baseline_verilog_sha256": "e93431c553519ce0e01c8dad196a5918dd02cc2f3fe1b3d5887c3b49e14e5273",
+  "baseline_manifest_sha256": "a1248f3322b7cb8a4883639555319e73cf442be3329c62c7f3584d06a560a38a",
+  "wrapper_sha256": "e4d4f975a4d2c1119ddeb8f251fde365c540f10b01d07bc76642c09c89718587",
+  "source_context_sha256": {
+    "Memory/Axi4Memory.sv": "a7101defddf905ee704c014b60fecc992aee69c1425ff12e87acc55fe0b8f693",
+    "Cache/ICache.sv": "efb82a1a5ed022016119a72342c3ec961fd09fe38ec837193d2cd565335a4316",
+    "Core.sv": "e31a09add4783162231b09f50b6cdf0392a9bb135d447f26fcdaf734ab0ef36d"
+  },
+  "input_bits": 631,
+  "defined_output_bits": 545,
+  "flip_flop_bits": 343,
+  "equality_cells": 42,
+  "native_free_list": {
+    "entries": 4,
+    "id_width": 2,
+    "busy": "empty",
+    "push": "response_valid",
+    "push_data": "response_id",
+    "pop": "read_accept && !empty",
+    "next_id": "headData"
+  },
+  "assumptions": "Common synchronous reset; external read transaction contract only in formal monitor",
+  "boundary": "All defined functional outputs of actual handler/arbiter/mux/controller plus actual read-ID FreeList; arbitrary surrounding cache/recovery/write inputs; not a full AXI controller or full OoO core",
+  "excluded_undefined_field": "icMemAccessReqAck.wserial: original MemoryAccessController never assigns it; ICache only reads ack/serial",
+  "historical_v3_to_v4": "All 553 cells and all other ports identical; only raw unassigned ic_ack[0] omitted",
+  "historical_v4_to_v5": "Removed external read_busy input and extra OR gate; original busy=free_empty composition restored",
+  "historical_negative_scope": "negative_deadline_v1 and negative_order_v1 use baseline_v3 with the extra external read-busy input; final two-copy negatives must use baseline_v5"
+}

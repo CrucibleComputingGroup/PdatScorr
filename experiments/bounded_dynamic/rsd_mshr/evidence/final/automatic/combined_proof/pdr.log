@@ -1,0 +1,37 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/combined_proof/miter.aig"; fold; orpos; pdr -T 120 -v".
+
+Warning: The last 16 outputs are interpreted as constraints.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 698                                                               1   687      0.79 sec
+  2 : 0 326 693                                                           2   689      1.31 sec
+  3 : 0 56 152 691                                                        4   701      1.60 sec
+  4 : 0 61 52 381 1008                                                   10   714      3.31 sec
+  5 : 0 56 39 100 440 820                                                 8   714      4.64 sec
+  6 : 0 56 36 80 172 427 969                                              8   714      6.33 sec
+  7 : 0 56 35 69 149 180 579 1008                                        18   714      8.80 sec
+  8 : 0 56 33 54 83 55 28 40 797                                          0   714      9.03 sec
+  9 : 0 56 36 77 145 164 173 181 570 1019                                34   714     12.61 sec
+ 10 : 0 52 20 32 91 95 119 107 200 447 926                               15   714     13.89 sec
+ 11 : 0 52 20 31 91 90 107 95 179 107 401 801                             5   714     14.85 sec
+ 12 : 0 52 21 33 94 94 114 116 223 158 219 447 904                       54   714     17.20 sec
+ 13 : 0 52 19 32 87 83 92 71 128 44 62 78 364 901                         3   714     18.30 sec
+ 14 : 0 52 19 32 87 83 92 71 130 47 63 72 88 378 887                     18   714     19.73 sec
+ 15 : 0 52 19 32 87 83 92 72 135 52 65 51 65 85 376 886                  17   714     21.21 sec
+ 16 : 0 52 19 32 87 83 88 67 132 46 59 46 54 59 33 322 1020               5   714     22.48 sec
+ 17 : 0 52 19 32 87 83 88 67 132 46 59 46 53 59 27 23 288 911             5   714     23.61 sec
+ 18 : 0 52 19 32 87 83 88 67 132 46 59 46 53 59 25 7 0 0 926              0   714     23.89 sec
+Invariant F[16] : 926 clauses with 712 flops (out of 714) (cex = 0, ave = 17.90)
+Verification of invariant with 926 clauses was successful.  Time =     0.08 sec
+Block = 5343  Oblig = 10350  Clause =  8372  Call =103322 (sat=55.4%)  Cex =   0  Start = 317
+SAT solving =    15.84 sec ( 66.06 %)
+  unsat     =     3.08 sec ( 12.85 %)
+  sat       =    12.76 sec ( 53.21 %)
+Generalize  =    11.13 sec ( 46.41 %)
+Push clause =     4.22 sec ( 17.62 %)
+Ternary sim =     4.57 sec ( 19.08 %)
+Containment =     0.15 sec (  0.62 %)
+CNF compute =     0.39 sec (  1.61 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =    23.97 sec (100.00 %)
+Property proved.  Time =    24.01 sec

@@ -1,0 +1,1345 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/proof_v6/proof.ys' --
+
+1. Executing SLANG frontend.
+Top level design units:
+    MshrTimingProof
+
+
+Build succeeded: 0 errors, 0 warnings
+
+1.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$753'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$736'.
+Found and cleaned up 3 empty switches in `\MshrTimingProof.$721'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$662'.
+Removing empty process `MshrTimingProof.$604'.
+Removing empty process `MshrTimingProof.$563'.
+Removing empty process `MshrTimingProof.$550'.
+Found and cleaned up 2 empty switches in `\MshrTimingProof.$545'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$521'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$517'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$496'.
+Removing empty process `MshrTimingProof.$494'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$469'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$466'.
+Removing empty process `MshrTimingProof.$449'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$432'.
+Found and cleaned up 3 empty switches in `\MshrTimingProof.$13'.
+Removing empty process `MshrTimingProof.$11'.
+Removing empty process `MshrTimingProof.$9'.
+Found and cleaned up 2 empty switches in `\MshrTimingProof.$7'.
+Cleaned up 19 empty switches.
+
+1.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $753 in module MshrTimingProof.
+Marked 4 switch rules as full_case in process $736 in module MshrTimingProof.
+Marked 2 switch rules as full_case in process $545 in module MshrTimingProof.
+Marked 5 switch rules as full_case in process $521 in module MshrTimingProof.
+Marked 1 switch rules as full_case in process $517 in module MshrTimingProof.
+Marked 1 switch rules as full_case in process $496 in module MshrTimingProof.
+Marked 4 switch rules as full_case in process $721 in module MshrTimingProof.
+Marked 8 switch rules as full_case in process $469 in module MshrTimingProof.
+Marked 1 switch rules as full_case in process $466 in module MshrTimingProof.
+Marked 8 switch rules as full_case in process $662 in module MshrTimingProof.
+Marked 2 switch rules as full_case in process $432 in module MshrTimingProof.
+Marked 157 switch rules as full_case in process $13 in module MshrTimingProof.
+Marked 1 switch rules as full_case in process $605 in module MshrTimingProof.
+Marked 4 switch rules as full_case in process $783 in module MshrTimingProof.
+Marked 1 switch rules as full_case in process $7 in module MshrTimingProof.
+Removed a total of 0 dead cases.
+
+1.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 126 redundant assignments.
+Promoted 0 assignments to connections.
+
+1.4. Executing PROC_INIT pass (extract init attributes).
+
+1.5. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~253 debug messages>
+
+1.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\MshrTimingProof.$753'.
+     1/8: $pending1$781
+     2/8: $pending0$780
+     3/8: $pending1$774
+     4/8: $pending0$773
+     5/8: $pending1$767
+     6/8: $pending0$766
+     7/8: $pending1$760
+     8/8: $pending0$759
+Creating decoders for process `\MshrTimingProof.$736'.
+     1/6: $seen_three$743
+     2/6: $returned$740
+     3/6: $accepted$738
+     4/6: $seen_three$746
+     5/6: $returned$745
+     6/6: $accepted$744
+Creating decoders for process `\MshrTimingProof.$545'.
+     1/2: $dut.ids.freeList$548
+     2/2: $dut.ids.freeList$549
+Creating decoders for process `\MshrTimingProof.$521'.
+     1/6: $dut.ids.pointer.nextHeadStorage$532
+     2/6: $dut.ids.pointer.nextCount$535
+     3/6: $dut.ids.pointer.nextHeadStorage$534
+     4/6: $dut.ids.pointer.nextTailStorage$526
+     5/6: $dut.ids.pointer.nextCount$529
+     6/6: $dut.ids.pointer.nextTailStorage$528
+Creating decoders for process `\MshrTimingProof.$517'.
+     1/3: $dut.ids.pointer.regCount$520
+     2/3: $dut.ids.pointer.regTailStorage$519
+     3/3: $dut.ids.pointer.regHeadStorage$518
+Creating decoders for process `\MshrTimingProof.$496'.
+     1/2: $dut.controller.nextResultSerial$503
+     2/2: $dut.controller.nextReqSerial$501
+Creating decoders for process `\MshrTimingProof.$721'.
+     1/6: $service.gap$724
+     2/6: $service.gap$725
+     3/6: $service.gap$729
+     4/6: $service.queue_age$728
+     5/6: $service.queue_id$727
+     6/6: $service.count$726
+Creating decoders for process `\MshrTimingProof.$469'.
+     1/12: $dut.controller.memAccessWE$488
+     2/12: $dut.controller.memAccessRE$487
+     3/12: $dut.controller.memAccessWriteData$486
+     4/12: $dut.controller.memAccessAddr$485
+     5/12: $dut.controller.memAccessWE$492
+     6/12: $dut.controller.memAccessRE$491
+     7/12: $dut.controller.memAccessWriteData$490
+     8/12: $dut.controller.memAccessAddr$489
+     9/12: $dut.controller.dcAck$480
+    10/12: $dut.controller.dcAck$481
+    11/12: $dut.controller.dcAck$483
+    12/12: $dut.controller.icAck$482
+Creating decoders for process `\MshrTimingProof.$466'.
+     1/2: $dut.controller.resultSerial$468
+     2/2: $dut.controller.reqSerial$467
+Creating decoders for process `\MshrTimingProof.$662'.
+     1/19: $service.next_age$719
+     2/19: $service.next_id$718
+     3/19: $service.next_count$717
+     4/19: $service.next_age[5:3]$697
+     5/19: $service.next_id[3:2]$696
+     6/19: $service.next_age[8:6]$693
+     7/19: $service.next_id[5:4]$692
+     8/19: $service.next_age[11:9]$689
+     9/19: $service.next_id[7:6]$688
+    10/19: $service.next_age[11:3]$701
+    11/19: $service.next_id[7:2]$700
+    12/19: $service.next_count$699
+    13/19: $service.found$684
+    14/19: $service.match_index[1:0]$683
+    15/19: $service.found$678
+    16/19: $service.match_index[1:0]$677
+    17/19: $service.found$672
+    18/19: $service.match_index[0]$671
+    19/19: $service.found$666
+Creating decoders for process `\MshrTimingProof.$432'.
+     1/15: $dut.arbiter.$9.r[1:0]$442
+     2/15: $441
+     3/15: $440
+     4/15: $dut.arbiter.memValid$439
+     5/15: $dut.arbiter.memInSel$438
+     6/15: $dut.arbiter.grant[0]$437
+     7/15: $447
+     8/15: $dut.arbiter.$9.r[1:0]$446
+     9/15: $dut.arbiter.memValid$445
+    10/15: $dut.arbiter.memInSel$444
+    11/15: $dut.arbiter.grant[0]$443
+    12/15: $436
+    13/15: $435
+    14/15: $dut.arbiter.memValid$434
+    15/15: $dut.arbiter.grant[1]$433
+Creating decoders for process `\MshrTimingProof.$13'.
+     1/206: $dut.handler.nextMSHR[163:0]$426 [163]
+     2/206: $dut.handler.nextMSHR[163:155]$416
+     3/206: $dut.handler.nextMSHR[108:83]$415
+     4/206: $dut.handler.nextMSHR[18:0]$414
+     5/206: $dut.handler.nextMSHR[163:0]$426 [162:158]
+     6/206: $dut.dc.mshrCacheMuxIn[98:90]$422 [8:1]
+     7/206: $dut.dc.mshrCacheMuxIn[98:90]$422 [0]
+     8/206: $dut.handler.nextMSHR[162:158]$408
+     9/206: $dut.handler.nextMSHR[162:158]$406
+    10/206: $dut.handler.nextMSHR[162:158]$401
+    11/206: $dut.handler.nextMSHR[83]$400
+    12/206: $dut.handler.nextMSHR[162:158]$398
+    13/206: $dut.handler.nextMSHR[163:0]$426 [107:86]
+    14/206: $dut.handler.nextMSHR[163:0]$426 [85:84]
+    15/206: $dut.handler.nextMSHR[162:158]$330
+    16/206: $dut.handler.nextMSHR[162:158]$333
+    17/206: $dut.handler.nextMSHR[108]$332
+    18/206: $dut.handler.nextMSHR[82:19]$331
+    19/206: $dut.handler.nextMSHR[162:158]$325
+    20/206: $dut.handler.nextMSHR[85:84]$324
+    21/206: $dut.handler.nextMSHR[162:158]$322
+    22/206: $dut.handler.nextMSHR[162:158]$316
+    23/206: $dut.handler.nextMSHR[83]$315
+    24/206: $dut.handler.nextMSHR[163:158]$410
+    25/206: $dut.handler.nextMSHR[163:0]$426 [13:6]
+    26/206: $dut.handler.nextMSHR[156]$309
+    27/206: $$root.ToIndexPartFromFullAddr.ToIndexPartFromFullAddr$311
+    28/206: $$root.ToIndexPartFromFullAddr.addr$310
+    29/206: $dut.handler.nextMSHR[154:133]$308
+    30/206: $dut.handler.nextMSHR[163:0]$426 [132:109]
+    31/206: $dut.handler.nextMSHR[162:158]$329
+    32/206: $dut.handler.nextMSHR[162:158]$305
+    33/206: $dut.handler.nextMSHR[163:0]$426 [157]
+    34/206: $dut.handler.nextMSHR[163:0]$426 [83]
+    35/206: $dut.handler.nextMSHR[163:0]$426 [5:0]
+    36/206: $dut.handler.nextMSHR[162:158]$413
+    37/206: $dut.handler.nextMSHR[163:158]$303 [4:0]
+    38/206: $dut.handler.nextMSHR[13:6]$301
+    39/206: $dut.handler.mshrFlushComplete[0]$302
+    40/206: $dut.handler.nextMSHR[162:158]$298
+    41/206: $dut.handler.nextMSHR[163:0]$426 [18:15]
+    42/206: $dut.handler.nextMSHR[163:0]$426 [82:19]
+    43/206: $dut.handler.nextMSHR[83]$291
+    44/206: $dut.handler.nextMSHR[163:0]$426 [155]
+    45/206: $dut.handler.nextMSHR[163:0]$426 [108]
+    46/206: $dut.handler.nextMSHR[162:158]$313
+    47/206: $dut.handler.nextMSHR[163:158]$303 [5]
+    48/206: $dut.handler.nextMSHR[162:158]$292
+    49/206: $dut.handler.nextMSHR[163:0]$426 [154:133]
+    50/206: $dut.handler.nextMSHR[162:158]$304
+    51/206: $dut.handler.nextMSHR[163:0]$426 [14]
+    52/206: $dut.handler.nextMSHR[162:158]$289
+    53/206: $dut.handler.nextMSHR[156]$287
+    54/206: $dut.handler.nextMSHR[154:133]$286
+    55/206: $dut.handler.nextMSHR[163:0]$426 [156]
+    56/206: $dut.dc.mshrCacheMuxIn[1:0]$418 [1]
+    57/206: $dut.dc.mshrCacheMuxIn[1:0]$418 [0]
+    58/206: $$root.ToIndexPartFromFullAddr.addr$429
+    59/206: $dut.handler.mshrFlushComplete[0]$428
+    60/206: $dut.handler.mergedLine[63:0]$427
+    61/206: $dut.handler.nextMSHR[162:158]$288
+    62/206: $dut.dc.mshrMemMuxIn[86:65]$425
+    63/206: $dut.dc.mshrMemMuxIn[0]$424
+    64/206: $dut.dc.mshrMemReq[0]$423
+    65/206: $dut.handler.nextMSHR[162:158]$407
+    66/206: $dut.dc.mshrCacheMuxIn[78]$421
+    67/206: $dut.dc.mshrCacheMuxIn[76]$420
+    68/206: $dut.dc.mshrCacheMuxIn[3]$419
+    69/206: $$root.ToIndexPartFromFullAddr.ToIndexPartFromFullAddr$430
+    70/206: $dut.dc.mshrCacheReq[0]$417
+    71/206: $dut.handler.nextMSHR[18:17]$283
+    72/206: $274
+    73/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$273
+    74/206: $270
+    75/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$269
+    76/206: $272
+    77/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$271
+    78/206: $276
+    79/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$275
+    80/206: $260
+    81/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$259
+    82/206: $278
+    83/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$277
+    84/206: $280
+    85/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$279
+    86/206: $246
+    87/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$245
+    88/206: $242
+    89/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$241
+    90/206: $244
+    91/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$243
+    92/206: $248
+    93/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$247
+    94/206: $232
+    95/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$231
+    96/206: $250
+    97/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$249
+    98/206: $252
+    99/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$251
+   100/206: $dut.handler.nextMSHR[18]$224
+   101/206: $dut.handler.nextMSHR[327:164]$219 [163]
+   102/206: $dut.handler.nextMSHR[272:179]$206
+   103/206: $dut.handler.nextMSHR[177:164]$205
+   104/206: $dut.handler.nextMSHR[327:319]$209
+   105/206: $dut.handler.nextMSHR[272:164]$208 [82:19]
+   106/206: $dut.handler.nextMSHR[327:319]$207
+   107/206: $dut.handler.nextMSHR[272:164]$208 [18:15]
+   108/206: $dut.handler.nextMSHR[272:164]$208 [14]
+   109/206: $dut.handler.nextMSHR[326:322]$203
+   110/206: $dut.handler.nextMSHR[272:164]$208 [13:0]
+   111/206: $dut.handler.nextMSHR[327:164]$219 [162:158]
+   112/206: $dut.dc.mshrCacheMuxIn[197:189]$215 [8:1]
+   113/206: $dut.dc.mshrCacheMuxIn[197:189]$215 [0]
+   114/206: $dut.handler.nextMSHR[326:322]$198
+   115/206: $dut.handler.nextMSHR[326:322]$196
+   116/206: $dut.handler.nextMSHR[326:322]$191
+   117/206: $dut.handler.nextMSHR[247]$190
+   118/206: $dut.handler.nextMSHR[326:322]$188
+   119/206: $dut.handler.nextMSHR[327:164]$219 [107:86]
+   120/206: $dut.handler.nextMSHR[327:164]$219 [85:84]
+   121/206: $dut.handler.nextMSHR[326:322]$120
+   122/206: $dut.handler.nextMSHR[326:322]$123
+   123/206: $dut.handler.nextMSHR[272]$122
+   124/206: $dut.handler.nextMSHR[246:183]$121
+   125/206: $dut.handler.nextMSHR[326:322]$115
+   126/206: $dut.handler.nextMSHR[249:248]$114
+   127/206: $dut.handler.nextMSHR[326:322]$112
+   128/206: $dut.handler.nextMSHR[326:322]$106
+   129/206: $dut.handler.nextMSHR[247]$105
+   130/206: $dut.handler.nextMSHR[327:322]$200
+   131/206: $dut.handler.nextMSHR[327:164]$219 [13:6]
+   132/206: $dut.handler.nextMSHR[320]$99
+   133/206: $$root.ToIndexPartFromFullAddr.ToIndexPartFromFullAddr$101
+   134/206: $$root.ToIndexPartFromFullAddr.addr$100
+   135/206: $dut.handler.nextMSHR[318:297]$98
+   136/206: $dut.handler.nextMSHR[327:164]$219 [132:109]
+   137/206: $dut.handler.nextMSHR[326:322]$119
+   138/206: $dut.handler.nextMSHR[326:322]$95
+   139/206: $dut.handler.nextMSHR[327:164]$219 [157]
+   140/206: $dut.handler.nextMSHR[327:164]$219 [83]
+   141/206: $dut.handler.nextMSHR[327:164]$219 [5:0]
+   142/206: $dut.handler.nextMSHR[272:164]$208 [108:83]
+   143/206: $dut.handler.nextMSHR[327:322]$93 [4:0]
+   144/206: $dut.handler.nextMSHR[177:170]$91
+   145/206: $dut.handler.mshrFlushComplete[1]$92
+   146/206: $dut.handler.nextMSHR[326:322]$88
+   147/206: $dut.handler.nextMSHR[327:164]$219 [82:19]
+   148/206: $dut.handler.nextMSHR[327:164]$219 [18:15]
+   149/206: $dut.handler.nextMSHR[247]$81
+   150/206: $dut.handler.nextMSHR[327:164]$219 [155]
+   151/206: $dut.handler.nextMSHR[327:164]$219 [108]
+   152/206: $dut.handler.nextMSHR[326:322]$103
+   153/206: $dut.handler.nextMSHR[327:322]$93 [5]
+   154/206: $dut.handler.nextMSHR[326:322]$82
+   155/206: $dut.handler.nextMSHR[327:164]$219 [154:133]
+   156/206: $dut.handler.nextMSHR[326:322]$94
+   157/206: $dut.handler.nextMSHR[327:164]$219 [14]
+   158/206: $dut.handler.nextMSHR[326:322]$79
+   159/206: $dut.handler.nextMSHR[320]$77
+   160/206: $dut.handler.nextMSHR[318:297]$76
+   161/206: $dut.handler.nextMSHR[327:164]$219 [156]
+   162/206: $dut.dc.mshrCacheMuxIn[100:99]$211 [1]
+   163/206: $dut.dc.mshrCacheMuxIn[100:99]$211 [0]
+   164/206: $$root.ToIndexPartFromFullAddr.addr$222
+   165/206: $dut.handler.mshrFlushComplete[1]$221
+   166/206: $dut.handler.mergedLine[127:64]$220
+   167/206: $dut.handler.nextMSHR[326:322]$78
+   168/206: $dut.dc.mshrMemMuxIn[173:152]$218
+   169/206: $dut.dc.mshrMemMuxIn[87]$217
+   170/206: $dut.dc.mshrMemReq[1]$216
+   171/206: $dut.handler.nextMSHR[326:322]$197
+   172/206: $dut.dc.mshrCacheMuxIn[177]$214
+   173/206: $dut.dc.mshrCacheMuxIn[175]$213
+   174/206: $dut.dc.mshrCacheMuxIn[102]$212
+   175/206: $$root.ToIndexPartFromFullAddr.ToIndexPartFromFullAddr$223
+   176/206: $dut.dc.mshrCacheReq[1]$210
+   177/206: $dut.handler.nextMSHR[182:181]$73
+   178/206: $64
+   179/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$63
+   180/206: $60
+   181/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$59
+   182/206: $62
+   183/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$61
+   184/206: $66
+   185/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$65
+   186/206: $50
+   187/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$49
+   188/206: $68
+   189/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$67
+   190/206: $70
+   191/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$69
+   192/206: $36
+   193/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$35
+   194/206: $32
+   195/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$31
+   196/206: $34
+   197/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$33
+   198/206: $38
+   199/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$37
+   200/206: $22
+   201/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$21
+   202/206: $40
+   203/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$39
+   204/206: $42
+   205/206: $$root.ActiveListIndexTypes.SelectiveFlushDetector.SelectiveFlushDetector$41
+   206/206: $dut.handler.nextMSHR[182]$14
+Creating decoders for process `\MshrTimingProof.$605'.
+     1/15: $659
+     2/15: $655
+     3/15: $650
+     4/15: $646
+     5/15: $641
+     6/15: $637
+     7/15: $632
+     8/15: $628
+     9/15: $624
+    10/15: $622
+    11/15: $619
+    12/15: $616
+    13/15: $613
+    14/15: $610
+    15/15: $608
+Creating decoders for process `\MshrTimingProof.$783'.
+     1/22: $879
+     2/22: $874
+     3/22: $869
+     4/22: $864
+     5/22: $860
+     6/22: $856
+     7/22: $852
+     8/22: $848
+     9/22: $844
+    10/22: $840
+    11/22: $836
+    12/22: $832
+    13/22: $828
+    14/22: $824
+    15/22: $820
+    16/22: $816
+    17/22: $813
+    18/22: $810
+    19/22: $807
+    20/22: $804
+    21/22: $795
+    22/22: $786
+Creating decoders for process `\MshrTimingProof.$7'.
+     1/8: $dut.handler.mshr$8 [327:322]
+     2/8: $dut.handler.mshr$8 [179:164]
+     3/8: $dut.handler.mshr$8 [157:19]
+     4/8: $dut.handler.mshr$8 [15:0]
+     5/8: $dut.handler.mshr$8 [182:180]
+     6/8: $dut.handler.mshr$8 [163:158]
+     7/8: $dut.handler.mshr$8 [18:16]
+     8/8: $dut.handler.mshr$8 [321:183]
+
+1.7. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 7 empty switches in `\MshrTimingProof.$753'.
+Removing empty process `MshrTimingProof.$753'.
+Found and cleaned up 7 empty switches in `\MshrTimingProof.$736'.
+Removing empty process `MshrTimingProof.$736'.
+Found and cleaned up 3 empty switches in `\MshrTimingProof.$545'.
+Removing empty process `MshrTimingProof.$545'.
+Found and cleaned up 7 empty switches in `\MshrTimingProof.$521'.
+Removing empty process `MshrTimingProof.$521'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$517'.
+Removing empty process `MshrTimingProof.$517'.
+Found and cleaned up 3 empty switches in `\MshrTimingProof.$496'.
+Removing empty process `MshrTimingProof.$496'.
+Found and cleaned up 5 empty switches in `\MshrTimingProof.$721'.
+Removing empty process `MshrTimingProof.$721'.
+Found and cleaned up 9 empty switches in `\MshrTimingProof.$469'.
+Removing empty process `MshrTimingProof.$469'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$466'.
+Removing empty process `MshrTimingProof.$466'.
+Found and cleaned up 17 empty switches in `\MshrTimingProof.$662'.
+Removing empty process `MshrTimingProof.$662'.
+Found and cleaned up 6 empty switches in `\MshrTimingProof.$432'.
+Removing empty process `MshrTimingProof.$432'.
+Found and cleaned up 165 empty switches in `\MshrTimingProof.$13'.
+Removing empty process `MshrTimingProof.$13'.
+Found and cleaned up 12 empty switches in `\MshrTimingProof.$605'.
+Removing empty process `MshrTimingProof.$605'.
+Found and cleaned up 9 empty switches in `\MshrTimingProof.$783'.
+Removing empty process `MshrTimingProof.$783'.
+Found and cleaned up 1 empty switch in `\MshrTimingProof.$7'.
+Removing empty process `MshrTimingProof.$7'.
+Cleaned up 253 empty switches.
+
+1.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MshrTimingProof.
+Couldn't topologically sort cells, optimizing module MshrTimingProof may take a longer time.
+Couldn't topologically sort cells, optimizing module MshrTimingProof may take a longer time.
+Couldn't topologically sort cells, optimizing module MshrTimingProof may take a longer time.
+<suppressed ~123 debug messages>
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \MshrTimingProof
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \MshrTimingProof
+Removed 0 unused modules.
+Module MshrTimingProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MshrTimingProof.
+Couldn't topologically sort cells, optimizing module MshrTimingProof may take a longer time.
+
+2.3. Executing CHECK pass (checking for obvious problems).
+Checking module MshrTimingProof...
+Found and reported 0 problems.
+
+2.4. Executing FLATTEN pass (flatten design).
+
+2.5. Executing FUTURE pass.
+
+2.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MshrTimingProof.
+Couldn't topologically sort cells, optimizing module MshrTimingProof may take a longer time.
+
+2.7. Executing CHECK pass (checking for obvious problems).
+Checking module MshrTimingProof...
+Found and reported 0 problems.
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MshrTimingProof..
+Removed 216 unused cells and 1072 unused wires.
+<suppressed ~410 debug messages>
+
+2.9. Executing OPT pass (performing simple optimizations).
+
+2.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MshrTimingProof.
+
+2.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MshrTimingProof'.
+Computing hashes of 1825 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+Computing hashes of 972 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+Computing hashes of 960 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+Computing hashes of 955 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+Computing hashes of 953 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+<suppressed ~2616 debug messages>
+Removed a total of 872 cells.
+
+2.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MshrTimingProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$2165.
+    dead port 2/2 on $mux $procmux$492.
+    dead port 2/2 on $mux $procmux$484.
+    dead port 2/2 on $mux $procmux$1779.
+    dead port 1/2 on $mux $procmux$1776.
+    dead port 1/19 on $pmux $procmux$2033.
+    dead port 2/19 on $pmux $procmux$2033.
+    dead port 3/19 on $pmux $procmux$2033.
+    dead port 4/19 on $pmux $procmux$2033.
+    dead port 5/19 on $pmux $procmux$2033.
+    dead port 6/19 on $pmux $procmux$2033.
+    dead port 7/19 on $pmux $procmux$2033.
+    dead port 8/19 on $pmux $procmux$2033.
+    dead port 9/19 on $pmux $procmux$2033.
+    dead port 10/19 on $pmux $procmux$2033.
+    dead port 11/19 on $pmux $procmux$2033.
+    dead port 12/19 on $pmux $procmux$2033.
+    dead port 13/19 on $pmux $procmux$2033.
+    dead port 14/19 on $pmux $procmux$2033.
+    dead port 15/19 on $pmux $procmux$2033.
+    dead port 16/19 on $pmux $procmux$2033.
+    dead port 17/19 on $pmux $procmux$2033.
+    dead port 18/19 on $pmux $procmux$2033.
+    dead port 2/2 on $mux $procmux$2293.
+    dead port 2/2 on $mux $procmux$2030.
+    dead port 2/2 on $mux $procmux$1757.
+    dead port 1/2 on $mux $procmux$1754.
+    dead port 1/2 on $mux $procmux$1751.
+    dead port 2/2 on $mux $procmux$1748.
+    dead port 1/19 on $pmux $procmux$1933.
+    dead port 2/19 on $pmux $procmux$1933.
+    dead port 3/19 on $pmux $procmux$1933.
+    dead port 4/19 on $pmux $procmux$1933.
+    dead port 5/19 on $pmux $procmux$1933.
+    dead port 6/19 on $pmux $procmux$1933.
+    dead port 7/19 on $pmux $procmux$1933.
+    dead port 8/19 on $pmux $procmux$1933.
+    dead port 9/19 on $pmux $procmux$1933.
+    dead port 10/19 on $pmux $procmux$1933.
+    dead port 11/19 on $pmux $procmux$1933.
+    dead port 12/19 on $pmux $procmux$1933.
+    dead port 13/19 on $pmux $procmux$1933.
+    dead port 14/19 on $pmux $procmux$1933.
+    dead port 15/19 on $pmux $procmux$1933.
+    dead port 16/19 on $pmux $procmux$1933.
+    dead port 17/19 on $pmux $procmux$1933.
+    dead port 18/19 on $pmux $procmux$1933.
+    dead port 2/2 on $mux $procmux$2156.
+    dead port 2/2 on $mux $procmux$1725.
+    dead port 1/2 on $mux $procmux$1722.
+    dead port 1/2 on $mux $procmux$1719.
+    dead port 2/2 on $mux $procmux$1716.
+    dead port 1/2 on $mux $procmux$1714.
+    dead port 2/2 on $mux $procmux$1047.
+    dead port 2/2 on $mux $procmux$2148.
+    dead port 2/2 on $mux $procmux$1690.
+    dead port 1/2 on $mux $procmux$1687.
+    dead port 1/2 on $mux $procmux$1684.
+    dead port 2/2 on $mux $procmux$2281.
+    dead port 2/2 on $mux $procmux$2269.
+    dead port 1/19 on $pmux $procmux$394.
+    dead port 2/19 on $pmux $procmux$394.
+    dead port 3/19 on $pmux $procmux$394.
+    dead port 4/19 on $pmux $procmux$394.
+    dead port 5/19 on $pmux $procmux$394.
+    dead port 6/19 on $pmux $procmux$394.
+    dead port 7/19 on $pmux $procmux$394.
+    dead port 8/19 on $pmux $procmux$394.
+    dead port 9/19 on $pmux $procmux$394.
+    dead port 10/19 on $pmux $procmux$394.
+    dead port 11/19 on $pmux $procmux$394.
+    dead port 12/19 on $pmux $procmux$394.
+    dead port 13/19 on $pmux $procmux$394.
+    dead port 14/19 on $pmux $procmux$394.
+    dead port 15/19 on $pmux $procmux$394.
+    dead port 16/19 on $pmux $procmux$394.
+    dead port 17/19 on $pmux $procmux$394.
+    dead port 18/19 on $pmux $procmux$394.
+    dead port 2/2 on $mux $procmux$1656.
+    dead port 2/2 on $mux $procmux$1642.
+    dead port 1/2 on $mux $procmux$1639.
+    dead port 2/2 on $mux $procmux$1636.
+    dead port 2/2 on $mux $procmux$2257.
+    dead port 2/2 on $mux $procmux$988.
+    dead port 2/2 on $mux $procmux$1619.
+    dead port 1/19 on $pmux $procmux$371.
+    dead port 2/19 on $pmux $procmux$371.
+    dead port 3/19 on $pmux $procmux$371.
+    dead port 4/19 on $pmux $procmux$371.
+    dead port 5/19 on $pmux $procmux$371.
+    dead port 6/19 on $pmux $procmux$371.
+    dead port 7/19 on $pmux $procmux$371.
+    dead port 8/19 on $pmux $procmux$371.
+    dead port 9/19 on $pmux $procmux$371.
+    dead port 10/19 on $pmux $procmux$371.
+    dead port 11/19 on $pmux $procmux$371.
+    dead port 12/19 on $pmux $procmux$371.
+    dead port 13/19 on $pmux $procmux$371.
+    dead port 14/19 on $pmux $procmux$371.
+    dead port 15/19 on $pmux $procmux$371.
+    dead port 16/19 on $pmux $procmux$371.
+    dead port 17/19 on $pmux $procmux$371.
+    dead port 18/19 on $pmux $procmux$371.
+    dead port 1/2 on $mux $procmux$1616.
+    dead port 2/2 on $mux $procmux$951.
+    dead port 2/2 on $mux $procmux$933.
+    dead port 2/2 on $mux $procmux$2245.
+    dead port 1/19 on $pmux $procmux$1909.
+    dead port 2/19 on $pmux $procmux$1909.
+    dead port 3/19 on $pmux $procmux$1909.
+    dead port 4/19 on $pmux $procmux$1909.
+    dead port 5/19 on $pmux $procmux$1909.
+    dead port 6/19 on $pmux $procmux$1909.
+    dead port 7/19 on $pmux $procmux$1909.
+    dead port 8/19 on $pmux $procmux$1909.
+    dead port 9/19 on $pmux $procmux$1909.
+    dead port 10/19 on $pmux $procmux$1909.
+    dead port 11/19 on $pmux $procmux$1909.
+    dead port 12/19 on $pmux $procmux$1909.
+    dead port 13/19 on $pmux $procmux$1909.
+    dead port 14/19 on $pmux $procmux$1909.
+    dead port 15/19 on $pmux $procmux$1909.
+    dead port 16/19 on $pmux $procmux$1909.
+    dead port 17/19 on $pmux $procmux$1909.
+    dead port 18/19 on $pmux $procmux$1909.
+    dead port 1/19 on $pmux $procmux$2007.
+    dead port 2/19 on $pmux $procmux$2007.
+    dead port 3/19 on $pmux $procmux$2007.
+    dead port 4/19 on $pmux $procmux$2007.
+    dead port 5/19 on $pmux $procmux$2007.
+    dead port 6/19 on $pmux $procmux$2007.
+    dead port 7/19 on $pmux $procmux$2007.
+    dead port 8/19 on $pmux $procmux$2007.
+    dead port 9/19 on $pmux $procmux$2007.
+    dead port 10/19 on $pmux $procmux$2007.
+    dead port 11/19 on $pmux $procmux$2007.
+    dead port 12/19 on $pmux $procmux$2007.
+    dead port 13/19 on $pmux $procmux$2007.
+    dead port 14/19 on $pmux $procmux$2007.
+    dead port 15/19 on $pmux $procmux$2007.
+    dead port 16/19 on $pmux $procmux$2007.
+    dead port 17/19 on $pmux $procmux$2007.
+    dead port 18/19 on $pmux $procmux$2007.
+    dead port 2/2 on $mux $procmux$1597.
+    dead port 1/2 on $mux $procmux$1594.
+    dead port 1/2 on $mux $procmux$1591.
+    dead port 2/2 on $mux $procmux$1588.
+    dead port 1/19 on $pmux $procmux$348.
+    dead port 2/19 on $pmux $procmux$348.
+    dead port 3/19 on $pmux $procmux$348.
+    dead port 4/19 on $pmux $procmux$348.
+    dead port 5/19 on $pmux $procmux$348.
+    dead port 6/19 on $pmux $procmux$348.
+    dead port 7/19 on $pmux $procmux$348.
+    dead port 8/19 on $pmux $procmux$348.
+    dead port 9/19 on $pmux $procmux$348.
+    dead port 10/19 on $pmux $procmux$348.
+    dead port 11/19 on $pmux $procmux$348.
+    dead port 12/19 on $pmux $procmux$348.
+    dead port 13/19 on $pmux $procmux$348.
+    dead port 14/19 on $pmux $procmux$348.
+    dead port 15/19 on $pmux $procmux$348.
+    dead port 16/19 on $pmux $procmux$348.
+    dead port 17/19 on $pmux $procmux$348.
+    dead port 18/19 on $pmux $procmux$348.
+    dead port 2/2 on $mux $procmux$2243.
+    dead port 2/2 on $mux $procmux$1565.
+    dead port 1/2 on $mux $procmux$1562.
+    dead port 1/2 on $mux $procmux$1559.
+    dead port 2/2 on $mux $procmux$1556.
+    dead port 1/2 on $mux $procmux$1554.
+    dead port 1/19 on $pmux $procmux$898.
+    dead port 2/19 on $pmux $procmux$898.
+    dead port 3/19 on $pmux $procmux$898.
+    dead port 4/19 on $pmux $procmux$898.
+    dead port 5/19 on $pmux $procmux$898.
+    dead port 6/19 on $pmux $procmux$898.
+    dead port 7/19 on $pmux $procmux$898.
+    dead port 8/19 on $pmux $procmux$898.
+    dead port 9/19 on $pmux $procmux$898.
+    dead port 10/19 on $pmux $procmux$898.
+    dead port 11/19 on $pmux $procmux$898.
+    dead port 12/19 on $pmux $procmux$898.
+    dead port 13/19 on $pmux $procmux$898.
+    dead port 14/19 on $pmux $procmux$898.
+    dead port 15/19 on $pmux $procmux$898.
+    dead port 16/19 on $pmux $procmux$898.
+    dead port 17/19 on $pmux $procmux$898.
+    dead port 18/19 on $pmux $procmux$898.
+    dead port 2/2 on $mux $procmux$895.
+    dead port 2/2 on $mux $procmux$1530.
+    dead port 1/2 on $mux $procmux$1527.
+    dead port 1/2 on $mux $procmux$1524.
+    dead port 2/2 on $mux $procmux$2903.
+    dead port 2/2 on $mux $procmux$2925.
+    dead port 2/2 on $mux $procmux$2947.
+    dead port 1/2 on $mux $procmux$290.
+    dead port 2/2 on $mux $procmux$2784.
+    dead port 1/2 on $mux $procmux$286.
+    dead port 1/2 on $mux $procmux$282.
+    dead port 2/2 on $mux $procmux$2803.
+    dead port 2/2 on $mux $procmux$2823.
+    dead port 2/2 on $mux $procmux$233.
+    dead port 2/2 on $mux $procmux$229.
+    dead port 2/2 on $mux $procmux$225.
+    dead port 2/2 on $mux $procmux$220.
+    dead port 2/2 on $mux $procmux$215.
+    dead port 2/2 on $mux $procmux$210.
+    dead port 1/2 on $mux $procmux$2857.
+    dead port 1/2 on $mux $procmux$183.
+    dead port 1/2 on $mux $procmux$176.
+    dead port 1/2 on $mux $procmux$173.
+    dead port 2/2 on $mux $procmux$2859.
+    dead port 2/2 on $mux $procmux$1444.
+    dead port 1/2 on $mux $procmux$1442.
+    dead port 1/2 on $mux $procmux$140.
+    dead port 1/2 on $mux $procmux$112.
+    dead port 1/2 on $mux $procmux$105.
+    dead port 1/2 on $mux $procmux$102.
+    dead port 2/2 on $mux $procmux$77.
+    dead port 2/2 on $mux $procmux$64.
+    dead port 1/2 on $mux $procmux$55.
+    dead port 1/2 on $mux $procmux$38.
+    dead port 1/2 on $mux $procmux$33.
+    dead port 1/2 on $mux $procmux$27.
+    dead port 2/2 on $mux $procmux$3490.
+    dead port 2/2 on $mux $procmux$3476.
+    dead port 1/2 on $mux $procmux$3473.
+    dead port 2/2 on $mux $procmux$3470.
+    dead port 1/19 on $pmux $procmux$1884.
+    dead port 2/19 on $pmux $procmux$1884.
+    dead port 3/19 on $pmux $procmux$1884.
+    dead port 4/19 on $pmux $procmux$1884.
+    dead port 5/19 on $pmux $procmux$1884.
+    dead port 6/19 on $pmux $procmux$1884.
+    dead port 7/19 on $pmux $procmux$1884.
+    dead port 8/19 on $pmux $procmux$1884.
+    dead port 9/19 on $pmux $procmux$1884.
+    dead port 10/19 on $pmux $procmux$1884.
+    dead port 11/19 on $pmux $procmux$1884.
+    dead port 12/19 on $pmux $procmux$1884.
+    dead port 13/19 on $pmux $procmux$1884.
+    dead port 14/19 on $pmux $procmux$1884.
+    dead port 15/19 on $pmux $procmux$1884.
+    dead port 16/19 on $pmux $procmux$1884.
+    dead port 17/19 on $pmux $procmux$1884.
+    dead port 18/19 on $pmux $procmux$1884.
+    dead port 1/2 on $mux $procmux$1881.
+    dead port 2/2 on $mux $procmux$1398.
+    dead port 1/19 on $pmux $procmux$1983.
+    dead port 2/19 on $pmux $procmux$1983.
+    dead port 3/19 on $pmux $procmux$1983.
+    dead port 4/19 on $pmux $procmux$1983.
+    dead port 5/19 on $pmux $procmux$1983.
+    dead port 6/19 on $pmux $procmux$1983.
+    dead port 7/19 on $pmux $procmux$1983.
+    dead port 8/19 on $pmux $procmux$1983.
+    dead port 9/19 on $pmux $procmux$1983.
+    dead port 10/19 on $pmux $procmux$1983.
+    dead port 11/19 on $pmux $procmux$1983.
+    dead port 12/19 on $pmux $procmux$1983.
+    dead port 13/19 on $pmux $procmux$1983.
+    dead port 14/19 on $pmux $procmux$1983.
+    dead port 15/19 on $pmux $procmux$1983.
+    dead port 16/19 on $pmux $procmux$1983.
+    dead port 17/19 on $pmux $procmux$1983.
+    dead port 18/19 on $pmux $procmux$1983.
+    dead port 2/2 on $mux $procmux$3453.
+    dead port 1/2 on $mux $procmux$3450.
+    dead port 2/2 on $mux $procmux$2481.
+    dead port 2/2 on $mux $procmux$3431.
+    dead port 1/2 on $mux $procmux$3428.
+    dead port 2/2 on $mux $procmux$520.
+    dead port 2/2 on $mux $procmux$1110.
+    dead port 2/2 on $mux $procmux$817.
+    dead port 2/2 on $mux $procmux$799.
+    dead port 2/2 on $mux $procmux$797.
+    dead port 1/2 on $mux $procmux$794.
+    dead port 2/2 on $mux $procmux$768.
+    dead port 2/2 on $mux $procmux$2463.
+    dead port 1/2 on $mux $procmux$3425.
+    dead port 2/2 on $mux $procmux$3422.
+    dead port 1/19 on $pmux $procmux$2562.
+    dead port 2/19 on $pmux $procmux$2562.
+    dead port 3/19 on $pmux $procmux$2562.
+    dead port 4/19 on $pmux $procmux$2562.
+    dead port 5/19 on $pmux $procmux$2562.
+    dead port 6/19 on $pmux $procmux$2562.
+    dead port 7/19 on $pmux $procmux$2562.
+    dead port 8/19 on $pmux $procmux$2562.
+    dead port 9/19 on $pmux $procmux$2562.
+    dead port 10/19 on $pmux $procmux$2562.
+    dead port 11/19 on $pmux $procmux$2562.
+    dead port 12/19 on $pmux $procmux$2562.
+    dead port 13/19 on $pmux $procmux$2562.
+    dead port 14/19 on $pmux $procmux$2562.
+    dead port 15/19 on $pmux $procmux$2562.
+    dead port 16/19 on $pmux $procmux$2562.
+    dead port 17/19 on $pmux $procmux$2562.
+    dead port 18/19 on $pmux $procmux$2562.
+    dead port 2/2 on $mux $procmux$3399.
+    dead port 1/2 on $mux $procmux$3396.
+    dead port 1/2 on $mux $procmux$3393.
+    dead port 2/2 on $mux $procmux$3390.
+    dead port 1/2 on $mux $procmux$3388.
+    dead port 2/2 on $mux $procmux$2461.
+    dead port 2/2 on $mux $procmux$3364.
+    dead port 1/2 on $mux $procmux$3361.
+    dead port 1/2 on $mux $procmux$3358.
+    dead port 2/2 on $mux $procmux$2351.
+    dead port 1/2 on $mux $procmux$2458.
+    dead port 2/2 on $mux $procmux$3330.
+    dead port 2/2 on $mux $procmux$3316.
+    dead port 1/2 on $mux $procmux$3313.
+    dead port 2/2 on $mux $procmux$3310.
+    dead port 2/2 on $mux $procmux$1273.
+    dead port 2/2 on $mux $procmux$3293.
+    dead port 1/2 on $mux $procmux$3290.
+    dead port 2/2 on $mux $procmux$1251.
+    dead port 2/2 on $mux $procmux$2597.
+    dead port 2/2 on $mux $procmux$3271.
+    dead port 1/2 on $mux $procmux$3268.
+    dead port 1/2 on $mux $procmux$3265.
+    dead port 2/2 on $mux $procmux$3262.
+    dead port 1/19 on $pmux $procmux$2058.
+    dead port 2/19 on $pmux $procmux$2058.
+    dead port 3/19 on $pmux $procmux$2058.
+    dead port 4/19 on $pmux $procmux$2058.
+    dead port 5/19 on $pmux $procmux$2058.
+    dead port 6/19 on $pmux $procmux$2058.
+    dead port 7/19 on $pmux $procmux$2058.
+    dead port 8/19 on $pmux $procmux$2058.
+    dead port 9/19 on $pmux $procmux$2058.
+    dead port 10/19 on $pmux $procmux$2058.
+    dead port 11/19 on $pmux $procmux$2058.
+    dead port 12/19 on $pmux $procmux$2058.
+    dead port 13/19 on $pmux $procmux$2058.
+    dead port 14/19 on $pmux $procmux$2058.
+    dead port 15/19 on $pmux $procmux$2058.
+    dead port 16/19 on $pmux $procmux$2058.
+    dead port 17/19 on $pmux $procmux$2058.
+    dead port 18/19 on $pmux $procmux$2058.
+    dead port 2/2 on $mux $procmux$2615.
+    dead port 2/2 on $mux $procmux$3239.
+    dead port 1/2 on $mux $procmux$3236.
+    dead port 1/2 on $mux $procmux$3233.
+    dead port 2/2 on $mux $procmux$3230.
+    dead port 1/2 on $mux $procmux$3228.
+    dead port 2/2 on $mux $procmux$687.
+    dead port 2/2 on $mux $procmux$2652.
+    dead port 2/2 on $mux $procmux$1229.
+    dead port 2/2 on $mux $procmux$3204.
+    dead port 1/2 on $mux $procmux$3201.
+    dead port 1/2 on $mux $procmux$3198.
+    dead port 2/2 on $mux $procmux$3072.
+    dead port 2/2 on $mux $procmux$682.
+    dead port 1/19 on $pmux $procmux$1859.
+    dead port 2/19 on $pmux $procmux$1859.
+    dead port 3/19 on $pmux $procmux$1859.
+    dead port 4/19 on $pmux $procmux$1859.
+    dead port 5/19 on $pmux $procmux$1859.
+    dead port 6/19 on $pmux $procmux$1859.
+    dead port 7/19 on $pmux $procmux$1859.
+    dead port 8/19 on $pmux $procmux$1859.
+    dead port 9/19 on $pmux $procmux$1859.
+    dead port 10/19 on $pmux $procmux$1859.
+    dead port 11/19 on $pmux $procmux$1859.
+    dead port 12/19 on $pmux $procmux$1859.
+    dead port 13/19 on $pmux $procmux$1859.
+    dead port 14/19 on $pmux $procmux$1859.
+    dead port 15/19 on $pmux $procmux$1859.
+    dead port 16/19 on $pmux $procmux$1859.
+    dead port 17/19 on $pmux $procmux$1859.
+    dead port 18/19 on $pmux $procmux$1859.
+    dead port 2/2 on $mux $procmux$668.
+    dead port 2/2 on $mux $procmux$654.
+    dead port 2/2 on $mux $procmux$2346.
+    dead port 2/2 on $mux $procmux$641.
+    dead port 1/2 on $mux $procmux$1856.
+    dead port 2/2 on $mux $procmux$629.
+    dead port 1/2 on $mux $procmux$3116.
+    dead port 2/2 on $mux $procmux$617.
+    dead port 2/2 on $mux $procmux$605.
+    dead port 2/2 on $mux $procmux$593.
+    dead port 2/2 on $mux $procmux$3118.
+    dead port 2/2 on $mux $procmux$1816.
+    dead port 2/2 on $mux $procmux$581.
+    dead port 1/19 on $pmux $procmux$1958.
+    dead port 2/19 on $pmux $procmux$1958.
+    dead port 3/19 on $pmux $procmux$1958.
+    dead port 4/19 on $pmux $procmux$1958.
+    dead port 5/19 on $pmux $procmux$1958.
+    dead port 6/19 on $pmux $procmux$1958.
+    dead port 7/19 on $pmux $procmux$1958.
+    dead port 8/19 on $pmux $procmux$1958.
+    dead port 9/19 on $pmux $procmux$1958.
+    dead port 10/19 on $pmux $procmux$1958.
+    dead port 11/19 on $pmux $procmux$1958.
+    dead port 12/19 on $pmux $procmux$1958.
+    dead port 13/19 on $pmux $procmux$1958.
+    dead port 14/19 on $pmux $procmux$1958.
+    dead port 15/19 on $pmux $procmux$1958.
+    dead port 16/19 on $pmux $procmux$1958.
+    dead port 17/19 on $pmux $procmux$1958.
+    dead port 18/19 on $pmux $procmux$1958.
+    dead port 2/2 on $mux $procmux$579.
+    dead port 2/2 on $mux $procmux$2332.
+    dead port 1/2 on $mux $procmux$1955.
+    dead port 2/2 on $mux $procmux$510.
+    dead port 2/2 on $mux $procmux$501.
+    dead port 2/2 on $mux $procmux$2721.
+    dead port 2/2 on $mux $procmux$2318.
+    dead port 2/2 on $mux $procmux$1802.
+    dead port 2/2 on $mux $procmux$2305.
+    dead port 1/2 on $mux $procmux$1799.
+    dead port 2/2 on $mux $procmux$2184.
+    dead port 2/2 on $mux $procmux$1185.
+    dead port 2/2 on $mux $procmux$2432.
+    dead port 1/2 on $mux $procmux$1183.
+    dead port 2/2 on $mux $procmux$1796.
+    dead port 2/2 on $mux $procmux$1149.
+    dead port 2/2 on $mux $procmux$2174.
+    dead port 2/2 on $mux $procmux$1129.
+Removed 423 multiplexer ports.
+<suppressed ~1111 debug messages>
+
+2.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MshrTimingProof.
+    New ctrl vector for $pmux cell $procmux$1019: { $procmux$1283_CMP $procmux$1284_CMP $auto$opt_reduce.cc:137:opt_pmux$3666 $procmux$1294_CMP }
+    New ctrl vector for $pmux cell $procmux$1428: $auto$opt_reduce.cc:137:opt_pmux$3668
+    New ctrl vector for $pmux cell $procmux$847: { $auto$opt_reduce.cc:137:opt_pmux$3670 $procmux$1429_CMP $procmux$1433_CMP $procmux$1294_CMP $procmux$1435_CMP }
+    New ctrl vector for $pmux cell $procmux$1077: { $auto$opt_reduce.cc:137:opt_pmux$3672 $procmux$1284_CMP }
+    New ctrl vector for $pmux cell $procmux$1416: $auto$opt_reduce.cc:137:opt_pmux$3674
+    New ctrl vector for $pmux cell $procmux$2684: $auto$opt_reduce.cc:137:opt_pmux$3676
+    New ctrl vector for $pmux cell $procmux$1406: $auto$opt_reduce.cc:137:opt_pmux$3678
+    New ctrl vector for $pmux cell $procmux$2864: { $auto$opt_reduce.cc:137:opt_pmux$3680 $procmux$2523_CMP }
+    New ctrl vector for $pmux cell $procmux$2486: { $auto$opt_reduce.cc:137:opt_pmux$3684 $auto$opt_reduce.cc:137:opt_pmux$3682 $procmux$2527_CMP }
+    New ctrl vector for $pmux cell $procmux$822: { $auto$opt_reduce.cc:137:opt_pmux$3688 $auto$opt_reduce.cc:137:opt_pmux$3686 $procmux$1294_CMP }
+    New ctrl vector for $pmux cell $procmux$2211: { $auto$opt_reduce.cc:137:opt_pmux$3690 $procmux$2544_CMP $procmux$2527_CMP }
+    New ctrl vector for $pmux cell $procmux$2511: { $auto$opt_reduce.cc:137:opt_pmux$3692 $procmux$2541_CMP $procmux$2546_CMP $procmux$2527_CMP $procmux$2530_CMP }
+    New ctrl vector for $pmux cell $procmux$2751: { $auto$opt_reduce.cc:137:opt_pmux$3694 $procmux$2543_CMP }
+    New ctrl vector for $pmux cell $procmux$324: { $procmux$1279_CMP $auto$opt_reduce.cc:137:opt_pmux$3696 $procmux$1294_CMP }
+    New ctrl vector for $pmux cell $procmux$2537: $auto$opt_reduce.cc:137:opt_pmux$3698
+    New ctrl vector for $pmux cell $procmux$2356: { $auto$opt_reduce.cc:137:opt_pmux$3700 $procmux$2527_CMP }
+    New ctrl vector for $pmux cell $procmux$2726: { $auto$opt_reduce.cc:137:opt_pmux$3704 $auto$opt_reduce.cc:137:opt_pmux$3702 $procmux$2527_CMP }
+    New ctrl vector for $pmux cell $procmux$1278: { $auto$opt_reduce.cc:137:opt_pmux$3708 $auto$opt_reduce.cc:137:opt_pmux$3706 $procmux$1290_CMP $procmux$1399_CMP }
+    New ctrl vector for $pmux cell $procmux$2952: { $auto$opt_reduce.cc:137:opt_pmux$3712 $auto$opt_reduce.cc:137:opt_pmux$3710 $procmux$2523_CMP $procmux$2532_CMP }
+    New ctrl vector for $pmux cell $procmux$993: $auto$opt_reduce.cc:137:opt_pmux$3714
+    New ctrl vector for $pmux cell $procmux$873: $auto$opt_reduce.cc:137:opt_pmux$3716
+    New ctrl vector for $pmux cell $procmux$692: { $auto$opt_reduce.cc:137:opt_pmux$3718 $procmux$1294_CMP }
+    New ctrl vector for $pmux cell $procmux$3080: $auto$opt_reduce.cc:137:opt_pmux$3720
+    New ctrl vector for $pmux cell $procmux$2657: { $auto$opt_reduce.cc:137:opt_pmux$3724 $procmux$2542_CMP $procmux$2543_CMP $auto$opt_reduce.cc:137:opt_pmux$3722 $procmux$2527_CMP }
+    New ctrl vector for $pmux cell $procmux$1052: { $auto$opt_reduce.cc:137:opt_pmux$3728 $auto$opt_reduce.cc:137:opt_pmux$3726 $procmux$1294_CMP }
+    New ctrl vector for $pmux cell $procmux$3090: $auto$opt_reduce.cc:137:opt_pmux$3730
+    New ctrl vector for $pmux cell $procmux$3102: $auto$opt_reduce.cc:137:opt_pmux$3732
+    New ctrl vector for $pmux cell $procmux$2189: $auto$opt_reduce.cc:137:opt_pmux$3734
+    New ctrl vector for $pmux cell $procmux$1190: { $auto$opt_reduce.cc:137:opt_pmux$3736 $procmux$1290_CMP }
+    New ctrl vector for $pmux cell $procmux$525: $auto$opt_reduce.cc:137:opt_pmux$3738
+    New ctrl vector for $pmux cell $procmux$547: { $auto$opt_reduce.cc:137:opt_pmux$3740 $procmux$1431_CMP $procmux$1294_CMP }
+    New ctrl vector for $pmux cell $procmux$1833: { $procmux$2538_CMP $auto$opt_reduce.cc:137:opt_pmux$3742 $procmux$2527_CMP }
+  Optimizing cells in module \MshrTimingProof.
+Performed a total of 37 changes.
+
+2.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MshrTimingProof'.
+Computing hashes of 807 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+Computing hashes of 766 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+Computing hashes of 759 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+<suppressed ~144 debug messages>
+Removed a total of 48 cells.
+
+2.9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MshrTimingProof..
+Removed 0 unused cells and 1104 unused wires.
+<suppressed ~1 debug messages>
+
+2.9.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MshrTimingProof.
+
+2.9.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.9.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MshrTimingProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$302: \dut.dc.mshrMemGrt [1] -> 1'1
+      Replacing known input bits on port A of cell $procmux$280: \dut.dc.mshrMemGrt [1] -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~582 debug messages>
+
+2.9.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MshrTimingProof.
+    New ctrl vector for $pmux cell $procmux$847: { $auto$opt_reduce.cc:137:opt_pmux$3744 $procmux$1006_CMP $auto$opt_reduce.cc:137:opt_pmux$3670 }
+    New ctrl vector for $pmux cell $procmux$2511: { $auto$opt_reduce.cc:137:opt_pmux$3746 $procmux$1847_CMP $auto$opt_reduce.cc:137:opt_pmux$3692 }
+  Optimizing cells in module \MshrTimingProof.
+Performed a total of 2 changes.
+
+2.9.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MshrTimingProof'.
+Computing hashes of 761 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+Computing hashes of 758 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+2.9.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MshrTimingProof..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+2.9.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MshrTimingProof.
+
+2.9.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.9.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MshrTimingProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~576 debug messages>
+
+2.9.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MshrTimingProof.
+Performed a total of 0 changes.
+
+2.9.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MshrTimingProof'.
+Computing hashes of 758 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+Removed a total of 0 cells.
+
+2.9.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MshrTimingProof..
+
+2.9.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MshrTimingProof.
+
+2.9.20. Finished fast OPT passes. (There is nothing left to do.)
+
+2.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$74 ($mux).
+Removed top 24 bits (of 32) from port A of cell MshrTimingProof.$90 ($add).
+Removed top 31 bits (of 32) from port B of cell MshrTimingProof.$90 ($add).
+Removed top 24 bits (of 32) from port Y of cell MshrTimingProof.$90 ($add).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$284 ($mux).
+Removed top 24 bits (of 32) from port A of cell MshrTimingProof.$300 ($add).
+Removed top 31 bits (of 32) from port B of cell MshrTimingProof.$300 ($add).
+Removed top 24 bits (of 32) from port Y of cell MshrTimingProof.$300 ($add).
+Removed top 1 bits (of 2) from port A of cell MshrTimingProof.$460 ($not).
+Removed top 86 bits (of 87) from mux cell MshrTimingProof.$464 ($mux).
+Removed top 1 bits (of 2) from port B of cell MshrTimingProof.$525 ($add).
+Removed top 1 bits (of 2) from port B of cell MshrTimingProof.$527 ($add).
+Removed top 1 bits (of 2) from port B of cell MshrTimingProof.$531 ($add).
+Removed top 1 bits (of 2) from port B of cell MshrTimingProof.$533 ($sub).
+Removed top 30 bits (of 32) from port A of cell MshrTimingProof.$617 ($ge).
+Removed top 30 bits (of 32) from port B of cell MshrTimingProof.$617 ($ge).
+Removed top 29 bits (of 32) from port A of cell MshrTimingProof.$629 ($lt).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$629 ($lt).
+Removed top 29 bits (of 32) from port A of cell MshrTimingProof.$638 ($lt).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$638 ($lt).
+Removed top 29 bits (of 32) from port A of cell MshrTimingProof.$647 ($lt).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$647 ($lt).
+Removed top 29 bits (of 32) from port A of cell MshrTimingProof.$656 ($lt).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$656 ($lt).
+Removed top 2 bits (of 3) from port B of cell MshrTimingProof.$667 ($add).
+Removed top 31 bits (of 32) from port A of cell MshrTimingProof.$686 ($ge).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$686 ($ge).
+Converting cell MshrTimingProof.$686 ($ge) from signed to unsigned.
+Removed top 1 bits (of 3) from port B of cell MshrTimingProof.$686 ($ge).
+Removed top 2 bits (of 3) from port B of cell MshrTimingProof.$687 ($add).
+Removed top 30 bits (of 32) from port A of cell MshrTimingProof.$690 ($ge).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$690 ($ge).
+Converting cell MshrTimingProof.$690 ($ge) from signed to unsigned.
+Removed top 1 bits (of 2) from port A of cell MshrTimingProof.$690 ($ge).
+Removed top 1 bits (of 3) from port B of cell MshrTimingProof.$690 ($ge).
+Removed top 2 bits (of 3) from port B of cell MshrTimingProof.$691 ($add).
+Removed top 29 bits (of 32) from port A of cell MshrTimingProof.$694 ($ge).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$694 ($ge).
+Converting cell MshrTimingProof.$694 ($ge) from signed to unsigned.
+Removed top 1 bits (of 3) from port A of cell MshrTimingProof.$694 ($ge).
+Removed top 1 bits (of 3) from port B of cell MshrTimingProof.$694 ($ge).
+Removed top 2 bits (of 3) from port B of cell MshrTimingProof.$695 ($add).
+Removed top 2 bits (of 3) from port B of cell MshrTimingProof.$698 ($sub).
+Removed top 1 bits (of 4) from port A of cell MshrTimingProof.$709 ($not).
+Removed top 2 bits (of 3) from port B of cell MshrTimingProof.$716 ($add).
+Removed top 30 bits (of 32) from port A of cell MshrTimingProof.$722 ($lt).
+Removed top 30 bits (of 32) from port B of cell MshrTimingProof.$722 ($lt).
+Removed top 1 bits (of 2) from port B of cell MshrTimingProof.$723 ($add).
+Removed top 1 bits (of 2) from port B of cell MshrTimingProof.$737 ($add).
+Removed top 29 bits (of 32) from port A of cell MshrTimingProof.$805 ($le).
+Removed top 30 bits (of 32) from port B of cell MshrTimingProof.$805 ($le).
+Removed top 29 bits (of 32) from port A of cell MshrTimingProof.$821 ($add).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$821 ($add).
+Removed top 28 bits (of 32) from port Y of cell MshrTimingProof.$821 ($add).
+Removed top 28 bits (of 32) from port A of cell MshrTimingProof.$822 ($eq).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$822 ($eq).
+Removed top 31 bits (of 32) from port A of cell MshrTimingProof.$834 ($lt).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$834 ($lt).
+Removed top 1 bits (of 2) from port B of cell MshrTimingProof.$837 ($add).
+Removed top 1 bits (of 2) from port B of cell MshrTimingProof.$841 ($eq).
+Removed top 31 bits (of 32) from port A of cell MshrTimingProof.$842 ($lt).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$842 ($lt).
+Removed top 1 bits (of 2) from port B of cell MshrTimingProof.$845 ($add).
+Removed top 30 bits (of 32) from port A of cell MshrTimingProof.$850 ($lt).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$850 ($lt).
+Removed top 30 bits (of 32) from port A of cell MshrTimingProof.$858 ($lt).
+Removed top 29 bits (of 32) from port B of cell MshrTimingProof.$858 ($lt).
+Removed top 1 bits (of 3) from port B of cell MshrTimingProof.$865 ($eq).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$490 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$627 ($mux).
+Removed top 2 bits (of 5) from mux cell MshrTimingProof.$procmux$652 ($mux).
+Removed top 4 bits (of 5) from mux cell MshrTimingProof.$procmux$666 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$791 ($mux).
+Removed top 1 bits (of 5) from mux cell MshrTimingProof.$procmux$893 ($mux).
+Removed top 4 bits (of 5) from mux cell MshrTimingProof.$procmux$931 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$986 ($mux).
+Removed top 2 bits (of 5) from mux cell MshrTimingProof.$procmux$1108 ($mux).
+Removed top 4 bits (of 5) from mux cell MshrTimingProof.$procmux$1147 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$1227 ($mux).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$1283_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$1284_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$1287_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$1290_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$1291_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell MshrTimingProof.$procmux$1292_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell MshrTimingProof.$procmux$1294_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell MshrTimingProof.$procmux$1295_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell MshrTimingProof.$procmux$1297_CMP0 ($eq).
+Removed top 4 bits (of 5) from port B of cell MshrTimingProof.$procmux$1300_CMP0 ($eq).
+Removed top 2 bits (of 5) from mux cell MshrTimingProof.$procmux$1396 ($mux).
+Removed top 3 bits (of 5) from port B of cell MshrTimingProof.$procmux$1399_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$1429_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$1431_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$1433_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell MshrTimingProof.$procmux$1435_CMP0 ($eq).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$1439 ($mux).
+Removed top 1 bits (of 5) from mux cell MshrTimingProof.$procmux$2028 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$2154 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$2291 ($mux).
+Removed top 2 bits (of 5) from mux cell MshrTimingProof.$procmux$2316 ($mux).
+Removed top 4 bits (of 5) from mux cell MshrTimingProof.$procmux$2330 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$2455 ($mux).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$2523_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$2524_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell MshrTimingProof.$procmux$2525_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell MshrTimingProof.$procmux$2527_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell MshrTimingProof.$procmux$2528_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell MshrTimingProof.$procmux$2530_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell MshrTimingProof.$procmux$2531_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell MshrTimingProof.$procmux$2532_CMP0 ($eq).
+Removed top 4 bits (of 5) from port B of cell MshrTimingProof.$procmux$2533_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$2541_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$2542_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$2543_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$2544_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$2545_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell MshrTimingProof.$procmux$2546_CMP0 ($eq).
+Removed top 4 bits (of 5) from mux cell MshrTimingProof.$procmux$2595 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$2650 ($mux).
+Removed top 2 bits (of 5) from mux cell MshrTimingProof.$procmux$2782 ($mux).
+Removed top 4 bits (of 5) from mux cell MshrTimingProof.$procmux$2821 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$2901 ($mux).
+Removed top 2 bits (of 5) from mux cell MshrTimingProof.$procmux$3070 ($mux).
+Removed top 3 bits (of 5) from mux cell MshrTimingProof.$procmux$3113 ($mux).
+Removed top 86 bits (of 87) from mux cell MshrTimingProof.$463 ($mux).
+Removed top 86 bits (of 87) from mux cell MshrTimingProof.$462 ($mux).
+Removed cell MshrTimingProof.$procmux$1406 ($mux).
+Removed cell MshrTimingProof.$procmux$3080 ($mux).
+Removed top 28 bits (of 32) from wire MshrTimingProof.$821y.
+Removed top 86 bits (of 87) from wire MshrTimingProof.$463y.
+Removed top 86 bits (of 87) from wire MshrTimingProof.$462y.
+Removed top 1 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$413.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$407.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$406.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$329.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$325.
+Removed top 2 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$322.
+Removed top 4 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$316.
+Removed top 2 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$313.
+Removed top 24 bits (of 32) from wire MshrTimingProof.$300y.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$298.
+Removed top 4 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$292.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$289.
+Removed top 2 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[162:158]$288.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$284y.
+Removed top 1 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$203.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$197.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$196.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$119.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$115.
+Removed top 2 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$112.
+Removed top 4 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$106.
+Removed top 2 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$103.
+Removed top 24 bits (of 32) from wire MshrTimingProof.$90y.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$88.
+Removed top 4 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$82.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$79.
+Removed top 2 bits (of 5) from wire MshrTimingProof.$dut.handler.nextMSHR[326:322]$78.
+Removed top 3 bits (of 5) from wire MshrTimingProof.$74y.
+
+2.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MshrTimingProof..
+Removed 2 unused cells and 34 unused wires.
+<suppressed ~3 debug messages>
+
+2.12. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.13. Executing OPT pass (performing simple optimizations).
+
+2.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MshrTimingProof.
+
+2.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MshrTimingProof'.
+Computing hashes of 754 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+Computing hashes of 752 cells of `\MshrTimingProof'.
+Finding duplicate cells in `\MshrTimingProof'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+2.13.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MshrTimingProof..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+2.13.4. Finished fast OPT passes.
+
+2.14. Executing SORT pass.
+
+2.15. Printing statistics.
+
+=== MshrTimingProof ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      829 wires
+     7695 wire bits
+      260 public wires
+     5920 public wire bits
+       25 ports
+      631 port bits
+      752 cells
+       17   $add
+        1   $and
+        1   $bmux
+        2   $bwmux
+       37   $check
+        3   $demux
+       71   $dff
+       74   $eq
+       11   $ge
+        4   $gt
+        1   $le
+       56   $logic_and
+       15   $logic_not
+       10   $logic_or
+       19   $lt
+      357   $mux
+        4   $ne
+        4   $not
+        6   $or
+       24   $pmux
+        2   $reduce_and
+        1   $reduce_bool
+       29   $reduce_or
+        3   $sub
+
+2.16. Executing CHECK pass (checking for obvious problems).
+Checking module MshrTimingProof...
+Found and reported 0 problems.
+
+3. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MshrTimingProof..
+
+5. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module MshrTimingProof.
+
+End of script. Logfile hash: cfd3c829f8, time: 1.12s, user: 0.44s, system: 1.09s, MEM: 38.27 MB peak
+Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 83% 2x read_slang (1 sec), 4% 3x check (0 sec), ...

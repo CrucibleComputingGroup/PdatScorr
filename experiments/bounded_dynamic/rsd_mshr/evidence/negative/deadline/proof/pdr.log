@@ -1,0 +1,26 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/proof/miter.aig"; fold; orpos; pdr -T 120 -v".
+
+Warning: The last 16 outputs are interpreted as constraints.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 386                                                               1   386      0.46 sec
+  2 : 0 303 428                                                           4   423      1.03 sec
+  3 : 0 31 88 481                                                         5   458      1.37 sec
+  4 : 0 31 28 342 502                                                     4   469      2.24 sec
+  5 : 0 31 32 59 420 853                                                  6   663      4.19 sec
+  6 : 0 31 32 59 118 608 697                                              8   671      5.48 sec
+  7 : 0 31 32 64 69 228 294 941                                          10   686      7.16 sec
+  8 : 0 32 35 72 99 243 186 212 988                                      22   690      8.39 sec
+  9 : 0 31 33 69 83 211 165 168 419 631                                  12   690      8.84 sec
+Block = 2158  Oblig =  4431  Clause =  3325  Call = 37429 (sat=55.6%)  Cex =   0  Start = 113
+SAT solving =     5.68 sec ( 64.14 %)
+  unsat     =     0.94 sec ( 10.66 %)
+  sat       =     4.73 sec ( 53.48 %)
+Generalize  =     4.20 sec ( 47.46 %)
+Push clause =     1.35 sec ( 15.22 %)
+Ternary sim =     1.79 sec ( 20.21 %)
+Containment =     0.04 sec (  0.45 %)
+CNF compute =     0.13 sec (  1.48 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =     8.85 sec (100.00 %)
+Output 0 of miter "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/proof/miter" was asserted in frame 11.  Time =     8.86 sec

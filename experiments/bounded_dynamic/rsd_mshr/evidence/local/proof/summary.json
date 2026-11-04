@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "scope": "Actual original RSD MSHR/FreeList component; not full-core equivalence or application adherence",
+  "contract": {
+    "min_spacing": 3,
+    "max_latency": 5,
+    "ordered": true
+  },
+  "source_manifest": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/baseline_v5/manifest.json",
+  "source_manifest_sha256": "a1248f3322b7cb8a4883639555319e73cf442be3329c62c7f3584d06a560a38a",
+  "baseline_json_sha256": "a917caae3c7a139b8c892a7271e95d962a83ab0a4c82e18c5b79232123193264",
+  "harness_sha256": "3322e64143c9fc830c07b056ea07d907fdebd3bd49ba090de7f1e33f522c58bb",
+  "service_contract_sha256": "66854a5606df6316600af8b339732135b42241774f7306d37d7bef59e63b7783",
+  "model_sha256": "e7ac5d0c2bd4efc10d7699298b45ecccb5c0c46b86d57bc6d56b22d464904c60",
+  "tool_sha256": {
+    "yosys": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "yosys-smtbmc": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+    "z3": "4141dfd8ca02d917ee5c032574318a8b6d0c35deea27877589472bc94928ed58"
+  },
+  "executions": [
+    {
+      "name": "elaborate",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-m",
+        "slang",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/proof_v6/proof.ys"
+      ],
+      "returncode": 0,
+      "seconds": 1.153277417179197
+    },
+    {
+      "name": "base",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "--noprogress",
+        "-t",
+        "8",
+        "--dump-vcd",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/proof_v6/base.vcd",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/proof_v6/model.smt2"
+      ],
+      "returncode": 0,
+      "seconds": 1.4844660670496523
+    },
+    {
+      "name": "induction",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "--noprogress",
+        "-t",
+        "8",
+        "-i",
+        "--dump-vcd",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/proof_v6/induction.vcd",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/proof_v6/model.smt2"
+      ],
+      "returncode": 0,
+      "seconds": 0.6700547100044787
+    },
+    {
+      "name": "cover",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "--noprogress",
+        "-t",
+        "20",
+        "-c",
+        "--dump-vcd",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/proof_v6/cover_%.vcd",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/proof_v6/model.smt2"
+      ],
+      "returncode": 0,
+      "seconds": 7.130613542161882
+    }
+  ]
+}

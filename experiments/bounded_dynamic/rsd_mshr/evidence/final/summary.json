@@ -1,0 +1,206 @@
+{
+  "status": "audited",
+  "scope": "Original RSD component at fixed capacities; not a full-core area or application claim",
+  "changed_cells": [
+    "$116",
+    "$326"
+  ],
+  "mutation": "Automatically reduce each of two equality cells from two bits to its low bit",
+  "all_other_cells_ports_and_netnames_unchanged": true,
+  "physical_area": {
+    "baseline": 17513.0464,
+    "optimized": 17356.6464
+  },
+  "physical_area_reduction_percent": 0.8930485103950723,
+  "physical_flipflops": {
+    "baseline": 335,
+    "optimized": 333
+  },
+  "artifacts": {
+    "baseline/manifest.json": {
+      "sha256": "a1248f3322b7cb8a4883639555319e73cf442be3329c62c7f3584d06a560a38a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/baseline_v5/manifest.json",
+      "bytes": 4253
+    },
+    "baseline/baseline.json": {
+      "sha256": "a917caae3c7a139b8c892a7271e95d962a83ab0a4c82e18c5b79232123193264",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/baseline_v5/baseline.json",
+      "bytes": 614384
+    },
+    "baseline/MshrObserved.sv": {
+      "sha256": "e4d4f975a4d2c1119ddeb8f251fde365c540f10b01d07bc76642c09c89718587",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/baseline_v5/MshrObserved.sv",
+      "bytes": 4980
+    },
+    "baseline/baseline.ys": {
+      "sha256": "4285238a772883cb606990199db2fdb9099019e1c86baf09b10bd20067fcfe8a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/baseline_v5/baseline.ys",
+      "bytes": 5531
+    },
+    "automatic/report.json": {
+      "sha256": "286b987b5425bb0edbc3f0ad19d4f54a8a69b0db0c7f69ac74179726c045450c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/report.json",
+      "bytes": 98181
+    },
+    "automatic/harness.sv": {
+      "sha256": "4666de9d6b1f5ad3c7f145f0f89031dada62a8976f338132240da5eccc1add94",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/harness.sv",
+      "bytes": 7854
+    },
+    "automatic/reference.v": {
+      "sha256": "657aae779ba797f349cf79e196d16fc226a142209b1f0e25d5af31ad6d03db4d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/reference.v",
+      "bytes": 353813
+    },
+    "automatic/optimized.v": {
+      "sha256": "1d1350f461c90e3289ac1f31e56b323898f4b99b2c4434ec0e587dd668fd0f2e",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/optimized.v",
+      "bytes": 353813
+    },
+    "automatic/optimized.json": {
+      "sha256": "dcba38cb3319ad2f49d4414fdefff792245dc8bd7943bc154e8391d281c875bd",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/optimized.json",
+      "bytes": 865822
+    },
+    "automatic/identity_proof/proof.json": {
+      "sha256": "d3c6b4ee8c3c16afa30db79448ea5c36837f9ce98ab1be5f27e7b92fa5a13391",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/identity_proof/proof.json",
+      "bytes": 18152
+    },
+    "automatic/identity_proof/pdr.log": {
+      "sha256": "1f6cca0354c038694b405d0f085139809a7a4f0042e78955296c0491d795a5c1",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/identity_proof/pdr.log",
+      "bytes": 1435
+    },
+    "automatic/identity_proof/prepare.ys": {
+      "sha256": "25cbf2aeda563ef65339c30e379e219259856313564f6438015e83482bdb42a1",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/identity_proof/prepare.ys",
+      "bytes": 744
+    },
+    "automatic/identity_proof/aig_export.ys": {
+      "sha256": "d2ec6930673ef00a13e19d2de109c07dbbd172a7d9674fae1c1db190ba8bbea0",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/identity_proof/aig_export.ys",
+      "bytes": 490
+    },
+    "automatic/identity_proof/aig_export.log": {
+      "sha256": "cdef264bf59fb32198df6c02d61f90b026e338561c502e05b2b8cb607f1ae814",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/identity_proof/aig_export.log",
+      "bytes": 52920
+    },
+    "automatic/combined_proof/proof.json": {
+      "sha256": "9d542acdef6d275099f85d4959514ba56136c72fc22b50093b18cbcff6120a81",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/combined_proof/proof.json",
+      "bytes": 18153
+    },
+    "automatic/combined_proof/pdr.log": {
+      "sha256": "c0027a7d72fe58f92a0e22490f23fbfb4691f7c5b135fdfc97abac77c1833baf",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/combined_proof/pdr.log",
+      "bytes": 2877
+    },
+    "automatic/combined_proof/prepare.ys": {
+      "sha256": "d1cfc7e36293bfa23d19ce776057cc3711fe3df350a48cf0eff3d4bbf34832fc",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/combined_proof/prepare.ys",
+      "bytes": 744
+    },
+    "automatic/combined_proof/aig_export.ys": {
+      "sha256": "8167e4cbc62259da05dff7b6436b5bd687287c0691bde79d1b139185326a9f09",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/combined_proof/aig_export.ys",
+      "bytes": 490
+    },
+    "automatic/combined_proof/aig_export.log": {
+      "sha256": "a4506e9c3b1bc1311ed605b81fdcffed38fcb597e5a7ac439f62ff7c713c797a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/combined_proof/aig_export.log",
+      "bytes": 52920
+    },
+    "automatic/proof_0000/proof.json": {
+      "sha256": "8f9075a80fdc88647926dc83110bd7668021d135dff0479dc49985925c8f168c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0000/proof.json",
+      "bytes": 18127
+    },
+    "automatic/proof_0000/pdr.log": {
+      "sha256": "d910c02a686a3b7db3e315bc0497f2eb3291c44f5cd50ea1c2a85a5cc0b4dffc",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0000/pdr.log",
+      "bytes": 5755
+    },
+    "automatic/proof_0000/prepare.ys": {
+      "sha256": "398b50dc0139715d6a75c1c9749c1d76d6cae5907bf11285680513b5f96f8d48",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0000/prepare.ys",
+      "bytes": 745
+    },
+    "automatic/proof_0000/aig_export.ys": {
+      "sha256": "b87ac324f59ec2ef0f1c29fba8b8525bc93c940a06e8f8176f848040747fff17",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0000/aig_export.ys",
+      "bytes": 482
+    },
+    "automatic/proof_0000/aig_export.log": {
+      "sha256": "fdb5576a4475e7bf20d4c5f06093756bea3911be3846c83744eee88d8231cd64",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0000/aig_export.log",
+      "bytes": 52916
+    },
+    "automatic/proof_0001/proof.json": {
+      "sha256": "8f1b24300b1b1a2d75352012faa5f504340b011fc4e80be6de8707790acf6914",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0001/proof.json",
+      "bytes": 18128
+    },
+    "automatic/proof_0001/pdr.log": {
+      "sha256": "37261d9e7a6ff234ba8f7cba50aa4ef8e83293d3f64d9b836ae30767e7672e9d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0001/pdr.log",
+      "bytes": 2873
+    },
+    "automatic/proof_0001/prepare.ys": {
+      "sha256": "3d2434280d8d03717d9a87438790234db15b943f58978b4d339c83b5f3be5ffa",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0001/prepare.ys",
+      "bytes": 745
+    },
+    "automatic/proof_0001/aig_export.ys": {
+      "sha256": "552f4bf797277a3a921abc9a81ea296c9b80a46d2b22a7a99bf108e6447465c2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0001/aig_export.ys",
+      "bytes": 482
+    },
+    "automatic/proof_0001/aig_export.log": {
+      "sha256": "9873655e08e9bd48c9cca7e625090e6fcab408be3ea8df3d3ac8c505c125da72",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0001/aig_export.log",
+      "bytes": 52916
+    },
+    "physical/summary.json": {
+      "sha256": "589179b0abd69c6c462a6b0b7308ebd47d43dccf50ed969fb639d40c2aba1e29",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/physical_v2/summary.json",
+      "bytes": 7687
+    },
+    "physical/baseline/stat.json": {
+      "sha256": "2d9cc24068b2bacdbd829b55915e828ed567780736a0477ce9c4d127667717a3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/physical_v2/baseline/stat.json",
+      "bytes": 6621
+    },
+    "physical/baseline/map.ys": {
+      "sha256": "e7fc1a397a633e789b89b77d349f6c02f9dc16f00647b9b942946647be781e61",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/physical_v2/baseline/map.ys",
+      "bytes": 967
+    },
+    "physical/baseline/map.log": {
+      "sha256": "2d18504c9b5bf55d1b2cd4cd4e8869ddd1c0645d608ac390cd67053093466642",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/physical_v2/baseline/map.log",
+      "bytes": 241665
+    },
+    "physical/optimized/stat.json": {
+      "sha256": "0d1e8ca97ca092c6fe67af6038abb03d76b25c9125b4be67caa8c5b64ab08e03",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/physical_v2/optimized/stat.json",
+      "bytes": 6612
+    },
+    "physical/optimized/map.ys": {
+      "sha256": "52fa8630de5b185ce01a85a87874aa82b334163a3c5eed19a12a1bc83175910b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/physical_v2/optimized/map.ys",
+      "bytes": 971
+    },
+    "physical/optimized/map.log": {
+      "sha256": "91a360d3e800e06a37c1860934582e8f3eb36dffa6ac3a39636327a02cff61be",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/physical_v2/optimized/map.log",
+      "bytes": 243734
+    },
+    "automatic/temporal_source.py": {
+      "sha256": "f56d74528b22638e65ad9f12e045c1386b86eecd0856c768d6676182f9cbe8c2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/temporal_source.py",
+      "bytes": 16816
+    }
+  }
+}

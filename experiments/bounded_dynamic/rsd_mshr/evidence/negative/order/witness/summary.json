@@ -1,0 +1,30 @@
+{
+  "status": "validated_functional_counterexample",
+  "scope": "Same archived functional-only miter and PDR command; ABC testcex -a validates before write_cex",
+  "input_aig_sha256": "0cf7ca1c281daf09eda5593253f328618399359ece2b631532cdfcef95218cbd",
+  "negative_summary_sha256": "8a04f34d9197b237732e267fff35cbbaa76ded65dbc20d337df54e6396860526",
+  "abc_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/proof/miter.aig\"; fold; orpos; pdr -T 120 -v; testcex -a; write_cex -n -c \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/witness/counterexample.txt\"; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/witness/counterexample.aiw\"; write_aiger \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/witness/folded.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 18.80412128707394,
+    "log": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/witness/abc.log",
+    "log_sha256": "a8ba05de2d8cba99ac0c5e2d79643fea9b66bf8c74e0a50f9920329a83acb47e"
+  },
+  "counterexample_result": [
+    "Output 0 of miter \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/proof/miter\" was asserted in frame 18.  Time =    18.60 sec"
+  ],
+  "artifact_sha256": {
+    "counterexample.txt": "277f65a34621479af64d44111126442b1b0c13bb27740ae7517c34c106973e8d",
+    "counterexample.aiw": "c437baf35af064f6a2b3cf7bc48f94a050948e3116e35d9a89c3c91bed4d0ea6",
+    "folded.aig": "134cc64e2b8628f8df7d0ef7652c48782e8f34208e3426dafaf2ecff75ad36d5",
+    "run.abc": "fef279a02d2ec197a9e30b47930273a10eef86e73b89baa5b3a6fb893d053219"
+  }
+}

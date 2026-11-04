@@ -1,0 +1,213 @@
+1) SETTINGS ECHO
+================
+DOMAIN / AREA: Automatic, proof-gated temporal ODC optimization of unchanged OoO RTL.
+TARGET OUTPUT COUNT: Two ranked follow-ups; only the first is recommended next.
+TARGET VENUE / AUDIENCE: Pscorr methods and hardware reviewers.
+TIME HORIZON FOR KILLER TEST: Two hours for a counterexample screen; one day for a
+  useful inductive certificate and matched component mapping if the screen survives.
+RESOURCE BOUNDARY: Existing qualified LEN5 snapshot, Yosys/Slang, ABC PDR,
+  Verilator, and generated-miter infrastructure. This review ran no experiments.
+BASELINES / COMPETITORS: Current equality-width enumerator; inherited Pscorr/scorr;
+  ordinary synthesis on the same fixed RTL and contract; manual capacity resizing
+  is a scope control, not an accepted substitute.
+SUCCESS METRICS: Actual generated rewrite with unbounded equivalence certificate;
+  nonvacuous activity and relaxed-contract counterexamples; lower native mapped
+  cell area with unchanged ports/capacities; full-core claims require separate closure.
+NOVELTY BAR: A concrete extension of the present Pscorr implementation. No literature
+  novelty claim is established by this review; related-work priority needs citations.
+
+Observed narrative/evidence review
+----------------------------------
+The two READMEs currently avoid the principal scope errors. They say component,
+preserve raw observations and reset, distinguish explanatory lemmas from the generic
+proof, and do not claim a full-core area result. Their completion language is now
+stale: LEN5 is qualified, and generic RSD PDR evidence is complete in odc_pdr_v2.
+
+What is observed at review time:
+- rsd_mshr/results/odc_pdr_v2/report.json enumerates two candidates in the explicitly
+  user-selected response_id cone. Both original two-bit equality cells are narrowed
+  to one bit, and the final combined miter is proved. The export script preserves
+  undefined combinational values using setundef -anyseq. The proof has 14 functional
+  observation assertions before adding the continuing state-correspondence assertion;
+  common arbitrary payload state is related only at initialization by an assumption.
+- physical_v1/summary.json maps reference hash e72fc5f4... and candidate a83df924...,
+  exactly the hardware hashes certified by the v2 combined proof. Its stored report
+  hash still names the earlier analysis. An explicit v2 provenance link suffices if
+  neither mapped hardware nor map settings changed; a fresh physical run is not
+  scientifically necessary solely because the proof's undefined-value treatment changed.
+- That mapped component pair is 17658.1856 -> 17504.288 square micrometres, or
+  0.8715368809%, with 335 -> 333 physical FF cells. The 343 RTL FF bits reported
+  before ordinary synthesis are a different denominator. Do not credit all 343->333
+  to the temporal rewrite.
+- The matched inherited-scorr formal control is not a zero-gain baseline: its v2
+  summary reports 6307 -> 5310 ANDs and 364 -> 338 formal latches. These include the
+  constraint/initialization encoding and cannot be compared directly against 335->333
+  native FF cells. Current evidence does not show hardware superiority over scorr.
+- Generic toy regressions include observable-mutation, removed-contract, late-failure,
+  undefined-value, and PDR-status tests. Local RSD target assertions fail under relaxed
+  latency/order. For an end-to-end mechanism certificate, retain a negative result for
+  the same generated RSD hardware pair under each relaxed contract, rather than treating
+  the local explanatory theorem's counterexample as the generic miter's result.
+
+Completion boundary for the first approved mechanism test
+---------------------------------------------------------
+The narrow first milestone is complete when the automatic v2 candidate pair, its
+combined proof, nonvacuity/control evidence, and native physical map are bound into
+one auditable record. It demonstrates that explicit nonzero service restrictions can
+enable automatic, certified comparator/state removal on actual fixed-capacity RTL.
+It is valid to report a small component mechanism success; its size need not be inflated.
+
+It does not complete the broader full-core study. Remaining distinctions are:
+(1) source-cone selection and the service contract are supplied by a human; only
+candidate generation, certification, and application are automated;
+(2) program/platform adherence, full-core composition/equivalence, and whole-core
+area/timing are not established by this component proof;
+(3) improvement beyond inherited Pscorr needs a matched hardware result or a precise
+capability claim, e.g. producing certified native-RTL rewrites, rather than an AIG/area
+cross-comparison; and (4) generic discovery breadth is two eligible equalities here,
+not an automated search over all microarchitectural resource constraints.
+
+Recommended README patch list (no README edited by this review):
+1. Add a compact completed-generic-evidence paragraph with v2 certificate, exact
+   candidate count/scope, final combined proof, mapping certificate linkage and scope.
+2. State that the native physical reduction is 335->333 FF, separate from 343 source FF.
+3. Explicitly say inherited scorr also changes its formal model; no superiority claim.
+4. Replace "LEN5 is being qualified" with the completed unchanged-RTL smoke/OoO
+   witness and a link. Qualification is not optimization evidence.
+5. Keep manuscript claims out until the selected full-core extension is demonstrated.
+
+2) IDEA CARDS (ranked)
+======================
+
+CARD 1
+A) TITLE: Specialize response consumers before narrowing shared tags
+B) HYPOTHESIS: With legal positive-latency load responses bounded by three cycles,
+   Pscorr can automatically remove unreachable MEM_REQ response consumers and then
+   narrow only the surviving MEM_WAIT tag comparisons, yielding a smaller unchanged-
+   capacity LEN5 implementation after a combined proof.
+C) NOVELTY CLAIM: New relative to the present global $eq-width enumerator is automatic
+   consumer-guard specialization and sequential composition of transformations. The
+   key mechanism is to discover which guarded uses of a shared comparison are dead,
+   rather than globally replace an equality that also reaches unissued entries.
+   This is an implementation-extension claim; general guarded-ODC prior art needs
+   literature comparison (CITATION NEEDED).
+D) WHY IT MATTERS: This directly addresses the already recorded falsifier for global
+   low-tag truncation. It also distinguishes occupancy from slot number: all eight LB
+   slots can still be allocated, while only the response consumers need fewer tag bits.
+E) DIFFERENTIATOR: Compare against current equality-only Pscorr, inherited scorr under
+   the identical monitor, and standard synthesis. Do not compare against a smaller LB.
+F) KEY ASSUMPTIONS:
+   - Pin LEN5 14291dcc5bef181085d001c5a29e7f4fc4cbc8e9; keep LB8, SB16 and all defaults.
+   - A response identifies a genuine accepted read; accept/response ages are explicit
+     edge counts, initially propose 1..3 cycles. Data/exception values remain free.
+   - Keep the qualified delayed instruction-response protocol and fetch FIFO2. Do not
+     change the FIFO when varying data timing; the zero-stage instruction experiment
+     already failed at fixed FIFO2.
+   - Retain arbitrary stalls, forwarding, exceptions, recovery, and actual old responses
+     after flush. No hidden no-flush, always-ready-operand, or no-speculation premise.
+G) HOW THIS DIES:
+   - MEM_REQ can legitimately consume a stale response after a flush and slot reuse.
+     This is a concrete hazard: upstream memory_bare_emu.sv:360-372 flushes only the
+     instruction pipeline; data answer spill cells at403/418 have flush tied to zero.
+   - A shared comparator cannot be specialized without cloning logic, and duplication
+     erases the savings. A proved rewrite with nonpositive area gain is not an area result.
+   - Tag span, not only outstanding count, matters because mem_idx advances on forwarded
+     loads too (load_buffer.sv:169-174). The actual <=one-step/cycle relation must be used.
+   - The current native shared tag width is four for LB8/SB16 (len5_pkg.sv:186-188).
+     A 4->3 reduction from legal LB IDs is protocol-only; do not call it a deadline gain.
+H) CHEAPEST DECISIVE TEST:
+   - Pattern: source-grounded temporal micro-test; initially counterexample search only.
+   - First query, on actual RTL with a compatible full-core/recovery cone: can
+     MEM_REQ && valid_response && full_tag_match occur under legal 1..3-cycle service?
+     Do not cancel pending data responses in the monitor merely because a branch flushes.
+     A short counterexample kills that guard-elimination hypothesis immediately.
+   - If it survives, generate one-bit control-driver replacements from elaborated guarded
+     consumers (not a hand edit to load_buffer.sv), certify them by PDR, then run the
+     existing equality-width search on the resulting hardware and prove the composition.
+   - Require covers for outstanding nonzero-latency reads, queued-unissued MEM_REQ slots,
+     forwarded loads, wraparound, recovery, and use of upper LB slots. Require an actual
+     equivalence failure for the unsafe global narrow and for a sufficiently relaxed
+     deadline, keeping all other premises fixed.
+   - Success: unbounded combined proof and a positive native area reduction beyond the
+     protocol-only 4->3 control. A two-hour screen is decisive on failure; full proof/map
+     gets at most one day before reassessing feasibility.
+I) STOP / PIVOT RULES: Stop if stale-response legality defeats the first guard fact, if
+   success needs an unenforced cancellation/no-flush premise, or if certified hardware
+   does not shrink. Pivot only to another automatically generated guarded consumer;
+   do not repair the core, shrink LB8, or declare old responses impossible by assumption.
+J) WEEK-ONE PLAN:
+   - Audit the externally enforceable instruction/data/reset/flush contract once.
+   - Run the guard-fact falsifier before adding a large generic search space.
+   - Implement reusable guarded one-bit candidate generation only if the fact survives.
+   - Certify composition, compare native mappings, and test the generated core on the
+     existing self-checking/OoO witness plus recovery and long-latency negatives.
+K) RISK + CONFIDENCE: Technical High (flush closure), novelty Medium, execution Medium;
+   confidence in a cheap negative test High. Positive savings remain a hypothesis.
+
+CARD 2
+A) TITLE: Prove bounded lifetimes in first-free reservation stations
+B) HYPOTHESIS: A meaningful external supply/service contract implies a strict
+   pre-admission live-entry bound in LEN5's first-free ALU RS, enabling generic state-
+   constant proofs to delete unused state without changing the declared RS depth.
+C) NOVELTY CLAIM: New relative to the current equality-only flow is a generated state-
+   candidate class for live-entry predicates, with automatic removal only after a
+   proved lifetime/admission implication. The occupancy theorem itself is not novel.
+D) WHY IT MATTERS: It addresses the original bounded-dynamic-scheduling motivation
+   more directly than a memory comparator. It is also much easier to overclaim.
+E) DIFFERENTIATOR: Compare with the same Pscorr contracts and source, not a manually
+   reduced RS_DEPTH or a run that assumes upper valid bits false.
+F) KEY ASSUMPTIONS:
+   - arith_rs.sv:350-357 really selects the first empty slot via prio_enc.
+   - Count entries before admission, including pending operands, execution, completed
+     results waiting for the CDB, and replay/flush effects.
+   - Any operand/CDB lifetime bound must be derived from the actual core and external
+     contract, not assumed directly at an internal RS port.
+   - Keep integer multiply/divide and all current capacities; fetched-response spacing
+     alone does not imply equally spaced RS dispatch after buffered instructions drain.
+G) HOW THIS DIES:
+   - A long division, dependency chain, store dependency or CDB competition fills RS8
+     despite short memory response times. The existing smoke already demonstrates an
+     RS operand waiting while younger work executes.
+   - A post-admission bound or approximate average occupancy is substituted for the
+     exact pre-admission invariant needed to exclude a first-free index.
+   - A circular ROB/LB allocator is substituted for first-free RS and upper slots remain
+     reachable at occupancy one.
+H) CHEAPEST DECISIVE TEST:
+   - Pattern: small adversarial assembly plus actual-RTL reachability query, after approval.
+   - For one explicitly proposed external contract, first try to cover allocation of the
+     highest ALU RS slot while a producer/long-latency unit delays dependent operands.
+     No optimizer implementation is needed for this falsifier.
+   - Success threshold for proceeding is an actual inductive pre-admission bound K<8,
+     with concurrent OoO work covered. A finite trace that happens to stay below K is
+     insufficient. If there is no defensible finite lifetime premise, do not run a sweep.
+   - Budget two hours for a falsifier; one day maximum for the first bound certificate.
+I) STOP / PIVOT RULES: Stop if the upper slot is reachable under the chosen meaningful
+   contract, or if deriving the bound requires assuming ready operands/CDB grants.
+   Pivot to Card1, not to manual depth changes or architectural-only occupancy claims.
+J) WEEK-ONE PLAN:
+   - Write the lifetime decomposition before choosing K.
+   - Try the upper-slot counterexample before any hardware rewrite.
+   - Only after proof, enumerate state predicates and retain full observation closure.
+K) RISK + CONFIDENCE: Technical High, novelty Medium, execution High; confidence in
+   a cheap negative test High. Demoted until an enforceable lifetime premise exists.
+
+3) GO / NO-GO SUMMARY
+=====================
+GO: Close the current RSD mechanism certificate at its honest component scope. It is
+already much closer to completion than another full-core exploratory campaign.
+NEXT: Card1's recovery-aware guard falsifier, after approval. It targets a specific
+missing optimizer capability and uses positive, nonzero latency with unchanged queues.
+DEFER: Card2 until a real instruction/operand/CDB lifetime implication is available.
+KILL: Global LEN5 response-tag truncation; occupancy-based deletion of circular slots;
+zero-stage instruction service used to force savings; manual ROB/RS/LSQ resizing.
+HIGHEST-LEVERAGE MISSING FACT: Whether actual LEN5 recovery/refill timing, with stale
+data responses retained, excludes matching responses at MEM_REQ. Do not assume it.
+
+4) VERIFICATION PASS
+====================
+Both cards have falsifiable hypotheses, named implementation baselines, bounded-cost
+negative tests, explicit stopping conditions, and proof/area metrics. Card2 is demoted
+because its essential external-to-lifetime implication has not been identified.
+All proposed results are hypotheses, not observations. No new solver, simulation,
+synthesis, or manuscript change was performed for this review. Primary evidence is
+the pinned local RTL and the exact result paths above; literature novelty is unverified.

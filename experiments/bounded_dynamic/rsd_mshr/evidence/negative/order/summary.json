@@ -1,0 +1,35 @@
+{
+  "status": "functional_counterexample",
+  "contract": {
+    "min_spacing": 3,
+    "max_latency": 5,
+    "ordered": false
+  },
+  "scope": "Actual automatically rewritten hardware versus original native component; all545 defined output bits; no state-helper assertion",
+  "reference_sha256": "657aae779ba797f349cf79e196d16fc226a142209b1f0e25d5af31ad6d03db4d",
+  "candidate_sha256": "1d1350f461c90e3289ac1f31e56b323898f4b99b2c4434ec0e587dd668fd0f2e",
+  "baseline_json_sha256": "a917caae3c7a139b8c892a7271e95d962a83ab0a4c82e18c5b79232123193264",
+  "positive_report_sha256": "286b987b5425bb0edbc3f0ad19d4f54a8a69b0db0c7f69ac74179726c045450c",
+  "harness_sha256": "cfdfcee63bc6d230c1b1de188ee8b7551e45d0769ac708cc571238c792d12871",
+  "monitor_sha256": "66854a5606df6316600af8b339732135b42241774f7306d37d7bef59e63b7783",
+  "generator_sha256": "132bda0b551b091969784bdbfa40b8366f20987af569971d540acdc01c545623",
+  "generator_command": [
+    "/home/allenjin/miniconda3/bin/python3",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/make_miter.py",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/baseline_v5/baseline.json",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/harness.sv",
+    "--spacing",
+    "3",
+    "--latency",
+    "5",
+    "--unordered"
+  ],
+  "implementation_sha256": "1b00ac2223b6dfd7788312fca405e5b9f7c82d4eee91d7882afc92e243ad545f",
+  "proof_sha256": "b3446806f02affce65395a720cd4aa3f31230d00b6b3851c630a784c0020b20e",
+  "functional_assertions": 14,
+  "paired_initial_state_bits": 343,
+  "assert_state_correspondence": false,
+  "counterexample_result": [
+    "Output 0 of miter \"/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/proof/miter\" was asserted in frame 18.  Time =    19.69 sec"
+  ]
+}

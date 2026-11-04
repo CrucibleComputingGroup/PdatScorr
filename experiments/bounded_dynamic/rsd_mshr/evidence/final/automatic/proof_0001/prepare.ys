@@ -1,0 +1,9 @@
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/reference.v" "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/candidate_0001.v" "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/harness.sv"
+prep -top TemporalMiter -flatten
+check -assert
+chformal -lower
+select -assert-min 1 t:$assert
+select *
+async2sync
+dffunmap
+write_json "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/odc_pdr_v4/proof_0001/miter.json"

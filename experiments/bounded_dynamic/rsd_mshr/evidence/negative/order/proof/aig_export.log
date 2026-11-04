@@ -1,0 +1,762 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_order_v1/proof/aig_export.ys' --
+
+1. Executing JSON frontend.
+Importing module TemporalMiter from JSON tree.
+
+2. Executing CHECK pass (checking for obvious problems).
+Checking module TemporalMiter...
+Found and reported 0 problems.
+
+3. Executing FORMALFF pass.
+
+4. Executing SETUNDEF pass (replace undef values with defined constants).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+<suppressed ~17 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 6312 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1190 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 6312 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+Removed 5037 unused cells and 5340 unused wires.
+<suppressed ~5324 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1190 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 1275 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+5.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing TECHMAP pass (map to technology primitives).
+
+6.1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+6.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $pmux.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $ff.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=2:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=2:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=2:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=3:B_SIGNED=1:B_WIDTH=32:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=3:B_SIGNED=1:B_WIDTH=32:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=3:B_SIGNED=1:B_WIDTH=32:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=2:B_SIGNED=1:B_WIDTH=32:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=2:B_SIGNED=1:B_WIDTH=32:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=2:B_SIGNED=1:B_WIDTH=32:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=1:B_SIGNED=1:B_WIDTH=32:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=1:B_SIGNED=1:B_WIDTH=32:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=1:B_SIGNED=1:B_WIDTH=32:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=1:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=1:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=1:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $logic_and.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $reduce_bool.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $not.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $reduce_and.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$gt:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$gt:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$gt:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=2:B_SIGNED=1:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=2:B_SIGNED=1:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=2:B_SIGNED=1:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $logic_or.
+Using template $paramod$7e708ae28ab761f11d0fb59d3ffc72f6a4baf5d9\_90_alu for cells of type $alu.
+Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using template $paramod$b8c0a997bce700f23568a5ada79cc6781d1f5ca0\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod$19e2580c9084a01134cf124dfa77fb4500b707f9\_90_alu for cells of type $alu.
+Using template $paramod$6412f7f13655de512a17af2c71a87b50b4a57324\_90_alu for cells of type $alu.
+Using template $paramod$7b00947614a4c48e09c066dca449366ddfa907a5\_90_alu for cells of type $alu.
+Using template $paramod$78e969f2586efcf3a5b0b0440bcca0db83d5cca2\_90_alu for cells of type $alu.
+Using template $paramod$79fc7abbb3333dbd5736999d565fd903198fb1eb\_90_alu for cells of type $alu.
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using template $paramod$00298f3f8094950cb9a5ff2fda48d0d8bde8806c\_90_alu for cells of type $alu.
+Using template $paramod$418b96f4892c9e1a6a74526184651c8ae040d0c0\_90_alu for cells of type $alu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000100000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000110 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000110 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~4239 debug messages>
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+<suppressed ~5187 debug messages>
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 11735 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 10547 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 10040 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 9880 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 9811 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 9790 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 9748 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 9722 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 9670 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 9644 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 9618 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+<suppressed ~6351 debug messages>
+Removed a total of 2117 cells.
+
+7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 9618 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+Removed 206 unused cells and 5125 unused wires.
+<suppressed ~217 debug messages>
+
+7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 9412 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+
+7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+7.16. Finished fast OPT passes. (There is nothing left to do.)
+
+8. Executing SETUNDEF pass (replace undef values with defined constants).
+
+9. Executing ABC pass (technology mapping using ABC).
+
+9.1. Summary of detected clock domains:
+  9412 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+9.2. Extracting gate netlist of module `\TemporalMiter' to `<abc-temp-dir>/input.blif'..
+No matching clock domain found. Not extracting any FF cells.
+
+9.2.1. Executed ABC.
+Extracted 8651 gates and 9821 wires to a netlist network with 1168 inputs and 749 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Nov  4 2026 06:58:40)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+9.2.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:     9595
+ABC RESULTS:               BUF cells:        1
+ABC RESULTS:               NOT cells:     8034
+ABC RESULTS:        internal signals:     7904
+ABC RESULTS:           input signals:     1168
+ABC RESULTS:          output signals:      749
+Removing temp directory.
+Removing global temp directory.
+
+10. Executing AIGMAP pass (map logic to AIG).
+Module TemporalMiter: replaced 0 cells with 0 new cells, skipped 18390 cells.
+  not replaced 8 cell types:
+    9595 $_AND_
+     712 $_FF_
+    8034 $_NOT_
+      16 $anyseq
+      14 $assert
+      15 $assume
+       1 $initstate
+       3 $scopeinfo
+
+11. Executing AIGER backend.
+Warning: Treating undriven bit TemporalMiter.\rst like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_mshr [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_mshr [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_store [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_store [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_uncache [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_uncache [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\can_release [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\can_release [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [6] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [7] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [8] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [9] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [10] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [11] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [12] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [13] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [14] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [15] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [16] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [17] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [18] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [19] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [20] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [21] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [22] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [23] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [24] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [25] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [26] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [27] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [28] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [29] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [30] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [31] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [32] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [33] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [34] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [35] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [36] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [37] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [38] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [39] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [40] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [41] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [42] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_addr [43] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [6] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [7] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [8] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [9] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [10] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\init_alptr [11] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_grant [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_grant [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [69] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [70] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [71] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [72] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [73] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [74] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [75] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [76] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [77] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [78] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [79] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [80] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [81] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [82] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [83] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [84] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [85] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [86] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [87] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [88] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [89] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [90] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [91] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [92] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [162] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [163] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [164] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [165] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [166] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [167] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [168] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [169] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [170] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [171] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [172] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [173] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [174] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [175] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [176] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [177] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [178] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [179] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [180] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [181] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [182] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [183] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [184] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_tag_in [185] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [6] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [7] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [8] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [9] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [10] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [11] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [12] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [13] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [14] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [15] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [16] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [17] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [18] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [19] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [20] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [21] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [22] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [23] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [24] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [25] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [26] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [27] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [28] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [29] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [30] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [31] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [32] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [33] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [34] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [35] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [36] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [37] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [38] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [39] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [40] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [41] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [42] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [43] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [44] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [45] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [46] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [47] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [48] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [49] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [50] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [51] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [52] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [53] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [54] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [55] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [56] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [57] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [58] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [59] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [60] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [61] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [62] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [63] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [64] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [65] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [66] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [67] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [68] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [69] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [70] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [71] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [72] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [73] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [74] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [75] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [76] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [77] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [78] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [79] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [80] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [81] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [82] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [83] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [84] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [85] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [86] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [87] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [88] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [89] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [90] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [91] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [92] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [93] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [94] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [95] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [96] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [97] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [98] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [99] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [100] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [101] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [102] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [103] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [104] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [105] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [106] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [107] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [108] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [109] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [110] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [111] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [112] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [113] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [114] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [115] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [116] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [117] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [118] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [119] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [120] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [121] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [122] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [123] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [124] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [125] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [126] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [127] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [128] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [129] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [130] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_data_in [131] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [6] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [7] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [8] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [9] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [10] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [11] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [12] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [13] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [14] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [15] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [16] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [17] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [18] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [19] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [20] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [21] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [22] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [23] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [24] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [25] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [26] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [27] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [28] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [29] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [30] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [31] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [32] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [33] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [34] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [35] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [36] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [37] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [38] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [39] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [40] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [41] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [42] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [43] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [44] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [45] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [46] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [47] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [48] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [49] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [50] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [51] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [52] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [53] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [54] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [55] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [56] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [57] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [58] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [59] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [60] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [61] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [62] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_line [63] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_byte_we [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_byte_we [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_byte_we [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_byte_we [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_byte_we [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_byte_we [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_byte_we [6] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\stored_byte_we [7] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\cache_flushing like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_valid like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_all like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_head [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_head [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_head [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_head [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_head [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_head [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_tail [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_tail [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_tail [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_tail [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_tail [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\recovery_tail [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [6] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [7] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [8] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [9] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [10] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [11] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [12] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [13] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [14] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [15] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [16] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [17] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [18] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [19] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [20] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [21] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\ic_request [22] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\write_busy like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\next_write_serial like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\write_response [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\write_response [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_valid like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_id [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_id [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [6] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [7] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [8] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [9] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [10] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [11] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [12] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [13] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [14] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [15] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [16] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [17] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [18] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [19] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [20] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [21] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [22] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [23] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [24] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [25] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [26] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [27] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [28] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [29] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [30] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [31] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [32] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [33] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [34] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [35] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [36] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [37] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [38] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [39] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [40] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [41] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [42] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [43] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [44] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [45] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [46] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [47] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [48] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [49] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [50] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [51] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [52] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [53] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [54] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [55] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [56] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [57] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [58] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [59] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [60] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [61] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [62] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\response_data [63] like $anyseq.
+Warning: Treating a total of 428 undriven bits in TemporalMiter like $anyseq.

@@ -1,0 +1,27 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/proof/miter.aig"; fold; orpos; pdr -T 120 -v; testcex -a; write_cex -n -c "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/witness/counterexample.txt"; write_cex -a "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/witness/counterexample.aiw"; write_aiger "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/witness/folded.aig"".
+
+Warning: The last 16 outputs are interpreted as constraints.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 386                                                               1   386      0.57 sec
+  2 : 0 303 428                                                           4   423      1.24 sec
+  3 : 0 31 88 481                                                         5   458      1.57 sec
+  4 : 0 31 28 342 502                                                     4   469      2.29 sec
+  5 : 0 31 32 59 420 853                                                  6   663      4.75 sec
+  6 : 0 31 32 59 118 608 697                                              8   671      6.59 sec
+  7 : 0 31 32 64 69 228 294 941                                          10   686      8.63 sec
+  8 : 0 32 35 72 99 243 186 212 988                                      22   690     10.18 sec
+  9 : 0 31 33 69 83 211 165 168 419 631                                  12   690     10.66 sec
+Block = 2158  Oblig =  4431  Clause =  3325  Call = 37429 (sat=55.6%)  Cex =   0  Start = 113
+SAT solving =     6.47 sec ( 60.68 %)
+  unsat     =     1.07 sec ( 10.01 %)
+  sat       =     5.40 sec ( 50.67 %)
+Generalize  =     4.96 sec ( 46.51 %)
+Push clause =     1.35 sec ( 12.66 %)
+Ternary sim =     2.29 sec ( 21.46 %)
+Containment =     0.07 sec (  0.65 %)
+CNF compute =     0.16 sec (  1.49 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =    10.66 sec (100.00 %)
+Output 0 of miter "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/rsd_mshr/results/auto_negative_deadline_v1/proof/miter" was asserted in frame 11.  Time =    10.68 sec
+Main AIG: The cex is correct.

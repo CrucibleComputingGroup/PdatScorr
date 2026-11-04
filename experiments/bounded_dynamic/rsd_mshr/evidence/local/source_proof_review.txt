@@ -1,0 +1,123 @@
+Independent source and proof-boundary review, 2026-11-04
+
+Current accepted hardware boundary: results/baseline_v5.
+Current accepted positive automatic proof: results/odc_pdr_v4.
+Positive proof implementation snapshot SHA-256:
+f56d74528b22638e65ad9f12e045c1386b86eecd0856c768d6676182f9cbe8c2
+Snapshot: odc_pdr_v4/temporal_source.py. All four proof.json implementation
+hashes (identity, two cumulative candidates, final combined pair) match it.
+
+1. Boundary findings and closure
+
+Two issues were found and corrected before the final accepted runs:
+
+* baseline_v3 exported icMemAccessReqAck.wserial, which the original
+  MemoryAccessController never assigns. ICache.sv:425-428 reads ack and serial
+  only. baseline_v4 projected exactly those three defined read-ack bits.
+  Its 553 hardware cells and every other port were identical to baseline_v3.
+  It was incorrect to describe all 546 old port bits as defined observations.
+
+* baseline_v3/v4 supplied read_busy_external || free_empty to the original
+  MemoryAccessController, adding an external throttle gate to the composition.
+  The actual Axi4Memory.sv:185 connects busy to free-list empty alone.
+  baseline_v5 removes that input and gate. The accepted-request spacing bound
+  now exists only as a formal contract, not a synthesized rate limiter.
+
+The final wrapper has 631 input bits, 545 defined output bits, and 343 native
+flip-flop bits. It contains no formal premises, output masks, new admission
+gates, or changes to the original component modules or capacities.
+audit_boundary.py and results/boundary_audit_v1/summary.json reproduce the
+checks and bind pinned source-context copies by hash.
+
+Original composition checked:
+* Axi4Memory.sv:170-195,241-255: FreeList size4/width2, push on response_valid,
+  returnedID=response_id, pop=read_accept && !empty, allocatedID=headData,
+  readbusy=empty. XilinxMacros.vh:27-29 confirms width2/size4.
+* DCache.sv:1263-1281: memory request and acknowledgement/response field
+  connections match the wrapper. DCacheIF.sv:222-251 enumerates every miss
+  handler port; internal memory requests feed the actual arbiter/mux/controller,
+  and every other functional output is observed. The actual arbiter's grant
+  and mux selection are retained, not modeled as unconstrained choices.
+* RecoveryManagerIF.sv:256-262: all four recovery inputs are exposed. Cache
+  array responses/grants, initialization requests, release, flush, store data,
+  and write-service inputs are arbitrary. This overapproximates surrounding
+  behavior rather than assuming a desired internal invariant.
+* MemoryAccessController.sv:61-106 and ICache.sv:425-428: instruction reads
+  share the actual allocator and response broadcast; their defined outputs are
+  observed. No other read-ID allocation path is omitted from the monitor.
+
+This is a local component boundary under a common synchronous reset. It is not
+the complete AXI controller, complete cache system, or full OoO core. It does
+not establish an application's compliance with the timing contract.
+
+2. Undefined-value audit
+
+The original flattened baseline had one directly undefined output bit, the
+unused I-cache write-serial field above. The accepted baseline has no x/z bits
+in any top-level port.
+
+Remaining native x literals are two 87-bit mux defaults from array indexing at
+DCache.sv:279 and four procedural SSA mux defaults in the phase6/phase9 cases
+at DCache.sv:1605-1628 and1668-1701. The index is one bit; Slang's widened
+complement is 2'b1x, so both generated bounds guards select the defined branch.
+The four procedural defaults belong to values only selected inside their case
+branches. There is no explicit source-level X assignment at those sites.
+
+The first automatic PDR family allowed ABC to concretize surviving undef bits;
+it is historical, not accepted evidence. Merely applying setundef after opt is
+insufficient as a generic safeguard against earlier X simplification. Accepted
+odc_pdr_v4 converts remaining X values to independent anyseq drivers before the
+first AIG-lowering opt, uses opt -keepdc, and repeats setundef -anyseq after
+techmap for newly introduced undef. The conservative preparation flow itself
+uses keepdc. Identity and both cumulative rewrites then pass, as does the final
+combined proof. No source-state initialization is replaced with zero.
+
+3. Generic rewrite/proof review
+
+odc/temporal.py:equality_candidates only proposes unsigned, same-width $eq
+operand narrowing. narrow_equality changes the two operand vectors and width
+parameters; it does not add assumptions, duplicate drivers, manually tie a
+comparator result, or resize storage. Every accepted cumulative candidate and
+the final pair are proved against the original hardware, not the last candidate.
+The actual accepted edits are the two read-tag matches at DCache.sv:1773.
+
+The immutable harness shares all inputs, attaches the service history monitor
+to reference-side accepted transactions, and asserts all 14 functional output
+vectors (545 bits). The helper only assumes equal matching arbitrary FF values
+at $initstate; it never assumes ongoing equality. All343 native FF bits are
+paired. Continuing state equality in the positive run is an additional proven
+assertion, so it can make the check conservative but cannot hide a mismatch.
+
+The PDR lowering retains formal assumptions as AIGER constraints, preserves
+arbitrary uninitialized FF values via write_aiger -zinit, folds constraints,
+ORs all bad outputs, and accepts only an explicit successful PDR result with
+successful process completion. BMC-only passes cannot certify candidates.
+The monitor's initialization bit enforces the initial reset; hardware payload
+fields left uninitialized by the source remain arbitrary and paired.
+
+This review supports the current one-clock, synchronous-reset component.
+The generic helper's async2sync/formalff transforms are not by themselves a
+claim of exact semantics for arbitrary multi-clock or asynchronous interfaces.
+
+4. Negative controls and physical mapping
+
+The new optional assert_state_correspondence=False leaves initial-state pairing
+intact but omits the continuing-state helper. It is used for final negative
+controls, so an asserted PDR output must arise from a functional observation,
+not merely an internal state difference. The negative implementation snapshot
+is retained separately from the immutable positive implementation.
+
+The actual combined candidate fails the functional-only native-boundary miter
+when latency is relaxed5->9 (frame11) and when response order is relaxed
+(frame18). Both controls keep all other assumptions and outputs. Explicit PDR
+asserted-output logs are required; a timeout, error, or unproved result is not a
+counterexample. Separate witness exports validate the current CEX with ABC
+testcex -a before retaining it.
+
+scripts/map_temporal_odc.py checks the final combined certificate and exact
+reference/candidate/harness hashes, then maps only the hardware modules. The
+formal monitor, init-pairing cells, and zinit conversion are absent from physical
+mapping. Baseline and candidate use the same synthesis/Liberty flow. Its area
+is a library-mapped local hardware estimate, not placed/routed area or a
+whole-core saving. The full-core integration and executable compliance remain
+separate study obligations.

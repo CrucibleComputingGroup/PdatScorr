@@ -5,3 +5,5 @@
 - Commit and push completed, validated changes to the relevant review branch so the user can review them; do not leave this as an optional follow-up.
 - Keep Pscorr experiment code and evidence in this repository. The manuscript belongs in `Allenjin123/DAC-2026-PSCORR`; keep bulky experiment artifacts outside that Overleaf-linked repository.
 - Preserve recorded raw results and provenance. Use new output directories for new experiments, and distinguish local proofs, finite simulation evidence, capacity changes, and automatic optimization results.
+
+- The 0.893% MSHR-component tag optimization is a mechanism/regression test only; the user rejected its magnitude as a paper result. Prioritize substantial automatically removed RS/LSQ storage and measured whole-core impact, with capacities unchanged and lifetime bounds derived from the original constrained system. Do not add the small pilot result to the manuscript.
