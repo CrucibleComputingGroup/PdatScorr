@@ -1,0 +1,21 @@
+{
+  "contract": "After reset, every executeLoad implies 22-bit physical address[21:16]==0; every executeStore implies address[21:16]!=0, including invalid-operand/speculative/replayed/wrong-path operations.",
+  "proof_scope": "Actual unmodified RSD LoadQueue/StoreQueue RTL: inductive region invariants and zero historical comparator/forwarding outcomes under the explicit harness contract. Not complete processor equivalence or application-contract proof.",
+  "actual_rtl_proof": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_lsq/summary.json",
+  "supporting_extracted_relation": "Source-audited manual entry-transition extraction with unbounded inductive invariants, plus actual RTL picker combinational proof. NOT full-core equivalence and NOT a proof that any binary satisfies the environment contract.",
+  "observation_relation": "LQ conflict and conflictLoadPC exact after reset; SQ storeLoadForwarded exact; forwardMiss/data may differ only while forwarding disabled; LSU latched forwarding enable remains zero and masks data.",
+  "files": [
+    {
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/LoadQueue.sv",
+      "candidate": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/generated/LoadQueue.sv",
+      "source_sha256": "3a4a33e0aa5586aace17b09da68f466d09fbb9914fd744e49b261f2df927d701",
+      "candidate_sha256": "189ef07614ebcc47094f1238fb98f8b93aa97e2897f39443d9990616af83f8f7"
+    },
+    {
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/StoreQueue.sv",
+      "candidate": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/generated/StoreQueue.sv",
+      "source_sha256": "f344b1f219920f59e48eba6bcb809130df060afd47dc6b257bb0c72653167ecf",
+      "candidate_sha256": "828ffbbcc09c0c29e5d9bb6fe76f4670e91f56d41acaece8a4b2b32c6ae70e7c"
+    }
+  ]
+}

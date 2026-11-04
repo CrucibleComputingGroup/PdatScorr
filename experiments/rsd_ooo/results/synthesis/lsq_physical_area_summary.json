@@ -1,0 +1,30 @@
+{
+  "status": "validated_block_only",
+  "rows": [
+    {
+      "variant": "lsq_original",
+      "area_um2": 86273.9936,
+      "scope": "Actual RSD LQ+SQ at LSQObserved interface with inactive forwarding outputs masked; not full core",
+      "top": "LSQObserved",
+      "flow": "direct RTL -> flip-flops -> SKY130 HD TT025C1v80, Yosys0.33 abc-fast; no AIG initial-state encoding",
+      "sources_manifest": "experiments/rsd_ooo/results/synthesis/lsq_original/manifest.json",
+      "log": "experiments/rsd_ooo/results/synthesis/lsq_original/direct_map.log",
+      "log_sha256": "0814df77fb186b1a68c0868954a7b8b68eb4634e2c6f0dd1051f96caeff4c333",
+      "netlist_sha256": "7d279ba20d1add380552a3839bb27237d6dc3d9f403355c2059634486da4d762"
+    },
+    {
+      "variant": "lsq_region_cut",
+      "area_um2": 40518.8608,
+      "scope": "Actual RSD LQ+SQ at LSQObserved interface with inactive forwarding outputs masked; not full core",
+      "top": "LSQObserved",
+      "flow": "direct RTL -> flip-flops -> SKY130 HD TT025C1v80, Yosys0.33 abc-fast; no AIG initial-state encoding",
+      "sources_manifest": "experiments/rsd_ooo/results/synthesis/lsq_region_cut/manifest.json",
+      "log": "experiments/rsd_ooo/results/synthesis/lsq_region_cut/direct_map.log",
+      "log_sha256": "92a0e1c66c56c4cdefdfbf78709515881d68cffb418517eb4a9e337d2563293d",
+      "netlist_sha256": "3d62cea0813c6b08d4eb80cad80ff2df56f6fd1266c8e80b42df0c31f4f0bc3b"
+    }
+  ],
+  "block_reduction_percent": 53.03467579365655,
+  "whole_core_area": "not_yet_validated",
+  "timing": "not_measured"
+}

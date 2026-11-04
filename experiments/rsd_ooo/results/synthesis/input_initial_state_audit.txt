@@ -1,0 +1,116 @@
+Full-core AIG input and initial-state audit, 2026-11-04
+
+Result: All 82 warnings in each of the five audited final full-core variants name
+exactly the non-clock top-level Core inputs. No unexpected internal signal is
+promoted by these warnings. All current source hashes and AIG hashes match
+their final manifests. Machine-check results: input_initial_state_audit.json.
+
+Non-clock input-bit inventory:
+  rst 1; rstStart 1; nextMemReadSerial 2; nextMemWriteSerial 1;
+  memReadData 64; memReadDataReady 1; memReadSerial 2;
+  memAccessResponse 2; memAccessReadBusy 1; memAccessWriteBusy 1;
+  reqExternalInterrupt 1; externalInterruptCode 5. Total: 82.
+These match Core.sv input declarations and normalized rtl_logic.v port widths.
+The final directories do not retain elaborated.il; this audit uses their
+actual source snapshots, synthesis logs, normalized Verilog where retained,
+and exported AIGs rather than attributing an earlier IL file to the final run.
+
+Count correction:
+Variant                   RTL DFFs    AIG inputs    AIG latches    constraints
+base_core_final             167332        167415         167333              0
+isa_core_final              167332        167415         167333              2
+nonalias_core_final         166513        166596         166514              0
+isa_nonalias_core_final     166513        166596         166514              2
+isa_region_assume_core_final_v2
+                           167332        167415         167333              4
+
+The ordinary top-level PI count is 83, including clk, not 82. Every original
+DFF lacks a defined initial value here. Therefore I = RTL_DFFs + 83, while
+L = RTL_DFFs + 1. The extra latch controls initialization encoding. I-L=82
+must not be used as the ordinary PI count. The clock input is retained as a
+PI even though AIG sequential transition semantics use an implicit clock.
+
+Warning/export semantics, checked against the exact Yosys source revision:
+https://raw.githubusercontent.com/YosysHQ/yosys/b8d84f823/backends/aiger/aiger.cc
+- Lines 141-164 first register module input bits.
+- Lines 173-195 can collect internal aliases of those canonical input bits
+  into the undriven pool; lines 324-332 reinsert them into an input set.
+  Duplicate insertion does not create extra independent inputs.
+- Lines 355-408 implement -zinit with arbitrary-value inputs for unknown
+  initial states and an extra initialization-control latch. -zinit does not
+  establish that the original hardware starts with every register zero.
+The installed tool's help agrees. setundef -zero does not include -init or
+-undriven in these scripts, so it neither sets all flop initial values nor
+ties the warned external inputs to zero.
+
+Proof-domain distinction:
+1. The ISA-only AIG assumes the opcode-class predicate for each of two valid
+   predecode lanes while reset is inactive, including wrong-path operations.
+   It does not assume an initial reset. Uninitialized downstream pipeline,
+   queue, and execution state can therefore initially contain operations
+   outside that opcode class. This is conservative relative to using a
+   certified reset-reachable domain, and can prevent removal of otherwise
+   unused hardware. It is an opcode-class superset, not a complete RV32I
+   legality decoder.
+2. run_backend.py preserves these constraints through scorr -c -m -F 2
+   and purges them only afterwards for mapping. ABC's local help identifies
+   scorr as sequential sweeping by K-step induction; a successful complete
+   run may support transformations within its encoded assumption domain.
+   This audit does not certify unfinished runs or full-core equivalence.
+3. The region cut was justified separately by LSQRegionProof.sv: initial
+   reset is assumed, and every later executed load/store must meet the
+   physical region contract. Its inductive invariants begin from reset.
+   Arbitrary initial queue state need not satisfy them: a finished historical
+   store can initially have a low-region address matching a new low-region
+   load, and the original forwarding behavior can then differ from the cut.
+4. The nonalias AIG has zero invariant constraints, and the combined AIG
+   has only the two ISA constraints. Their region contract is external
+   justification for a manually applied source cut, not an encoded ABC
+   region assumption or a full-core reset-conditioned equivalence proof.
+   Optimizing the cut design from arbitrary initial state does not extend
+   the local original-versus-cut proof to that larger initial-state domain.
+5. The later isa_region_assume_core_final_v2 variant is an assumptions-only
+   test on the original queues. Both queue sources are byte-identical to
+   the pinned upstream sources. The complete PreDecodeStage.sv is
+   byte-identical to the ISA-only variant. The sole source change relative
+   to that snapshot is Core.sv, which adds:
+     !rst && executeLoad[lane]  -> executedLoadAddr[lane][21:16] == 0
+     !rst && executeStore[lane] -> executedStoreAddr[lane][21:16] != 0
+   There is one load lane and one store lane. No regValid, retirement,
+   recovery, or wrong-path qualifier weakens these event predicates.
+   Together with the unchanged two-lane ISA predicate, export has exactly
+   four constraints. Source hashes, AIG hash, 82 warning bits, and initial
+   input/latch accounting all pass the same audit.
+6. These added region predicates match the actual-LSQ harness and
+   NonaliasRegionMonitor.sv after reset. The simulation recorder samples
+   the same execute/address signals without filtering invalid operands;
+   analyze_traces.py checks address >> 16 on the 22-bit physical address.
+   In the simulation configuration programLoaded is true and Core rst
+   equals the reset output used by TestMain.cpp to start sampling.
+   Finite sampled conformance remains distinct from universal assumption
+   satisfaction. Unlike LSQRegionProof.sv, the assumptions-only whole-core
+   model still has no initial-reset assumption: arbitrary historical queue
+   entries may initially violate the region invariants even when future
+   execute events meet the new predicates. It is therefore a conservative
+   original-RTL Pscorr experiment, not a reset-reachability proof and not
+   evidence that the manual cut is arbitrary-initial-state equivalent.
+
+Interpretation: keep arbitrary-initial-state ISA scorr evidence separate
+from reset-conditioned legality of the region cut. Keep AIG mapping, which
+contains auxiliary initialization inputs/muxes, separate from direct
+physical RTL mapping. These warnings themselves do not invalidate either
+result; conflating their initialization domains or area denominators would.
+
+Evidence anchors:
+- {base,isa,nonalias,isa_nonalias}_core_final/synth.log: the final AIGMAP
+  DFF counts and the following AIGER warning block.
+- Each corresponding manifest.json and core_yosys.aig.
+- isa_core_final/rtl_logic.v:1-46 and nonalias_core_final/rtl_logic.v:1-46.
+- isa_core_final/src/Pipeline/PreDecodeStage.sv:120-136.
+- isa_region_assume_core_final_v2/src/Core.sv:213-226; its complete
+  source changes and original-queue identity are recorded in the JSON audit.
+- experiments/rsd_ooo/build_simulations.py:28-57 and analyze_traces.py:43-48.
+- Original RSD SysDeps/Verilator/TestMain.cpp:258-263,314 and
+  Main_Zynq.sv:199,270 establish the simulation sampling/reset connection.
+- experiments/rsd_ooo/formal/LSQRegionProof.sv:29-30,63-79.
+- experiments/rsd_ooo/synthesis/run_backend.py:63-73.

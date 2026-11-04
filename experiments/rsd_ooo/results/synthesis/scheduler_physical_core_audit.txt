@@ -1,0 +1,25 @@
+PASS: scheduler-only whole-core physical source/mapping audit
+
+Exactly Scheduler/Scheduler.sv differs from the matched baseline. It is byte-
+identical to the proved generated FP-request cut. Every other source file,
+including both original LSQs, Core and the complete MicroArchConf, is unchanged.
+All macros match, including enabled RSD_MARCH_FP_PIPE. No memory-region contract,
+queue cut, instruction assumption or capacity change is introduced. The one
+component proof manifest, all prepared/mapped source hashes, source manifest,
+map script, ABC binary and Liberty hashes verify. Physical mapping scripts
+match after path normalization. There is no AIGER zinit export or SRAM macro.
+
+The run completed successfully: mapped area 9996011.967981 ->9659860.822383
+um^2, a 3.3628526% reduction at fixed capacities. Raw stat JSON agrees within
+0.001 um^2 summation precision; mapped FF count is165179 versus167332 baseline.
+All mapped cells are SKY130 HD. This is the full Core with flip-flop memories,
+not a post-layout/timing result or a same-domain full-core equivalence proof.
+The applicable event contract is every actual scheduler.write non-FP after
+reset; FLW/FSW memory-class operations remain permitted and FP PRF is retained.
+
+The larger area difference than the isolated scheduler wrapper supports a
+measured whole-core propagation effect. Attribution to particular downstream
+units, payload RAMs or ports requires additional netlist-cone tracing and is
+not claimed. The four-way table may compare baseline, region-only, scheduler-
+only and combined maps using the common baseline denominator, while naming
+the distinct contracts for each cut.

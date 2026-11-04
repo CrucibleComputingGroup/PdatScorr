@@ -1,0 +1,123 @@
+{
+  "status": "passed",
+  "scope": "Actual original Scheduler and SelectLogic, reset base plus temporal induction; no full-core equivalence/application-contract proof",
+  "contract": "After initial reset, every actual scheduler.write lane has opType != MOP_TYPE_FP; no validity/retirement filter",
+  "properties": {
+    "assertions": 35,
+    "assumptions": 3,
+    "covers": 1
+  },
+  "source_sha256": {
+    "MicroArchConf.sv": "f5c391ef82882d748c63d14b6c771fce7f6c43492b61777825146fa833db8454",
+    "BasicTypes.sv": "1ccf45e1abe265937ca7afa43f900dc171c504db0e2a87172c06eeabf6fc1d4b",
+    "Memory/MemoryMapTypes.sv": "8d8b7a38a458d1d6a1252005149404affda46a1d993771ca6bf691f7015b2f88",
+    "RenameLogic/ActiveListIndexTypes.sv": "1e481436d7dc9a15eeaa0493995dcddbfb98b89f9e7b0e3e5d30dc9559909726",
+    "Cache/CacheSystemTypes.sv": "88f64d53fcea253623d9fc57d6f7791c9c02a124bfa2b2d2f3933eb236da935b",
+    "Memory/MemoryTypes.sv": "0044d6b16030640a68d85c38ac4d0c49308c340ad0dab73a3f4934e1b89e664f",
+    "Decoder/OpFormat.sv": "4318167cc979a47e86ae503e43f40f094038a5f10b8d70ee8d197861be847bcb",
+    "Decoder/MicroOp.sv": "5eb254f09ba0118fbbb2ec4d0387b232bce50f9d6ee39a1399cca28639739434",
+    "RegisterFile/BypassTypes.sv": "0b0c7fd043cdc7245477c7544b2dd5b2308e32b04ab4f46f4fbe43dc42586847",
+    "FetchUnit/FetchUnitTypes.sv": "d219a3fe4c5bfb1c53d9383396488cd17f3cfa05c1dea353e6bd38b30b1e597b",
+    "FloatingPointUnit/FPUTypes.sv": "1dcea472a754779992995d34766e5a914380e876a2860dc96eb105508f2e38bb",
+    "LoadStoreUnit/LoadStoreUnitTypes.sv": "321f9a0b9f661b8da3566e4158b9aca635eaba2bad94e9c20f83ff20a5162e8a",
+    "RenameLogic/RenameLogicTypes.sv": "f43fd964f7700815741621e0531414d4066063218f00dfefb1cf95d69ea14217",
+    "Scheduler/SchedulerTypes.sv": "6b9cbbd313d9c401c1319b994020a3c1477877ba86688c220af6a9716eb285dc",
+    "Pipeline/PipelineTypes.sv": "119096fe44b517578f2e539946afb342bc5b2d62c542e79da65243116e81e540",
+    "IO/IO_UnitTypes.sv": "af442aeb79d7b0482616f3a0a72649ea88eda37e65ec6f8df515815c77ef97b9",
+    "Privileged/CSR_UnitTypes.sv": "ac09fead995a5fe91fb302c713fc8b5e90128760f11f718d27cd2a581901c54d",
+    "Debug/DebugTypes.sv": "6819b741cd7c2b22305dfa22149028f9d9eb61c59d17437143474663d545924d",
+    "Scheduler/SchedulerIF.sv": "3510462580b59c86aaf4192459e7009862e9ee54f6e0463844a08a55a342cd84",
+    "Scheduler/WakeupSelectIF.sv": "87c336faeef86f99694bcab7539342bcd796f8718ae4d44cc4c17614f713345f",
+    "Recovery/RecoveryManagerIF.sv": "7e914211c94af9a3a3e78310559e7c1d2d9c7dee43571235d010f3e648f4a2f0",
+    "MulDivUnit/MulDivUnitIF.sv": "76548a77ea0c25454a24ab66aabe2c9f663f6a1a6b04937f0aa1e6eed03a48e2",
+    "FloatingPointUnit/FPDivSqrtUnitIF.sv": "0b25275c552782be1447099b59496c49c2f4283afde0abc2dbe8b1856b707c8a",
+    "Debug/DebugIF.sv": "9ef9d10745030e168df4d6fa1141d65ff8d20d86405cb0ebc21757152f3a942e",
+    "Primitives/Picker.sv": "b04be6166d16060583d98983735c232cfb741dfaa3a50b5d6913392d154b60dc",
+    "Scheduler/Scheduler.sv": "bbf8f7493ec4218651efc5ad0c6d561cc9529a93478a0fa22d4e08d04e8e5e21",
+    "Scheduler/SelectLogic.sv": "0c4239cf53ebbd85d88e91cedf0f3bb5b793bc675da4f660d4dc96727552958d"
+  },
+  "harness_sha256": "8050d46e4dca39ee7454889964ce67dadef2bffb0c4f6ac8ca5603ffb172ca7e",
+  "executions": [
+    {
+      "name": "contract_elaborate",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-m",
+        "slang",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/scheduler_nofp/contract.ys"
+      ],
+      "returncode": 0,
+      "seconds": 2.034391080029309
+    },
+    {
+      "name": "contract_base",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "6",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/scheduler_nofp/contract.smt2"
+      ],
+      "returncode": 0,
+      "seconds": 0.30707883602008224
+    },
+    {
+      "name": "contract_induction",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "6",
+        "-i",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/scheduler_nofp/contract.smt2"
+      ],
+      "returncode": 0,
+      "seconds": 0.27073209919035435
+    },
+    {
+      "name": "contract_cover",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "6",
+        "-c",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/scheduler_nofp/contract.smt2"
+      ],
+      "returncode": 0,
+      "seconds": 1.1765472032129765
+    },
+    {
+      "name": "negative_elaborate",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-m",
+        "slang",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/scheduler_nofp/negative.ys"
+      ],
+      "returncode": 0,
+      "seconds": 2.0951338200829923
+    },
+    {
+      "name": "negative_counterexample",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "6",
+        "--dump-vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/scheduler_nofp/negative.vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/scheduler_nofp/negative.smt2"
+      ],
+      "returncode": 1,
+      "seconds": 0.1983114560134709
+    }
+  ],
+  "negative_control": "Removing the dispatch contract yields a reached FP-request/grant counterexample"
+}

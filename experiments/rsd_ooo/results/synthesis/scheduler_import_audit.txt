@@ -1,0 +1,27 @@
+PASS: scheduler automatic-variant source/export/domain audit
+
+Three variants retain original Scheduler and SelectLogic request/selection
+logic. All 22 output ports (409 AIG bits) are identically zeroed only when rst
+is asserted. Inputs, state update/reset transitions and non-reset observations
+are unchanged. No assume(!rst), reset suppression or hidden request cut occurs.
+The original uses no assumptions, dispatch-only has exactly the actual-write
+contract on two lanes, and lemma-assisted adds exactly 16 guarded live-entry
+predicates: !port.rst -> (!notIssued[i] || !isFP[i]). Source/proof/harness/model/
+base/induction/cover hashes match. Export constraint counts are 0/2/18, with
+275 inputs, 129 AIG latches and 409 outputs in every model. The extra AIG latch
+is initialization encoding, not a claimed physical scheduler register.
+
+The imported predicate is exactly an assertion proved on unchanged actual
+Scheduler+SelectLogic using initial reset and the same every-actual-write
+contract, including wrong-path writes. It does not assert all isFP bits zero;
+class bits in invalid entries remain arbitrary. Reset masking matches the
+proof assertion guard and leaves internal resets possible on every cycle.
+
+The lemma-assisted run is reset-conditioned proof-guided specialization, not
+a conservative arbitrary-initial-state assumption-only run or automatic
+invariant discovery. Its assumptions restrict otherwise unreachable startup
+state. Dispatch-only remains the conservative control. This component's
+observation boundary differs from the unmasked direct-map wrapper; areas must
+be compared within each matched boundary. Full-core reset-cycle observation
+equivalence and all-input binary adherence are not established. No payload
+RAM, PRF or complete FP-pipeline removal is covered.

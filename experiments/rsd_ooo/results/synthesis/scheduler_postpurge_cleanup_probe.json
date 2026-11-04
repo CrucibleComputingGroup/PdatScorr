@@ -1,0 +1,29 @@
+{
+  "scope": "Structural removal of state outside output fanin after constraints are purged; optional constant/equal-latch sweeps disabled. No scorr rerun.",
+  "results": [
+    {
+      "variant": "original",
+      "before": "aig 3251 275 129 409 2847",
+      "after": "aig 3251 275 129 409 2847",
+      "seconds": 0.03252650098875165,
+      "source_sha256": "19afe16aa78ea454d2a77cfe38d1d8c97f5c24582c8805c6652ef43b2523932d",
+      "log": "experiments/rsd_ooo/results/synthesis/scheduler_original_reset_observed/postpurge_cleanup_probe/cleanup.log"
+    },
+    {
+      "variant": "dispatch_assume",
+      "before": "aig 3251 275 129 409 2847",
+      "after": "aig 3251 275 129 409 2847",
+      "seconds": 0.03282832121476531,
+      "source_sha256": "36ef81b5b684fee7545e80dd83bed7a5f0ccd83b420e6c81906b3c8e1b9363e3",
+      "log": "experiments/rsd_ooo/results/synthesis/scheduler_dispatch_assume_reset_observed/postpurge_cleanup_probe/cleanup.log"
+    },
+    {
+      "variant": "dispatch_lemmas",
+      "before": "aig 3171 275 129 409 2767",
+      "after": "aig 3171 275 129 409 2767",
+      "seconds": 0.03289291029796004,
+      "source_sha256": "96da698129e1e9226a2634e7c50150583db8da9bed97c47984ff397186f95d08",
+      "log": "experiments/rsd_ooo/results/synthesis/scheduler_dispatch_lemmas_reset_observed/postpurge_cleanup_probe/cleanup.log"
+    }
+  ]
+}

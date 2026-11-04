@@ -1,0 +1,83 @@
+[
+  {
+    "name": "fp_memory_only_s1_n128",
+    "mode": "fp_memory_only",
+    "seed": 1,
+    "region_contract": false,
+    "simulator": "/home/allenjin/riscv/bin/spike",
+    "simulator_sha256": "3c65e669265c82603f7bd15235a60c00bd4419315cb4e4157387c5fcd83fe580",
+    "input_sha256": "ed237e75f090b9795cd4032004ec5c8962d5f81c5a18d095a93d8b2de7a77bc5",
+    "command": [
+      "/home/allenjin/riscv/bin/spike",
+      "--isa=rv32imf_zicsr",
+      "--priv=m",
+      "--pc=0x1000",
+      "--disable-dtb",
+      "-m0x1000:0xf000,0x80000000:0x40000,0x40002000:0x1000",
+      "-d",
+      "--debug-cmd=/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_memory/spike/fp_memory_only_s1_n128/debug.cmd",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_memory/spike/fp_memory_only_s1_n128/code.elf"
+    ],
+    "expected_serial": "signature=c1685386\n",
+    "status": "passed",
+    "returncode": 0,
+    "checksum_match": true,
+    "verification_scope": "Spike reaches exact PC 0x1004 and x20 matches independent arithmetic oracle",
+    "wall_seconds": 0.005152225028723478,
+    "log_sha256": "e32f0cb1d86b3bd201e8626ede446f83f07332a5e4704fb89dd43f4cc1fe24f4"
+  },
+  {
+    "name": "fp_memory_only_s7_n128",
+    "mode": "fp_memory_only",
+    "seed": 7,
+    "region_contract": false,
+    "simulator": "/home/allenjin/riscv/bin/spike",
+    "simulator_sha256": "3c65e669265c82603f7bd15235a60c00bd4419315cb4e4157387c5fcd83fe580",
+    "input_sha256": "209471cb07c1d89d4284a3bcb4adadf35f29e23f42a5a79c6b708a724fdcfdb3",
+    "command": [
+      "/home/allenjin/riscv/bin/spike",
+      "--isa=rv32imf_zicsr",
+      "--priv=m",
+      "--pc=0x1000",
+      "--disable-dtb",
+      "-m0x1000:0xf000,0x80000000:0x40000,0x40002000:0x1000",
+      "-d",
+      "--debug-cmd=/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_memory/spike/fp_memory_only_s7_n128/debug.cmd",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_memory/spike/fp_memory_only_s7_n128/code.elf"
+    ],
+    "expected_serial": "signature=f6afd4b6\n",
+    "status": "passed",
+    "returncode": 0,
+    "checksum_match": true,
+    "verification_scope": "Spike reaches exact PC 0x1004 and x20 matches independent arithmetic oracle",
+    "wall_seconds": 0.005821054335683584,
+    "log_sha256": "bb675e39b7245d4d281e4532816a8b064f7f409093ffa59801562994262b80f5"
+  },
+  {
+    "name": "fp_memory_only_s42_n128",
+    "mode": "fp_memory_only",
+    "seed": 42,
+    "region_contract": false,
+    "simulator": "/home/allenjin/riscv/bin/spike",
+    "simulator_sha256": "3c65e669265c82603f7bd15235a60c00bd4419315cb4e4157387c5fcd83fe580",
+    "input_sha256": "959ea9bd93dd5caae0332c15c2245d5025719f095df3c123133f644d065861bd",
+    "command": [
+      "/home/allenjin/riscv/bin/spike",
+      "--isa=rv32imf_zicsr",
+      "--priv=m",
+      "--pc=0x1000",
+      "--disable-dtb",
+      "-m0x1000:0xf000,0x80000000:0x40000,0x40002000:0x1000",
+      "-d",
+      "--debug-cmd=/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_memory/spike/fp_memory_only_s42_n128/debug.cmd",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_memory/spike/fp_memory_only_s42_n128/code.elf"
+    ],
+    "expected_serial": "signature=5826464e\n",
+    "status": "passed",
+    "returncode": 0,
+    "checksum_match": true,
+    "verification_scope": "Spike reaches exact PC 0x1004 and x20 matches independent arithmetic oracle",
+    "wall_seconds": 0.004310792777687311,
+    "log_sha256": "584e6311fa4ee2d49643dc9c4afc068adc206961aa625b5f99372d5c81dbf9ba"
+  }
+]

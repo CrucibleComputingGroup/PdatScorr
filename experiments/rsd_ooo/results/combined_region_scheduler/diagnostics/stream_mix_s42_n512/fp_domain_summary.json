@@ -1,0 +1,27 @@
+{
+  "scope": "Finite post-rising-edge samples of actual scheduler.write events including wrong-path operations; no all-input program-contract claim.",
+  "contract": "Every scheduler.write implies typed SchedulerEntry.opType != MOP_TYPE_FP(3).",
+  "sample_count": 16202,
+  "terminal_cycle": 16201,
+  "totals": {
+    "scheduler_writes": 8348,
+    "fp_scheduler_writes": 0,
+    "fp_issue_requests": 0,
+    "fp_issue": 0,
+    "fp_replay_entry": 0,
+    "fp_record_entry": 0,
+    "fp_pipe_valid": 0
+  },
+  "dispatch_op_types": {
+    "0": 6783,
+    "2": 1565
+  },
+  "no_fp_dispatch_observed": true,
+  "fp_request_issue_replay_pipe_all_zero": true,
+  "first_fp_events": [],
+  "trace_integrity_errors": [],
+  "trace_sha256": {
+    "fp_domain.csv": "32bfbcb9f867b3598c7c20023820681cb6a93b1ab203e77faaeea2f6e0891307",
+    "dispatch_events.csv": "75ad2dd32118e9646f65870229ccbc022eea8f5a6526264a2f83e33d6acc0eea"
+  }
+}

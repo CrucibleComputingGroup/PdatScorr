@@ -1,0 +1,27 @@
+{
+  "name": "stream_mix_s42_n512",
+  "mode": "stream_mix",
+  "seed": 42,
+  "region_contract": true,
+  "simulator": "/home/allenjin/riscv/bin/spike",
+  "simulator_sha256": "3c65e669265c82603f7bd15235a60c00bd4419315cb4e4157387c5fcd83fe580",
+  "input_sha256": "0d333826ebba72fa5cbab70ec4f9bbfb8d18ad66fccb8e15fd891cb335aeac1b",
+  "command": [
+    "/home/allenjin/riscv/bin/spike",
+    "--isa=rv32im_zicsr",
+    "--priv=m",
+    "--pc=0x1000",
+    "--disable-dtb",
+    "-m0x1000:0xf000,0x80000000:0x40000,0x40002000:0x1000",
+    "-d",
+    "--debug-cmd=/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/spike_oracle/stream_mix_s42_n512/debug.cmd",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/spike_oracle/stream_mix_s42_n512/code.elf"
+  ],
+  "expected_serial": "signature=c08f3edd\n",
+  "status": "passed",
+  "returncode": 0,
+  "checksum_match": true,
+  "verification_scope": "Spike reaches exact PC 0x1004 and x20 matches independent arithmetic oracle",
+  "wall_seconds": 0.004170613829046488,
+  "log_sha256": "6e560a6a77613f9d72457b4f324d29b4a5e4df0adf6b1691c04a9e5ffa661b3c"
+}

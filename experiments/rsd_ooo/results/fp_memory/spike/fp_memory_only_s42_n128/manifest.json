@@ -1,0 +1,41 @@
+{
+  "name": "fp_memory_only_s42_n128",
+  "mode": "fp_memory_only",
+  "seed": 42,
+  "count": 128,
+  "expected_serial": "signature=5826464e\n",
+  "region_contract": false,
+  "scheduler_contract": "Actual scheduler writes exclude MOP_TYPE_FP; MOP_TYPE_MEM with FP registers remains allowed",
+  "isa": "rv32imf_zicsr",
+  "compiler": "riscv32-unknown-elf-gcc (g1b306039a) 15.1.0",
+  "commands": [
+    [
+      "/home/allenjin/riscv/bin/riscv32-unknown-elf-gcc",
+      "-march=rv32imf_zicsr",
+      "-mabi=ilp32",
+      "-nostdlib",
+      "-nostartfiles",
+      "-Wl,--no-relax",
+      "-T",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/fp_memory_workloads/fp_memory_only_s42_n128/link.ld",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/fp_memory_workloads/fp_memory_only_s42_n128/code.S",
+      "-o",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/fp_memory_workloads/fp_memory_only_s42_n128/code.elf"
+    ],
+    [
+      "/home/allenjin/riscv/bin/riscv32-unknown-elf-objcopy",
+      "-O",
+      "binary",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/fp_memory_workloads/fp_memory_only_s42_n128/code.elf",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/fp_memory_workloads/fp_memory_only_s42_n128/code.rom.bin"
+    ]
+  ],
+  "fp_memory_instructions_per_completed_run": 512,
+  "oracle": "Integer modular sum of the original raw input words after FLW/FSW copies",
+  "hashes": {
+    "code.S": "4bb5d9194de305d18c569e600d29315d50caf3ee1418d550bdb19d7b131dadd2",
+    "code.elf": "10924b34edc76ab45aac968427ec8030f87f292cf908d573ea5c20009ffc7afb",
+    "code.hex": "959ea9bd93dd5caae0332c15c2245d5025719f095df3c123133f644d065861bd",
+    "link.ld": "a08f2926551891f3c1c6ef615d802f4ea996455fb9346eaab278b2e43f9e4dc0"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "scope": "Finite post-rising-edge samples of actual scheduler.write events including wrong-path operations; no all-input program-contract claim.",
+  "contract": "Every scheduler.write implies typed SchedulerEntry.opType != MOP_TYPE_FP(3).",
+  "sample_count": 100000,
+  "terminal_cycle": 99999,
+  "totals": {
+    "scheduler_writes": 4533,
+    "fp_scheduler_writes": 15,
+    "fp_issue_requests": 0,
+    "fp_issue": 0,
+    "fp_replay_entry": 0,
+    "fp_record_entry": 0,
+    "fp_pipe_valid": 0
+  },
+  "dispatch_op_types": {
+    "0": 2741,
+    "2": 1777,
+    "3": 15
+  },
+  "no_fp_dispatch_observed": false,
+  "fp_request_issue_replay_pipe_all_zero": true,
+  "first_fp_events": [
+    {
+      "cycle": 4102,
+      "scheduler_writes": 2,
+      "fp_scheduler_writes": 2,
+      "fp_issue_requests": 0,
+      "fp_issue": 0,
+      "fp_replay_entry": 0,
+      "fp_record_entry": 0,
+      "fp_pipe_valid": 0
+    },
+    {
+      "cycle": 4115,
+      "scheduler_writes": 2,
+      "fp_scheduler_writes": 2,
+      "fp_issue_requests": 0,
+      "fp_issue": 0,
+      "fp_replay_entry": 0,
+      "fp_record_entry": 0,
+      "fp_pipe_valid": 0
+    },
+    {
+      "cycle": 4135,
+      "scheduler_writes": 2,
+      "fp_scheduler_writes": 2,
+      "fp_issue_requests": 0,
+      "fp_issue": 0,
+      "fp_replay_entry": 0,
+      "fp_record_entry": 0,
+      "fp_pipe_valid": 0
+    },
+    {
+      "cycle": 4148,
+      "scheduler_writes": 2,
+      "fp_scheduler_writes": 2,
+      "fp_issue_requests": 0,
+      "fp_issue": 0,
+      "fp_replay_entry": 0,
+      "fp_record_entry": 0,
+      "fp_pipe_valid": 0
+    },
+    {
+      "cycle": 4165,
+      "scheduler_writes": 2,
+      "fp_scheduler_writes": 1,
+      "fp_issue_requests": 0,
+      "fp_issue": 0,
+      "fp_replay_entry": 0,
+      "fp_record_entry": 0,
+      "fp_pipe_valid": 0
+    },
+    {
+      "cycle": 4185,
+      "scheduler_writes": 2,
+      "fp_scheduler_writes": 1,
+      "fp_issue_requests": 0,
+      "fp_issue": 0,
+      "fp_replay_entry": 0,
+      "fp_record_entry": 0,
+      "fp_pipe_valid": 0
+    },
+    {
+      "cycle": 4201,
+      "scheduler_writes": 2,
+      "fp_scheduler_writes": 2,
+      "fp_issue_requests": 0,
+      "fp_issue": 0,
+      "fp_replay_entry": 0,
+      "fp_record_entry": 0,
+      "fp_pipe_valid": 0
+    },
+    {
+      "cycle": 4219,
+      "scheduler_writes": 2,
+      "fp_scheduler_writes": 1,
+      "fp_issue_requests": 0,
+      "fp_issue": 0,
+      "fp_replay_entry": 0,
+      "fp_record_entry": 0,
+      "fp_pipe_valid": 0
+    },
+    {
+      "cycle": 4346,
+      "scheduler_writes": 2,
+      "fp_scheduler_writes": 2,
+      "fp_issue_requests": 0,
+      "fp_issue": 0,
+      "fp_replay_entry": 0,
+      "fp_record_entry": 0,
+      "fp_pipe_valid": 0
+    }
+  ],
+  "trace_integrity_errors": [],
+  "trace_sha256": {
+    "fp_domain.csv": "2e09c02c6d30736749be460f5b3725b337c6fc87f43dfae095234f1492eecc22",
+    "dispatch_events.csv": "4c1a788a69a1e85cf55ed109ad34175269c787610b673267da2789a5634dcfc1"
+  }
+}

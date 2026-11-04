@@ -1,0 +1,1292 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_lsq/formal.ys' --
+
+1. Executing SLANG frontend.
+Top level design units:
+    LSQRegionProof
+
+
+Build succeeded: 0 errors, 0 warnings
+
+1.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\LSQRegionProof.$1145'.
+Removing empty process `LSQRegionProof.$1144'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$835'.
+Removing empty process `LSQRegionProof.$831'.
+Removing empty process `LSQRegionProof.$809'.
+Removing empty process `LSQRegionProof.$795'.
+Removing empty process `LSQRegionProof.$789'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$736'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$729'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$723'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$490'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$467'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$463'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$458'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$454'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$193'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$140'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$133'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$129'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$41'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$18'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$14'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$9'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$5'.
+Cleaned up 20 empty switches.
+
+1.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $835 in module LSQRegionProof.
+Marked 21 switch rules as full_case in process $736 in module LSQRegionProof.
+Marked 3 switch rules as full_case in process $729 in module LSQRegionProof.
+Marked 3 switch rules as full_case in process $723 in module LSQRegionProof.
+Marked 1 switch rules as full_case in process $509 in module LSQRegionProof.
+Marked 3 switch rules as full_case in process $490 in module LSQRegionProof.
+Marked 3 switch rules as full_case in process $467 in module LSQRegionProof.
+Marked 2 switch rules as full_case in process $458 in module LSQRegionProof.
+Marked 1 switch rules as full_case in process $454 in module LSQRegionProof.
+Marked 12 switch rules as full_case in process $193 in module LSQRegionProof.
+Marked 21 switch rules as full_case in process $140 in module LSQRegionProof.
+Marked 3 switch rules as full_case in process $133 in module LSQRegionProof.
+Marked 1 switch rules as full_case in process $129 in module LSQRegionProof.
+Marked 1 switch rules as full_case in process $59 in module LSQRegionProof.
+Marked 3 switch rules as full_case in process $41 in module LSQRegionProof.
+Marked 3 switch rules as full_case in process $18 in module LSQRegionProof.
+Marked 2 switch rules as full_case in process $9 in module LSQRegionProof.
+Marked 1 switch rules as full_case in process $5 in module LSQRegionProof.
+Removed a total of 0 dead cases.
+
+1.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 28 redundant assignments.
+Promoted 0 assignments to connections.
+
+1.4. Executing PROC_INIT pass (extract init attributes).
+
+1.5. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~150 debug messages>
+
+1.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\LSQRegionProof.$805'.
+     1/1: $806
+Creating decoders for process `\LSQRegionProof.$1145'.
+     1/40: $1466
+     2/40: $1461
+     3/40: $1458
+     4/40: $1453
+     5/40: $1448
+     6/40: $1439
+     7/40: $1430
+     8/40: $1421
+     9/40: $1412
+    10/40: $1403
+    11/40: $1394
+    12/40: $1385
+    13/40: $1376
+    14/40: $1367
+    15/40: $1358
+    16/40: $1349
+    17/40: $1340
+    18/40: $1331
+    19/40: $1322
+    20/40: $1313
+    21/40: $1304
+    22/40: $1295
+    23/40: $1286
+    24/40: $1277
+    25/40: $1268
+    26/40: $1259
+    27/40: $1250
+    28/40: $1241
+    29/40: $1232
+    30/40: $1223
+    31/40: $1214
+    32/40: $1205
+    33/40: $1196
+    34/40: $1187
+    35/40: $1178
+    36/40: $1169
+    37/40: $1160
+    38/40: $1155
+    39/40: $1150
+    40/40: $1147
+Creating decoders for process `\LSQRegionProof.$791'.
+     1/1: $792
+Creating decoders for process `\LSQRegionProof.$835'.
+     1/2: $$root.LoadStoreUnitTypes.LSQ_ToWordByteEnable.byteEnable$841
+     2/2: $$root.LoadStoreUnitTypes.LSQ_ToBlockWordEnable.wordEnable$839
+Creating decoders for process `\LSQRegionProof.$736'.
+     1/35: $sq.genblk1[0].picker.picked$781
+     2/35: $sq.genblk1[0].picker.picked$782
+     3/35: $sq.genblk1[0].picker.picked$778
+     4/35: $sq.genblk1[0].picker.grantPtr$773
+     5/35: $sq.genblk1[0].picker.shiftedGrant$767
+     6/35: $sq.genblk1[0].picker.picked$766
+     7/35: $sq.genblk1[0].picker.shiftedGrant$765
+     8/35: $sq.genblk1[0].picker.picked$764
+     9/35: $sq.genblk1[0].picker.shiftedGrant$763
+    10/35: $sq.genblk1[0].picker.picked$762
+    11/35: $sq.genblk1[0].picker.shiftedGrant$761
+    12/35: $sq.genblk1[0].picker.picked$760
+    13/35: $sq.genblk1[0].picker.shiftedGrant$759
+    14/35: $sq.genblk1[0].picker.picked$758
+    15/35: $sq.genblk1[0].picker.shiftedGrant$757
+    16/35: $sq.genblk1[0].picker.picked$756
+    17/35: $sq.genblk1[0].picker.shiftedGrant$755
+    18/35: $sq.genblk1[0].picker.picked$754
+    19/35: $sq.genblk1[0].picker.shiftedGrant$753
+    20/35: $sq.genblk1[0].picker.picked$752
+    21/35: $sq.genblk1[0].picker.shiftedGrant[2:0]$751
+    22/35: $sq.genblk1[0].picker.picked$750
+    23/35: $sq.genblk1[0].picker.shiftedGrant[2:0]$749
+    24/35: $sq.genblk1[0].picker.picked$748
+    25/35: $sq.genblk1[0].picker.shiftedGrant[2:0]$747
+    26/35: $sq.genblk1[0].picker.picked$746
+    27/35: $sq.genblk1[0].picker.shiftedGrant[2:0]$745
+    28/35: $sq.genblk1[0].picker.picked$744
+    29/35: $sq.genblk1[0].picker.shiftedGrant[1:0]$743
+    30/35: $sq.genblk1[0].picker.picked$742
+    31/35: $sq.genblk1[0].picker.shiftedGrant[1:0]$741
+    32/35: $sq.genblk1[0].picker.picked$740
+    33/35: $sq.genblk1[0].picker.shiftedGrant[0]$739
+    34/35: $sq.genblk1[0].picker.picked$738
+    35/35: $sq.genblk1[0].picker.picked$737
+Creating decoders for process `\LSQRegionProof.$729'.
+     1/4: $sq.genblk1[0].picker.genblk1.rightShifter.shiftTmp[30:0]$731 [30:16]
+     2/4: $sq.genblk1[0].picker.genblk1.rightShifter.shiftTmp[30:0]$731 [15:0]
+     3/4: $sq.genblk1[0].picker.genblk1.rightShifter.shiftTmp[30:0]$730 [30:19]
+     4/4: $sq.genblk1[0].picker.genblk1.rightShifter.shiftTmp[30:0]$730 [18:0]
+Creating decoders for process `\LSQRegionProof.$723'.
+     1/2: $$root.LoadStoreUnitTypes.LSQ_ToWordByteEnable.byteEnable$726
+     2/2: $$root.LoadStoreUnitTypes.LSQ_ToBlockWordEnable.wordEnable$724
+Creating decoders for process `\LSQRegionProof.$509'.
+     1/71: $720
+     2/71: $717
+     3/71: $714
+     4/71: $711
+     5/71: $708
+     6/71: $705
+     7/71: $702
+     8/71: $699
+     9/71: $696
+    10/71: $693
+    11/71: $690
+    12/71: $687
+    13/71: $684
+    14/71: $681
+    15/71: $678
+    16/71: $675
+    17/71: $672
+    18/71: $669
+    19/71: $666
+    20/71: $663
+    21/71: $660
+    22/71: $657
+    23/71: $654
+    24/71: $651
+    25/71: $648
+    26/71: $645
+    27/71: $642
+    28/71: $639
+    29/71: $636
+    30/71: $633
+    31/71: $630
+    32/71: $627
+    33/71: $624
+    34/71: $621
+    35/71: $618
+    36/71: $615
+    37/71: $612
+    38/71: $609
+    39/71: $606
+    40/71: $603
+    41/71: $600
+    42/71: $597
+    43/71: $594
+    44/71: $591
+    45/71: $588
+    46/71: $585
+    47/71: $582
+    48/71: $579
+    49/71: $576
+    50/71: $573
+    51/71: $570
+    52/71: $567
+    53/71: $564
+    54/71: $561
+    55/71: $558
+    56/71: $555
+    57/71: $552
+    58/71: $549
+    59/71: $546
+    60/71: $543
+    61/71: $540
+    62/71: $537
+    63/71: $534
+    64/71: $531
+    65/71: $528
+    66/71: $525
+    67/71: $522
+    68/71: $519
+    69/71: $516
+    70/71: $513
+    71/71: $510
+Creating decoders for process `\LSQRegionProof.$490'.
+     1/2: $lsu.allocatedStoreQueuePtr[3:0]$503
+     2/2: $lsu.allocatedStoreQueuePtr[7:4]$496
+Creating decoders for process `\LSQRegionProof.$467'.
+     1/3: $sq.storeQueuePointer.nextCount$477
+     2/3: $sq.storeQueuePointer.nextCount$474
+     3/3: $sq.storeQueuePointer.nextCount$475
+Creating decoders for process `\LSQRegionProof.$463'.
+     1/1: $sq.storeQueuePointer.nextHead$465
+Creating decoders for process `\LSQRegionProof.$458'.
+     1/2: $sq.storeQueuePointer.nextTail$460
+     2/2: $sq.storeQueuePointer.nextTail$461
+Creating decoders for process `\LSQRegionProof.$454'.
+     1/3: $sq.storeQueuePointer.regCount$457
+     2/3: $sq.storeQueuePointer.regTail$456
+     3/3: $sq.storeQueuePointer.regHead$455
+Creating decoders for process `\LSQRegionProof.$193'.
+     1/22: $lq.conflictLoadPC$443
+     2/22: $lq.violation$442
+     3/22: $440
+     4/22: $$root.LoadQueuePtrToAge.LoadQueuePtrToAge$439
+     5/22: $436
+     6/22: $$root.LoadQueuePtrToAge.LoadQueuePtrToAge$435
+     7/22: $446
+     8/22: $lq.conflictLoadPC$445
+     9/22: $lq.violation$444
+    10/22: $432
+    11/22: $449
+    12/22: $lq.conflictLoadPC$448
+    13/22: $lq.violation$447
+    14/22: $429
+    15/22: $452
+    16/22: $lq.conflictLoadPC$451
+    17/22: $lq.violation$450
+    18/22: $427
+    19/22: $lq.conflictLoadPC$423
+    20/22: $lq.conflictLoadPC$425
+    21/22: $lq.violation$424
+    22/22: $$root.LoadStoreUnitTypes.LSQ_ToBlockWordEnable.wordEnable$194
+Creating decoders for process `\LSQRegionProof.$140'.
+     1/35: $lq.genblk1[0].picker.picked$185
+     2/35: $lq.genblk1[0].picker.picked$186
+     3/35: $lq.genblk1[0].picker.picked$182
+     4/35: $lq.genblk1[0].picker.grantPtr$177
+     5/35: $lq.genblk1[0].picker.shiftedGrant$171
+     6/35: $lq.genblk1[0].picker.picked$170
+     7/35: $lq.genblk1[0].picker.shiftedGrant$169
+     8/35: $lq.genblk1[0].picker.picked$168
+     9/35: $lq.genblk1[0].picker.shiftedGrant$167
+    10/35: $lq.genblk1[0].picker.picked$166
+    11/35: $lq.genblk1[0].picker.shiftedGrant$165
+    12/35: $lq.genblk1[0].picker.picked$164
+    13/35: $lq.genblk1[0].picker.shiftedGrant$163
+    14/35: $lq.genblk1[0].picker.picked$162
+    15/35: $lq.genblk1[0].picker.shiftedGrant$161
+    16/35: $lq.genblk1[0].picker.picked$160
+    17/35: $lq.genblk1[0].picker.shiftedGrant$159
+    18/35: $lq.genblk1[0].picker.picked$158
+    19/35: $lq.genblk1[0].picker.shiftedGrant$157
+    20/35: $lq.genblk1[0].picker.picked$156
+    21/35: $lq.genblk1[0].picker.shiftedGrant[2:0]$155
+    22/35: $lq.genblk1[0].picker.picked$154
+    23/35: $lq.genblk1[0].picker.shiftedGrant[2:0]$153
+    24/35: $lq.genblk1[0].picker.picked$152
+    25/35: $lq.genblk1[0].picker.shiftedGrant[2:0]$151
+    26/35: $lq.genblk1[0].picker.picked$150
+    27/35: $lq.genblk1[0].picker.shiftedGrant[2:0]$149
+    28/35: $lq.genblk1[0].picker.picked$148
+    29/35: $lq.genblk1[0].picker.shiftedGrant[1:0]$147
+    30/35: $lq.genblk1[0].picker.picked$146
+    31/35: $lq.genblk1[0].picker.shiftedGrant[1:0]$145
+    32/35: $lq.genblk1[0].picker.picked$144
+    33/35: $lq.genblk1[0].picker.shiftedGrant[0]$143
+    34/35: $lq.genblk1[0].picker.picked$142
+    35/35: $lq.genblk1[0].picker.picked$141
+Creating decoders for process `\LSQRegionProof.$133'.
+     1/4: $lq.genblk1[0].picker.genblk1.rightShifter.shiftTmp[30:0]$135 [30:16]
+     2/4: $lq.genblk1[0].picker.genblk1.rightShifter.shiftTmp[30:0]$135 [15:0]
+     3/4: $lq.genblk1[0].picker.genblk1.rightShifter.shiftTmp[30:0]$134 [30:19]
+     4/4: $lq.genblk1[0].picker.genblk1.rightShifter.shiftTmp[30:0]$134 [18:0]
+Creating decoders for process `\LSQRegionProof.$129'.
+     1/1: $$root.LoadStoreUnitTypes.LSQ_ToBlockWordEnable.wordEnable$130
+Creating decoders for process `\LSQRegionProof.$59'.
+     1/23: $126
+     2/23: $123
+     3/23: $120
+     4/23: $117
+     5/23: $114
+     6/23: $111
+     7/23: $108
+     8/23: $105
+     9/23: $102
+    10/23: $99
+    11/23: $96
+    12/23: $93
+    13/23: $90
+    14/23: $87
+    15/23: $84
+    16/23: $81
+    17/23: $78
+    18/23: $75
+    19/23: $72
+    20/23: $69
+    21/23: $66
+    22/23: $63
+    23/23: $60
+Creating decoders for process `\LSQRegionProof.$41'.
+     1/2: $lsu.allocatedLoadQueuePtr[3:0]$54
+     2/2: $lsu.allocatedLoadQueuePtr[7:4]$47
+Creating decoders for process `\LSQRegionProof.$18'.
+     1/3: $lq.loadQueuePointer.nextCount$28
+     2/3: $lq.loadQueuePointer.nextCount$25
+     3/3: $lq.loadQueuePointer.nextCount$26
+Creating decoders for process `\LSQRegionProof.$14'.
+     1/1: $lq.loadQueuePointer.nextHead$16
+Creating decoders for process `\LSQRegionProof.$9'.
+     1/2: $lq.loadQueuePointer.nextTail$11
+     2/2: $lq.loadQueuePointer.nextTail$12
+Creating decoders for process `\LSQRegionProof.$5'.
+     1/3: $lq.loadQueuePointer.regCount$8
+     2/3: $lq.loadQueuePointer.regTail$7
+     3/3: $lq.loadQueuePointer.regHead$6
+
+1.7. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$805'.
+Removing empty process `LSQRegionProof.$805'.
+Found and cleaned up 2 empty switches in `\LSQRegionProof.$1145'.
+Removing empty process `LSQRegionProof.$1145'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$791'.
+Removing empty process `LSQRegionProof.$791'.
+Found and cleaned up 3 empty switches in `\LSQRegionProof.$835'.
+Removing empty process `LSQRegionProof.$835'.
+Found and cleaned up 39 empty switches in `\LSQRegionProof.$736'.
+Removing empty process `LSQRegionProof.$736'.
+Found and cleaned up 3 empty switches in `\LSQRegionProof.$729'.
+Removing empty process `LSQRegionProof.$729'.
+Found and cleaned up 3 empty switches in `\LSQRegionProof.$723'.
+Removing empty process `LSQRegionProof.$723'.
+Found and cleaned up 4 empty switches in `\LSQRegionProof.$509'.
+Removing empty process `LSQRegionProof.$509'.
+Found and cleaned up 3 empty switches in `\LSQRegionProof.$490'.
+Removing empty process `LSQRegionProof.$490'.
+Found and cleaned up 5 empty switches in `\LSQRegionProof.$467'.
+Removing empty process `LSQRegionProof.$467'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$463'.
+Removing empty process `LSQRegionProof.$463'.
+Found and cleaned up 3 empty switches in `\LSQRegionProof.$458'.
+Removing empty process `LSQRegionProof.$458'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$454'.
+Removing empty process `LSQRegionProof.$454'.
+Found and cleaned up 21 empty switches in `\LSQRegionProof.$193'.
+Removing empty process `LSQRegionProof.$193'.
+Found and cleaned up 39 empty switches in `\LSQRegionProof.$140'.
+Removing empty process `LSQRegionProof.$140'.
+Found and cleaned up 3 empty switches in `\LSQRegionProof.$133'.
+Removing empty process `LSQRegionProof.$133'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$129'.
+Removing empty process `LSQRegionProof.$129'.
+Found and cleaned up 4 empty switches in `\LSQRegionProof.$59'.
+Removing empty process `LSQRegionProof.$59'.
+Found and cleaned up 3 empty switches in `\LSQRegionProof.$41'.
+Removing empty process `LSQRegionProof.$41'.
+Found and cleaned up 5 empty switches in `\LSQRegionProof.$18'.
+Removing empty process `LSQRegionProof.$18'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$14'.
+Removing empty process `LSQRegionProof.$14'.
+Found and cleaned up 3 empty switches in `\LSQRegionProof.$9'.
+Removing empty process `LSQRegionProof.$9'.
+Found and cleaned up 1 empty switch in `\LSQRegionProof.$5'.
+Removing empty process `LSQRegionProof.$5'.
+Cleaned up 150 empty switches.
+
+1.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module LSQRegionProof.
+Couldn't topologically sort cells, optimizing module LSQRegionProof may take a longer time.
+Couldn't topologically sort cells, optimizing module LSQRegionProof may take a longer time.
+Couldn't topologically sort cells, optimizing module LSQRegionProof may take a longer time.
+<suppressed ~248 debug messages>
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \LSQRegionProof
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \LSQRegionProof
+Removed 0 unused modules.
+Module LSQRegionProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module LSQRegionProof.
+Couldn't topologically sort cells, optimizing module LSQRegionProof may take a longer time.
+
+2.3. Executing CHECK pass (checking for obvious problems).
+Checking module LSQRegionProof...
+Found and reported 0 problems.
+
+2.4. Executing FLATTEN pass (flatten design).
+
+2.5. Executing FUTURE pass.
+
+2.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module LSQRegionProof.
+Couldn't topologically sort cells, optimizing module LSQRegionProof may take a longer time.
+
+2.7. Executing CHECK pass (checking for obvious problems).
+Checking module LSQRegionProof...
+Found and reported 0 problems.
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \LSQRegionProof..
+Removed 87 unused cells and 792 unused wires.
+<suppressed ~272 debug messages>
+
+2.9. Executing OPT pass (performing simple optimizations).
+
+2.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module LSQRegionProof.
+<suppressed ~1 debug messages>
+
+2.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\LSQRegionProof'.
+Computing hashes of 1096 cells of `\LSQRegionProof'.
+Finding duplicate cells in `\LSQRegionProof'.
+Computing hashes of 911 cells of `\LSQRegionProof'.
+Finding duplicate cells in `\LSQRegionProof'.
+<suppressed ~555 debug messages>
+Removed a total of 185 cells.
+
+2.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \LSQRegionProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$637.
+    dead port 2/2 on $mux $procmux$589.
+    dead port 1/2 on $mux $procmux$94.
+    dead port 2/2 on $mux $procmux$104.
+    dead port 2/2 on $mux $procmux$565.
+    dead port 1/2 on $mux $procmux$563.
+    dead port 1/2 on $mux $procmux$627.
+    dead port 2/2 on $mux $procmux$507.
+    dead port 1/2 on $mux $procmux$505.
+    dead port 1/2 on $mux $procmux$503.
+    dead port 1/2 on $mux $procmux$476.
+    dead port 1/2 on $mux $procmux$465.
+    dead port 1/2 on $mux $procmux$850.
+    dead port 1/2 on $mux $procmux$861.
+Removed 14 multiplexer ports.
+<suppressed ~852 debug messages>
+
+2.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \LSQRegionProof.
+    Consolidated identical input bits for $mux cell $721:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$721y
+      New ports: A=1'0, B=1'1, Y=$721y [25]
+      New connections: { $721y [26] $721y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $718:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$718y
+      New ports: A=1'0, B=1'1, Y=$718y [25]
+      New connections: { $718y [26] $718y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $715:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$715y
+      New ports: A=1'0, B=1'1, Y=$715y [0]
+      New connections: $715y [26:1] = { 23'00000000000000000000000 $715y [0] $715y [0] $715y [0] }
+    Consolidated identical input bits for $mux cell $712:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$712y
+      New ports: A=1'0, B=1'1, Y=$712y [4]
+      New connections: { $712y [26:5] $712y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $709:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$709y
+      New ports: A=1'0, B=1'1, Y=$709y [5]
+      New connections: { $709y [26:6] $709y [4:0] } = { 2'00 $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] $709y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $706:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$706y
+      New ports: A=1'0, B=1'1, Y=$706y [25]
+      New connections: { $706y [26] $706y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $703:
+      Old ports: A=27'000000000000000000000000000, B=27'100000000000000000000000000, Y=$703y
+      New ports: A=1'0, B=1'1, Y=$703y [26]
+      New connections: $703y [25:0] = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $700:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$700y
+      New ports: A=1'0, B=1'1, Y=$700y [0]
+      New connections: $700y [26:1] = { 23'00000000000000000000000 $700y [0] $700y [0] $700y [0] }
+    Consolidated identical input bits for $mux cell $697:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$697y
+      New ports: A=1'0, B=1'1, Y=$697y [4]
+      New connections: { $697y [26:5] $697y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $694:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$694y
+      New ports: A=1'0, B=1'1, Y=$694y [5]
+      New connections: { $694y [26:6] $694y [4:0] } = { 2'00 $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] $694y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $691:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$691y
+      New ports: A=1'0, B=1'1, Y=$691y [25]
+      New connections: { $691y [26] $691y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $688:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$688y
+      New ports: A=1'0, B=1'1, Y=$688y [0]
+      New connections: $688y [26:1] = { 23'00000000000000000000000 $688y [0] $688y [0] $688y [0] }
+    Consolidated identical input bits for $mux cell $685:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$685y
+      New ports: A=1'0, B=1'1, Y=$685y [4]
+      New connections: { $685y [26:5] $685y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $682:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$682y
+      New ports: A=1'0, B=1'1, Y=$682y [5]
+      New connections: { $682y [26:6] $682y [4:0] } = { 2'00 $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] $682y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $679:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$679y
+      New ports: A=1'0, B=1'1, Y=$679y [25]
+      New connections: { $679y [26] $679y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $676:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$676y
+      New ports: A=1'0, B=1'1, Y=$676y [0]
+      New connections: $676y [26:1] = { 23'00000000000000000000000 $676y [0] $676y [0] $676y [0] }
+    Consolidated identical input bits for $mux cell $673:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$673y
+      New ports: A=1'0, B=1'1, Y=$673y [4]
+      New connections: { $673y [26:5] $673y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $670:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$670y
+      New ports: A=1'0, B=1'1, Y=$670y [5]
+      New connections: { $670y [26:6] $670y [4:0] } = { 2'00 $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] $670y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $667:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$667y
+      New ports: A=1'0, B=1'1, Y=$667y [25]
+      New connections: { $667y [26] $667y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $664:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$664y
+      New ports: A=1'0, B=1'1, Y=$664y [0]
+      New connections: $664y [26:1] = { 23'00000000000000000000000 $664y [0] $664y [0] $664y [0] }
+    Consolidated identical input bits for $mux cell $661:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$661y
+      New ports: A=1'0, B=1'1, Y=$661y [4]
+      New connections: { $661y [26:5] $661y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $658:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$658y
+      New ports: A=1'0, B=1'1, Y=$658y [5]
+      New connections: { $658y [26:6] $658y [4:0] } = { 2'00 $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] $658y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $655:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$655y
+      New ports: A=1'0, B=1'1, Y=$655y [25]
+      New connections: { $655y [26] $655y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $652:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$652y
+      New ports: A=1'0, B=1'1, Y=$652y [0]
+      New connections: $652y [26:1] = { 23'00000000000000000000000 $652y [0] $652y [0] $652y [0] }
+    Consolidated identical input bits for $mux cell $649:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$649y
+      New ports: A=1'0, B=1'1, Y=$649y [4]
+      New connections: { $649y [26:5] $649y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $646:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$646y
+      New ports: A=1'0, B=1'1, Y=$646y [5]
+      New connections: { $646y [26:6] $646y [4:0] } = { 2'00 $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] $646y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $643:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$643y
+      New ports: A=1'0, B=1'1, Y=$643y [25]
+      New connections: { $643y [26] $643y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $640:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$640y
+      New ports: A=1'0, B=1'1, Y=$640y [0]
+      New connections: $640y [26:1] = { 23'00000000000000000000000 $640y [0] $640y [0] $640y [0] }
+    Consolidated identical input bits for $mux cell $637:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$637y
+      New ports: A=1'0, B=1'1, Y=$637y [4]
+      New connections: { $637y [26:5] $637y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $634:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$634y
+      New ports: A=1'0, B=1'1, Y=$634y [5]
+      New connections: { $634y [26:6] $634y [4:0] } = { 2'00 $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] $634y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $631:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$631y
+      New ports: A=1'0, B=1'1, Y=$631y [25]
+      New connections: { $631y [26] $631y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $628:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$628y
+      New ports: A=1'0, B=1'1, Y=$628y [0]
+      New connections: $628y [26:1] = { 23'00000000000000000000000 $628y [0] $628y [0] $628y [0] }
+    Consolidated identical input bits for $mux cell $625:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$625y
+      New ports: A=1'0, B=1'1, Y=$625y [4]
+      New connections: { $625y [26:5] $625y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $622:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$622y
+      New ports: A=1'0, B=1'1, Y=$622y [5]
+      New connections: { $622y [26:6] $622y [4:0] } = { 2'00 $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] $622y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $619:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$619y
+      New ports: A=1'0, B=1'1, Y=$619y [25]
+      New connections: { $619y [26] $619y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $616:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$616y
+      New ports: A=1'0, B=1'1, Y=$616y [0]
+      New connections: $616y [26:1] = { 23'00000000000000000000000 $616y [0] $616y [0] $616y [0] }
+    Consolidated identical input bits for $mux cell $613:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$613y
+      New ports: A=1'0, B=1'1, Y=$613y [4]
+      New connections: { $613y [26:5] $613y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $610:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$610y
+      New ports: A=1'0, B=1'1, Y=$610y [5]
+      New connections: { $610y [26:6] $610y [4:0] } = { 2'00 $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] $610y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $607:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$607y
+      New ports: A=1'0, B=1'1, Y=$607y [25]
+      New connections: { $607y [26] $607y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $604:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$604y
+      New ports: A=1'0, B=1'1, Y=$604y [0]
+      New connections: $604y [26:1] = { 23'00000000000000000000000 $604y [0] $604y [0] $604y [0] }
+    Consolidated identical input bits for $mux cell $601:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$601y
+      New ports: A=1'0, B=1'1, Y=$601y [4]
+      New connections: { $601y [26:5] $601y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $598:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$598y
+      New ports: A=1'0, B=1'1, Y=$598y [5]
+      New connections: { $598y [26:6] $598y [4:0] } = { 2'00 $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] $598y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $595:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$595y
+      New ports: A=1'0, B=1'1, Y=$595y [25]
+      New connections: { $595y [26] $595y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $592:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$592y
+      New ports: A=1'0, B=1'1, Y=$592y [0]
+      New connections: $592y [26:1] = { 23'00000000000000000000000 $592y [0] $592y [0] $592y [0] }
+    Consolidated identical input bits for $mux cell $589:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$589y
+      New ports: A=1'0, B=1'1, Y=$589y [4]
+      New connections: { $589y [26:5] $589y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $586:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$586y
+      New ports: A=1'0, B=1'1, Y=$586y [5]
+      New connections: { $586y [26:6] $586y [4:0] } = { 2'00 $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] $586y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $583:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$583y
+      New ports: A=1'0, B=1'1, Y=$583y [25]
+      New connections: { $583y [26] $583y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $580:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$580y
+      New ports: A=1'0, B=1'1, Y=$580y [0]
+      New connections: $580y [26:1] = { 23'00000000000000000000000 $580y [0] $580y [0] $580y [0] }
+    Consolidated identical input bits for $mux cell $577:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$577y
+      New ports: A=1'0, B=1'1, Y=$577y [4]
+      New connections: { $577y [26:5] $577y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $574:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$574y
+      New ports: A=1'0, B=1'1, Y=$574y [5]
+      New connections: { $574y [26:6] $574y [4:0] } = { 2'00 $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] $574y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $571:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$571y
+      New ports: A=1'0, B=1'1, Y=$571y [25]
+      New connections: { $571y [26] $571y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $568:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$568y
+      New ports: A=1'0, B=1'1, Y=$568y [0]
+      New connections: $568y [26:1] = { 23'00000000000000000000000 $568y [0] $568y [0] $568y [0] }
+    Consolidated identical input bits for $mux cell $565:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$565y
+      New ports: A=1'0, B=1'1, Y=$565y [4]
+      New connections: { $565y [26:5] $565y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $562:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$562y
+      New ports: A=1'0, B=1'1, Y=$562y [5]
+      New connections: { $562y [26:6] $562y [4:0] } = { 2'00 $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] $562y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $559:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$559y
+      New ports: A=1'0, B=1'1, Y=$559y [25]
+      New connections: { $559y [26] $559y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $556:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$556y
+      New ports: A=1'0, B=1'1, Y=$556y [0]
+      New connections: $556y [26:1] = { 23'00000000000000000000000 $556y [0] $556y [0] $556y [0] }
+    Consolidated identical input bits for $mux cell $553:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$553y
+      New ports: A=1'0, B=1'1, Y=$553y [4]
+      New connections: { $553y [26:5] $553y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $550:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$550y
+      New ports: A=1'0, B=1'1, Y=$550y [5]
+      New connections: { $550y [26:6] $550y [4:0] } = { 2'00 $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] $550y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $547:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$547y
+      New ports: A=1'0, B=1'1, Y=$547y [25]
+      New connections: { $547y [26] $547y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $544:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$544y
+      New ports: A=1'0, B=1'1, Y=$544y [0]
+      New connections: $544y [26:1] = { 23'00000000000000000000000 $544y [0] $544y [0] $544y [0] }
+    Consolidated identical input bits for $mux cell $541:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$541y
+      New ports: A=1'0, B=1'1, Y=$541y [4]
+      New connections: { $541y [26:5] $541y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $538:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$538y
+      New ports: A=1'0, B=1'1, Y=$538y [5]
+      New connections: { $538y [26:6] $538y [4:0] } = { 2'00 $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] $538y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $535:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$535y
+      New ports: A=1'0, B=1'1, Y=$535y [25]
+      New connections: { $535y [26] $535y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $532:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$532y
+      New ports: A=1'0, B=1'1, Y=$532y [0]
+      New connections: $532y [26:1] = { 23'00000000000000000000000 $532y [0] $532y [0] $532y [0] }
+    Consolidated identical input bits for $mux cell $529:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$529y
+      New ports: A=1'0, B=1'1, Y=$529y [4]
+      New connections: { $529y [26:5] $529y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $526:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$526y
+      New ports: A=1'0, B=1'1, Y=$526y [5]
+      New connections: { $526y [26:6] $526y [4:0] } = { 2'00 $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] $526y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $523:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$523y
+      New ports: A=1'0, B=1'1, Y=$523y [25]
+      New connections: { $523y [26] $523y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $520:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000001111, Y=$520y
+      New ports: A=1'0, B=1'1, Y=$520y [0]
+      New connections: $520y [26:1] = { 23'00000000000000000000000 $520y [0] $520y [0] $520y [0] }
+    Consolidated identical input bits for $mux cell $517:
+      Old ports: A=27'000000000000000000000000000, B=27'000000000000000000000010000, Y=$517y
+      New ports: A=1'0, B=1'1, Y=$517y [4]
+      New connections: { $517y [26:5] $517y [3:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $514:
+      Old ports: A=27'000000000000000000000000000, B=27'001111111111111111111100000, Y=$514y
+      New ports: A=1'0, B=1'1, Y=$514y [5]
+      New connections: { $514y [26:6] $514y [4:0] } = { 2'00 $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] $514y [5] 5'00000 }
+    Consolidated identical input bits for $mux cell $511:
+      Old ports: A=27'000000000000000000000000000, B=27'010000000000000000000000000, Y=$511y
+      New ports: A=1'0, B=1'1, Y=$511y [25]
+      New connections: { $511y [26] $511y [24:0] } = 26'00000000000000000000000000
+    Consolidated identical input bits for $mux cell $127:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$127y
+      New ports: A=1'0, B=1'1, Y=$127y [40]
+      New connections: { $127y [41] $127y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $124:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$124y
+      New ports: A=1'0, B=1'1, Y=$124y [40]
+      New connections: { $124y [41] $124y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $121:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'000000000000000000000001111111111111111111, Y=$121y
+      New ports: A=1'0, B=1'1, Y=$121y [0]
+      New connections: $121y [41:1] = { 23'00000000000000000000000 $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] $121y [0] }
+    Consolidated identical input bits for $mux cell $118:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'000000000000000000000010000000000000000000, Y=$118y
+      New ports: A=1'0, B=1'1, Y=$118y [19]
+      New connections: { $118y [41:20] $118y [18:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $115:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'001111111111111111111100000000000000000000, Y=$115y
+      New ports: A=1'0, B=1'1, Y=$115y [20]
+      New connections: { $115y [41:21] $115y [19:0] } = { 2'00 $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] $115y [20] 20'00000000000000000000 }
+    Consolidated identical input bits for $mux cell $112:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$112y
+      New ports: A=1'0, B=1'1, Y=$112y [40]
+      New connections: { $112y [41] $112y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $109:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'100000000000000000000000000000000000000000, Y=$109y
+      New ports: A=1'0, B=1'1, Y=$109y [41]
+      New connections: $109y [40:0] = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $106:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$106y
+      New ports: A=1'0, B=1'1, Y=$106y [40]
+      New connections: { $106y [41] $106y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $103:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$103y
+      New ports: A=1'0, B=1'1, Y=$103y [40]
+      New connections: { $103y [41] $103y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $100:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$100y
+      New ports: A=1'0, B=1'1, Y=$100y [40]
+      New connections: { $100y [41] $100y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $97:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$97y
+      New ports: A=1'0, B=1'1, Y=$97y [40]
+      New connections: { $97y [41] $97y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $94:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$94y
+      New ports: A=1'0, B=1'1, Y=$94y [40]
+      New connections: { $94y [41] $94y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $91:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$91y
+      New ports: A=1'0, B=1'1, Y=$91y [40]
+      New connections: { $91y [41] $91y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $88:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$88y
+      New ports: A=1'0, B=1'1, Y=$88y [40]
+      New connections: { $88y [41] $88y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $85:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$85y
+      New ports: A=1'0, B=1'1, Y=$85y [40]
+      New connections: { $85y [41] $85y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $82:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$82y
+      New ports: A=1'0, B=1'1, Y=$82y [40]
+      New connections: { $82y [41] $82y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $79:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$79y
+      New ports: A=1'0, B=1'1, Y=$79y [40]
+      New connections: { $79y [41] $79y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $76:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$76y
+      New ports: A=1'0, B=1'1, Y=$76y [40]
+      New connections: { $76y [41] $76y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $73:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$73y
+      New ports: A=1'0, B=1'1, Y=$73y [40]
+      New connections: { $73y [41] $73y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $70:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$70y
+      New ports: A=1'0, B=1'1, Y=$70y [40]
+      New connections: { $70y [41] $70y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $67:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$67y
+      New ports: A=1'0, B=1'1, Y=$67y [40]
+      New connections: { $67y [41] $67y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $64:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$64y
+      New ports: A=1'0, B=1'1, Y=$64y [40]
+      New connections: { $64y [41] $64y [39:0] } = 41'00000000000000000000000000000000000000000
+    Consolidated identical input bits for $mux cell $61:
+      Old ports: A=42'000000000000000000000000000000000000000000, B=42'010000000000000000000000000000000000000000, Y=$61y
+      New ports: A=1'0, B=1'1, Y=$61y [40]
+      New connections: { $61y [41] $61y [39:0] } = 41'00000000000000000000000000000000000000000
+  Optimizing cells in module \LSQRegionProof.
+Performed a total of 94 changes.
+
+2.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\LSQRegionProof'.
+Computing hashes of 897 cells of `\LSQRegionProof'.
+Finding duplicate cells in `\LSQRegionProof'.
+Computing hashes of 772 cells of `\LSQRegionProof'.
+Finding duplicate cells in `\LSQRegionProof'.
+Computing hashes of 685 cells of `\LSQRegionProof'.
+Finding duplicate cells in `\LSQRegionProof'.
+Computing hashes of 677 cells of `\LSQRegionProof'.
+Finding duplicate cells in `\LSQRegionProof'.
+<suppressed ~660 debug messages>
+Removed a total of 220 cells.
+
+2.9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \LSQRegionProof..
+Removed 0 unused cells and 420 unused wires.
+<suppressed ~1 debug messages>
+
+2.9.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module LSQRegionProof.
+
+2.9.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.9.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \LSQRegionProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~398 debug messages>
+
+2.9.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \LSQRegionProof.
+Performed a total of 0 changes.
+
+2.9.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\LSQRegionProof'.
+Computing hashes of 677 cells of `\LSQRegionProof'.
+Finding duplicate cells in `\LSQRegionProof'.
+Removed a total of 0 cells.
+
+2.9.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \LSQRegionProof..
+
+2.9.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module LSQRegionProof.
+
+2.9.14. Finished fast OPT passes. (There is nothing left to do.)
+
+2.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1282 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1476 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1473 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1273 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1336 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1264 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$701 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$698 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$695 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$692 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$689 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$686 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$683 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$680 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$677 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$674 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$671 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$668 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$665 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$662 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$659 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$656 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$653 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$650 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$647 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$644 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$641 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$638 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$635 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$632 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$629 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$626 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$623 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$620 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$617 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$614 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$611 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$608 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$605 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$602 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$599 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$596 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$593 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$590 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$587 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$584 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$581 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$578 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$575 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$572 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$569 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$566 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$563 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$560 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$557 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$554 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$551 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$548 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$545 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$542 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$539 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$536 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$533 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$530 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$527 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$524 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$521 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$518 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$515 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$512 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1255 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1318 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1246 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1237 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1228 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1444 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1219 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1435 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1426 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1417 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1408 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1210 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1399 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1390 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1381 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1372 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1363 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1201 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1192 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1183 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1327 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1291 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1345 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$107 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$104 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$101 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$98 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$95 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$92 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$89 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$86 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$83 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$80 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$77 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$74 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$71 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$68 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$65 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$62 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1174 (lq.loadQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1354 (sq.storeQueue).
+Removed top 28 address bits (of 32) from memory init port LSQRegionProof.$1300 (lq.loadQueue).
+Removed top 2 bits (of 4) from port B of cell LSQRegionProof.$10 ($add).
+Removed top 2 bits (of 4) from port B of cell LSQRegionProof.$15 ($add).
+Removed top 3 bits (of 5) from port B of cell LSQRegionProof.$19 ($add).
+Removed top 28 bits (of 32) from port A of cell LSQRegionProof.$21 ($sub).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$21 ($sub).
+Removed top 27 bits (of 32) from port Y of cell LSQRegionProof.$21 ($sub).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$22 ($add).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$22 ($add).
+Removed top 26 bits (of 32) from port Y of cell LSQRegionProof.$22 ($add).
+Removed top 26 bits (of 32) from port A of cell LSQRegionProof.$23 ($sub).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$23 ($sub).
+Removed top 25 bits (of 32) from port Y of cell LSQRegionProof.$23 ($sub).
+Removed top 27 bits (of 32) from mux cell LSQRegionProof.$24 ($mux).
+Removed top 3 bits (of 5) from port B of cell LSQRegionProof.$27 ($sub).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$43 ($lt).
+Removed top 3 bits (of 4) from port B of cell LSQRegionProof.$44 ($add).
+Removed top 28 bits (of 32) from port A of cell LSQRegionProof.$45 ($add).
+Removed top 31 bits (of 32) from port B of cell LSQRegionProof.$45 ($add).
+Removed top 27 bits (of 32) from port Y of cell LSQRegionProof.$45 ($add).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$46 ($sub).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$46 ($sub).
+Removed top 28 bits (of 32) from port Y of cell LSQRegionProof.$46 ($sub).
+Removed top 1 bits (of 5) from port A of cell LSQRegionProof.$46 ($sub).
+Removed top 4 bits (of 5) from port B of cell LSQRegionProof.$46 ($sub).
+Removed top 1 bits (of 2) from port A of cell LSQRegionProof.$48 ($add).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$48 ($add).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$50 ($lt).
+Removed top 2 bits (of 4) from port B of cell LSQRegionProof.$51 ($add).
+Removed top 28 bits (of 32) from port A of cell LSQRegionProof.$52 ($add).
+Removed top 30 bits (of 32) from port B of cell LSQRegionProof.$52 ($add).
+Removed top 27 bits (of 32) from port Y of cell LSQRegionProof.$52 ($add).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$53 ($sub).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$53 ($sub).
+Removed top 28 bits (of 32) from port Y of cell LSQRegionProof.$53 ($sub).
+Removed top 1 bits (of 5) from port A of cell LSQRegionProof.$53 ($sub).
+Removed top 4 bits (of 5) from port B of cell LSQRegionProof.$53 ($sub).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$55 ($add).
+Removed top 30 bits (of 32) from port A of cell LSQRegionProof.$56 ($gt).
+Removed top 31 bits (of 32) from port B of cell LSQRegionProof.$56 ($gt).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$180 ($sub).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$181 ($gt).
+Removed top 28 bits (of 32) from port A of cell LSQRegionProof.$434 ($add).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$434 ($add).
+Removed top 27 bits (of 32) from port Y of cell LSQRegionProof.$434 ($add).
+Removed top 28 bits (of 32) from port A of cell LSQRegionProof.$438 ($add).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$438 ($add).
+Removed top 26 bits (of 32) from port Y of cell LSQRegionProof.$438 ($add).
+Removed top 2 bits (of 4) from port B of cell LSQRegionProof.$459 ($add).
+Removed top 2 bits (of 4) from port B of cell LSQRegionProof.$464 ($add).
+Removed top 3 bits (of 5) from port B of cell LSQRegionProof.$468 ($add).
+Removed top 28 bits (of 32) from port A of cell LSQRegionProof.$470 ($sub).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$470 ($sub).
+Removed top 27 bits (of 32) from port Y of cell LSQRegionProof.$470 ($sub).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$471 ($add).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$471 ($add).
+Removed top 26 bits (of 32) from port Y of cell LSQRegionProof.$471 ($add).
+Removed top 26 bits (of 32) from port A of cell LSQRegionProof.$472 ($sub).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$472 ($sub).
+Removed top 25 bits (of 32) from port Y of cell LSQRegionProof.$472 ($sub).
+Removed top 27 bits (of 32) from mux cell LSQRegionProof.$473 ($mux).
+Removed top 3 bits (of 5) from port B of cell LSQRegionProof.$476 ($sub).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$492 ($lt).
+Removed top 3 bits (of 4) from port B of cell LSQRegionProof.$493 ($add).
+Removed top 28 bits (of 32) from port A of cell LSQRegionProof.$494 ($add).
+Removed top 31 bits (of 32) from port B of cell LSQRegionProof.$494 ($add).
+Removed top 27 bits (of 32) from port Y of cell LSQRegionProof.$494 ($add).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$495 ($sub).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$495 ($sub).
+Removed top 28 bits (of 32) from port Y of cell LSQRegionProof.$495 ($sub).
+Removed top 1 bits (of 5) from port A of cell LSQRegionProof.$495 ($sub).
+Removed top 4 bits (of 5) from port B of cell LSQRegionProof.$495 ($sub).
+Removed top 1 bits (of 2) from port A of cell LSQRegionProof.$497 ($add).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$497 ($add).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$499 ($lt).
+Removed top 2 bits (of 4) from port B of cell LSQRegionProof.$500 ($add).
+Removed top 28 bits (of 32) from port A of cell LSQRegionProof.$501 ($add).
+Removed top 30 bits (of 32) from port B of cell LSQRegionProof.$501 ($add).
+Removed top 27 bits (of 32) from port Y of cell LSQRegionProof.$501 ($add).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$502 ($sub).
+Removed top 27 bits (of 32) from port B of cell LSQRegionProof.$502 ($sub).
+Removed top 28 bits (of 32) from port Y of cell LSQRegionProof.$502 ($sub).
+Removed top 1 bits (of 5) from port A of cell LSQRegionProof.$502 ($sub).
+Removed top 4 bits (of 5) from port B of cell LSQRegionProof.$502 ($sub).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$504 ($add).
+Removed top 30 bits (of 32) from port A of cell LSQRegionProof.$505 ($gt).
+Removed top 31 bits (of 32) from port B of cell LSQRegionProof.$505 ($gt).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$775 ($add).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$775 ($add).
+Removed top 26 bits (of 32) from port Y of cell LSQRegionProof.$775 ($add).
+Removed top 26 bits (of 32) from port A of cell LSQRegionProof.$776 ($sub).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$776 ($sub).
+Removed top 25 bits (of 32) from port Y of cell LSQRegionProof.$776 ($sub).
+Removed top 28 bits (of 32) from port B of cell LSQRegionProof.$777 ($gt).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$1468 ($gt).
+Removed top 31 bits (of 32) from port B of cell LSQRegionProof.$1468 ($gt).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$1470 ($gt).
+Removed top 31 bits (of 32) from port B of cell LSQRegionProof.$1470 ($gt).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$procmux$87_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$procmux$208_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$procmux$217_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$procmux$222_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$procmux$741_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell LSQRegionProof.$procmux$750_CMP0 ($eq).
+Removed top 2 bits (of 7) from port Y of cell LSQRegionProof.$23 ($sub).
+Removed top 1 bits (of 6) from port A of cell LSQRegionProof.$23 ($sub).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$43 ($lt).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$50 ($lt).
+Removed top 2 bits (of 7) from port Y of cell LSQRegionProof.$472 ($sub).
+Removed top 1 bits (of 6) from port A of cell LSQRegionProof.$472 ($sub).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$492 ($lt).
+Removed top 27 bits (of 32) from port A of cell LSQRegionProof.$499 ($lt).
+Removed top 1 bits (of 6) from port Y of cell LSQRegionProof.$22 ($add).
+Removed top 1 bits (of 6) from port Y of cell LSQRegionProof.$471 ($add).
+Removed top 1 bits (of 27) from wire LSQRegionProof.$721y.
+Removed top 1 bits (of 27) from wire LSQRegionProof.$718y.
+Removed top 28 bits (of 32) from wire LSQRegionProof.$502y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$498y.
+Removed top 28 bits (of 32) from wire LSQRegionProof.$495y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$491y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$473y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$472y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$471y.
+Removed top 26 bits (of 32) from wire LSQRegionProof.$775y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$434y.
+Removed top 26 bits (of 32) from wire LSQRegionProof.$179y.
+Removed top 12 bits (of 31) from wire LSQRegionProof.$lq.genblk1[0].picker.genblk1.rightShifter.shiftTmp[30:0]$134.
+Removed top 1 bits (of 42) from wire LSQRegionProof.$127y.
+Removed top 1 bits (of 42) from wire LSQRegionProof.$124y.
+Removed top 1 bits (of 42) from wire LSQRegionProof.$100y.
+Removed top 28 bits (of 32) from wire LSQRegionProof.$53y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$49y.
+Removed top 28 bits (of 32) from wire LSQRegionProof.$46y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$42y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$24y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$23y.
+Removed top 27 bits (of 32) from wire LSQRegionProof.$22y.
+
+2.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \LSQRegionProof..
+Removed 0 unused cells and 23 unused wires.
+<suppressed ~1 debug messages>
+
+2.12. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.13. Executing OPT pass (performing simple optimizations).
+
+2.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module LSQRegionProof.
+
+2.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\LSQRegionProof'.
+Computing hashes of 553 cells of `\LSQRegionProof'.
+Finding duplicate cells in `\LSQRegionProof'.
+Removed a total of 0 cells.
+
+2.13.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \LSQRegionProof..
+
+2.13.4. Finished fast OPT passes.
+
+2.14. Executing SORT pass.
+
+2.15. Printing statistics.
+
+=== LSQRegionProof ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      727 wires
+     4343 wire bits
+      247 public wires
+     2078 public wire bits
+       28 ports
+      149 port bits
+      553 cells
+       23   $add
+       16   $and
+       40   $check
+        7   $dff
+       46   $eq
+        3   $ge
+        8   $gt
+        2   $le
+      118   $logic_and
+       57   $logic_not
+       37   $logic_or
+        6   $lt
+        2   $mem_v2
+      131   $mux
+        2   $ne
+        6   $pmux
+       33   $reduce_bool
+        2   $shl
+       14   $sub
+
+2.16. Executing CHECK pass (checking for obvious problems).
+Checking module LSQRegionProof...
+Found and reported 0 problems.
+
+3. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \lq.loadQueue in module \LSQRegionProof:
+  created 16 $dff cells and 0 static cells of width 42.
+  read interface: 0 $dff and 240 $mux cells.
+  write interface: 1072 write mux blocks.
+Mapping memory \sq.storeQueue in module \LSQRegionProof:
+  created 16 $dff cells and 0 static cells of width 27.
+  read interface: 0 $dff and 240 $mux cells.
+  write interface: 3120 write mux blocks.
+
+4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \LSQRegionProof..
+Removed 0 unused cells and 544 unused wires.
+<suppressed ~1 debug messages>
+
+5. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module LSQRegionProof.
+
+End of script. Logfile hash: ef6d58ee11, time: 1.40s, user: 0.67s, system: 1.05s, MEM: 62.62 MB peak
+Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 75% 2x read_slang (1 sec), 8% 6x opt_clean (0 sec), ...

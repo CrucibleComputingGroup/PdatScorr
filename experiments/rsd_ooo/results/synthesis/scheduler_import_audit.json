@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "checks": {
+    "all_22_outputs_same_mask": true,
+    "original_boundary_only_reset_mask": true,
+    "scheduler_dispatch_assume_reset_observed_exact_dispatch_contract": true,
+    "scheduler_dispatch_lemmas_reset_observed_exact_dispatch_contract": true,
+    "only_proved_live_FP_lemmas_added": true,
+    "retained_original_FP_request": true,
+    "proof_import_binding": true,
+    "proof_artifact_hashes": true,
+    "source_hashes": true,
+    "same_defines": true,
+    "scheduler_original_reset_observed_export_C": true,
+    "scheduler_dispatch_assume_reset_observed_export_C": true,
+    "scheduler_dispatch_lemmas_reset_observed_export_C": true,
+    "same_export_interface_state": true
+  },
+  "exports": [
+    {
+      "variant": "scheduler_original_reset_observed",
+      "header": "aig 13184 275 129 409 12780",
+      "inputs": 275,
+      "latches": 129,
+      "outputs": 409,
+      "constraints": 0,
+      "sha256": "95602768ab998920f876509944fd120eceb240fa0290ab5f10b4824327178d6a"
+    },
+    {
+      "variant": "scheduler_dispatch_assume_reset_observed",
+      "header": "aig 13146 275 129 409 12742 0 2 0 0",
+      "inputs": 275,
+      "latches": 129,
+      "outputs": 409,
+      "constraints": 2,
+      "sha256": "84cad11076b219ebe4a5b5f9a7b8a38a679c89552dfb5fbe066332bb1d7e733a"
+    },
+    {
+      "variant": "scheduler_dispatch_lemmas_reset_observed",
+      "header": "aig 13286 275 129 409 12882 0 18 0 0",
+      "inputs": 275,
+      "latches": 129,
+      "outputs": 409,
+      "constraints": 18,
+      "sha256": "c59326a13427d4ac3a4a5e0c953ce07dc858491fe119088cb64fc02b77559b17"
+    }
+  ],
+  "proof_import_sha256": "3ee5fe097943de26452762931dd3cba3666c0b26aa44b59b2628256c551a2928",
+  "scope": "Automatic original-source Scheduler+SelectLogic comparison at matched reset-masked output boundary; reset-conditioned proved lemmas, no manually cut requests"
+}

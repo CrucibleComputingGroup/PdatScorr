@@ -1,0 +1,88 @@
+RSD region-specialization proof review (2026-11-04)
+
+The generated candidate changes only the stored-address comparison matrices
+in LoadQueue.sv and StoreQueue.sv. It leaves queue depths, pointers, allocation,
+recovery, store commitment, and the LQ same-cycle load/store comparison intact.
+There is no assumption that memory latency or pipeline depth bounds occupancy.
+
+Contract and scope
+------------------
+At every post-reset execution event, every load physical address[21:16] is
+zero and every store physical address[21:16] is nonzero. Physical addresses
+are 22 bits (20 address bits plus IO/cacheability flags), not logical32.
+ROM logical 0x1000..0xffff maps to physical region zero. RAM logical
+0x80000000..0x8003ffff maps to physical 0x10000..0x4ffff, and IO has tags.
+The contract includes speculative, wrong-path, replayed and invalid-operand
+execution. It is intentionally stronger than architectural nonaliasing.
+
+The monitor checks execution events on both original and specialized cores.
+Any violation invalidates that run's applicability to the positive region-cut
+claim, even if final output values happen to agree. Do not weaken the monitor
+after a failed run without supplying a separate proof and naming the variant.
+Root's measured pointer-chase violations are an example of why this matters;
+use the raw run results as the authoritative source for counts.
+
+Source-reviewed invalid-operand behavior
+---------------------------------------
+MemoryTagAccessStage.sv:115-124 sets executeLoad from pipeline validity,
+stall/clear/flush state and decoded load type; it does not test register
+validity. Lines 202-230 compute executedLoadRegValid separately, including
+cache/MSHR availability. A dependent load can therefore execute with a
+transient address before a missed producer has supplied a valid operand.
+
+StoreQueue.sv's stored address matcher (around lines 284-291) tests finished,
+legal load memory type, equal addresses, and word/byte overlap. It does NOT
+test stored regValid. If an invalid speculative store transiently matches a
+load, storeLoadForwarded can be true and forwardMiss becomes true because of
+the failed regValid check at lines 301-304. MemoryTagAccessStage.sv:162-165
+then clears a prior MSHR allocation; lines 272-277 can classify forwarding
+failure and trigger recovery. These effects can change replay and timing.
+Thus a contract restricting only valid/retired stores is insufficient for
+the dual LQ/SQ cut. Similarly, invalid-load forwarding can affect pre-guard
+MSHR bookkeeping and the computed load-valid signal. The two new SAT
+negative controls in prove_nonalias.py preserve these failure witnesses.
+
+A future LQ-only variant could exploit finished && regValid and the
+valid-store consumer mask. That would need its own observation relation;
+it is not the variant proved or measured here. The strict contract is retained.
+
+Proof evidence
+--------------
+prove_nonalias.py checks exact pinned source hashes, proves reset and
+one-step inductive entry invariants with Z3, proves comparator impossibility
+and the consumer-mask relation, and proves the real CircularRangePicker RTL
+cannot pick from an all-zero request vector. Its entry relation is a manually
+extracted model: its summary explicitly excludes full-core equivalence.
+SAT negative controls show removing either region restriction allows matches,
+and show validity-only restrictions are insufficient. A positive SAT witness
+allows simultaneous load/store execution; the constraints are nonvacuous.
+
+prove_actual_lsq.py is the stronger actual-RTL check. LSQRegionProof.sv
+instantiates the original unmodified LoadQueue, StoreQueue, interface and
+queue/picker/RAM modules, with arbitrary allocation, execution, release,
+recovery, masks, addresses and validity. It asserts entry invariants plus
+zero historical match/forwarding outcomes. Accept this artifact only if both
+its base and temporal-induction logs end PASSED and summary.json says passed.
+The current run passes all 36 actual-RTL assertions: base steps 0 through 3,
+successful temporal induction at step 3, and a nonvacuity cover reached at
+step 2 with simultaneous execution and nonempty entries in both queues.
+The script rejects unexpected assertion/assumption/cover counts (36/3/1).
+It establishes block properties, not whole-processor equivalence or all-input
+adherence of an application binary to the environment contract.
+
+Occupancy and wait-time caution
+-------------------------------
+The actual LQ/SQ admission expression is count <= depth - renameWidth - 1.
+At renameWidth=2, a depth8 queue with occupancy6 refuses admission. A depth16
+queue admits a single new operation at that point, producing occupancy7,
+which still fits below depth8. Therefore even a maximum occupancy below8
+does not imply depth8 preserves execution timing. The SMT negative control
+negative_peak_occupancy_sizing captures this concrete pre-admission witness.
+
+A finite external memory response bound alone is not a resource lifetime
+bound. Allocation precedes execution; retirement and store draining can lag
+the response, and MSHR reclamation can include merge/writeback/recovery.
+Any theorem N_r(t)<=alpha_r(W_r) needs W_r to bound allocation-to-release
+residency, alpha_r to bound arrivals in every W_r-cycle interval (including
+speculative activity), precise clock-edge conventions, and actual admission
+slack. Profiling maxima provide measurements, not that universal theorem.

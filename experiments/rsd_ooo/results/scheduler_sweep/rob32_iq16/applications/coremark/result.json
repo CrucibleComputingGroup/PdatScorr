@@ -1,0 +1,48 @@
+{
+  "name": "coremark",
+  "command": [
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/sched_rob32_iq16/VMain_Zynq_Wrapper",
+    "TEST_CODE=/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/scheduler_sweep/rob32_iq16/applications/coremark",
+    "MAX_TEST_CYCLES=20000000",
+    "ENABLE_PC_GOAL=1",
+    "SHOW_SERIAL_OUT=1"
+  ],
+  "binary_sha256": "7d8826afccc28827c657701facd56aacdc5e293a2ca6a1166be6e0031ab5538a",
+  "input_sha256": "5eab938d4aafb6d452d580149587d5d3eddaa878a1134a0862b8dd86189c7126",
+  "iterations": 10,
+  "status": "failed",
+  "scope": "original algorithm checks and PC-goal; validation cycle comparison, no score certification",
+  "returncode": 0,
+  "log_sha256": "3288b113b07e0b39b4949584217b63c3dad50924ab2779ca900b3c2594154007",
+  "wall_seconds": 347.05084658879787,
+  "pc_goal": false,
+  "serial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "observed_serial": "",
+  "validation": {
+    "seedcrc": false,
+    "crclist": false,
+    "crcmatrix": false,
+    "crcstate": false,
+    "validated": false,
+    "iterations": false,
+    "data_size": false,
+    "no_errors": true,
+    "positive_roi_cycles": false
+  },
+  "roi_cycles": null,
+  "counters": {
+    "Num of I$ misses": 17914,
+    "Num of D$ load misses": 1614,
+    "Num of D$ store misses": 331,
+    "Num of branch prediction misses": 50731,
+    "Num of branch prediction misses detected on decode": 40005,
+    "Num of store-load-forwanind misses": 0,
+    "Num of memory dependency prediction misses": 12,
+    "Num of committed RISC-V-ops": 2905813,
+    "Num of committed micro-ops": 2905813,
+    "IPC (RISC-V instruction)": 0.145291,
+    "IPC (micro-op)": 0.145291,
+    "Elapsed cycles": 19999999
+  },
+  "within_cycle_limit": false
+}

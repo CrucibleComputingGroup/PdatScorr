@@ -1,0 +1,183 @@
+{
+  "status": "PASS",
+  "checks": {
+    "prf_guard64_control_all_228_source_hashes": true,
+    "prf_guard64_control_only_two_reset_guards": true,
+    "prf_guard64_control_only_coupled_PRF_config": true,
+    "prf_guard64_control_original_types_RAM_interface": true,
+    "prf_guard64_control_matching_capacity_metadata": true,
+    "prf_guard48_all_228_source_hashes": true,
+    "prf_guard48_only_two_reset_guards": true,
+    "prf_guard48_only_coupled_PRF_config": true,
+    "prf_guard48_original_types_RAM_interface": true,
+    "prf_guard48_matching_capacity_metadata": true,
+    "identical_guarded_RegisterFile_bytes": true,
+    "power_of_two_guard_identically_false": true,
+    "48_reset_address_coverage_and_legality": true,
+    "46_guarded_architectural_cases_pass": true,
+    "watchdogs_remain_explicit": true,
+    "guard64_measured_cycles_and_resource_memory_traces_match": true
+  },
+  "local_guard_enumeration": [
+    {
+      "capacity": 64,
+      "address_bits": 6,
+      "all_possible_addresses_checked": 64,
+      "triggering_addresses": []
+    },
+    {
+      "capacity": 128,
+      "address_bits": 7,
+      "all_possible_addresses_checked": 128,
+      "triggering_addresses": []
+    }
+  ],
+  "prf48_reset_coverage": {
+    "integer": {
+      "initialized_entries": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "suppressed_reset_writes": 12496,
+      "guarded_address_always_in_range": true
+    },
+    "fp": {
+      "initialized_entries": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "suppressed_reset_writes": 4992,
+      "guarded_address_always_in_range": true
+    }
+  },
+  "strict_runner_diagnostics": [
+    {
+      "variant": "guard64",
+      "workload": "Asm/CacheFlush",
+      "diagnostics": [
+        "Deadlock detected"
+      ]
+    },
+    {
+      "variant": "guard64",
+      "workload": "Asm/Fence",
+      "diagnostics": [
+        "Deadlock detected"
+      ]
+    },
+    {
+      "variant": "guard48",
+      "workload": "Asm/CacheFlush",
+      "diagnostics": [
+        "Deadlock detected"
+      ]
+    },
+    {
+      "variant": "guard48",
+      "workload": "Asm/Fence",
+      "diagnostics": [
+        "Deadlock detected"
+      ]
+    }
+  ],
+  "source_binding_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/prf_guard64_control/manifest.json": "59ce14ec27814e72fd2db5885971f6078d2614fba41643a21dc4720a4d6db08e",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/prf_guard48/manifest.json": "a5329e8e8530c81d62d727bebe104623a9144c217e41cd49beda50ec68a4608a"
+  },
+  "comparison_sha256": "bf10c538fab9fe9d7d03bedde41e815f5d0cb0d2ba5ae03147b109a792696036",
+  "wrapper_sha256": "a85417a6ed058fd314847dd87585c0dc6a97cb44f36817a7b7a4e0c94c6d8e8e",
+  "source_list_sha256": "bc737b42ec094e6ce7f30fa38b258a2ddc9a2d47eec8b43910efc5dc99e4c3ee",
+  "scope": "Localized reset-guard source audit; complete finite narrowed-address proof that guard is inactive at64/128; source-reviewed48 reset coverage. No whole-core proof or capacity-reduction equivalence claim."
+}

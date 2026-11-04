@@ -1,0 +1,108 @@
+{
+  "status": "complete",
+  "scope": "Original actual Scheduler+SelectLogic component; no source FP-request cut. All409outputbits in22ports masked only duringrst; internal reset transitions and capacities unchanged.",
+  "domain": "Reset-conditioned proof-derived live-entry noFP invariants + actual-write noFP admission contract; controls conservative arbitrary initial state. No fullcore or binary-contract proof.",
+  "flow": "Inherited PscorrF2/C30000/S20; no prebalance, no cycle100; purgeconstraints/rewrite-l/balance-l; mapped AIGER-zinit formal model, not directRTLphysicalarea",
+  "results": [
+    {
+      "variant": "original",
+      "initial": {
+        "variables": 13184,
+        "inputs": 275,
+        "latches": 129,
+        "outputs": 409,
+        "ands": 12780,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "optimized": {
+        "variables": 3251,
+        "inputs": 275,
+        "latches": 129,
+        "outputs": 409,
+        "ands": 2847,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "formal_model_cell_area_um2": 12993.712,
+      "abc_seconds": 0.2152904043905437,
+      "mapping_seconds": 1.4692405019886792,
+      "result": "experiments/rsd_ooo/results/synthesis/scheduler_original_reset_observed/mapped_scorr/result.json",
+      "manifest": "experiments/rsd_ooo/results/synthesis/scheduler_original_reset_observed/manifest.json",
+      "manifest_sha256": "05d65cb3eed2ac332c30041888e5f7fe89d8752fa98c4b42957ae1683a047300"
+    },
+    {
+      "variant": "dispatch_assume",
+      "initial": {
+        "variables": 13146,
+        "inputs": 275,
+        "latches": 129,
+        "outputs": 409,
+        "ands": 12742,
+        "bad": 0,
+        "constraints": 2,
+        "justice": 0,
+        "fairness": 0
+      },
+      "optimized": {
+        "variables": 3251,
+        "inputs": 275,
+        "latches": 129,
+        "outputs": 409,
+        "ands": 2847,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "formal_model_cell_area_um2": 12993.712,
+      "abc_seconds": 0.3657205612398684,
+      "mapping_seconds": 1.7196976942941546,
+      "result": "experiments/rsd_ooo/results/synthesis/scheduler_dispatch_assume_reset_observed/mapped_scorr/result.json",
+      "manifest": "experiments/rsd_ooo/results/synthesis/scheduler_dispatch_assume_reset_observed/manifest.json",
+      "manifest_sha256": "44b23dccc76e90df28afb345343c11807b1a8080919597a47a469988d07c4ff8"
+    },
+    {
+      "variant": "dispatch_lemmas",
+      "initial": {
+        "variables": 13286,
+        "inputs": 275,
+        "latches": 129,
+        "outputs": 409,
+        "ands": 12882,
+        "bad": 0,
+        "constraints": 18,
+        "justice": 0,
+        "fairness": 0
+      },
+      "optimized": {
+        "variables": 3171,
+        "inputs": 275,
+        "latches": 129,
+        "outputs": 409,
+        "ands": 2767,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "formal_model_cell_area_um2": 12318.064,
+      "abc_seconds": 0.36513677099719644,
+      "mapping_seconds": 1.3187598148360848,
+      "result": "experiments/rsd_ooo/results/synthesis/scheduler_dispatch_lemmas_reset_observed/mapped_scorr/result.json",
+      "manifest": "experiments/rsd_ooo/results/synthesis/scheduler_dispatch_lemmas_reset_observed/manifest.json",
+      "manifest_sha256": "ad8b36caab7a35a74aad0f0caa554367894ddc354e2e444499bfedf4ec6c3f05"
+    }
+  ],
+  "beyond_admission_assumptions": {
+    "and_reduction_percent": 2.8099754127151386,
+    "aig_latches_removed": 0,
+    "formal_model_area_reduction_percent": 5.199807414540197
+  },
+  "source_import_audit": "experiments/rsd_ooo/results/synthesis/scheduler_import_audit.json",
+  "direct_physical_manualcut_result_is_separate": "experiments/rsd_ooo/results/synthesis/scheduler_direct_summary.json"
+}

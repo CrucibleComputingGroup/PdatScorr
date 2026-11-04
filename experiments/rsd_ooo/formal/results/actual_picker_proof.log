@@ -1,0 +1,323 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Running command `read_verilog -formal -sv /home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv; prep -top picker_contract -flatten; sat -verify -prove-asserts -show-inputs' --
+
+1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv' to AST representation.
+Generating RTLIL representation for module `\CircularRangePicker'.
+Generating RTLIL representation for module `\CircularRangePickerRightShifter16'.
+Generating RTLIL representation for module `\CircularRangePickerRightShifter'.
+Generating RTLIL representation for module `\picker_contract'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \picker_contract
+Used module:     \CircularRangePicker
+Used module:         \CircularRangePickerRightShifter16
+Parameter \ENTRY_NUM = 16
+
+2.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\CircularRangePicker'.
+Parameter \ENTRY_NUM = 16
+Generating RTLIL representation for module `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000'.
+
+2.1.3. Analyzing design hierarchy..
+Top module:  \picker_contract
+Used module:     $paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000
+Used module:         \CircularRangePickerRightShifter16
+
+2.1.4. Analyzing design hierarchy..
+Top module:  \picker_contract
+Used module:     $paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000
+Used module:         \CircularRangePickerRightShifter16
+Removing unused module `\CircularRangePickerRightShifter'.
+Removing unused module `\CircularRangePicker'.
+Removed 2 unused modules.
+Module picker_contract directly or indirectly contains formal properties -> setting "keep" attribute.
+Mapping positional arguments of cell $paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.genblk1.rightShifter (CircularRangePickerRightShifter16).
+Mapping positional arguments of cell picker_contract.dut ($paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000).
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 20 switch rules as full_case in process $proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$25 in module $paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.
+Marked 2 switch rules as full_case in process $proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$16 in module CircularRangePickerRightShifter16.
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 9 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~22 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$25'.
+     1/36: $19\picked[0:0]
+     2/36: $18\picked[0:0]
+     3/36: $17\picked[0:0]
+     4/36: $1\grantPtr[3:0]
+     5/36: $16\picked[0:0]
+     6/36: $16\shiftedGrant[3:0]
+     7/36: $15\picked[0:0]
+     8/36: $15\shiftedGrant[3:0]
+     9/36: $14\picked[0:0]
+    10/36: $14\shiftedGrant[3:0]
+    11/36: $13\picked[0:0]
+    12/36: $13\shiftedGrant[3:0]
+    13/36: $12\picked[0:0]
+    14/36: $12\shiftedGrant[3:0]
+    15/36: $11\picked[0:0]
+    16/36: $11\shiftedGrant[3:0]
+    17/36: $10\picked[0:0]
+    18/36: $10\shiftedGrant[3:0]
+    19/36: $9\picked[0:0]
+    20/36: $9\shiftedGrant[3:0]
+    21/36: $8\picked[0:0]
+    22/36: $8\shiftedGrant[3:0]
+    23/36: $7\picked[0:0]
+    24/36: $7\shiftedGrant[3:0]
+    25/36: $6\picked[0:0]
+    26/36: $6\shiftedGrant[3:0]
+    27/36: $5\picked[0:0]
+    28/36: $5\shiftedGrant[3:0]
+    29/36: $4\picked[0:0]
+    30/36: $4\shiftedGrant[3:0]
+    31/36: $3\picked[0:0]
+    32/36: $3\shiftedGrant[3:0]
+    33/36: $2\picked[0:0]
+    34/36: $2\shiftedGrant[3:0]
+    35/36: $1\picked[0:0]
+    36/36: $1\shiftedGrant[3:0]
+Creating decoders for process `\CircularRangePickerRightShifter16.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$16'.
+     1/2: $2\shiftTmp[31:0]
+     2/2: $1\shiftTmp[31:0]
+Creating decoders for process `\picker_contract.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:151$20'.
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.\grantPtr' from process `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$25'.
+No latch inferred for signal `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.\picked' from process `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$25'.
+No latch inferred for signal `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.\rightShifterIn' from process `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$25'.
+No latch inferred for signal `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.\shiftedGrant' from process `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$25'.
+No latch inferred for signal `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.$fordecl_block$1.i' from process `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$25'.
+No latch inferred for signal `\CircularRangePickerRightShifter16.\shiftOut' from process `\CircularRangePickerRightShifter16.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$16'.
+No latch inferred for signal `\CircularRangePickerRightShifter16.\shiftTmp' from process `\CircularRangePickerRightShifter16.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$16'.
+No latch inferred for signal `\picker_contract.$formal$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:151$19_CHECK' from process `\picker_contract.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:151$20'.
+No latch inferred for signal `\picker_contract.$formal$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:151$19_EN' from process `\picker_contract.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:151$20'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 20 empty switches in `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$25'.
+Removing empty process `$paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$25'.
+Found and cleaned up 2 empty switches in `\CircularRangePickerRightShifter16.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$16'.
+Removing empty process `CircularRangePickerRightShifter16.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:0$16'.
+Removing empty process `picker_contract.$proc$/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv:151$20'.
+Cleaned up 22 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.
+Optimizing module CircularRangePickerRightShifter16.
+Optimizing module picker_contract.
+
+2.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\CircularRangePicker\ENTRY_NUM=s32'00000000000000000000000000010000.
+Deleting now unused module CircularRangePickerRightShifter16.
+<suppressed ~2 debug messages>
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module picker_contract.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \picker_contract..
+Removed 6 unused cells and 98 unused wires.
+<suppressed ~9 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module picker_contract...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module picker_contract.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\picker_contract'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \picker_contract..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\dut.$procmux$42.
+    dead port 2/2 on $mux $flatten\dut.$procmux$48.
+Removed 2 multiplexer ports.
+<suppressed ~4 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \picker_contract.
+  Optimizing cells in module \picker_contract.
+Performed a total of 2 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\picker_contract'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \picker_contract..
+Removed 6 unused cells and 9 unused wires.
+<suppressed ~7 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module picker_contract.
+<suppressed ~35 debug messages>
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \picker_contract..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \picker_contract.
+Performed a total of 0 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\picker_contract'.
+Removed a total of 0 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \picker_contract..
+Removed 6 unused cells and 39 unused wires.
+<suppressed ~7 debug messages>
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module picker_contract.
+
+2.7.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \picker_contract..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \picker_contract.
+Performed a total of 0 changes.
+
+2.7.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\picker_contract'.
+Removed a total of 0 cells.
+
+2.7.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \picker_contract..
+
+2.7.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module picker_contract.
+
+2.7.20. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \picker_contract..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module picker_contract.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\picker_contract'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \picker_contract..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== picker_contract ===
+
+   Number of wires:                 14
+   Number of wire bits:            169
+   Number of public wires:          14
+   Number of public wire bits:     169
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $assert                         1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module picker_contract...
+Found and reported 0 problems.
+
+3. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 1 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \head
+Import show expression: \tail
+
+Solving problem with 10 variables and 4 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 9e9a38af44, CPU: user 0.02s system 0.00s, MEM: 54.36 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 19% 7x opt_expr (0 sec), 18% 6x opt_clean (0 sec), ...

@@ -1,0 +1,58 @@
+{
+  "status": "complete",
+  "input": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_original/core_yosys.aig",
+  "input_sha256": "4f6bcb13a512b374248d28d83c87f1be745a381269285ebe843fc50ff0ba15fd",
+  "initial": {
+    "variables": 26051,
+    "inputs": 1855,
+    "latches": 1707,
+    "outputs": 144,
+    "ands": 22489,
+    "bad": 0,
+    "constraints": 0,
+    "justice": 0,
+    "fairness": 0
+  },
+  "depth": 2,
+  "scorr": true,
+  "cycle_initial_state": false,
+  "liberty": "/opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib",
+  "stages": [
+    {
+      "command": [
+        "/usr/local/bin/abc",
+        "-f",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_original/mapped_scorr_v2/optimize.abc"
+      ],
+      "log": "abc.log",
+      "status": "passed",
+      "returncode": 0,
+      "elapsed_seconds": 0.9677889896556735
+    },
+    {
+      "command": [
+        "/usr/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_original/mapped_scorr_v2/map.ys"
+      ],
+      "log": "mapping.log",
+      "status": "passed",
+      "returncode": 0,
+      "elapsed_seconds": 10.349021521862596
+    }
+  ],
+  "optimized": {
+    "variables": 21600,
+    "inputs": 1855,
+    "latches": 1707,
+    "outputs": 144,
+    "ands": 18038,
+    "bad": 0,
+    "constraints": 0,
+    "justice": 0,
+    "fairness": 0
+  },
+  "cell_area_um2": 95662.9984
+}

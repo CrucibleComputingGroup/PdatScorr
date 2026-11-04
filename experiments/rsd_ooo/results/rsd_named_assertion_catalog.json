@@ -1,0 +1,564 @@
+{
+  "core_revision": "7b65f6ba0bce58d4d859082660123b7100aae975",
+  "source_sha256": {
+    "LoadStoreUnit/StoreCommitter.sv": "eb77ac4d4df5492ebee56463c54e7fa99353198e421fda9bc5f3adaff44e4277",
+    "LoadStoreUnit/LoadQueue.sv": "3a4a33e0aa5586aace17b09da68f466d09fbb9914fd744e49b261f2df927d701",
+    "LoadStoreUnit/StoreQueue.sv": "f344b1f219920f59e48eba6bcb809130df060afd47dc6b257bb0c72653167ecf",
+    "Cache/DCache.sv": "8ede5fbf72b5f6ae928fcf36953246eef2108b621a276671e45b443965fec215",
+    "Cache/ICache.sv": "efb82a1a5ed022016119a72342c3ec961fd09fe38ec837193d2cd565335a4316",
+    "Pipeline/RenameStage.sv": "e6837aaa3e59d5c5c7d0aef4cc936dc34494c30e99f6c7411e6a6ea30af8bec0",
+    "Pipeline/CommitStage.sv": "46a080750c71e48a604a55d0a15353db7044c14bac0c6d7d7bdd03f71fb3ee89",
+    "RenameLogic/ActiveList.sv": "56442bc3a398df0bd321f014f8f0d89089a3de4c6aecb07a55ba2883bb0e0551",
+    "RenameLogic/RenameLogicCommitter.sv": "765fdb351864495dad9a14df9a5d6c06992b805f2f83a45dfe0c95e52bf4fe7e",
+    "Memory/MemoryLatencySimulator.sv": "9c0ddc2e474bad0ce6a3a3eecbd8df170c9910ed0f34693cee37a56ffd2d563b",
+    "Memory/Memory.sv": "4c3f7f9607df0feb19fa745a3e486e49e5d8d0a0394fe46e2bb1a21641414365",
+    "Recovery/RecoveryManager.sv": "0f73dcc74ca2a0328c88727f4a5a16661c9a400693e36701c8024a6178d830bf",
+    "Primitives/Queue.sv": "7b4d42d93f8a9fb555d48b7b28a050f53e397a540f54fc3871cf40a326fb567a",
+    "Primitives/RAM_Synplify.sv": "36127d3eae8ccdafc7c95a58107f35a5d1f9cc564f70de59cb4c6fddd5d91418",
+    "Primitives/RAM_Vivado.sv": "b06e5eccf6f0f51ce08cc47cc06d9e728dba19b4de626c6fa21e88c3059448c2",
+    "Primitives/RAM.sv": "0138e7455e61ce1e21f089e82213369ecfaf620aae37a603879a9175438205a1",
+    "Privileged/CSR_Unit.sv": "fdd07866c0cf8206f2e8beae2611e0b607da5a7dec32b5f3f50c327ce5201285",
+    "Pipeline/MemoryBackEnd/MemoryAccessStage.sv": "60c10504b0d5bec4c5f931383a1a7d3026a1c1689293f108dcdc00df3c10b8af",
+    "Pipeline/MemoryBackEnd/MemoryExecutionStage.sv": "ed1d11dffc7aadddabd14d00d3fe1bc13df9656fbd5fc5ccfd46fc26fdc9f64a",
+    "Pipeline/IntegerBackEnd/IntegerRegisterReadStage.sv": "c110c59880c45dbabe1d38ab856fa7456375b3b48f2aee6000f689c23eda5d55"
+  },
+  "assertions": [
+    {
+      "source": "LoadStoreUnit/StoreCommitter.sv",
+      "line": 360,
+      "message": "Committed store num is larger than store queue entry num."
+    },
+    {
+      "source": "LoadStoreUnit/StoreCommitter.sv",
+      "line": 367,
+      "message": "Stores are committed in recovery phase."
+    },
+    {
+      "source": "LoadStoreUnit/LoadQueue.sv",
+      "line": 259,
+      "message": "1: A store's executedLoadQueuePtr is illegal."
+    },
+    {
+      "source": "LoadStoreUnit/LoadQueue.sv",
+      "line": 266,
+      "message": "2: A store's executedLoadQueuePtr is illegal."
+    },
+    {
+      "source": "LoadStoreUnit/LoadQueue.sv",
+      "line": 273,
+      "message": "3: A store's executedLoadQueuePtr is illegal."
+    },
+    {
+      "source": "LoadStoreUnit/StoreQueue.sv",
+      "line": 325,
+      "message": "1:A load's executedStoreQueuePtr is illegal."
+    },
+    {
+      "source": "LoadStoreUnit/StoreQueue.sv",
+      "line": 332,
+      "message": "2:A load's executedStoreQueuePtr is illegal."
+    },
+    {
+      "source": "LoadStoreUnit/StoreQueue.sv",
+      "line": 339,
+      "message": "3:A load's executedStoreQueuePtr is illegal."
+    },
+    {
+      "source": "LoadStoreUnit/StoreQueue.sv",
+      "line": 348,
+      "message": "Pop from a empty store queue."
+    },
+    {
+      "source": "Cache/DCache.sv",
+      "line": 219,
+      "message": "Inflight load or store is found on DC flush request acquirement."
+    },
+    {
+      "source": "Cache/DCache.sv",
+      "line": 1903,
+      "message": "MSHR deadlock detected"
+    },
+    {
+      "source": "Cache/ICache.sv",
+      "line": 518,
+      "message": "Signal we is not one-hot or 0."
+    },
+    {
+      "source": "Cache/ICache.sv",
+      "line": 519,
+      "message": "Signal hit is not one-hot or 0."
+    },
+    {
+      "source": "Pipeline/RenameStage.sv",
+      "line": 37,
+      "message": "Multiple serialized ops were sent to RenameStage. (%x, %x)"
+    },
+    {
+      "source": "Pipeline/CommitStage.sv",
+      "line": 388,
+      "message": "An undefined or unsupported op is retired."
+    },
+    {
+      "source": "Pipeline/CommitStage.sv",
+      "line": 409,
+      "message": "Deadlock detected"
+    },
+    {
+      "source": "RenameLogic/ActiveList.sv",
+      "line": 539,
+      "message": "Execution State value is different from the reference's value."
+    },
+    {
+      "source": "RenameLogic/RenameLogicCommitter.sv",
+      "line": 40,
+      "message": ""
+    },
+    {
+      "source": "Memory/MemoryLatencySimulator.sv",
+      "line": 97,
+      "message": "Cannot response so many memory request."
+    },
+    {
+      "source": "Memory/Memory.sv",
+      "line": 217,
+      "message": "Cannot read and write the memory in the same cycle!"
+    },
+    {
+      "source": "Recovery/RecoveryManager.sv",
+      "line": 227,
+      "message": "Tried to start the commit phase and the recovery phase at the same time"
+    },
+    {
+      "source": "Recovery/RecoveryManager.sv",
+      "line": 233,
+      "message": "RW stage recovery is not allowed in REFETCH_TYPE_CSR_UNIT_TARGET"
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 93,
+      "message": "Push to a full queue."
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 94,
+      "message": "Pop from an empty queue."
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 178,
+      "message": "Push to a full queue."
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 179,
+      "message": "Pop from an empty queue."
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 267,
+      "message": "The count of a queue exceeds its size."
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 370,
+      "message": "The count of a queue exceeds its size."
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 475,
+      "message": "The count of a queue exceeds its size."
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 476,
+      "message": "BiTailMultiWidthQueuePointer is pushed and popped simultaneously."
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 597,
+      "message": "The count of a queue exceeds its size."
+    },
+    {
+      "source": "Primitives/Queue.sv",
+      "line": 598,
+      "message": "BiTailMultiWidthQueuePointer is pushed and popped simultaneously."
+    },
+    {
+      "source": "Primitives/RAM_Synplify.sv",
+      "line": 80,
+      "message": "Multiple ports(%x,%x) write to the same entry."
+    },
+    {
+      "source": "Primitives/RAM_Synplify.sv",
+      "line": 492,
+      "message": "Multiple ports(%x,%x) write to the same entry."
+    },
+    {
+      "source": "Primitives/RAM_Synplify.sv",
+      "line": 649,
+      "message": "Multiple ports(%x,%x) write to the same bank."
+    },
+    {
+      "source": "Primitives/RAM_Synplify.sv",
+      "line": 658,
+      "message": "Multiple ports(%x,%x) read from the same bank."
+    },
+    {
+      "source": "Primitives/RAM_Synplify.sv",
+      "line": 687,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 92,
+      "message": "Multiple ports(%x,%x) write to the same entry."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 101,
+      "message": "Port (%x) read from or write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 194,
+      "message": "Port (%x) read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 201,
+      "message": "Port (%x) write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 407,
+      "message": "Write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 413,
+      "message": "Read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 536,
+      "message": "Write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 542,
+      "message": "Read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 670,
+      "message": "Write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 676,
+      "message": "Read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 799,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 917,
+      "message": "Multiple ports(%x,%x) write to the same entry."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 938,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 998,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 1109,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 1228,
+      "message": "Multiple ports(%x,%x) write to the same bank."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 1237,
+      "message": "Multiple ports(%x,%x) read from the same bank."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 1311,
+      "message": "The read output of a port(%x) is incorrect"
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 1425,
+      "message": "Multiple ports(%x,%x) write to the same bank."
+    },
+    {
+      "source": "Primitives/RAM_Vivado.sv",
+      "line": 1434,
+      "message": "Multiple ports(%x,%x) read from the same bank."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 49,
+      "message": "Write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 55,
+      "message": "Read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 115,
+      "message": "Multiple ports(%x,%x) write to the same entry."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 124,
+      "message": "Port (%x) read from or write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 222,
+      "message": "Port (%x) read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 229,
+      "message": "Port (%x) write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 443,
+      "message": "Write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 449,
+      "message": "Read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 576,
+      "message": "Write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 582,
+      "message": "Read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 622,
+      "message": "Write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 674,
+      "message": "Write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 721,
+      "message": "Write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 727,
+      "message": "Read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 769,
+      "message": "Port (%x) read from or write to the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 777,
+      "message": "Port (%x) read from the outside of the RAM array."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 869,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 987,
+      "message": "Multiple ports(%x,%x) write to the same entry."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 1008,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 1068,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 1134,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 1204,
+      "message": "The read output of a port(%x) is incorrect."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 1323,
+      "message": "Multiple ports(%x,%x) write to the same bank."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 1332,
+      "message": "Multiple ports(%x,%x) read from the same bank."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 1406,
+      "message": "The read output of a port(%x) is incorrect"
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 1520,
+      "message": "Multiple ports(%x,%x) write to the same bank."
+    },
+    {
+      "source": "Primitives/RAM.sv",
+      "line": 1529,
+      "message": "Multiple ports(%x,%x) read from the same bank."
+    },
+    {
+      "source": "Privileged/CSR_Unit.sv",
+      "line": 188,
+      "message": "Invalid exception cause is passed"
+    },
+    {
+      "source": "Privileged/CSR_Unit.sv",
+      "line": 205,
+      "message": "CSR update, trap or interrupt are performed at the same cycle"
+    },
+    {
+      "source": "Pipeline/MemoryBackEnd/MemoryAccessStage.sv",
+      "line": 214,
+      "message": "IO access cane be accessed in the mem lane 0."
+    },
+    {
+      "source": "Pipeline/MemoryBackEnd/MemoryExecutionStage.sv",
+      "line": 162,
+      "message": "A CSR/FENCE/ENV op was issued to a lane other than 0."
+    },
+    {
+      "source": "Pipeline/MemoryBackEnd/MemoryExecutionStage.sv",
+      "line": 285,
+      "message": "hasAllocatedMSHR is asserted other than a load pipe"
+    },
+    {
+      "source": "Pipeline/IntegerBackEnd/IntegerRegisterReadStage.sv",
+      "line": 206,
+      "message": "Int sub info and Br sub info are inconsistent"
+    }
+  ],
+  "named_messages": [
+    "1: A store's executedLoadQueuePtr is illegal.",
+    "1:A load's executedStoreQueuePtr is illegal.",
+    "2: A store's executedLoadQueuePtr is illegal.",
+    "2:A load's executedStoreQueuePtr is illegal.",
+    "3: A store's executedLoadQueuePtr is illegal.",
+    "3:A load's executedStoreQueuePtr is illegal.",
+    "A CSR/FENCE/ENV op was issued to a lane other than 0.",
+    "An undefined or unsupported op is retired.",
+    "BiTailMultiWidthQueuePointer is pushed and popped simultaneously.",
+    "CSR update, trap or interrupt are performed at the same cycle",
+    "Cannot read and write the memory in the same cycle!",
+    "Cannot response so many memory request.",
+    "Committed store num is larger than store queue entry num.",
+    "Deadlock detected",
+    "Execution State value is different from the reference's value.",
+    "IO access cane be accessed in the mem lane 0.",
+    "Inflight load or store is found on DC flush request acquirement.",
+    "Int sub info and Br sub info are inconsistent",
+    "Invalid exception cause is passed",
+    "MSHR deadlock detected",
+    "Multiple ports(%x,%x) read from the same bank.",
+    "Multiple ports(%x,%x) write to the same bank.",
+    "Multiple ports(%x,%x) write to the same entry.",
+    "Multiple serialized ops were sent to RenameStage. (%x, %x)",
+    "Pop from a empty store queue.",
+    "Pop from an empty queue.",
+    "Port (%x) read from or write to the outside of the RAM array.",
+    "Port (%x) read from the outside of the RAM array.",
+    "Port (%x) write to the outside of the RAM array.",
+    "Push to a full queue.",
+    "RW stage recovery is not allowed in REFETCH_TYPE_CSR_UNIT_TARGET",
+    "Read from the outside of the RAM array.",
+    "Signal hit is not one-hot or 0.",
+    "Signal we is not one-hot or 0.",
+    "Stores are committed in recovery phase.",
+    "The count of a queue exceeds its size.",
+    "The read output of a port(%x) is incorrect",
+    "The read output of a port(%x) is incorrect.",
+    "Tried to start the commit phase and the recovery phase at the same time",
+    "Write to the outside of the RAM array.",
+    "hasAllocatedMSHR is asserted other than a load pipe"
+  ],
+  "regex_patterns": [
+    "1:\\ A\\ store's\\ executedLoadQueuePtr\\ is\\ illegal\\.",
+    "1:A\\ load's\\ executedStoreQueuePtr\\ is\\ illegal\\.",
+    "2:\\ A\\ store's\\ executedLoadQueuePtr\\ is\\ illegal\\.",
+    "2:A\\ load's\\ executedStoreQueuePtr\\ is\\ illegal\\.",
+    "3:\\ A\\ store's\\ executedLoadQueuePtr\\ is\\ illegal\\.",
+    "3:A\\ load's\\ executedStoreQueuePtr\\ is\\ illegal\\.",
+    "A\\ CSR/FENCE/ENV\\ op\\ was\\ issued\\ to\\ a\\ lane\\ other\\ than\\ 0\\.",
+    "An\\ undefined\\ or\\ unsupported\\ op\\ is\\ retired\\.",
+    "BiTailMultiWidthQueuePointer\\ is\\ pushed\\ and\\ popped\\ simultaneously\\.",
+    "CSR\\ update,\\ trap\\ or\\ interrupt\\ are\\ performed\\ at\\ the\\ same\\ cycle",
+    "Cannot\\ read\\ and\\ write\\ the\\ memory\\ in\\ the\\ same\\ cycle!",
+    "Cannot\\ response\\ so\\ many\\ memory\\ request\\.",
+    "Committed\\ store\\ num\\ is\\ larger\\ than\\ store\\ queue\\ entry\\ num\\.",
+    "Deadlock\\ detected",
+    "Execution\\ State\\ value\\ is\\ different\\ from\\ the\\ reference's\\ value\\.",
+    "IO\\ access\\ cane\\ be\\ accessed\\ in\\ the\\ mem\\ lane\\ 0\\.",
+    "Inflight\\ load\\ or\\ store\\ is\\ found\\ on\\ DC\\ flush\\ request\\ acquirement\\.",
+    "Int\\ sub\\ info\\ and\\ Br\\ sub\\ info\\ are\\ inconsistent",
+    "Invalid\\ exception\\ cause\\ is\\ passed",
+    "MSHR\\ deadlock\\ detected",
+    "Multiple\\ ports\\([0-9a-fA-FxXzZ]+,[0-9a-fA-FxXzZ]+\\)\\ read\\ from\\ the\\ same\\ bank\\.",
+    "Multiple\\ ports\\([0-9a-fA-FxXzZ]+,[0-9a-fA-FxXzZ]+\\)\\ write\\ to\\ the\\ same\\ bank\\.",
+    "Multiple\\ ports\\([0-9a-fA-FxXzZ]+,[0-9a-fA-FxXzZ]+\\)\\ write\\ to\\ the\\ same\\ entry\\.",
+    "Multiple\\ serialized\\ ops\\ were\\ sent\\ to\\ RenameStage\\.\\ \\([0-9a-fA-FxXzZ]+,\\ [0-9a-fA-FxXzZ]+\\)",
+    "Pop\\ from\\ a\\ empty\\ store\\ queue\\.",
+    "Pop\\ from\\ an\\ empty\\ queue\\.",
+    "Port\\ \\([0-9a-fA-FxXzZ]+\\)\\ read\\ from\\ or\\ write\\ to\\ the\\ outside\\ of\\ the\\ RAM\\ array\\.",
+    "Port\\ \\([0-9a-fA-FxXzZ]+\\)\\ read\\ from\\ the\\ outside\\ of\\ the\\ RAM\\ array\\.",
+    "Port\\ \\([0-9a-fA-FxXzZ]+\\)\\ write\\ to\\ the\\ outside\\ of\\ the\\ RAM\\ array\\.",
+    "Push\\ to\\ a\\ full\\ queue\\.",
+    "RW\\ stage\\ recovery\\ is\\ not\\ allowed\\ in\\ REFETCH_TYPE_CSR_UNIT_TARGET",
+    "Read\\ from\\ the\\ outside\\ of\\ the\\ RAM\\ array\\.",
+    "Signal\\ hit\\ is\\ not\\ one\\-hot\\ or\\ 0\\.",
+    "Signal\\ we\\ is\\ not\\ one\\-hot\\ or\\ 0\\.",
+    "Stores\\ are\\ committed\\ in\\ recovery\\ phase\\.",
+    "The\\ count\\ of\\ a\\ queue\\ exceeds\\ its\\ size\\.",
+    "The\\ read\\ output\\ of\\ a\\ port\\([0-9a-fA-FxXzZ]+\\)\\ is\\ incorrect",
+    "The\\ read\\ output\\ of\\ a\\ port\\([0-9a-fA-FxXzZ]+\\)\\ is\\ incorrect\\.",
+    "Tried\\ to\\ start\\ the\\ commit\\ phase\\ and\\ the\\ recovery\\ phase\\ at\\ the\\ same\\ time",
+    "Write\\ to\\ the\\ outside\\ of\\ the\\ RAM\\ array\\.",
+    "hasAllocatedMSHR\\ is\\ asserted\\ other\\ than\\ a\\ load\\ pipe"
+  ],
+  "scope": "Named upstream RSD_ASSERT_CLK/_FMT diagnostic messages; exact literal text plus typed printf substitutions. Does not identify the empty-string assertion or establish all internal properties."
+}

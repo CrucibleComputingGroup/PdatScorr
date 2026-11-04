@@ -1,0 +1,45 @@
+{
+  "status": "complete",
+  "scope": "Actual LQ+SQ RTL boundary only; no whole-core or SRAM-macro-area claim",
+  "flow": "yosys-slang normalization to gate primitive Verilog, then Yosys0.33 dfflibmap and abc -liberty -fast; no AIGER -zinit state encoding",
+  "library": "sky130_fd_sc_hd__tt_025C_1v80.lib",
+  "results": [
+    {
+      "variant": "lsq_original",
+      "cell_area_um2": 86273.9936,
+      "log": "experiments/rsd_ooo/results/synthesis/lsq_original/direct_map.log",
+      "netlist": "experiments/rsd_ooo/results/synthesis/lsq_original/direct_gates.v",
+      "area_json": "experiments/rsd_ooo/results/synthesis/lsq_original/direct_area.json",
+      "area_breakdown": {
+        "sequential": {
+          "cells": 1706,
+          "cell_area_um2": 34152.7552
+        },
+        "combinational": {
+          "cells": 10907,
+          "cell_area_um2": 52121.238399999995
+        },
+        "unmapped_types": {}
+      }
+    },
+    {
+      "variant": "lsq_region_cut",
+      "cell_area_um2": 40518.8608,
+      "log": "experiments/rsd_ooo/results/synthesis/lsq_region_cut/direct_map.log",
+      "netlist": "experiments/rsd_ooo/results/synthesis/lsq_region_cut/direct_gates.v",
+      "area_json": "experiments/rsd_ooo/results/synthesis/lsq_region_cut/direct_area.json",
+      "area_breakdown": {
+        "sequential": {
+          "cells": 938,
+          "cell_area_um2": 18778.0096
+        },
+        "combinational": {
+          "cells": 4437,
+          "cell_area_um2": 21740.851200000005
+        },
+        "unmapped_types": {}
+      }
+    }
+  ],
+  "area_reduction_percent": 53.03467579365655
+}

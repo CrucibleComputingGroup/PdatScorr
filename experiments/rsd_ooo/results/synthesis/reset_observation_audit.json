@@ -1,0 +1,51 @@
+{
+  "status": "source_boundary_audit_passed",
+  "scope": "Matched component observation experiment; distinct from original unmasked wrapper and direct physical area result",
+  "rows": [
+    {
+      "variant": "lsq_original_reset_observed",
+      "checks": {
+        "mask_all18_exact": true,
+        "outside_mask_equals_original_wrapper": true,
+        "harness_hash": true,
+        "all_source_hashes": true,
+        "no_permanent_reset_assumption": true,
+        "internal_rst_connection_unchanged": true,
+        "reset_mask_outputs_not_input_names": true
+      },
+      "output_bits": 144,
+      "expected_constraint_count": 0,
+      "harness_sha256": "0974a284aafa53c159dec59ee5aac0d95e53088aba5a9642edc249018c9cdada"
+    },
+    {
+      "variant": "lsq_region_assume_reset_observed",
+      "checks": {
+        "mask_all18_exact": true,
+        "outside_mask_equals_original_wrapper": true,
+        "harness_hash": true,
+        "all_source_hashes": true,
+        "no_permanent_reset_assumption": true,
+        "internal_rst_connection_unchanged": true,
+        "reset_mask_outputs_not_input_names": true
+      },
+      "output_bits": 144,
+      "expected_constraint_count": 2,
+      "harness_sha256": "97f917d2ff4d6dd28831f6e92a1e8a180b3e2367966dc35d2a7b02a082175b85"
+    },
+    {
+      "variant": "lsq_region_lemmas_reset_observed",
+      "checks": {
+        "mask_all18_exact": true,
+        "outside_mask_equals_original_wrapper": true,
+        "harness_hash": true,
+        "all_source_hashes": true,
+        "no_permanent_reset_assumption": true,
+        "internal_rst_connection_unchanged": true,
+        "reset_mask_outputs_not_input_names": true
+      },
+      "output_bits": 144,
+      "expected_constraint_count": 34,
+      "harness_sha256": "97f917d2ff4d6dd28831f6e92a1e8a180b3e2367966dc35d2a7b02a082175b85"
+    }
+  ]
+}

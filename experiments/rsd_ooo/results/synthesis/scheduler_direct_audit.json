@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "checks": {
+    "scheduler_original_source_hashes": true,
+    "scheduler_original_proof_hash": true,
+    "scheduler_original_candidate_manifest_hash": true,
+    "scheduler_nofp_cut_source_hashes": true,
+    "scheduler_nofp_cut_proof_hash": true,
+    "scheduler_nofp_cut_candidate_manifest_hash": true,
+    "identical_wrappers": true,
+    "same_defines": true,
+    "same_map_script_except_paths": true,
+    "area_summary_matches_raw": true,
+    "denominator_and_rounding_correct": true,
+    "proof_status": true,
+    "harness_hash": true,
+    "contract_base": true,
+    "contract_induction": true,
+    "contract_cover": true,
+    "negative_control": true,
+    "exact_one_expression_cut": true
+  },
+  "original_area_um2": 21735.8464,
+  "candidate_area_um2": 15636.2464,
+  "area_reduction_percent": 28.062399263182126,
+  "flip_flops": [
+    128,
+    96
+  ],
+  "wrapper_sha256": "6bbf1cbbd09e4a9230c8715dcbbdaa2bf23051f86ed665baa503e12b3a993de0",
+  "summary_sha256": "a0fe715c74246392d1f70fd0a6edd909f0da69b3c3e3e61067225f983f2ce68d",
+  "scope": "Reset-conditioned actual Scheduler+SelectLogic proof-guided manual request cut, physical mapped component area; no fullcore equivalence or payload/FP PRF removal"
+}

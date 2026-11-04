@@ -1,0 +1,84 @@
+{
+  "scope": "Whole Core, flop-mapped memories; distinct matched modern in-process physical flow",
+  "flow": "Same prepared source/normalization; no Verilog reread, no zinit; explicit legacy strash/dretime/map using system yosys-abc and same SKY130 Liberty",
+  "original": {
+    "status": "complete",
+    "cell_area_um2": 9996011.967981,
+    "cells": 1661382,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/core_modern_direct_original/mapping.log",
+    "area_json": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/core_modern_direct_original/area.json",
+    "map_script_sha256": "7b92c2964cd67f062178c30a6f48c628a8a3ad06b177a02e5bb49ab6fe145e44",
+    "area_breakdown": {
+      "sequential": {
+        "cells": 167332,
+        "cell_area_um2": 3349852.7744000005
+      },
+      "combinational": {
+        "cells": 1494050,
+        "cell_area_um2": 6646159.1936
+      },
+      "unmapped_types": {}
+    }
+  },
+  "region_cut": {
+    "status": "complete",
+    "cell_area_um2": 9952029.785581,
+    "cells": 1654825,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/core_modern_direct_region_cut/mapping.log",
+    "area_json": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/core_modern_direct_region_cut/area.json",
+    "map_script_sha256": "fc02736d59c55877cbacce5e9b5ff1da2d0bc450476dcb80d03f4860fc1adc5c",
+    "area_breakdown": {
+      "sequential": {
+        "cells": 166513,
+        "cell_area_um2": 3333457.0496
+      },
+      "combinational": {
+        "cells": 1488312,
+        "cell_area_um2": 6618572.735999998
+      },
+      "unmapped_types": {}
+    }
+  },
+  "combined_cut": {
+    "status": "complete",
+    "cell_area_um2": 9610673.647983,
+    "cells": 1586548,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/core_modern_direct_combined/mapping.log",
+    "area_json": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/core_modern_direct_combined/area.json",
+    "map_script_sha256": "2d1b58cae207d9f47fe49f716c164d7e89135e9efdfd9cc1b0bbf1eae3551995",
+    "area_breakdown": {
+      "sequential": {
+        "cells": 164360,
+        "cell_area_um2": 3290355.7120000003
+      },
+      "combinational": {
+        "cells": 1422188,
+        "cell_area_um2": 6320317.936000002
+      },
+      "unmapped_types": {}
+    }
+  },
+  "scheduler_cut": {
+    "status": "complete",
+    "cell_area_um2": 9659860.822383,
+    "cells": 1594087,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/core_modern_direct_scheduler/mapping.log",
+    "area_json": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/core_modern_direct_scheduler/area.json",
+    "map_script_sha256": "2a252478fa0fa822d2cefc440745fc8769f5befd160d14094045a430629159f8",
+    "area_breakdown": {
+      "sequential": {
+        "cells": 165179,
+        "cell_area_um2": 3306751.4368000003
+      },
+      "combinational": {
+        "cells": 1428908,
+        "cell_area_um2": 6353109.385600001
+      },
+      "unmapped_types": {}
+    }
+  },
+  "reduction_percent": 0.43999729633059753,
+  "scheduler_reduction_percent_vs_original": 3.3628525723533715,
+  "combined_reduction_percent_vs_original": 3.854920554640259,
+  "combined_incremental_reduction_percent_vs_region": 3.430015232596815
+}

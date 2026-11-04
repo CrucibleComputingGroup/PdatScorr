@@ -1,0 +1,190 @@
+{
+  "status": "PASS",
+  "checks": {
+    "registerfile_guard64_source_hashes": true,
+    "registerfile_guard64_simulation_manifest_hash": true,
+    "registerfile_guard64_macro_hash": true,
+    "registerfile_guard64_wrapper_hash": true,
+    "registerfile_guard64_normalized_RTL_hash": true,
+    "registerfile_guard64_capacity": true,
+    "registerfile_guard64_completed": true,
+    "registerfile_guard64_raw_area_count": true,
+    "registerfile_guard64_all_cells_mapped": true,
+    "registerfile_guard64_no_memory_macros": true,
+    "registerfile_guard64_no_zinit_export": true,
+    "registerfile_guard48_source_hashes": true,
+    "registerfile_guard48_simulation_manifest_hash": true,
+    "registerfile_guard48_macro_hash": true,
+    "registerfile_guard48_wrapper_hash": true,
+    "registerfile_guard48_normalized_RTL_hash": true,
+    "registerfile_guard48_capacity": true,
+    "registerfile_guard48_completed": true,
+    "registerfile_guard48_raw_area_count": true,
+    "registerfile_guard48_all_cells_mapped": true,
+    "registerfile_guard48_no_memory_macros": true,
+    "registerfile_guard48_no_zinit_export": true,
+    "identical_defines_FP_enabled": true,
+    "identical_wrapper_bytes": true,
+    "identical_all_functional_port_widths": true,
+    "299_inputs_429_outputs": true,
+    "same_normalization_script": true,
+    "same_map_script": true,
+    "same_library": true,
+    "exact_common_guard_source": true,
+    "only_two_capacity_config_changes": true,
+    "summary_area_count_and_percent": true
+  },
+  "results": [
+    {
+      "entries_per_bank": 64,
+      "area_um2": 1864740.934398,
+      "cells": 332714,
+      "FFs": 15883
+    },
+    {
+      "entries_per_bank": 48,
+      "area_um2": 1419098.528,
+      "cells": 242409,
+      "FFs": 11915
+    }
+  ],
+  "reduction_percent": 23.89835489624558,
+  "port_widths": {
+    "clk": [
+      "input",
+      1
+    ],
+    "rst": [
+      "input",
+      1
+    ],
+    "rstStart": [
+      "input",
+      1
+    ],
+    "int_src_a": [
+      "input",
+      14
+    ],
+    "int_src_b": [
+      "input",
+      14
+    ],
+    "int_we": [
+      "input",
+      2
+    ],
+    "int_dst": [
+      "input",
+      14
+    ],
+    "int_write_data": [
+      "input",
+      66
+    ],
+    "int_read_a": [
+      "output",
+      66
+    ],
+    "int_read_b": [
+      "output",
+      66
+    ],
+    "complex_src_a": [
+      "input",
+      7
+    ],
+    "complex_src_b": [
+      "input",
+      7
+    ],
+    "complex_we": [
+      "input",
+      1
+    ],
+    "complex_dst": [
+      "input",
+      7
+    ],
+    "complex_write_data": [
+      "input",
+      33
+    ],
+    "complex_read_a": [
+      "output",
+      33
+    ],
+    "complex_read_b": [
+      "output",
+      33
+    ],
+    "mem_src_a": [
+      "input",
+      14
+    ],
+    "mem_src_b": [
+      "input",
+      14
+    ],
+    "mem_we": [
+      "input",
+      1
+    ],
+    "mem_dst": [
+      "input",
+      7
+    ],
+    "mem_write_data": [
+      "input",
+      33
+    ],
+    "mem_read_a": [
+      "output",
+      66
+    ],
+    "mem_read_b": [
+      "output",
+      66
+    ],
+    "fp_src_a": [
+      "input",
+      7
+    ],
+    "fp_src_b": [
+      "input",
+      7
+    ],
+    "fp_src_c": [
+      "input",
+      7
+    ],
+    "fp_we": [
+      "input",
+      1
+    ],
+    "fp_dst": [
+      "input",
+      7
+    ],
+    "fp_write_data": [
+      "input",
+      33
+    ],
+    "fp_read_a": [
+      "output",
+      33
+    ],
+    "fp_read_b": [
+      "output",
+      33
+    ],
+    "fp_read_c": [
+      "output",
+      33
+    ]
+  },
+  "library_sha256": "e064286ab5bbfe7bd6de13c4271205ee43305e56169387324da1c1e09f2fedde",
+  "summary_sha256": "adbd64d3d36f41fa0f5de3aff568637afe407162c33a833a00e4008fdfdc8822",
+  "source_boundary_audit_sha256": "3c4fd617f7876610f2e81f7b655d4c03827364278d06479c527eceef9a7faf71",
+  "scope": "Coupled integer/FP physical-register capacity resizing48versus64 with explicit shared reset compatibility guard; RegisterFile component-only, flop-mapped, all ports; not same-capacity Pscorr or wholecore area/equivalence"
+}

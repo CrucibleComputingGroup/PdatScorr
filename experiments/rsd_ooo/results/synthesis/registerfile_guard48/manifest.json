@@ -1,0 +1,33 @@
+{
+  "status": "prepared",
+  "scope": "RegisterFile component, all functional read/write ports and data-valid bits; separate complex pipeline and FP bank enabled; flop-mapped storage",
+  "interpretation": "Capacity/performance control with explicit common reset compatibility guard; NOT Pscorr pruning or unrestricted-address equivalence",
+  "integer_physical_registers": 48,
+  "fp_physical_registers": 48,
+  "reset_guard_scope": "INT/FP RegisterFile resetloops only: disable out-of-range writes and clamp inactive addresses to0. Counters/protocol unchanged; guard unreachable at64/128 power-of-two capacities.",
+  "simulation_variant_manifest": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/prf_guard48/manifest.json",
+  "simulation_manifest_sha256": "a5329e8e8530c81d62d727bebe104623a9144c217e41cd49beda50ec68a4608a",
+  "source_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/prf_guard48/source/Processor/Src/MicroArchConf.sv": "7b50467da78e7e492c6870a3835b31c0b143fe0b281c3f9ff0c29f7a54c09ca0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/prf_guard48/source/Processor/Src/BasicTypes.sv": "1ccf45e1abe265937ca7afa43f900dc171c504db0e2a87172c06eeabf6fc1d4b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/prf_guard48/source/Processor/Src/Primitives/RAM.sv": "0138e7455e61ce1e21f089e82213369ecfaf620aae37a603879a9175438205a1",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/prf_guard48/source/Processor/Src/RegisterFile/RegisterFileIF.sv": "4bcb96c80f18b1ea7ffea4f8673fc13f675f393fce557bf0c73a9f7ae6b79569",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/prf_guard48/source/Processor/Src/RegisterFile/RegisterFile.sv": "6614b076b625082fd2394357c43cc082bd47aec8e279eac82dd1f2f645d9064e",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/registerfile_guard48/RegisterFileObserved.sv": "a85417a6ed058fd314847dd87585c0dc6a97cb44f36817a7b7a4e0c94c6d8e8e"
+  },
+  "included_macros_sha256": "566c1c5ef295800abeeab66bd783604c0fdba0eee586cc7039ae1fb2791bc29f",
+  "wrapper_sha256": "a85417a6ed058fd314847dd87585c0dc6a97cb44f36817a7b7a4e0c94c6d8e8e",
+  "defines": [
+    "RSD_SYNTHESIS",
+    "RSD_SYNTHESIS_DESIGN_COMPILER",
+    "REF=input",
+    "RSD_DISABLE_DEBUG_REGISTER",
+    "RSD_DISABLE_PERFORMANCE_COUNTER",
+    "RSD_MARCH_INT_ISSUE_WIDTH=2",
+    "RSD_MARCH_FP_PIPE",
+    "RSD_ENABLE_ZBA",
+    "RSD_ENABLE_ZICOND"
+  ],
+  "generator_sha256": "f2f4156283989a8abe2dfb5215364a0984137dd945c5f4af5e20d8ca190036ec",
+  "initialization": "Normalized RTL before AIGER; no zinit encoding"
+}

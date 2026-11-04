@@ -1,0 +1,7 @@
+[
+  {
+    "file": "Pipeline/FetchStage/FetchStage.sv",
+    "old": "        for (int i = 0; i < FETCH_WIDTH; i++) begin\n            isFlushed[i] = FALSE;\n            if (!regStall && pipeReg[i].valid && brPred[i].predTaken) begin\n                for (int j = i + 1; j < FETCH_WIDTH; j++) begin\n                    isFlushed[j] = pipeReg[j].valid;\n                end\n\n                break;\n            end\n        end\n",
+    "new": "        for (int i = 0; i < FETCH_WIDTH; i++) begin\n            isFlushed[i] = FALSE;\n        end\n        for (int i = 0; i < FETCH_WIDTH; i++) begin\n            if (!regStall && pipeReg[i].valid && brPred[i].predTaken) begin\n                for (int j = i + 1; j < FETCH_WIDTH; j++) begin\n                    isFlushed[j] = pipeReg[j].valid;\n                end\n\n                break;\n            end\n        end\n"
+  }
+]

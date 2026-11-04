@@ -1,0 +1,37 @@
+{
+  "name": "pointer_chase_s1_n512",
+  "mode": "pointer_chase",
+  "seed": 1,
+  "count": 512,
+  "expected_serial": "signature=0107fc00\n",
+  "region_contract": true,
+  "compiler": "riscv32-unknown-elf-gcc (g1b306039a) 15.1.0",
+  "commands": [
+    [
+      "/home/allenjin/riscv/bin/riscv32-unknown-elf-gcc",
+      "-march=rv32im_zicsr",
+      "-mabi=ilp32",
+      "-nostdlib",
+      "-nostartfiles",
+      "-Wl,--no-relax",
+      "-T",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/pointer_chase_s1_n512/link.ld",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/pointer_chase_s1_n512/code.S",
+      "-o",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/pointer_chase_s1_n512/code.elf"
+    ],
+    [
+      "/home/allenjin/riscv/bin/riscv32-unknown-elf-objcopy",
+      "-O",
+      "binary",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/pointer_chase_s1_n512/code.elf",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/pointer_chase_s1_n512/code.rom.bin"
+    ]
+  ],
+  "hashes": {
+    "code.S": "2a3f6896849948d49b83e2d9a099a96893f934e4b4b12d269a54ff831d2a20e4",
+    "code.elf": "1dc78e576dcdf58cc59ea1d3bb64ae432e1cf69005832d30abc0276c2b8b7562",
+    "code.hex": "9cd355736ad480ecfb679f178571e0c2edbf839a47232a2929a10de967196c97",
+    "link.ld": "a08f2926551891f3c1c6ef615d802f4ea996455fb9346eaab278b2e43f9e4dc0"
+  }
+}

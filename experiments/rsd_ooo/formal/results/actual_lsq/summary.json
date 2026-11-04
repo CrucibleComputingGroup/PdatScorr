@@ -1,0 +1,111 @@
+{
+  "status": "passed",
+  "scope": "Actual unmodified RSD LoadQueue/StoreQueue RTL: inductive region invariants and zero historical comparator/forwarding outcomes under the explicit harness contract. Not complete processor equivalence or application-contract proof.",
+  "rtl_revision": "7b65f6ba0bce58d4d859082660123b7100aae975",
+  "source_sha256": {
+    "LoadStoreUnit/LoadQueue.sv": "3a4a33e0aa5586aace17b09da68f466d09fbb9914fd744e49b261f2df927d701",
+    "LoadStoreUnit/StoreQueue.sv": "f344b1f219920f59e48eba6bcb809130df060afd47dc6b257bb0c72653167ecf",
+    "LoadStoreUnit/LoadStoreUnitTypes.sv": "321f9a0b9f661b8da3566e4158b9aca635eaba2bad94e9c20f83ff20a5162e8a",
+    "LoadStoreUnit/LoadStoreUnit.sv": "56cdc0b0e2faa1f87353efa954fc92d64e632a07c61962122be6afac7b38e99d",
+    "Memory/MemoryMapTypes.sv": "8d8b7a38a458d1d6a1252005149404affda46a1d993771ca6bf691f7015b2f88",
+    "Primitives/Picker.sv": "b04be6166d16060583d98983735c232cfb741dfaa3a50b5d6913392d154b60dc",
+    "Pipeline/MemoryBackEnd/MemoryTagAccessStage.sv": "a7e7ccce55fe9a4671c2371693c31ab507ee16323ea25310e824604d9f8ac049"
+  },
+  "harness_sha256": "037d0b8723d746bc8c9ad3fe688e197bbf7a1f63b42a8b222087bd2bc5f02911",
+  "executions": [
+    {
+      "name": "elaborate",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-m",
+        "slang",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_lsq/formal.ys"
+      ],
+      "returncode": 0,
+      "seconds": 1.4360571480356157
+    },
+    {
+      "name": "base",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "4",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_lsq/model.smt2"
+      ],
+      "returncode": 0,
+      "seconds": 0.701708234846592
+    },
+    {
+      "name": "induction",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "4",
+        "-i",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_lsq/model.smt2"
+      ],
+      "returncode": 0,
+      "seconds": 0.4251016629859805
+    },
+    {
+      "name": "cover_nonvacuity",
+      "command": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "4",
+        "-c",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_lsq/model.smt2"
+      ],
+      "returncode": 0,
+      "seconds": 0.3827262641862035
+    }
+  ],
+  "property_counts": {
+    "assert": 36,
+    "assume": 3,
+    "cover": 1
+  },
+  "all_elaboration_source_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/MicroArchConf.sv": "f5c391ef82882d748c63d14b6c771fce7f6c43492b61777825146fa833db8454",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/BasicTypes.sv": "1ccf45e1abe265937ca7afa43f900dc171c504db0e2a87172c06eeabf6fc1d4b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Memory/MemoryMapTypes.sv": "8d8b7a38a458d1d6a1252005149404affda46a1d993771ca6bf691f7015b2f88",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/RenameLogic/ActiveListIndexTypes.sv": "1e481436d7dc9a15eeaa0493995dcddbfb98b89f9e7b0e3e5d30dc9559909726",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Cache/CacheSystemTypes.sv": "88f64d53fcea253623d9fc57d6f7791c9c02a124bfa2b2d2f3933eb236da935b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Memory/MemoryTypes.sv": "0044d6b16030640a68d85c38ac4d0c49308c340ad0dab73a3f4934e1b89e664f",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Decoder/OpFormat.sv": "4318167cc979a47e86ae503e43f40f094038a5f10b8d70ee8d197861be847bcb",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Decoder/MicroOp.sv": "5eb254f09ba0118fbbb2ec4d0387b232bce50f9d6ee39a1399cca28639739434",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/RegisterFile/BypassTypes.sv": "0b0c7fd043cdc7245477c7544b2dd5b2308e32b04ab4f46f4fbe43dc42586847",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/FetchUnit/FetchUnitTypes.sv": "d219a3fe4c5bfb1c53d9383396488cd17f3cfa05c1dea353e6bd38b30b1e597b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/FloatingPointUnit/FPUTypes.sv": "1dcea472a754779992995d34766e5a914380e876a2860dc96eb105508f2e38bb",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/LoadStoreUnitTypes.sv": "321f9a0b9f661b8da3566e4158b9aca635eaba2bad94e9c20f83ff20a5162e8a",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/RenameLogic/RenameLogicTypes.sv": "f43fd964f7700815741621e0531414d4066063218f00dfefb1cf95d69ea14217",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Scheduler/SchedulerTypes.sv": "6b9cbbd313d9c401c1319b994020a3c1477877ba86688c220af6a9716eb285dc",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Pipeline/PipelineTypes.sv": "119096fe44b517578f2e539946afb342bc5b2d62c542e79da65243116e81e540",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/IO/IO_UnitTypes.sv": "af442aeb79d7b0482616f3a0a72649ea88eda37e65ec6f8df515815c77ef97b9",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Privileged/CSR_UnitTypes.sv": "ac09fead995a5fe91fb302c713fc8b5e90128760f11f718d27cd2a581901c54d",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Debug/DebugTypes.sv": "6819b741cd7c2b22305dfa22149028f9d9eb61c59d17437143474663d545924d",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/LoadStoreUnitIF.sv": "f3d0b14b62f3af6e09a7d03ded002703e6d13de47cf3ab0dc3876ebac59e1093",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Recovery/RecoveryManagerIF.sv": "7e914211c94af9a3a3e78310559e7c1d2d9c7dee43571235d010f3e648f4a2f0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/LoadQueue.sv": "3a4a33e0aa5586aace17b09da68f466d09fbb9914fd744e49b261f2df927d701",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/StoreQueue.sv": "f344b1f219920f59e48eba6bcb809130df060afd47dc6b257bb0c72653167ecf",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Primitives/Queue.sv": "7b4d42d93f8a9fb555d48b7b28a050f53e397a540f54fc3871cf40a326fb567a",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Primitives/RAM.sv": "0138e7455e61ce1e21f089e82213369ecfaf620aae37a603879a9175438205a1",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Primitives/Picker.sv": "b04be6166d16060583d98983735c232cfb741dfaa3a50b5d6913392d154b60dc"
+  },
+  "assumptions": [
+    "Initial reset asserted",
+    "Every executed load has physical address[21:16]==0",
+    "Every executed store has physical address[21:16]!=0"
+  ],
+  "notes": [
+    "Release, allocation, entry selection, recovery, data, masks, and validity are arbitrary inputs; this overapproximates legal core traffic.",
+    "Read_slang defaults to synthesis behavior; RSD simulation-only internal assertions are disabled; all harness assertions are explicit and checked."
+  ]
+}

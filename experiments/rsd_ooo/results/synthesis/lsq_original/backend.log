@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/synthesis/run_backend.py", line 118, in <module>
+    main()
+    ~~~~^^
+  File "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/synthesis/run_backend.py", line 97, in main
+    run([args.yosys, "-Q", "-T", "-s", str(gate_script)], "mapping.log")
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/synthesis/run_backend.py", line 62, in run
+    raise RuntimeError(f"Stage failed: {log}")
+RuntimeError: Stage failed: mapping.log

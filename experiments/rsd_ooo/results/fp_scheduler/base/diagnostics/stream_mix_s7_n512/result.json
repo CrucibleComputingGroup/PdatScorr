@@ -1,0 +1,41 @@
+{
+  "name": "stream_mix_s7_n512",
+  "mode": "stream_mix",
+  "seed": 7,
+  "region_contract": true,
+  "simulator": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_domain_baseline16/VMain_Zynq_Wrapper",
+  "simulator_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+  "input_sha256": "28f33b2ba7ab4a48287c8fc5cf91adb87eac94bf1c84eaa92ac7c5c519d648d0",
+  "command": [
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_domain_baseline16/VMain_Zynq_Wrapper",
+    "TEST_CODE=/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_scheduler/base/diagnostics/stream_mix_s7_n512",
+    "MAX_TEST_CYCLES=1000000",
+    "ENABLE_PC_GOAL=1",
+    "SHOW_SERIAL_OUT=1"
+  ],
+  "expected_serial": "signature=d12ab7b3\n",
+  "status": "passed",
+  "returncode": 0,
+  "observed_serial": "signature=d12ab7b3\n",
+  "serial_match": true,
+  "pc_goal": true,
+  "counters": {
+    "PC reached PC_GOAL": 80001004,
+    "Num of I$ misses": 37,
+    "Num of D$ load misses": 533,
+    "Num of D$ store misses": 260,
+    "Num of branch prediction misses": 8,
+    "Num of branch prediction misses detected on decode": 7,
+    "Num of store-load-forwanind misses": 0,
+    "Num of memory dependency prediction misses": 0,
+    "Num of committed RISC-V-ops": 8296,
+    "Num of committed micro-ops": 8296,
+    "IPC (RISC-V instruction)": 0.512605,
+    "IPC (micro-op)": 0.512605,
+    "Elapsed cycles": 16184
+  },
+  "within_cycle_limit": true,
+  "verification_scope": "RTL PC-goal, exact serial checksum and timeout/assertion checks; no full equivalence claim",
+  "wall_seconds": 0.5665962877683342,
+  "log_sha256": "53f9ea784ebed070b186aad3ce6b74d52ff864ef110b70b40f999d295d61f3c8"
+}

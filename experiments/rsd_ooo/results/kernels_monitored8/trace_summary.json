@@ -1,0 +1,1644 @@
+[
+  {
+    "name": "alias_feedback_s1_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": false,
+    "cycles": 4064,
+    "trace_sha256": {
+      "resource.csv": "17d0d93ad833720cb3eefcaa0c75b80c65f4ea07e17da70cdbc708b2ae680ae2",
+      "memory_events.csv": "088a9c5711abaf892a084f162cd369621db50875736f39649447b34c76e3f94a"
+    },
+    "resource_samples": 4065,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 465,
+        "1": 26,
+        "2": 10,
+        "3": 529,
+        "4": 3035
+      },
+      "sq": {
+        "0": 249,
+        "1": 175,
+        "2": 23,
+        "3": 40,
+        "4": 1538,
+        "5": 2035,
+        "6": 5
+      },
+      "rob": {
+        "0": 157,
+        "1": 86,
+        "2": 159,
+        "3": 14,
+        "4": 1,
+        "5": 12,
+        "6": 1,
+        "7": 3,
+        "8": 2,
+        "9": 2,
+        "10": 2,
+        "11": 2,
+        "12": 2,
+        "13": 2,
+        "14": 2,
+        "15": 5,
+        "16": 1,
+        "17": 5,
+        "19": 9,
+        "20": 3,
+        "21": 8,
+        "22": 2,
+        "23": 5,
+        "24": 3,
+        "25": 5,
+        "26": 8,
+        "27": 2025,
+        "28": 507,
+        "29": 1013,
+        "30": 1,
+        "31": 1,
+        "32": 1,
+        "33": 7,
+        "34": 1,
+        "35": 1,
+        "36": 1,
+        "37": 1,
+        "38": 1,
+        "39": 2,
+        "41": 2
+      },
+      "iq": {
+        "16": 4065
+      },
+      "mshr": {
+        "0": 4044,
+        "1": 21
+      }
+    },
+    "max_occupancy": {
+      "lq": 4,
+      "sq": 6,
+      "rob": 41,
+      "iq": 16,
+      "mshr": 1
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 0,
+      "sq_not_allocatable": 5,
+      "rename_stall": 1551
+    },
+    "multiple_misses_samples": 0,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 513,
+      "load_invalid_operand": 1,
+      "store": 532,
+      "store_invalid_operand": 0
+    },
+    "region_contract_violation_count": 513,
+    "first_region_contract_violations": [
+      {
+        "cycle": "110",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "0",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "133",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "168",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "175",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "182",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "189",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "196",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "203",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "210",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "217",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      }
+    ],
+    "region_contract_observed": false,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "alias_feedback_s42_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": false,
+    "cycles": 4064,
+    "trace_sha256": {
+      "resource.csv": "17d0d93ad833720cb3eefcaa0c75b80c65f4ea07e17da70cdbc708b2ae680ae2",
+      "memory_events.csv": "088a9c5711abaf892a084f162cd369621db50875736f39649447b34c76e3f94a"
+    },
+    "resource_samples": 4065,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 465,
+        "1": 26,
+        "2": 10,
+        "3": 529,
+        "4": 3035
+      },
+      "sq": {
+        "0": 249,
+        "1": 175,
+        "2": 23,
+        "3": 40,
+        "4": 1538,
+        "5": 2035,
+        "6": 5
+      },
+      "rob": {
+        "0": 157,
+        "1": 86,
+        "2": 159,
+        "3": 14,
+        "4": 1,
+        "5": 12,
+        "6": 1,
+        "7": 3,
+        "8": 2,
+        "9": 2,
+        "10": 2,
+        "11": 2,
+        "12": 2,
+        "13": 2,
+        "14": 2,
+        "15": 5,
+        "16": 1,
+        "17": 5,
+        "19": 9,
+        "20": 3,
+        "21": 8,
+        "22": 2,
+        "23": 5,
+        "24": 3,
+        "25": 5,
+        "26": 8,
+        "27": 2025,
+        "28": 507,
+        "29": 1013,
+        "30": 1,
+        "31": 1,
+        "32": 1,
+        "33": 7,
+        "34": 1,
+        "35": 1,
+        "36": 1,
+        "37": 1,
+        "38": 1,
+        "39": 2,
+        "41": 2
+      },
+      "iq": {
+        "16": 4065
+      },
+      "mshr": {
+        "0": 4044,
+        "1": 21
+      }
+    },
+    "max_occupancy": {
+      "lq": 4,
+      "sq": 6,
+      "rob": 41,
+      "iq": 16,
+      "mshr": 1
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 0,
+      "sq_not_allocatable": 5,
+      "rename_stall": 1551
+    },
+    "multiple_misses_samples": 0,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 513,
+      "load_invalid_operand": 1,
+      "store": 532,
+      "store_invalid_operand": 0
+    },
+    "region_contract_violation_count": 513,
+    "first_region_contract_violations": [
+      {
+        "cycle": "110",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "0",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "133",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "168",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "175",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "182",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "189",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "196",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "203",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "210",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "217",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      }
+    ],
+    "region_contract_observed": false,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "alias_feedback_s7_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": false,
+    "cycles": 4082,
+    "trace_sha256": {
+      "resource.csv": "f8e3c4bcbe9e73d7c1525bf35cf8d14b511bf9fc991b8fc2fc7fc45cb1ba5e60",
+      "memory_events.csv": "9fe4b860ffa69bd083b3ade0537cd52e70d2745b80b9226e30fa7226a14f230f"
+    },
+    "resource_samples": 4083,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 483,
+        "1": 26,
+        "2": 10,
+        "3": 529,
+        "4": 3035
+      },
+      "sq": {
+        "0": 250,
+        "1": 191,
+        "2": 47,
+        "3": 34,
+        "4": 1535,
+        "5": 2026
+      },
+      "rob": {
+        "0": 158,
+        "1": 88,
+        "2": 163,
+        "3": 14,
+        "4": 1,
+        "5": 14,
+        "6": 1,
+        "7": 4,
+        "8": 2,
+        "9": 2,
+        "10": 2,
+        "11": 8,
+        "12": 3,
+        "13": 3,
+        "14": 3,
+        "15": 6,
+        "16": 4,
+        "17": 10,
+        "18": 2,
+        "19": 12,
+        "20": 4,
+        "21": 6,
+        "22": 3,
+        "23": 4,
+        "24": 4,
+        "25": 4,
+        "26": 9,
+        "27": 2024,
+        "28": 508,
+        "29": 1012,
+        "30": 2,
+        "32": 3
+      },
+      "iq": {
+        "16": 4083
+      },
+      "mshr": {
+        "0": 4062,
+        "1": 21
+      }
+    },
+    "max_occupancy": {
+      "lq": 4,
+      "sq": 5,
+      "rob": 32,
+      "iq": 16,
+      "mshr": 1
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 0,
+      "sq_not_allocatable": 0,
+      "rename_stall": 1552
+    },
+    "multiple_misses_samples": 0,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 513,
+      "load_invalid_operand": 1,
+      "store": 532,
+      "store_invalid_operand": 0
+    },
+    "region_contract_violation_count": 513,
+    "first_region_contract_violations": [
+      {
+        "cycle": "110",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "0",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "133",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "168",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "175",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "182",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "189",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "196",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "203",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "210",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      },
+      {
+        "cycle": "217",
+        "kind": "load",
+        "address": "81920",
+        "reg_valid": "1",
+        "address_hex": "0x014000"
+      }
+    ],
+    "region_contract_observed": false,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "pointer_chase_s1_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": true,
+    "cycles": 13758,
+    "trace_sha256": {
+      "resource.csv": "c0d9e496ce72bbd884a575ca36cdfb4bce3a1579529b6f0c95f1ae8cd084a5eb",
+      "memory_events.csv": "132a785f916269e33b8ede0786bcc8295f7e5627fcb07779733488e7f8b8d92a"
+    },
+    "resource_samples": 13759,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 909,
+        "1": 768,
+        "2": 401,
+        "3": 179,
+        "4": 2137,
+        "5": 5886,
+        "6": 3479
+      },
+      "sq": {
+        "0": 302,
+        "1": 211,
+        "2": 56,
+        "3": 13,
+        "4": 589,
+        "5": 5758,
+        "6": 6830
+      },
+      "rob": {
+        "0": 288,
+        "1": 189,
+        "2": 188,
+        "3": 107,
+        "4": 62,
+        "5": 150,
+        "6": 74,
+        "7": 88,
+        "8": 72,
+        "9": 141,
+        "10": 143,
+        "11": 304,
+        "12": 148,
+        "13": 10,
+        "14": 1,
+        "15": 27,
+        "16": 6,
+        "17": 34,
+        "18": 16,
+        "19": 39,
+        "20": 13,
+        "21": 26,
+        "22": 9,
+        "23": 30,
+        "24": 14,
+        "25": 28,
+        "26": 37,
+        "27": 279,
+        "28": 5,
+        "29": 109,
+        "30": 3,
+        "31": 264,
+        "32": 69,
+        "33": 252,
+        "34": 1079,
+        "35": 1745,
+        "36": 63,
+        "37": 475,
+        "38": 62,
+        "39": 1104,
+        "40": 622,
+        "41": 3948,
+        "42": 1436
+      },
+      "iq": {
+        "16": 13759
+      },
+      "mshr": {
+        "0": 3694,
+        "1": 8578,
+        "2": 1487
+      }
+    },
+    "max_occupancy": {
+      "lq": 6,
+      "sq": 6,
+      "rob": 42,
+      "iq": 16,
+      "mshr": 2
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 3479,
+      "sq_not_allocatable": 6830,
+      "rename_stall": 10669
+    },
+    "multiple_misses_samples": 1487,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 2966,
+      "load_invalid_operand": 2454,
+      "store": 2943,
+      "store_invalid_operand": 2412
+    },
+    "region_contract_violation_count": 2025,
+    "first_region_contract_violations": [
+      {
+        "cycle": "172",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "178",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "182",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "196",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "200",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "202",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "208",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "213",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "222",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "224",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      }
+    ],
+    "region_contract_observed": false,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "pointer_chase_s42_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": true,
+    "cycles": 14153,
+    "trace_sha256": {
+      "resource.csv": "952ed6d6480b24a98074cee79a48e5e3ae57e08fe9bf2580e6c9f085a688cc59",
+      "memory_events.csv": "2079125fbf322923df074e2a23a9fda651c41917192176bbda26922738818af7"
+    },
+    "resource_samples": 14154,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 1170,
+        "1": 1306,
+        "2": 540,
+        "3": 58,
+        "4": 441,
+        "5": 7224,
+        "6": 3415
+      },
+      "sq": {
+        "0": 302,
+        "1": 207,
+        "2": 47,
+        "3": 13,
+        "4": 531,
+        "5": 5769,
+        "6": 7285
+      },
+      "rob": {
+        "0": 348,
+        "1": 254,
+        "2": 218,
+        "3": 169,
+        "4": 95,
+        "5": 251,
+        "6": 125,
+        "7": 154,
+        "8": 120,
+        "9": 240,
+        "10": 240,
+        "11": 475,
+        "12": 243,
+        "13": 10,
+        "14": 3,
+        "15": 33,
+        "16": 4,
+        "17": 20,
+        "18": 6,
+        "19": 12,
+        "20": 4,
+        "21": 7,
+        "22": 8,
+        "23": 6,
+        "24": 6,
+        "25": 9,
+        "26": 7,
+        "27": 16,
+        "28": 3,
+        "29": 10,
+        "31": 28,
+        "32": 5,
+        "33": 24,
+        "34": 197,
+        "35": 2216,
+        "36": 56,
+        "37": 448,
+        "38": 55,
+        "39": 1358,
+        "40": 590,
+        "41": 3950,
+        "42": 2131
+      },
+      "iq": {
+        "16": 14154
+      },
+      "mshr": {
+        "0": 4341,
+        "1": 7964,
+        "2": 1849
+      }
+    },
+    "max_occupancy": {
+      "lq": 6,
+      "sq": 6,
+      "rob": 42,
+      "iq": 16,
+      "mshr": 2
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 3415,
+      "sq_not_allocatable": 7285,
+      "rename_stall": 11061
+    },
+    "multiple_misses_samples": 1849,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 2950,
+      "load_invalid_operand": 2437,
+      "store": 2920,
+      "store_invalid_operand": 2389
+    },
+    "region_contract_violation_count": 2154,
+    "first_region_contract_violations": [
+      {
+        "cycle": "172",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "178",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "182",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "196",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "200",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "202",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "208",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "213",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "222",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "224",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      }
+    ],
+    "region_contract_observed": false,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "pointer_chase_s7_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": true,
+    "cycles": 14137,
+    "trace_sha256": {
+      "resource.csv": "c25296974c58f8f16155d22514b1cb35469fee21d80f713a6e07286ea2a02b63",
+      "memory_events.csv": "31b5383ab7e507d82890ee5949ef0b7c1a494909cd90dc4c1e4aed659267cf45"
+    },
+    "resource_samples": 14138,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 1134,
+        "1": 1241,
+        "2": 508,
+        "3": 48,
+        "4": 672,
+        "5": 7086,
+        "6": 3449
+      },
+      "sq": {
+        "0": 297,
+        "1": 197,
+        "2": 47,
+        "3": 11,
+        "4": 535,
+        "5": 5801,
+        "6": 7250
+      },
+      "rob": {
+        "0": 336,
+        "1": 243,
+        "2": 217,
+        "3": 153,
+        "4": 90,
+        "5": 237,
+        "6": 121,
+        "7": 145,
+        "8": 114,
+        "9": 229,
+        "10": 347,
+        "11": 474,
+        "12": 122,
+        "13": 5,
+        "15": 22,
+        "16": 4,
+        "17": 13,
+        "18": 6,
+        "19": 9,
+        "20": 3,
+        "21": 7,
+        "22": 4,
+        "23": 10,
+        "24": 4,
+        "25": 8,
+        "26": 3,
+        "27": 34,
+        "28": 1,
+        "29": 25,
+        "30": 3,
+        "31": 59,
+        "32": 15,
+        "33": 49,
+        "34": 330,
+        "35": 2168,
+        "36": 58,
+        "37": 456,
+        "38": 57,
+        "39": 1345,
+        "40": 601,
+        "41": 3979,
+        "42": 2032
+      },
+      "iq": {
+        "16": 14138
+      },
+      "mshr": {
+        "0": 4270,
+        "1": 8084,
+        "2": 1784
+      }
+    },
+    "max_occupancy": {
+      "lq": 6,
+      "sq": 6,
+      "rob": 42,
+      "iq": 16,
+      "mshr": 2
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 3449,
+      "sq_not_allocatable": 7250,
+      "rename_stall": 11051
+    },
+    "multiple_misses_samples": 1784,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 2964,
+      "load_invalid_operand": 2452,
+      "store": 2935,
+      "store_invalid_operand": 2404
+    },
+    "region_contract_violation_count": 2169,
+    "first_region_contract_violations": [
+      {
+        "cycle": "172",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "178",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "182",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "196",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "200",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "202",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "208",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "213",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "222",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      },
+      {
+        "cycle": "224",
+        "kind": "load",
+        "address": "838860",
+        "reg_valid": "0",
+        "address_hex": "0x0ccccc"
+      }
+    ],
+    "region_contract_observed": false,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "stream_mix_s1_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": true,
+    "cycles": 16177,
+    "trace_sha256": {
+      "resource.csv": "6668b8f3aa4d3679cc395f7392e5999bd8a9ffc686a272a07044e110ce0f9559",
+      "memory_events.csv": "f27aeb5f99dba1aac46439c799c9079c066d04533177e1965dda3e450b7b8ebd"
+    },
+    "resource_samples": 16178,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 516,
+        "1": 48,
+        "2": 74,
+        "3": 780,
+        "4": 8133,
+        "5": 4163,
+        "6": 2464
+      },
+      "sq": {
+        "0": 346,
+        "1": 185,
+        "2": 7643,
+        "3": 4976,
+        "4": 2965,
+        "5": 58,
+        "6": 5
+      },
+      "rob": {
+        "0": 150,
+        "1": 93,
+        "2": 139,
+        "3": 31,
+        "4": 29,
+        "5": 20,
+        "6": 26,
+        "7": 5,
+        "8": 24,
+        "9": 11,
+        "10": 19,
+        "11": 18,
+        "12": 13,
+        "13": 1,
+        "14": 3,
+        "15": 3,
+        "16": 1,
+        "17": 2,
+        "19": 2,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 2,
+        "25": 2,
+        "26": 4,
+        "27": 2,
+        "28": 136,
+        "29": 62,
+        "30": 1433,
+        "31": 808,
+        "32": 1097,
+        "33": 713,
+        "34": 1204,
+        "35": 3777,
+        "36": 5720,
+        "37": 624
+      },
+      "iq": {
+        "16": 16178
+      },
+      "mshr": {
+        "0": 3451,
+        "1": 6839,
+        "2": 5888
+      }
+    },
+    "max_occupancy": {
+      "lq": 6,
+      "sq": 6,
+      "rob": 37,
+      "iq": 16,
+      "mshr": 2
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 2464,
+      "sq_not_allocatable": 5,
+      "rename_stall": 11000
+    },
+    "multiple_misses_samples": 5888,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 2691,
+      "load_invalid_operand": 1666,
+      "store": 1512,
+      "store_invalid_operand": 981
+    },
+    "region_contract_violation_count": 0,
+    "first_region_contract_violations": [],
+    "region_contract_observed": true,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "stream_mix_s42_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": true,
+    "cycles": 16201,
+    "trace_sha256": {
+      "resource.csv": "a8774f1764dad23069c939d06c1c3bb319be95b01272fe6c7807a9417e6744e1",
+      "memory_events.csv": "cdabe5d1cbd3a0c8684a83929185362152948a64167fe881a3afffd3560d8866"
+    },
+    "resource_samples": 16202,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 540,
+        "1": 48,
+        "2": 74,
+        "3": 780,
+        "4": 8133,
+        "5": 4163,
+        "6": 2464
+      },
+      "sq": {
+        "0": 359,
+        "1": 198,
+        "2": 7641,
+        "3": 4976,
+        "4": 2965,
+        "5": 58,
+        "6": 5
+      },
+      "rob": {
+        "0": 159,
+        "1": 86,
+        "2": 135,
+        "3": 34,
+        "4": 31,
+        "5": 22,
+        "6": 29,
+        "7": 10,
+        "8": 25,
+        "9": 15,
+        "10": 17,
+        "11": 23,
+        "12": 16,
+        "13": 1,
+        "14": 3,
+        "15": 3,
+        "16": 1,
+        "17": 2,
+        "19": 2,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 2,
+        "25": 2,
+        "26": 4,
+        "27": 2,
+        "28": 136,
+        "29": 62,
+        "30": 1433,
+        "31": 808,
+        "32": 1097,
+        "33": 713,
+        "34": 1204,
+        "35": 3777,
+        "36": 5720,
+        "37": 624
+      },
+      "iq": {
+        "16": 16202
+      },
+      "mshr": {
+        "0": 3475,
+        "1": 6839,
+        "2": 5888
+      }
+    },
+    "max_occupancy": {
+      "lq": 6,
+      "sq": 6,
+      "rob": 37,
+      "iq": 16,
+      "mshr": 2
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 2464,
+      "sq_not_allocatable": 5,
+      "rename_stall": 11007
+    },
+    "multiple_misses_samples": 5888,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 2691,
+      "load_invalid_operand": 1666,
+      "store": 1512,
+      "store_invalid_operand": 981
+    },
+    "region_contract_violation_count": 0,
+    "first_region_contract_violations": [],
+    "region_contract_observed": true,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "stream_mix_s7_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": true,
+    "cycles": 16184,
+    "trace_sha256": {
+      "resource.csv": "560230a4e0064f447683e2787a7974a843990328ef73bfc417ed658476591570",
+      "memory_events.csv": "743414c6a9afbd86d9daa8c12956c03c563623483464415c64920c2752c4efae"
+    },
+    "resource_samples": 16185,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 523,
+        "1": 48,
+        "2": 74,
+        "3": 780,
+        "4": 8133,
+        "5": 4163,
+        "6": 2464
+      },
+      "sq": {
+        "0": 348,
+        "1": 192,
+        "2": 7641,
+        "3": 4976,
+        "4": 2965,
+        "5": 58,
+        "6": 5
+      },
+      "rob": {
+        "0": 159,
+        "1": 84,
+        "2": 133,
+        "3": 33,
+        "4": 28,
+        "5": 20,
+        "6": 27,
+        "7": 12,
+        "8": 22,
+        "9": 14,
+        "10": 14,
+        "11": 26,
+        "12": 13,
+        "13": 1,
+        "14": 3,
+        "15": 3,
+        "16": 1,
+        "17": 2,
+        "19": 2,
+        "20": 1,
+        "21": 1,
+        "22": 1,
+        "23": 1,
+        "24": 2,
+        "25": 2,
+        "26": 4,
+        "27": 2,
+        "28": 136,
+        "29": 62,
+        "30": 1433,
+        "31": 808,
+        "32": 1097,
+        "33": 713,
+        "34": 1204,
+        "35": 3777,
+        "36": 5720,
+        "37": 624
+      },
+      "iq": {
+        "16": 16185
+      },
+      "mshr": {
+        "0": 3458,
+        "1": 6839,
+        "2": 5888
+      }
+    },
+    "max_occupancy": {
+      "lq": 6,
+      "sq": 6,
+      "rob": 37,
+      "iq": 16,
+      "mshr": 2
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 2464,
+      "sq_not_allocatable": 5,
+      "rename_stall": 11002
+    },
+    "multiple_misses_samples": 5888,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 2691,
+      "load_invalid_operand": 1666,
+      "store": 1512,
+      "store_invalid_operand": 981
+    },
+    "region_contract_violation_count": 0,
+    "first_region_contract_violations": [],
+    "region_contract_observed": true,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "stream_sum_s1_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": true,
+    "cycles": 14168,
+    "trace_sha256": {
+      "resource.csv": "4ff71d3bbf4f5cf6e71e5b330d7e69bd6369de5f272e3c7594d543d3a02412f8",
+      "memory_events.csv": "ee32f61fcb2e73d8121d30608684069b4986a7e010656c46edecdbf64e18bee4"
+    },
+    "resource_samples": 14169,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 446,
+        "1": 48,
+        "2": 33,
+        "3": 18,
+        "4": 1480,
+        "5": 1633,
+        "6": 10511
+      },
+      "sq": {
+        "0": 249,
+        "1": 187,
+        "2": 1718,
+        "3": 7252,
+        "4": 3545,
+        "5": 1160,
+        "6": 58
+      },
+      "rob": {
+        "0": 139,
+        "1": 90,
+        "2": 126,
+        "3": 23,
+        "4": 12,
+        "5": 14,
+        "6": 21,
+        "7": 8,
+        "8": 24,
+        "9": 4,
+        "10": 16,
+        "11": 15,
+        "12": 18,
+        "13": 7,
+        "14": 3,
+        "15": 11,
+        "16": 6,
+        "17": 4,
+        "18": 7,
+        "19": 10,
+        "20": 75,
+        "21": 119,
+        "22": 941,
+        "23": 2669,
+        "24": 907,
+        "25": 158,
+        "26": 831,
+        "27": 164,
+        "28": 1000,
+        "29": 341,
+        "30": 6110,
+        "31": 296
+      },
+      "iq": {
+        "16": 14169
+      },
+      "mshr": {
+        "0": 1938,
+        "1": 5936,
+        "2": 6295
+      }
+    },
+    "max_occupancy": {
+      "lq": 6,
+      "sq": 6,
+      "rob": 31,
+      "iq": 16,
+      "mshr": 2
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 10511,
+      "sq_not_allocatable": 58,
+      "rename_stall": 10608
+    },
+    "multiple_misses_samples": 6295,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 3024,
+      "load_invalid_operand": 2000,
+      "store": 1777,
+      "store_invalid_operand": 1246
+    },
+    "region_contract_violation_count": 0,
+    "first_region_contract_violations": [],
+    "region_contract_observed": true,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "stream_sum_s42_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": true,
+    "cycles": 14192,
+    "trace_sha256": {
+      "resource.csv": "f3f87ae821184b33401b77839f700d77691b05d0a7df0888ebb3192f965f702e",
+      "memory_events.csv": "32b70b951707dcb85310989efd36c1a5a3a480088ae92d6617db667b2b95d225"
+    },
+    "resource_samples": 14193,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 470,
+        "1": 48,
+        "2": 33,
+        "3": 18,
+        "4": 1480,
+        "5": 1633,
+        "6": 10511
+      },
+      "sq": {
+        "0": 264,
+        "1": 193,
+        "2": 1719,
+        "3": 7254,
+        "4": 3545,
+        "5": 1160,
+        "6": 58
+      },
+      "rob": {
+        "0": 135,
+        "1": 88,
+        "2": 140,
+        "3": 23,
+        "4": 15,
+        "5": 15,
+        "6": 23,
+        "7": 10,
+        "8": 26,
+        "9": 5,
+        "10": 14,
+        "11": 16,
+        "12": 18,
+        "13": 7,
+        "14": 9,
+        "15": 11,
+        "16": 6,
+        "17": 4,
+        "18": 7,
+        "19": 10,
+        "20": 75,
+        "21": 119,
+        "22": 941,
+        "23": 2669,
+        "24": 907,
+        "25": 158,
+        "26": 831,
+        "27": 164,
+        "28": 1000,
+        "29": 341,
+        "30": 6110,
+        "31": 296
+      },
+      "iq": {
+        "16": 14193
+      },
+      "mshr": {
+        "0": 1962,
+        "1": 5936,
+        "2": 6295
+      }
+    },
+    "max_occupancy": {
+      "lq": 6,
+      "sq": 6,
+      "rob": 31,
+      "iq": 16,
+      "mshr": 2
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 10511,
+      "sq_not_allocatable": 58,
+      "rename_stall": 10613
+    },
+    "multiple_misses_samples": 6295,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 3024,
+      "load_invalid_operand": 2000,
+      "store": 1778,
+      "store_invalid_operand": 1246
+    },
+    "region_contract_violation_count": 0,
+    "first_region_contract_violations": [],
+    "region_contract_observed": true,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  },
+  {
+    "name": "stream_sum_s7_n512",
+    "rtl_status": "passed",
+    "region_contract_requested": true,
+    "cycles": 14200,
+    "trace_sha256": {
+      "resource.csv": "a8a788d456f0ed58f94628f7fddc8bb895a753371875563d6c09bc8557693e5b",
+      "memory_events.csv": "f2f3ab709c0651890c5719a3634363e1a960535e0f14dfbf079cd78e0f7001b4"
+    },
+    "resource_samples": 14201,
+    "occupancy_histograms": {
+      "lq": {
+        "0": 478,
+        "1": 48,
+        "2": 33,
+        "3": 18,
+        "4": 1480,
+        "5": 1633,
+        "6": 10511
+      },
+      "sq": {
+        "0": 269,
+        "1": 199,
+        "2": 1718,
+        "3": 7252,
+        "4": 3545,
+        "5": 1160,
+        "6": 58
+      },
+      "rob": {
+        "0": 139,
+        "1": 94,
+        "2": 129,
+        "3": 26,
+        "4": 15,
+        "5": 16,
+        "6": 24,
+        "7": 10,
+        "8": 27,
+        "9": 9,
+        "10": 15,
+        "11": 19,
+        "12": 23,
+        "13": 3,
+        "14": 3,
+        "15": 11,
+        "16": 6,
+        "17": 4,
+        "18": 7,
+        "19": 10,
+        "20": 75,
+        "21": 119,
+        "22": 941,
+        "23": 2669,
+        "24": 907,
+        "25": 158,
+        "26": 831,
+        "27": 164,
+        "28": 1000,
+        "29": 341,
+        "30": 6110,
+        "31": 296
+      },
+      "iq": {
+        "16": 14201
+      },
+      "mshr": {
+        "0": 1970,
+        "1": 5936,
+        "2": 6295
+      }
+    },
+    "max_occupancy": {
+      "lq": 6,
+      "sq": 6,
+      "rob": 31,
+      "iq": 16,
+      "mshr": 2
+    },
+    "sampled_not_allocatable_cycles": {
+      "lq_not_allocatable": 10511,
+      "sq_not_allocatable": 58,
+      "rename_stall": 10616
+    },
+    "multiple_misses_samples": 6295,
+    "recovery_samples": 0,
+    "memory_event_counts": {
+      "load": 3024,
+      "load_invalid_operand": 2000,
+      "store": 1777,
+      "store_invalid_operand": 1246
+    },
+    "region_contract_violation_count": 0,
+    "first_region_contract_violations": [],
+    "region_contract_observed": true,
+    "scope": "Finite sampled RTL executions, including invalid-operand and wrong-path execute events; not an all-input bound or equivalence proof."
+  }
+]

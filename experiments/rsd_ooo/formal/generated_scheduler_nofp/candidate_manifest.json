@@ -1,0 +1,17 @@
+{
+  "contract": "After initial reset, every actual scheduler.write lane has opType != MOP_TYPE_FP; no validity/retirement filter",
+  "scope": "One Scheduler FP-request vector cut, justified by actual original Scheduler+SelectLogic induction; not a full-core equivalence or application-domain proof",
+  "capacity": "IQ16, ROB64 and all source parameters unchanged",
+  "retained": "Integer, complex integer including mul/div, load/store scheduling, recovery and all payload RAMs",
+  "removed_observation": "FP issue requests are constant zero; unobserved FP classification and availability logic may be eliminated by synthesis",
+  "source_sha256": "bbf8f7493ec4218651efc5ad0c6d561cc9529a93478a0fa22d4e08d04e8e5e21",
+  "candidate_sha256": "7388b61aac635a10ba509ce133960213b5d7e12bb888e5d1d11451b7c73b4df5",
+  "proof_summary": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/scheduler_nofp/summary.json",
+  "proof_summary_sha256": "f30c4eee5eacc5fd162e8f3a825d4ed58bcc9f81c528f3127a55f625f0b04997",
+  "harness_sha256": "8050d46e4dca39ee7454889964ce67dadef2bffb0c4f6ac8ca5603ffb172ca7e",
+  "limitations": [
+    "This does not itself remove the FP payload RAM or FP physical register file.",
+    "The no-FP contract is at every actual scheduler write, including wrong-path writes.",
+    "No proof establishes this contract from an arbitrary binary or just retired instructions."
+  ]
+}

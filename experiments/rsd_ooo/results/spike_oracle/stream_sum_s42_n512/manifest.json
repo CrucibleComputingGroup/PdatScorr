@@ -1,0 +1,37 @@
+{
+  "name": "stream_sum_s42_n512",
+  "mode": "stream_sum",
+  "seed": 42,
+  "count": 512,
+  "expected_serial": "signature=4034ae00\n",
+  "region_contract": true,
+  "compiler": "riscv32-unknown-elf-gcc (g1b306039a) 15.1.0",
+  "commands": [
+    [
+      "/home/allenjin/riscv/bin/riscv32-unknown-elf-gcc",
+      "-march=rv32im_zicsr",
+      "-mabi=ilp32",
+      "-nostdlib",
+      "-nostartfiles",
+      "-Wl,--no-relax",
+      "-T",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/stream_sum_s42_n512/link.ld",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/stream_sum_s42_n512/code.S",
+      "-o",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/stream_sum_s42_n512/code.elf"
+    ],
+    [
+      "/home/allenjin/riscv/bin/riscv32-unknown-elf-objcopy",
+      "-O",
+      "binary",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/stream_sum_s42_n512/code.elf",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/stream_sum_s42_n512/code.rom.bin"
+    ]
+  ],
+  "hashes": {
+    "code.S": "3f01a3269579190a8bfa201243491aaa0472b2de3d28db45e8dcff4d18dbec5c",
+    "code.elf": "d12f02b0375e358d9270143ca150835c481b13d067aceeed65af212d54cdcdf3",
+    "code.hex": "74dac241b39533b14c2be93d4f086a444f065044e6baba147acf102685dba757",
+    "link.ld": "a08f2926551891f3c1c6ef615d802f4ea996455fb9346eaab278b2e43f9e4dc0"
+  }
+}

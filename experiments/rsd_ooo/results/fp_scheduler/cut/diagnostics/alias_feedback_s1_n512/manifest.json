@@ -1,0 +1,37 @@
+{
+  "name": "alias_feedback_s1_n512",
+  "mode": "alias_feedback",
+  "seed": 1,
+  "count": 512,
+  "expected_serial": "signature=00020300\n",
+  "region_contract": false,
+  "compiler": "riscv32-unknown-elf-gcc (g1b306039a) 15.1.0",
+  "commands": [
+    [
+      "/home/allenjin/riscv/bin/riscv32-unknown-elf-gcc",
+      "-march=rv32im_zicsr",
+      "-mabi=ilp32",
+      "-nostdlib",
+      "-nostartfiles",
+      "-Wl,--no-relax",
+      "-T",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/alias_feedback_s1_n512/link.ld",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/alias_feedback_s1_n512/code.S",
+      "-o",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/alias_feedback_s1_n512/code.elf"
+    ],
+    [
+      "/home/allenjin/riscv/bin/riscv32-unknown-elf-objcopy",
+      "-O",
+      "binary",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/alias_feedback_s1_n512/code.elf",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/workloads/alias_feedback_s1_n512/code.rom.bin"
+    ]
+  ],
+  "hashes": {
+    "code.S": "8353cdc87726d987d1d7691c53b9276f66dd9b6ffa7e8067cc199144c87024f1",
+    "code.elf": "b552356f93418dd9d4e84331636251ca576eca91677c10e7a438d4c3baccc968",
+    "code.hex": "819d9d639e181563646dddd11850b6249a04a61a5682bd9a0146f7821ac0be67",
+    "link.ld": "a08f2926551891f3c1c6ef615d802f4ea996455fb9346eaab278b2e43f9e4dc0"
+  }
+}

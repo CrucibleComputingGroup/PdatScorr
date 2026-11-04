@@ -1,0 +1,28 @@
+PASS: scheduler direct-map evidence audit
+
+All source/proof/candidate hashes match. Wrappers and macro configurations match.
+Map scripts differ only in variant paths. Raw physical area/cell totals agree
+with the summary. The only candidate source edit replaces the FP-request
+expression by FALSE; 32 FFs are removed (128 -> 96), matching the two IQ16
+FP classification vectors. Cell area 21735.8464 -> 15636.2464 um^2, a
+28.0623992632% reduction using original component area as denominator.
+
+SchedulerObserved exports all functional Scheduler/SelectLogic outputs with
+debug disabled, including raw selected pointers, tags, selected vectors and
+FP requests. There is no output mask or input assumption in this direct-area
+wrapper. Standard synthesis normalization uses identical setundef handling;
+physical mapping uses normalized RTL before AIGER zinit, not its extra state.
+
+The proof is on unchanged actual Scheduler+SelectLogic after initial reset
+under !rst && actual_write -> opType != MOP_TYPE_FP on both dispatch lanes.
+Reset-base and induction pass. Mixed int/complex/load/store cover is reached;
+removing the dispatch contract reaches an FP-request/grant counterexample.
+Candidate equivalence follows from replacing a proved-zero internal request
+and leaving its other logic intact; arbitrary initial-state equivalence and
+full-core equivalence are not established. During the initial asserted-reset
+cycle, raw outputs before the first reset edge are outside the proof boundary.
+
+This is a manual proof-guided component result. It excludes payload RAM,
+ReadyBitTable/ProducerMatrix, FP PRF, entire FP units and whole-core area.
+No-FP arithmetic dispatch does not exclude FLW/FSW in the memory class.
+Automatic Pscorr variants and their reset observation boundary are separate.

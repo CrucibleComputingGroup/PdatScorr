@@ -1,0 +1,70 @@
+{
+  "trace_directory": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/latency_base_p5/stream_mix_s1_n512",
+  "scope": "Empirical whole-run traces including startup, speculation and recovery; not a worst-case bound",
+  "edge_convention": "Samples follow eval at rising edge c. MSHR valid is registered state; [first-valid c, first-invalid d) has d-c live cycles. Request ack and response valid are settled interface signals consumed at the next edge; paired latency is response-sample minus request-sample. No mixed-edge correction is applied.",
+  "trace_sha256": {
+    "mshr.csv": "4eb99db5ceba7f7af3c5087c257206976fffcfcb6d6e8938098195cd225be224",
+    "backing_memory.csv": "55155d122974cbf42484206d63ac2e61e7105fdd8d4be19c7ccc4fc493ceb5d0",
+    "predecode.csv": "f4da3c1cfdb2a7cf03964abadc2e7399cabaec79f2dae5325a5b9b834587672f"
+  },
+  "mshr_slot_samples": {
+    "0": 16178,
+    "1": 16178
+  },
+  "mshr_first_cycle": 0,
+  "mshr_last_cycle": 16177,
+  "mshr_lifetime_cycles": {
+    "count": 793,
+    "min": 14,
+    "max": 36,
+    "mean": 23.474148802017655,
+    "p95": 28
+  },
+  "mshr_censored_intervals": [],
+  "mshr_closed_phase_totals": {
+    "7": 796,
+    "8": 793,
+    "9": 793,
+    "13": 923,
+    "14": 9350,
+    "17": 800,
+    "18": 4880,
+    "12": 260,
+    "10": 4,
+    "11": 16
+  },
+  "mshr_wait_read_phase14_cycles_per_lifetime": {
+    "count": 793,
+    "min": 7,
+    "max": 22,
+    "mean": 11.790668348045397,
+    "p95": 16
+  },
+  "mshr_complete_phase18_cycles_per_lifetime": {
+    "count": 793,
+    "min": 1,
+    "max": 18,
+    "mean": 6.153846153846154,
+    "p95": 13
+  },
+  "backing_read_latency_cycles": {
+    "count": 826,
+    "min": 7,
+    "max": 22,
+    "mean": 11.750605326876514,
+    "p95": 16
+  },
+  "backing_scope": "All accepted backing reads, including instruction-cache traffic",
+  "backing_read_requests": 826,
+  "backing_read_responses": 826,
+  "backing_min_observed_read_request_gap": 3,
+  "backing_unmatched_responses": [],
+  "backing_serial_reuse_while_pending": [],
+  "backing_pending_at_end": {},
+  "isa_valid_samples": 28304,
+  "isa_disallowed_samples": 0,
+  "isa_disallowed_distinct_pc_instruction": [],
+  "isa_first_disallowed_samples": [],
+  "isa_monitor_recompute_mismatches": [],
+  "trace_integrity_errors": []
+}

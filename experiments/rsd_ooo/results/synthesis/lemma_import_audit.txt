@@ -1,0 +1,55 @@
+Lemma-assisted Pscorr source and domain audit, 2026-11-04
+
+Source/import/export result: PASS. Machine checks are in lemma_import_audit.json.
+Variant: isa_region_lemmas_core_final. The frontend completed successfully;
+this audit does not yet claim successful downstream optimization.
+
+Exactly 32 imported predicates match the previously proved actual-RTL
+assertions, with only hierarchy/loop-variable names changed:
+  For each of 16 LQ entries, under !port.rst:
+    !loadQueue[i].finished || loadQueue[i].address[19:14] == 0
+  For each of 16 SQ entries, under !port.rst:
+    !storeQueue[i].finished || storeQueue[i].address[19:14] != 0
+There is no regValid or other weaker execution qualifier. The stored address
+is the physical address without its two byte-offset bits, so stored [19:14]
+matches executed physical [21:16].
+
+The original queue logic, including historical address comparators and the
+same-cycle conflict check, remains unchanged; the only differences in either
+queue source are the appended assumptions. Relative to the assumptions-only
+ISA+region variant, only these two queue files differ. Core.sv's strict
+!rst && executeLoad/executeStore region predicates and the entire ISA
+PreDecodeStage.sv are byte-identical. Capacity/configuration/defines match.
+The two ISA predicates, two executed-region predicates, and 32 lemmas should
+produce 36 exported constraints. Completed export confirms exactly 36,
+with 167,415 inputs, 167,333 latches, and 141 ordinary outputs. The AIG
+header/hash match the updated manifest; all current source hashes match;
+the 82 warnings again name exactly the non-clock Core input bits.
+
+Provenance checks pass for the proof summary, harness, base/induction/cover
+logs, SMT model, original LQ/SQ source hashes, and the complete current source
+manifest. The source proof passed 36 assertions with reset base plus temporal
+induction; only its 32 finished-entry invariants are imported here. The
+proof_import.json hashes bind the imported facts to those exact artifacts.
+
+Composition and permitted interpretation:
+The local proof assumes initial reset and the strict all-executed-operation
+region contract, then establishes the finished-entry facts inductively for
+the original queues. Its other allocation/release/recovery inputs are
+arbitrary, so legal core queue traffic is included. Adding the ISA contract
+restricts the allowed traces further. Consequently every reset-reachable
+original-core trace satisfying both environment contracts also satisfies
+the imported queue predicates. An optimization valid under all these
+predicates is justified on that reset-conditioned domain, subject to the
+separate lowering and optimizer correctness obligations.
+
+The exported model can still admit additional unreachable initial states
+that happen to satisfy the imported invariants. This does not invalidate
+the inclusion above, but its initial-state domain differs from the
+conservative arbitrary-initial-state assumption-only controls. Use the label
+"reset-conditioned lemma-assisted Pscorr" and disclose external lemma
+proof/import. Do not describe it as automatic discovery of those invariants,
+an arbitrary-initial-state equivalence proof, a full-core equivalence proof,
+or proof that any arbitrary binary obeys the environment contract.
+
+No concrete source-import or proof-domain composition error was found.

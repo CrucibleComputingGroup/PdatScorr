@@ -1,0 +1,120 @@
+{
+  "status": "complete",
+  "scope": "Actual LQ+SQ component at matched reset-masked144-bit output boundary; original RTL comparators retained in all variants. No wholecore area claim.",
+  "flow": "Inherited Pscorr F2/C30000/S20; no prebalance, no cycle100; constraint purge then rewrite-l/balance-l; SKY130HD mapping of AIGER-zinit formal model",
+  "domain": "Exec+lemmas uses actualRTL proved reset-conditioned finished-entry invariants. Conservative controls retain arbitrary initial states. All output bits forcedzero only duringrst; reset transitions remain. No permanent !rst assumption.",
+  "results": [
+    {
+      "variant": "original",
+      "initial": {
+        "variables": 26480,
+        "inputs": 1855,
+        "latches": 1707,
+        "outputs": 144,
+        "ands": 22918,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "optimized": {
+        "variables": 21707,
+        "inputs": 1855,
+        "latches": 1707,
+        "outputs": 144,
+        "ands": 18145,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "formal_model_cell_area_um2": 94478.112,
+      "abc_seconds": 1.0182476961053908,
+      "mapping_seconds": 13.516690625809133,
+      "sequential_cell_counts": {
+        "sky130_fd_sc_hd__dfxtp_1": 1707
+      },
+      "manifest_sha256": "15867c322ef1253302fed377ff396947154053f0ea14a4f17407af9e18cce85f",
+      "result": "experiments/rsd_ooo/results/synthesis/lsq_original_reset_observed/mapped_scorr/result.json",
+      "source_manifest": "experiments/rsd_ooo/results/synthesis/lsq_original_reset_observed/manifest.json"
+    },
+    {
+      "variant": "region_assume",
+      "initial": {
+        "variables": 26494,
+        "inputs": 1855,
+        "latches": 1707,
+        "outputs": 144,
+        "ands": 22932,
+        "bad": 0,
+        "constraints": 2,
+        "justice": 0,
+        "fairness": 0
+      },
+      "optimized": {
+        "variables": 21519,
+        "inputs": 1855,
+        "latches": 1707,
+        "outputs": 144,
+        "ands": 17957,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "formal_model_cell_area_um2": 93702.368,
+      "abc_seconds": 4.732958831824362,
+      "mapping_seconds": 13.010762723628432,
+      "sequential_cell_counts": {
+        "sky130_fd_sc_hd__dfxtp_1": 1707
+      },
+      "manifest_sha256": "78979e30b7e55f1d23d05cf0db843fce4c9f473105a9abfff82cf20701dbb3b9",
+      "result": "experiments/rsd_ooo/results/synthesis/lsq_region_assume_reset_observed/mapped_scorr/result.json",
+      "source_manifest": "experiments/rsd_ooo/results/synthesis/lsq_region_assume_reset_observed/manifest.json"
+    },
+    {
+      "variant": "region_lemmas",
+      "initial": {
+        "variables": 26718,
+        "inputs": 1855,
+        "latches": 1707,
+        "outputs": 144,
+        "ands": 23156,
+        "bad": 0,
+        "constraints": 34,
+        "justice": 0,
+        "fairness": 0
+      },
+      "optimized": {
+        "variables": 17245,
+        "inputs": 1855,
+        "latches": 1595,
+        "outputs": 144,
+        "ands": 13795,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "formal_model_cell_area_um2": 77812.128,
+      "abc_seconds": 4.828836618922651,
+      "mapping_seconds": 9.650046961847693,
+      "sequential_cell_counts": {
+        "sky130_fd_sc_hd__dfxtp_1": 1595
+      },
+      "manifest_sha256": "4231a16d33a5db472a46b859e82d13036fadb595947829fe30e962a1d0980a36",
+      "result": "experiments/rsd_ooo/results/synthesis/lsq_region_lemmas_reset_observed/mapped_scorr/result.json",
+      "source_manifest": "experiments/rsd_ooo/results/synthesis/lsq_region_lemmas_reset_observed/manifest.json"
+    }
+  ],
+  "beyond_execution_constraints": {
+    "and_reduction_percent": 23.177590911622207,
+    "aig_latches_removed": 112,
+    "formal_model_area_reduction_percent": 16.958205367872885
+  },
+  "relative_to_unconstrained": {
+    "formal_model_area_reduction_percent": 17.640047675804528
+  },
+  "unmasked_negative_control": "lsq_region_lemmas/mapped_scorr and lsq_region_assume/mapped_scorr_v2 both17849AND/1707latches/94883.5008um2",
+  "proof_import": "experiments/rsd_ooo/results/synthesis/lsq_region_lemmas_reset_observed/proof_import.json"
+}

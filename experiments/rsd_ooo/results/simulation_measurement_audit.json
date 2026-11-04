@@ -1,0 +1,104 @@
+{
+  "elf_hex_consistency": [
+    {
+      "name": "alias_feedback_s1_n512",
+      "elf_sha256": "b552356f93418dd9d4e84331636251ca576eca91677c10e7a438d4c3baccc968",
+      "hex_sha256": "819d9d639e181563646dddd11850b6249a04a61a5682bd9a0146f7821ac0be67",
+      "same_image": true
+    },
+    {
+      "name": "alias_feedback_s42_n512",
+      "elf_sha256": "854766be34a530b813b000736395ad1423b13e585e0fc9871cabcbb18a8cad1d",
+      "hex_sha256": "50572413ce5e3cbb8fe7296c460bc256ce825099fdbb3b902be4472ffce3eeea",
+      "same_image": true
+    },
+    {
+      "name": "alias_feedback_s7_n512",
+      "elf_sha256": "c9bf0050fbca80dfe8a145fbf93803840bff7013554f5b96d53dca94c1d731fb",
+      "hex_sha256": "2997364b25c9bcc89175bdca2a98fed5bc7cd39c6826aeaede0954684a13653a",
+      "same_image": true
+    },
+    {
+      "name": "pointer_chase_s1_n512",
+      "elf_sha256": "1dc78e576dcdf58cc59ea1d3bb64ae432e1cf69005832d30abc0276c2b8b7562",
+      "hex_sha256": "9cd355736ad480ecfb679f178571e0c2edbf839a47232a2929a10de967196c97",
+      "same_image": true
+    },
+    {
+      "name": "pointer_chase_s42_n512",
+      "elf_sha256": "9a0cbc9281a3d9707d582589fad2112e3778aeb1e37af7ea4c9ba281a94abd09",
+      "hex_sha256": "a83ff9e10f56fdfe58f52c2f585755183b4993be037b1d5704be60ce6e70b3b8",
+      "same_image": true
+    },
+    {
+      "name": "pointer_chase_s7_n512",
+      "elf_sha256": "2491f7c2dc277576c900e58e9b446e921dc5e3e94bc97f9478b2232574ffac87",
+      "hex_sha256": "518f7e71d1a2f18e6ff38135868843f3338ab8ee6cd4708199ab96096cad571c",
+      "same_image": true
+    },
+    {
+      "name": "stream_mix_s1_n512",
+      "elf_sha256": "fe0a61be0d12473079fc9749434a299e22a01d4880c3072566a047593bc81fc6",
+      "hex_sha256": "282d23458097f4af12dbb606ea04a7ee948ed039d4178a6e19c8dfa6c84a7c12",
+      "same_image": true
+    },
+    {
+      "name": "stream_mix_s42_n512",
+      "elf_sha256": "205aa8548e21a7dd88e344eda31a0f8d169d7e24ae2c49c286b5e39ad5a23e06",
+      "hex_sha256": "0d333826ebba72fa5cbab70ec4f9bbfb8d18ad66fccb8e15fd891cb335aeac1b",
+      "same_image": true
+    },
+    {
+      "name": "stream_mix_s7_n512",
+      "elf_sha256": "386c9564995484effdb7d8f47cdd957c06dc7b4f0b1cf6afbf626cc34ceb215f",
+      "hex_sha256": "28f33b2ba7ab4a48287c8fc5cf91adb87eac94bf1c84eaa92ac7c5c519d648d0",
+      "same_image": true
+    },
+    {
+      "name": "stream_sum_s1_n512",
+      "elf_sha256": "4ca19166bd70c19fc1e2bcb742a133823a4e2c1868951ada66c5e983406a4d4e",
+      "hex_sha256": "8180e4b1e883ea42525323c37eb1a8d03c1b615131c2900549f5659a3a051522",
+      "same_image": true
+    },
+    {
+      "name": "stream_sum_s42_n512",
+      "elf_sha256": "d12f02b0375e358d9270143ca150835c481b13d067aceeed65af212d54cdcdf3",
+      "hex_sha256": "74dac241b39533b14c2be93d4f086a444f065044e6baba147acf102685dba757",
+      "same_image": true
+    },
+    {
+      "name": "stream_sum_s7_n512",
+      "elf_sha256": "9fcad44e9fa475b808df5a574f28ccf40e5ae28cccde1e795424861f4bb4a171",
+      "hex_sha256": "82ecad8fc162f7693eb22b069dcc810f256b6d6568933109da6c633aaaa3e2f0",
+      "same_image": true
+    }
+  ],
+  "case_counts": {
+    "spike_oracle": 12,
+    "kernels_monitored16": 12,
+    "kernels_monitored8": 12,
+    "kernels_monitored4": 12,
+    "kernels_regioncut16": 12
+  },
+  "all_latency_intervals_complete": true,
+  "findings": [
+    "All12 Spike ELF payloads independently objcopy to their recorded RTL hex image.",
+    "All48 diagnostic RTL runs use identical per-case ELF as the corresponding Spike run.",
+    "No partial MSHR lifetime or pending backing read occurs in any of36 retained latency runs."
+  ],
+  "edge_audit": {
+    "mshr": "post-rising registered valid [first_valid,last_invalid), duration difference",
+    "backing": "settled request-ack and response-valid both consumed next edge; sample-index difference is consistent",
+    "harness": "reported N is zero-based terminal index with N+1 resource samples",
+    "partial_intervals": "none in all36 latency runs"
+  },
+  "corrected_description": "Read/write busy-count2, minimum accepted-request gap3; old raw build manifests retained unchanged.",
+  "reanalysis_checks": {
+    "latency_summary.json": true,
+    "application_summary.json": true
+  },
+  "reproduction_documents": [
+    "LATENCY.md",
+    "APPLICATIONS.md"
+  ]
+}

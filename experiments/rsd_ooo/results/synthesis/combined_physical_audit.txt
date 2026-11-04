@@ -1,0 +1,25 @@
+PASS: combined whole-core physical-source and mapping audit
+
+Exactly three prepared source files differ from the matched baseline:
+LoadStoreUnit/LoadQueue.sv, LoadStoreUnit/StoreQueue.sv, Scheduler/Scheduler.sv.
+Each byte-matches its proved generated candidate. The complete MicroArchConf
+and Core RTL match baseline, as do macro definitions (including enabled
+RSD_MARCH_FP_PIPE), source sets, normalization and physical mapping scripts
+after path normalization. Thus no hidden FP compile-time disable, capacity
+change or new instruction assumption is present. All prepared/mapped source
+hashes, component proof-manifest bindings, source-manifest/map-script/ABC/
+Liberty hashes verify. Physical mapping completed with no AIGER zinit export.
+
+Mapped cell area: 9996011.967981 -> 9610673.647983 um^2, or3.85492055% less
+using matched whole-core baseline as denominator. Raw statJSON agrees within
+0.001um^2 summation precision. Combined mapped cells1586548, FFs164360
+(baseline167332; queue-only166513). These are full Core cell-area measurements
+with flop-mapped memories, excluding SRAM macros, SoC peripherals and layout.
+
+The larger reduction than the isolated Scheduler/SelectLogic wrapper is
+consistent with propagation into downstream logic that the component boundary
+does not contain. This is an inference, not a demonstrated attribution to
+specific FP units, RAMs or PRF ports. No FP-PRF deletion or full-FP disable may
+be inferred. Six combined full-core pairs provide finite integration evidence;
+the conjunction of two separately proved local contracts is not presented
+as a whole-core equivalence proof or arbitrary-binary adherence theorem.

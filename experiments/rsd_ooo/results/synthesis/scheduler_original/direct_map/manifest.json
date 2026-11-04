@@ -1,0 +1,21 @@
+{
+  "status": "complete",
+  "source": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/scheduler_original/rtl_logic.v",
+  "source_sha256": "66e368104cc1c5fbbb0f4f29c2ad3d14e82b05e955716d8972d2b3bfe7077650",
+  "scope": "Actual RSD Scheduler and SelectLogic component, all functional outputs retained, no payload RAM or full-core area claim",
+  "top": "SchedulerObserved",
+  "initialization": "Direct normalized RTL, no AIGER zinit encoding",
+  "assumptions": "All proof-only assumptions removed before hardware mapping",
+  "compatibility_patch": "This mapping stage applies no source patches; see the normalized source's manifest for frontend adaptations",
+  "library": "/opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib",
+  "command": [
+    "/usr/bin/yosys",
+    "-Q",
+    "-T",
+    "-s",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/scheduler_original/direct_map/map.ys"
+  ],
+  "returncode": 0,
+  "cell_area_um2": 21735.8464,
+  "elapsed_seconds": 7.889109204988927
+}

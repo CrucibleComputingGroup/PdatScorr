@@ -1,0 +1,44 @@
+Full-core AIG depth audit, 2026-11-04
+
+Finding: The baseline depth of 3006 is reproducible, but does not by itself
+establish a frontend error. A single combinational balancing pass reduces it
+to 195 with unchanged input, output, and latch counts. The concrete evidence
+supports substantial unbalanced structure in the current AIG representation.
+No additional functional frontend defect was identified in this audit.
+
+Probe used only the retained final baseline AIG, with no RTL lowering,
+correspondence run, mapped-netlist generation, or modification of existing
+artifacts:
+  abc -c 'read_aiger .../base_core_final/core_yosys.aig;
+          strash; print_stats; balance -l; print_stats'
+Full command and output: depth_balance_probe.log.
+
+                           inputs  outputs  latches     ANDs    levels
+Read/strash                 167415      141   167333   2689341      3006
+After balance -l            167415      141   167333   2677278       195
+
+An independent topological pass over the unprocessed binary AIG confirms
+that its largest raw chains terminate at latch-next-state inputs, not the
+ordinary Core outputs. Its raw longest chain is 5894 AND nodes; the largest
+raw ordinary-output depth is 20. These raw numbers count every serialized
+gate without ABC's simplification and therefore are not the same metric as
+the post-read/strash level count. The deepest recorded next-state endpoints
+begin at latch index 150672. Detailed structural results are preserved in
+depth_raw_aig_audit.json; they carry no source-name attribution.
+
+Limits and interpretation:
+- These are two-input-AND graph levels, not mapped-cell delay, maximum clock
+  frequency, or a timing result. Inverters are represented on AIG edges.
+- The final AIG lacks an internal-node name map. The retained normalized
+  Verilog has hierarchical aliases, but this audit did not rerun its large
+  elaboration solely to recover a path map. It would be speculation to
+  attribute the deepest chain specifically to cache muxes, arithmetic,
+  scheduler logic, or a frontend bug without that mapping.
+- The reviewed integer and FP dividers are iterative RTL. Their presence
+  does not justify assuming an unrolled division critical path.
+- Balancing explains why the magnitude 3006 is not a stable physical metric;
+  it is not a proof that every prior frontend transformation is correct.
+  Retain the separate source-patch and proof audits for those claims.
+- No change to the experiment or manuscript is required solely because
+  ABC initially reports level 3006. Do not promote that number to a timing
+  claim or use it alone as evidence of invalid synthesis.

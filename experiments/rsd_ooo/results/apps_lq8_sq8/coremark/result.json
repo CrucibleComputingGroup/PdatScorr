@@ -1,0 +1,53 @@
+{
+  "name": "coremark",
+  "command": [
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/monitored_lq8_sq8/VMain_Zynq_Wrapper",
+    "TEST_CODE=/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/apps_lq8_sq8/coremark",
+    "MAX_TEST_CYCLES=20000000",
+    "ENABLE_PC_GOAL=1",
+    "SHOW_SERIAL_OUT=1"
+  ],
+  "binary_sha256": "bad0784536e5bac269409097db64a3d92276d3e9f2718cf0ea16054939639e5a",
+  "input_sha256": "5eab938d4aafb6d452d580149587d5d3eddaa878a1134a0862b8dd86189c7126",
+  "iterations": 10,
+  "status": "passed",
+  "scope": "original algorithm checks and PC-goal; validation cycle comparison, no score certification",
+  "returncode": 0,
+  "wall_seconds": 75.38754465337843,
+  "pc_goal": true,
+  "serial_sha256": "5f6391f7fe57c69222e561490c285009f130c12350e589f9df9ee50d6642cb0d",
+  "observed_serial": "2K validation run parameters for coremark.\nCoreMark Size    : 666\nTotal ticks      : 3388858\nTotal time (secs): 3\nIterations/Sec   : 3\nIterations       : 10\nCompiler version : GCC15.1.0\nCompiler flags   : -O2 -march=rv32im_zicsr -mabi=ilp32 -fno-builtin; no LTO\nMemory location  : STATIC\nseedcrc          : 0x18f2\n[0]crclist       : 0xe3c1\n[0]crcmatrix     : 0x0747\n[0]crcstate      : 0x8d84\n[0]crcfinal      : 0xc64e\nCorrect operation validated. See README.md for run and reporting rules.\n",
+  "validation": {
+    "seedcrc": true,
+    "crclist": true,
+    "crcmatrix": true,
+    "crcstate": true,
+    "validated": true,
+    "iterations": true,
+    "data_size": true,
+    "no_errors": true,
+    "positive_roi_cycles": true
+  },
+  "roi_cycles": 3388858,
+  "counters": {
+    "CoreMark Size": 666,
+    "Total ticks": 3388858,
+    "Total time (secs)": 3,
+    "Iterations/Sec": 3,
+    "Iterations": 10,
+    "PC reached PC_GOAL": 80001004,
+    "Num of I$ misses": 19392,
+    "Num of D$ load misses": 1659,
+    "Num of D$ store misses": 333,
+    "Num of branch prediction misses": 65911,
+    "Num of branch prediction misses detected on decode": 27688,
+    "Num of store-load-forwanind misses": 0,
+    "Num of memory dependency prediction misses": 13,
+    "Num of committed RISC-V-ops": 2913449,
+    "Num of committed micro-ops": 2913449,
+    "IPC (RISC-V instruction)": 0.849028,
+    "IPC (micro-op)": 0.849028,
+    "Elapsed cycles": 3431512
+  },
+  "within_cycle_limit": true
+}

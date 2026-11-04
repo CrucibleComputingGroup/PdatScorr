@@ -1,0 +1,158 @@
+{
+  "scope": "Ten prespecified whole-core monolithic correspondence attempts; timeout is not a proof of zero gain",
+  "wall_limit_seconds_per_optimization": 3600,
+  "runtime_environment": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/runtime_environment.json",
+  "runtime_scope": "Concurrent shared-VM wall budgets, not isolated performance measurements",
+  "trials": {
+    "base_core_final/mapped_scorr": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.1791899036616,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/base_core_final/mapped_scorr/result.json"
+    },
+    "isa_core_final/mapped_scorr": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.09278226085,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/isa_core_final/mapped_scorr/result.json"
+    },
+    "nonalias_core_final/mapped_scorr": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.1355892312713,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/nonalias_core_final/mapped_scorr/result.json"
+    },
+    "isa_nonalias_core_final/mapped_scorr": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.111667155754,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/isa_nonalias_core_final/mapped_scorr/result.json"
+    },
+    "isa_region_assume_core_final_v2/mapped_scorr": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.1167154870927,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/isa_region_assume_core_final_v2/mapped_scorr/result.json"
+    },
+    "base_core_final/mapped_scorr_constants": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.1051559802145,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/base_core_final/mapped_scorr_constants/result.json"
+    },
+    "base_core_final/logic_scorr_prebalanced": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.117601681035,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/base_core_final/logic_scorr_prebalanced/result.json"
+    },
+    "isa_core_final/logic_scorr_prebalanced": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.125808096025,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/isa_core_final/logic_scorr_prebalanced/result.json"
+    },
+    "isa_region_assume_core_final_v2/logic_scorr_prebalanced": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.097174813971,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/isa_region_assume_core_final_v2/logic_scorr_prebalanced/result.json"
+    },
+    "isa_region_lemmas_core_final/logic_scorr_prebalanced": {
+      "outcome": "timeout",
+      "runner_status": "failed",
+      "optimization_seconds": 3600.1654016221873,
+      "accepted_optimized_model": false,
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/isa_region_lemmas_core_final/logic_scorr_prebalanced/result.json"
+    }
+  },
+  "counts": {
+    "timeout": 10
+  },
+  "accepted_optimized_models": 0,
+  "stopped_redundant_controls": {
+    "isa_core_final/mapped_scorr_constants": "stopped_redundant_control",
+    "isa_region_assume_core_final_v2/mapped_scorr_constants": "stopped_redundant_control"
+  },
+  "no_scorr_controls": {
+    "base_core_final/mapped_no_scorr": {
+      "status": "failed",
+      "logic_complete": true,
+      "mapping_complete": false,
+      "optimized": {
+        "variables": 2820760,
+        "inputs": 167415,
+        "latches": 167333,
+        "outputs": 141,
+        "ands": 2486012,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "stages": [
+        {
+          "command": [
+            "/usr/local/bin/abc",
+            "-f",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/base_core_final/mapped_no_scorr/optimize.abc"
+          ],
+          "log": "abc.log",
+          "status": "passed",
+          "returncode": 0,
+          "elapsed_seconds": 26.165312392171472
+        },
+        {
+          "command": [
+            "/usr/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/base_core_final/mapped_no_scorr/map.ys"
+          ],
+          "log": "mapping.log",
+          "status": "timeout",
+          "elapsed_seconds": 3601.0921689029783
+        }
+      ]
+    },
+    "base_core_final/logic_no_scorr_prebalanced": {
+      "status": "complete_logic",
+      "logic_complete": true,
+      "mapping_complete": false,
+      "optimized": {
+        "variables": 2817253,
+        "inputs": 167415,
+        "latches": 167333,
+        "outputs": 141,
+        "ands": 2482505,
+        "bad": 0,
+        "constraints": 0,
+        "justice": 0,
+        "fairness": 0
+      },
+      "stages": [
+        {
+          "command": [
+            "/usr/local/bin/abc",
+            "-f",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/base_core_final/logic_no_scorr_prebalanced/optimize.abc"
+          ],
+          "log": "abc.log",
+          "status": "passed",
+          "returncode": 0,
+          "elapsed_seconds": 35.34410358220339
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "pointer_chase_s7_n512",
+  "mode": "pointer_chase",
+  "seed": 7,
+  "region_contract": true,
+  "simulator": "/home/allenjin/riscv/bin/spike",
+  "simulator_sha256": "3c65e669265c82603f7bd15235a60c00bd4419315cb4e4157387c5fcd83fe580",
+  "input_sha256": "518f7e71d1a2f18e6ff38135868843f3338ab8ee6cd4708199ab96096cad571c",
+  "command": [
+    "/home/allenjin/riscv/bin/spike",
+    "--isa=rv32im_zicsr",
+    "--priv=m",
+    "--pc=0x1000",
+    "--disable-dtb",
+    "-m0x1000:0xf000,0x80000000:0x40000,0x40002000:0x1000",
+    "-d",
+    "--debug-cmd=/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/spike_oracle/pointer_chase_s7_n512/debug.cmd",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/spike_oracle/pointer_chase_s7_n512/code.elf"
+  ],
+  "expected_serial": "signature=0107fc00\n",
+  "status": "passed",
+  "returncode": 0,
+  "checksum_match": true,
+  "verification_scope": "Spike reaches exact PC 0x1004 and x20 matches independent arithmetic oracle",
+  "wall_seconds": 0.0048827920109033585,
+  "log_sha256": "31eda78ff551568e8947a1d2ca056ee5417b696936b3a74eaea59cc927067a3a"
+}

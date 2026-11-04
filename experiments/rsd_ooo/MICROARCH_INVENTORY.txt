@@ -1,0 +1,338 @@
+RSD microarchitecture specialization inventory
+=============================================
+
+Scope and evidence convention
+-----------------------------
+Paths below are relative to rsd/Processor/Src in this experiment. They refer to
+the pinned source, not a prospective textbook implementation. The implemented
+outside-memory result is item 1. Other items are candidate experiments with
+explicit obligations, not achieved savings or proved program properties.
+
+The user's reservation station (RS) maps to the shared IssueQueue, Scheduler,
+WakeupLogic/ProducerMatrix, ReadyBitTable, DestinationRAM,
+WakeupPipelineRegister and SelectLogic. RSD's reorder buffer (ROB) is ActiveList
+plus rename/commit and recovery control; its capacity is distinct from IQ size.
+
+Default capacities: 64 ROB entries, 16 shared IQ entries, 64 integer physical
+registers, 64 FP physical registers, 20 replay entries, BTB 1024 entries, PHT 2048
+two-bit counters and ten history bits (MicroArchConf.sv:26-36,86-88).
+
+The recurring proof shape is: an actual accepted-event contract, reset base,
+inductive live-state invariant, and equality at a defined consumer boundary.
+An architectural opcode/address property alone is not that proof. Dispatch,
+replay, speculative execution and invalid operands must be included wherever
+the RTL uses them. A finite trace passing a monitor is sampled adherence only.
+
+1. Shared scheduler/RS class state: IMPLEMENTED ACTUAL-RTL PROOF + CANDIDATE
+------------------------------------------------------------------------
+Source: Scheduler/Scheduler.sv, Scheduler/SelectLogic.sv.
+State: notIssued[16], class bits isInt/isComplex/isDiv/isLoad/isStore and
+isFP/isFPDivSqrt. Reset clears notIssued, not the synthesis class-bit arrays.
+Every actual scheduler.write sets class bits; selected or flushed entries clear
+notIssued. FP requests depend on notIssued && isFP and FP div/sqrt availability.
+
+Contract: after an initial reset, each !rst && scheduler.write[i] satisfies
+writeSchedulerData[i].opType != MOP_TYPE_FP. This includes wrong-path writes.
+All write pointers, remaining instruction fields, readiness, flushes, stalls,
+integer divider availability and FP divider availability are arbitrary.
+
+Proved on the unchanged actual Scheduler + SelectLogic, default IQ16:
+  - 16 live-entry invariants: !notIssued[i] || !isFP[i];
+  - 16 FP requests zero, FP grant zero, and both scheduler/recovery FP selected
+    outputs zero (35 assertions total);
+  - reset base and temporal induction PASS, not only bounded checking;
+  - cover reaches simultaneously pending int, complex integer, load and store
+    classes at step 3, retaining multiply/divide and general OoO readiness;
+  - removing the dispatch contract produces an FP request/grant counterexample
+    at step 2, so the domain restriction is essential.
+
+Runnable proof: formal/prove_scheduler_nofp.py.
+Evidence: formal/results/scheduler_nofp/summary.json and logs/VCD.
+Generated candidate: formal/generated_scheduler_nofp/Scheduler.sv; generator
+formal/make_scheduler_nofp_candidate.py checks proof/source hashes. It replaces
+only the FP request expression with FALSE. Capacities, common notIssued state,
+all non-FP classes, selective recovery and all payload banks remain unchanged.
+The 32 FP classification bits become unobserved with debug disabled. Matched
+direct physical mapping reports 128 -> 96 flip-flops and 21735.8464 ->
+15636.2464 square micrometers (28.0624% less cell area) for Scheduler+SelectLogic
+only, not the whole RS or core. Evidence: results/synthesis/
+scheduler_direct_summary.json. This maps pre-AIGER-zinit normalized RTL with the
+same SKY130 HD library and flow; it is a manually generated proof-guided cut,
+not an automatic Pscorr savings claim.
+
+Synthesis boundary: formal/SchedulerObserved.sv exports all functional outputs
+of Scheduler and SelectLogic, including raw invalid pointers, FP requests,
+recovery outputs, selected vectors, dispatch tags and other class requests.
+There are no assumptions or reset/output masks inside this area wrapper.
+Candidate correctness is reset-conditioned, not arbitrary-initial-state.
+
+Completed integration tests: all 14 baseline/candidate pairs (12 diagnostic
+inputs plus CoreMark 10 iterations/2 KB and Dhrystone 500 iterations) have exact
+counters, serial output and four monitored traces. Every actual scheduler write
+excludes FP; FP request/issue/replay/record/issue-pipeline-valid counts are zero.
+The upstream Asm/FP negative baseline completes in 4621 cycles with 45 actual
+FP writes, 161 FP requests and 47 FP issues; the cut has 15 FP writes and no FP
+requests/issues and fails to complete by its 100000-cycle limit. This is an
+expected out-of-domain failure, not a supported workload. Evidence:
+results/fp_scheduler/summary.json (28 positive executions, two negative runs).
+These simulations establish only adherence on the measured runs. They do not
+prove the dispatch contract for all executions of a binary or full-core
+equivalence. A conservative arbitrary-initial-state assumption-only Pscorr run
+cannot silently import these reset-conditioned invariants.
+
+Automatic original-source controls are separately generated with identical
+rst-only masks over all 22 wrapper output ports: baseline, two no-FP actual-write
+assumptions, and those assumptions plus the 16 proved live-entry invariants.
+The original FP request expression is retained in all three. Source/export
+audit passes at results/synthesis/scheduler_import_audit.{txt,json}; constraint
+counts are 0/2/18, with matched 275 inputs, 129 AIG latches and 409 output bits.
+This is reset-conditioned lemma-assisted specialization when the lemmas are
+used, not automatic invariant discovery. Optimization metrics are reported
+separately by the synthesis experiment, not inferred from the direct-area cut.
+
+2. RS payload banks and replay state: SOURCE-AUDITED, NOT YET CUT
+---------------------------------------------------------------
+IssueQueue.sv:131-188 instantiates int/complex/mem/FP payload RAMs. Every bank
+uses port.write, not a class-specific write enable. Thus the FP payload is not
+constant simply because no FP opcode is dispatched. A legitimate cut would
+remove its observation under valid FP issue, rather than assume its raw RAM
+contents zero. Shared IQ capacity and free-list/recovery machinery stay intact.
+
+FPIssueStage.sv:76-119 selects fpReplayData when scheduler.replay is true;
+otherwise it selects raw fpIssuedData. The actual issue event is gated by
+valid, clear and selective flush. pipeReg.valid resets to zero; payload and
+active-list pointers can still propagate with valid false. The scheduler proof
+establishes no new FP selection, but does not instantiate this pipeline or the
+ReplayQueue. ReplayQueue.sv:284-285 records FP valid/data, :596-621 propagates
+the replay valid/data. FPExecutionStage.sv:327-334 records only when a local
+pipeline entry is valid and its operands are invalid.
+
+Required closure: no initial valid FP pipeline/replay entry after reset; no
+new selection; no valid replay record unless a previous FP pipeline entry was
+valid; and each consumer's state-changing enable gates raw invalid payload.
+Prove these on actual pipeline/replay RTL before setting fpIssuedData to zero
+or removing the bank. Observing zero fpIssue alone is insufficient because a
+replay or a stall/flush dependency can still consume the data. Cheap first test:
+whole-core monitors for fpReplayEntry, fpRecordEntry and FP issue pipe.valid,
+then a modular induction through the real valid-bit recurrence. Current
+candidate deliberately does not claim this larger removal.
+
+3. RS wakeup/operand matching and destination broadcast ports
+----------------------------------------------------------
+WakeupLogic.sv:13 defines RSD_WAKEUP_MATRIX_SCHEDULER: the matched core uses
+ProducerMatrix, not the optional SourceCAM implementation. ProducerMatrix.sv
+holds an IQ-by-IQ producer-dependency bit matrix, without a synthesis reset.
+Dispatch constructs a row from nonready operands' producer IQ pointers and
+memory-dependence store bits; wakeup vectors clear columns. Scheduler notIssued
+masks rows that are not live. ReadyBitTable supplies dispatch readiness;
+DestinationRAM supplies destination tags; WakeupPipelineRegister aligns
+class-dependent issue/release latency.
+
+No-FP arithmetic suggests removing the third source-operand readiness/RMT read
+port and its dispatch-row construction logic. The exact required contract is
+each accepted scheduler write has srcRegValidC false (or dispatchedSrcReadyC
+true at ProducerMatrix). It is a separate field obligation from the enum check.
+The matrix merges all operands into the same row, so there is no separate bank
+of third-operand dependency state to count as removed in this configuration.
+Required test: actual ReadyBitTable/ProducerMatrix + scheduler live-mask
+induction with arbitrary other operands and wakeups, then equality of every
+live opReady and selected output. Add a live third-source negative control.
+
+The optional SourceCAM.sv:45-113 instead holds per-entry/per-source ready bits
+and physical tags and compares all wakeup broadcasts. There a third-operand
+cut could remove corresponding CAM state/comparators, but it would be a
+different configuration. CAM reset sets ready FALSE, so a blanket readyC==TRUE
+invariant is false; use a live-entry invariant. Do not attribute this optional
+CAM area to the present matrix-based core.
+FP broadcast removal requires proving the corresponding wakeup-valid event
+never occurs, including replay; do not delete a tag comparator on an invalid
+operand merely because the retired instruction stream lacks that operand.
+
+4. ROB/ActiveList and commit metadata
+-----------------------------------
+ActiveList.sv:49-68 implements the bi-tail pointer/count and admits rename when
+count <= depth - RENAME_WIDTH (D-2 here). :125-142 stores ActiveListEntry metadata
+in banked RAM. SchedulerTypes.sv:85-113 contains PC, destination mapping/history,
+load/store/branch/env/undefined flags and IQ dependency pointers. These fields
+serve commit and rollback even when only a small opcode subset is used.
+
+The synthesis execution-status array is one finished bit per ROB entry;
+the full per-entry ExecutionState array at ActiveList.sv:449-545 is a simulation
+reference under !RSD_SYNTHESIS. A proposal to prune a synthesized wide enum per
+ROB entry would count nonexistent hardware. Actual exception metadata resides
+in one RecoveryRegPath (:175-211), including PC, 32-bit fault address, ROB/LQ/SQ
+pointers, valid and state, with oldest-exception arbitration.
+
+Tractable metadata candidates:
+  a) FFLAGS RAM (one five-bit word per ROB entry): allocated entries are written
+     zero, FP completion writes flags. The RAM is not globally cleared on rst.
+     Under no actual FP completion writes, prove zero only for allocated live
+     entries and observations actually committed. Need allocator/commit/flush
+     invariant and exact same-cycle multiwrite priority; not a blanket reset
+     zero claim. Cheap decisive test: actual ActiveList induction with a live
+     allocation tracker and constrained actual FP write strobes, then compare
+     committed flag output. Removing the FP scheduler request alone has not yet
+     established no FP completion in all downstream stages.
+  b) recoveryReg.faultingDataAddr and exception-only decoding: require actual
+     completion/recovery states never request the corresponding traps, including
+     wrong-path faults that compete for oldest exception. Memory-order refetch,
+     branch misprediction and undefined/env operations need separate treatment.
+     Cheap test: monitors of all enabled ActiveListWriteData.state events,
+     then singleton-state induction. A no-retired-trap trace is insufficient.
+
+Capacity sweeps are a different intervention: ROB64/32/16 with IQ16 and fixed
+PRF/replay sizes. Occupancy/stall/cycle differences are measured behavior, not
+proof that a smaller queue is equivalent or that program instruction count
+bounds in-flight entries. A bounded-lifetime/arrival proof must count actual
+admissions and all removals, including recovery, and preserve admission slack.
+
+5. Renaming, physical registers and bypass
+-----------------------------------------
+RenameLogic.sv:43-79 has separate integer/FP free lists; :156-164 requires both
+to have at least RENAME_WIDTH entries when FP is configured. :171-190 uses the
+isFP register tag to select allocation/release. RMT and RetirementRMT retain
+mapping/history for speculative updates and recovery. PRF capacity reduction
+therefore requires a physical-live-register bound, not merely ROB occupancy.
+
+RegisterFile.sv:109 reads FP data for memory source B when its tag.isFP is set;
+:194 writes the FP file from a memory completion when destination.isFP is set.
+FLW/FSW use MOP_TYPE_MEM. Consequently the proved no-MOP_TYPE_FP dispatch contract
+does NOT justify deleting the FP PRF, FP rename bank, FP free list, memory FP
+ports or isFP tag bit. FP operations can also target integer registers (:128).
+This boundary is now exercised by three FLW/FSW-only inputs (128 iterations,
+seeds 1/7/42, f0 and f31, including NaN/Inf bit patterns): all three independent
+Spike oracles and six full-core baseline/scheduler-cut runs pass, with paired
+cycles 5710/5770/5711 and byte-identical resource, memory, FP-domain and dispatch
+traces. No FP arithmetic dispatch/issue/replay occurs; final f0/f31 bits are
+checked against the input. Evidence: results/fp_memory/summary.json and
+summarize_fp_memory.py. These permitted FP memory operations require the FP PRF
+that the current candidate correctly retains.
+
+Requirements for broader removal: no actual accepted FP source/destination
+register tags, no FP memory write strobes, no later FP replay/writeback events,
+and reset/live-state proofs for all affected mapping and free-list paths.
+
+PRF capacity experiments are also implemented, separately from class removal.
+Coupled integer/FP PRF128 is a pure parameter-growth control. PRF48 requires an
+explicit reset-compatibility RTL change in RegisterFile.sv: after forming each
+narrowed reset destination, suppress addresses >= capacity AND clamp those
+inactive addresses to zero. The XOR/LVT implementation reads write addresses
+even when their WE is false (Primitives/RAM.sv:957), so suppressing WE alone does
+not ensure legal internal reads. Original reset counters/protocol and all
+non-reset logic remain unchanged. At PRF64 the address is six bits and can
+never trigger addr>=64; the identical guard is therefore locally inactive.
+The matched physical-area comparison uses guarded64 versus guarded48, with
+every functional read/write port retained in formal/RegisterFileObserved.sv.
+The completed matched maps report 1864740.934398 -> 1419098.528 square
+micrometers (23.8984% less component cell area), and 15883 -> 11915 flip-flops.
+Both integer and FP banks remain. This is not a whole-core area claim. Evidence:
+results/synthesis/registerfile_direct_summary.json and
+results/synthesis/registerfile_physical_audit.{txt,json}.
+PRF48 is not described as a pure parameter change or equivalence specialization.
+
+Both guarded64 and guarded48 pass 23 architectural cases each: 12 diagnostics,
+two applications, one FP control and eight upstream tests. Four strict runner
+failures remain explicit: the named progress watchdog in CacheFlush/Fence on
+both variants, despite correct final architectural state. Guarded64 has exact
+original64 cycles and resource/memory traces. The PRF128 control adds 23
+architectural passes. Evidence: results/prf_comparison.json; localized source,
+guard and observation audit results/prf_guard/source_boundary_audit.{txt,json}.
+This does not prove a universal 48-register demand bound or equal cycle traces
+for the reduced capacity.
+
+PRegDataPath includes a data-valid bit (BasicTypes.sv:205-209). Data-width/range
+specialization must cover every producing writeback and bypass source together
+with validity; arbitrary invalid operand bits are not architectural values.
+BypassController SelectReg matches physical tags only with enabled stage writes.
+Removing a bypass lane requires its actual write/broadcast event false, not
+merely a restriction on values observed after commit. Cheap test: monitors of
+all allocation/release/read/write/broadcast event tags, then a bank/port miter
+with actual consumer enables. Retain dynamic integer renaming and tag matching.
+
+6. Execution units and pipeline ports
+------------------------------------
+Class-specific units include integer ALU/branch, integer multiply/divide, memory
+address generation and FP arithmetic/div/sqrt. The scheduler proof intentionally
+allows complex integer class, so CoreMark/Dhrystone RV32IM are not excluded by
+the no-FP contract. A no-M extension would need its own actual dispatch-class
+and subtype constraints, including the unified mul/div-memory configuration if
+enabled; it is not covered by the present proof/configuration.
+
+Potential removals are unit state, acquisition/busy paths, writeback/forwarding
+ports and class pipeline registers after a no-valid-operation induction. An
+execution opcode field may remain arbitrary while valid=false. Directly pruning
+an arithmetic result is legitimate only if every consumer masks that result or
+the result is separately proved constant on enabled events. Cheap decisive
+test: unit/pipeline enable monitors plus reset-base/induction for no busy/valid
+state; compare outputs at valid writeback/acquire/bypass boundaries. Negative
+control uses one actual instruction of the forbidden class. A global compile
+flag disabling the pipeline is a different baseline, not an inferred cut.
+
+7. Branch recovery and frontend/predictor
+---------------------------------------
+RecoveryManager controls phase, flush ranges, RMT recovery and IQ index returns;
+ActiveList's oldest-exception mechanism selects recovery points. General OoO
+loops and calls retain branch/recovery capability. No retired misprediction or
+exception does not exclude wrong-path execution, speculative predictor updates,
+or replay-driven recovery. Removing recovery state needs actual no-trigger
+contracts plus absence of pending reset/recovery work, not branch-free source
+code alone.
+
+BranchPredictor selects Gshare. Gshare.sv:109-123 holds history and an update
+queue; :148-156 updates speculative history using BTB conditional-branch hits;
+:187-215 updates counters and recovers history from valid branch results.
+:241-245 initializes PHT entries serially using resetIndex. BTB.sv similarly
+has banked entries plus an update queue. History/counter/index-range candidates
+must restrict actual fetch/lookups and executed updates, including wrong paths
+and reset initialization, and prove pending update queues respect the domain.
+Cheap test: monitor all enabled lookup/update addresses, then per-bank invariant
+and consumer-masked equivalence. Reducing predictor entries or disabling it
+changes cycle behavior even when architectural results remain correct; report
+that separately from semantics-preserving specialization.
+
+8. Memory subsystem, replay and interconnect (existing experiments)
+------------------------------------------------------------------
+The strict disjoint-address LSQ candidate is in formal/LSQRegionProof.sv and
+formal/generated. It constrains every executed load/store, not only valid or
+retired accesses; actual operand-invalid speculative addresses caused measured
+pointer-chase failures. Source-reviewed forwarding/replay effects prohibit
+silently weakening to regValid events. The proof is a block observation result,
+not full-core equivalence. Cache/MSHR occupancy bounds concern actual allocation
+and lifetime; admission thresholds are pre-state predicates, not next-state
+occupancy maxima. MSHR, ReplayQueue and backpressure must be composed before
+using bounded response time to justify capacity reduction.
+
+ReplayQueue mixes int/complex/memory/FP valid bits and payloads in one queue.
+Removing FP fields is separable from reducing its capacity, but requires the
+closed no-FP record/replay invariant in item 2. Memory-stall freedom does not
+exclude integer division replay or operand-validity replay. Interconnect/MMIO
+specialization must constrain accepted request addresses and response events,
+not only software-intended loads/stores; startup and serial output remain part
+of the measured environment.
+
+9. CSR, exception and control state
+----------------------------------
+CSR_Unit.sv supports explicit CSR writes and FFLAGS updates (:157-167), plus
+trap/interrupt state. Absence of FP arithmetic does not imply FFLAGS CSR state
+is zero if software can explicitly write it. External interrupt inputs remain
+environment inputs in the whole-core model. Candidates include unused CSR
+decode/update paths or unreachable exception codes only under actual CSR/trap/
+interrupt event contracts. Cheap test: include startup, interrupt-negative and
+explicit-CSR-write traces, then prove the enabled-update invariant. Do not erase
+reset, timer, serial or exception observations because they are absent from a
+short benchmark's retired trace.
+
+Capacity legality and experiment separation
+------------------------------------------
+IssueQueue free-list PUSH_WIDTH is ISSUE_WIDTH + RETURN_INDEX_WIDTH = 8 in the
+matched configuration (IssueQueue.sv:47-52). Its banked RAM requires entry count
+divisible by eight. IQ4 violates that condition; IQ8 yields a one-entry bank,
+zero-width reset counter and reversed address slice in the present RTL. These
+are unsupported pure parameter settings, not reported performance results.
+The independent legal IQ experiments use IQ16/32/64 with ROB64. Changing these
+primitives to support IQ8/4 would be an additional implementation experiment.
+
+The scheduler proof/candidate is capacity-preserving specialization. ROB/IQ
+sweeps are performance/resource tradeoffs. Direct candidate physical mapping,
+assumption-only Pscorr and lemma-assisted Pscorr require separate labels and
+matched observation/reset domains; they are not interchangeable evidence.

@@ -1,0 +1,55 @@
+{
+  "status": "complete",
+  "scope": "Actual RSD Scheduler+SelectLogic component only; all functional outputs and raw selection pointers retained, IQ16 and all original capacities unchanged. No payload RAM, physical register file, full-FP-unit, or wholecore area claim.",
+  "flow": "Direct normalized RTL before AIGER zinit; Yosys0.33 dfflibmap and ABC-fast with identical SKY130HD library",
+  "contract": "After initial reset every actual scheduler.write lane opType != MOP_TYPE_FP, including wrongpath writes; not inferred from arbitrary binaries",
+  "transformation": "Only FP-request vector tied false, certified by actual original Scheduler+SelectLogic reset base and induction. All other source logic retained.",
+  "proof_manifest": "experiments/rsd_ooo/formal/generated_scheduler_nofp/candidate_manifest.json",
+  "results": [
+    {
+      "status": "complete",
+      "cell_area_um2": 21735.8464,
+      "cells": 3892,
+      "log": "experiments/rsd_ooo/results/synthesis/scheduler_original/direct_map/mapping.log",
+      "area_json": "experiments/rsd_ooo/results/synthesis/scheduler_original/direct_map/area.json",
+      "map_script_sha256": "0defd4cb0010a14bb95724e0cfe50e3e81755d157256e552317adc51d3570cdf",
+      "area_breakdown": {
+        "sequential": {
+          "cells": 128,
+          "cell_area_um2": 2562.4576
+        },
+        "combinational": {
+          "cells": 3764,
+          "cell_area_um2": 19173.3888
+        },
+        "unmapped_types": {}
+      },
+      "variant": "scheduler_original",
+      "source_manifest": "experiments/rsd_ooo/results/synthesis/scheduler_original/manifest.json",
+      "source_manifest_sha256": "6b3aeed03047b1e932027a30559e3c73cba727e7f6a8447d8de64dfb9ad04a44"
+    },
+    {
+      "status": "complete",
+      "cell_area_um2": 15636.2464,
+      "cells": 2791,
+      "log": "experiments/rsd_ooo/results/synthesis/scheduler_nofp_cut/direct_map/mapping.log",
+      "area_json": "experiments/rsd_ooo/results/synthesis/scheduler_nofp_cut/direct_map/area.json",
+      "map_script_sha256": "2942d4d127004356b9f69055ca52da2fc87ef1ed63ac40fe100589bcf88c5278",
+      "area_breakdown": {
+        "sequential": {
+          "cells": 96,
+          "cell_area_um2": 1921.8432000000003
+        },
+        "combinational": {
+          "cells": 2695,
+          "cell_area_um2": 13714.403200000004
+        },
+        "unmapped_types": {}
+      },
+      "variant": "scheduler_nofp_cut",
+      "source_manifest": "experiments/rsd_ooo/results/synthesis/scheduler_nofp_cut/manifest.json",
+      "source_manifest_sha256": "9f596cb0757712953caca45ddbc72ca2dee65e368e6ec99837a4cb7c44509158"
+    }
+  ],
+  "cell_area_reduction_percent": 28.06239926318213
+}

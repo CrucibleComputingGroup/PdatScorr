@@ -1,0 +1,176 @@
+{
+  "status": "passed",
+  "scope": "Source-audited manual entry-transition extraction with unbounded inductive invariants, plus actual RTL picker combinational proof. NOT full-core equivalence and NOT a proof that any binary satisfies the environment contract.",
+  "contract": "After reset, every executeLoad implies 22-bit physical address[21:16]==0; every executeStore implies address[21:16]!=0, including invalid-operand/speculative/replayed/wrong-path operations.",
+  "cut": "Only stored-address addrMatch expressions in LoadQueue and StoreQueue are tied to zero. Preserve the entire LQ same-cycle violation loop and SQ commit path.",
+  "observation_relation": "LQ conflict and conflictLoadPC exact after reset; SQ storeLoadForwarded exact; forwardMiss/data may differ only while forwarding disabled; LSU latched forwarding enable remains zero and masks data.",
+  "source_audit": [
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/LoadQueue.sv",
+      "sha256": "3a4a33e0aa5586aace17b09da68f466d09fbb9914fd744e49b261f2df927d701"
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/StoreQueue.sv",
+      "sha256": "f344b1f219920f59e48eba6bcb809130df060afd47dc6b257bb0c72653167ecf"
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/LoadStoreUnitTypes.sv",
+      "sha256": "321f9a0b9f661b8da3566e4158b9aca635eaba2bad94e9c20f83ff20a5162e8a"
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/LoadStoreUnit/LoadStoreUnit.sv",
+      "sha256": "56cdc0b0e2faa1f87353efa954fc92d64e632a07c61962122be6afac7b38e99d"
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Memory/MemoryMapTypes.sv",
+      "sha256": "8d8b7a38a458d1d6a1252005149404affda46a1d993771ca6bf691f7015b2f88"
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Primitives/Picker.sv",
+      "sha256": "b04be6166d16060583d98983735c232cfb741dfaa3a50b5d6913392d154b60dc"
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/rsd/Processor/Src/Pipeline/MemoryBackEnd/MemoryTagAccessStage.sv",
+      "sha256": "a7e7ccce55fe9a4671c2371693c31ab507ee16323ea25310e824604d9f8ac049"
+    }
+  ],
+  "z3_version": "5.1.0",
+  "picker_translation": "Extract CircularRangePicker and its two shifter modules verbatim, then repeat inherited ANSI input/output port directions for Yosys 0.33 compatibility; no body changes.",
+  "obligations": [
+    {
+      "name": "lq_reset_base",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.00038270000368356705
+    },
+    {
+      "name": "sq_reset_base",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.00014895107597112656
+    },
+    {
+      "name": "lq_inductive_step",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.0013823602348566055
+    },
+    {
+      "name": "sq_inductive_step",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.0007557012140750885
+    },
+    {
+      "name": "lq_stored_match_zero_for_executed_store",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.0002921503037214279
+    },
+    {
+      "name": "sq_stored_match_zero_for_executed_load",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.00024303002282977104
+    },
+    {
+      "name": "same_cycle_match_zero_when_both_execute",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.0004936102777719498
+    },
+    {
+      "name": "lq_historical_cut_observable_equality",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.0009781909175217152
+    },
+    {
+      "name": "sq_forwarding_enable_zero",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.0002988697960972786
+    },
+    {
+      "name": "sq_miss_consumer_mask",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.00022864015772938728
+    },
+    {
+      "name": "lsu_forward_flag_reset_base",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 8.911965414881706e-05
+    },
+    {
+      "name": "lsu_forward_flag_inductive_step",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.00023971963673830032
+    },
+    {
+      "name": "lsu_forward_data_consumer_mask",
+      "result": "unsat",
+      "expected": "unsat",
+      "seconds": 0.00020943023264408112
+    },
+    {
+      "name": "negative_without_store_contract",
+      "result": "sat",
+      "expected": "sat",
+      "seconds": 0.0005056699737906456,
+      "witness": "[executed_store_phy_addr = 0,\n l_reg_valid = True,\n rst = False,\n l_finished = True,\n exec_s = True,\n l_stored_block_addr = 0,\n word_overlap = True]"
+    },
+    {
+      "name": "negative_without_load_contract",
+      "result": "sat",
+      "expected": "sat",
+      "seconds": 0.0004839319735765457,
+      "witness": "[executed_load_phy_addr = 4128768,\n byte_overlap = True,\n rst = False,\n legal_memory = True,\n exec_l = True,\n s_stored_block_addr = 1032192,\n s_finished = True,\n word_overlap = True]"
+    },
+    {
+      "name": "contract_nonvacuity",
+      "result": "sat",
+      "expected": "sat",
+      "seconds": 0.0002674502320587635,
+      "witness": "[executed_store_phy_addr = 65536,\n rst = False,\n executed_load_phy_addr = 4096,\n exec_l = True,\n exec_s = True,\n alloc_s = True,\n alloc_l = True]"
+    },
+    {
+      "name": "negative_valid_store_only_contract",
+      "result": "sat",
+      "expected": "sat",
+      "seconds": 0.0002345200628042221,
+      "witness": "[byte_overlap = True,\n s_stored_block_addr = 1024,\n s_finished = True,\n legal_memory = True,\n exec_l = True,\n stored_store_reg_valid = False,\n executed_load_phy_addr = 4096,\n word_overlap = True]"
+    },
+    {
+      "name": "negative_valid_load_only_contract",
+      "result": "sat",
+      "expected": "sat",
+      "seconds": 0.00022867973893880844,
+      "witness": "[byte_overlap = True,\n s_stored_block_addr = 16384,\n s_finished = True,\n legal_memory = True,\n exec_l = True,\n executed_load_phy_addr = 65536,\n word_overlap = True,\n load_operand_valid = False]"
+    },
+    {
+      "name": "negative_peak_occupancy_sizing",
+      "result": "sat",
+      "expected": "sat",
+      "seconds": 0.0007454701699316502,
+      "witness": "[occupancy = 6, releases = 0, allocations = 1]"
+    },
+    {
+      "name": "actual_rtl_picker_zero_requests",
+      "result": "proved",
+      "command": [
+        "yosys",
+        "-p",
+        "read_verilog -formal -sv /home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/formal/results/actual_circular_picker.sv; prep -top picker_contract -flatten; sat -verify -prove-asserts -show-inputs"
+      ]
+    }
+  ],
+  "limitations": [
+    "Manual transition extraction is source-reviewed, not a mechanically verified translation of complete LSQ RTL.",
+    "Arbitrary per-entry hit/allocation predicates overapproximate recovery and pointer sequences; queue capacity and ordering logic are unmodified.",
+    "Proof begins with reset; pre-reset arbitrary internal values are outside its scope.",
+    "Application/environment adherence requires separate checking; successful example simulations are not an all-input proof."
+  ]
+}

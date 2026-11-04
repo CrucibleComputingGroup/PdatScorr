@@ -1,0 +1,52 @@
+{
+  "scope": "RegisterFile component capacity/performance control, not Pscorr or same-capacity pruning; every functional read/write port retained",
+  "flow": "Matched guarded64/48 source snapshots; direct pre-zinit RTL; same Yosys0.33/ABC-fast/SKY130 flow",
+  "capacity": "INT and FP banks each change64\u219248 entries; identical explicit reset guard in both snapshots",
+  "observation": "299 nominal input bits including clock/reset,429 raw output bits across every functional read/write port; no assumptions or masks",
+  "initialization": "Direct normalized RTL, no AIGER-zinit initialization model",
+  "guard64": {
+    "status": "complete",
+    "cell_area_um2": 1864740.934398,
+    "cells": 332714,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/registerfile_guard64/direct_map/mapping.log",
+    "area_json": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/registerfile_guard64/direct_map/area.json",
+    "map_script_sha256": "c173c07a93e9cf7fe69afac8c2f2f25d36d0336d1db1beefe1233a58f88414b2",
+    "area_breakdown": {
+      "sequential": {
+        "cells": 15883,
+        "cell_area_um2": 317964.9536
+      },
+      "combinational": {
+        "cells": 316831,
+        "cell_area_um2": 1546775.9808000003
+      },
+      "unmapped_types": {}
+    }
+  },
+  "guard48": {
+    "status": "complete",
+    "cell_area_um2": 1419098.528,
+    "cells": 242409,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/registerfile_guard48/direct_map/mapping.log",
+    "area_json": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/registerfile_guard48/direct_map/area.json",
+    "map_script_sha256": "36b3672e13eaf03921b7a68a9935ba683b6aa75dc5955b8d849bfb18721eef0d",
+    "area_breakdown": {
+      "sequential": {
+        "cells": 11915,
+        "cell_area_um2": 238528.768
+      },
+      "combinational": {
+        "cells": 230494,
+        "cell_area_um2": 1180569.7600000002
+      },
+      "unmapped_types": {}
+    }
+  },
+  "source_boundary_audit": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/prf_guard/source_boundary_audit.json",
+  "physical_mapping_audit": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/registerfile_physical_audit.json",
+  "source_manifests": {
+    "guard64": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/registerfile_guard64/manifest.json",
+    "guard48": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/registerfile_guard48/manifest.json"
+  },
+  "reduction_percent": 23.89835489624558
+}

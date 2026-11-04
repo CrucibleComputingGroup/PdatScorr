@@ -1,0 +1,51 @@
+{
+  "status": "validated",
+  "scope": "Three FP-memory-only input pairs plus independent Spike. FLW/FSW use the retained FP register file but dispatch as memory operations; the Scheduler cut excludes FP arithmetic requests, not all FP-register activity. Finite observations, not all-input adherence or whole-core equivalence.",
+  "rows": [
+    {
+      "name": "fp_memory_only_s1_n128",
+      "cycles": 5710,
+      "signature": "signature=c1685386",
+      "exact_traces": {
+        "resource.csv": true,
+        "memory_events.csv": true,
+        "fp_domain.csv": true,
+        "dispatch_events.csv": true
+      },
+      "no_fp_arithmetic_dispatch": true,
+      "final_f0": "0488b481",
+      "final_f31": "40ea6901",
+      "source_result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_memory/baseline/fp_memory_only_s1_n128/result.json"
+    },
+    {
+      "name": "fp_memory_only_s7_n128",
+      "cycles": 5770,
+      "signature": "signature=f6afd4b6",
+      "exact_traces": {
+        "resource.csv": true,
+        "memory_events.csv": true,
+        "fp_domain.csv": true,
+        "dispatch_events.csv": true
+      },
+      "no_fp_arithmetic_dispatch": true,
+      "final_f0": "3d040087",
+      "final_f31": "b6f90107",
+      "source_result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_memory/baseline/fp_memory_only_s7_n128/result.json"
+    },
+    {
+      "name": "fp_memory_only_s42_n128",
+      "cycles": 5711,
+      "signature": "signature=5826464e",
+      "exact_traces": {
+        "resource.csv": true,
+        "memory_events.csv": true,
+        "fp_domain.csv": true,
+        "dispatch_events.csv": true
+      },
+      "no_fp_arithmetic_dispatch": true,
+      "final_f0": "067de6aa",
+      "final_f31": "3cf8cd2a",
+      "source_result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_memory/baseline/fp_memory_only_s42_n128/result.json"
+    }
+  ]
+}

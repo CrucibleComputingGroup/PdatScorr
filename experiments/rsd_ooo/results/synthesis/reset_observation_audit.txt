@@ -1,0 +1,53 @@
+Reset-masked component observation audit, 2026-11-04
+
+Source/boundary result: PASS. Machine checks: reset_observation_audit.json.
+Audited variants: lsq_original_reset_observed,
+lsq_region_assume_reset_observed, lsq_region_lemmas_reset_observed.
+
+Each wrapper applies an identical final if(rst) branch that drives all
+18 output ports, totaling 144 bits, to zero. Removing that branch and,
+where applicable, the two executed-region assumptions reproduces the
+original LSQObserved wrapper exactly. The mask changes only observation
+outputs; it does not gate queue inputs, change any state transition, or
+replace the queue reset signal. No permanent assume(!rst), initial-reset
+assumption, or discarded reset transition was found. Source and wrapper
+hashes match the manifests. The lemma variant uses the previously audited
+original queue sources with appended proved invariants, not manual cuts.
+
+The event-only wrapper has the same strict predicates as before:
+  !rst && execute_load  -> load_address[21:16] == 0
+  !rst && execute_store -> store_address[21:16] != 0
+The lemma wrapper is byte-identical at the boundary; its extra 32 assumptions
+remain in the queue modules under !port.rst. Expected export constraint
+counts are 0 / 2 / 34. This audit checks the source boundary and composition,
+not completion or quantitative results of these newly running optimizations.
+
+Interpretation:
+This is a controlled component experiment under the observation relation
+"compare queue outputs only when rst is low." It is not equivalent to the
+original unmasked observation relation across every cycle. For example,
+after reset establishes empty queues, their unmasked allocatable flags are
+true, whereas the new wrapper forces those flags to zero while rst is high.
+The matched baseline makes comparisons within the new boundary meaningful;
+it does not establish that a full-core consumer ignores every such output
+during reset. Any later integration claim would need that consumer argument.
+
+The lemma proof composition remains reset-conditioned: actual original-RTL
+base and induction establish the imported finished-entry facts following
+initial reset under strict executed-region assumptions. Reset output
+masking neither supplies that base condition nor turns the lemma-assisted
+model into an arbitrary-initial-state equivalence result. Repeated reset
+transitions are still present in all three variants.
+
+Retain distinct metric denominators and scopes:
+- The previous unmasked observation experiment completed with identical
+  17,849 ANDs and 1,707 AIG latches for event assumptions alone and for
+  event assumptions plus lemmas. This is zero incremental structural
+  improvement in that experiment, not evidence that all optimization
+  approaches or observation boundaries must have zero improvement.
+- The new reset-masked experiment must use its own matched baseline.
+- The 53.0% direct RTL component cell-area result uses the original wrapper,
+  a manual comparator cut, and no auxiliary AIG initialization encoding.
+  It must not be pooled with either AIG experiment or used as its baseline.
+
+No concrete reset-mask source error or composition contradiction was found.

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "baseline": "base_core_final",
+  "scope": "Exact same source/config/defines other than intended assumption and/or LQ/SQ replacements; common fetch compatibility in all variants",
+  "variants": {
+    "isa_core_final": {
+      "differences": [
+        "Pipeline/PreDecodeStage.sv"
+      ],
+      "manifest_sha256": "47d202e61e1586835f8370e3eb6e167d1f811e5e40ed845d34327631775d2f18"
+    },
+    "nonalias_core_final": {
+      "differences": [
+        "LoadStoreUnit/LoadQueue.sv",
+        "LoadStoreUnit/StoreQueue.sv"
+      ],
+      "manifest_sha256": "5e81678edb46cf90b53fb934872b815143d3ae46e59014d918144c6621248ca6"
+    },
+    "isa_nonalias_core_final": {
+      "differences": [
+        "Pipeline/PreDecodeStage.sv",
+        "LoadStoreUnit/LoadQueue.sv",
+        "LoadStoreUnit/StoreQueue.sv"
+      ],
+      "manifest_sha256": "d401534266d179e4ce1817892783e8ec7aa92710e017f2400f48f70fcc6336d4"
+    }
+  }
+}

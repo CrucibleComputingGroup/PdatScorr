@@ -1,0 +1,25 @@
+PASS: paired guarded RegisterFile physical-area audit
+
+Guarded64/64 and48/48 share byte-identical RegisterFile RTL and observation
+wrapper, the same macro definitions with FP and separate complex pipelines
+enabled, and identical normalization/mapping scripts except variant paths.
+The only configuration changes are the two coupled PRF capacities. All source,
+BasicMacros, simulation-manifest, wrapper and normalized-RTL hashes verify.
+All299 input bits and429 output bits match, retaining13 raw33-bit read operands
+and all INT/complex/memory/FP write lanes, tagged physical indices, validity and
+reset signals. There are no masks, assumptions or forced address ranges in
+the wrapper. No AIGER zinit step or memory macro is mapped.
+
+Both maps complete successfully and contain only SKY130HD cells under the
+same Liberty and ABC-fast flow. Raw areaJSON matches direct-map manifests:
+1864740.934398 ->1419098.528 um^2,332714 ->242409 cells,15883 ->11915 FFs.
+Reduction is23.8983548962%, correctly rounded23.9%, using guarded64 area as
+the denominator. Physical storage retains both integer and FP banks.
+
+The localized guard audit establishes that the shared reset guard is inactive
+at64 entries. At48 it suppresses out-of-range reset writes and clamps inactive
+addresses for XOR/LVT internal reads. This is explicit compatibility RTL plus
+capacity resizing, not same-capacity Pscorr pruning or unrestricted-address
+equivalence. The result is RegisterFile component area, not whole-core area,
+and accompanies the separately measured application cycle costs. No timing
+or SRAM-macro/post-layout claim is established.

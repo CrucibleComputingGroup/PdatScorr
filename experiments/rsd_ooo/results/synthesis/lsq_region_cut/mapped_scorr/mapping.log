@@ -1,0 +1,429 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/map.ys' --
+
+1. Executing AIGER frontend.
+<suppressed ~940 debug messages>
+Removed 0 unused cells and 2137 unused wires.
+
+2. Executing FLATTEN pass (flatten design).
+
+3. Executing OPT pass (performing simple optimizations).
+
+3.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module /home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig.
+<suppressed ~1 debug messages>
+
+3.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Computing hashes of 17630 cells of `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Finding duplicate cells in `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Removed a total of 0 cells.
+
+3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig.
+Performed a total of 0 changes.
+
+3.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Computing hashes of 17630 cells of `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Finding duplicate cells in `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Removed a total of 0 cells.
+
+3.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+
+3.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module /home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig.
+
+3.9. Finished fast OPT passes. (There is nothing left to do.)
+
+4. Executing MEMORY pass.
+
+4.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+4.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+4.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+4.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+4.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+4.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+
+4.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+4.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+4.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+
+4.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.11. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+
+6. Executing FSM pass (extract and optimize FSM).
+
+6.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+
+6.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module /home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig.
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Computing hashes of 17630 cells of `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Finding duplicate cells in `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Removed a total of 0 cells.
+
+7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig.
+Performed a total of 0 changes.
+
+7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Computing hashes of 17630 cells of `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Finding duplicate cells in `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Removed a total of 0 cells.
+
+7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+
+7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module /home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig.
+
+7.9. Finished fast OPT passes. (There is nothing left to do.)
+
+8. Executing TECHMAP pass (map to technology primitives).
+
+8.1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+8.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $dff.
+No more expansions possible.
+<suppressed ~1016 debug messages>
+
+9. Executing OPT pass (performing simple optimizations).
+
+9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module /home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig.
+
+9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Computing hashes of 17630 cells of `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Finding duplicate cells in `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Removed a total of 0 cells.
+
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig.
+Performed a total of 0 changes.
+
+9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Computing hashes of 17630 cells of `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Finding duplicate cells in `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig'.
+Removed a total of 0 cells.
+
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig..
+
+9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module /home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig.
+
+9.9. Finished fast OPT passes. (There is nothing left to do.)
+
+10. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+10.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/synthesis/lsq_region_cut/mapped_scorr/mapped_input.aig':
+  mapped 939 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+11. Executing ABC pass (technology mapping using ABC).
+
+Syntax error in command `abc -liberty /opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib -fast':
+
+    abc [options] [selection]
+
+This pass uses the ABC tool [1] for technology mapping of yosys's internal gate
+library to a target architecture.
+
+    -exe <command>
+        use the specified command instead of "<yosys-bindir>/yosys-abc" to execute ABC.
+        This can e.g. be used to call a specific version of ABC or a wrapper.
+
+    -script <file>
+        use the specified ABC script file instead of the default script.
+
+        if <file> starts with a plus sign (+), then the rest of the filename
+        string is interpreted as the command string to be passed to ABC. The
+        leading plus sign is removed and all commas (,) in the string are
+        replaced with blanks before the string is passed to ABC.
+
+        if no -script parameter is given, the following scripts are used:
+
+        for -liberty/-genlib without -constr:
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               &get -n; &dch -f; &nf {D}; &put
+
+        for -liberty/-genlib with -constr:
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               &get -n; &dch -f; &nf {D}; &put; buffer; upsize {D};
+               dnsize {D}; stime -p
+
+        for -lut/-luts (only one LUT size):
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               dch -f; if; mfs2; lutpack -S 1
+
+        for -lut/-luts (different LUT sizes):
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               dch -f; if; mfs2
+
+        otherwise:
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               &get -n; &dch -f; &nf {D}; &put
+
+    -liberty <file>
+        generate netlists for the specified cell library (using the liberty
+        file format).
+
+    -dont_use <cell_name>
+        avoid usage of the technology cell <cell_name> when mapping the design.
+        this option can be used multiple times with different cell names and
+        supports simple glob patterns in the cell name.
+        only supported with Liberty cell libraries.
+
+    -genlib <file>
+        generate netlists for the specified cell library (using the SIS Genlib
+        file format).
+
+    -constr <file>
+        pass this file with timing constraints to ABC.
+        use with -liberty/-genlib.
+
+        a constr file contains two lines:
+            set_driving_cell <cell_name>
+            set_load <floating_point_number>
+
+        the set_driving_cell statement defines which cell type is assumed to
+        drive the primary inputs and the set_load statement sets the load in
+        femtofarads for each primary output.
+
+    -D <picoseconds>
+        set delay target. the string {D} in the default scripts above is
+        replaced by this option when used, and an empty string otherwise.
+        this also replaces 'dretime' with 'dretime; retime -o {D}' in the
+        default scripts above.
+
+    -lut <width>
+        generate netlist using luts of (max) the specified width.
+
+    -lut <w1>:<w2>
+        generate netlist using luts of (max) the specified width <w2>. All
+        luts with width <= <w1> have constant cost. for luts larger than <w1>
+        the area cost doubles with each additional input bit. the delay cost
+        is still constant for all lut widths.
+
+    -luts <cost1>,<cost2>,<cost3>,<sizeN>:<cost4-N>,..
+        generate netlist using luts. Use the specified costs for luts with 1,
+        2, 3, .. inputs.
+
+    -g type1,type2,...
+        Map to the specified list of gate types. Supported gates types are:
+           AND, NAND, OR, NOR, XOR, XNOR, ANDNOT, ORNOT, MUX,
+           NMUX, AOI3, OAI3, AOI4, OAI4.
+        (The NOT gate is always added to this list automatically.)
+
+        The following aliases can be used to reference common sets of gate
+        types:
+          simple: AND OR XOR MUX
+          cmos2:  NAND NOR
+          cmos3:  NAND NOR AOI3 OAI3
+          cmos4:  NAND NOR AOI3 OAI3 AOI4 OAI4
+          cmos:   NAND NORERROR: Command syntax error: Unknown option or option in arguments.
+> abc -liberty /opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib -fast
+>                                                                                                              ^
+ AOI3 OAI3 AOI4 OAI4 NMUX MUX XOR XNOR
+          gates:  AND NAND OR NOR XOR XNOR ANDNOT ORNOT
+          aig:    AND NAND OR NOR ANDNOT ORNOT
+
+        The alias 'all' represent the full set of all gate types.
+
+        Prefix a gate type with a '-' to remove it from the list. For example
+        the arguments 'AND,OR,XOR' and 'simple,-MUX' are equivalent.
+
+        The default is 'all,-NMUX,-AOI3,-OAI3,-AOI4,-OAI4'.
+
+    -dff
+        also pass $_DFF_?_ and $_DFFE_??_ cells through ABC. modules with many
+        clock domains are automatically partitioned in clock domains and each
+        domain is passed through ABC independently.
+
+    -clk [!]<clock-signal-name>[,[!]<enable-signal-name>]
+        use only the specified clock domain. this is like -dff, but only FF
+        cells that belong to the specified clock domain are used.
+
+    -keepff
+        set the "keep" attribute on flip-flop output wires. (and thus preserve
+        them, for example for equivalence checking.)
+
+    -nocleanup
+        when this option is used, the temporary files created by this pass
+        are not removed. this is useful for debugging.
+
+    -showtmp
+        print the temp dir name in log. usually this is suppressed so that the
+        command output is identical across runs.
+
+    -markgroups
+        set a 'abcgroup' attribute on all objects created by ABC. The value of
+        this attribute is a unique integer for each ABC process started. This
+        is useful for debugging the partitioning of clock domains.
+
+    -dress
+        run the 'dress' command after all other ABC commands. This aims to
+        preserve naming by an equivalence check between the original and
+        post-ABC netlists (experimental).
+
+    -liberty_args <string>
+        when -liberty is used, also pass the specified arguments to ABC
+        command "read_lib". Example: -liberty_args "-G 250"
+
+When no target cell library is specified the Yosys standard cell library is
+loaded into ABC before the ABC script is executed.
+
+Note that this is a logic optimization pass within Yosys that is calling ABC
+internally. This is not going to "run ABC on your design". It will instead run
+ABC on logic snippets extracted from your design. You will not get any useful
+output when passing an ABC script that writes a file. Instead write your full
+design as BLIF file with write_blif and then load that into ABC externally if
+you want to use ABC to convert your design into another format.
+
+[1] http://www.eecs.berkeley.edu/~alanmi/abc/
+

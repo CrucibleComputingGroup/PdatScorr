@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "checks": {
+    "source_set_identical": true,
+    "only_three_proved_source_cuts": true,
+    "LoadStoreUnit/LoadQueue.sv_exact_candidate": true,
+    "LoadStoreUnit/StoreQueue.sv_exact_candidate": true,
+    "Scheduler/Scheduler.sv_exact_candidate": true,
+    "all_prepared_source_hashes": true,
+    "all_mapped_source_hashes": true,
+    "matched_defines": true,
+    "FP_enabled": true,
+    "matched_config": true,
+    "entire_MicroArchConf_identical": true,
+    "Core_RTL_identical_no_new_assumptions": true,
+    "same_library_and_ABC": true,
+    "actual_library_ABC_hashes": true,
+    "proof_manifest_bindings": true,
+    "source_manifest_binding": true,
+    "map_script_binding": true,
+    "same_map_script": true,
+    "no_AIGER_zinit_export": true,
+    "area_matches_raw": true,
+    "mapping_completed": true
+  },
+  "changed_source_files": [
+    "LoadStoreUnit/LoadQueue.sv",
+    "LoadStoreUnit/StoreQueue.sv",
+    "Scheduler/Scheduler.sv"
+  ],
+  "baseline_area_um2": 9996011.967981,
+  "combined_area_um2": 9610673.647983,
+  "raw_stat_area_um2": 9610673.648227,
+  "reduction_percent": 3.854920554640262,
+  "combined_cells": 1586548,
+  "combined_FFs": 164360,
+  "candidate_proofs_sha256": "3868c8c5cfc60abe441dc94e9995bf5fa49c9b0e290a658bb615ee2fb4b088f3",
+  "mapped_manifest_sha256": "fd15e61fd6d5322174c5bf7b42d54c6dcebe5467da878e02d9ac95fc3b98d3bd",
+  "scope": "Matched physical whole-core manual combined cuts; no capacity change, FP compile flag remains enabled, no wholecore proof",
+  "causal_limit": "Larger saving than isolated Scheduler wrapper is consistent with cross-boundary propagation, but affected-cone attribution is an inference until netlist cones are traced."
+}

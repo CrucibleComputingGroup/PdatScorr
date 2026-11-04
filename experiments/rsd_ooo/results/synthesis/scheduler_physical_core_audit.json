@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "checks": {
+    "same_source_set": true,
+    "exactly_one_source_change": true,
+    "scheduler_equals_proved_candidate": true,
+    "all_prepared_source_hashes": true,
+    "all_mapping_source_hashes": true,
+    "matched_defines": true,
+    "FP_enabled": true,
+    "matched_MicroArchConf": true,
+    "matched_Core_no_region_assumptions": true,
+    "matched_queues_original": true,
+    "matched_map_script": true,
+    "mapped_source_manifest_hash": true,
+    "map_script_hash": true,
+    "matched_ABC_Liberty": true,
+    "actual_ABC_Liberty_hash": true,
+    "no_zinit_export": true,
+    "mapping_completed": true,
+    "raw_area_count_matches": true,
+    "all_cells_mapped": true,
+    "no_macro_memories": true,
+    "exact_one_component_proof_binding": true,
+    "no_source_changes_during_mapping": true
+  },
+  "source_differences": [
+    "Scheduler/Scheduler.sv"
+  ],
+  "scope": "Scheduler-only exact proved source request cut; no region contract or queue cut; matched full Core area flow",
+  "prepared_manifest_sha256": "42a987a83ba57847a5989e59f5dbde07bcf7e65bf0c0ebd505d61001d7e0a1a6",
+  "proof_candidate_manifest_sha256": "1415fad9737438118b9b13ef245c729d6d0563f1023b115301f50462aa8edfd0",
+  "baseline_area_um2": 9996011.967981,
+  "scheduler_only_area_um2": 9659860.822383,
+  "raw_stat_area_um2": 9659860.822631,
+  "reduction_percent": 3.3628525723533698,
+  "cells": 1594087,
+  "flip_flops": 165179,
+  "final_mapping_manifest_sha256": "10f49465c85cffe2749b35d61a9634b465fba0646c2713dcd15d5a92d791c6d3",
+  "candidate_proofs_sha256": "eff7dca399b2c309cd567b05f37f275abf6eafb0770f2a3cc0126eb049d99d26",
+  "causal_limit": "Additional savings beyond isolated Scheduler/SelectLogic are measured at the wholecore boundary; identifying specific removed downstream cones remains inference, not established attribution."
+}

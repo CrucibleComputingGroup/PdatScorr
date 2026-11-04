@@ -1,0 +1,44 @@
+{
+  "supported_controls": {
+    "rob": [
+      64,
+      32,
+      16
+    ],
+    "iq": [
+      16,
+      32,
+      64
+    ]
+  },
+  "fixed": {
+    "lq": 16,
+    "sq": 16,
+    "mshr": 2,
+    "int_prf": 64,
+    "fp_prf": 64,
+    "replay": 20,
+    "issue_width": 6,
+    "rename_width": 2
+  },
+  "iq_dependencies": {
+    "free_list_push_ports": "ISSUE_WIDTH6+RETURN_INDEX_WIDTH2=8",
+    "banks": 8,
+    "iq4": "fails ENTRY_NUM % BANK_NUM ==0",
+    "iq8": "BANK_INDEX_BIT_SIZE=0; reversed [2:3] slice; ISSUE_QUEUE_RESET_CYCLE=1 so $clog2=0",
+    "policy": "No primitive fixes or co-varying execution ports; use16/32/64 growth control"
+  },
+  "admission": {
+    "rob": "count <= ROB_DEPTH-RENAME_WIDTH = D-2",
+    "iq": "!freeListReset && freeListCount >= RENAME_WIDTH2",
+    "lsq": "count <= DEPTH-RENAME_WIDTH-1 = D-3"
+  },
+  "source_hashes": {
+    "MicroArchConf.sv": "f5c391ef82882d748c63d14b6c771fce7f6c43492b61777825146fa833db8454",
+    "Scheduler/SchedulerTypes.sv": "6b9cbbd313d9c401c1319b994020a3c1477877ba86688c220af6a9716eb285dc",
+    "Scheduler/IssueQueue.sv": "0ddb832bd44aab5b3e996ac8d47e16764bfaaa1d002adf01f7a6376a049fac60",
+    "Primitives/FreeList.sv": "2d0386399e4bb0b60281ae37bd298c718eb5851550fae91dfd70fbc1e04de9ed",
+    "Primitives/RAM.sv": "0138e7455e61ce1e21f089e82213369ecfaf620aae37a603879a9175438205a1",
+    "RenameLogic/ActiveList.sv": "56442bc3a398df0bd321f014f8f0d89089a3de4c6aecb07a55ba2883bb0e0551"
+  }
+}

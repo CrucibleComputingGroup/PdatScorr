@@ -1,0 +1,237 @@
+1) IMPORTANT CHANGES (must fix before submission)
+
+No outstanding must-fix issue remains in the current reviewed text.
+
+I1: RESOLVED, whole-core automatic-correspondence limitation added.
+- Location: RSD subsection, "Guiding automatic correspondence" and "Physical
+  hardware cost"; abstract, "locally proved invariants guide automatic pruning".
+- Category: Consistency.
+- Issue: The automatic successes reported here are component-level. The
+  separately completed whole-core result maps manually generated cuts, while
+  a recorded whole-core baseline correspondence run exceeded its one-hour
+  budget. Omitting that known limit makes the new out-of-order extension look
+  broader in scalability than its completed automatic evidence establishes.
+- Fix: Add: "Whole-core sequential correspondence did not complete in the
+  recorded one-hour baseline run. The automatic results here are component-level;
+  whole-core areas are obtained by mapping the manually generated cuts."
+  If a later full-core run completes, replace this with its actual measured
+  status/runtime and preserve the distinction between automatic and manual
+  results. Optionally make the abstract say "automatic component pruning".
+- Rationale: The paper's scalability contribution requires a transparent account
+  of the large-core automatic experiment, separately from successful synthesis.
+- Confidence: High.
+- Status: RESOLVED. The current RSD subsection reports the one-hour limits
+  for baseline, ISA-constrained, queue-cut and ISA/queue-cut correspondence,
+  plus executed-region and prebalanced controls. Each cited case has a recorded
+  timeout in whole_core_summary.json. It distinguishes arbitrary-initial-state
+  controls from reset-reachable local proofs and automatic component results
+  from manually generated whole-core source cuts. The abstract now explicitly
+  says "automatic component pruning". The final prebalanced lemma-assisted
+  whole-core attempt is now explicitly reported as timing out; its raw result
+  records 3600.165401622 seconds and no accepted optimized result.
+
+No additional supported numerical or proof-scope must-fix issue was found in
+this expanded RSD text. Review date: 2026-11-04. Scope: rsd_case_study.tex, its
+new abstract/introduction/conclusion sentences, automatic/manual component
+results, completed whole-core original/queue-cut/combined-cut physical maps, scheduler and
+LSQ proofs, 17 scheduler-domain pairs, six combined-cut pairs, and the capacity
+table. Source hashes reviewed are recorded in paper_review_evidence.json.
+
+Resolved earlier: the LSQ cover now explicitly requires both queue counts >0;
+base and temporal induction still pass, and the strengthened cover is reached.
+Forwarded-data AND miss-status masking are now both correctly described.
+
+Review limits: no independent full-core equivalence certification, no new audit
+of all pre-existing Ibex/Rocket results. All four completed whole-core physical
+variants and the guarded PRF component pair are now independently audited.
+The final lemma-assisted whole-core correspondence timeout has also been
+verified against its raw result and AIG input hash. All reported experiments
+are now concluded; no result is pending this review. The completed combined-cut
+area was independently audited below. Rendered RSD pages 7–8 had no overlap
+or clipping beyond the automatic-table width issue; the current build log
+confirms that width warning is now gone;
+no user page limit was supplied, so ten pages alone is not a defect. No paper
+or bibliography edits were made by this review.
+
+2) SUGGESTED CHANGES (polish / clarity / strength)
+
+S1
+- Location: RSD opening, "64 integer and 64 FP physical registers".
+- Category: Consistency.
+- Issue: FP is used repeatedly without a first-use expansion in the searched
+  manuscript text. The physical-register banks and FP execution class are
+  intentionally distinct, so an explicit expansion helps the new discussion.
+- Fix: Use "64 integer and 64 floating-point (FP) physical registers".
+- Rationale: Defines the key term without changing the carefully limited claim.
+- Confidence: High.
+- Status: RESOLVED in the current source; floating-point (FP) is expanded.
+
+S2
+- Location: Automatic component table, row "Accepted-event contract".
+- Category: Consistency.
+- Issue: The LSQ premise is an all-executed-event restriction, including invalid
+  operands and replay; it is not gated by a separate acceptance handshake. The
+  prose is correct, but the compact table label introduces avoidable ambiguity.
+- Fix: Change the row to "Execution/dispatch contract" or "Event contract".
+- Rationale: Keeps the summary table aligned with the precise hardware events.
+- Confidence: High.
+- Status: RESOLVED in the current source; Execution/dispatch contract and shorter headers are present.
+
+3) CONSISTENCY REPORT (table)
+
+| Term/Acronym | First definition location | Inconsistent variants found (if any) | Recommended canonical form | Missing definition? |
+| --- | --- | --- | --- | --- |
+| ROB | RSD opening, reorder buffer (ROB) | None | ROB | No |
+| IQ | RSD opening, issue queue (IQ) | None | IQ | No |
+| FP | RSD opening, floating-point (FP) physical-register counts | Resolved | floating-point (FP) | No |
+| Reservation station | RSD opening maps functionality to IQ, typed payload banks, producer matrix and selector | No incorrect SourceCAM attribution | reservation-station functionality | No |
+| MSHR | RSD opening, miss-status holding registers | None | MSHR | No |
+| AIG | Main method, glossary-backed And-Inverter Graph | Counts explicitly separated from cell area | AIG AND-node/latch count | No |
+| LSQ | RSD related-work paragraph, load/store queues | LQ/SQ shorthand in capacity table is inferable from opening load/store names | load/store queues; LQ/SQ for paired capacities | No |
+| FP execution class | Scheduler classification paragraph | Correctly distinguished from FLW/FSW and FP-register activity | FP arithmetic execution class / MOP_TYPE_FP | No |
+| Actual event contract | Scheduler and historical-memory paragraphs | Table label repaired | execution/dispatch contract | No |
+| Initial state | Automatic-correspondence paragraph | Controls arbitrary; imported invariants reset-reachable | preserve this distinction | No |
+| Manual cut versus automatic result | Historical dependence, automatic correspondence, physical cost | Properly separated; whole-core timeouts now disclosed | manual proof-guided cut / lemma-assisted automatic component result | No |
+| Capacity tuning | Capacity paragraph and table | Guarded48 exception explicitly footnoted and explained | compatibility change plus resizing at PRF48 | No |
+| Benchmark cycles | Capacity paragraph and caption | Uses benchmark-loop deltas throughout, not startup-inclusive counts | benchmark-loop cycle ratio | No |
+| Noncompletion | ROB32 CoreMark paragraph and NC cell | Not called a proved deadlock or assigned a runtime ratio | noncompletion at 20-million-cycle limit | No |
+| Physical area | Component and whole-core paragraphs | All disclosed as cell area with flip-flop memories, not SRAM/layout | mapped cell area | No |
+
+4) CITATION AUDIT (table)
+
+| Claim snippet (quoted) | Needs citation? | Citation present? | Suggested action | Notes |
+| --- | --- | --- | --- | --- |
+| "RSD, an open-source RV32 core with speculative execution and a nonblocking data cache" | Yes | Yes | Verify | Pinned official repository and local configuration/RTL support the description and exact capacities. |
+| "reservation-station functionality through a shared IQ, typed payload banks, a producer-matrix wakeup network" | Yes | Yes | Verify | The pinned RTL supports this mapping; WakeupLogic explicitly selects ProducerMatrix, not optional SourceCAM. |
+| "FLW/FSW use the memory class" | Yes | Yes | Verify | Source provenance is supplied by the RSD footnote; decoder/register-file paths and the three measured FP-memory pairs independently support this statement. |
+| "35 assertions" / "36 assertions" | No | No | Verify | Original experiment claims backed by preserved actual-RTL base, induction and cover logs, not external literature claims. |
+| "2.8% and 23.2% AND-node reduction" | No | No | Verify | Recomputed from matched original-source automatic component summaries and checked source/import boundaries. |
+| "28.1%" / "53.0%" / "0.44%" / "3.36%" / "3.85%" / "23.9% reduction" | No | No | Verify | Direct component and whole-core source/mapping artifacts support these distinct denominators and flows. |
+| "Recent work replaces generic load/store queues with circuits enforcing only necessary dependencies" | Yes | Yes | Verify | The Pirayadi et al. author-hosted FPGA2026 paper checked in the previous citation audit supports the description and DOI; no new citation change is needed. |
+| "A certified lifetime bound W and allocation envelope alpha(W) can bound live entries" | No | No | Verify | This is a conditional counting statement with explicit clock/admission qualifications; no measured maximum is presented as a proof. |
+
+Primary source provenance retained from the earlier citation audit:
+https://github.com/rsd-devel/rsd/tree/7b65f6ba0bce58d4d859082660123b7100aae975
+https://www.epfl.ch/labs/lap/wp-content/uploads/2026/03/PirayadiFeb26-Out-with-LSQs-Custom-Circuits-for-Memory-Access-Reordering-in-Dynamic-HLS-FPGA26.pdf
+No BibTeX modification is needed for the reviewed changes.
+
+5) FINAL “LOGIC COP” SUMMARY (bullets)
+
+- Overclaims: no new explicit numerical or full-core-proof overclaim found.
+  I1 is resolved by the explicit timeout/initial-state limitation and the
+  abstract's "automatic component pruning" wording. The new 3.85% whole-core
+  claim is identified as separately proved source cuts under execution
+  contracts; the section expressly excludes full-core equivalence proof.
+- Handwavy arguments: the text correctly labels both source cuts as manually
+  identified and locally proved. It does not claim automatic invariant
+  discovery, full-core equivalence, all-input binary adherence, or an occupancy
+  theorem from response latency. No additional must-fix argument was found.
+- Reasoning inconsistencies: the execution/dispatch table label is repaired,
+  and no outstanding supported mismatch remains. FP-memory tests correctly demonstrate
+  why no-FP arithmetic dispatch does not justify FP register-file removal.
+
+- Automatic numerical verification: scheduler event-only/lemma-assisted AND
+  counts 2847 ->2767 give 2.8099754%; LSQ17957 ->13795 give23.1775909%.
+  The LSQ latch change1707 ->1595 is112; scheduler latch count stays129.
+  Unconstrained counts2847/18145 match the table. Both use F2/C30000/S20,
+  unchanged original request/comparison expressions, matched rst-only output
+  masks and exact proved invariant imports. The unmasked LSQ negative control
+  has17849AND/1707latches for event-only and lemma-assisted models. Formal
+  initial-state encoding is explicitly excluded from physical-area claims.
+- Direct component verification: scheduler21735.8464 ->15636.2464um^2 gives
+  28.0623993%,128 ->96 FFs; LSQ86273.9936 ->40518.8608um^2 gives53.0346758%.
+  Identical observed boundaries retain all meaningful functional ports, with
+  the exact inactive-forwarding data/miss mask only for the LSQ wrapper.
+- Independent new whole-core physical audit: raw log/manifest areas
+  9996011.967981 ->9952029.785581um^2 give0.4399972963%. Raw stat JSON differs
+  by less than0.001um^2 due to summation precision, irrelevant to shown digits.
+  Every source-file hash, source-manifest hash, map-script hash, ABC binary hash
+  and Liberty hash verifies. Scripts match after path normalization and omit
+  AIGER zinit export. Cells1661382 ->1654825; FF167332 ->166513. No SRAM-macro,
+  post-layout, timing or whole-core-equivalence inference is made. Evidence:
+  paper_review_evidence.json and physical_core_modern_inprocess summary.
+- Capacity-table recomputation (CoreMark/Dhrystone): LQ8 1.0158319/1.1165716;
+  LQ4 1.5044568/2.2488456; ROB32 NC/1.0011065; ROB16 1.0034637/1.1081730;
+  IQ32 1.1155480/1.0588918; IQ64 1.6290649/1.2783071;
+  guarded PRF48 1.0024328/1.0338290; PRF128 0.9889801/1.0020488.
+  Every displayed ratio rounds correctly using3336042/255757 baseline loop
+  cycles. ROB32 CoreMark has no valid loop-cycle measurement and remains NC.
+  No table application run with a numeric result has a named watchdog failure.
+- Workload/proof evidence:14 scheduler positive pairs (12diagnostics and2apps)
+  plus3 FP-memory pairs yield17, not a universal domain proof. FP arithmetic
+  negative baseline passes while the cut fails to finish outside its contract.
+  FLW/FSW pairs match cycles5710/5770/5711, four raw traces and final FP bits,
+  with independent Spike checks. Six combined cuts match counters/four traces
+  and both monitored contracts; this remains finite integration evidence.
+  Strict LSQ applicability is six stream inputs; the three pointer inputs
+  violate it2583/2670/2711 times despite correct outputs, and alias controls
+  fail signatures.18 latency pairs,22/27/37 read maxima and37/39/50 MSHR intervals
+  retain their correct finite-observation scope.
+- Guard/capacity logic: PRF48 has an explicit reset-only compatibility guard;
+  source/hashes and complete narrowed-address enumeration establish that the
+  same guard is inactive at64. Both suppression and address clamping are needed
+  for the actual XOR/LVT read paths. IQ4/8 are unsupported unmodified parameter
+  settings, not missing successful data. These facts do not establish universal
+  capacity sufficiency or preserve cycle behavior under resizing.
+
+- Follow-up combined whole-core audit PASS: 9996011.967981 ->
+  9610673.647983 um^2 gives 3.8549205546%; mapped cells 1586548 and FFs 164360.
+  Exactly three prepared source files differ from the baseline: LoadQueue,
+  StoreQueue and Scheduler. Each byte-matches its generated proved candidate.
+  Complete MicroArchConf and Core RTL are identical; all macro definitions
+  match, including enabled RSD_MARCH_FP_PIPE. Source/proof/map/ABC/Liberty
+  hashes and matched physical scripts verify, with no AIGER zinit export.
+  Evidence: results/synthesis/combined_physical_audit.{txt,json}. The larger
+  saving than the isolated scheduler wrapper is consistent with propagation
+  beyond that wrapper, but this is an inference until affected netlist cones
+  are attributed. No FP-PRF deletion, full FP-unit removal, or full-core proof
+  follows from this area result.
+
+- Follow-up guarded PRF component audit PASS: 1864740.934398 ->
+  1419098.528 um^2 gives 23.8983548962%, correctly rounded 23.9%. Cells
+  332714 ->242409 and FFs 15883 ->11915. All source/macro/simulation-manifest/
+  wrapper/normalized-RTL hashes verify; normalization and mapping scripts match
+  except paths, as do all FP-enabled defines and the exact guarded RegisterFile
+  source. Only coupled INT/FP capacities change64 to48. The wrapper retains
+  identical299 input bits and429 raw output bits (13 operands of33 bits).
+  Both maps contain only SKY130 HD cells, with no memory macro or AIGER zinit.
+  The added manuscript paragraph has correct scope: explicit compatibility RTL plus PRF
+  capacity resizing, component-only cell area and measured cycle tradeoffs;
+  not same-capacity Pscorr pruning or whole-core/equivalence evidence.
+  Artifact: results/synthesis/registerfile_physical_audit.{txt,json}.
+
+- Final scheduler-only whole-core audit PASS: 9996011.967981 ->
+  9659860.822383 um^2 gives 3.3628525724%, correctly rounded 3.36%.
+  Cells 1594087 and FFs 165179. Exactly one prepared source file differs,
+  Scheduler.sv, byte-identical to the proved request cut; original queues,
+  Core, full configuration and FP-enabled macros match the common baseline.
+  No memory-region contract or hidden capacity change is introduced. All
+  source/proof/map/ABC/Liberty bindings verify and physical scripts match.
+  Evidence: results/synthesis/scheduler_physical_core_audit.{txt,json}.
+- Final four-row whole-core table is correct: None 9.996; queues 9.952/0.44%;
+  scheduler 9.660/3.36%; both 9.611/3.85%, with areas in square millimeters.
+  All reductions use the same modern baseline and each cut names its relevant
+  contract. The guarded PRF paragraph correctly reports 1.865 ->1.419 mm^2
+  and 23.9% as a component capacity/area tradeoff, explicitly excluding a
+  whole-core Pscorr reduction. Current new text has no remaining must-fix.
+
+- REVIEW CLOSED: the final sentence about the prebalanced run importing proved
+  queue invariants is supported by isa_region_lemmas_core_final/
+  logic_scorr_prebalanced/result.json: full correspondence, 36 constraints,
+  timeout after 3600.165401622 seconds. The recorded AIG hash matches the
+  audited input. This states a measured budget limit, not a universal inability
+  theorem. Final source hashes are refreshed in paper_review_evidence.json.
+  No outstanding IMPORTANT or SUGGESTED item remains in the reviewed new text.
+
+- Final revision-color refresh PASS: the three reviewed source hashes now bind
+  to the Git index/staged export, explicitly excluding concurrent working-tree
+  DSL changes. Removing only the added rev/revision/caption-color commands
+  reproduces all three previously reviewed SHA-256 hashes exactly; no prose,
+  numerical claim, or proof scope changed. The added abstract, introduction,
+  and conclusion paragraphs use rev; the complete RSD block and all three
+  floats use revision, with explicit existing revisioncolor on captions and
+  the subsection title. The exact staged 10-page PDF renders all 14 checked
+  title/paragraph/caption/added-paragraph anchors in #0000ff. Both AGENTS files
+  now preserve the review-markup and validated commit/push policies. Numerical
+  audits were not rerun. Evidence and staged blob identities are recorded in
+  paper_review_evidence.json; no outstanding review issue remains.

@@ -1,0 +1,707 @@
+{
+  "all_checks_passed": true,
+  "positive_pairs": 14,
+  "positive_executions": 28,
+  "negative_control_executions": 2,
+  "proof_instance": {
+    "rob": 64,
+    "iq": 16,
+    "lq": 16,
+    "sq": 16,
+    "int_prf": 64,
+    "fp_prf": 64
+  },
+  "scope": "Manual Scheduler.fpIssueReq cut under all actual scheduler.write opType!=FP. Integer/muldiv/memory classes and all capacities retained. Finite full-core evidence plus separate component proof, not full-core equivalence.",
+  "rows": [
+    {
+      "group": "diagnostics",
+      "name": "stream_sum_s1_n512",
+      "passed": true,
+      "whole_program_cycles": 12931,
+      "roi_cycles": null,
+      "input_sha256": "8180e4b1e883ea42525323c37eb1a8d03c1b615131c2900549f5659a3a051522",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 5246,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "d5abd4a6cc536c63d2b00e97cc77f164ae293225269da1f8b89329f0ac377967",
+            "memory_events.csv": "e83002404ffd3fb7d740eacc9c355ae45314e851a7bf9afad36ab21a1309cfca",
+            "fp_domain.csv": "5e90b08e26f5aa85e68c3f8b386a4de3b136f23a37a525bc039a4cab21bc4860",
+            "dispatch_events.csv": "b56efac222f5c18519510315d28f6861619060952be6660e16623f3f164b5923"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 5246,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "d5abd4a6cc536c63d2b00e97cc77f164ae293225269da1f8b89329f0ac377967",
+            "memory_events.csv": "e83002404ffd3fb7d740eacc9c355ae45314e851a7bf9afad36ab21a1309cfca",
+            "fp_domain.csv": "5e90b08e26f5aa85e68c3f8b386a4de3b136f23a37a525bc039a4cab21bc4860",
+            "dispatch_events.csv": "b56efac222f5c18519510315d28f6861619060952be6660e16623f3f164b5923"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "stream_sum_s7_n512",
+      "passed": true,
+      "whole_program_cycles": 12958,
+      "roi_cycles": null,
+      "input_sha256": "82ecad8fc162f7693eb22b069dcc810f256b6d6568933109da6c633aaaa3e2f0",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 5259,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "bc020dca4138ab83f1294df8ddd302d144ed8e00829457ec786f9a2bf6dae3cb",
+            "memory_events.csv": "195887b4c3d57ed45800d8ead28453c4b8722b3db262bac5624c7e47ba7ed09b",
+            "fp_domain.csv": "f4005c6b3f271269f6c526c9f18d9123059c4d82881e51f01f5465bf2c818a68",
+            "dispatch_events.csv": "a378a56c782db1c89f695246c1ed12885352fec719815ac1f2938cd5536b33ff"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 5259,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "bc020dca4138ab83f1294df8ddd302d144ed8e00829457ec786f9a2bf6dae3cb",
+            "memory_events.csv": "195887b4c3d57ed45800d8ead28453c4b8722b3db262bac5624c7e47ba7ed09b",
+            "fp_domain.csv": "f4005c6b3f271269f6c526c9f18d9123059c4d82881e51f01f5465bf2c818a68",
+            "dispatch_events.csv": "a378a56c782db1c89f695246c1ed12885352fec719815ac1f2938cd5536b33ff"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "stream_sum_s42_n512",
+      "passed": true,
+      "whole_program_cycles": 12948,
+      "roi_cycles": null,
+      "input_sha256": "74dac241b39533b14c2be93d4f086a444f065044e6baba147acf102685dba757",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 5252,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "5d4fb49dbde476be7ef4ea3f2fe41c5a9f05d93f12b17b385b95813a0e5800ad",
+            "memory_events.csv": "ff7383595c3ccb0043821fad277b8c93f51f80804679801d869874c3a32fa36a",
+            "fp_domain.csv": "d5d0474c768cad1aeba7f7f98e3bdbf16bb7cf618daf0b71cbcb320c43e8a305",
+            "dispatch_events.csv": "12e8b6c0024866150ef3b3f962e9300c07222ebf0014cf0581799bcdb7a824cf"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 5252,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "5d4fb49dbde476be7ef4ea3f2fe41c5a9f05d93f12b17b385b95813a0e5800ad",
+            "memory_events.csv": "ff7383595c3ccb0043821fad277b8c93f51f80804679801d869874c3a32fa36a",
+            "fp_domain.csv": "d5d0474c768cad1aeba7f7f98e3bdbf16bb7cf618daf0b71cbcb320c43e8a305",
+            "dispatch_events.csv": "12e8b6c0024866150ef3b3f962e9300c07222ebf0014cf0581799bcdb7a824cf"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "stream_mix_s1_n512",
+      "passed": true,
+      "whole_program_cycles": 16177,
+      "roi_cycles": null,
+      "input_sha256": "282d23458097f4af12dbb606ea04a7ee948ed039d4178a6e19c8dfa6c84a7c12",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 8333,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "7b268cc76c0d3d613d77e2f68ee710a91bdfb120170509adface769dc69dd8f7",
+            "memory_events.csv": "f27aeb5f99dba1aac46439c799c9079c066d04533177e1965dda3e450b7b8ebd",
+            "fp_domain.csv": "e0f1697244729727b715dd5d88e3c41dd2ec934c1abe9cc544a60ac6550a8c84",
+            "dispatch_events.csv": "bd13664d2df056a0ae65eee5b5822af434b645ee91e7a362d97d21f985616a61"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 8333,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "7b268cc76c0d3d613d77e2f68ee710a91bdfb120170509adface769dc69dd8f7",
+            "memory_events.csv": "f27aeb5f99dba1aac46439c799c9079c066d04533177e1965dda3e450b7b8ebd",
+            "fp_domain.csv": "e0f1697244729727b715dd5d88e3c41dd2ec934c1abe9cc544a60ac6550a8c84",
+            "dispatch_events.csv": "bd13664d2df056a0ae65eee5b5822af434b645ee91e7a362d97d21f985616a61"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "stream_mix_s7_n512",
+      "passed": true,
+      "whole_program_cycles": 16184,
+      "roi_cycles": null,
+      "input_sha256": "28f33b2ba7ab4a48287c8fc5cf91adb87eac94bf1c84eaa92ac7c5c519d648d0",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 8339,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "21be2c0c7f2311654638974964cbebc338cc234cd7a3a97afe12d31d334897a6",
+            "memory_events.csv": "743414c6a9afbd86d9daa8c12956c03c563623483464415c64920c2752c4efae",
+            "fp_domain.csv": "baef4cdd59c0bfe48d69432ad86e9c90b1898c380810266f51c694aadbec9c41",
+            "dispatch_events.csv": "7829dc8cf9cb20a5b209d184547595b4988e87ba26dd0120853d30637269d769"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 8339,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "21be2c0c7f2311654638974964cbebc338cc234cd7a3a97afe12d31d334897a6",
+            "memory_events.csv": "743414c6a9afbd86d9daa8c12956c03c563623483464415c64920c2752c4efae",
+            "fp_domain.csv": "baef4cdd59c0bfe48d69432ad86e9c90b1898c380810266f51c694aadbec9c41",
+            "dispatch_events.csv": "7829dc8cf9cb20a5b209d184547595b4988e87ba26dd0120853d30637269d769"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "stream_mix_s42_n512",
+      "passed": true,
+      "whole_program_cycles": 16201,
+      "roi_cycles": null,
+      "input_sha256": "0d333826ebba72fa5cbab70ec4f9bbfb8d18ad66fccb8e15fd891cb335aeac1b",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 8348,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "4369bcda20e444a5072f52c0438043a87b385a026e002c99d5263749cc0c0270",
+            "memory_events.csv": "cdabe5d1cbd3a0c8684a83929185362152948a64167fe881a3afffd3560d8866",
+            "fp_domain.csv": "32bfbcb9f867b3598c7c20023820681cb6a93b1ab203e77faaeea2f6e0891307",
+            "dispatch_events.csv": "75ad2dd32118e9646f65870229ccbc022eea8f5a6526264a2f83e33d6acc0eea"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 8348,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "4369bcda20e444a5072f52c0438043a87b385a026e002c99d5263749cc0c0270",
+            "memory_events.csv": "cdabe5d1cbd3a0c8684a83929185362152948a64167fe881a3afffd3560d8866",
+            "fp_domain.csv": "32bfbcb9f867b3598c7c20023820681cb6a93b1ab203e77faaeea2f6e0891307",
+            "dispatch_events.csv": "75ad2dd32118e9646f65870229ccbc022eea8f5a6526264a2f83e33d6acc0eea"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "pointer_chase_s1_n512",
+      "passed": true,
+      "whole_program_cycles": 15134,
+      "roi_cycles": null,
+      "input_sha256": "9cd355736ad480ecfb679f178571e0c2edbf839a47232a2929a10de967196c97",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 4238,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "8f0d7d67cf3e91c4c412990e6f85ca488e2f7a054e030abb22b3eb20f00ad08e",
+            "memory_events.csv": "4bc5f80df8a12b51ea9b2d593d8862464c32c394b684b32c7b1b732cc4b23ebd",
+            "fp_domain.csv": "5ce3a19d9e89c9b985a84ac426495a84fe571dd54d3163af25843fd0d9503e94",
+            "dispatch_events.csv": "bd93faccbc00346365a1116d174f3f58b331617c9eb3c1601045f31257eda903"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 4238,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "8f0d7d67cf3e91c4c412990e6f85ca488e2f7a054e030abb22b3eb20f00ad08e",
+            "memory_events.csv": "4bc5f80df8a12b51ea9b2d593d8862464c32c394b684b32c7b1b732cc4b23ebd",
+            "fp_domain.csv": "5ce3a19d9e89c9b985a84ac426495a84fe571dd54d3163af25843fd0d9503e94",
+            "dispatch_events.csv": "bd93faccbc00346365a1116d174f3f58b331617c9eb3c1601045f31257eda903"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "pointer_chase_s7_n512",
+      "passed": true,
+      "whole_program_cycles": 14851,
+      "roi_cycles": null,
+      "input_sha256": "518f7e71d1a2f18e6ff38135868843f3338ab8ee6cd4708199ab96096cad571c",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 4232,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "d7c4849aa31a28863c0d5d7afe7187bbfc23cb09d385c64689df81cba0da660c",
+            "memory_events.csv": "7f1da87f03b34a5783820dd0082de0eeaa299a63b3ee024c9eaf168ad6aad3e4",
+            "fp_domain.csv": "3ac53df354ba0798d8cc129f90ce99e4ab8a7960929478e0096714a179f37364",
+            "dispatch_events.csv": "bd3b1786232f6b64d407cbef1624b16201fba9c5d0d9e21a84bce10cf01e664a"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 4232,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "d7c4849aa31a28863c0d5d7afe7187bbfc23cb09d385c64689df81cba0da660c",
+            "memory_events.csv": "7f1da87f03b34a5783820dd0082de0eeaa299a63b3ee024c9eaf168ad6aad3e4",
+            "fp_domain.csv": "3ac53df354ba0798d8cc129f90ce99e4ab8a7960929478e0096714a179f37364",
+            "dispatch_events.csv": "bd3b1786232f6b64d407cbef1624b16201fba9c5d0d9e21a84bce10cf01e664a"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "pointer_chase_s42_n512",
+      "passed": true,
+      "whole_program_cycles": 14899,
+      "roi_cycles": null,
+      "input_sha256": "a83ff9e10f56fdfe58f52c2f585755183b4993be037b1d5704be60ce6e70b3b8",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 4235,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "9d129d955b3ecf59d55c78cb0f66fb4f55f75e286d759ba8d4fec8de489722bd",
+            "memory_events.csv": "bfab994cdc754e13c4a9f7145c643828c914dfae8e9edfd1b7c6562afdbdb3fd",
+            "fp_domain.csv": "a243c0549a51b1e641a530e4e6a29d45b53cde7fccf2a7b32d461631c115fab3",
+            "dispatch_events.csv": "7026faef607647977ebe437db561da61849e960012bd6aac3dcd06599f3c3564"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 4235,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "9d129d955b3ecf59d55c78cb0f66fb4f55f75e286d759ba8d4fec8de489722bd",
+            "memory_events.csv": "bfab994cdc754e13c4a9f7145c643828c914dfae8e9edfd1b7c6562afdbdb3fd",
+            "fp_domain.csv": "a243c0549a51b1e641a530e4e6a29d45b53cde7fccf2a7b32d461631c115fab3",
+            "dispatch_events.csv": "7026faef607647977ebe437db561da61849e960012bd6aac3dcd06599f3c3564"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "alias_feedback_s1_n512",
+      "passed": true,
+      "whole_program_cycles": 4068,
+      "roi_cycles": null,
+      "input_sha256": "819d9d639e181563646dddd11850b6249a04a61a5682bd9a0146f7821ac0be67",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 3718,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "51ffe116e089a64f27f3e49e2048c8ab853ce38676e28d1924ebae04c065a6d3",
+            "memory_events.csv": "0da85c2362359f6517d5190fdf80c430c716c49489df357058c23b1167bb0710",
+            "fp_domain.csv": "a1d047aa6dfbab7f04591d7503409fbeca585ed0a65b8a8a6c7f3087bb36619b",
+            "dispatch_events.csv": "c3476f86058a585838611b532fa7a6d8a3bb00b6da16799930a7506747dad5fa"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 3718,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "51ffe116e089a64f27f3e49e2048c8ab853ce38676e28d1924ebae04c065a6d3",
+            "memory_events.csv": "0da85c2362359f6517d5190fdf80c430c716c49489df357058c23b1167bb0710",
+            "fp_domain.csv": "a1d047aa6dfbab7f04591d7503409fbeca585ed0a65b8a8a6c7f3087bb36619b",
+            "dispatch_events.csv": "c3476f86058a585838611b532fa7a6d8a3bb00b6da16799930a7506747dad5fa"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "alias_feedback_s7_n512",
+      "passed": true,
+      "whole_program_cycles": 4082,
+      "roi_cycles": null,
+      "input_sha256": "2997364b25c9bcc89175bdca2a98fed5bc7cd39c6826aeaede0954684a13653a",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 3721,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "f8e3c4bcbe9e73d7c1525bf35cf8d14b511bf9fc991b8fc2fc7fc45cb1ba5e60",
+            "memory_events.csv": "9fe4b860ffa69bd083b3ade0537cd52e70d2745b80b9226e30fa7226a14f230f",
+            "fp_domain.csv": "0a267ad5e2f534e833c9551fe184ba12fef489f39e9b70c11518b8a2f22da14e",
+            "dispatch_events.csv": "01cf7922ac89035872a2b28cbad223ca37c53a3e2382123ff27b070fa9624f0e"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 3721,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "f8e3c4bcbe9e73d7c1525bf35cf8d14b511bf9fc991b8fc2fc7fc45cb1ba5e60",
+            "memory_events.csv": "9fe4b860ffa69bd083b3ade0537cd52e70d2745b80b9226e30fa7226a14f230f",
+            "fp_domain.csv": "0a267ad5e2f534e833c9551fe184ba12fef489f39e9b70c11518b8a2f22da14e",
+            "dispatch_events.csv": "01cf7922ac89035872a2b28cbad223ca37c53a3e2382123ff27b070fa9624f0e"
+          }
+        }
+      }
+    },
+    {
+      "group": "diagnostics",
+      "name": "alias_feedback_s42_n512",
+      "passed": true,
+      "whole_program_cycles": 4068,
+      "roi_cycles": null,
+      "input_sha256": "50572413ce5e3cbb8fe7296c460bc256ce825099fdbb3b902be4472ffce3eeea",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 3718,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "51ffe116e089a64f27f3e49e2048c8ab853ce38676e28d1924ebae04c065a6d3",
+            "memory_events.csv": "0da85c2362359f6517d5190fdf80c430c716c49489df357058c23b1167bb0710",
+            "fp_domain.csv": "a1d047aa6dfbab7f04591d7503409fbeca585ed0a65b8a8a6c7f3087bb36619b",
+            "dispatch_events.csv": "c3476f86058a585838611b532fa7a6d8a3bb00b6da16799930a7506747dad5fa"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 3718,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "51ffe116e089a64f27f3e49e2048c8ab853ce38676e28d1924ebae04c065a6d3",
+            "memory_events.csv": "0da85c2362359f6517d5190fdf80c430c716c49489df357058c23b1167bb0710",
+            "fp_domain.csv": "a1d047aa6dfbab7f04591d7503409fbeca585ed0a65b8a8a6c7f3087bb36619b",
+            "dispatch_events.csv": "c3476f86058a585838611b532fa7a6d8a3bb00b6da16799930a7506747dad5fa"
+          }
+        }
+      }
+    },
+    {
+      "group": "applications",
+      "name": "coremark",
+      "passed": true,
+      "whole_program_cycles": 3378898,
+      "roi_cycles": 3336042,
+      "input_sha256": "5eab938d4aafb6d452d580149587d5d3eddaa878a1134a0862b8dd86189c7126",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 3731847,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "9105c30b7309f86de1299ab21a4ef5dacce5572877346a39c12131df68f98274",
+            "memory_events.csv": "acd8f1c62c871ebd543fd0fe2b9942f0ec9dd7bebfcb69b7a53ae3b7986dacb4",
+            "fp_domain.csv": "353b533265e4481cdb8f288d1375bb71aeca922f36c87886283dbaf57405ee7b",
+            "dispatch_events.csv": "9aeb1e4fbb501591def0d93fa2ffda5002c15269d7b05402321058d24ff260f1"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 3731847,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "9105c30b7309f86de1299ab21a4ef5dacce5572877346a39c12131df68f98274",
+            "memory_events.csv": "acd8f1c62c871ebd543fd0fe2b9942f0ec9dd7bebfcb69b7a53ae3b7986dacb4",
+            "fp_domain.csv": "353b533265e4481cdb8f288d1375bb71aeca922f36c87886283dbaf57405ee7b",
+            "dispatch_events.csv": "9aeb1e4fbb501591def0d93fa2ffda5002c15269d7b05402321058d24ff260f1"
+          }
+        }
+      }
+    },
+    {
+      "group": "applications",
+      "name": "dhrystone",
+      "passed": true,
+      "whole_program_cycles": 325923,
+      "roi_cycles": 255757,
+      "input_sha256": "ef820037ed7012a5c49f5a4e1b9058d1b14a2c9d1c731719a3cef3a7fc848e19",
+      "exact_counters_serial_and_four_traces": true,
+      "runs": {
+        "base": {
+          "binary_sha256": "67691f6df55038c169dee8e3bf4789156e531ebce2b174e41b8b3f6f5fbac94a",
+          "fp_totals": {
+            "scheduler_writes": 372057,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "688cf517e098a74d6f327a3ce80bea134a6755b843f3bea89daaa39a04afc1ad",
+            "memory_events.csv": "beec03d907c3b276375825560296b267199e7e6a2a563eeec0cfa3116bdd442e",
+            "fp_domain.csv": "08deb1b061d303a8fd4fe815f203bb936c0917ab691eb7e5cb56d1858115ed02",
+            "dispatch_events.csv": "b8f60494606ad233d73e5d4694d65fc80c290d3a7e2d952a8454d750a29a511c"
+          }
+        },
+        "cut": {
+          "binary_sha256": "4c83ac486d62f203865ab7a765ee285bfef018c7568e4e8c5ae7efa367865fd4",
+          "fp_totals": {
+            "scheduler_writes": 372057,
+            "fp_scheduler_writes": 0,
+            "fp_issue_requests": 0,
+            "fp_issue": 0,
+            "fp_replay_entry": 0,
+            "fp_record_entry": 0,
+            "fp_pipe_valid": 0
+          },
+          "trace_hashes": {
+            "resource.csv": "688cf517e098a74d6f327a3ce80bea134a6755b843f3bea89daaa39a04afc1ad",
+            "memory_events.csv": "beec03d907c3b276375825560296b267199e7e6a2a563eeec0cfa3116bdd442e",
+            "fp_domain.csv": "08deb1b061d303a8fd4fe815f203bb936c0917ab691eb7e5cb56d1858115ed02",
+            "dispatch_events.csv": "b8f60494606ad233d73e5d4694d65fc80c290d3a7e2d952a8454d750a29a511c"
+          }
+        }
+      }
+    }
+  ],
+  "outside_domain_fp_control": {
+    "base": {
+      "functional_passed": true,
+      "pc_goal": true,
+      "cycles": 4621,
+      "fp_totals": {
+        "scheduler_writes": 4567,
+        "fp_scheduler_writes": 45,
+        "fp_issue_requests": 161,
+        "fp_issue": 47,
+        "fp_replay_entry": 2,
+        "fp_record_entry": 2,
+        "fp_pipe_valid": 46
+      },
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_scheduler/base/fp_control/Asm_FP/result.json"
+    },
+    "cut": {
+      "functional_passed": false,
+      "pc_goal": false,
+      "cycles": 99999,
+      "fp_totals": {
+        "scheduler_writes": 4533,
+        "fp_scheduler_writes": 15,
+        "fp_issue_requests": 0,
+        "fp_issue": 0,
+        "fp_replay_entry": 0,
+        "fp_record_entry": 0,
+        "fp_pipe_valid": 0
+      },
+      "result": "/home/allenjin/Projects/DAC_pscorr/experiments/rsd_ooo/results/fp_scheduler/cut/fp_control/Asm_FP/result.json"
+    }
+  }
+}
