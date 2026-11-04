@@ -75,7 +75,9 @@ class ReportGenerator:
                 "dsl_file": str(self.dsl_file),
                 "timestamp": datetime.now().isoformat(),
                 "total_tests": len(test_results),
-                "confirmed_odcs": sum(1 for r in test_results if r.is_odc)
+                "confirmed_odcs": sum(1 for r in test_results if r.is_odc),
+                "proof_policy": "Completed inductive proof with successful command; synthetic/bounded/unknown results cannot authorize rewriting",
+                "synthetic_results": sum(r.sec_result.synthetic for r in test_results),
             },
             "results": []
         }
@@ -92,6 +94,12 @@ class ReportGenerator:
                 "is_odc": result.is_odc,
                 "sec_status": sec.status.value,
                 "sec_runtime_sec": sec.runtime_sec,
+                "proof_completed": sec.proof_completed,
+                "proof_method": sec.proof_method,
+                "returncode": sec.returncode,
+                "synthetic": sec.synthetic,
+                "command": list(sec.command),
+                "input_sha256": sec.input_sha256,
                 "counterexample": sec.counterexample
             })
         
@@ -127,8 +135,10 @@ class ReportGenerator:
         md.append(f"## Summary")
         md.append(f"")
         md.append(f"This report shows which signal bits are observability don't cares (ODCs) ")
-        md.append(f"based on bounded sequential equivalence checking. An ODC bit can be forced ")
-        md.append(f"to a constant without affecting circuit correctness under the given constraints.")
+        md.append("Only completed inductive checks with successful command status authorize a rewrite. ")
+        md.append("Synthetic, bounded-only, unknown, timeout and error results are not ODC certificates. ")
+        md.append("The exact checked inputs and proof method are retained in the JSON report; ")
+        md.append("this report does not validate the legacy injector or composition of multiple rewrites.")
         md.append(f"")
         
         # Results by field

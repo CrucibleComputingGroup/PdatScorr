@@ -153,7 +153,9 @@ class TestOdcReports:
             report = json.load(f)
         
         assert report["metadata"]["total_tests"] == 2
-        assert report["metadata"]["confirmed_odcs"] == 1
+        # A bare EQUIVALENT enum from a dummy fixture is not proof evidence.
+        assert report["metadata"]["confirmed_odcs"] == 0
+        assert not any(row["is_odc"] for row in report["results"])
         assert len(report["results"]) == 2
 
     def test_report_markdown_format(self, tmp_path):
@@ -179,7 +181,7 @@ class TestOdcReports:
         assert "## Summary" in md_content
         assert "## Field: `shamt`" in md_content
         assert "## Recommendations" in md_content
-        assert "✅" in md_content  # Has checkmark for ODC
+        assert "❌" in md_content  # Bare enum cannot authorize a rewrite.
 
 
 class TestOdcIntegration:

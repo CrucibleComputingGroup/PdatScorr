@@ -1,0 +1,135 @@
+Static review: existing Pscorr ODC pipeline and minimal dynamic-state extension
+=============================================================================
+Scope: source inspection only, 2026-11-04. No tests, synthesis, simulation, or
+existing-code modifications. Paths below are relative to the project root.
+Primary implementation: code/PdatProject/ScorrPdat (abbreviated S below).
+
+Existing pipeline and reusable pieces
+------------------------------------
+1. S/scripts/odc_analysis.py:155-230 orchestrates candidate -> injected RTL ->
+   synthesis -> SEC -> report. Its candidate source is
+   S/odc/constraint_analyzer.py:52-248: constants in instruction bit patterns
+   and forbidden architectural-register ranges, scoped to shamt/imm/rd/rs1/rs2.
+   It does not discover dynamic queue, age, validity, or occupancy facts.
+2. S/odc/error_injector.py:24-241 provides the candidate description and probe
+   dispatch. Current probes force the constraint-specified constant by default;
+   opposite-value probes are optional. This checks a particular substitution,
+   not arbitrary-error unobservability. Immediate injection is unimplemented.
+3. S/odc/synthesis.py and S/scripts/synthesis_utils.py provide source selection
+   and normalized synthesis integration. S/scripts/make_synthesis_script.py:238
+   preserves $assume cells as AIGER constraints. It also uses async2sync,
+   setundef -zero, and write_aiger -zinit: initial-state/undefined-value semantics
+   must be explicit in any new comparison, not treated as harmless bookkeeping.
+4. S/odc/sec_checker.py has result/status objects and log capture; its present
+   command/result handling is unsafe to reuse unchanged (below).
+5. S/odc/report_generator.py:26-104 maps EQUIVALENT directly to is_odc=true.
+   S/scripts/apply_odc_optimizations.py:21-40 trusts that Boolean; its register
+   path synthesizes NUM_WORDS_ODC, shrinks storage/reset loops, and clamps reads.
+   S/scripts/apply_mux_optimizations.py:64-69,269-280 removes reported cases and
+   ties unreachable outputs to zero. These are automatic, report-driven RTL
+   rewrites, but specialized to known instruction/register/mux structures.
+6. S/scripts/config_loader.py:18-57 offers core/source/hierarchy/injection names,
+   clock/reset signals, synthesis parameters, and result_muxes. Reuse this
+   abstraction, extending it with typed state/guard/event/observation bindings.
+   It presently lacks a checked sequential-state candidate schema and explicit
+   architectural/interface observation contract.
+
+Correctness hazards that must precede a new experiment
+-----------------------------------------------------
+A. Wrong SEC operands. S/odc/sec_checker.py:160 emits
+   read_aiger baseline; read_aiger modified; constr -r; dsec -F k -v;
+   with no design arguments. The local ABC source implements zero-argument
+   dsec by comparing the current network with its own pSpec, not the previously
+   read network (abc/src/base/abc/abcUtil.c:1522-1556). AIGER loading sets pSpec
+   to the loaded filename (abc/src/base/io/ioReadAiger.c:348). Thus this command
+   does not establish baseline-versus-candidate equivalence and can compare the
+   candidate to its own source. Use an explicit two-design miter/file binding.
+B. Lost mutation. S/odc/synthesis.py:89-98 always regenerates the ID stage from
+   original_id_stage; :128-134 passes the injected file only for ALU/datapath
+   names. An injected rd/rs1/rs2 ID-stage file is not selected. Its unused
+   injection_type classification does not repair this. Require exact source
+   substitution and exported-cone mutation checks for every probe.
+C. Multiple drivers / altered premises. error_injector.py adds continuous
+   assigns to an already-driven shift_amt bit (:82-91) and even instr_rdata_i
+   input bits (:164-172). The latter also feeds instruction assumptions, so a
+   probe can change its own admitted domain. Replace one internal driver using
+   parsed/elaborated structure; retain assumptions on the reference-side inputs.
+D. Unqualified proof statuses. SecChecker ignores subprocess returncode and
+   accepts any 'unsat' substring before checking errors/timeouts (:99-115,
+   :184-202). dsec is genuinely inductive in local ABC (abc.c:27601-27604),
+   but generic UNSAT and a k limit are not an induction certificate. Its
+   check_miter_is_zero uses fraig/sat without a sequential proof protocol.
+   Require explicit successful method, property, base/step or PDR completion,
+   and reject UNKNOWN, timeout, error, bounded-only success, or missing output.
+E. Mux checker is bounded. mux_reachability_analyzer.py:438-465 runs bmc3 -F k
+   and promotes 'no output asserted'/UNSAT to unreachable. No inductive step is
+   run there. Its generated SVA is inside synthesis translate_off (:381-387).
+   _synthesize_with_monitor adds a port only to the internal module, with no
+   parent/top connection; monitor survival/selection is not checked, and the
+   BMC script does not explicitly select that property. A removed/unconnected
+   monitor or ordinary core outputs are not a valid reachability certificate.
+F. Synthetic and stale evidence. scripts/odc_analysis.py:189-198 fabricates
+   alternating EQUIVALENT results in --skip-synthesis mode; the normal report
+   carries no synthetic-only prohibition. synthesis.py:114-125 also discovers
+   nearby optimized register files implicitly. Use fresh immutable input sets,
+   hashes, and a rewrite gate that rejects synthetic/stale/mismatched evidence.
+G. Rewrite scope/composition. read_odc_report retains instruction labels, but
+   register shrinking unions facts by bit/field without carrying their guards.
+   Individually safe substitutions do not automatically compose. The final
+   rewritten design needs a combined miter under the identical contract and
+   observation boundary. A Boolean is_odc is insufficient proof provenance.
+
+Minimal real extension for the approved small OoO study
+------------------------------------------------------
+Keep one genuine dynamic-scheduling core and all ROB/queue/PRF parameters fixed.
+Extend the existing pipeline, rather than supply a hand-cut candidate:
+
+1. Add a StateCandidate representation with elaborated signal/bit identity,
+   reset/update driver, event guard, proposed replacement, and consumer cone.
+   Configuration identifies a state bank and valid/allocate/release/replay
+   events, not which entries must be zero. A generic enumerator tests every
+   eligible valid/tag/age/payload field against constants or existing equivalent
+   representatives. Timing constraints may rank candidates, but are not proof.
+2. Compile the accepted timing contract into an unchanged reference monitor
+   (e.g. response latency and arrival spacing). Keep reset, stalls, flushes,
+   wrong-path work, issue order, and all allowed inputs nondeterministic.
+   Derive occupancy/lifetime/inactive-entry lemmas on original RTL; never add
+   'occupancy <= K' merely because a trace or latency estimate suggests it.
+3. Build a real two-copy sequential miter sharing inputs/reset. Compare all
+   protocol outputs including ready/full/accept, issue/request timing, commit
+   order/data, exceptions, and memory effects; mask payload only under an
+   explicitly justified invalid guard. Queue-only proofs must expose every
+   consumer-visible output and later be checked at the full-core boundary.
+4. Probe one driver through a typed netlist/AST substitution, not additional
+   assignments. For unconditional constant substitution, prove exactly that
+   candidate. For a guarded state ODC, a fresh arbitrary error value under the
+   guard proves the stronger freedom; retain state evolution for later cycles.
+   Prove reset base plus transition closure/induction, with auxiliary invariants
+   when required. BMC supplies counterexamples, never removal authority.
+5. Emit a certificate binding source/config/contract/initial-state/observation
+   hashes, candidate/guard, solver command, property counts and final status.
+   The existing report/apply stage can consume this richer object. Apply only
+   certified generic substitutions, compose and reprove them, then let normal
+   synthesis delete dead state/cones. No hand-coded candidate=false or queue
+   depth edit; preserve the original declared resources.
+
+Promising first target: a first-free-allocated dynamic issue/reservation queue.
+Under an accepted latency/arrival contract, an inductively derived PRE-ALLOCATION
+bound may make some upper valid bits permanently false; generic enumeration can
+discover these constants and dead payload consumers. A circulating allocator
+can visit every physical slot even at occupancy one, so a small occupancy bound
+alone does not imply removable upper entries. Inspect the selected core first;
+if the facts or savings do not follow, report that outcome rather than change
+allocation policy, assume empty slots, or shrink parameters to force savings.
+
+The experiment should retain original+same-contract correspondence versus
+extended automatic state-ODC flow, plus relaxed-timing/no-contract and deliberately
+observable-mutation negative controls. Measure hardware savings on the automatically
+generated artifact only after proof and full-core architectural/timing checks.
+
+An existing bridge is experiments/rsd_ooo/synthesis/prepare_scheduler.py:73-104:
+it imports a source/hash-bound, base+induction-proved live-entry lemma while
+leaving request logic intact. Reuse its provenance idea; extend discovery and
+the observation/reset contract instead of copying its manually supplied no-FP
+predicate. None of the issues above were exercised in this static review, and
+this report does not retroactively certify or invalidate every historical run.

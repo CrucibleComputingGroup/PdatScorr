@@ -34,6 +34,14 @@ from odc.synthesis import synthesize_error_injected_circuit
 from odc.mux_reachability_analyzer import MuxReachabilityAnalyzer
 
 
+def require_inductive_mux_evidence(cases):
+    """Legacy mux analysis runs BMC only; preserve candidates, deny rewrite authority."""
+    for case in cases:
+        case.sec_verified = False
+        case.reason += "; bounded-only legacy evidence: no inductive rewrite certificate"
+    return cases
+
+
 def find_ibex_root() -> Path:
     """Find Ibex core root directory."""
     # Try environment variable first
@@ -190,11 +198,10 @@ Examples:
                     # Create dummy result for testing
                     print(f"    Skipping synthesis (--skip-synthesis)")
                     from odc.sec_checker import SecStatus
-                    # Alternate between equivalent and not equivalent for testing
-                    status = SecStatus.EQUIVALENT if i % 2 == 0 else SecStatus.NOT_EQUIVALENT
                     test_results.append(OdcTestResult(
                         constant_bit,
-                        SecResult(status, 1.0 + i*0.1)
+                        SecResult(SecStatus.UNKNOWN, 0.0, synthetic=True,
+                                  abc_output="Skipped synthesis: no proof performed")
                     ))
                     continue
 
@@ -250,6 +257,7 @@ Examples:
                 k_depth=args.k_depth,
                 skip_synthesis=args.skip_synthesis,
             )
+            unreachable_mux_cases = require_inductive_mux_evidence(unreachable_mux_cases)
         except Exception as e:
             print(f"ERROR in mux analysis: {e}")
             import traceback
@@ -282,6 +290,7 @@ Examples:
         mux_report = {
             "dsl_file": str(args.dsl_file),
             "analysis_type": "mux_reachability",
+            "proof_policy": "Legacy bounded mux checks are candidate evidence only; rewriting disabled",
             "unreachable_mux_cases": [
                 {
                     "result_signal": case.result_signal,
