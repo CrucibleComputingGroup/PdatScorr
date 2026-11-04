@@ -1,0 +1,13 @@
+
+-- Executing script file `check.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: elaborated.il
+
+2. Executing CHECK pass (checking for obvious problems).
+Checking module datapath...
+Warning: multiple conflicting drivers for datapath.\u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.mem_we_o:
+    port Y[0] of cell $2473 ($buf)
+    port Y[0] of cell $2395 ($buf)
+ERROR: Found 1 problems in 'check -assert'.
+Found and reported 1 problems.

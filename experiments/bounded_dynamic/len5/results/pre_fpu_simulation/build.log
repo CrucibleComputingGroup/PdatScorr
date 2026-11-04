@@ -1,0 +1,32 @@
+%Warning-IMPLICITSTATIC: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/len5_utils.svh:90:15: Function/task's lifetime implicitly set to static
+                                                                                                                                                    : ... Suggest use 'function automatic' or 'function static'
+   90 | function void tb_len5_update_commit(bit dump_trace, int fd);
+      |               ^~~~~~~~~~~~~~~~~~~~~
+                         /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/tb_bare.sv:29:1: ... note: In file included from 'tb_bare.sv'
+                         /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/len5_utils.svh:91:25: ... Location of implicit static variable
+   91 |   expipe_pkg::rob_idx_t rob_idx = tb_len5_get_commit_idx();
+      |                         ^~~~~~~
+... Suggest use 'function automatic' or 'function static'
+                         ... For warning description see https://verilator.org/warn/IMPLICITSTATIC?v=5.020
+                         ... Use "/* verilator lint_off IMPLICITSTATIC */" and lint_on around source to disable this message.
+%Error: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/memory/memory_class.svh:63:28: Assigning to const variable: 'fd'
+                                                                                                                                            : ... note: In instance 'tb_bare'
+   63 |       FILE_MODE_READ: this.fd = $fopen(path, "r");
+      |                            ^~
+        /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/memory/memory_bare_emu.sv:16:1: ... note: In file included from 'memory_bare_emu.sv'
+%Error: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/memory/memory_class.svh:64:35: Assigning to const variable: 'fd'
+                                                                                                                                            : ... note: In instance 'tb_bare'
+   64 |       FILE_MODE_READ_BINARY: this.fd = $fopen(path, "rb");
+      |                                   ^~
+        /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/memory/memory_bare_emu.sv:16:1: ... note: In file included from 'memory_bare_emu.sv'
+%Error: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/memory/memory_class.svh:65:29: Assigning to const variable: 'fd'
+                                                                                                                                            : ... note: In instance 'tb_bare'
+   65 |       FILE_MODE_WRITE: this.fd = $fopen(path, "w");
+      |                             ^~
+        /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/memory/memory_bare_emu.sv:16:1: ... note: In file included from 'memory_bare_emu.sv'
+%Error: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/memory/memory_class.svh:126:21: Assigning to const variable: 'file_line'
+                                                                                                                                             : ... note: In instance 'tb_bare'
+  126 |     if ($fgets(this.file_line, this.fd) < 0) begin
+      |                     ^~~~~~~~~
+        /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/tb/memory/memory_bare_emu.sv:16:1: ... note: In file included from 'memory_bare_emu.sv'
+%Error: Exiting due to 4 error(s)

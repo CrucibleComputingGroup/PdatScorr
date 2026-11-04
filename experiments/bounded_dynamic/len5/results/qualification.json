@@ -1,0 +1,204 @@
+{
+  "scope": "Source-grounded genuine OoO qualification, unchanged-RTL elaboration/structural check, and one self-checking smoke with execution-event tracing. No automatic ODC, area, or full-ISA correctness claim.",
+  "qualified_source_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+  "upstream_url": "https://github.com/edge-group-polito/len5",
+  "qualified": true,
+  "dynamic_ooo_witness": {
+    "trace_sha256": "c996a9c5f5819241709c26bc8a5e551f6f1f49ee74c1710157b7775f6924dff8",
+    "witness_found": true,
+    "interpretation": "A younger independent ADDI reaches the actual ALU result handshake before an older load responds and starts execution before an older load-dependent ADDI. This is a finite trace of dynamic issue, not a correctness proof.",
+    "witnesses": [
+      {
+        "older_load": {
+          "sequence": 208,
+          "epoch": 11,
+          "dispatch_cycle": 238,
+          "rob": 6,
+          "pc": 48,
+          "instruction": 9352451,
+          "request_cycle": 244,
+          "memory_tag": 1,
+          "address": 1032,
+          "response_cycle": 247,
+          "load_value": 31
+        },
+        "older_dependent_alu": {
+          "sequence": 209,
+          "epoch": 11,
+          "dispatch_cycle": 239,
+          "rob": 7,
+          "pc": 52,
+          "instruction": 1377811,
+          "alu_start_cycle": 249,
+          "alu_result_cycle": 249,
+          "result": 32
+        },
+        "younger_independent_alu": {
+          "sequence": 210,
+          "epoch": 11,
+          "dispatch_cycle": 240,
+          "rob": 8,
+          "pc": 56,
+          "instruction": 32507283,
+          "alu_start_cycle": 241,
+          "alu_result_cycle": 241,
+          "result": 31
+        }
+      }
+    ]
+  },
+  "core_rtl_unchanged": true,
+  "source_count": 74,
+  "capacities": {
+    "ROB_DEPTH": 32,
+    "IQ_DEPTH": 4,
+    "LDBUFF_DEPTH": 8,
+    "STBUFF_DEPTH": 16,
+    "ALU_RS_DEPTH": 8,
+    "MULT_RS_DEPTH": 4,
+    "DIV_RS_DEPTH": 4,
+    "BU_RS_DEPTH": 4,
+    "RAS_DEPTH": 8
+  },
+  "fetch_fifo_depth": 2,
+  "baseline_memory_pipe_num": 2,
+  "known_limits": [
+    "Three frontend missing-reset-value warnings retained; no sequential correctness proof.",
+    "Current FPU-merge revision has an unresolved FCSR multi-driver conflict; selected official pre-FPU revision avoids it without a functional patch.",
+    "Historical pipe2 smoke had exit0 but a broken upstream static trace variable caused monitor ERRORs; its old smoke_passed flag alone is not accepted qualification.",
+    "A zero-stage memory run with the nonbypass two-entry fetch FIFO failed; preserve fixed capacity and a compatible minimum instruction-response latency.",
+    "Smoke exercises integer loop, branch, store forwarding, and a preinitialized memory load; multiply/divide and full software regression remain unqualified."
+  ],
+  "attempts": {
+    "integer_frontend": {
+      "upstream_commit": "5206e92bc7235cd1cbcc10522aaee3f69f9b5e7b",
+      "status": "elaborated_with_structural_issues",
+      "returncode": 0
+    },
+    "pre_fpu_frontend": {
+      "upstream_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+      "status": "normalized_structural_check_passed",
+      "returncode": 0
+    },
+    "pre_fpu_simulation": {
+      "upstream_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+      "build_returncode": 1,
+      "memory_pipe_num": 0
+    },
+    "pre_fpu_simulation_compat": {
+      "upstream_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+      "build_returncode": 2,
+      "memory_pipe_num": 0
+    },
+    "pre_fpu_simulation_host": {
+      "upstream_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+      "build_returncode": 0,
+      "run_returncode": 0,
+      "smoke_passed": false,
+      "memory_pipe_num": 0,
+      "run_log_has_error": true,
+      "exit_zero_message": false,
+      "timeout": true,
+      "reported_cpu_cycles": null,
+      "reported_retired_instructions": null,
+      "memory_read_requests": null
+    },
+    "pre_fpu_simulation_pipe2": {
+      "upstream_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+      "build_returncode": 0,
+      "run_returncode": 0,
+      "smoke_passed": true,
+      "memory_pipe_num": 2,
+      "run_log_has_error": true,
+      "exit_zero_message": true,
+      "timeout": false,
+      "reported_cpu_cycles": 243,
+      "reported_retired_instructions": 205,
+      "memory_read_requests": 0
+    },
+    "pre_fpu_simulation_final": {
+      "upstream_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+      "build_returncode": 0,
+      "run_returncode": 0,
+      "smoke_passed": true,
+      "memory_pipe_num": 2,
+      "run_log_has_error": false,
+      "exit_zero_message": true,
+      "timeout": false,
+      "reported_cpu_cycles": 247,
+      "reported_retired_instructions": 208,
+      "memory_read_requests": 1
+    },
+    "pre_fpu_simulation_ooo": {
+      "upstream_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+      "build_returncode": 0,
+      "run_returncode": 0,
+      "smoke_passed": true,
+      "memory_pipe_num": 2,
+      "run_log_has_error": false,
+      "exit_zero_message": true,
+      "timeout": false,
+      "reported_cpu_cycles": 250,
+      "reported_retired_instructions": 210,
+      "memory_read_requests": 1
+    }
+  },
+  "driver_script_sha256": {
+    "prepare_frontend.py": "d60884a19af664bf9856d763788acda37e5d7b3626e249035c349fbf01ac693c",
+    "qualify_simulation.py": "43c08ea2d1bcd79b1d356b546d242fd6123841ecec5fb33bbdad9f2bd589b8b6",
+    "collect_evidence.py": "a0d240c8fbfd92bcfc8cb025bdbdc6e77b78fa3edae0ff88c36719e7e3373bcb"
+  },
+  "documentation_sha256": {
+    "README.md": "d11b3e1fdf235d71a32953283364bae3355101507da0c77cfd08f9b7a7bbe0d0",
+    "CANDIDATE_REVIEW.md": "66202b0a1477f67a8acecdb151328662ddf0ff510d7e5c1825ee1aa0e74c6fdf"
+  },
+  "artifact_sha256": {
+    "integer_frontend/manifest.json": "f9b9e3533d1d8bc2540975adf83308f71d93881483629da79389ddadec2817b4",
+    "integer_frontend/frontend.ys": "7361606bac8f999009fd3936ca9059c7ca7d4ea470627577e796347c8b7b6ebd",
+    "integer_frontend/sources.txt": "286994b0205445f3c144c5bd2b6500f84d8ba8689083f19ea510e770db78f837",
+    "integer_frontend/frontend.log": "506cb789ab08883a1b9c7a79e1f50c358948a1d7c45316250c5b1d6a9a0cd619",
+    "integer_frontend/check.ys": "ecadecabb619f88380904470a17a0509e023236f38b00a26b54f13a698d9cf46",
+    "integer_frontend/check.log": "9549a4e038ce95350217dc02426f9b1ef9563f88854f11bfc18475a873d917d1",
+    "pre_fpu_frontend/manifest.json": "227f443329f5b2cbb5ef03b760110bf08eedfda552aa338ef45ee8dfc498aa9e",
+    "pre_fpu_frontend/frontend.ys": "68cf6065971d7c12b26033bbc0bbbdb75797df074c0d38803b8dfc15229039a8",
+    "pre_fpu_frontend/sources.txt": "78af0c20d17a23175e193e81d42d92179b68ce7f329ed3f45ef07c90b9485fdd",
+    "pre_fpu_frontend/frontend.log": "0907915b1a6a485a10a41b24a846121293abb40d9fabdfd1929bfe89799a4232",
+    "pre_fpu_frontend/check.ys": "ecadecabb619f88380904470a17a0509e023236f38b00a26b54f13a698d9cf46",
+    "pre_fpu_frontend/check.log": "4423b3b8cf8fff1e2cd59097cc684fc8b6812e1ec75b9c16061650c4f9983523",
+    "pre_fpu_frontend/normalize.ys": "d0a9ccf38536daa29b52d944796ad4d4fb956af758b34365fd204e0d93438607",
+    "pre_fpu_frontend/normalize.log": "fe96531faa5d2d99020db15d0e0db81298d61bf63ed5b3fcfccdb3de2362ffe1",
+    "pre_fpu_simulation/manifest.json": "db31790836baad39e35da6f63641861d36e5fc806b5d55cce28c9ff74925cfdd",
+    "pre_fpu_simulation/build.log": "e1a951d4af0a9f4f13007e3b9e8d18c3f312450f6b74da6dcb4df80eee225fa3",
+    "pre_fpu_simulation_compat/manifest.json": "53cea435e6ca62650b8a3d5029afcd9cb886fe516f7a1c8fb81cd53def78b522",
+    "pre_fpu_simulation_compat/build.log": "48fa13edfd2348a80bf0568fb4d0a79515b1d2fd7d3b14a1461c2aab5f08644b",
+    "pre_fpu_simulation_host/manifest.json": "03cbea89e0d39b11b00776c3d9ee426c1d716bacf0acc67df80573a4df50a7a8",
+    "pre_fpu_simulation_host/build.log": "149e9fde37175087388d5bb1ff5786f424f95a4e34b849f3b3abb42322daffc2",
+    "pre_fpu_simulation_host/compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pre_fpu_simulation_host/smoke.S": "c5675b15eec0d4fcb38ff6b53f1a8996bfcef191d2327ce32562efacdf88a938",
+    "pre_fpu_simulation_host/smoke.hex": "f896d1fab7ac9be8877d830df4bed5f445a68e73b17bbf0c24d1bb9633eabba9",
+    "pre_fpu_simulation_host/run.log": "cc2423d620a20fff79a8afb2e6fba89e9680e63fc7bce723e1ee5dad59662507",
+    "pre_fpu_simulation_host/logs/sim-trace.log": "e8721dad6b6f8aae6e83a8611a03efd02abcbb31c7598f80930da45cac851f0d",
+    "pre_fpu_simulation_pipe2/manifest.json": "add78e39a7dae9e4c0ba48030b40cc21a51a6222b6177d6e9e9da94e0236bc3e",
+    "pre_fpu_simulation_pipe2/build.log": "ac8ed8d2792326c9eb9bf3cb24f26f29f8922081146f7167ebabf9b0fdfaa5f1",
+    "pre_fpu_simulation_pipe2/compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pre_fpu_simulation_pipe2/smoke.S": "c5675b15eec0d4fcb38ff6b53f1a8996bfcef191d2327ce32562efacdf88a938",
+    "pre_fpu_simulation_pipe2/smoke.hex": "f896d1fab7ac9be8877d830df4bed5f445a68e73b17bbf0c24d1bb9633eabba9",
+    "pre_fpu_simulation_pipe2/run.log": "cfb0499177854786500c59e0484e028439db4874ac5e3c141ec4cd238c344d9f",
+    "pre_fpu_simulation_pipe2/logs/sim-trace.log": "3e2912e441e9cfa42b7395ce84ab227f4c295661e57c0a0b3e95b3c2ab92ad68",
+    "pre_fpu_simulation_final/manifest.json": "b171ac3cc8ab6c1da74e9cfc778e92cb243adeaccc33fc65243ce0752a6414a8",
+    "pre_fpu_simulation_final/build.log": "a250b1473741b40f47066000f6581c1b63669ad3f030cde138097c13dbaffd3f",
+    "pre_fpu_simulation_final/compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pre_fpu_simulation_final/smoke.S": "8d807e84d2f3e7ce54897be8bcf96828ec42778ad56a868610a400fbebc7f345",
+    "pre_fpu_simulation_final/smoke.hex": "1dc14148a1ad213687acae10ec5ce0b975b0e38572691386f9afccabc201749b",
+    "pre_fpu_simulation_final/run.log": "084bc89696f28de249929dda6fb648a4197f3743632ca39c4fdd2df6dbe523f5",
+    "pre_fpu_simulation_final/logs/sim-trace.log": "16a588fbcf438422f396af039344086fa246261772d955e4f678be52905a27cf",
+    "pre_fpu_simulation_ooo/manifest.json": "26db1ea23a772770f9e31c044e59d2e565e0bb9f21d13823185cc2266027d45a",
+    "pre_fpu_simulation_ooo/build.log": "60ac4486b96c0607c710975df21a12fc61de31faa699e4a6167ec9dda8652456",
+    "pre_fpu_simulation_ooo/compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pre_fpu_simulation_ooo/smoke.S": "9296cb5def5e635b13b13cfea27e6e2191803fdfa2b3f8b19222e8c1d36fe0ff",
+    "pre_fpu_simulation_ooo/smoke.hex": "3cdfe842b8c7735a23ceb322a969efd1fa285c69485aaca0b1ef4436a4c54d78",
+    "pre_fpu_simulation_ooo/run.log": "6b0896896f0d9c6d69d7721730a0878502fdbc26a50da3693ca6b30b6732bc4b",
+    "pre_fpu_simulation_ooo/logs/sim-trace.log": "2937016fa1350cc35158acd27dd883109d5d7d044790f6910ac0fa1e7d6d05f7",
+    "pre_fpu_simulation_ooo/logs/qualification_events.csv": "c996a9c5f5819241709c26bc8a5e551f6f1f49ee74c1710157b7775f6924dff8"
+  }
+}

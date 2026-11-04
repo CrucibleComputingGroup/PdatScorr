@@ -1,0 +1,44 @@
+{
+  "trace_sha256": "c996a9c5f5819241709c26bc8a5e551f6f1f49ee74c1710157b7775f6924dff8",
+  "witness_found": true,
+  "interpretation": "A younger independent ADDI reaches the actual ALU result handshake before an older load responds and starts execution before an older load-dependent ADDI. This is a finite trace of dynamic issue, not a correctness proof.",
+  "witnesses": [
+    {
+      "older_load": {
+        "sequence": 208,
+        "epoch": 11,
+        "dispatch_cycle": 238,
+        "rob": 6,
+        "pc": 48,
+        "instruction": 9352451,
+        "request_cycle": 244,
+        "memory_tag": 1,
+        "address": 1032,
+        "response_cycle": 247,
+        "load_value": 31
+      },
+      "older_dependent_alu": {
+        "sequence": 209,
+        "epoch": 11,
+        "dispatch_cycle": 239,
+        "rob": 7,
+        "pc": 52,
+        "instruction": 1377811,
+        "alu_start_cycle": 249,
+        "alu_result_cycle": 249,
+        "result": 32
+      },
+      "younger_independent_alu": {
+        "sequence": 210,
+        "epoch": 11,
+        "dispatch_cycle": 240,
+        "rob": 8,
+        "pc": 56,
+        "instruction": 32507283,
+        "alu_start_cycle": 241,
+        "alu_result_cycle": 241,
+        "result": 31
+      }
+    }
+  ]
+}

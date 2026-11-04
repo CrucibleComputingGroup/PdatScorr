@@ -1,0 +1,37 @@
+
+-- Executing script file `check.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: elaborated.il
+
+2. Executing CHECK pass (checking for obvious problems).
+Checking module datapath...
+Warning: multiple conflicting drivers for datapath.\u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.mem_we_o:
+    port Y[0] of cell $2540 ($buf)
+    port Y[0] of cell $2461 ($buf)
+Warning: multiple conflicting drivers for datapath.\u_backend.u_csrs.fcsr [7]:
+    port Q[2] of cell $driver$u_backend.u_csrs.fcsr.frm ($aldff)
+    port Y[7] of cell $9082 ($buf)
+Warning: multiple conflicting drivers for datapath.\u_backend.u_csrs.fcsr [6]:
+    port Q[1] of cell $driver$u_backend.u_csrs.fcsr.frm ($aldff)
+    port Y[6] of cell $9082 ($buf)
+Warning: multiple conflicting drivers for datapath.\u_backend.u_csrs.fcsr [5]:
+    port Q[0] of cell $driver$u_backend.u_csrs.fcsr.frm ($aldff)
+    port Y[5] of cell $9082 ($buf)
+Warning: multiple conflicting drivers for datapath.\u_backend.u_csrs.fcsr [4]:
+    port Q[0] of cell $driver$u_backend.u_csrs.fcsr.fflags.nv ($aldff)
+    port Y[4] of cell $9082 ($buf)
+Warning: multiple conflicting drivers for datapath.\u_backend.u_csrs.fcsr [3]:
+    port Q[0] of cell $driver$u_backend.u_csrs.fcsr.fflags.dz ($aldff)
+    port Y[3] of cell $9082 ($buf)
+Warning: multiple conflicting drivers for datapath.\u_backend.u_csrs.fcsr [2]:
+    port Q[0] of cell $driver$u_backend.u_csrs.fcsr.fflags.of ($aldff)
+    port Y[2] of cell $9082 ($buf)
+Warning: multiple conflicting drivers for datapath.\u_backend.u_csrs.fcsr [1]:
+    port Q[0] of cell $driver$u_backend.u_csrs.fcsr.fflags.uf ($aldff)
+    port Y[1] of cell $9082 ($buf)
+Warning: multiple conflicting drivers for datapath.\u_backend.u_csrs.fcsr [0]:
+    port Q[0] of cell $driver$u_backend.u_csrs.fcsr.fflags.nx ($aldff)
+    port Y[0] of cell $9082 ($buf)
+ERROR: Found 9 problems in 'check -assert'.
+Found and reported 9 problems.
