@@ -1,0 +1,501 @@
+{
+  "creator": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "EUDomainProof": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv:1.1-6.10"
+      },
+      "ports": {
+        "instruction_i": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 ]
+        },
+        "assigned_eu": {
+          "direction": "output",
+          "bits": [ 34, 35, "0" ]
+        }
+      },
+      "cells": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv:4$assert$745": {
+          "hide_name": 1,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv:4.1-4.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "EN": [ "1" ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$753": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "Y": [ 36 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$755": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 36 ],
+            "B": [ "1" ],
+            "Y": [ 37 ]
+          }
+        },
+        "$auto$opt_reduce.cc:131:opt_pmux$748": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 38, 39, 40, 41 ],
+            "Y": [ 42 ]
+          }
+        },
+        "$auto$opt_reduce.cc:131:opt_pmux$750": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 43, 38, 39 ],
+            "Y": [ 44 ]
+          }
+        },
+        "$flatten\\dut.$procmux$40066": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "parallel_case": "00000000000000000000000000000001",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:598.9-609.12|source/rtl/expipe/issue-unit/issue_decoder.sv:98.5-790.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ "0" ],
+            "S": [ 42 ],
+            "Y": [ 34 ]
+          }
+        },
+        "$flatten\\dut.$procmux$40072_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "parallel_case": "00000000000000000000000000000001",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:506.11-515.10|source/rtl/expipe/issue-unit/issue_decoder.sv:98.5-790.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 14, 15, 16 ],
+            "B": [ "1", "1", "0", "0", "0", "1", "0", "1", "1" ],
+            "Y": [ 39 ]
+          }
+        },
+        "$flatten\\dut.$procmux$40080_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "parallel_case": "00000000000000000000000000000001",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:375.12-383.10|source/rtl/expipe/issue-unit/issue_decoder.sv:98.5-790.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 14, 15, 16 ],
+            "B": [ "1", "1", "0", "0", "0", "1", "1", "1" ],
+            "Y": [ 41 ]
+          }
+        },
+        "$flatten\\dut.$procmux$40083_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "parallel_case": "00000000000000000000000000000001",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:352.12-358.10|source/rtl/expipe/issue-unit/issue_decoder.sv:98.5-790.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8 ],
+            "B": [ "1", "1", "1", "1", "0", "1", "1" ],
+            "Y": [ 40 ]
+          }
+        },
+        "$flatten\\dut.$procmux$40093": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "parallel_case": "00000000000000000000000000000001",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:710.9-721.12|source/rtl/expipe/issue-unit/issue_decoder.sv:98.5-790.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ "0" ],
+            "S": [ 44 ],
+            "Y": [ 35 ]
+          }
+        },
+        "$flatten\\dut.$procmux$40110_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "parallel_case": "00000000000000000000000000000001",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:476.11-485.10|source/rtl/expipe/issue-unit/issue_decoder.sv:98.5-790.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 14, 15, 16 ],
+            "B": [ "1", "1", "0", "0", "0", "1" ],
+            "Y": [ 38 ]
+          }
+        },
+        "$flatten\\dut.$procmux$40111_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "parallel_case": "00000000000000000000000000000001",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:468.11-475.10|source/rtl/expipe/issue-unit/issue_decoder.sv:98.5-790.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 14, 15, 16 ],
+            "B": [ "1", "1", "0", "0", "0", "0", "0", "1", "1" ],
+            "Y": [ 43 ]
+          }
+        },
+        "dut": {
+          "hide_name": 0,
+          "type": "$scopeinfo",
+          "parameters": {
+            "TYPE": "module"
+          },
+          "attributes": {
+            "cell_module_not_derived": "00000000000000000000000000000001",
+            "cell_src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv:2.13-2.76",
+            "module": "DecoderBase"
+          },
+          "port_directions": {
+          },
+          "connections": {
+          }
+        }
+      },
+      "netnames": {
+        "$auto$opt_reduce.cc:137:opt_pmux$749": {
+          "hide_name": 1,
+          "bits": [ 42 ],
+          "attributes": {
+          }
+        },
+        "$auto$opt_reduce.cc:137:opt_pmux$751": {
+          "hide_name": 1,
+          "bits": [ 44 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$754": {
+          "hide_name": 1,
+          "bits": [ 36 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$756": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\dut.$auto$jsonparse.cc:561:json_import$483": {
+          "hide_name": 1,
+          "bits": [ 43 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\dut.$auto$jsonparse.cc:561:json_import$484": {
+          "hide_name": 1,
+          "bits": [ 38 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\dut.$auto$jsonparse.cc:561:json_import$487": {
+          "hide_name": 1,
+          "bits": [ 39 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\dut.$auto$jsonparse.cc:561:json_import$501": {
+          "hide_name": 1,
+          "bits": [ 40 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\dut.$auto$jsonparse.cc:561:json_import$504": {
+          "hide_name": 1,
+          "bits": [ 41 ],
+          "attributes": {
+          }
+        },
+        "assigned_eu": {
+          "hide_name": 0,
+          "bits": [ 34, 35, "0" ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv:1.63-1.74"
+          }
+        },
+        "dut.assigned_eu_o": {
+          "hide_name": 0,
+          "bits": [ 34, 35, "0" ],
+          "attributes": {
+            "hdlname": "dut assigned_eu_o"
+          }
+        },
+        "dut.except_code_o": {
+          "hide_name": 0,
+          "bits": [ 45, "1", "0", 46, "0" ],
+          "attributes": {
+            "hdlname": "dut except_code_o"
+          }
+        },
+        "dut.instruction_i": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 ],
+          "attributes": {
+            "hdlname": "dut instruction_i"
+          }
+        },
+        "dut.order_crit_o": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "hdlname": "dut order_crit_o"
+          }
+        },
+        "dut.rs1_is_pc_o": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "hdlname": "dut rs1_is_pc_o"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.assigned_eu": {
+          "hide_name": 0,
+          "bits": [ 34, 35, "0" ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder assigned_eu",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:56.17"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.assigned_eu_o": {
+          "hide_name": 0,
+          "bits": [ 34, 35, "0" ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder assigned_eu_o",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:25.33"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.except_code": {
+          "hide_name": 0,
+          "bits": [ 45, "1", "0", 46, "0" ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder except_code",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:52.17"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.except_code_o": {
+          "hide_name": 0,
+          "bits": [ 45, "1", "0", 46, "0" ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder except_code_o",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:24.34"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.instruction_i": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder instruction_i",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:17.29"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.order_crit": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder order_crit",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:59.17"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.order_crit_o": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder order_crit_o",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:29.16"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.priv_mode_i": {
+          "hide_name": 0,
+          "bits": [ "1", "1" ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder priv_mode_i",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:18.29"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.rs1_is_pc": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder rs1_is_pc",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:61.17"
+          }
+        },
+        "dut.u_backend.u_issue_stage.u_issue_decoder.rs1_is_pc_o": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "hdlname": "dut u_backend u_issue_stage u_issue_decoder rs1_is_pc_o",
+            "src": "source/rtl/expipe/issue-unit/issue_decoder.sv:31.16"
+          }
+        },
+        "instruction_i": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv:1.35-1.48"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,576 @@
+{
+  "status": "passed",
+  "classification": "Finite matched external fetch-spacing ablation; not a universal occupancy theorem or accepted optimization",
+  "program_exit_ok": true,
+  "all_64_output_stores_and_exit_checked": true,
+  "accepted_stores": 65,
+  "returncode": 0,
+  "run_command": [
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_gap1_platform_v1/obj_dir/Vtb_bare",
+    "+firmware=/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_streaming_gap1_v1/data.hex",
+    "+instruction_rom=/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_streaming_gap1_v1/instruction.hex",
+    "--max_cycles=10000",
+    "--dump_waves=true",
+    "--dump_trace=true",
+    "--log_level=LOG_LOW"
+  ],
+  "reported_cpu_cycles": 805,
+  "exit_store_cycle": 814,
+  "native_core_and_capacities_unchanged": true,
+  "all_74_core_source_hashes_match": true,
+  "top_testbench_diff_is_only_gate_and_passive_observer": true,
+  "memory_implementation_byte_identical": true,
+  "elf_rom_and_data_bytes_identical": true,
+  "source_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/run_gap1_ablation.py": "5f79b4222b483e110211920ff110a05f6409eabd77e195436822d63a78fe2aa0",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/run_platform.py": "b0eb3b099d63187459c469b1d894f4bf4abfafba1f5e1f160597a6405a30ffa2",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/qualify_simulation.py": "c697b59b7cde57fe2b4f430670b32eac4c055695cf552d525ad2b039b0d48dbc",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/run_div_falsifier.py": "c666ff9523956ae31df420aa8b983776080a6bf159b9f5cf08d28461a212a4bc",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/run_streaming.py": "d0a97f2abff2a8f5356c73fe1db74427d92f410369db9a9b7b741f2a5da8eed6",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/analyze_fetch_spacing.py": "187aefcd8006026f884a5a89142d971257b5a505ebbfe8e4ca8ef0777305c629"
+  },
+  "simulator_manifest_sha256": "3df11c2421c7b059fed3bd23676cf366b60e0a9f58bcb30afacc2ce1098803ff",
+  "raw_fst_sha256": "6a53c8cc44b21c4be06f264fb00226f7747fe2ef5b03e9d52805a302379e302f",
+  "raw_vcd_sha256": "623bfe18ca3f3bce6903cd274fc5275e602e174953368c1ab494c0d98c2bc672",
+  "memory_timing_full_trace": {
+    "accepted_fetch_count": 532,
+    "accepted_fetch_gap_histogram": {
+      "1": 467,
+      "2": 5,
+      "3": 2,
+      "6": 56,
+      "36": 1
+    },
+    "minimum_accepted_fetch_gap": 1,
+    "maximum_fetch_outstanding_after_edge": 2,
+    "complete_fetch_response_count": 517,
+    "fetch_latency_histogram": {
+      "2": 404,
+      "3": 2,
+      "7": 111
+    },
+    "fetch_faults": [
+      {
+        "request_cycle": 772,
+        "address": 56,
+        "response_cycle": 774,
+        "latency": 2,
+        "response_on_flush": 0,
+        "exception": 1,
+        "exception_code": 1
+      }
+    ],
+    "flush_cycles": [
+      27,
+      29,
+      762,
+      770,
+      809,
+      813,
+      817
+    ],
+    "fetch_cancellations": [
+      {
+        "request_cycle": 25,
+        "address": 56,
+        "flush_cycle": 27
+      },
+      {
+        "request_cycle": 26,
+        "address": 60,
+        "flush_cycle": 27
+      },
+      {
+        "request_cycle": 28,
+        "address": 52,
+        "flush_cycle": 29
+      },
+      {
+        "request_cycle": 755,
+        "address": 12,
+        "flush_cycle": 762
+      },
+      {
+        "request_cycle": 761,
+        "address": 16,
+        "flush_cycle": 762
+      },
+      {
+        "request_cycle": 768,
+        "address": 56,
+        "flush_cycle": 770
+      },
+      {
+        "request_cycle": 769,
+        "address": 60,
+        "flush_cycle": 770
+      },
+      {
+        "request_cycle": 773,
+        "address": 60,
+        "flush_cycle": 809
+      },
+      {
+        "request_cycle": 774,
+        "address": 64,
+        "flush_cycle": 809
+      },
+      {
+        "request_cycle": 811,
+        "address": 56,
+        "flush_cycle": 813
+      },
+      {
+        "request_cycle": 812,
+        "address": 60,
+        "flush_cycle": 813
+      },
+      {
+        "request_cycle": 815,
+        "address": 56,
+        "flush_cycle": 817
+      },
+      {
+        "request_cycle": 816,
+        "address": 60,
+        "flush_cycle": 817
+      }
+    ],
+    "fetch_pending_at_end": [
+      {
+        "request_cycle": 865,
+        "address": 52
+      },
+      {
+        "request_cycle": 866,
+        "address": 52
+      }
+    ],
+    "complete_load_response_count": 65,
+    "maximum_load_outstanding_after_edge": 1,
+    "load_latency_histogram": {
+      "3": 65
+    },
+    "load_faults": [],
+    "load_pending_at_end": [],
+    "endpoint_acceptance_equal_at_all_active_edges": true
+  },
+  "memory_timing_through_exit": {
+    "accepted_fetch_count": 481,
+    "accepted_fetch_gap_histogram": {
+      "1": 417,
+      "2": 4,
+      "3": 2,
+      "6": 56,
+      "36": 1
+    },
+    "minimum_accepted_fetch_gap": 1,
+    "maximum_fetch_outstanding_after_edge": 2,
+    "complete_fetch_response_count": 469,
+    "fetch_latency_histogram": {
+      "2": 356,
+      "3": 2,
+      "7": 111
+    },
+    "fetch_faults": [
+      {
+        "request_cycle": 772,
+        "address": 56,
+        "response_cycle": 774,
+        "latency": 2,
+        "response_on_flush": 0,
+        "exception": 1,
+        "exception_code": 1
+      }
+    ],
+    "flush_cycles": [
+      27,
+      29,
+      762,
+      770,
+      809,
+      813
+    ],
+    "fetch_cancellations": [
+      {
+        "request_cycle": 25,
+        "address": 56,
+        "flush_cycle": 27
+      },
+      {
+        "request_cycle": 26,
+        "address": 60,
+        "flush_cycle": 27
+      },
+      {
+        "request_cycle": 28,
+        "address": 52,
+        "flush_cycle": 29
+      },
+      {
+        "request_cycle": 755,
+        "address": 12,
+        "flush_cycle": 762
+      },
+      {
+        "request_cycle": 761,
+        "address": 16,
+        "flush_cycle": 762
+      },
+      {
+        "request_cycle": 768,
+        "address": 56,
+        "flush_cycle": 770
+      },
+      {
+        "request_cycle": 769,
+        "address": 60,
+        "flush_cycle": 770
+      },
+      {
+        "request_cycle": 773,
+        "address": 60,
+        "flush_cycle": 809
+      },
+      {
+        "request_cycle": 774,
+        "address": 64,
+        "flush_cycle": 809
+      },
+      {
+        "request_cycle": 811,
+        "address": 56,
+        "flush_cycle": 813
+      },
+      {
+        "request_cycle": 812,
+        "address": 60,
+        "flush_cycle": 813
+      }
+    ],
+    "fetch_pending_at_end": [
+      {
+        "request_cycle": 814,
+        "address": 52
+      }
+    ],
+    "complete_load_response_count": 65,
+    "maximum_load_outstanding_after_edge": 1,
+    "load_latency_histogram": {
+      "3": 65
+    },
+    "load_faults": [],
+    "load_pending_at_end": [],
+    "endpoint_acceptance_equal_at_all_active_edges": true
+  },
+  "out_of_order": {
+    "witness_found": true,
+    "actual_alu_issue_inversion_count": 723,
+    "first_witness": {
+      "older_alu": {
+        "sequence": 4,
+        "epoch": 9,
+        "dispatch_cycle": 20,
+        "rob": 4,
+        "pc": 16,
+        "instruction": 1377683,
+        "alu_start_cycle": 26,
+        "alu_result_cycle": 26,
+        "result": 1
+      },
+      "younger_alu": {
+        "sequence": 6,
+        "epoch": 9,
+        "dispatch_cycle": 22,
+        "rob": 6,
+        "pc": 24,
+        "instruction": 8651795,
+        "alu_start_cycle": 23,
+        "alu_result_cycle": 23,
+        "result": 4104
+      },
+      "older_load_dependency": {
+        "sequence": 3,
+        "epoch": 9,
+        "dispatch_cycle": 19,
+        "rob": 3,
+        "pc": 12,
+        "instruction": 275715,
+        "request_cycle": 21,
+        "memory_tag": 0,
+        "address": 4096,
+        "response_cycle": 24,
+        "load_value": 0
+      }
+    },
+    "scope": "Actual ALU execution handshakes within one reset/flush epoch; finite trace only"
+  },
+  "occupancy": {
+    "max_live_entries": 6,
+    "first_maximum": {
+      "time": 171,
+      "cycle_pre_edge": 85,
+      "insert": 1,
+      "new_idx": 2,
+      "remove": 0,
+      "cdb_idx": 0,
+      "live_pre": 5,
+      "live_post": 6,
+      "states_post": [
+        0,
+        0,
+        4,
+        6,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "all_eight_rs1_pending": false,
+    "first_all_pending": null,
+    "state_encoding": {
+      "EMPTY": 0,
+      "RS1_PENDING": 1
+    },
+    "selected_signal_names": [
+      "TOP.tb_bare.clk_i",
+      "TOP.tb_bare.curr_cycle",
+      "TOP.tb_bare.rst_ni",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.cdb_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[0]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[1]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[2]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[3]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[4]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[5]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[6]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[7]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[0].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[0].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[1].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[1].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[2].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[2].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[3].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[3].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[4].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[4].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[5].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[5].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[6].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[6].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[7].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[7].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.insert",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.new_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.remove"
+    ]
+  },
+  "admissions_through_exit": {
+    "indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "first_admission_by_index": {
+      "1": {
+        "time": "173",
+        "cycle_pre_edge": "86",
+        "insert": "1",
+        "new_idx": "1",
+        "remove": "1",
+        "cdb_idx": "3",
+        "live_pre": "6",
+        "live_post": "6",
+        "states_post": "0 4 6 0 1 1 1 1"
+      },
+      "2": {
+        "time": "145",
+        "cycle_pre_edge": "72",
+        "insert": "1",
+        "new_idx": "2",
+        "remove": "1",
+        "cdb_idx": "4",
+        "live_pre": "5",
+        "live_post": "5",
+        "states_post": "0 0 4 6 0 1 1 1"
+      },
+      "3": {
+        "time": "117",
+        "cycle_pre_edge": "58",
+        "insert": "1",
+        "new_idx": "3",
+        "remove": "1",
+        "cdb_idx": "5",
+        "live_pre": "4",
+        "live_post": "4",
+        "states_post": "0 0 0 4 6 0 1 1"
+      },
+      "4": {
+        "time": "49",
+        "cycle_pre_edge": "24",
+        "insert": "1",
+        "new_idx": "4",
+        "remove": "1",
+        "cdb_idx": "7",
+        "live_pre": "3",
+        "live_post": "3",
+        "states_post": "0 0 0 0 4 6 1 0"
+      },
+      "5": {
+        "time": "47",
+        "cycle_pre_edge": "23",
+        "insert": "1",
+        "new_idx": "5",
+        "remove": "0",
+        "cdb_idx": "0",
+        "live_pre": "2",
+        "live_post": "3",
+        "states_post": "0 0 0 0 0 4 1 6"
+      },
+      "6": {
+        "time": "41",
+        "cycle_pre_edge": "20",
+        "insert": "1",
+        "new_idx": "6",
+        "remove": "1",
+        "cdb_idx": "7",
+        "live_pre": "1",
+        "live_post": "1",
+        "states_post": "0 0 0 0 0 0 1 0"
+      },
+      "7": {
+        "time": "37",
+        "cycle_pre_edge": "18",
+        "insert": "1",
+        "new_idx": "7",
+        "remove": "0",
+        "cdb_idx": "0",
+        "live_pre": "0",
+        "live_post": "1",
+        "states_post": "0 0 0 0 0 0 0 4"
+      }
+    },
+    "max_live_pre_edge": 6,
+    "max_live_post_edge": 6,
+    "rows_0_through_3_all_admitted": false,
+    "any_row_0_through_3_admitted": true
+  },
+  "all_active_instruction_payloads_in_elf_words_or_zero": true,
+  "gap2_comparison": {
+    "evidence_path": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/evidence/streaming_v1",
+    "summary_sha256": "0d79dc8867275e5f3de84c73d2737246fcce39b9fd5bfc3f7fd4b32dcced087d",
+    "simulator_manifest_sha256": "4949d23fb78048dbc9d7e4267d00ba5b13fab35b236413318cfb724c6038d6b3",
+    "reported_cpu_cycles": 931,
+    "occupancy": {
+      "indices": [
+        5,
+        6,
+        7
+      ],
+      "first_admission_by_index": {
+        "5": {
+          "time": "61",
+          "cycle_pre_edge": "30",
+          "insert": "1",
+          "new_idx": "5",
+          "remove": "1",
+          "cdb_idx": "6",
+          "live_pre": "2",
+          "live_post": "2",
+          "states_post": "0 0 0 0 0 4 0 6"
+        },
+        "6": {
+          "time": "57",
+          "cycle_pre_edge": "28",
+          "insert": "1",
+          "new_idx": "6",
+          "remove": "0",
+          "cdb_idx": "0",
+          "live_pre": "1",
+          "live_post": "2",
+          "states_post": "0 0 0 0 0 0 4 4"
+        },
+        "7": {
+          "time": "41",
+          "cycle_pre_edge": "20",
+          "insert": "1",
+          "new_idx": "7",
+          "remove": "0",
+          "cdb_idx": "0",
+          "live_pre": "0",
+          "live_post": "1",
+          "states_post": "0 0 0 0 0 0 0 4"
+        }
+      },
+      "max_live_pre_edge": 2,
+      "max_live_post_edge": 2,
+      "rows_0_through_3_all_admitted": false,
+      "any_row_0_through_3_admitted": false
+    },
+    "memory_timing_full_trace": {
+      "accepted_fetch_count": 489,
+      "accepted_fetch_gap_histogram": {
+        "2": 486,
+        "4": 2
+      },
+      "minimum_accepted_fetch_gap": 2,
+      "maximum_fetch_outstanding_after_edge": 1,
+      "complete_fetch_response_count": 484,
+      "fetch_latency_histogram": {
+        "2": 484
+      },
+      "fetch_faults": [],
+      "flush_cycles": [
+        37,
+        927,
+        938,
+        942
+      ],
+      "fetch_cancellations": [
+        {
+          "request_cycle": 35,
+          "address": 48,
+          "flush_cycle": 37
+        },
+        {
+          "request_cycle": 925,
+          "address": 20,
+          "flush_cycle": 927
+        },
+        {
+          "request_cycle": 937,
+          "address": 56,
+          "flush_cycle": 938
+        },
+        {
+          "request_cycle": 941,
+          "address": 56,
+          "flush_cycle": 942
+        }
+      ],
+      "fetch_pending_at_end": [
+        {
+          "request_cycle": 991,
+          "address": 52
+        }
+      ],
+      "complete_load_response_count": 65,
+      "maximum_load_outstanding_after_edge": 1,
+      "load_latency_histogram": {
+        "3": 65
+      },
+      "load_faults": [],
+      "load_pending_at_end": [],
+      "endpoint_acceptance_equal_at_all_active_edges": true
+    }
+  },
+  "raw_run_path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_streaming_gap1_v1",
+  "build_path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_gap1_platform_v1",
+  "limitation": "The 1-cycle and 2-cycle gaps describe two external platforms. Cycle difference is not software optimization overhead. A native row admission is a finite counterexample to its universal no-admission property for gap1; lack of an admission in gap2 is finite evidence only."
+}

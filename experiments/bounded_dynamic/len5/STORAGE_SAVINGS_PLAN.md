@@ -74,6 +74,14 @@ unchanged. The external platform explicitly returns zero payload on instruction
 faults and preserves the original fetch/data pipelines. This is a declared
 Harvard platform, not a universal equivalence claim about unified memory.
 
+The [matched Harvard fetch-spacing ablation](program_platform/GAP_ABLATION.md)
+now reproduces the 805/931-cycle comparison with identical ELF, executable ROM,
+data, core sources, and memory implementation. Native gap1 admits ALU rows 1–7;
+gap2 observes only rows 5–7. The gap1 admissions to rows 3, 2, and 1 precede its
+single speculative instruction fault, whose payload is zero as specified.
+This is a concrete negative control for excluding those rows without the gate;
+finite absence under gap2 still requires an unbounded proof.
+
 Matched JSON-flow synthesis measures original whole-core area 1,400,805.984,
 Pscorr instruction-operation specialization 1,306,082.637 (6.76% less), exact-word
 decoder specialization 1,300,886.403 (7.13% less), and the cumulative program-only
@@ -95,6 +103,24 @@ branch abstraction has been prepared and reviewed but not solved. All native
 hardware exports remain identical; smaller proof models are not hardware gains.
 See [the source-bound query record](application_screen/README.md#source-bound-instruction-domain-lemmas).
 
+Two further solver diagnostics also remain inconclusive. The word-level MBIC3
+query timed out at 120 seconds. Gate abstraction reduced the ALU/MUL proof model
+from 22,725 latches and 530,756 AND nodes to 491 latches and 9,650 AND nodes;
+explicit PDR on that abstraction still timed out at 120 seconds without a
+counterexample. These are verification-model reductions, not hardware savings.
+The [solver records](application_screen/GATE_SOLVER.md) preserve the original
+constraints, validation cases, dependencies, and unknown verdicts. These short
+runs do not establish whether a 24-hour run would finish.
+
+The next proof simplification follows a closed program-only chain: the certified
+decoder excludes MUL/DIV dispatch, the native issue register preserves that
+exclusion, and the original insertion gates therefore never admit either unit.
+All eight MUL/DIV row reset invariants pass base and induction; removing the
+local no-admission premise gives a counterexample for each row. This supports
+1,761 exact constant-state substitutions in a separate proof query, with native
+hardware unchanged. The [source-bound record](application_screen/INACTIVE_FU_LEMMAS.md)
+does not discharge the ALU-row admission obligation or establish a timing gain.
+
 The [automatic reset-storage preparation](application_screen/RESET_STORAGE.md)
 proves a conditional native theorem for every ALU RS row: if it receives no
 admission while reset is released, its 220 raw state/payload FF bits remain at
@@ -112,9 +138,9 @@ does not prove the proposed merge. No transformed whole-core area has been
 measured for that sharing candidate. Automatic phase guards and an explicitly
 conditional unique-tag protocol still leave its proof inconclusive; neither
 becomes an assumed native-core invariant. The next substantive obligations are
-certifying the actual program/platform property, closing the program-baseline
-proofs, and measuring additional native whole-core savings before attributing
-an incremental timing benefit.
+certifying the actual program/platform admission property and measuring
+additional native whole-core savings against the certified program baseline
+before attributing an incremental timing benefit.
 
 ## 1. Settings and source-grounded inventory
 
