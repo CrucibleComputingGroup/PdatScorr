@@ -70,8 +70,12 @@ def main() -> None:
     ap.add_argument("--compiler-prefix", default="riscv64-linux-gnu-")
     ap.add_argument("--jobs", type=int, default=2)
     ap.add_argument("--memory-pipe-num", type=int, default=2, help="Upstream memory-model stages; core fetch FIFO remains fixed at 2")
+    ap.add_argument("--instruction-min-spacing", type=int, default=1,
+                    help="Minimum cycles between accepted instruction requests; external two-sided handshake gate only")
     ap.add_argument("--tb-compat", action="store_true", help="Remove erroneous const qualifiers on two upstream testbench variables assigned by methods")
     args = ap.parse_args()
+    if args.instruction_min_spacing < 1:
+        ap.error("Instruction acceptance spacing must be positive")
     deps, frontend, build = args.deps.resolve(), args.frontend.resolve(), args.build.resolve()
     fm = json.loads((frontend / "manifest.json").read_text())
     assert fm["upstream_commit"] == PRE_FPU_PIN
@@ -102,6 +106,20 @@ def main() -> None:
             old_memory = b"localparam int unsigned MemPipeNum = 0;"
             assert raw.count(old_memory) == 1
             raw = raw.replace(old_memory, f"localparam int unsigned MemPipeNum = {args.memory_pipe_num};".encode())
+            if args.instruction_min_spacing > 1:
+                substitutions = {
+                    b".instr_valid_i             (dp2mem_instr_valid)":
+                        b".instr_valid_i             (qualification_instr_memory_valid)",
+                    b".instr_ready_o             (mem2dp_instr_ready)":
+                        b".instr_ready_o             (qualification_instr_memory_ready)",
+                }
+                for old, new in substitutions.items():
+                    assert raw.count(old) == 1
+                    raw = raw.replace(old, new)
+                gate = (f"localparam int unsigned InstrMinAcceptSpacing = {args.instruction_min_spacing};\n"
+                        '`include "instruction_spacing_gate.svh"\n'
+                        '`include "platform_monitor.svh"\n')
+                raw = raw.replace(b"endmodule", gate.encode() + b"endmodule")
             assert raw.count(b"endmodule") == 1
             raw = raw.replace(b"endmodule", b'`include "qualification_monitor.svh"\nendmodule')
         if rel == "tb/memory/memory_class.svh" and args.tb_compat:
@@ -118,6 +136,12 @@ def main() -> None:
         tb_prepared[rel] = digest(raw)
     monitor = (here / "qualification_monitor.svh").read_bytes()
     (build / "source/tb/qualification_monitor.svh").write_bytes(monitor)
+    platform_sources = {}
+    if args.instruction_min_spacing > 1:
+        for name in ("instruction_spacing_gate.svh", "platform_monitor.svh"):
+            data = (here / name).read_bytes()
+            (build / "source/tb" / name).write_bytes(data)
+            platform_sources[name] = digest(data)
     verilator = str(Path(shutil.which(args.verilator) or args.verilator).resolve())
     command = [verilator, "--cc", "--exe", "--build", "-j", str(args.jobs),
                "--assert", "--trace-fst", "--trace-structs", "--x-assign", "unique",
@@ -135,6 +159,8 @@ def main() -> None:
         "testbench_original_sha256": tb_original, "testbench_prepared_sha256": tb_prepared,
         "qualification_monitor_sha256": digest(monitor),
         "memory_pipe_num": args.memory_pipe_num, "fetch_fifo_depth": 2, "boot_pc": 0,
+        "instruction_min_accept_spacing": args.instruction_min_spacing,
+        "platform_source_sha256": platform_sources,
         "verilator_version": subprocess.check_output([verilator, "--version"], text=True).strip(),
         "verilator_sha256": digest(Path(verilator).read_bytes()), "build_command": command,
         "compiler_prefix": args.compiler_prefix,
@@ -144,6 +170,11 @@ def main() -> None:
     if args.tb_compat:
         manifest["testbench_changes"].append({"path": "tb/memory/memory_class.svh", "change": "Remove const on fd/file_line, which upstream assigns outside the constructor; leave memory_file_path const"})
         manifest["testbench_changes"].append({"path": "tb/len5_utils.svh", "change": "Assign rob_idx at every trace-function call instead of once via static variable initialization; affects trace monitor only"})
+    if args.instruction_min_spacing > 1:
+        manifest["testbench_changes"].append({"path": "tb/tb_bare.sv + instruction_spacing_gate.svh",
+            "change": "Gate memory instruction request valid and core instruction grant with the same cooldown enable; cooldown resets only with reset, not flush; preserve memory flush and complete response path unchanged"})
+        manifest["testbench_changes"].append({"path": "tb/platform_monitor.svh",
+            "change": "Read-only pre-update clock-edge handshake/flush observer; runtime assert checks equal core-side and memory-side instruction acceptance"})
     start = time.monotonic()
     child_env = {**os.environ, "PATH": "/usr/bin:/bin:" + os.environ.get("PATH", "")}
     with (build / "build.log").open("w") as log:

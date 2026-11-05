@@ -1,0 +1,152 @@
+
+program.elf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <_start>:
+       0:	00001437          	lui	s0,0x1
+       4:	000024b7          	lui	s1,0x2
+       8:	04000913          	li	s2,64
+
+000000000000000c <loop>:
+       c:	00043503          	ld	a0,0(s0) # 1000 <halt+0xfcc>
+      10:	00150593          	addi	a1,a0,1
+      14:	00b4b023          	sd	a1,0(s1) # 2000 <halt+0x1fcc>
+      18:	00840413          	addi	s0,s0,8
+      1c:	00848493          	addi	s1,s1,8
+      20:	fff90913          	addi	s2,s2,-1
+      24:	fe0914e3          	bnez	s2,c <loop>
+      28:	200002b7          	lui	t0,0x20000
+      2c:	1002829b          	addiw	t0,t0,256 # 20000100 <__global_pointer$+0x1fffd700>
+      30:	00028023          	sb	zero,0(t0)
+
+0000000000000034 <halt>:
+      34:	0000006f          	j	34 <halt>
+	...
+    1008:	7f487c15          	.word	0x7f487c15
+    100c:	9e3779b9          	.word	0x9e3779b9
+    1010:	fe90f82a          	.word	0xfe90f82a
+    1014:	3c6ef372          	.word	0x3c6ef372
+    1018:	7dd9743f          	.word	0x7dd9743f
+    101c:	daa66d2c          	.word	0xdaa66d2c
+    1020:	fd21f054          	.word	0xfd21f054
+    1024:	78dde6e5          	.word	0x78dde6e5
+    1028:	7c7e6c69          	.word	0x7c7e6c69
+    102c:	1715609f          	.word	0x1715609f
+    1030:	fbb2e87e          	.word	0xfbb2e87e
+    1034:	b54cda58          	.word	0xb54cda58
+    1038:	7b076493          	.word	0x7b076493
+    103c:	53845412          	.word	0x53845412
+    1040:	fa43e0a8          	.word	0xfa43e0a8
+    1044:	f1bbcdcb          	.word	0xf1bbcdcb
+    1048:	798c5cbd          	.word	0x798c5cbd
+    104c:	8ff34785          	.word	0x8ff34785
+    1050:	f8fcd8d2          	.word	0xf8fcd8d2
+    1054:	2e2ac13e          	.word	0x2e2ac13e
+    1058:	782554e7          	.word	0x782554e7
+    105c:	cc623af8          	.word	0xcc623af8
+    1060:	f765d0fc          	.word	0xf765d0fc
+    1064:	6a99b4b1          	.word	0x6a99b4b1
+    1068:	76d24d11          	.word	0x76d24d11
+    106c:	08d12e6b          	.word	0x08d12e6b
+    1070:	f60ec926          	.word	0xf60ec926
+    1074:	a708a824          	.word	0xa708a824
+    1078:	7543453b          	.word	0x7543453b
+    107c:	454021de          	.word	0x454021de
+    1080:	f487c150          	.word	0xf487c150
+    1084:	e3779b97          	.word	0xe3779b97
+    1088:	73d03d65          	.word	0x73d03d65
+    108c:	81af1551          	.word	0x81af1551
+    1090:	f318b97a          	.word	0xf318b97a
+    1094:	1fe68f0a          	.word	0x1fe68f0a
+    1098:	72a1358f          	.word	0x72a1358f
+    109c:	be1e08c4          	.word	0xbe1e08c4
+    10a0:	f1f9b1a4          	.word	0xf1f9b1a4
+    10a4:	5c55827d          	.word	0x5c55827d
+    10a8:	71362db9          	.word	0x71362db9
+    10ac:	fa8cfc37          	.word	0xfa8cfc37
+    10b0:	f04aa9ce          	.word	0xf04aa9ce
+    10b4:	98c475f0          	.word	0x98c475f0
+    10b8:	6f9f25e3          	.word	0x6f9f25e3
+    10bc:	36fbefaa          	.word	0x36fbefaa
+    10c0:	eecba1f8          	.word	0xeecba1f8
+    10c4:	d5336963          	.word	0xd5336963
+    10c8:	6e741e0d          	.word	0x6e741e0d
+    10cc:	736ae31d          	.word	0x736ae31d
+    10d0:	eda49a22          	.word	0xeda49a22
+    10d4:	11a25cd6          	.word	0x11a25cd6
+    10d8:	6ced1637          	.word	0x6ced1637
+    10dc:	afd9d690          	.word	0xafd9d690
+    10e0:	ec1d924c          	.word	0xec1d924c
+    10e4:	4e115049          	.word	0x4e115049
+    10e8:	6b4a0e61          	.word	0x6b4a0e61
+    10ec:	ec48ca03          	.word	0xec48ca03
+    10f0:	ea868a76          	.word	0xea868a76
+    10f4:	8a8043bc          	.word	0x8a8043bc
+    10f8:	6a3b068b          	.word	0x6a3b068b
+    10fc:	28b7bd76          	.word	0x28b7bd76
+    1100:	e90f82a0          	.word	0xe90f82a0
+    1104:	c6ef372f          	.word	0xc6ef372f
+    1108:	68dbfeb5          	.word	0x68dbfeb5
+    110c:	6526b0e9          	.word	0x6526b0e9
+    1110:	e7a07aca          	.word	0xe7a07aca
+    1114:	035e2aa2          	.word	0x035e2aa2
+    1118:	6768f6df          	.word	0x6768f6df
+    111c:	a195a45c          	.word	0xa195a45c
+    1120:	e63172f4          	.word	0xe63172f4
+    1124:	3fcd1e15          	.word	0x3fcd1e15
+    1128:	6589ef09          	.word	0x6589ef09
+    112c:	de0497cf          	.word	0xde0497cf
+    1130:	e5426b1e          	.word	0xe5426b1e
+    1134:	7c3c1188          	.word	0x7c3c1188
+    1138:	6416e733          	.word	0x6416e733
+    113c:	1a738b42          	.word	0x1a738b42
+    1140:	e3f36348          	.word	0xe3f36348
+    1144:	b8ab04fb          	.word	0xb8ab04fb
+    1148:	62bfdf5d          	.word	0x62bfdf5d
+    114c:	56e27eb5          	.word	0x56e27eb5
+    1150:	e26c5b72          	.word	0xe26c5b72
+    1154:	f519f86e          	.word	0xf519f86e
+    1158:	61d4d787          	.word	0x61d4d787
+    115c:	93517228          	.word	0x93517228
+    1160:	e095539c          	.word	0xe095539c
+    1164:	3188ebe1          	.word	0x3188ebe1
+    1168:	604dcfb1          	.word	0x604dcfb1
+    116c:	cfc0659b          	.word	0xcfc0659b
+    1170:	df3e4bc6          	.word	0xdf3e4bc6
+    1174:	6df7df54          	.word	0x6df7df54
+    1178:	5ef2c7db          	.word	0x5ef2c7db
+    117c:	0c2f590e          	.word	0x0c2f590e
+    1180:	dd9743f0          	.word	0xdd9743f0
+    1184:	aa66d2c7          	.word	0xaa66d2c7
+    1188:	5d23c005          	.word	0x5d23c005
+    118c:	489e4c81          	.word	0x489e4c81
+    1190:	dce83c1a          	.word	0xdce83c1a
+    1194:	e6d5c63a          	.word	0xe6d5c63a
+    1198:	5bb0b82f          	.word	0x5bb0b82f
+    119c:	850d3ff4          	.word	0x850d3ff4
+    11a0:	db493444          	.word	0xdb493444
+    11a4:	2344b9ad          	.word	0x2344b9ad
+    11a8:	5a01b059          	.word	0x5a01b059
+    11ac:	c17c3367          	.word	0xc17c3367
+    11b0:	d9da2c6e          	.word	0xd9da2c6e
+    11b4:	5fb3ad20          	.word	0x5fb3ad20
+    11b8:	596ea883          	.word	0x596ea883
+    11bc:	fdeb26da          	.word	0xfdeb26da
+    11c0:	d83b2498          	.word	0xd83b2498
+    11c4:	9c22a093          	.word	0x9c22a093
+    11c8:	57e7a0ad          	.word	0x57e7a0ad
+    11cc:	3a5a1a4d          	.word	0x3a5a1a4d
+    11d0:	d6941cc2          	.word	0xd6941cc2
+    11d4:	d8919406          	.word	0xd8919406
+    11d8:	565c98d7          	.word	0x565c98d7
+    11dc:	76c90dc0          	.word	0x76c90dc0
+    11e0:	d50d14ec          	.word	0xd50d14ec
+    11e4:	15008779          	.word	0x15008779
+    11e8:	54c59101          	.word	0x54c59101
+    11ec:	b3380133          	.word	0xb3380133
+    11f0:	d4760d16          	.word	0xd4760d16
+    11f4:	516f7aec          	.word	0x516f7aec
+    11f8:	532a892b          	.word	0x532a892b
+    11fc:	efa6f4a6          	.word	0xefa6f4a6

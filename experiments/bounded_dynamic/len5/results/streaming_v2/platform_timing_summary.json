@@ -1,0 +1,298 @@
+{
+  "scope": "Finite unchanged-core external-platform screen; no invariant or optimization proof",
+  "sampling": "Pre-update values at actual rising clock edges; latency=response-edge minus accepted-request-edge. Returned fetches paired FIFO; flush-canceled and end-pending intervals reported separately.",
+  "minimum_platform_fetch_accept_spacing": 1,
+  "full_trace": {
+    "accepted_fetch_count": 532,
+    "accepted_fetch_gap_histogram": {
+      "1": 467,
+      "2": 5,
+      "3": 2,
+      "6": 56,
+      "36": 1
+    },
+    "minimum_accepted_fetch_gap": 1,
+    "maximum_fetch_outstanding_after_edge": 2,
+    "complete_fetch_response_count": 517,
+    "fetch_latency_histogram": {
+      "2": 404,
+      "3": 2,
+      "7": 111
+    },
+    "fetch_faults": [],
+    "flush_cycles": [
+      27,
+      29,
+      762,
+      770,
+      809,
+      813,
+      817
+    ],
+    "fetch_cancellations": [
+      {
+        "request_cycle": 25,
+        "address": 56,
+        "flush_cycle": 27
+      },
+      {
+        "request_cycle": 26,
+        "address": 60,
+        "flush_cycle": 27
+      },
+      {
+        "request_cycle": 28,
+        "address": 52,
+        "flush_cycle": 29
+      },
+      {
+        "request_cycle": 755,
+        "address": 12,
+        "flush_cycle": 762
+      },
+      {
+        "request_cycle": 761,
+        "address": 16,
+        "flush_cycle": 762
+      },
+      {
+        "request_cycle": 768,
+        "address": 56,
+        "flush_cycle": 770
+      },
+      {
+        "request_cycle": 769,
+        "address": 60,
+        "flush_cycle": 770
+      },
+      {
+        "request_cycle": 773,
+        "address": 60,
+        "flush_cycle": 809
+      },
+      {
+        "request_cycle": 774,
+        "address": 64,
+        "flush_cycle": 809
+      },
+      {
+        "request_cycle": 811,
+        "address": 56,
+        "flush_cycle": 813
+      },
+      {
+        "request_cycle": 812,
+        "address": 60,
+        "flush_cycle": 813
+      },
+      {
+        "request_cycle": 815,
+        "address": 56,
+        "flush_cycle": 817
+      },
+      {
+        "request_cycle": 816,
+        "address": 60,
+        "flush_cycle": 817
+      }
+    ],
+    "fetch_pending_at_end": [
+      {
+        "request_cycle": 865,
+        "address": 52
+      },
+      {
+        "request_cycle": 866,
+        "address": 52
+      }
+    ],
+    "complete_load_response_count": 65,
+    "maximum_load_outstanding_after_edge": 1,
+    "load_latency_histogram": {
+      "3": 65
+    },
+    "load_faults": [],
+    "load_pending_at_end": [],
+    "endpoint_acceptance_equal_at_all_active_edges": true
+  },
+  "through_exit_store": {
+    "accepted_fetch_count": 481,
+    "accepted_fetch_gap_histogram": {
+      "1": 417,
+      "2": 4,
+      "3": 2,
+      "6": 56,
+      "36": 1
+    },
+    "minimum_accepted_fetch_gap": 1,
+    "maximum_fetch_outstanding_after_edge": 2,
+    "complete_fetch_response_count": 469,
+    "fetch_latency_histogram": {
+      "2": 356,
+      "3": 2,
+      "7": 111
+    },
+    "fetch_faults": [],
+    "flush_cycles": [
+      27,
+      29,
+      762,
+      770,
+      809,
+      813
+    ],
+    "fetch_cancellations": [
+      {
+        "request_cycle": 25,
+        "address": 56,
+        "flush_cycle": 27
+      },
+      {
+        "request_cycle": 26,
+        "address": 60,
+        "flush_cycle": 27
+      },
+      {
+        "request_cycle": 28,
+        "address": 52,
+        "flush_cycle": 29
+      },
+      {
+        "request_cycle": 755,
+        "address": 12,
+        "flush_cycle": 762
+      },
+      {
+        "request_cycle": 761,
+        "address": 16,
+        "flush_cycle": 762
+      },
+      {
+        "request_cycle": 768,
+        "address": 56,
+        "flush_cycle": 770
+      },
+      {
+        "request_cycle": 769,
+        "address": 60,
+        "flush_cycle": 770
+      },
+      {
+        "request_cycle": 773,
+        "address": 60,
+        "flush_cycle": 809
+      },
+      {
+        "request_cycle": 774,
+        "address": 64,
+        "flush_cycle": 809
+      },
+      {
+        "request_cycle": 811,
+        "address": 56,
+        "flush_cycle": 813
+      },
+      {
+        "request_cycle": 812,
+        "address": 60,
+        "flush_cycle": 813
+      }
+    ],
+    "fetch_pending_at_end": [
+      {
+        "request_cycle": 814,
+        "address": 52
+      }
+    ],
+    "complete_load_response_count": 65,
+    "maximum_load_outstanding_after_edge": 1,
+    "load_latency_histogram": {
+      "3": 65
+    },
+    "load_faults": [],
+    "load_pending_at_end": [],
+    "endpoint_acceptance_equal_at_all_active_edges": true
+  },
+  "exit_store_cycle": 814,
+  "reported_cpu_cycles": 805,
+  "monitored_last_cycle": 866,
+  "monitor_vcd_crosscheck": null,
+  "used_alu_allocation_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "max_alu_live_pre_edge": 6,
+  "max_alu_live_post_edge": 6,
+  "dynamic_issue": {
+    "witness_found": true,
+    "actual_alu_issue_inversion_count": 723,
+    "first_witness": {
+      "older_alu": {
+        "sequence": 4,
+        "epoch": 9,
+        "dispatch_cycle": 20,
+        "rob": 4,
+        "pc": 16,
+        "instruction": 1377683,
+        "alu_start_cycle": 26,
+        "alu_result_cycle": 26,
+        "result": 1
+      },
+      "younger_alu": {
+        "sequence": 6,
+        "epoch": 9,
+        "dispatch_cycle": 22,
+        "rob": 6,
+        "pc": 24,
+        "instruction": 8651795,
+        "alu_start_cycle": 23,
+        "alu_result_cycle": 23,
+        "result": 4104
+      },
+      "older_load_dependency": {
+        "sequence": 3,
+        "epoch": 9,
+        "dispatch_cycle": 19,
+        "rob": 3,
+        "pc": 12,
+        "instruction": 275715,
+        "request_cycle": 21,
+        "memory_tag": 0,
+        "address": 4096,
+        "response_cycle": 24,
+        "load_value": 0
+      }
+    },
+    "scope": "Actual ALU execution handshakes within one reset/flush epoch; finite trace only"
+  },
+  "all_64_output_stores_and_exit_checked": true,
+  "capacities": {
+    "ROB_DEPTH": 32,
+    "IQ_DEPTH": 4,
+    "LDBUFF_DEPTH": 8,
+    "STBUFF_DEPTH": 16,
+    "ALU_RS_DEPTH": 8,
+    "MULT_RS_DEPTH": 4,
+    "DIV_RS_DEPTH": 4,
+    "BU_RS_DEPTH": 4,
+    "RAS_DEPTH": 8
+  },
+  "fetch_fifo_depth": 2,
+  "memory_pipe_num": 2,
+  "core_rtl_source_edits": false,
+  "simulator_manifest_sha256": "26db1ea23a772770f9e31c044e59d2e565e0bb9f21d13823185cc2266027d45a",
+  "program_source_sha256": "d691e76ab402cf93e1dd5208c815a5e173793d637248ebe6bc0ec99ee9d5dbf3",
+  "raw_fst_sha256": "a7acc863e6bec411759fca31b8bde61e7b29d0d1d240256dc4b1b709bb352d00",
+  "raw_vcd_sha256": "0481ba86d49032fec758f20b5f9c8b8d8bfa9df082ce291b5409090d11b988a3",
+  "analyzer_sha256": "01dfea00301b054290125dc69bf879d8960418e0f51b90f0b6fbaf3edd845739",
+  "artifact_sha256": {
+    "native_platform_edges.csv": "db812d0d9ad1ee9cf4acf1faa1b5e9f1957f34e237ffd9651dc1c00e274145e6",
+    "fetch_response_intervals.csv": "b5a1c03d78110775ce9138cbd29b7dcfbde70657f562444d0482afa135c116f9",
+    "load_response_intervals.csv": "d7c3ea88f9a1f467b7ea1cd6f841104984c9b10fec71703887f4492f96ffb915"
+  }
+}
