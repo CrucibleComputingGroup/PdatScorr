@@ -1,0 +1,397 @@
+{
+  "status": "unknown",
+  "accepted_optimization": false,
+  "requested_seconds": 600,
+  "solver_seconds": 600.3589163632132,
+  "raw_status": "snl_UNK 31 unknown\nNULL\nNULL\n",
+  "input_audit": {
+    "execution": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "&read -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final_map.aig\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/input_audit/roundtrip_map.aig\"; &gla_derive; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/input_audit/derived.aig\""
+      ],
+      "returncode": 0,
+      "executable": "/usr/local/bin/abc",
+      "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+      "timeout": false,
+      "seconds": 0.16028556413948536,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/input_audit/audit.log",
+      "log_sha256": "2a2c3d0276cf8239fa51785ebbfa44addd188cb33a8c107a57bbffd94af3493a"
+    },
+    "source_map_sha256": "437384c94dadde914ef03476cbb897a4be293c5dbf86299da2cc9ed09eba8ba6",
+    "source_folded_sha256": "a1de81d4ca119d33cf80e2235d2d40361dc49cc227043a14a4fc236f113f5944",
+    "source_abstracted_sha256": "d9544bac5ccd5b9a4e447704ec0577a2d62243ecf9ee0b1d94d4d991cf8e325f",
+    "original_ordered_graph_sha256": "354e7c52ddb017d5d435eeabef6d33258b510806cdb6f94e9646f70f371d9ef9",
+    "gate_classes_sha256": "249227a1d31d16e8e9185266da3d3d5558c7df28900a58f9dbfe2b2896009dd0",
+    "gate_class_bytes": 2031412,
+    "exact_original_graph_preserved": true,
+    "exact_gate_classes_preserved": true,
+    "read_warnings_absent": true,
+    "derived_graph_sha256": "cf4e6bd78be09d29274ca8d88ff98ede94f275dee6e5f65046c425d7fec38540"
+  },
+  "toy_outcomes": [
+    {
+      "name": "spurious",
+      "status": "proved_safety_query_only",
+      "summary_sha256": "abb263d063900e36ece23b1a84e3acbf166989add9b80d2386a27a96e1c22ac8"
+    },
+    {
+      "name": "negative",
+      "status": "counterexample_in_original_saved_query_model",
+      "summary_sha256": "580ad05fd3bd4f62614d8be4faf9601c9f92a001a2c78bf89269b76900902539"
+    }
+  ],
+  "original_graph_and_gate_classes_loaded_exactly": true,
+  "reunrolled_from_frame_zero": true,
+  "prepared_to_folded_export_replay": {
+    "status": "exact_original_folded_graph_rederived",
+    "replay_is_solver_free": true,
+    "source_aig_sha256": "52b21919ec12d0e86dac20a6934498c54fec06c79c960fc49da93e6b83990f3d",
+    "saved_folded_sha256": "a1de81d4ca119d33cf80e2235d2d40361dc49cc227043a14a4fc236f113f5944",
+    "replayed_folded_sha256": "a1de81d4ca119d33cf80e2235d2d40361dc49cc227043a14a4fc236f113f5944",
+    "full_file_byte_identical": true,
+    "known_source_import_warning": "Warning: The last 8 outputs are interpreted as constraints.",
+    "warning_qualified_by_header_constraint_count": 8,
+    "note": "Initial diagnostic warning filter stopped on the expected AIGER8-constraint import notice. Offline audit checks that exact notice against the input header and requires full byte identity; no solver/export rerun or altered assumptions."
+  },
+  "no_additional_environment_or_internal_assumptions": true,
+  "transitive_source_dependencies_rechecked": true,
+  "live_helper_sha256_at_collection": {
+    "gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+    "solve_prepared.py": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6"
+  },
+  "live_gla_helper_equals_original_archived_helper": true,
+  "interpretation": "Normal GLA continuation of the original folded proof-model graph, using prior gate classes. Explicit unbounded proof or original-folded-model-validated CEX required for a decisive verdict. Unknown, stable-map and bounded progress prove nothing. Original model contains ALU/multiplier cuts, so CEX is not automatically native RTL.",
+  "artifacts": [
+    {
+      "path": "query/final.status",
+      "sha256": "c22537087604369b6f2e80555c6c8995cf48375cd2e5bed3b65e4edabb896f2e",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/final.status",
+      "source_sha256": "c22537087604369b6f2e80555c6c8995cf48375cd2e5bed3b65e4edabb896f2e",
+      "gzip": false
+    },
+    {
+      "path": "query/final_map.aig.gz",
+      "sha256": "66ac690c4fc38ca4f900e988f6c473a73d460560a6c7a878a9240c2d0c820905",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/final_map.aig",
+      "source_sha256": "1d7598fb5459b19dea23e7fc3e5bb5fa40033456b96ab55ddaa4a372de25eab4",
+      "gzip": true
+    },
+    {
+      "path": "query/gate_resume.py",
+      "sha256": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/gate_resume.py",
+      "source_sha256": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a",
+      "gzip": false
+    },
+    {
+      "path": "query/gla.log",
+      "sha256": "5f4695326d66835545e719e3373cd5d76593e237c61d382792e9e5d26f90d2e9",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/gla.log",
+      "source_sha256": "5f4695326d66835545e719e3373cd5d76593e237c61d382792e9e5d26f90d2e9",
+      "gzip": false
+    },
+    {
+      "path": "query/gla.status",
+      "sha256": "7bd3ea486d0d67ee0c97b22eb739b42b1d1e0c6f9ca42fbb5c9cc15bbeea5702",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/gla.status",
+      "source_sha256": "7bd3ea486d0d67ee0c97b22eb739b42b1d1e0c6f9ca42fbb5c9cc15bbeea5702",
+      "gzip": false
+    },
+    {
+      "path": "query/input_audit/audit.log",
+      "sha256": "2a2c3d0276cf8239fa51785ebbfa44addd188cb33a8c107a57bbffd94af3493a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/input_audit/audit.log",
+      "source_sha256": "2a2c3d0276cf8239fa51785ebbfa44addd188cb33a8c107a57bbffd94af3493a",
+      "gzip": false
+    },
+    {
+      "path": "query/input_audit/derived.aig.gz",
+      "sha256": "2ebbc23bc37cf1d457ca8c4a699310528449a489430fe01a545d64759d9f6e43",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/input_audit/derived.aig",
+      "source_sha256": "d9544bac5ccd5b9a4e447704ec0577a2d62243ecf9ee0b1d94d4d991cf8e325f",
+      "gzip": true
+    },
+    {
+      "path": "query/input_audit/roundtrip_map.aig.gz",
+      "sha256": "89211edc7eb31edf1776bf1b176a770603350ce758c33593bf4946a60db71811",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/input_audit/roundtrip_map.aig",
+      "source_sha256": "757bfcc2302585cb6bc42f403a66fb44158c4a9324e8bffe71d53b511dbc4991",
+      "gzip": true
+    },
+    {
+      "path": "query/loaded_map.aig.gz",
+      "sha256": "89211edc7eb31edf1776bf1b176a770603350ce758c33593bf4946a60db71811",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/loaded_map.aig",
+      "source_sha256": "757bfcc2302585cb6bc42f403a66fb44158c4a9324e8bffe71d53b511dbc4991",
+      "gzip": true
+    },
+    {
+      "path": "query/progress_map.aig.gz",
+      "sha256": "c5a11d2c299d59e9c7abac5c413708d263805152a33747778557b39f85e64f47",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/progress_map.aig",
+      "source_sha256": "dab3d11d0347fe18f8b4eb1a2443f247fc66492a729f4a9db21fc24aba1bc496",
+      "gzip": true
+    },
+    {
+      "path": "query/progress_map.status",
+      "sha256": "2d10a65c387e871ebefc34025302a76abb9ebc8df456e0ddcdfc82d164f8823f",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/progress_map.status",
+      "source_sha256": "2d10a65c387e871ebefc34025302a76abb9ebc8df456e0ddcdfc82d164f8823f",
+      "gzip": false
+    },
+    {
+      "path": "query/source_replay/replay.log",
+      "sha256": "314048bac2ae58b6e3389101da294073a02124cc7bb4481d8badc3cd5964b8c0",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/source_replay/replay.log",
+      "source_sha256": "314048bac2ae58b6e3389101da294073a02124cc7bb4481d8badc3cd5964b8c0",
+      "gzip": false
+    },
+    {
+      "path": "query/source_replay/replayed_folded.aig.gz",
+      "sha256": "33dccdf1824898862ef9bff043ef29ef2e6b6748236c9714ab57fb1acbc194b8",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/source_replay/replayed_folded.aig",
+      "source_sha256": "a1de81d4ca119d33cf80e2235d2d40361dc49cc227043a14a4fc236f113f5944",
+      "gzip": true
+    },
+    {
+      "path": "query/source_replay/summary.json",
+      "sha256": "aeda3cc219c13ec56baef865c397bf0e22698fe6f4dd45195ff325732ec5b2ab",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/source_replay/summary.json",
+      "source_sha256": "aeda3cc219c13ec56baef865c397bf0e22698fe6f4dd45195ff325732ec5b2ab",
+      "gzip": false
+    },
+    {
+      "path": "query/summary.json",
+      "sha256": "53a8369099c73f737065499def1c4916b0f422da469c23ceba5a08848c889c30",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_resume_v1/summary.json",
+      "source_sha256": "53a8369099c73f737065499def1c4916b0f422da469c23ceba5a08848c889c30",
+      "gzip": false
+    },
+    {
+      "path": "toys/negative/counterexample.aiw",
+      "sha256": "fd19fcb4d0145c732e337309ffea63668d4015f537dace95d3d8cc3e7549b048",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/counterexample.aiw",
+      "source_sha256": "fd19fcb4d0145c732e337309ffea63668d4015f537dace95d3d8cc3e7549b048",
+      "gzip": false
+    },
+    {
+      "path": "toys/negative/final.status",
+      "sha256": "f28105abafa8dc21907980b9bd035e52e0dcba89757a4b7f60669b4a30968d32",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/final.status",
+      "source_sha256": "f28105abafa8dc21907980b9bd035e52e0dcba89757a4b7f60669b4a30968d32",
+      "gzip": false
+    },
+    {
+      "path": "toys/negative/final_map.aig.gz",
+      "sha256": "3802fcb23e5a5b0d7bf7783a6ef1cc66b0488ab713b9ff539eaa8b2c452fcceb",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/final_map.aig",
+      "source_sha256": "0c163c4f09d92fed315c7f0e15a4795ad80ee8a47fc949c4368e69c6c36d0544",
+      "gzip": true
+    },
+    {
+      "path": "toys/negative/gate_resume.py",
+      "sha256": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/gate_resume.py",
+      "source_sha256": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a",
+      "gzip": false
+    },
+    {
+      "path": "toys/negative/gla.log",
+      "sha256": "bc6ec8bc44b4c8bf2214b76a47c4e8b4637cb20d0a9ce77f0ce676be8bc44ca3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/gla.log",
+      "source_sha256": "bc6ec8bc44b4c8bf2214b76a47c4e8b4637cb20d0a9ce77f0ce676be8bc44ca3",
+      "gzip": false
+    },
+    {
+      "path": "toys/negative/gla.status",
+      "sha256": "1d92513974c22d639c6d71863a00d4353cb635de29c99df3091133ec958e6167",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/gla.status",
+      "source_sha256": "1d92513974c22d639c6d71863a00d4353cb635de29c99df3091133ec958e6167",
+      "gzip": false
+    },
+    {
+      "path": "toys/negative/input_audit/audit.log",
+      "sha256": "715ae383ec1573ce62dc22044ed4b037103428559e94076d760a9f373f79f808",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/input_audit/audit.log",
+      "source_sha256": "715ae383ec1573ce62dc22044ed4b037103428559e94076d760a9f373f79f808",
+      "gzip": false
+    },
+    {
+      "path": "toys/negative/input_audit/derived.aig.gz",
+      "sha256": "f01f3017d34b1b0c4d10f18c4bae730bd2607ea4109afb37d493915fdae5a2dc",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/input_audit/derived.aig",
+      "source_sha256": "823ff7545553a3ad669ee51b80b782e7f5e4f8e8fcccebf61d8cc93275417415",
+      "gzip": true
+    },
+    {
+      "path": "toys/negative/input_audit/roundtrip_map.aig.gz",
+      "sha256": "9db0f3c203388d610355b278b2d70dd360b638a421e84c37d9ecbdfe4b0976f5",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/input_audit/roundtrip_map.aig",
+      "source_sha256": "71cc563e5cccb0d1270e5cb284c211fd708986e61db4164b212e2b0b2d2bed8c",
+      "gzip": true
+    },
+    {
+      "path": "toys/negative/loaded_map.aig.gz",
+      "sha256": "9db0f3c203388d610355b278b2d70dd360b638a421e84c37d9ecbdfe4b0976f5",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/loaded_map.aig",
+      "source_sha256": "71cc563e5cccb0d1270e5cb284c211fd708986e61db4164b212e2b0b2d2bed8c",
+      "gzip": true
+    },
+    {
+      "path": "toys/negative/progress_map.aig.gz",
+      "sha256": "3a504d539ce48ae83a0e770fdfe58913546645e9b91a254cc42f27a2ab836d60",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/progress_map.aig",
+      "source_sha256": "cb7803320b143d7ff214f541d46f41ae7c0fc6fa6cc757a6be387a7e8896d12c",
+      "gzip": true
+    },
+    {
+      "path": "toys/negative/progress_map.status",
+      "sha256": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/progress_map.status",
+      "source_sha256": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+      "gzip": false
+    },
+    {
+      "path": "toys/negative/summary.json",
+      "sha256": "580ad05fd3bd4f62614d8be4faf9601c9f92a001a2c78bf89269b76900902539",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/summary.json",
+      "source_sha256": "580ad05fd3bd4f62614d8be4faf9601c9f92a001a2c78bf89269b76900902539",
+      "gzip": false
+    },
+    {
+      "path": "toys/negative/validate_cex.log",
+      "sha256": "46640be2525dc30d623f210c9f18b234f9daac73194a8a98a861ddd13539b1eb",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/validate_cex.log",
+      "source_sha256": "46640be2525dc30d623f210c9f18b234f9daac73194a8a98a861ddd13539b1eb",
+      "gzip": false
+    },
+    {
+      "path": "toys/spurious/final.status",
+      "sha256": "71f0fbc735eb0c6c8952fbce6eba16150aee63384945db9680c977efb1e4324c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/final.status",
+      "source_sha256": "71f0fbc735eb0c6c8952fbce6eba16150aee63384945db9680c977efb1e4324c",
+      "gzip": false
+    },
+    {
+      "path": "toys/spurious/final_map.aig.gz",
+      "sha256": "c64f3f6a6a297881ce279699022c452892b19b0ee4149d5da898f3807d8bccf1",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/final_map.aig",
+      "source_sha256": "bce033896b85b9991714c03fa79c47ed9bc56fa5d68d49d78990b7a7b42f7de3",
+      "gzip": true
+    },
+    {
+      "path": "toys/spurious/gate_resume.py",
+      "sha256": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/gate_resume.py",
+      "source_sha256": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a",
+      "gzip": false
+    },
+    {
+      "path": "toys/spurious/gla.log",
+      "sha256": "06dc90dbdf54368cd55bad0564b51145b639d6b118d7a84de68d2659d03ee05c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/gla.log",
+      "source_sha256": "06dc90dbdf54368cd55bad0564b51145b639d6b118d7a84de68d2659d03ee05c",
+      "gzip": false
+    },
+    {
+      "path": "toys/spurious/gla.status",
+      "sha256": "dcdd25cd874c131d6983cbb04776388844c8568e26636b99698e12cbc3bcfbb6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/gla.status",
+      "source_sha256": "dcdd25cd874c131d6983cbb04776388844c8568e26636b99698e12cbc3bcfbb6",
+      "gzip": false
+    },
+    {
+      "path": "toys/spurious/input_audit/audit.log",
+      "sha256": "55bebbab377289e450decf243dcf5f2052b87ff157bea8269dceb17fccfe31ca",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/input_audit/audit.log",
+      "source_sha256": "55bebbab377289e450decf243dcf5f2052b87ff157bea8269dceb17fccfe31ca",
+      "gzip": false
+    },
+    {
+      "path": "toys/spurious/input_audit/derived.aig.gz",
+      "sha256": "0a7f5aeabd23cf3ef22edbe5aa9ee581de8887d66372bafc813510e5bde257f7",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/input_audit/derived.aig",
+      "source_sha256": "2326c2c2087b9fb7cc61603d190b9cdc2b09399265a54c743d29f13a34e3db90",
+      "gzip": true
+    },
+    {
+      "path": "toys/spurious/input_audit/roundtrip_map.aig.gz",
+      "sha256": "5b72851923430dd3b44ad9508e56464feef30cc4b4e3fa52881a73ee4d0e70ce",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/input_audit/roundtrip_map.aig",
+      "source_sha256": "30d4957cf018724c9f788c264a7a6ad7350c0f965a0d3450df3d4b667aa52c51",
+      "gzip": true
+    },
+    {
+      "path": "toys/spurious/loaded_map.aig.gz",
+      "sha256": "5b72851923430dd3b44ad9508e56464feef30cc4b4e3fa52881a73ee4d0e70ce",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/loaded_map.aig",
+      "source_sha256": "30d4957cf018724c9f788c264a7a6ad7350c0f965a0d3450df3d4b667aa52c51",
+      "gzip": true
+    },
+    {
+      "path": "toys/spurious/progress_map.aig.gz",
+      "sha256": "757add4aeec0dd126f2be41566ec6a30cf1a09fe3a1d3af6fa8c87e14de150c3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/progress_map.aig",
+      "source_sha256": "d2f17a0dffb5e43ad887a4813f4b081689ef589cf49a9cdec99eb21ef6cea7e2",
+      "gzip": true
+    },
+    {
+      "path": "toys/spurious/progress_map.status",
+      "sha256": "2ae77aabefb44eaefb890a8f8f80926dbfdd6c4ceebc176c9b2f3fe2d7d86178",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/progress_map.status",
+      "source_sha256": "2ae77aabefb44eaefb890a8f8f80926dbfdd6c4ceebc176c9b2f3fe2d7d86178",
+      "gzip": false
+    },
+    {
+      "path": "toys/spurious/summary.json",
+      "sha256": "abb263d063900e36ece23b1a84e3acbf166989add9b80d2386a27a96e1c22ac8",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/summary.json",
+      "source_sha256": "abb263d063900e36ece23b1a84e3acbf166989add9b80d2386a27a96e1c22ac8",
+      "gzip": false
+    },
+    {
+      "path": "source_prepared_summary.json.gz",
+      "sha256": "b6029226784cd4c5fee76afd0348d43f8c3a83d2dd0b050ad1ac67bbe25a7e5f",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1/summary.json",
+      "source_sha256": "e6beb5dbb1be779bb7ac2e64dc81c3fc858cb595c3555fc965c35e1a52054b8f",
+      "gzip": true
+    },
+    {
+      "path": "source_gla_summary.json",
+      "sha256": "dac8db2890982cc3af5e88554d6d05d44edd62ff48c9354ab5c13e85cc4e717c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/summary.json",
+      "source_sha256": "dac8db2890982cc3af5e88554d6d05d44edd62ff48c9354ab5c13e85cc4e717c",
+      "gzip": false
+    },
+    {
+      "path": "collector_source.py",
+      "sha256": "6f15bd7c7e696d0f02835073d024a4283fabf5b29ece87fcd443218bc9dcd5f4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/collect_gate_resume.py",
+      "source_sha256": "6f15bd7c7e696d0f02835073d024a4283fabf5b29ece87fcd443218bc9dcd5f4",
+      "gzip": false
+    },
+    {
+      "path": "helpers/gate_solver.py",
+      "sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/gate_solver.py",
+      "source_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "gzip": false
+    },
+    {
+      "path": "helpers/solve_prepared.py",
+      "sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/solve_prepared.py",
+      "source_sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "gzip": false
+    },
+    {
+      "path": "test_gate_resume.py",
+      "sha256": "f3c58e44d55976fa25e03deb3ef4307d6bbd2ace95271df85447cfbec491261d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/tests/unit/test_gate_resume.py",
+      "source_sha256": "f3c58e44d55976fa25e03deb3ef4307d6bbd2ace95271df85447cfbec491261d",
+      "gzip": false
+    }
+  ]
+}

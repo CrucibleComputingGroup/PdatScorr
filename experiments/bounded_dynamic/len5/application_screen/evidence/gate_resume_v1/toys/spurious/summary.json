@@ -1,0 +1,74 @@
+{
+  "status": "proved_safety_query_only",
+  "accepted_optimization": false,
+  "requested_seconds": 5,
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "&read -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/bounded_map.aig\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/loaded_map.aig\"; &gla -q -T 5 -v -m -A \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/progress_map.aig\" -L \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/gla.status\"; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/final.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/final_map.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.1739617930725217,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/gla.log",
+    "log_sha256": "06dc90dbdf54368cd55bad0564b51145b639d6b118d7a84de68d2659d03ee05c"
+  },
+  "raw_status": "snl_UNSAT 2513 unknown\nNULL\nNULL\n",
+  "input_audit": {
+    "execution": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "&read -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/bounded_map.aig\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/input_audit/roundtrip_map.aig\"; &gla_derive; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/input_audit/derived.aig\""
+      ],
+      "returncode": 0,
+      "executable": "/usr/local/bin/abc",
+      "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+      "timeout": false,
+      "seconds": 0.1279373043216765,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/spurious/input_audit/audit.log",
+      "log_sha256": "55bebbab377289e450decf243dcf5f2052b87ff157bea8269dceb17fccfe31ca"
+    },
+    "source_map_sha256": "5d33374cae8392a393fa1197dacb04cd8e3a2f9cd924bd72416d08310379da0c",
+    "source_folded_sha256": "68779e7abbd9c0860f0643ca04c49267c407fb7bcca35f45dcf7c2b7e4112c7a",
+    "source_abstracted_sha256": "2326c2c2087b9fb7cc61603d190b9cdc2b09399265a54c743d29f13a34e3db90",
+    "original_ordered_graph_sha256": "33b18df9ff8c12c7f589e3c4f6a6b4e167954962ede22f33bf8ea21f989c4d2e",
+    "gate_classes_sha256": "9184dd7858bcf7ed9d6c31bfba19dcecf6eaff5d53775ab5ff494e8feb51c9b1",
+    "gate_class_bytes": 160,
+    "exact_original_graph_preserved": true,
+    "exact_gate_classes_preserved": true,
+    "read_warnings_absent": true,
+    "derived_graph_sha256": "a72e86a0516c330fe76244d9d07b5ea4afb1e402496241321673279e047f12af"
+  },
+  "source_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/bounded_map.aig": "5d33374cae8392a393fa1197dacb04cd8e3a2f9cd924bd72416d08310379da0c",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/unbounded/folded.aig": "68779e7abbd9c0860f0643ca04c49267c407fb7bcca35f45dcf7c2b7e4112c7a",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/abstract.aig": "2326c2c2087b9fb7cc61603d190b9cdc2b09399265a54c743d29f13a34e3db90",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/gate_resume.py": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a"
+  },
+  "input_header": [
+    "aig",
+    "34",
+    "10",
+    "4",
+    "1",
+    "20"
+  ],
+  "reunrolled_from_frame_zero": true,
+  "no_new_premises_or_refolding": true,
+  "original_folded_model": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/unbounded/folded.aig",
+  "scope": "Normal CEGAR on original saved proof-model graph with existing gate classes. Query has prior ALU/multiplier abstractions; no native RTL claim.",
+  "artifact_sha256": {
+    "final_map.aig": "bce033896b85b9991714c03fa79c47ed9bc56fa5d68d49d78990b7a7b42f7de3",
+    "gla.log": "06dc90dbdf54368cd55bad0564b51145b639d6b118d7a84de68d2659d03ee05c",
+    "gate_resume.py": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a",
+    "progress_map.aig": "d2f17a0dffb5e43ad887a4813f4b081689ef589cf49a9cdec99eb21ef6cea7e2",
+    "loaded_map.aig": "30d4957cf018724c9f788c264a7a6ad7350c0f965a0d3450df3d4b667aa52c51",
+    "final.status": "71f0fbc735eb0c6c8952fbce6eba16150aee63384945db9680c977efb1e4324c",
+    "gla.status": "dcdd25cd874c131d6983cbb04776388844c8568e26636b99698e12cbc3bcfbb6",
+    "progress_map.status": "2ae77aabefb44eaefb890a8f8f80926dbfdd6c4ceebc176c9b2f3fe2d7d86178"
+  }
+}

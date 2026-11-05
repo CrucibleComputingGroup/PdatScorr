@@ -1,0 +1,90 @@
+{
+  "status": "counterexample_in_original_saved_query_model",
+  "accepted_optimization": false,
+  "requested_seconds": 5,
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "&read -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/abstraction_map.aig\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/loaded_map.aig\"; &gla -q -T 5 -v -m -A \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/progress_map.aig\" -L \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/gla.status\"; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/final.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/final_map.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.14080536598339677,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/gla.log",
+    "log_sha256": "bc6ec8bc44b4c8bf2214b76a47c4e8b4637cb20d0a9ce77f0ce676be8bc44ca3"
+  },
+  "raw_status": "snl_SAT 0 unknown 0 1\n0000\n01000000000100000000\n",
+  "input_audit": {
+    "execution": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "&read -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/abstraction_map.aig\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/input_audit/roundtrip_map.aig\"; &gla_derive; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/input_audit/derived.aig\""
+      ],
+      "returncode": 0,
+      "executable": "/usr/local/bin/abc",
+      "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+      "timeout": false,
+      "seconds": 0.12496344419196248,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/input_audit/audit.log",
+      "log_sha256": "715ae383ec1573ce62dc22044ed4b037103428559e94076d760a9f373f79f808"
+    },
+    "source_map_sha256": "e0e0f41fdb60facc755b286f5d3f9c39864e51b29bdef472578b95f563147821",
+    "source_folded_sha256": "7948eca1ef30959630edda7be63602d77b8e81afd5d14f72c062da39cfb08ca6",
+    "source_abstracted_sha256": "823ff7545553a3ad669ee51b80b782e7f5e4f8e8fcccebf61d8cc93275417415",
+    "original_ordered_graph_sha256": "437f6b70bf7042d69b7b96cbe857bacf48ba5ec84f88ae2ad9a89dcb877b616f",
+    "gate_classes_sha256": "5f09be954cf6f65765f8814c53d5dfa1a6fd0cf8827c92436163c26e03a3e889",
+    "gate_class_bytes": 152,
+    "exact_original_graph_preserved": true,
+    "exact_gate_classes_preserved": true,
+    "read_warnings_absent": true,
+    "derived_graph_sha256": "61d0691914f21f67599e45922f1b2259b23aecc472d2fece6fe0ccb7527622f7"
+  },
+  "source_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/abstraction_map.aig": "e0e0f41fdb60facc755b286f5d3f9c39864e51b29bdef472578b95f563147821",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/folded.aig": "7948eca1ef30959630edda7be63602d77b8e81afd5d14f72c062da39cfb08ca6",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/abstract.aig": "823ff7545553a3ad669ee51b80b782e7f5e4f8e8fcccebf61d8cc93275417415",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/gate_resume.py": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a"
+  },
+  "input_header": [
+    "aig",
+    "32",
+    "10",
+    "4",
+    "1",
+    "18"
+  ],
+  "reunrolled_from_frame_zero": true,
+  "no_new_premises_or_refolding": true,
+  "original_folded_model": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/folded.aig",
+  "scope": "Normal CEGAR on original saved proof-model graph with existing gate classes. Query has prior ALU/multiplier abstractions; no native RTL claim.",
+  "counterexample_validation": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/folded.aig\"; &get; read_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/final.status\"; testcex; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/counterexample.aiw\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.12456225277855992,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_resume_toys_v1/negative/validate_cex.log",
+    "log_sha256": "46640be2525dc30d623f210c9f18b234f9daac73194a8a98a861ddd13539b1eb"
+  },
+  "artifact_sha256": {
+    "validate_cex.log": "46640be2525dc30d623f210c9f18b234f9daac73194a8a98a861ddd13539b1eb",
+    "final_map.aig": "0c163c4f09d92fed315c7f0e15a4795ad80ee8a47fc949c4368e69c6c36d0544",
+    "gla.log": "bc6ec8bc44b4c8bf2214b76a47c4e8b4637cb20d0a9ce77f0ce676be8bc44ca3",
+    "gate_resume.py": "bac08d9d110bd28fee052993505614077e35fd918e481e3a5b3d15b1fca61f4a",
+    "progress_map.aig": "cb7803320b143d7ff214f541d46f41ae7c0fc6fa6cc757a6be387a7e8896d12c",
+    "counterexample.aiw": "fd19fcb4d0145c732e337309ffea63668d4015f537dace95d3d8cc3e7549b048",
+    "loaded_map.aig": "71cc563e5cccb0d1270e5cb284c211fd708986e61db4164b212e2b0b2d2bed8c",
+    "final.status": "f28105abafa8dc21907980b9bd035e52e0dcba89757a4b7f60669b4a30968d32",
+    "gla.status": "1d92513974c22d639c6d71863a00d4353cb635de29c99df3091133ec958e6167",
+    "progress_map.status": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739"
+  }
+}

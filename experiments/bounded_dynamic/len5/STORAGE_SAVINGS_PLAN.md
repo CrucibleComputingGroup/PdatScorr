@@ -111,6 +111,16 @@ while reset is released and the external response is valid; it introduces no
 timing or occupancy premise. Earlier certificates withdrawn during that audit
 remain archived. No larger timing-derived saving has yet been certified.
 
+The [RF composition audit](application_screen/review/rf_composition_v1/README.md)
+replays the cumulative certificate exactly and confirms complete RF consumer
+coverage and unchanged ALU admission/row state outside that component. Under
+the same initial-reset and program-response premises, an eventual admission
+theorem transfers from the decoder-only native core to the cumulative RF
+candidate. Apply any accepted ALU-row patch to that cumulative candidate
+(`371a91db44e992635c234ba339907654b62a6800c43d787561cea2bbbbe67b7e`), so RF savings
+are not counted a second time. The admission theorem and row-removal
+justification are still required; the composition audit supplies neither.
+
 The scheduling query now composes an independently proved external ROM domain
 with seven source-bound native instruction-word invariants. These are proved
 conclusions reused by the checker, not guessed internal occupancy assumptions.
@@ -135,6 +145,16 @@ That abstraction cannot prove the safety property without refinement. This does
 not refute the original proof model or native RTL: its extra free choices must
 first be checked for feasibility in those models. Extending PDR on this exact
 abstract model would therefore not establish the desired safety theorem.
+
+A [600-second continuation of normal gate abstraction](application_screen/GATE_RESUME.md)
+reused the saved refinement map, rechecked from frame zero, and advanced beyond
+that failure. It remained unknown at timeout in frame 32, with no validated
+original-model counterexample or unbounded proof. Separately, the
+[native-arithmetic preparation](application_screen/NATIVE_ARITHMETIC_PREPARATION.md)
+retains exact loop-counter and pointer computations after the closed inactive-FU
+substitutions. It has 522,336 AND nodes and 22,024 latches, compared with 493,830
+and 20,968 for the corresponding payload-abstracted model. These remain proof
+model counts, not hardware savings.
 
 The next proof simplification follows a closed program-only chain: the certified
 decoder excludes MUL/DIV dispatch, the native issue register preserves that
