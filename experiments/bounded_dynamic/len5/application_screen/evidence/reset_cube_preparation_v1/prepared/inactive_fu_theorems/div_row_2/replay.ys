@@ -1,0 +1,24 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/inactive_fu_lemmas_v1/div_row_2/projection.json"
+setundef -anyseq
+bwmuxmap
+bmuxmap
+demuxmap
+setundef -anyseq
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/inactive_fu_lemmas_v1/div_row_2/positive/harness.sv"
+hierarchy -check -top ResetStorageProof
+proc_clean
+proc_prune
+proc_init
+setundef -anyseq
+proc -norom -noopt
+setundef -anyseq
+prep -top ResetStorageProof -flatten
+setundef -anyseq
+check -assert
+chformal -lower
+async2sync
+dffunmap
+setundef -anyseq
+check -assert
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_prepare_v1/inactive_fu_theorems/div_row_2/lowered.json"
+write_smt2 -wires "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_prepare_v1/inactive_fu_theorems/div_row_2/model.smt2"

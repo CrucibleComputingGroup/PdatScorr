@@ -197,6 +197,16 @@ confirms the exact patch. Eight bits occur in the native gate abstraction's
 inactive MUL/DIV arbitration state. These program-only constants are additional
 proof simplifications; their state count is not a timing or area result.
 
+The [combined preparation](application_screen/RESET_CUBE_PREPARATION.md)
+applies only this additional constant-state delta to the 48-premise query.
+Independent review confirms the original native core, memory harness, probes,
+275 register-status constants, and all 479 predicate cells are preserved.
+The lowered model has 21,741 latches and 515,078 AND nodes: only eight fewer
+latches and 220 fewer AND nodes than the prior preparation. The other selected
+source bits were already absent from the lowered observation cone. The query
+still has the original three assertions, initial reset, and 47 proved
+conclusions; it adds no new environmental premise or accepted hardware result.
+
 The next proof simplification follows a closed program-only chain: the certified
 decoder excludes MUL/DIV dispatch, the native issue register preserves that
 exclusion, and the original insertion gates therefore never admit either unit.

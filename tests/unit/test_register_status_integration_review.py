@@ -9,7 +9,7 @@ import pytest
 
 ROOT=Path(__file__).resolve().parents[2]
 APP=ROOT/'experiments/bounded_dynamic/len5/application_screen'
-AUDIT=APP/'review/register_status_integration_v1/audit.py'
+AUDIT=APP/'review/register_status_integration_v2/audit.py'
 spec=importlib.util.spec_from_file_location('independent_register_status_integration',AUDIT)
 audit=importlib.util.module_from_spec(spec);spec.loader.exec_module(audit)
 from register_status_prepared import validate_register_status_prepared

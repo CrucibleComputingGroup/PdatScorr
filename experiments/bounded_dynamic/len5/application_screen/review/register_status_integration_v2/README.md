@@ -1,0 +1,1 @@
+Versioned replay of the independently reviewed48-premise preparation. It preserves the v1 graph reconstruction and checks, binding the archived formal_screen.py SHA8378f42e instead of the subsequently extended live entrypoint. The new cube preparation is reviewed separately. No exporter or solver is run.

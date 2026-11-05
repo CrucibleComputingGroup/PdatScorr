@@ -190,6 +190,8 @@ def main():
     ap.add_argument("--rom-domain-proof", type=Path, help="Exact external ROM producer theorem required for --word-domain-lemmas")
     ap.add_argument("--inactive-fu-lemmas", type=Path, help="Opt-in raw theorem directory for exact MUL/DIV reset-state substitutions in the proof model only")
     ap.add_argument("--register-status-lemmas", type=Path, help="Opt-in closed275-bit register-status theorem and40derived RD domains; native-arithmetic preparation only")
+    ap.add_argument("--reset-cube-lemmas", type=Path, help="Opt-in closed42-word reset cube; apply only its583-bit delta to the current proof graph")
+    ap.add_argument("--reset-cube-reference-prepared", type=Path, help="Frozen48-premise reference required to bind --reset-cube-lemmas")
     ap.add_argument("--engine", choices=("pdr", "bmc", "prepare"), default="pdr")
     ap.add_argument("--frames", type=int, default=48, help="Bounded falsifier depth; never an unbounded certificate")
     ap.add_argument("--gap", type=int, default=2)
@@ -212,6 +214,10 @@ def main():
         ap.error('--inactive-fu-lemmas requires the closed decoder, native word lemmas, and exact ROM theorem')
     if args.register_status_lemmas and (not args.inactive_fu_lemmas or args.datapath_abstraction != 'none' or args.engine != 'prepare'):
         ap.error('--register-status-lemmas requires the closed inactive-FU chain, native arithmetic, and --engine prepare')
+    if bool(args.reset_cube_lemmas) != bool(args.reset_cube_reference_prepared):
+        ap.error('--reset-cube-lemmas and --reset-cube-reference-prepared require each other')
+    if args.reset_cube_lemmas and (not args.register_status_lemmas or args.datapath_abstraction != 'none' or args.engine != 'prepare'):
+        ap.error('--reset-cube-lemmas requires the closed register-status chain, native arithmetic, and --engine prepare')
     out = args.output.resolve(); out.mkdir(parents=True, exist_ok=False)
     (out/"formal_screen.py").write_bytes(Path(__file__).read_bytes())
     temporal_helper = REPO/"odc/temporal.py"
@@ -265,6 +271,7 @@ def main():
     rom_domain_import = None
     inactive_import = None
     register_status_import = None
+    reset_cube_import = None
     query_native_counts = None
     if args.word_domain_lemmas:
         from certified_decoder import exact_alphabet
@@ -309,6 +316,21 @@ def main():
             if previous!=expected:raise ValueError('Conflicting transitive register-status theorem dependency')
             word_import['proof_dependencies_sha256'][path]=expected
         word_import['additional_dependency_closures'].append('forty_rd_domains_and_register_status_facts_imported')
+    if args.reset_cube_lemmas:
+        from reset_cube_import import import_reset_cube
+        current_records={'native_word_domain_import':word_import,'external_rom_domain_import':rom_domain_import,
+            'inactive_fu_import':inactive_import,'register_status_import':register_status_import}
+        query_design,reset_cube_import=import_reset_cube(args.reset_cube_lemmas,args.reset_cube_reference_prepared,
+            query_design,out/'reset_cube_theorems',yosys=args.yosys,current_records=current_records,
+            current_harness=monitor,current_native_core=core.with_suffix('.json'))
+        query_core=out/'reset_cube_query_core.json'
+        query_core.write_text(json.dumps(query_design,indent=2)+'\n')
+        query_native_counts=reset_cube_import['composition']['proof_only_property_counts']
+        for path,expected in reset_cube_import['proof_dependencies_sha256'].items():
+            previous=word_import['proof_dependencies_sha256'].get(path,expected)
+            if previous!=expected:raise ValueError('Conflicting transitive reset-cube proof dependency')
+            word_import['proof_dependencies_sha256'][path]=expected
+        word_import['additional_dependency_closures'].append('closed_reset_cube_delta_imported')
     if args.datapath_abstraction != 'none':
         abstraction_source = HERE/'abstract_datapath.py'
         (out/'abstract_datapath.py').write_bytes(abstraction_source.read_bytes())
@@ -329,6 +351,7 @@ def main():
         "external_rom_domain_import":rom_domain_import, "native_word_domain_import":word_import,
         "inactive_fu_import":inactive_import,
         "register_status_import":register_status_import,
+        "reset_cube_import":reset_cube_import,
         "query_core_path":str(query_core), "query_core_sha256":digest(query_core),
         "proof_only_native_property_counts":query_native_counts,
         "native_hardware_contains_formal_properties":False,
@@ -356,6 +379,8 @@ def main():
         record['scope'] += '; 1761 source-proved program-only reset bits substituted only in the proof model, with no added premises'
     if register_status_import:
         record['scope'] += ';275source-proved register-status reset bits and40existing RD-domain conclusions imported into proof model only, no RF replacement'
+    if reset_cube_import:
+        record['scope'] += ';42source-proved reset words substituted by their583-bit pointwise delta only, with all prior facts and predicates preserved'
     if abstraction:
         record['scope'] += '; proof-only payload overapproximation, original native hardware export retained separately'
     save()
@@ -447,6 +472,12 @@ def main():
         try:
             from register_status_import import verify_dependencies as verify_register_status_dependencies
             verify_register_status_dependencies(register_status_import)
+        except (ValueError,OSError) as error:
+            record.update(status='error',error=str(error))
+    if reset_cube_import:
+        try:
+            from reset_cube_import import verify_dependencies as verify_reset_cube_dependencies
+            verify_reset_cube_dependencies(reset_cube_import)
         except (ValueError,OSError) as error:
             record.update(status='error',error=str(error))
     save(); print(json.dumps({k:record[k] for k in ("status", "accepted_optimization")}))
