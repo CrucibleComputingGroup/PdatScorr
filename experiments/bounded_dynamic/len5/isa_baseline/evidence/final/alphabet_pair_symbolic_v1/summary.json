@@ -1,0 +1,81 @@
+{
+  "status": "proved",
+  "proof": {
+    "proven": true,
+    "method": "abc-pdr-shared-miter",
+    "depth": 3,
+    "reference_sha256": "ca021ce39133241cc12c1f00d757ea46ce2ea63c4f047462230ddc2aad7cabdb",
+    "candidate_sha256": "5c1a83d41dbfbbe870d624d411a4762541f8daa19ad727178d460be06f711977",
+    "harness_sha256": "5074012aca7c6102c3c4e266cab6f899d8e1e897813e50bb5727f0192c4c6ec8",
+    "implementation_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+    "undefined_value_model": "Independent symbolic choices before process optimization, after nonoptimizing process lowering, and after sequential normalization; no -init/-params concretization",
+    "elaboration": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_pair_symbolic_v1/proof/prepare.ys"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "timeout": false,
+      "seconds": 0.26561576314270496,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_pair_symbolic_v1/proof/prepare.log",
+      "log_sha256": "ee142d4d01a0377a33c75a5d0d724a0ff2b2e64dbb8f5d5477ee1545974dce03"
+    },
+    "clock_model": {
+      "clocks": [],
+      "model": "single shared global step, validated after async2sync/dffunmap"
+    },
+    "property_counts": {
+      "assert": 13,
+      "assume": 1,
+      "cover": 0
+    },
+    "initial_state": {
+      "paired_state_bits": 0
+    },
+    "aig_export": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_pair_symbolic_v1/proof/aig_export.ys"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "timeout": false,
+      "seconds": 0.21532931318506598,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_pair_symbolic_v1/proof/aig_export.log",
+      "log_sha256": "cf4e95412e6ef9a7f04920d9a363573de4bf38def942b6f209628e35aeeebc64"
+    },
+    "aig_sha256": "6cbc7ac551649b320a4ddbf2ce1dbd04b30438d949ebf006d6fe589cf90b145a",
+    "aig_bad_properties": 13,
+    "aig_constraints": 1,
+    "pdr": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_pair_symbolic_v1/proof/miter.aig\"; fold; orpos; pdr -T 120 -v"
+      ],
+      "returncode": 0,
+      "executable": "/usr/local/bin/abc",
+      "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+      "timeout": false,
+      "seconds": 0.15530343633145094,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_pair_symbolic_v1/proof/pdr.log",
+      "log_sha256": "d9c1f13bb612398cd4fcc3720a082b641e36d5b65cc2aeff71639559658780f8"
+    }
+  },
+  "candidate_summary_sha256": "cc49c2356bb0d8355a3a9c3d23d3662363c5ffc60696dcd8d82ceae6e6004f81",
+  "native_candidate_sha256": "82a76125a33790027bf6b86cb97007d048759484d6e96027abd8fa9ad5d215db",
+  "candidate_directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_alphabet_v1",
+  "script_sha256": "9972e9a835e445d885eedfff0f0c36c6e901a4221daec140f3df31edbd2d7d9d",
+  "component_kind": "instruction_decoder",
+  "independent_undefined_choices": true,
+  "assumptions_or_observations_changed": false
+}

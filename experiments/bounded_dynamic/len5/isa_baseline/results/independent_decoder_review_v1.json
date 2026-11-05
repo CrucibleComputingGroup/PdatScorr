@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "scope": "Independent decoder transfer audit; no new solver runs. The rd data projection is also checked, but RF substitution/fanout is outside this audit.",
+  "original_sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+  "decoder_outputs": {
+    "issue_type_o": 4,
+    "except_code_o": 5,
+    "assigned_eu_o": 3,
+    "skip_eu_o": 1,
+    "eu_ctl_o": 4,
+    "mem_crit_o": 1,
+    "order_crit_o": 1,
+    "rs1_req_o": 1,
+    "rs1_is_pc_o": 1,
+    "rs2_req_o": 1,
+    "rs2_is_imm_o": 1,
+    "rd_upd_o": 1,
+    "imm_format_o": 3
+  },
+  "decoder_output_bits": 27,
+  "external_consuming_pin_bits": 41,
+  "unobserved_decoder_external_fanout": 0,
+  "domain_projections": {
+    "isa_domain_symbolic_v4": {
+      "native_cells_exact": 57,
+      "state_fields": 6,
+      "field_widths": [
+        32
+      ],
+      "symbolic_undefined_bits": 194,
+      "summary_sha256": "4224420cdd01560c71811ac8df32bf80d908931951c1b71a8bd31aea8097c237",
+      "projection_sha256": "6ed0aeb95b5e3e6d5e4c2b064e763c2ed6c06449696e0ddcb7297f8e8b3e63fc",
+      "base_log_sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "induction_log_sha256": "8792cc7e1525fb4e6f13a5715a307c6f7a69b20671d3ad4d70605a694363e597"
+    },
+    "alphabet_domain_symbolic_v4": {
+      "native_cells_exact": 57,
+      "state_fields": 6,
+      "field_widths": [
+        32
+      ],
+      "symbolic_undefined_bits": 194,
+      "summary_sha256": "cb09ae6b7801cdc20b96656106a8e10dcd868aec6a0b1c143c94070f86fa27c9",
+      "projection_sha256": "6ed0aeb95b5e3e6d5e4c2b064e763c2ed6c06449696e0ddcb7297f8e8b3e63fc",
+      "base_log_sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "induction_log_sha256": "8792cc7e1525fb4e6f13a5715a307c6f7a69b20671d3ad4d70605a694363e597"
+    },
+    "rd_domain_symbolic_v5": {
+      "native_cells_exact": 381,
+      "state_fields": 40,
+      "field_widths": [
+        5
+      ],
+      "symbolic_undefined_bits": 918,
+      "summary_sha256": "dc61165c6e74fecf736f1e5ce7d22012b25decb357554f06093bb8ae3784edd7",
+      "projection_sha256": "13b9064ee52691b9d199914934224a6fa4f6bcecd5e6e03ca3ccbfbcb4467958",
+      "base_log_sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "induction_log_sha256": "8792cc7e1525fb4e6f13a5715a307c6f7a69b20671d3ad4d70605a694363e597"
+    }
+  },
+  "paired_decoder_proofs": {
+    "isa_pair_symbolic_v1": {
+      "changed_cells": 641,
+      "all_other_cells_and_ports_identical": true,
+      "safe_preparation_source_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+      "proof_summary_sha256": "8c053cb7bb075a77571397b689e345d823b115c5adb9024dae6a2c60862dfc5b",
+      "candidate_native_sha256": "63e37102ce8deb5271b7d055b4a1a699d0ceb12d5fcb8a0c6e5f6071882cef92",
+      "pdr_log_sha256": "35e6ec6ecdedc1401d7afd4c76daebf5694078307e5d83217a7d4455bd9e7635"
+    },
+    "alphabet_pair_symbolic_v1": {
+      "changed_cells": 642,
+      "all_other_cells_and_ports_identical": true,
+      "safe_preparation_source_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+      "proof_summary_sha256": "b1f547682a90f29c050ea08929e2d61702809199dbceb806cd15362c632d8299",
+      "candidate_native_sha256": "82a76125a33790027bf6b86cb97007d048759484d6e96027abd8fa9ad5d215db",
+      "pdr_log_sha256": "d9c1f13bb612398cd4fcc3720a082b641e36d5b65cc2aeff71639559658780f8"
+    }
+  },
+  "transfer_limit": "Requires native initial reset and response-valid instruction domain. Exact ROM/address/error behavior must separately imply that premise; no timing/occupancy assumption or savings claim is supplied by this audit.",
+  "review_source_sha256": "175d2876736651626266fb2cbddc2255a0f643307883d50d1e00a1b7891f4abb"
+}

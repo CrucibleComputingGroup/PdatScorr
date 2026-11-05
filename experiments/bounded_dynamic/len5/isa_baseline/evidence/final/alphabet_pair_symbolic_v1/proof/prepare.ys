@@ -1,0 +1,18 @@
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_alphabet_v1/reference.v" "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_alphabet_v1/candidate.v" "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_alphabet_v1/harness.sv"
+hierarchy -check -top TemporalMiter
+proc_clean
+proc_prune
+proc_init
+setundef -anyseq
+proc -norom -noopt
+setundef -anyseq
+prep -top TemporalMiter -flatten
+setundef -anyseq
+check -assert
+chformal -lower
+select -assert-min 1 t:$assert
+select *
+async2sync
+dffunmap
+setundef -anyseq
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_pair_symbolic_v1/proof/miter.json"

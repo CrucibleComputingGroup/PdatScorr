@@ -1,0 +1,290 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_pair_symbolic_v1/proof/aig_export.ys' --
+
+1. Executing JSON frontend.
+Importing module TemporalMiter from JSON tree.
+
+2. Executing CHECK pass (checking for obvious problems).
+Checking module TemporalMiter...
+Found and reported 0 problems.
+
+3. Executing FORMALFF pass.
+
+4. Executing SETUNDEF pass (replace undef values with defined constants).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+<suppressed ~16 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 210 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~95 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 210 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+Removed 12 unused cells and 28 unused wires.
+<suppressed ~13 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~95 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 198 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+5.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing TECHMAP pass (map to technology primitives).
+
+6.1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+6.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $pmux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $logic_or.
+No more expansions possible.
+<suppressed ~259 debug messages>
+
+7. Executing OPT pass (performing simple optimizations).
+
+7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+<suppressed ~1129 debug messages>
+
+7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 2385 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 1475 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 1069 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 882 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 801 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 796 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+<suppressed ~4767 debug messages>
+Removed a total of 1589 cells.
+
+7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 796 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+Removed 0 unused cells and 796 unused wires.
+<suppressed ~1 debug messages>
+
+7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 796 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+
+7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+7.16. Finished fast OPT passes. (There is nothing left to do.)
+
+8. Executing SETUNDEF pass (replace undef values with defined constants).
+
+9. Executing ABC pass (technology mapping using ABC).
+
+9.1. Summary of detected clock domains:
+  796 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+9.2. Extracting gate netlist of module `\TemporalMiter' to `<abc-temp-dir>/input.blif'..
+No matching clock domain found. Not extracting any FF cells.
+
+9.2.1. Executed ABC.
+Extracted 780 gates and 814 wires to a netlist network with 32 inputs and 14 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Nov  4 2026 06:58:40)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+9.2.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:      444
+ABC RESULTS:               NOT cells:      167
+ABC RESULTS:        internal signals:      768
+ABC RESULTS:           input signals:       32
+ABC RESULTS:          output signals:       14
+Removing temp directory.
+Removing global temp directory.
+
+10. Executing AIGMAP pass (map logic to AIG).
+Module TemporalMiter: replaced 0 cells with 0 new cells, skipped 627 cells.
+  not replaced 5 cell types:
+     444 $_AND_
+     167 $_NOT_
+      13 $assert
+       1 $assume
+       2 $scopeinfo
+
+11. Executing AIGER backend.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [0] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [1] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [2] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [3] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [4] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [5] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [6] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [7] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [8] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [9] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [10] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [11] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [12] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [13] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [14] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [15] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [16] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [17] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [18] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [19] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [20] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [21] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [22] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [23] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [24] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [25] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [26] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [27] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [28] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [29] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [30] like $anyseq.
+Warning: Treating undriven bit TemporalMiter.\instruction_i [31] like $anyseq.
+Warning: Treating a total of 32 undriven bits in TemporalMiter like $anyseq.

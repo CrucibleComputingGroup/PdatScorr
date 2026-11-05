@@ -7,3 +7,5 @@
 - Preserve recorded raw results and provenance. Use new output directories for new experiments, and distinguish local proofs, finite simulation evidence, capacity changes, and automatic optimization results.
 
 - The 0.893% MSHR-component tag optimization is a mechanism/regression test only; the user rejected its magnitude as a paper result. Prioritize substantial automatically removed RS/LSQ storage and measured whole-core impact, with capacities unchanged and lifetime bounds derived from the original constrained system. Do not add the small pilot result to the manuscript.
+
+- Program/ISA-driven whole-core area savings are also Pscorr's contribution. The key ablation is Pscorr with ISA/program constraints versus Pscorr with those same constraints plus microarchitectural/timing information. Credit both stages to Pscorr; the extension must demonstrate additional savings, without presupposing a weak ISA/program baseline.

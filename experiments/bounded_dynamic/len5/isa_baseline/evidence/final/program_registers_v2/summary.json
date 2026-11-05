@@ -1,0 +1,350 @@
+{
+  "status": "decoder_equivalence_proved_native_candidate_emitted",
+  "scope": "Exhaustive scalar-controllability baseline with combined component equivalence; not strongest program-only sequential Pscorr",
+  "component_kind": "architectural_register_file",
+  "domain": "program_alphabet",
+  "domain_expression": "(comm_rd_idx_i == 5'd0) || (comm_rd_idx_i == 5'd5) || (comm_rd_idx_i == 5'd8) || (comm_rd_idx_i == 5'd9) || (comm_rd_idx_i == 5'd10) || (comm_rd_idx_i == 5'd11) || (comm_rd_idx_i == 5'd18)",
+  "scalar_nodes": 32,
+  "attempted_constants": 64,
+  "prepared_manifest_sha256": "5f03cbae1d8b46b1515c9c4075a8ec422b8a748c092ac12eabefea4e67007009",
+  "source_hashes": {
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/isa_baseline/run.py": "5fe8528f4adf6c90640ebf67912e301dbc2e8786e3f85f4d3e5b0878e8a3c935",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/odc/state_candidates.py": "1c6caff412df65460a6ef2dbfeb284353fe0f2f2f32393c881dcd995fa2b732e",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/odc/temporal.py": "713820a024f666b15682619ffcc0ec22be2af1f998aba9ef3b9a5a653eb2972d"
+  },
+  "capacity_parameters": {
+    "ROB_DEPTH": 32,
+    "IQ_DEPTH": 4,
+    "LDBUFF_DEPTH": 8,
+    "STBUFF_DEPTH": 16,
+    "ALU_RS_DEPTH": 8,
+    "MULT_RS_DEPTH": 4,
+    "DIV_RS_DEPTH": 4,
+    "BU_RS_DEPTH": 4,
+    "RAS_DEPTH": 8
+  },
+  "accepted": [
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_0_eq",
+      "original_type": "$eq",
+      "output_bit": 230483,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_10_eq",
+      "original_type": "$eq",
+      "output_bit": 230493,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_11_eq",
+      "original_type": "$eq",
+      "output_bit": 230494,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_12_eq",
+      "original_type": "$eq",
+      "output_bit": 230495,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_14_eq",
+      "original_type": "$eq",
+      "output_bit": 230497,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_15_eq",
+      "original_type": "$eq",
+      "output_bit": 230498,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_16_eq",
+      "original_type": "$eq",
+      "output_bit": 230499,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_17_eq",
+      "original_type": "$eq",
+      "output_bit": 230500,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_18_eq",
+      "original_type": "$eq",
+      "output_bit": 230501,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_19_eq",
+      "original_type": "$eq",
+      "output_bit": 230502,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_1_eq",
+      "original_type": "$eq",
+      "output_bit": 230484,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_24_eq",
+      "original_type": "$eq",
+      "output_bit": 230507,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_25_eq",
+      "original_type": "$eq",
+      "output_bit": 230508,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_27_eq",
+      "original_type": "$eq",
+      "output_bit": 230510,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_28_eq",
+      "original_type": "$eq",
+      "output_bit": 230511,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_29_eq",
+      "original_type": "$eq",
+      "output_bit": 230512,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_2_eq",
+      "original_type": "$eq",
+      "output_bit": 230485,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_30_eq",
+      "original_type": "$eq",
+      "output_bit": 230513,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_3_eq",
+      "original_type": "$eq",
+      "output_bit": 230486,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_4_eq",
+      "original_type": "$eq",
+      "output_bit": 230487,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_5_eq",
+      "original_type": "$eq",
+      "output_bit": 230488,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_6_eq",
+      "original_type": "$eq",
+      "output_bit": 230489,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_7_eq",
+      "original_type": "$eq",
+      "output_bit": 230490,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_8_eq",
+      "original_type": "$eq",
+      "output_bit": 230491,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    },
+    {
+      "kind": "scalar_output_constant",
+      "cell": "$pscorr_demux_7_9_eq",
+      "original_type": "$eq",
+      "output_bit": 230492,
+      "constant": 0,
+      "source": "source/rtl/expipe/register-file/int_rf.sv:54.9-54.50",
+      "nets": []
+    }
+  ],
+  "no_timing_assumptions": true,
+  "full_core_equivalence_status": "Requires original decoder-input domain; domain propagation not yet certified",
+  "constant_search": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/constant_search.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.5666684899479151,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/constant_search.log",
+    "log_sha256": "657979b72d211bd99181a8684facf6bac7ff9d5dd83c1a3313abad343fa24805"
+  },
+  "combined_all_output_proof": {
+    "proven": true,
+    "method": "abc-pdr-shared-miter",
+    "depth": 2,
+    "reference_sha256": "9fbc96b0d73e41decefc8405c8a58884d5f3044f2e3f9e60841cf1a61d6160f7",
+    "candidate_sha256": "a524d25bef33e6a14c09492dc2ab2f7ca24c2cad7894c1ddb264e1cbbdf742ae",
+    "harness_sha256": "e9ddc6c4e25f56d87f9119c12d1f152cd6a93acfe24d221985d38daf83f5cc42",
+    "implementation_sha256": "713820a024f666b15682619ffcc0ec22be2af1f998aba9ef3b9a5a653eb2972d",
+    "elaboration": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/combined_proof/prepare.ys"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "timeout": false,
+      "seconds": 1.469707884825766,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/combined_proof/prepare.log",
+      "log_sha256": "8117bc39e61b876c56632844d6857b60a91a21e575a8680a70295e26f36b972c"
+    },
+    "clock_model": {
+      "clocks": [
+        [
+          [
+            2
+          ],
+          1
+        ]
+      ],
+      "model": "single shared global step, validated after async2sync/dffunmap"
+    },
+    "property_counts": {
+      "assert": 2,
+      "assume": 2,
+      "cover": 0
+    },
+    "initial_state": {
+      "paired_state_bits": 0
+    },
+    "aig_export": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/combined_proof/aig_export.ys"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "timeout": false,
+      "seconds": 3.7255496438592672,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/combined_proof/aig_export.log",
+      "log_sha256": "f631665fa788b93151f10d83e19b017ecda65db880dcaeeef5b5ae5231f1862c"
+    },
+    "aig_sha256": "ff999ab1b402c2c8eacbe9964a6c87057ab6972f272bca9c43bf80b93b64498d",
+    "aig_bad_properties": 2,
+    "aig_constraints": 2,
+    "pdr": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/combined_proof/miter.aig\"; fold; orpos; pdr -T 60 -v"
+      ],
+      "returncode": 0,
+      "executable": "/usr/local/bin/abc",
+      "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+      "timeout": false,
+      "seconds": 37.50823561521247,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/combined_proof/pdr.log",
+      "log_sha256": "b341936ee3dc21a798b46ae8ddadb3834bcf6dee8922d2de1a2cbe4cca5c206a"
+    }
+  },
+  "candidate_whole_core_sha256": "371a91db44e992635c234ba339907654b62a6800c43d787561cea2bbbbe67b7e",
+  "candidate_native_il_sha256": "cbc8e43b1136d258f6b5257e49fabdee9785e38f2e5eb416741e6b8d88369ff6"
+}

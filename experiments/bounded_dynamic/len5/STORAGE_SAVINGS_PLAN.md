@@ -10,13 +10,18 @@ separate from physical mapping results.
 ## Research comparison: information versus optimization method
 
 The research hypothesis is that Pscorr can turn program and microarchitectural
-facts into additional ODC-based hardware savings beyond ISA-level pruning.
+facts into ODC-based hardware savings. Program/ISA-driven whole-core savings are
+already a Pscorr contribution; they are not credited to an unrelated competitor.
+The key ablation is **Pscorr with ISA/program constraints versus Pscorr with the
+same constraints plus microarchitectural/timing information**. The extension's
+payoff is the additional saving, while the paper credits Pscorr for both stages.
 Do not presuppose that an ISA-only baseline saves little. Instruction restrictions
 can already remove substantial functional units, and an ISA constraint can itself
 create a microarchitectural ODC. The information supplied and the optimizer's
 ability to exploit that information are separate experimental variables.
 
-Measure a strong program/ISA specialization baseline and Pscorr under the same
+Measure a strong ISA/program-constrained Pscorr baseline and its timing-enhanced
+version under the same
 program, external platform, reset, observation boundary, capacities, mapping and
 resource budget. Separately ablate scheduling/timing information in Pscorr while
 keeping the instruction restrictions fixed. Give the existing sequential
@@ -34,6 +39,12 @@ increment is a legitimate experimental outcome; it does not justify weakening
 the baseline. No result currently establishes that ISA-only savings are small
 or that a material additional whole-core saving has been obtained.
 
+For original area `A0`, ISA/program-constrained Pscorr area `AI`, and
+timing-enhanced Pscorr area `AM`, report `(A0-AI)/A0` as the first Pscorr gain,
+`(AI-AM)/AI` as the additional relative gain, and `(A0-AM)/A0` as the combined
+gain. Additional percentage points relative to the original core use `A0` as
+their denominator and must be labeled separately.
+
 ## Current screening outcome
 
 The [padded streaming experiment](application_screen/FETCH_SPACING.md) checks all
@@ -47,20 +58,45 @@ fewer slots is a candidate-discovery observation, not a removal certificate.
 The [alphabet-domain formal screen](application_screen/evidence/formal_screen_v5/README.md)
 does not yet certify the application. Unbounded checking remains inconclusive.
 A bounded query finds an ALU admission violation at frame 19 after proof-only
-ALU/MUL result abstraction; the witness is validated for that abstraction, and
-its concretization in native RTL is unresolved. The alphabet environment is
-also broader than the recorded instruction sequence and is not an exact ROM
-model. These distinctions prevent using this result as either a native-core
-counterexample or an accepted optimization.
+ALU/MUL result abstraction. Its external input prefix has now been
+[concretized in the original native RTL](application_screen/evidence/native_concretization_observed_v1/summary.json):
+the core uses a fifth distinct ALU slot even though current occupancy never
+exceeds four. Simultaneous insertion and completion cannot reuse the completing
+slot on that edge. This rejects the proposed four-slot admission bound for the
+alphabet platform. The alphabet environment is broader than the actual program,
+so it does not reject the same query for the address-indexed streaming ROM.
+
+The [executable-ROM platform](program_platform/README.md) now derives immutable
+instruction bytes from ELF executable sections, independently of data RAM.
+Its unchanged 56-byte program checks all 64 output stores and retains 64 actual
+out-of-order issue inversions. Every core source file and declared capacity is
+unchanged. The external platform explicitly returns zero payload on instruction
+faults and preserves the original fetch/data pipelines. This is a declared
+Harvard platform, not a universal equivalence claim about unified memory.
+
+Matched JSON-flow synthesis measures original whole-core area 1,400,805.984,
+Pscorr instruction-operation specialization 1,306,082.637 (6.76% less), exact-word
+decoder specialization 1,300,886.403 (7.13% less), and the cumulative program-only
+decoder/register specialization 1,227,165.699 (12.40% less). These numbers must
+not be divided by the separate RTLIL-flow denominator below. The program-only
+gain is a Pscorr contribution. Its [cumulative certificate](isa_baseline/results/program_registers_certificate_v2.json)
+binds corrected symbolic-undefined-value proofs, native domain propagation,
+and complete component-consumer closure. Its instruction premise applies only
+while reset is released and the external response is valid; it introduces no
+timing or occupancy premise. Earlier certificates withdrawn during that audit
+remain archived. No larger timing-derived saving has yet been certified.
 
 The [program-independent phase-sharing control](phase_sharing/README.md) enumerates
 276 bank pairs and retains 16 after a necessary write-exclusion check. No target
 bank merge has an unbounded certificate. A common-state proof reduction makes
 identity checking fast and passes independent positive/negative tests, but that
 does not prove the proposed merge. No transformed whole-core area has been
-measured. The next substantive obligations are resolving the abstract witness,
-certifying the relevant native program/platform property, and measuring the
-matched program/ISA baseline before attributing an incremental area gain.
+measured for that sharing candidate. Automatic phase guards and an explicitly
+conditional unique-tag protocol still leave its proof inconclusive; neither
+becomes an assumed native-core invariant. The next substantive obligations are
+certifying the actual program/platform property, closing the program-baseline
+proofs, and measuring additional native whole-core savings before attributing
+an incremental timing benefit.
 
 ## 1. Settings and source-grounded inventory
 
@@ -146,7 +182,7 @@ OoO core while retaining the original declared capacities.
 
 **E. Comparisons.** Keep three distinctions explicit:
 
-1. An ISA-only automatic baseline and a timing-enhanced run use the exact same
+1. An ISA/program-constrained Pscorr baseline and its timing-enhanced run use the exact same
    instruction restrictions. Excluded DIV/REM hardware or unused instruction
    fields cannot be counted as timing-derived storage savings.
 2. Inherited Pscorr/scorr and the proposed state-candidate method receive the

@@ -1,0 +1,46 @@
+module TemporalMiter(input [31:0] instruction_i);
+wire [3:0] a_issue_type_o;
+wire [3:0] b_issue_type_o;
+wire [4:0] a_except_code_o;
+wire [4:0] b_except_code_o;
+wire [2:0] a_assigned_eu_o;
+wire [2:0] b_assigned_eu_o;
+wire [0:0] a_skip_eu_o;
+wire [0:0] b_skip_eu_o;
+wire [3:0] a_eu_ctl_o;
+wire [3:0] b_eu_ctl_o;
+wire [0:0] a_mem_crit_o;
+wire [0:0] b_mem_crit_o;
+wire [0:0] a_order_crit_o;
+wire [0:0] b_order_crit_o;
+wire [0:0] a_rs1_req_o;
+wire [0:0] b_rs1_req_o;
+wire [0:0] a_rs1_is_pc_o;
+wire [0:0] b_rs1_is_pc_o;
+wire [0:0] a_rs2_req_o;
+wire [0:0] b_rs2_req_o;
+wire [0:0] a_rs2_is_imm_o;
+wire [0:0] b_rs2_is_imm_o;
+wire [0:0] a_rd_upd_o;
+wire [0:0] b_rd_upd_o;
+wire [2:0] a_imm_format_o;
+wire [2:0] b_imm_format_o;
+DecoderBase reference(.instruction_i(instruction_i), .issue_type_o(a_issue_type_o), .except_code_o(a_except_code_o), .assigned_eu_o(a_assigned_eu_o), .skip_eu_o(a_skip_eu_o), .eu_ctl_o(a_eu_ctl_o), .mem_crit_o(a_mem_crit_o), .order_crit_o(a_order_crit_o), .rs1_req_o(a_rs1_req_o), .rs1_is_pc_o(a_rs1_is_pc_o), .rs2_req_o(a_rs2_req_o), .rs2_is_imm_o(a_rs2_is_imm_o), .rd_upd_o(a_rd_upd_o), .imm_format_o(a_imm_format_o));
+DecoderCandidate candidate(.instruction_i(instruction_i), .issue_type_o(b_issue_type_o), .except_code_o(b_except_code_o), .assigned_eu_o(b_assigned_eu_o), .skip_eu_o(b_skip_eu_o), .eu_ctl_o(b_eu_ctl_o), .mem_crit_o(b_mem_crit_o), .order_crit_o(b_order_crit_o), .rs1_req_o(b_rs1_req_o), .rs1_is_pc_o(b_rs1_is_pc_o), .rs2_req_o(b_rs2_req_o), .rs2_is_imm_o(b_rs2_is_imm_o), .rd_upd_o(b_rd_upd_o), .imm_format_o(b_imm_format_o));
+always @* begin
+  assume((instruction_i == 0) || (instruction_i == 32'h0000006f) || (instruction_i == 32'h00001437) || (instruction_i == 32'h000024b7) || (instruction_i == 32'h00028023) || (instruction_i == 32'h00043503) || (instruction_i == 32'h00150593) || (instruction_i == 32'h00840413) || (instruction_i == 32'h00848493) || (instruction_i == 32'h00b4b023) || (instruction_i == 32'h04000913) || (instruction_i == 32'h1002829b) || (instruction_i == 32'h200002b7) || (instruction_i == 32'hfe0914e3) || (instruction_i == 32'hfff90913));
+  assert(a_issue_type_o == b_issue_type_o);
+  assert(a_except_code_o == b_except_code_o);
+  assert(a_assigned_eu_o == b_assigned_eu_o);
+  assert(a_skip_eu_o == b_skip_eu_o);
+  assert(a_eu_ctl_o == b_eu_ctl_o);
+  assert(a_mem_crit_o == b_mem_crit_o);
+  assert(a_order_crit_o == b_order_crit_o);
+  assert(a_rs1_req_o == b_rs1_req_o);
+  assert(a_rs1_is_pc_o == b_rs1_is_pc_o);
+  assert(a_rs2_req_o == b_rs2_req_o);
+  assert(a_rs2_is_imm_o == b_rs2_is_imm_o);
+  assert(a_rd_upd_o == b_rd_upd_o);
+  assert(a_imm_format_o == b_imm_format_o);
+end
+endmodule

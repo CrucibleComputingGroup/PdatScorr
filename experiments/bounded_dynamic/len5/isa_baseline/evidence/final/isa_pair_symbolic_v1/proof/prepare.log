@@ -1,0 +1,1286 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_pair_symbolic_v1/proof/prepare.ys' --
+
+1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v' to AST representation.
+Generating RTLIL representation for module `\DecoderBase'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v' to AST representation.
+Generating RTLIL representation for module `\DecoderCandidate'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/harness.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/harness.sv' to AST representation.
+Generating RTLIL representation for module `\TemporalMiter'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \TemporalMiter
+Used module:     \DecoderCandidate
+Used module:     \DecoderBase
+
+4.2. Analyzing design hierarchy..
+Top module:  \TemporalMiter
+Used module:     \DecoderCandidate
+Used module:     \DecoderBase
+Removed 0 unused modules.
+Module TemporalMiter directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 14 redundant assignments.
+Promoted 170 assignments to connections.
+
+7. Executing PROC_INIT pass (extract init attributes).
+
+8. Executing SETUNDEF pass (replace undef values with defined constants).
+
+9. Executing PROC pass (convert processes to netlists).
+
+9.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `TemporalMiter.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/harness.sv:30$proc$1175'.
+Cleaned up 0 empty switches.
+
+9.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+9.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+9.4. Executing PROC_INIT pass (extract init attributes).
+
+9.5. Executing PROC_ARST pass (detect async resets in processes).
+
+9.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3353$proc$1170'.
+     1/1: $1\_1491_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3353$954.$result[0:0]$1174
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3333$proc$1164'.
+     1/1: $1\_1488_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3333$953.$result[0:0]$1169
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3245$proc$1159'.
+     1/1: $1\_1417_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3245$952.$result[0:0]$1163
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3023$proc$1154'.
+     1/1: $1\_1348_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3023$951.$result[0:0]$1158
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2846$proc$1148'.
+     1/1: $1\_1320_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2846$950.$result[0:0]$1153
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2723$proc$1143'.
+     1/1: $1\_1264_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2723$949.$result[0:0]$1147
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2588$proc$1138'.
+     1/1: $1\_1252_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2588$948.$result[0:0]$1142
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2493$proc$1133'.
+     1/1: $1\_1192_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2493$947.$result[0:0]$1137
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2302$proc$1128'.
+     1/1: $1\_1132_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2302$946.$result[0:0]$1132
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2157$proc$1123'.
+     1/1: $1\_1114_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2157$945.$result[0:0]$1127
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2099$proc$1118'.
+     1/1: $1\_1103_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2099$944.$result[0:0]$1122
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2002$proc$1113'.
+     1/1: $1\_1039_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2002$943.$result[0:0]$1117
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1839$proc$1107'.
+     1/1: $1\_1011_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1839$942.$result[0:0]$1112
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1747$proc$1102'.
+     1/1: $1\_0986_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1747$941.$result[0:0]$1106
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1668$proc$1097'.
+     1/1: $1\_0968_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1668$940.$result[0:0]$1101
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1612$proc$1092'.
+     1/1: $1\_0959_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1612$939.$result[0:0]$1096
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1554$proc$1086'.
+     1/1: $1\_0930_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1554$938.$result[0:0]$1091
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1468$proc$1080'.
+     1/1: $1\_0913_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1468$937.$result[0:0]$1085
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1361$proc$1075'.
+     1/1: $1\_0851_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1361$936.$result[0:0]$1079
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1166$proc$1070'.
+     1/1: $1\_0791_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1166$935.$result[0:0]$1074
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1028$proc$1065'.
+     1/1: $1\_0784_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1028$934.$result[0:0]$1069
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:987$proc$1060'.
+     1/1: $1\_0768_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:987$933.$result[0:0]$1064
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:938$proc$1054'.
+     1/1: $1\_0758_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:938$932.$result[0:0]$1059
+Creating decoders for process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:904$proc$1049'.
+     1/1: $1\_0743_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:904$931.$result[0:0]$1053
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3353$proc$902'.
+     1/1: $1\_1491_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3353$48.$result[0:0]$906
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3333$proc$896'.
+     1/1: $1\_1488_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3333$47.$result[0:0]$901
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3245$proc$891'.
+     1/1: $1\_1417_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3245$46.$result[0:0]$895
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3023$proc$886'.
+     1/1: $1\_1348_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3023$45.$result[0:0]$890
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2846$proc$880'.
+     1/1: $1\_1320_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2846$44.$result[0:0]$885
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2723$proc$875'.
+     1/1: $1\_1264_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2723$43.$result[0:0]$879
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2588$proc$870'.
+     1/1: $1\_1252_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2588$42.$result[0:0]$874
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2493$proc$865'.
+     1/1: $1\_1192_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2493$41.$result[0:0]$869
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2302$proc$860'.
+     1/1: $1\_1132_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2302$40.$result[0:0]$864
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2157$proc$855'.
+     1/1: $1\_1114_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2157$39.$result[0:0]$859
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2099$proc$850'.
+     1/1: $1\_1103_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2099$38.$result[0:0]$854
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2002$proc$845'.
+     1/1: $1\_1039_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2002$37.$result[0:0]$849
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1839$proc$839'.
+     1/1: $1\_1011_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1839$36.$result[0:0]$844
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1747$proc$834'.
+     1/1: $1\_0986_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1747$35.$result[0:0]$838
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1668$proc$829'.
+     1/1: $1\_0968_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1668$34.$result[0:0]$833
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1612$proc$824'.
+     1/1: $1\_0959_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1612$33.$result[0:0]$828
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1554$proc$818'.
+     1/1: $1\_0930_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1554$32.$result[0:0]$823
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1468$proc$812'.
+     1/1: $1\_0913_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1468$31.$result[0:0]$817
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1361$proc$807'.
+     1/1: $1\_0851_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1361$30.$result[0:0]$811
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1166$proc$802'.
+     1/1: $1\_0791_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1166$29.$result[0:0]$806
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1028$proc$797'.
+     1/1: $1\_0784_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1028$28.$result[0:0]$801
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:987$proc$792'.
+     1/1: $1\_0768_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:987$27.$result[0:0]$796
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:938$proc$786'.
+     1/1: $1\_0758_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:938$26.$result[0:0]$791
+Creating decoders for process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:904$proc$781'.
+     1/1: $1\_0743_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:904$25.$result[0:0]$785
+
+9.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\DecoderCandidate.\_1491_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3353$930.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3353$proc$1170'.
+No latch inferred for signal `\DecoderCandidate.\_1488_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3333$929.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3333$proc$1164'.
+No latch inferred for signal `\DecoderCandidate.\_1417_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3245$928.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3245$proc$1159'.
+No latch inferred for signal `\DecoderCandidate.\_1348_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3023$927.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3023$proc$1154'.
+No latch inferred for signal `\DecoderCandidate.\_1320_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2846$926.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2846$proc$1148'.
+No latch inferred for signal `\DecoderCandidate.\_1264_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2723$925.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2723$proc$1143'.
+No latch inferred for signal `\DecoderCandidate.\_1252_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2588$924.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2588$proc$1138'.
+No latch inferred for signal `\DecoderCandidate.\_1192_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2493$923.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2493$proc$1133'.
+No latch inferred for signal `\DecoderCandidate.\_1132_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2302$922.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2302$proc$1128'.
+No latch inferred for signal `\DecoderCandidate.\_1114_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2157$921.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2157$proc$1123'.
+No latch inferred for signal `\DecoderCandidate.\_1103_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2099$920.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2099$proc$1118'.
+No latch inferred for signal `\DecoderCandidate.\_1039_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2002$919.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2002$proc$1113'.
+No latch inferred for signal `\DecoderCandidate.\_1011_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1839$918.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1839$proc$1107'.
+No latch inferred for signal `\DecoderCandidate.\_0986_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1747$917.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1747$proc$1102'.
+No latch inferred for signal `\DecoderCandidate.\_0968_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1668$916.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1668$proc$1097'.
+No latch inferred for signal `\DecoderCandidate.\_0959_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1612$915.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1612$proc$1092'.
+No latch inferred for signal `\DecoderCandidate.\_0930_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1554$914.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1554$proc$1086'.
+No latch inferred for signal `\DecoderCandidate.\_0913_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1468$913.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1468$proc$1080'.
+No latch inferred for signal `\DecoderCandidate.\_0851_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1361$912.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1361$proc$1075'.
+No latch inferred for signal `\DecoderCandidate.\_0791_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1166$911.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1166$proc$1070'.
+No latch inferred for signal `\DecoderCandidate.\_0784_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1028$910.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1028$proc$1065'.
+No latch inferred for signal `\DecoderCandidate.\_0768_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:987$909.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:987$proc$1060'.
+No latch inferred for signal `\DecoderCandidate.\_0758_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:938$908.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:938$proc$1054'.
+No latch inferred for signal `\DecoderCandidate.\_0743_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:904$907.$result' from process `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:904$proc$1049'.
+No latch inferred for signal `\DecoderBase.\_1491_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3353$24.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3353$proc$902'.
+No latch inferred for signal `\DecoderBase.\_1488_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3333$23.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3333$proc$896'.
+No latch inferred for signal `\DecoderBase.\_1417_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3245$22.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3245$proc$891'.
+No latch inferred for signal `\DecoderBase.\_1348_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3023$21.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3023$proc$886'.
+No latch inferred for signal `\DecoderBase.\_1320_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2846$20.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2846$proc$880'.
+No latch inferred for signal `\DecoderBase.\_1264_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2723$19.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2723$proc$875'.
+No latch inferred for signal `\DecoderBase.\_1252_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2588$18.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2588$proc$870'.
+No latch inferred for signal `\DecoderBase.\_1192_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2493$17.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2493$proc$865'.
+No latch inferred for signal `\DecoderBase.\_1132_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2302$16.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2302$proc$860'.
+No latch inferred for signal `\DecoderBase.\_1114_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2157$15.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2157$proc$855'.
+No latch inferred for signal `\DecoderBase.\_1103_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2099$14.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2099$proc$850'.
+No latch inferred for signal `\DecoderBase.\_1039_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2002$13.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2002$proc$845'.
+No latch inferred for signal `\DecoderBase.\_1011_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1839$12.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1839$proc$839'.
+No latch inferred for signal `\DecoderBase.\_0986_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1747$11.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1747$proc$834'.
+No latch inferred for signal `\DecoderBase.\_0968_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1668$10.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1668$proc$829'.
+No latch inferred for signal `\DecoderBase.\_0959_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1612$9.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1612$proc$824'.
+No latch inferred for signal `\DecoderBase.\_0930_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1554$8.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1554$proc$818'.
+No latch inferred for signal `\DecoderBase.\_0913_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1468$7.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1468$proc$812'.
+No latch inferred for signal `\DecoderBase.\_0851_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1361$6.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1361$proc$807'.
+No latch inferred for signal `\DecoderBase.\_0791_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1166$5.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1166$proc$802'.
+No latch inferred for signal `\DecoderBase.\_0784_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1028$4.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1028$proc$797'.
+No latch inferred for signal `\DecoderBase.\_0768_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:987$3.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:987$proc$792'.
+No latch inferred for signal `\DecoderBase.\_0758_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:938$2.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:938$proc$786'.
+No latch inferred for signal `\DecoderBase.\_0743_$func$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:904$1.$result' from process `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:904$proc$781'.
+
+9.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+9.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+9.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3353$proc$1170'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3353$proc$1170'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3333$proc$1164'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3333$proc$1164'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3245$proc$1159'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3245$proc$1159'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3023$proc$1154'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3023$proc$1154'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2846$proc$1148'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2846$proc$1148'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2723$proc$1143'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2723$proc$1143'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2588$proc$1138'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2588$proc$1138'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2493$proc$1133'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2493$proc$1133'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2302$proc$1128'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2302$proc$1128'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2157$proc$1123'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2157$proc$1123'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2099$proc$1118'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2099$proc$1118'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2002$proc$1113'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2002$proc$1113'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1839$proc$1107'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1839$proc$1107'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1747$proc$1102'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1747$proc$1102'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1668$proc$1097'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1668$proc$1097'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1612$proc$1092'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1612$proc$1092'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1554$proc$1086'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1554$proc$1086'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1468$proc$1080'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1468$proc$1080'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1361$proc$1075'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1361$proc$1075'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1166$proc$1070'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1166$proc$1070'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1028$proc$1065'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:1028$proc$1065'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:987$proc$1060'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:987$proc$1060'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:938$proc$1054'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:938$proc$1054'.
+Found and cleaned up 1 empty switch in `\DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:904$proc$1049'.
+Removing empty process `DecoderCandidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:904$proc$1049'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3353$proc$902'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3353$proc$902'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3333$proc$896'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3333$proc$896'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3245$proc$891'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3245$proc$891'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3023$proc$886'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3023$proc$886'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2846$proc$880'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2846$proc$880'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2723$proc$875'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2723$proc$875'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2588$proc$870'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2588$proc$870'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2493$proc$865'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2493$proc$865'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2302$proc$860'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2302$proc$860'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2157$proc$855'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2157$proc$855'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2099$proc$850'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2099$proc$850'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2002$proc$845'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:2002$proc$845'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1839$proc$839'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1839$proc$839'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1747$proc$834'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1747$proc$834'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1668$proc$829'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1668$proc$829'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1612$proc$824'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1612$proc$824'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1554$proc$818'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1554$proc$818'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1468$proc$812'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1468$proc$812'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1361$proc$807'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1361$proc$807'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1166$proc$802'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1166$proc$802'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1028$proc$797'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1028$proc$797'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:987$proc$792'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:987$proc$792'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:938$proc$786'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:938$proc$786'.
+Found and cleaned up 1 empty switch in `\DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:904$proc$781'.
+Removing empty process `DecoderBase.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:904$proc$781'.
+Cleaned up 48 empty switches.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing PREP pass.
+
+11.1. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1.1. Analyzing design hierarchy..
+Top module:  \TemporalMiter
+Used module:     \DecoderCandidate
+Used module:     \DecoderBase
+
+11.1.2. Analyzing design hierarchy..
+Top module:  \TemporalMiter
+Used module:     \DecoderCandidate
+Used module:     \DecoderBase
+Removed 0 unused modules.
+Module TemporalMiter directly or indirectly contains formal properties -> setting "keep" attribute.
+
+11.2. Executing PROC pass (convert processes to netlists).
+
+11.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+11.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+11.2.4. Executing PROC_INIT pass (extract init attributes).
+
+11.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+11.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+11.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+11.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+11.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+11.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+<suppressed ~9 debug messages>
+Optimizing module DecoderCandidate.
+<suppressed ~10 debug messages>
+Optimizing module DecoderBase.
+<suppressed ~2 debug messages>
+
+11.3. Executing CHECK pass (checking for obvious problems).
+Checking module TemporalMiter...
+Checking module DecoderCandidate...
+Checking module DecoderBase...
+Found and reported 0 problems.
+
+11.4. Executing FLATTEN pass (flatten design).
+Deleting now unused module DecoderCandidate.
+Deleting now unused module DecoderBase.
+<suppressed ~2 debug messages>
+
+11.5. Executing FUTURE pass.
+
+11.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+<suppressed ~2 debug messages>
+
+11.7. Executing CHECK pass (checking for obvious problems).
+Checking module TemporalMiter...
+Found and reported 0 problems.
+
+11.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+Removed 109 unused cells and 2769 unused wires.
+<suppressed ~171 debug messages>
+
+11.9. Executing OPT pass (performing simple optimizations).
+
+11.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+11.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 913 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 176 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+<suppressed ~2211 debug messages>
+Removed a total of 737 cells.
+
+11.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/11 on $pmux $flatten\candidate.$procmux$1845.
+    dead port 3/11 on $pmux $flatten\candidate.$procmux$1845.
+    dead port 4/11 on $pmux $flatten\candidate.$procmux$1845.
+    dead port 5/11 on $pmux $flatten\candidate.$procmux$1845.
+    dead port 6/11 on $pmux $flatten\candidate.$procmux$1845.
+    dead port 8/11 on $pmux $flatten\candidate.$procmux$1845.
+    dead port 9/11 on $pmux $flatten\candidate.$procmux$1845.
+    dead port 1/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 2/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 5/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 6/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 7/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 8/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 9/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 10/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 11/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 12/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 13/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 14/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 15/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 16/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 17/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 18/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 19/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 20/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 21/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 22/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 23/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 24/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 25/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 26/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 27/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 28/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 29/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 31/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 32/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 34/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 35/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 36/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 37/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 38/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 39/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 40/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 41/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 42/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 43/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 46/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 47/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 49/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 50/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 51/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 52/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 53/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 54/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 55/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 56/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 57/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 58/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 59/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 60/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 61/62 on $pmux $flatten\candidate.$procmux$1857.
+    dead port 1/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 2/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 3/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 4/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 5/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 6/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 7/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 8/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 9/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 10/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 11/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 12/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 14/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 15/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 16/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 17/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 18/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 20/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 22/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 23/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 24/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 25/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 26/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 27/28 on $pmux $flatten\candidate.$procmux$1920.
+    dead port 1/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 2/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 3/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 4/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 5/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 6/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 9/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 10/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 12/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 13/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 14/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 15/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 16/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 17/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 18/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 19/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 20/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 21/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 22/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 23/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 24/25 on $pmux $flatten\candidate.$procmux$1949.
+    dead port 2/2 on $mux $flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:3356$ternary$779.
+    dead port 2/2 on $mux $flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:944$ternary$73.
+    dead port 2/2 on $mux $flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:946$ternary$75.
+    dead port 1/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 2/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 3/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 4/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 5/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 6/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 7/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 8/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 9/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 10/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 11/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 12/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 13/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 14/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 16/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 17/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 18/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 19/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 20/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 22/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 24/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 25/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 26/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 27/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 28/29 on $pmux $flatten\candidate.$procmux$2004.
+    dead port 1/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 2/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 5/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 6/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 7/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 8/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 9/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 10/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 11/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 12/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 13/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 14/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 15/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 16/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 17/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 18/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 19/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 20/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 21/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 22/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 23/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 24/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 25/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 26/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 27/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 28/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 29/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 31/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 32/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 33/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 34/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 35/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 36/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 37/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 40/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 41/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 43/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 44/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 45/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 46/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 47/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 48/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 49/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 50/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 51/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 52/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 53/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 54/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 55/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 56/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 57/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 58/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 59/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 60/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 61/62 on $pmux $flatten\candidate.$procmux$2052.
+    dead port 1/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 2/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 5/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 6/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 7/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 8/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 9/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 10/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 11/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 12/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 13/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 14/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 15/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 16/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 17/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 18/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 19/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 20/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 21/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 22/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 23/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 24/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 25/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 26/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 27/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 28/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 29/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 31/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 32/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 34/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 35/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 36/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 37/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 38/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 39/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 40/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 41/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 42/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 43/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 45/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 46/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 47/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 48/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 49/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 50/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 51/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 52/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 53/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 54/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 55/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 56/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 57/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 58/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 59/60 on $pmux $flatten\candidate.$procmux$2115.
+    dead port 1/3 on $pmux $flatten\candidate.$procmux$1461.
+    dead port 2/3 on $pmux $flatten\candidate.$procmux$1461.
+    dead port 1/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 2/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 5/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 6/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 7/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 8/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 9/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 10/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 11/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 12/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 13/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 14/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 15/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 16/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 17/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 18/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 19/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 20/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 21/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 22/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 23/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 24/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 25/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 26/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 27/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 28/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 30/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 32/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 33/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 35/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 36/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 37/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 38/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 39/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 40/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 41/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 42/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 43/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 44/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 47/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 48/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 50/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 51/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 52/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 53/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 54/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 55/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 56/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 57/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 58/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 59/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 60/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 61/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 62/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 63/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 64/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 65/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 66/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 67/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 68/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 69/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 70/71 on $pmux $flatten\candidate.$procmux$1465.
+    dead port 1/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 2/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 3/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 4/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 5/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 6/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 7/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 8/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 9/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 10/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 11/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 12/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 13/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 14/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 16/17 on $pmux $flatten\candidate.$procmux$2034.
+    dead port 2/7 on $pmux $flatten\candidate.$procmux$2176.
+    dead port 4/7 on $pmux $flatten\candidate.$procmux$2176.
+    dead port 5/7 on $pmux $flatten\candidate.$procmux$2176.
+    dead port 2/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 3/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 5/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 6/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 7/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 8/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 10/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 11/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 13/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 14/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 15/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 16/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 17/18 on $pmux $flatten\candidate.$procmux$1975.
+    dead port 1/4 on $pmux $flatten\candidate.$procmux$2199.
+    dead port 2/4 on $pmux $flatten\candidate.$procmux$2199.
+    dead port 3/4 on $pmux $flatten\candidate.$procmux$2199.
+    dead port 1/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 2/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 5/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 6/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 7/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 8/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 9/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 10/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 11/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 12/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 13/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 14/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 15/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 16/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 17/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 18/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 19/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 20/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 21/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 22/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 23/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 24/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 25/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 26/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 27/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 28/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 30/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 32/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 33/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 35/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 36/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 37/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 38/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 39/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 40/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 41/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 42/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 43/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 44/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 47/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 48/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 50/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 51/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 52/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 53/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 54/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 55/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 56/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 57/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 58/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 59/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 60/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 61/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 62/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 63/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 64/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 65/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 66/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 67/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 68/69 on $pmux $flatten\candidate.$procmux$1537.
+    dead port 1/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 3/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 4/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 5/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 6/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 7/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 8/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 9/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 10/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 11/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 12/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 13/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 15/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 17/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 18/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 19/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 20/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 21/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 22/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 23/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 24/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 25/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 26/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 27/28 on $pmux $flatten\candidate.$procmux$1607.
+    dead port 2/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 3/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 5/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 6/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 7/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 8/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 9/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 10/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 11/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 12/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 13/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 14/15 on $pmux $flatten\candidate.$procmux$2204.
+    dead port 1/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 2/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 5/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 6/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 7/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 8/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 9/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 10/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 11/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 12/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 13/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 14/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 15/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 16/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 17/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 18/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 19/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 20/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 21/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 22/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 23/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 24/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 25/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 26/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 27/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 28/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 30/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 32/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 33/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 34/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 35/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 36/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 37/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 40/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 41/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 43/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 44/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 45/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 46/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 47/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 48/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 49/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 50/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 51/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 52/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 53/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 54/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 55/56 on $pmux $flatten\candidate.$procmux$1636.
+    dead port 2/9 on $pmux $flatten\candidate.$procmux$1994.
+    dead port 3/9 on $pmux $flatten\candidate.$procmux$1994.
+    dead port 5/9 on $pmux $flatten\candidate.$procmux$1994.
+    dead port 6/9 on $pmux $flatten\candidate.$procmux$1994.
+    dead port 7/9 on $pmux $flatten\candidate.$procmux$1994.
+    dead port 8/9 on $pmux $flatten\candidate.$procmux$1994.
+    dead port 1/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 2/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 5/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 6/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 7/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 8/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 9/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 10/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 11/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 12/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 13/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 14/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 15/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 16/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 17/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 18/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 19/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 20/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 21/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 22/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 23/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 24/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 25/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 26/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 27/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 28/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 29/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 30/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 32/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 33/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 34/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 35/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 36/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 37/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 38/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 39/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 40/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 41/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 44/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 45/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 47/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 48/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 49/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 50/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 51/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 52/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 53/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 54/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 55/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 56/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 57/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 58/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 59/60 on $pmux $flatten\candidate.$procmux$1706.
+    dead port 1/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 2/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 5/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 6/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 7/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 8/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 9/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 10/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 11/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 12/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 13/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 14/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 15/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 16/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 17/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 18/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 19/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 20/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 21/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 22/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 23/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 24/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 25/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 26/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 27/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 28/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 29/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 31/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 32/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 33/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 34/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 36/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 37/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 39/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 40/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 41/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 42/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 43/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 44/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 45/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 46/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 47/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 48/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 49/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 50/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 51/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 52/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 53/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 54/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 55/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 56/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 57/58 on $pmux $flatten\candidate.$procmux$1767.
+    dead port 3/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 4/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 5/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 6/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 7/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 8/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 9/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 10/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 11/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 12/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 13/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 14/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 15/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 16/18 on $pmux $flatten\candidate.$procmux$1826.
+    dead port 17/18 on $pmux $flatten\candidate.$procmux$1826.
+Removed 611 multiplexer ports.
+<suppressed ~115 debug messages>
+
+11.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1920: { \candidate._0322_ $auto$opt_reduce.cc:137:opt_pmux$2985 }
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1949: $auto$opt_reduce.cc:137:opt_pmux$2987
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2967: $auto$opt_reduce.cc:137:opt_pmux$2989
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$2004: { \candidate._0322_ $auto$opt_reduce.cc:137:opt_pmux$2991 }
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$2052: $auto$opt_reduce.cc:137:opt_pmux$2993
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$2115: $auto$opt_reduce.cc:137:opt_pmux$2995
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1845: $auto$opt_reduce.cc:137:opt_pmux$2997
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1465: $auto$opt_reduce.cc:137:opt_pmux$2999
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$2176: $auto$opt_reduce.cc:137:opt_pmux$3001
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1975: $auto$opt_reduce.cc:137:opt_pmux$3003
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1857: $auto$opt_reduce.cc:137:opt_pmux$3005
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1537: $auto$opt_reduce.cc:137:opt_pmux$3007
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1607: { $auto$opt_reduce.cc:137:opt_pmux$3009 \candidate._0322_ }
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$2204: $auto$opt_reduce.cc:137:opt_pmux$3011
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2962: $auto$opt_reduce.cc:137:opt_pmux$3013
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2224: $auto$opt_reduce.cc:137:opt_pmux$3015
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2228: $auto$opt_reduce.cc:137:opt_pmux$3017
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2300: $auto$opt_reduce.cc:137:opt_pmux$3019
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2370: { $auto$opt_reduce.cc:137:opt_pmux$3021 \candidate._0322_ \reference._0693_ }
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2399: $auto$opt_reduce.cc:137:opt_pmux$3023
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2456: $auto$opt_reduce.cc:137:opt_pmux$3025
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2469: $auto$opt_reduce.cc:137:opt_pmux$3027
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2530: $auto$opt_reduce.cc:137:opt_pmux$3029
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2589: $auto$opt_reduce.cc:137:opt_pmux$3031
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2608: $auto$opt_reduce.cc:137:opt_pmux$3033
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2620: $auto$opt_reduce.cc:137:opt_pmux$3035
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2683: { $auto$opt_reduce.cc:137:opt_pmux$3037 \candidate._0322_ \reference._0693_ }
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2712: $auto$opt_reduce.cc:137:opt_pmux$3039
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2738: $auto$opt_reduce.cc:137:opt_pmux$3041
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2757: $auto$opt_reduce.cc:137:opt_pmux$3043
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2767: { $auto$opt_reduce.cc:137:opt_pmux$3045 \candidate._0322_ \reference._0693_ }
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2797: { $auto$opt_reduce.cc:137:opt_pmux$3047 \candidate._0322_ \reference._0693_ }
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2815: $auto$opt_reduce.cc:137:opt_pmux$3049
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2878: $auto$opt_reduce.cc:137:opt_pmux$3051
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2939: $auto$opt_reduce.cc:137:opt_pmux$3053
+    New ctrl vector for $pmux cell $flatten\reference.$procmux$2947: $auto$opt_reduce.cc:137:opt_pmux$3055
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1636: $auto$opt_reduce.cc:137:opt_pmux$3057
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1994: $auto$opt_reduce.cc:137:opt_pmux$3059
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1706: $auto$opt_reduce.cc:137:opt_pmux$3061
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1767: $auto$opt_reduce.cc:137:opt_pmux$3063
+    New ctrl vector for $pmux cell $flatten\candidate.$procmux$1826: $auto$opt_reduce.cc:137:opt_pmux$3065
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 42 changes.
+
+11.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 211 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 207 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Computing hashes of 206 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+11.9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+Removed 5 unused cells and 17 unused wires.
+<suppressed ~8 debug messages>
+
+11.9.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+<suppressed ~5 debug messages>
+
+11.9.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.9.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2064$ternary$1003.
+    dead port 2/2 on $mux $flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:2064$ternary$1003.
+    dead port 2/2 on $mux $flatten\candidate.$procmux$1465.
+    dead port 1/2 on $mux $flatten\reference.$procmux$2228.
+    dead port 2/2 on $mux $flatten\reference.$procmux$2228.
+Removed 5 multiplexer ports.
+<suppressed ~96 debug messages>
+
+11.9.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+11.9.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 198 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+11.9.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+11.9.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+11.9.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.9.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \TemporalMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~95 debug messages>
+
+11.9.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \TemporalMiter.
+Performed a total of 0 changes.
+
+11.9.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 198 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+11.9.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+
+11.9.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+11.9.20. Finished fast OPT passes. (There is nothing left to do.)
+
+11.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell TemporalMiter.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/harness.sv:34$eq$1207 ($eq).
+Removed top 11 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1225$eq$156 ($eq).
+Removed top 11 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1224$eq$155 ($eq).
+Removed top 1 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1221$eq$152 ($eq).
+Removed top 1 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1220$eq$151 ($eq).
+Removed top 7 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1219$eq$150 ($eq).
+Removed top 7 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1217$eq$148 ($eq).
+Removed top 7 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1215$eq$146 ($eq).
+Removed top 9 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1213$eq$144 ($eq).
+Removed top 9 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1212$eq$143 ($eq).
+Removed top 8 bits (of 16) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1211$eq$142 ($eq).
+Removed top 9 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1210$eq$141 ($eq).
+Removed top 7 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1209$eq$140 ($eq).
+Removed top 7 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1208$eq$139 ($eq).
+Removed top 6 bits (of 16) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1207$eq$138 ($eq).
+Removed top 7 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1206$eq$137 ($eq).
+Removed top 1 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1205$eq$136 ($eq).
+Removed top 1 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1204$eq$135 ($eq).
+Removed top 1 bits (of 16) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1203$eq$134 ($eq).
+Removed top 1 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1202$eq$133 ($eq).
+Removed top 8 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1201$eq$132 ($eq).
+Removed top 8 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1200$eq$131 ($eq).
+Removed top 1 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1199$eq$130 ($eq).
+Removed top 1 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1198$eq$129 ($eq).
+Removed top 8 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1188$eq$119 ($eq).
+Removed top 2 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1186$eq$117 ($eq).
+Removed top 1 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1184$eq$115 ($eq).
+Removed top 6 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1181$eq$112 ($eq).
+Removed top 3 bits (of 32) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1167$eq$98 ($eq).
+Removed top 2 bits (of 7) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1033$eq$96 ($eq).
+Removed top 2 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1031$eq$94 ($eq).
+Removed top 1 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1030$eq$93 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:1000$eq$89 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:999$eq$88 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:998$eq$87 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:997$eq$86 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:996$eq$85 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:995$eq$84 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:994$eq$83 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:993$eq$82 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:992$eq$81 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:991$eq$80 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:990$eq$79 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:989$eq$78 ($eq).
+Removed top 6 bits (of 17) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:988$eq$77 ($eq).
+Removed top 25 bits (of 32) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:941$eq$71 ($eq).
+Removed top 11 bits (of 32) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:940$eq$70 ($eq).
+Removed top 2 bits (of 32) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:939$eq$69 ($eq).
+Removed top 3 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:917$eq$67 ($eq).
+Removed top 3 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:916$eq$66 ($eq).
+Removed top 2 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:910$eq$60 ($eq).
+Removed top 1 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:908$eq$58 ($eq).
+Removed top 1 bits (of 10) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:906$eq$56 ($eq).
+Removed top 16 bits (of 32) from port B of cell TemporalMiter.$flatten\reference.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/reference.v:859$eq$51 ($eq).
+Removed top 5 bits (of 10) from port B of cell TemporalMiter.$flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3313$eq$1047 ($eq).
+Removed top 5 bits (of 10) from port B of cell TemporalMiter.$flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3312$eq$1046 ($eq).
+Removed top 1 bits (of 7) from port B of cell TemporalMiter.$flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3287$eq$1045 ($eq).
+Removed top 2 bits (of 10) from port B of cell TemporalMiter.$flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3282$eq$1043 ($eq).
+Removed top 1 bits (of 10) from port B of cell TemporalMiter.$flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3271$eq$1042 ($eq).
+Removed top 4 bits (of 10) from port B of cell TemporalMiter.$flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3270$eq$1041 ($eq).
+Removed top 1 bits (of 10) from port B of cell TemporalMiter.$flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:3267$eq$1040 ($eq).
+Removed top 4 bits (of 5) from port B of cell TemporalMiter.$flatten\candidate.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_operations_v2/candidate.v:857$eq$955 ($eq).
+Removed top 1 bits (of 3) from wire TemporalMiter.b_imm_format_o.
+Removed top 1 bits (of 3) from wire TemporalMiter.a_imm_format_o.
+Removed top 1 bits (of 3) from wire TemporalMiter.b_assigned_eu_o.
+Removed top 1 bits (of 5) from wire TemporalMiter.a_except_code_o.
+
+11.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+11.12. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+11.13. Executing OPT pass (performing simple optimizations).
+
+11.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module TemporalMiter.
+
+11.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\TemporalMiter'.
+Computing hashes of 198 cells of `\TemporalMiter'.
+Finding duplicate cells in `\TemporalMiter'.
+Removed a total of 0 cells.
+
+11.13.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \TemporalMiter..
+
+11.13.4. Finished fast OPT passes.
+
+11.14. Executing SORT pass.
+
+11.15. Printing statistics.
+
+=== TemporalMiter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1670 wires
+     1935 wire bits
+     1609 public wires
+     1874 public wire bits
+        1 ports
+       32 port bits
+      198 cells
+       14   $check
+       85   $eq
+        2   $logic_not
+        8   $logic_or
+       39   $mux
+        2   $not
+        7   $pmux
+       39   $reduce_or
+        2   $scopeinfo
+
+11.16. Executing CHECK pass (checking for obvious problems).
+Checking module TemporalMiter...
+Found and reported 0 problems.
+
+12. Executing SETUNDEF pass (replace undef values with defined constants).
+
+13. Executing CHECK pass (checking for obvious problems).
+Checking module TemporalMiter...
+Found and reported 0 problems.
+
+14. Executing ASYNC2SYNC pass.
+
+15. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+16. Executing SETUNDEF pass (replace undef values with defined constants).
+
+17. Executing JSON backend.

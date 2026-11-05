@@ -1,0 +1,22 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_pair_symbolic_v1/proof/miter.aig"; fold; orpos; pdr -T 120 -v".
+
+Warning: The last 2 outputs are interpreted as constraints.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 3968                                                              1  3969     20.16 sec
+  2 : 0 768 3968                                                          1  3969     27.26 sec
+  3 : 0 768 0 3968                                                        0  3969     28.00 sec
+Invariant F[2] : 3968 clauses with 3969 flops (out of 3970) (cex = 0, ave = 4.00)
+Verification of invariant with 3968 clauses was successful.  Time =     0.23 sec
+Block = 4736  Oblig =  4736  Clause =  4736  Call = 23683 (sat=49.7%)  Cex =   0  Start =  62
+SAT solving =    11.39 sec ( 40.35 %)
+  unsat     =     0.95 sec (  3.36 %)
+  sat       =    10.44 sec ( 36.99 %)
+Generalize  =     5.58 sec ( 19.78 %)
+Push clause =     1.58 sec (  5.60 %)
+Ternary sim =    10.66 sec ( 37.76 %)
+Containment =     0.20 sec (  0.72 %)
+CNF compute =     0.11 sec (  0.38 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =    28.23 sec (100.00 %)
+Property proved.  Time =    28.24 sec
