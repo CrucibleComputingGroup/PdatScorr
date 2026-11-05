@@ -1,0 +1,238 @@
+{
+  "creator": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "Tiny": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:1.1-7.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        }
+      },
+      "cells": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6$assert$4": {
+          "hide_name": 1,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6.23-6.48"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "EN": [ 4 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6$eq$5": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6.30-6.47"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5, 6, 7, 8 ],
+            "B": [ 9, 10, 11, 12 ],
+            "Y": [ 3 ]
+          }
+        },
+        "$anyconst$1": {
+          "hide_name": 1,
+          "type": "$anyconst",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "reg": "value",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:2.26-2.31"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 5, 6, 7, 8 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$12": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "Y": [ 13 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$14": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13 ],
+            "B": [ 4 ],
+            "Y": [ 14 ]
+          }
+        },
+        "$procdff$10": {
+          "hide_name": 1,
+          "type": "$ff",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:5.1-5.65"
+          },
+          "port_directions": {
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "D": [ "1" ],
+            "Q": [ 15 ]
+          }
+        },
+        "$procdff$9": {
+          "hide_name": 1,
+          "type": "$ff",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:5.1-5.65"
+          },
+          "port_directions": {
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "D": [ 5, 6, 7, 8 ],
+            "Q": [ 9, 10, 11, 12 ]
+          }
+        },
+        "$procmux$7": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6.14-6.21|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6.11-6.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 15 ],
+            "Y": [ 4 ]
+          }
+        }
+      },
+      "netnames": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6$assert$4_EN": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6.23-6.48"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6$eq$5_Y": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:6.30-6.47"
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$13": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$15": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "replaced_by_gclk": "1",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:1.19-1.22"
+          }
+        },
+        "previous": {
+          "hide_name": 0,
+          "bits": [ 9, 10, 11, 12 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:3.11-3.19"
+          }
+        },
+        "sampled": {
+          "hide_name": 0,
+          "bits": [ 15 ],
+          "attributes": {
+            "init": "0",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:4.5-4.12"
+          }
+        },
+        "value": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_choices_v2/value_anyconst_positive/source.sv:2.26-2.31"
+          }
+        }
+      }
+    }
+  }
+}

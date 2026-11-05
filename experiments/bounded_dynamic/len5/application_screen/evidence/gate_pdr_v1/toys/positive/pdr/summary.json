@@ -1,0 +1,37 @@
+{
+  "status": "proved_overapproximation_safety",
+  "accepted_optimization": false,
+  "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/abstract.aig",
+  "input_sha256": "49b865ce332d2054742094fc82003ef9f7cf127846516724e8d4ba5fe0f07b5a",
+  "input_header": [
+    "aig",
+    "33",
+    "9",
+    "4",
+    "1",
+    "20"
+  ],
+  "script_sha256": "d1d3e267608241ed7a3bfb34dc7774675651bc21da4beb98cb3a89b4e6ef47ac",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/abstract.aig\"; pdr -T 3 -v; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/pdr/pdr.status\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.15355598414316773,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/pdr/pdr.log",
+    "log_sha256": "d5d2e4a04f4c7cf1d1c6e77fc64fb9c9482bbaa70d4e00f85b67ac34d4eff0bc"
+  },
+  "raw_status": "snl_UNSAT 1 unknown\nNULL\nNULL\n",
+  "preprocessing": "None: read the ordinary one-output abstraction directly; no fold, no extra assumptions",
+  "interpretation": "A complete unbounded proof of the overapproximation transfers through the source-bound GLA map. A counterexample here belongs only to the abstraction until concretized against the original model.",
+  "artifacts_sha256": {
+    "gate_pdr.py": "d1d3e267608241ed7a3bfb34dc7774675651bc21da4beb98cb3a89b4e6ef47ac",
+    "pdr.log": "d5d2e4a04f4c7cf1d1c6e77fc64fb9c9482bbaa70d4e00f85b67ac34d4eff0bc",
+    "pdr.status": "74f42ed34cd1ff0286410d274dfb1b242f58a63f86206b13dd79dd8f50d73db7"
+  }
+}

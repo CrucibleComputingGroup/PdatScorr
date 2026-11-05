@@ -1,0 +1,60 @@
+{
+  "status": "counterexample_found",
+  "sequential": true,
+  "derived_premise_present": false,
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.03277007723227143,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/export.log",
+    "log_sha256": "fed5725dee7d784db71dae4792e4efeecda6d48ee5b43c6f027b1c7f466b41c6"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "base": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+      "-s",
+      "z3",
+      "-t",
+      "4",
+      "--noprogress",
+      "--dump-vcd",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/counterexample.vcd",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/model.smt2"
+    ],
+    "returncode": 1,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+    "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+    "timeout": false,
+    "seconds": 0.11550266295671463,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/base.log",
+    "log_sha256": "3b68aa98e13cf0842ecbf943f535483e5f16d6b180fbc9755fc0c4445a6070ce"
+  },
+  "smt_sha256": "ffb856a868ed9ed9b90c5ca04af28aff542c1c8d736b7cce3d002c5bfd30dfc0",
+  "property_counts": {
+    "assert": 1,
+    "assume": 1
+  },
+  "native_json_sha256": "8f049a22186064aec2bda7608ce8f86d5a6fbe93ad74f8b4de882f78ba4d8b7c",
+  "lowered_json_sha256": "f6e3b34802e0a003952db2536bbd2a7fba5503c57c103bbaa0702ab6822b8a37",
+  "harness_sha256": "c544358ee7e9743ebc10a4a2dccd6c578b07ee7ef30cdde9a6c6c18c0549d4d0"
+}

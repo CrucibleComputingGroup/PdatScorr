@@ -1,0 +1,20 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/abstract.aig"; pdr -T 3 -v; write_status "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/pdr/pdr.status"".
+
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 3. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 2                                                                 1     4      0.00 sec
+  2 : 0 0 2                                                               0     4      0.00 sec
+Invariant F[1] : 2 clauses with 4 flops (out of 4) (cex = 0, ave = 3.50)
+Verification of invariant with 2 clauses was successful.  Time =     0.00 sec
+Block =    2  Oblig =     2  Clause =     2  Call =    10 (sat=40.0%)  Cex =   0  Start =   0
+SAT solving =     0.00 sec (  0.97 %)
+  unsat     =     0.00 sec (  0.07 %)
+  sat       =     0.00 sec (  0.90 %)
+Generalize  =     0.00 sec (  0.48 %)
+Push clause =     0.00 sec (  0.06 %)
+Ternary sim =     0.00 sec (  0.28 %)
+Containment =     0.00 sec (  0.00 %)
+CNF compute =     0.00 sec (  0.07 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =     0.01 sec (100.00 %)
+Property proved.  Time =     0.01 sec

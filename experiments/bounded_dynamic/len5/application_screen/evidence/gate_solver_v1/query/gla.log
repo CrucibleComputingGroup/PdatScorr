@@ -1,0 +1,56 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1/screen.aig"; fold; orpos; &get; &write -s "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/folded.aig"; &gla -q -T 120 -v -m -A "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstraction_map.aig" -L "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/gla.status"; write_status "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final.status"; &write -s "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final_map.aig"".
+
+Warning: The last 8 outputs are interpreted as constraints.
+Running gate-level abstraction (GLA) with the following parameters:
+FrameMax = 0  ConfMax = 0  Timeout = 120  Limit = 0 %  Limit2 = 0 %  RatioMax = 30 %
+LrnStart = 1000  LrnDelta = 200  LrnRatio = 70 %  Skip = 0  SimpleCNF = 0  Dump = 1
+Miter with abstraction map will be continuously dumped into file "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstraction_map.aig".
+Dumping miter with abstraction map into file "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstraction_map.aig"...
+ Frame   %   Abs  PPI   FF   LUT   Confl  Cex   Vars   Clas   Lrns     Time        Mem
+   0 :   0     4    4    1     2       0    2      9     12      0     0.03 sec    0 MB
+   1 :   0     9   10    3     5       0    5     39     64      1     0.03 sec    0 MB
+   2 :   0    21   18    6    14       4   23    118    235      2     0.03 sec    0 MB
+   3 :   0    57   38    9    47      31   56    381    908      3     0.04 sec    0 MB
+   4 :   0    96   50   12    83      25   16    731  1.93k      4     0.04 sec    0 MB
+   5 :   0   143   72   17   125     100   34  1.29k  3.48k      7     0.06 sec    1 MB
+Forcing restart because abstraction grew from 2 to 143 (more than 30 %).
+   6 :   0   179   82   20   158      60   15  1.62k  4.60k     14     0.07 sec    1 MB
+   7 :   0   197   92   22   174     125   41  2.07k  5.72k     19     0.11 sec    1 MB
+Forcing restart because abstraction grew from 143 to 197 (more than 30 %).
+   8 :   0   209   94   23   185      41    6  2.37k  6.76k     17     0.11 sec    1 MB
+   9 :   0   213   95   24   188      25    4  2.68k  7.66k     20     0.12 sec    1 MB
+  10 :   0   216   96   25   190      29    3  2.99k  8.53k     31     0.12 sec    1 MB
+  11 :   0   321  115   32   288     459   31  4.75k  14.2k     38     0.23 sec    3 MB
+Forcing restart because abstraction grew from 197 to 321 (more than 30 %).
+  12 :   0   336  108   32   303     403    2  4.96k  15.7k    103     0.24 sec    1 MB
+  14 :   0   345  111   32   312    1358    1  5.90k  18.8k  1.01k     0.27 sec    1 MB
+  15 :   0   727  240   99   627    7407  129  14.5k  42.9k    913     4.25 sec   13 MB
+Forcing restart because abstraction grew from 321 to 727 (more than 30 %).
+  16 :   0   821  271  110   710   11624  115  14.9k  47.9k  1.56k    12.80 sec   21 MB
+  17 :   0   977  329  123   853   18052   75  19.6k  61.6k  1.41k    22.63 sec   39 MB
+Forcing restart because abstraction grew from 727 to 977 (more than 30 %).
+  18 :   0  1084  350  142   941    8647   16  22.2k  71.6k  2.22k    23.67 sec    9 MB
+  19 :   0  1318  458  163  1154   20677   54  30.2k  93.5k  2.32k    28.39 sec   20 MB
+Forcing restart because abstraction grew from 977 to 1318 (more than 30 %).
+  20 :   1  2324  802  295  2028   50662  126  58.4k   177k  4.00k    63.85 sec   68 MB
+Forcing restart because abstraction grew from 1318 to 2324 (more than 30 %).
+  21 :   2  3426 1179  450  2975   31449  123  88.0k   271k  8.59k    82.02 sec   70 MB
+Forcing restart because abstraction grew from 2324 to 3426 (more than 30 %).
+  23 :   2  3824 1225  491  3332   30168   26  99.1k   324k  10.6k   106.48 sec   37 MB
+GLA reached timeout 120 sec in frame 25 with a 1-stable abstraction.    Time =   120.00 sec
+Runtime: Initializing =     0.02 sec (  0.02 %)
+Runtime: Solver UNSAT =    42.66 sec ( 35.55 %)
+Runtime: Solver SAT   =    71.64 sec ( 59.70 %)
+Runtime: Refinement   =     4.93 sec (  4.11 %)
+Runtime: Other        =     0.75 sec (  0.62 %)
+Runtime: TOTAL        =   120.00 sec (100.00 %)
+Memory: AIG       =    13.561 MB ( 16.86 %)
+Memory: SAT       =    40.516 MB ( 50.36 %)
+Memory: Proof     =     7.808 MB (  9.71 %)
+Memory: Map       =     1.294 MB (  1.61 %)
+Memory: Refine    =     2.001 MB (  2.49 %)
+Memory: Hash      =     6.000 MB (  7.46 %)
+Memory: Other     =     9.270 MB ( 11.52 %)
+Memory: TOTAL     =    80.450 MB (100.00 %)
+SAT solver:  Var = 107361  Cla = 351350  Conf = 207232  Lrn = 14492  Reduce = 75  Cex = 903  ObjsAdded = 33888
+Hash hits = 0.  Hash misses = 143922.  Hash overs = 12422.  Concurrent calls = 0.

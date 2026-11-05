@@ -1,0 +1,82 @@
+{
+  "status": "unknown",
+  "accepted_optimization": false,
+  "engine": "ABC &gla -q",
+  "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1/screen.aig",
+  "input_aig_sha256": "52b21919ec12d0e86dac20a6934498c54fec06c79c960fc49da93e6b83990f3d",
+  "input_header": [
+    "aig",
+    "586559",
+    "33078",
+    "22725",
+    "0",
+    "530756",
+    "3",
+    "8",
+    "0",
+    "0"
+  ],
+  "script_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1/screen.aig\"; fold; orpos; &get; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/folded.aig\"; &gla -q -T 120 -v -m -A \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstraction_map.aig\" -L \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/gla.status\"; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final_map.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 121.58257211791351,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/gla.log",
+    "log_sha256": "91b4e860a79b4593dd605ddc15ca9e4775f16a7d4e8e07a857174c945e38d5db"
+  },
+  "raw_status": "snl_UNK 24 unknown\nNULL\nNULL\n",
+  "fold_semantics": "AIGER constraints folded first, all bad outputs ORed, then &get; no extra internal premises",
+  "interpretation": "Only explicit threaded-PDR unbounded proof or trivial constant-zero miter can prove safety. A stable abstraction, bounded checks, and timeout are inconclusive. Maps are proof-only artifacts, never hardware.",
+  "folded_header": [
+    "aig",
+    "485125",
+    "33078",
+    "22726",
+    "1",
+    "429321"
+  ],
+  "derive": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "&read \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final_map.aig\"; &gla_derive; &ps; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstracted.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.18731456622481346,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/derive.log",
+    "log_sha256": "8c4776ad4c526107ec8b7cafe732069b255e3ff005016a6f2ca226436b4711d0"
+  },
+  "abstracted_header": [
+    "aig",
+    "11367",
+    "1226",
+    "491",
+    "1",
+    "9650"
+  ],
+  "dumped_model_scope": "Recorded map is the last available map; it need not be the exact earlier map solved by the background thread. The verdict refers to the source-bound original folded query.",
+  "artifacts_sha256": {
+    "final_map.aig": "437384c94dadde914ef03476cbb897a4be293c5dbf86299da2cc9ed09eba8ba6",
+    "gla.log": "91b4e860a79b4593dd605ddc15ca9e4775f16a7d4e8e07a857174c945e38d5db",
+    "abstraction_map.status": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+    "abstracted.aig": "d9544bac5ccd5b9a4e447704ec0577a2d62243ecf9ee0b1d94d4d991cf8e325f",
+    "final.status": "c7a11fd73711bb6c1f4eb21827273ea6f8f5daec1ed451c8a31e1dfddc38c923",
+    "derive.log": "8c4776ad4c526107ec8b7cafe732069b255e3ff005016a6f2ca226436b4711d0",
+    "folded.aig": "a1de81d4ca119d33cf80e2235d2d40361dc49cc227043a14a4fc236f113f5944",
+    "gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+    "gla.status": "94ff610d08dbf3a6b76b8734390af74aea804d550924bc7bc91f9439cb45d901",
+    "abstraction_map.aig": "fce46bf74287a9ce73a4b1a1f4a9868f8a0f88a631a48971cb0c4a75bfddd192"
+  },
+  "prepared_summary_sha256": "e6beb5dbb1be779bb7ac2e64dc81c3fc858cb595c3555fc965c35e1a52054b8f",
+  "prepared_directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1"
+}

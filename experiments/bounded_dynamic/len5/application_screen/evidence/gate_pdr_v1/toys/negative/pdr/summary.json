@@ -1,0 +1,54 @@
+{
+  "status": "counterexample_in_abstraction_only",
+  "accepted_optimization": false,
+  "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/abstract.aig",
+  "input_sha256": "823ff7545553a3ad669ee51b80b782e7f5e4f8e8fcccebf61d8cc93275417415",
+  "input_header": [
+    "aig",
+    "31",
+    "9",
+    "4",
+    "1",
+    "18"
+  ],
+  "script_sha256": "d1d3e267608241ed7a3bfb34dc7774675651bc21da4beb98cb3a89b4e6ef47ac",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/abstract.aig\"; pdr -T 3 -v; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/pdr/pdr.status\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.15308987302705646,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/pdr/pdr.log",
+    "log_sha256": "b8c1db51220ee652b84c7643b366e8ae266a96f902ad4e5ac081de16eefc2904"
+  },
+  "raw_status": "snl_SAT 0 unknown 0 1\n0000\n100000000000000000\n",
+  "preprocessing": "None: read the ordinary one-output abstraction directly; no fold, no extra assumptions",
+  "interpretation": "A complete unbounded proof of the overapproximation transfers through the source-bound GLA map. A counterexample here belongs only to the abstraction until concretized against the original model.",
+  "counterexample_validation": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/abstract.aig\"; &get; read_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/pdr/pdr.status\"; testcex; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/pdr/counterexample.aiw\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.13645556522533298,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/pdr/validate_cex.log",
+    "log_sha256": "b0b2e1603e8e46f155f49ad5e932517d3ed060beef2240c7fb47bce3c36faaa9"
+  },
+  "counterexample_frame": 1,
+  "artifacts_sha256": {
+    "validate_cex.log": "b0b2e1603e8e46f155f49ad5e932517d3ed060beef2240c7fb47bce3c36faaa9",
+    "gate_pdr.py": "d1d3e267608241ed7a3bfb34dc7774675651bc21da4beb98cb3a89b4e6ef47ac",
+    "pdr.log": "b8c1db51220ee652b84c7643b366e8ae266a96f902ad4e5ac081de16eefc2904",
+    "counterexample.aiw": "cf4a26b6b7644383cdf4ca3b3ab7e2cda8625d1a408913de399f26f492343032",
+    "pdr.status": "9178a7d94b38b001e72fb4a475fc99799782b02a2a7f3810b48ceb3d74d17779"
+  }
+}

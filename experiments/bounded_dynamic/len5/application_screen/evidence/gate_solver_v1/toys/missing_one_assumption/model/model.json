@@ -1,0 +1,513 @@
+{
+  "creator": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "GateToy": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:1.1-5.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "d": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+        }
+      },
+      "cells": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:3$reduce_or$2": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:3.34-3.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$assert$18": {
+          "hide_name": 1,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.132-4.142"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 12 ],
+            "EN": [ 13 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$assume$10": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.62-4.75"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 14 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$assume$12": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.77-4.90"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 15 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$assume$14": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.92-4.105"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 16 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$assume$16": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.107-4.120"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 17 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$assume$4": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.17-4.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 18 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$assume$6": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.32-4.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 19 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$assume$8": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.47-4.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 20 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$11": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.69-4.74"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "Y": [ 14 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$13": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.84-4.89"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "Y": [ 15 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$15": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.99-4.104"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 9 ],
+            "Y": [ 16 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$17": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.114-4.119"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "Y": [ 17 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$19": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.139-4.141"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 21 ],
+            "Y": [ 12 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$5": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.24-4.29"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "Y": [ 18 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$7": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.39-4.44"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "Y": [ 19 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$9": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.54-4.59"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 6 ],
+            "Y": [ 20 ]
+          }
+        },
+        "$procdff$23": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:3.1-3.52"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 11 ],
+            "Q": [ 21 ]
+          }
+        },
+        "$procdff$24": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:3.1-3.52"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ "1" ],
+            "Q": [ 22 ]
+          }
+        },
+        "$procmux$21": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.126-4.130|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.123-4.143"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 22 ],
+            "Y": [ 13 ]
+          }
+        }
+      },
+      "netnames": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:3$reduce_or$2_Y": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:3.34-3.36"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$assert$18_EN": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.132-4.142"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$11_Y": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.69-4.74"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$13_Y": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.84-4.89"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$15_Y": {
+          "hide_name": 1,
+          "bits": [ 16 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.99-4.104"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$17_Y": {
+          "hide_name": 1,
+          "bits": [ 17 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.114-4.119"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$19_Y": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.139-4.141"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$5_Y": {
+          "hide_name": 1,
+          "bits": [ 18 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.24-4.29"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$7_Y": {
+          "hide_name": 1,
+          "bits": [ 19 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.39-4.44"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4$logic_not$9_Y": {
+          "hide_name": 1,
+          "bits": [ 20 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:4.54-4.59"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:1.22-1.25"
+          }
+        },
+        "d": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:1.39-1.40"
+          }
+        },
+        "q": {
+          "hide_name": 0,
+          "bits": [ 21 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:2.5-2.6"
+          }
+        },
+        "seen": {
+          "hide_name": 0,
+          "bits": [ 22 ],
+          "attributes": {
+            "init": "0",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/toy.sv:2.12-2.16"
+          }
+        }
+      }
+    }
+  }
+}

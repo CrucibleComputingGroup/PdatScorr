@@ -1,0 +1,360 @@
+{
+  "creator": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "Tiny": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:1.1-6.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "step": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6 ]
+        }
+      },
+      "cells": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3$assume$2": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3.11-3.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3$eq$3": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3.18-3.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6 ],
+            "Y": [ 8 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3$eq$4": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3.31-3.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6 ],
+            "B": [ "0", "1" ],
+            "Y": [ 9 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3$logic_or$5": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3.18-3.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "B": [ 9 ],
+            "Y": [ 7 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:4$add$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:4.28-4.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10, 11, 12, 13 ],
+            "B": [ 3, 4, 5, 6 ],
+            "Y": [ 14, 15, 16, 17 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:5$assert$9": {
+          "hide_name": 1,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:5.11-5.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 18 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:5$eq$10": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:5.18-5.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "Y": [ 18 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$14": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "Y": [ 19 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$19": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 18 ],
+            "Y": [ 20 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$16": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 19 ],
+            "B": [ "1" ],
+            "Y": [ 21 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$21": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 20 ],
+            "B": [ "1" ],
+            "Y": [ 22 ]
+          }
+        },
+        "$procdff$12": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:4.1-4.37"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 14, 15, 16, 17 ],
+            "Q": [ 10, 11, 12, 13 ]
+          }
+        }
+      },
+      "netnames": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3$eq$3_Y": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3.18-3.27"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3$eq$4_Y": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3.31-3.40"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3$logic_or$5_Y": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:3.18-3.40"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:4$add$7_Y": {
+          "hide_name": 1,
+          "bits": [ 14, 15, 16, 17 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:4.28-4.36"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:5$eq$10_Y": {
+          "hide_name": 1,
+          "bits": [ 18 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:5.18-5.27"
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$15": {
+          "hide_name": 1,
+          "bits": [ 19 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$20": {
+          "hide_name": 1,
+          "bits": [ 20 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$17": {
+          "hide_name": 1,
+          "bits": [ 21 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$22": {
+          "hide_name": 1,
+          "bits": [ 22 ],
+          "attributes": {
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:1.19-1.22"
+          }
+        },
+        "q": {
+          "hide_name": 0,
+          "bits": [ 10, 11, 12, 13 ],
+          "attributes": {
+            "init": "1010",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:2.11-2.12"
+          }
+        },
+        "step": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv:1.36-1.40"
+          }
+        }
+      }
+    }
+  }
+}

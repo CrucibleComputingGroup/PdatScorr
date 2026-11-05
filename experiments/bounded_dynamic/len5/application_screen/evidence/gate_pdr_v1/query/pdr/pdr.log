@@ -1,0 +1,32 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstracted.aig"; pdr -T 120 -v; write_status "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_pdr_v1/pdr/pdr.status"".
+
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 3                                                                 1     4      0.01 sec
+  2 : 0 10 10                                                             5    15      0.02 sec
+  3 : 0 3 4 10                                                            1    15      0.02 sec
+  4 : 0 3 4 1 9                                                           0    15      0.02 sec
+  5 : 0 3 4 1 1 8                                                         0    15      0.03 sec
+  6 : 0 3 4 1 1 3 5                                                       0    15      0.03 sec
+  7 : 0 19 75 130 109 96 80 125                                          60   121      1.43 sec
+  8 : 0 3 13 43 34 49 61 91 156                                          26   149      1.96 sec
+  9 : 0 3 9 16 26 33 30 63 108 141                                       11   155      2.22 sec
+ 10 : 0 3 9 18 36 46 48 81 114 129 163                                   23   181      2.87 sec
+ 11 : 0 3 9 20 37 37 43 54 142 236 284 296                               63   195      4.73 sec
+ 12 : 0 3 9 16 21 23 38 43 108 194 238 339 308                           52   221      6.27 sec
+ 13 : 0 3 9 15 20 22 32 40 110 229 418 889 1497 1276                     85   286     18.35 sec
+ 14 : 0 3 13 17 27 30 52 58 143 257 499 991 2111 2685 1656              330   321     38.13 sec
+ 15 : 0 4 17 22 33 36 66 121 266 457 787 1201 2463 4082 5586 3497       324   360    120.00 sec
+Reached timeout (120 seconds) in frame 15.
+Block =   35  Oblig = 44066  Clause = 24309  Call =530705 (sat=55.4%)  Cex =   0  Start =1762
+SAT solving =    84.82 sec ( 70.68 %)
+  unsat     =    11.30 sec (  9.42 %)
+  sat       =    73.51 sec ( 61.26 %)
+Generalize  =    88.22 sec ( 73.52 %)
+Push clause =     2.57 sec (  2.14 %)
+Ternary sim =     6.53 sec (  5.44 %)
+Containment =    12.80 sec ( 10.66 %)
+CNF compute =     4.46 sec (  3.71 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =   120.01 sec (100.00 %)
+Property UNDECIDED.  Time =   120.03 sec

@@ -1,0 +1,118 @@
+{
+  "name": "constrained_even_nonzero_init",
+  "expected": "proved_safety_query_only",
+  "source_sha256": "4b8b18373fe0c05e1ac295926f7c1ee1150744b88120fa780177e2e49c6940b2",
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.03243585769087076,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/prepare.log",
+    "log_sha256": "dfa038b9039924d661bc98ce7160cbe75af7b9a035563261e33c3884b173908f"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "property_counts": {
+    "assert": 1,
+    "assume": 1,
+    "cover": 0
+  },
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.032510328106582165,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/export.log",
+    "log_sha256": "2a6b28288de0b47d29f69d9b4789ffdaa01d47e3f2509f39fabc25b0eee21406"
+  },
+  "exported_json_sha256": "178d78fb72a010c7ca2c11cc0a4afe67f020e5fcacf2e9b51a752d042ba54e3a",
+  "btor_sha256": "9c897c4a6a7b6fe51111a7c84b806f36cab4c3aaa9796f9c037ffaed65223889",
+  "btor": {
+    "operators": {
+      "sort": 3,
+      "input": 2,
+      "redor": 1,
+      "not": 4,
+      "const": 3,
+      "uext": 1,
+      "eq": 1,
+      "or": 2,
+      "constraint": 1,
+      "state": 1,
+      "init": 1,
+      "slice": 1,
+      "and": 1,
+      "add": 1,
+      "next": 1,
+      "bad": 1
+    },
+    "bad": 1,
+    "constraint": 1,
+    "state_bits": 4,
+    "input_bits": 5,
+    "states": [
+      [
+        "17",
+        "state",
+        "3",
+        "q"
+      ]
+    ],
+    "initializers": [
+      [
+        "18",
+        "init",
+        "3",
+        "17",
+        "16"
+      ]
+    ]
+  },
+  "execution": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+      "-e",
+      "mbic3",
+      "--smt-solver",
+      "btor",
+      "--pseudo-init-prop",
+      "--check-invar",
+      "-v",
+      "1",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/model.btor2"
+    ],
+    "returncode": 1,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+    "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+    "timeout": false,
+    "seconds": 0.016283064149320126,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/pono.log",
+    "log_sha256": "49c3863b4f75f5a95c9b0d54307758da4e40ef333757a856ddbdcdb7f8797d3e"
+  },
+  "status": "proved_safety_query_only"
+}

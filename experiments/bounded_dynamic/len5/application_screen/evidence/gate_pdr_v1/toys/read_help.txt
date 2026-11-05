@@ -1,0 +1,13 @@
+ABC command line: "&read -h".
+
+usage: &r [-csxmnlvh] <file>
+	         reads the current AIG from the AIGER file
+	-c     : toggles reading simple AIG [default = no]
+	-s     : toggles structural hashing while reading [default = yes]
+	-x     : toggles detecting XORs while reading [default = no]
+	-m     : toggles reading MiniAIG rather than AIGER file [default = no]
+	-n     : toggles reading MiniAIG as a set of supergates [default = no]
+	-l     : toggles reading MiniLUT rather than AIGER file [default = no]
+	-v     : toggles additional verbose output [default = no]
+	-h     : print the command usage
+	<file> : the file name

@@ -1,0 +1,184 @@
+USAGE: pono [options] <btor file>
+
+Options:
+  --help                                 
+                    Print usage and exit.
+  --engine, -e <engine>                  
+                    Select engine from [bmc, bmc-sp, ind, interp, mbic3,
+                    ic3bits, ic3ia, msat-ic3ia, ic3sa, sygus-pdr].
+  --bound, -k                            
+                    Bound to check up until (default: 10).
+  --prop, -p                             
+                    Property index to check (default: 0).
+  --verbosity, -v                        
+                    Verbosity for printing to standard out.
+  --random-seed,                         
+                    Random seed.
+  --vcd                                  
+                    Name of Value Change Dump (VCD) if witness exists.
+  --smt-solver                           
+                    SMT Solver to use: btor, msat, or cvc5.
+  --logging-smt-solver                   
+                    Use Smt-Switch logging solver which guarantees the exact
+                    term structure that was created. Good for avoiding term
+                    rewriting at the API level or sort aliasing. (default:
+                    false)
+  --witness                              
+                    Print witness if the property is false.
+  --static-coi                           
+                    Apply static (i.e., one-time before solving)
+                    cone-of-influence analysis.
+  --show-invar                           
+                    For engines that produce invariants, show the invariant
+  --check-invar                          
+                    For engines that produce invariants, check that they hold.
+  --reset, -r <reset input>              
+                    Symbol to use for reset signal (prefix with ~ for negative
+                    reset)
+  --resetsteps, -s <integer>             
+                    Number of steps to apply reset for (default: 1)
+  --clock, -c <clock name>               
+                    Symbol to use for clock signal (only supports starting at 0
+                    and toggling each step)
+  --ic3-no-pregen                        
+                    Disable preimage generalization in ic3.
+  --ic3-no-indgen                        
+                    Disable inductive generalization in ic3.
+  --ic3-gen-max-iter                     
+                    Max number of iterations (greater than zero) for
+                    unsatcore-based ic3 generalization. Setting it to 0 means an
+                    unbounded number of iterations.
+  --ic3-functional-preimage              
+                    Use functional preimage in ic3.
+  --no-ic3-unsatcore-gen                 
+                    Disable unsat core generalization during relative induction
+                    check. That extra generalization helps several IC3 variants
+                    but also runs the risk of myopic over-generalization. Some
+                    IC3 variants have better inductive generalization and do
+                    better with this option.
+  --no-ic3ia-reduce-preds                
+                    Disable unsat core based predicate minimization
+  --no-ic3ia-track-important-vars        
+                    Ignore tracked important variables when picking predicates.
+  --no-ic3sa-func-refine                 
+                    Disable functional unrolling attempt  in IC3SA.
+  --mbic3-indgen-mode                    
+                    ModelBasedIC3 inductive generalization mode [0,2].
+                                         
+                    0 - normal, 1 - embedded init constraint, 2 - interpolation.
+  --profiling-log                        
+                    Name of logfile for profiling output (requires build with
+                    linked profiling library 'gperftools').
+  --pseudo-init-prop                     
+                    Replace init and prop with state variables -- can extend
+                    trace by up to two steps. Recommended for use with ic3ia.
+                    Important note: will promote system to be relational
+  --assume-prop                          
+                    enable assuming property in pre-state (default disabled)
+  --ceg-prophecy-arrays                  
+                    Use counter-example guided prophecy for arrays.
+  --no-cegp-timed-axiom-red              
+                    Don't reduce enumerated axioms in CEG-Prophecy with unsat
+                    cores.
+  --no-cegp-consec-axiom-red             
+                    Don't reduce consecutive axioms in CEG-Prophecy before
+                    adding to transition system.
+  --no-cegp-nonconsec-axiom-red          
+                    Don't reduce non-consecutive axioms in CEG-Prophecy before
+                    creating prophecy variables.
+  --cegp-force-restart                   
+                    Force underlying engine to restart after refinement.
+  --cegp-abs-vals                        
+                    abstract values in ceg-prophecy-arrays (only supported for
+                    IC3IA)
+  --cegp-abs-vals-cutoff                 
+                    cutoff value for what to abstract - must be positive
+                    (default: 100)
+  --cegp-strong-abs                      
+                    Use strong abstraction in CEGP -- no equality UFs (default:
+                    false)
+  --ceg-bv-arith                         
+                    abstraction-refinement for the BV arithmetic operators (mul,
+                    div, rem, mod). (only supported for IC3IA)
+  --ceg-bv-arith-min-bw                  
+                    minimum bitwidth of operators to abstract - must be positive
+                    (default: 16) 
+  --promote-inputvars                    
+                    promote all input variables to state variables
+  --sygus-op-lv                          
+                    operator abstraction level (0-2, default:0) (only for SYGUS
+                    PDR)
+  --sygus-term-mode                      
+                    term generation mode (0-4, default: 4 AUTO) (0: more
+                    replace, 1: v/c ext 2: v/c split 3: v/c lt/le )
+  --ic3sa-initial-terms-lvl              
+                    Configures where to find terms for the initial abstraction.
+                    Higher numbers means more terms and predicates will be
+                    included in the inital abstraction [0-4] (default: 4).
+  --ic3sa-interp                         
+                    use interpolants to find more terms during refinement
+                    (default: off)
+  --print-wall-time                      
+                    Print wall clock time of entire execution
+  --bmc-bound-start                      
+                    Bound (unrolling depth) to start cex search in BMC (default:
+                    0)
+  --bmc-bound-step                       
+                    Amount by which bound (unrolling depth) for cex search is
+                    increased in BMC (default: 1). For values greater than 1,
+                    BMC searches for cex in intervals of size
+                    '--bmc-bound-step'.
+  --bmc-neg-init-step                    
+                    Add negated initial state constraint in BMC steps k > 0
+                    (default: false).
+  --bmc-exponential-step                 
+                    Double BMC bound in each step starting at 'bmc-bound-start'
+                    (default: false, explores bounds 0, 1, 2, 4,...).
+  --bmc-single-bad-state                 
+                    EXPERT OPTION: add a single bad state literal for current
+                    bound k rather than a disjunctive term covering the checked
+                    interval; counterexamples may be missed. (default: false).
+  --bmc-neg-bad-step                     
+                    Add negated bad state constraint in BMC steps k > 0
+                    (default: false).
+  --bmc-neg-bad-step-all                 
+                    EXPERT OPTION: like '--bmc-neg-bad-step' but add negated bad
+                    state constraint in ALL BMC steps k > 0 (default: false).
+                    When combined with --bmc-single-bad-state, this option may
+                    cause overconstraining the problem in certain corner cases.
+  --bmc-min-cex-linear-search            
+                    Apply linear instead of binary search for minimal cex after
+                    a cex was found in current interval
+  --bmc-min-cex-less-inc-bin-search      
+                    Apply less incremental variant of binary search for minimal
+                    cex after a cex was found in current interval
+  --bmc-allow-non-minimal-cex            
+                    Do not search for minimal cex within an interval;instead,
+                    terminate immediately (reported bound of cex is an upper
+                    bound of actual cex)
+  --kind-no-simple-path-check            
+                    Skip simple path check in k-induction (WARNING: might cause
+                    incompleteness)
+  --kind-eager-simple-path-check         
+                    Eager simple path check in k-induction (default: lazy check)
+  --kind-no-multi-call-simple-path-check 
+                    Try to avoid multiple solver calls in lazy simple path check
+                    in k-induction
+  --kind-no-ind-check-init-states        
+                    K-induction: skip checking inductive case based on initial
+                    states
+  --kind-no-ind-check                    
+                    K-induction: skip inductive case checks; implies
+                    '--kind-no-ind-check-init-states' and
+                    '--kind-no-ind-check-property' (WARNING: will cause
+                    incompleteness on most problem instances)
+  --kind-no-ind-check-property           
+                    K-induction: skip checking inductive case based on property
+                    (WARNING: will cause incompleteness on most problem
+                    instances)
+  --kind-one-time-base-check             
+                    K-induction: check base case only once after inductive check
+                    was unsatisfiable (WARNING: counterexamples might be missed)
+  --kind-bound-step                      
+                    Amount by which bound (unrolling depth) is increased in
+                    k-induction (default: 1)

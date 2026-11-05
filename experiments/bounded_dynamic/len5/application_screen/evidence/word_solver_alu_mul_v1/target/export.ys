@@ -1,0 +1,6 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1/screen.json"
+check -assert
+formalff -clk2ff
+setundef -anyseq
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_alu_mul_v1/target/exported.json"
+write_btor -s -v -i /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_alu_mul_v1/target/model.info -ywmap /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_alu_mul_v1/target/model.ywb "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_alu_mul_v1/target/model.btor2"

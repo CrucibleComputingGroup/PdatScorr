@@ -1,0 +1,578 @@
+{
+  "creator": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "Tiny": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:1.1-9.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst_n": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "step": {
+          "direction": "input",
+          "bits": [ 4, 5, 6, 7 ]
+        }
+      },
+      "cells": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4$assume$3": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4.18-4.32"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "EN": [ 9 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4$logic_not$4": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4.25-4.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "Y": [ 8 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5$assume$5": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5.2-5.32"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5$eq$6": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5.9-5.18"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6, 7 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5$eq$7": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5.22-5.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6, 7 ],
+            "B": [ "0", "1" ],
+            "Y": [ 12 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5$logic_or$8": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5.9-5.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11 ],
+            "B": [ 12 ],
+            "Y": [ 10 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6$assert$9": {
+          "hide_name": 1,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6.13-6.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 13 ],
+            "EN": [ 14 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6$eq$10": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6.20-6.29"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15 ],
+            "Y": [ 13 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:8$add$13": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:8.52-8.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15, 16, 17, 18 ],
+            "B": [ 4, 5, 6, 7 ],
+            "Y": [ 19, 20, 21, 22 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$23": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "Y": [ 23 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$28": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "Y": [ 24 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$33": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13 ],
+            "Y": [ 25 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$25": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 23 ],
+            "B": [ 9 ],
+            "Y": [ 26 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$30": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 24 ],
+            "B": [ "1" ],
+            "Y": [ 27 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$35": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 25 ],
+            "B": [ 14 ],
+            "Y": [ 28 ]
+          }
+        },
+        "$initstate$1": {
+          "hide_name": 1,
+          "type": "$initstate",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4.6-4.16"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 29 ]
+          }
+        },
+        "$procdff$21": {
+          "hide_name": 1,
+          "type": "$ff",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:8.1-8.61"
+          },
+          "port_directions": {
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "D": [ 30, 31, 32, 33 ],
+            "Q": [ 15, 16, 17, 18 ]
+          }
+        },
+        "$procmux$15": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:8.26-8.32|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:8.23-8.61"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "1", "1", "0" ],
+            "B": [ 19, 20, 21, 22 ],
+            "S": [ 3 ],
+            "Y": [ 30, 31, 32, 33 ]
+          }
+        },
+        "$procmux$17": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6.6-6.11|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6.2-6.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 3 ],
+            "Y": [ 14 ]
+          }
+        },
+        "$procmux$19": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4.6-4.16|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4.2-4.33"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 29 ],
+            "Y": [ 9 ]
+          }
+        }
+      },
+      "netnames": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4$assume$3_EN": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4.18-4.32"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4$logic_not$4_Y": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4.25-4.31"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5$eq$6_Y": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5.9-5.18"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5$eq$7_Y": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5.22-5.31"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5$logic_or$8_Y": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:5.9-5.31"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6$assert$9_EN": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6.13-6.30"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6$eq$10_Y": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:6.20-6.29"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:8$add$13_Y": {
+          "hide_name": 1,
+          "bits": [ 19, 20, 21, 22 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:8.52-8.60"
+          }
+        },
+        "$0\\q[3:0]": {
+          "hide_name": 1,
+          "bits": [ 30, 31, 32, 33 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:8.1-8.61"
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$24": {
+          "hide_name": 1,
+          "bits": [ 23 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$29": {
+          "hide_name": 1,
+          "bits": [ 24 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$34": {
+          "hide_name": 1,
+          "bits": [ 25 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$26": {
+          "hide_name": 1,
+          "bits": [ 26 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$31": {
+          "hide_name": 1,
+          "bits": [ 27 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$36": {
+          "hide_name": 1,
+          "bits": [ 28 ],
+          "attributes": {
+          }
+        },
+        "$initstate$1_wire": {
+          "hide_name": 1,
+          "bits": [ 29 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:4.6-4.16"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "replaced_by_gclk": "1",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:1.19-1.22"
+          }
+        },
+        "q": {
+          "hide_name": 0,
+          "bits": [ 15, 16, 17, 18 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:2.11-2.12"
+          }
+        },
+        "rst_n": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:1.23-1.28"
+          }
+        },
+        "step": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv:1.41-1.45"
+          }
+        }
+      }
+    }
+  }
+}

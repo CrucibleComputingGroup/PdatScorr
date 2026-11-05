@@ -1,0 +1,9 @@
+Installed ABC GLA audit
+
+The installed -q implementation is active: nonstub Gia_GlaProveAbsracted/Cancel/Check and Abs_ProverThread symbols exist. Installed Abs_ProverThread disassembly calls Pdr_ManSolve, compares returnvalue1, and only that branch writes g_fAbstractionProved=1. Local source absPth.c94-128 matches this observed path. The accessible source is not claimed byte-identical to the installed build.
+
+Local abc.c54576-54835 parses -q as fCallProver and stores Gia_ManPerformGla's return as engine status. absGla.c1769-1830 calls the unbounded prover after a stable abstraction; stable frames merely trigger it. Lines1846-1888 distinguish proved abstraction, timeout/stability, and verified true counterexample. abcLog.c68-110 serializes return1 as snl_UNSAT, return0 as snl_SAT, otherwise snl_UNK.
+
+The driver first runs read_aiger;fold;orpos;&get. Thus all eight original constraints become part of the single bad-output transition system before GLA. The original zinit encoding retains arbitrary native initial FF choices as explicit inputs. Four installed-tool regressions exercise both facts: arbitrary-initial-state invariant and eight-assumption property prove unbounded; dropping one assumption and asserting an uninitialized FF value yield concrete counterexamples verified against the original folded model.
+
+Acceptance requires both the explicit terminal unbounded-proof message (or constantzero trivial miter) and final snl_UNSAT, successful process completion, and unchanged source dependencies. A stable abstraction, a background-thread message alone, bounded frames, resource timeout, or artifact export is not a certificate. The last dumped map need not be the exact earlier map solved by the background thread; maps are retained as diagnostic overapproximations, and any unbounded verdict is bound to the original input/folded query. No map is a hardware candidate.

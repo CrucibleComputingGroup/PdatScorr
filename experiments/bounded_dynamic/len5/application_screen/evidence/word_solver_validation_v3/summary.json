@@ -1,0 +1,1401 @@
+{
+  "status": "tiny_semantics_validated",
+  "accepted_optimization": false,
+  "runner_sha256": "61c831cc559197a557805eeed0e61638e95fd952aec54a684a13b5d25a7a0eb7",
+  "backend_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+  "engine_arguments": [
+    "-e",
+    "mbic3",
+    "--smt-solver",
+    "btor",
+    "--pseudo-init-prop",
+    "--check-invar",
+    "-v",
+    "1"
+  ],
+  "tiny_tests": [
+    {
+      "name": "constrained_even_nonzero_init",
+      "expected": "proved_safety_query_only",
+      "source_sha256": "4b8b18373fe0c05e1ac295926f7c1ee1150744b88120fa780177e2e49c6940b2",
+      "prepare": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/prepare.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03243585769087076,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/prepare.log",
+        "log_sha256": "dfa038b9039924d661bc98ce7160cbe75af7b9a035563261e33c3884b173908f"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "property_counts": {
+        "assert": 1,
+        "assume": 1,
+        "cover": 0
+      },
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.032510328106582165,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/export.log",
+        "log_sha256": "2a6b28288de0b47d29f69d9b4789ffdaa01d47e3f2509f39fabc25b0eee21406"
+      },
+      "exported_json_sha256": "178d78fb72a010c7ca2c11cc0a4afe67f020e5fcacf2e9b51a752d042ba54e3a",
+      "btor_sha256": "9c897c4a6a7b6fe51111a7c84b806f36cab4c3aaa9796f9c037ffaed65223889",
+      "btor": {
+        "operators": {
+          "sort": 3,
+          "input": 2,
+          "redor": 1,
+          "not": 4,
+          "const": 3,
+          "uext": 1,
+          "eq": 1,
+          "or": 2,
+          "constraint": 1,
+          "state": 1,
+          "init": 1,
+          "slice": 1,
+          "and": 1,
+          "add": 1,
+          "next": 1,
+          "bad": 1
+        },
+        "bad": 1,
+        "constraint": 1,
+        "state_bits": 4,
+        "input_bits": 5,
+        "states": [
+          [
+            "17",
+            "state",
+            "3",
+            "q"
+          ]
+        ],
+        "initializers": [
+          [
+            "18",
+            "init",
+            "3",
+            "17",
+            "16"
+          ]
+        ]
+      },
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "mbic3",
+          "--smt-solver",
+          "btor",
+          "--pseudo-init-prop",
+          "--check-invar",
+          "-v",
+          "1",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/model.btor2"
+        ],
+        "returncode": 1,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.016283064149320126,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/pono.log",
+        "log_sha256": "49c3863b4f75f5a95c9b0d54307758da4e40ef333757a856ddbdcdb7f8797d3e"
+      },
+      "status": "proved_safety_query_only"
+    },
+    {
+      "name": "nonzero_initial_value_negative",
+      "expected": "counterexample_in_query_model",
+      "source_sha256": "1da7d27aade1d577dd5d9a3a6953110f6592ef277041e2048a5addd2e44edead",
+      "prepare": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/prepare.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.032783688977360725,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/prepare.log",
+        "log_sha256": "608a1033096c43b025df9e88a3388a538c7d310b8fc969972ce75200619d5a6c"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03263930790126324,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/export.log",
+        "log_sha256": "c8a46263100868662a82a04c8d163507f62009e1d6d7d748acc945f684209e49"
+      },
+      "exported_json_sha256": "1be7327721a5b0684606f70dce14d1b135c1e8243a56235497a0993b3eb66db5",
+      "btor_sha256": "461c76c47a2559f11dd1a693bdebb850ec2fad216cc633e5bfe95ed3d21510fd",
+      "btor": {
+        "operators": {
+          "sort": 2,
+          "input": 1,
+          "const": 2,
+          "state": 1,
+          "init": 1,
+          "redor": 1,
+          "not": 2,
+          "and": 1,
+          "next": 1,
+          "bad": 1
+        },
+        "bad": 1,
+        "constraint": 0,
+        "state_bits": 4,
+        "input_bits": 1,
+        "states": [
+          [
+            "5",
+            "state",
+            "3",
+            "q"
+          ]
+        ],
+        "initializers": [
+          [
+            "6",
+            "init",
+            "3",
+            "5",
+            "4"
+          ]
+        ]
+      },
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "mbic3",
+          "--smt-solver",
+          "btor",
+          "--pseudo-init-prop",
+          "--check-invar",
+          "-v",
+          "1",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.016566684935241938,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/pono.log",
+        "log_sha256": "7b6aec70328eb5e033aef37a4858a7c595cddababafd6e3d7a2eabc83bff55ff"
+      },
+      "status": "counterexample_in_query_model",
+      "counterexample_witness_available": false,
+      "counterexample_scope": "Engine reports SAT; installed MBIC3 witness extraction is not implemented",
+      "negative_bmc": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "bmc",
+          "--smt-solver",
+          "btor",
+          "--witness",
+          "-k",
+          "6",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.016284093260765076,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/negative_bmc.log",
+        "log_sha256": "6d672c02f51401ea6956be21306bbcf881dd5a31e47baf8c3670dcc041dd5ab5"
+      },
+      "witness_check": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+          "-c",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/model.btor2",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/counterexample.wit"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+        "executable_sha256": "d89cfd9a0ed8467b468b2440f438640ecef82907ada2d86789740f7be2a7140f",
+        "timeout": false,
+        "seconds": 0.016294884961098433,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/witness_check.log",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "witness_sha256": "6d672c02f51401ea6956be21306bbcf881dd5a31e47baf8c3670dcc041dd5ab5"
+    },
+    {
+      "name": "uninitialized_state_negative",
+      "expected": "counterexample_in_query_model",
+      "source_sha256": "45253b1afe053dbab217169a9070c9b360217a2af3db04c3390f32a96a43edb6",
+      "prepare": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/prepare.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.032510899007320404,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/prepare.log",
+        "log_sha256": "2ad8843c3b4abcb21a8efc4cd59c152d92c1c97d4fd42742f564d9bb2a7232a8"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03227271605283022,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/export.log",
+        "log_sha256": "59312c6681b350f964bedef0a43becb693f3962bb595e7df38e38c09ee595042"
+      },
+      "exported_json_sha256": "8314646d66f255d8896949f22902d0f1a2553df9a56062d29b9e63dc80fcd22a",
+      "btor_sha256": "64c191aba7095cc2e7d2da465f80adc8d2681fd97dcaa9942fef156e4563cf56",
+      "btor": {
+        "operators": {
+          "sort": 2,
+          "input": 1,
+          "state": 1,
+          "redor": 1,
+          "not": 2,
+          "const": 1,
+          "and": 1,
+          "next": 1,
+          "bad": 1
+        },
+        "bad": 1,
+        "constraint": 0,
+        "state_bits": 4,
+        "input_bits": 1,
+        "states": [
+          [
+            "4",
+            "state",
+            "3",
+            "q"
+          ]
+        ],
+        "initializers": []
+      },
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "mbic3",
+          "--smt-solver",
+          "btor",
+          "--pseudo-init-prop",
+          "--check-invar",
+          "-v",
+          "1",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.016402053646743298,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/pono.log",
+        "log_sha256": "7b6aec70328eb5e033aef37a4858a7c595cddababafd6e3d7a2eabc83bff55ff"
+      },
+      "status": "counterexample_in_query_model",
+      "counterexample_witness_available": false,
+      "counterexample_scope": "Engine reports SAT; installed MBIC3 witness extraction is not implemented",
+      "negative_bmc": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "bmc",
+          "--smt-solver",
+          "btor",
+          "--witness",
+          "-k",
+          "6",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.016656975261867046,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/negative_bmc.log",
+        "log_sha256": "5a393ce46fdbe4389ed1dd6f807fa8ba426b2ce502e052ce0b53679a1a8352cf"
+      },
+      "witness_check": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+          "-c",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/model.btor2",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/counterexample.wit"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+        "executable_sha256": "d89cfd9a0ed8467b468b2440f438640ecef82907ada2d86789740f7be2a7140f",
+        "timeout": false,
+        "seconds": 0.016217662952840328,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/witness_check.log",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "witness_sha256": "5a393ce46fdbe4389ed1dd6f807fa8ba426b2ce502e052ce0b53679a1a8352cf"
+    },
+    {
+      "name": "symbolic_x_negative",
+      "expected": "counterexample_in_query_model",
+      "source_sha256": "34304f8f3dc970b7e5a4083255ddfcb0dba200d93967c1af5e88d22b03a59d28",
+      "prepare": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/prepare.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.033117278944700956,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/prepare.log",
+        "log_sha256": "aed425942b45912f8f938f001fda2df3b90b173a72e286951afb0c545676ecfa"
+      },
+      "clock_model": {
+        "clocks": [],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03310411982238293,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/export.log",
+        "log_sha256": "2ab7017bc049ad9c8aebeb26f4493244c70018d73ea88e6669d81af40fb04397"
+      },
+      "exported_json_sha256": "34304f8f3dc970b7e5a4083255ddfcb0dba200d93967c1af5e88d22b03a59d28",
+      "btor_sha256": "1f7884b00d5a13d198d54418dca07198d571740dc1bb71195e996c16bba1edc8",
+      "btor": {
+        "operators": {
+          "sort": 2,
+          "input": 1,
+          "state": 1,
+          "redor": 1,
+          "not": 2,
+          "const": 1,
+          "and": 1,
+          "uext": 1,
+          "bad": 1
+        },
+        "bad": 1,
+        "constraint": 0,
+        "state_bits": 4,
+        "input_bits": 1,
+        "states": [
+          [
+            "4",
+            "state",
+            "3"
+          ]
+        ],
+        "initializers": []
+      },
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "mbic3",
+          "--smt-solver",
+          "btor",
+          "--pseudo-init-prop",
+          "--check-invar",
+          "-v",
+          "1",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.03292199922725558,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/pono.log",
+        "log_sha256": "39b73a3b363727154e3a6b0a8c2d04faaa28801856a49743fffaeb5c8e2b8555"
+      },
+      "status": "counterexample_in_query_model",
+      "counterexample_witness_available": false,
+      "counterexample_scope": "Engine reports SAT; installed MBIC3 witness extraction is not implemented",
+      "negative_bmc": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "bmc",
+          "--smt-solver",
+          "btor",
+          "--witness",
+          "-k",
+          "6",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.016885435674339533,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/negative_bmc.log",
+        "log_sha256": "035e425bde0791845ad833ffbd1bb70de786944f1ac579128a189e7610dcb7f9"
+      },
+      "witness_check": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+          "-c",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/model.btor2",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/counterexample.wit"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+        "executable_sha256": "d89cfd9a0ed8467b468b2440f438640ecef82907ada2d86789740f7be2a7140f",
+        "timeout": false,
+        "seconds": 0.01684002485126257,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/witness_check.log",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "witness_sha256": "035e425bde0791845ad833ffbd1bb70de786944f1ac579128a189e7610dcb7f9"
+    },
+    {
+      "name": "changing_anyseq_negative",
+      "expected": "counterexample_in_query_model",
+      "source_sha256": "32d4f46b0bba5fb1e730e4effc8361d173cbfe9afb870b8f1a37c26166fb0fa0",
+      "prepare": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/prepare.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.032949819695204496,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/prepare.log",
+        "log_sha256": "c1f8b9e63f3308170ff72b3e71ff87e51d7ff68ace6d196c5adb120481ebd69d"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03293736884370446,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/export.log",
+        "log_sha256": "a18d0c1fadd5d52c35aa457d18d088b14b5b4bdf70a696ba0eb81f30d113f5ba"
+      },
+      "exported_json_sha256": "7647e83e15af5d7212ed3aad137eeb62186d4eb3ff8920dafddcc8208b4777a4",
+      "btor_sha256": "8baab0c5761cbdbf501cce6cd8974e8efabaa03138e8e1dc67c5dc320a99ad29",
+      "btor": {
+        "operators": {
+          "sort": 3,
+          "input": 2,
+          "const": 2,
+          "state": 2,
+          "init": 1,
+          "not": 2,
+          "and": 1,
+          "uext": 2,
+          "concat": 1,
+          "slice": 1,
+          "next": 1,
+          "bad": 1
+        },
+        "bad": 1,
+        "constraint": 0,
+        "state_bits": 5,
+        "input_bits": 4,
+        "states": [
+          [
+            "4",
+            "state",
+            "1"
+          ],
+          [
+            "11",
+            "state",
+            "10"
+          ]
+        ],
+        "initializers": [
+          [
+            "5",
+            "init",
+            "1",
+            "4",
+            "3"
+          ]
+        ]
+      },
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "mbic3",
+          "--smt-solver",
+          "btor",
+          "--pseudo-init-prop",
+          "--check-invar",
+          "-v",
+          "1",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.032897128723561764,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/pono.log",
+        "log_sha256": "c3519834f68974fba2a37450fbde171b41ed85a068147d04b4c8b48a4b966207"
+      },
+      "status": "counterexample_in_query_model",
+      "counterexample_witness_available": false,
+      "counterexample_scope": "Engine reports SAT; installed MBIC3 witness extraction is not implemented",
+      "negative_bmc": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "bmc",
+          "--smt-solver",
+          "btor",
+          "--witness",
+          "-k",
+          "6",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.03266508923843503,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/negative_bmc.log",
+        "log_sha256": "87a46642a4ac726ef5f76c29eb0f4efc22cdff7b3db99b2c35a2c94106de5b20"
+      },
+      "witness_check": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+          "-c",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/model.btor2",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/counterexample.wit"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+        "executable_sha256": "d89cfd9a0ed8467b468b2440f438640ecef82907ada2d86789740f7be2a7140f",
+        "timeout": false,
+        "seconds": 0.01656921487301588,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/witness_check.log",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "witness_sha256": "87a46642a4ac726ef5f76c29eb0f4efc22cdff7b3db99b2c35a2c94106de5b20"
+    },
+    {
+      "name": "initial_reset_and_repeated_reset",
+      "expected": "proved_safety_query_only",
+      "source_sha256": "bee941b0c68d697ab2f25721bd2110f451122cc8ff568016795b906b974560e2",
+      "prepare": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/prepare.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03264178894460201,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/prepare.log",
+        "log_sha256": "41a5561b2e5f27a99b2f36b72fb0958d335a91da748e25e792575473e961cd8f"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "property_counts": {
+        "assert": 1,
+        "assume": 2,
+        "cover": 0
+      },
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.032383968122303486,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/export.log",
+        "log_sha256": "a4c9f3c19ec41557348a950736a75ddc4da6e5f0ce3dc49500dd3a101008f27e"
+      },
+      "exported_json_sha256": "72087c64c8917556aed66f1346cdbd311f15aa79eac2e4c2b69d4e3ad080fd9b",
+      "btor_sha256": "a1494c8ba0c2548697a05bb9ab5b5b0e89295f961999b2782d2c3f7b7af1a1b1",
+      "btor": {
+        "operators": {
+          "sort": 3,
+          "input": 3,
+          "not": 6,
+          "const": 4,
+          "state": 2,
+          "init": 1,
+          "next": 2,
+          "ite": 3,
+          "or": 3,
+          "constraint": 2,
+          "redor": 1,
+          "uext": 1,
+          "eq": 1,
+          "slice": 1,
+          "and": 1,
+          "add": 1,
+          "bad": 1
+        },
+        "bad": 1,
+        "constraint": 2,
+        "state_bits": 5,
+        "input_bits": 6,
+        "states": [
+          [
+            "9",
+            "state",
+            "1"
+          ],
+          [
+            "26",
+            "state",
+            "4",
+            "q"
+          ]
+        ],
+        "initializers": [
+          [
+            "10",
+            "init",
+            "1",
+            "9",
+            "8"
+          ]
+        ]
+      },
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "mbic3",
+          "--smt-solver",
+          "btor",
+          "--pseudo-init-prop",
+          "--check-invar",
+          "-v",
+          "1",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/model.btor2"
+        ],
+        "returncode": 1,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.016492484137415886,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/pono.log",
+        "log_sha256": "e6b6e9fe4d3e50bc3751394748a0ccf1d0714a51c3f1fc7b314140e1aef844db"
+      },
+      "status": "proved_safety_query_only"
+    },
+    {
+      "name": "initial_reset_not_permanent_negative",
+      "expected": "counterexample_in_query_model",
+      "source_sha256": "7036517fa1f7ebb14615055b033c95e7541ff4e46154534704addc562a7eb609",
+      "prepare": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/prepare.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03270455822348595,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/prepare.log",
+        "log_sha256": "df221238c628ebe06216cf42c7cee187eafefd12fce54469d9eee4f4b37c7ffa"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "property_counts": {
+        "assert": 1,
+        "assume": 2,
+        "cover": 0
+      },
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.032733789179474115,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/export.log",
+        "log_sha256": "d99e2e106ae2b618c2dc2b93809102af6dd5ae3bb634d229d3b0e467fee69cd5"
+      },
+      "exported_json_sha256": "b2e19f3d2515e341db28eb2220231647f37558aaffa2208f031bd04cfcfc04b9",
+      "btor_sha256": "7a881ccf5250b84d2358d66083d8c74be8d84562ae93943edc9d96e4e2d2e5ab",
+      "btor": {
+        "operators": {
+          "sort": 4,
+          "input": 3,
+          "not": 5,
+          "const": 5,
+          "state": 2,
+          "init": 1,
+          "next": 2,
+          "ite": 3,
+          "or": 3,
+          "constraint": 2,
+          "redor": 1,
+          "uext": 2,
+          "eq": 2,
+          "and": 1,
+          "add": 1,
+          "bad": 1
+        },
+        "bad": 1,
+        "constraint": 2,
+        "state_bits": 5,
+        "input_bits": 6,
+        "states": [
+          [
+            "9",
+            "state",
+            "1"
+          ],
+          [
+            "26",
+            "state",
+            "4",
+            "q"
+          ]
+        ],
+        "initializers": [
+          [
+            "10",
+            "init",
+            "1",
+            "9",
+            "8"
+          ]
+        ]
+      },
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "mbic3",
+          "--smt-solver",
+          "btor",
+          "--pseudo-init-prop",
+          "--check-invar",
+          "-v",
+          "1",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.03262537810951471,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/pono.log",
+        "log_sha256": "63bc49c40b236e7f3272bd07d520382d4d88eba0f82480191924c4bb7977fbf2"
+      },
+      "status": "counterexample_in_query_model",
+      "counterexample_witness_available": false,
+      "counterexample_scope": "Engine reports SAT; installed MBIC3 witness extraction is not implemented",
+      "negative_bmc": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "bmc",
+          "--smt-solver",
+          "btor",
+          "--witness",
+          "-k",
+          "6",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.032811569049954414,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/negative_bmc.log",
+        "log_sha256": "f5459fddd192be98226dea24e52cda4c3fdf2bece6b4df5158c1dea6282a79ac"
+      },
+      "witness_check": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+          "-c",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/model.btor2",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/counterexample.wit"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+        "executable_sha256": "d89cfd9a0ed8467b468b2440f438640ecef82907ada2d86789740f7be2a7140f",
+        "timeout": false,
+        "seconds": 0.016888084821403027,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/witness_check.log",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "witness_sha256": "f5459fddd192be98226dea24e52cda4c3fdf2bece6b4df5158c1dea6282a79ac"
+    },
+    {
+      "name": "three_asserts_eight_constraints_positive",
+      "expected": "proved_safety_query_only",
+      "source_sha256": "2a61736efc5d32795fac03cc990669f8067d9204f91c5f535e6dfb3566b17ada",
+      "prepare": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/prepare.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03282840782776475,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/prepare.log",
+        "log_sha256": "f6056f0801059477d764ecf4502b81f4b73d88c289b30127667484880463c38c"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "property_counts": {
+        "assert": 3,
+        "assume": 8,
+        "cover": 0
+      },
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03302659885957837,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/export.log",
+        "log_sha256": "1bb0019dd2efec577e68e48f193cdb103b857b7071f66f59f521840a7e82f280"
+      },
+      "exported_json_sha256": "99164a5a2c84ddee64b18fdd907c65659b455b132bf0859348c51fc7b0d07f32",
+      "btor_sha256": "50c356de4e2f352b7a05f552055358c6301330392530b86443813fcf9c5b8660",
+      "btor": {
+        "operators": {
+          "sort": 2,
+          "input": 2,
+          "slice": 10,
+          "const": 2,
+          "not": 16,
+          "or": 10,
+          "constraint": 8,
+          "state": 1,
+          "init": 1,
+          "and": 3,
+          "eq": 1,
+          "next": 1,
+          "bad": 1
+        },
+        "bad": 1,
+        "constraint": 8,
+        "state_bits": 8,
+        "input_bits": 9,
+        "states": [
+          [
+            "43",
+            "state",
+            "3",
+            "q"
+          ]
+        ],
+        "initializers": [
+          [
+            "44",
+            "init",
+            "3",
+            "43",
+            "42"
+          ]
+        ]
+      },
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "mbic3",
+          "--smt-solver",
+          "btor",
+          "--pseudo-init-prop",
+          "--check-invar",
+          "-v",
+          "1",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/model.btor2"
+        ],
+        "returncode": 1,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.033419299870729446,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/pono.log",
+        "log_sha256": "d96eb3ca43bb510603d0d59385f455ab19d054d462f4a8cb9b4ca0a60942cf1e"
+      },
+      "status": "proved_safety_query_only"
+    },
+    {
+      "name": "third_assertion_negative",
+      "expected": "counterexample_in_query_model",
+      "source_sha256": "c001dcba10b2bd8b3a902d9e6c83bd26c710debcb5cfa94c297db8a5d8f2379b",
+      "prepare": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/prepare.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03274553781375289,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/prepare.log",
+        "log_sha256": "d0bc20c993635da7cae516a18191abe565bccf36b2ca5f2ff6d0186c4be3c555"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "property_counts": {
+        "assert": 3,
+        "assume": 8,
+        "cover": 0
+      },
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03340530022978783,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/export.log",
+        "log_sha256": "9c63d015f593951440924e09facc2cac4057b4a907a2d1da7b4f4b94a8019493"
+      },
+      "exported_json_sha256": "d1f304ceb585c3a4a56595b2c965f8392ebad4a9d0ae980d6ad8435bb457978d",
+      "btor_sha256": "72637faaaa77fabbe5387ad10e03766afe2dc8abb0d6eb582d4ffb2a4f1d9512",
+      "btor": {
+        "operators": {
+          "sort": 2,
+          "input": 2,
+          "slice": 10,
+          "const": 2,
+          "not": 17,
+          "or": 10,
+          "constraint": 8,
+          "state": 1,
+          "init": 1,
+          "and": 3,
+          "redor": 1,
+          "next": 1,
+          "bad": 1
+        },
+        "bad": 1,
+        "constraint": 8,
+        "state_bits": 8,
+        "input_bits": 9,
+        "states": [
+          [
+            "43",
+            "state",
+            "3",
+            "q"
+          ]
+        ],
+        "initializers": [
+          [
+            "44",
+            "init",
+            "3",
+            "43",
+            "42"
+          ]
+        ]
+      },
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "mbic3",
+          "--smt-solver",
+          "btor",
+          "--pseudo-init-prop",
+          "--check-invar",
+          "-v",
+          "1",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.016985717229545116,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/pono.log",
+        "log_sha256": "42a9321387241d0b31c06944f61fb2163d15326f662d52f379d7cd9c3c164a70"
+      },
+      "status": "counterexample_in_query_model",
+      "counterexample_witness_available": false,
+      "counterexample_scope": "Engine reports SAT; installed MBIC3 witness extraction is not implemented",
+      "negative_bmc": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+          "-e",
+          "bmc",
+          "--smt-solver",
+          "btor",
+          "--witness",
+          "-k",
+          "6",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/model.btor2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+        "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+        "timeout": false,
+        "seconds": 0.016942926216870546,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/negative_bmc.log",
+        "log_sha256": "b8b9750de21c14fe8f9310eb6d1939d73327cc8adcf0b375d16daac28eb3be35"
+      },
+      "witness_check": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+          "-c",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/model.btor2",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/counterexample.wit"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+        "executable_sha256": "d89cfd9a0ed8467b468b2440f438640ecef82907ada2d86789740f7be2a7140f",
+        "timeout": false,
+        "seconds": 0.016637394670397043,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/witness_check.log",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "witness_sha256": "b8b9750de21c14fe8f9310eb6d1939d73327cc8adcf0b375d16daac28eb3be35"
+    }
+  ],
+  "dependencies": {
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/word_solver.py": "61c831cc559197a557805eeed0e61638e95fd952aec54a684a13b5d25a7a0eb7",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/temporal.py": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/source.sv": "8f436967379b7484a365dc578371dfe37fa7ea22565d5d3a3a8a1766660a28b4",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/export.log": "a4c9f3c19ec41557348a950736a75ddc4da6e5f0ce3dc49500dd3a101008f27e",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/exported.json": "72087c64c8917556aed66f1346cdbd311f15aa79eac2e4c2b69d4e3ad080fd9b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/summary.json": "fecb0d15f2f1bd535e5d5eb538a4917cda409c17b9ef15c8597739761767cfd4",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/model.info": "126996a9786bf544b7a18833fd1458decc577e0c3e97a3066cc1569413ed16f0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/export.ys": "cea41fe983162a73d3cb05743adf13d92b7bbafd1ab72e2c875661153a9ed88b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/prepare.ys": "f42d673ddf8f1f65697a8441bb62ea79821ca4d1398b03dd67cba448cd65c604",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/prepare.log": "41a5561b2e5f27a99b2f36b72fb0958d335a91da748e25e792575473e961cd8f",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/model.ywb": "e759dbeec3c1b954dd60c53a30aa58e3ea3dd2310607fdda2bb2a39f940db488",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/prepared.json": "bee941b0c68d697ab2f25721bd2110f451122cc8ff568016795b906b974560e2",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/pono.log": "e6b6e9fe4d3e50bc3751394748a0ccf1d0714a51c3f1fc7b314140e1aef844db",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/model.btor2": "a1494c8ba0c2548697a05bb9ab5b5b0e89295f961999b2782d2c3f7b7af1a1b1",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/source.sv": "e2f29216dc9de6ebf1c9c5c244dbd00bc9684ca428fa1db5b6a1a7abd2c30a14",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/export.log": "9c63d015f593951440924e09facc2cac4057b4a907a2d1da7b4f4b94a8019493",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/counterexample.wit": "b8b9750de21c14fe8f9310eb6d1939d73327cc8adcf0b375d16daac28eb3be35",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/exported.json": "d1f304ceb585c3a4a56595b2c965f8392ebad4a9d0ae980d6ad8435bb457978d",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/summary.json": "f98878cd94e99fadddd470e0f59cc0ca4b0cb8bd87684409311578575bf28dda",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/negative_bmc.log": "b8b9750de21c14fe8f9310eb6d1939d73327cc8adcf0b375d16daac28eb3be35",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/model.info": "126996a9786bf544b7a18833fd1458decc577e0c3e97a3066cc1569413ed16f0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/export.ys": "15cad389ad08983d0413b22a3238968f791c7032454a9bc77385b26bae6b5eb8",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/prepare.ys": "c6b5db64e9ad65283c7a1566961542d9605ae40e3fd67ab25519ef69fec8f8e8",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/prepare.log": "d0bc20c993635da7cae516a18191abe565bccf36b2ca5f2ff6d0186c4be3c555",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/model.ywb": "41a5f0146a4e9a4ce4d6ba9d97847706641f93ddcea2ea4840b4d55fbd01c4da",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/prepared.json": "c001dcba10b2bd8b3a902d9e6c83bd26c710debcb5cfa94c297db8a5d8f2379b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/pono.log": "42a9321387241d0b31c06944f61fb2163d15326f662d52f379d7cd9c3c164a70",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/model.btor2": "72637faaaa77fabbe5387ad10e03766afe2dc8abb0d6eb582d4ffb2a4f1d9512",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/third_assertion_negative/witness_check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/source.sv": "8279c4df7817307ab27c542c5def829a63e2a16f33088875c66eb0bd4447c8b2",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/export.log": "c8a46263100868662a82a04c8d163507f62009e1d6d7d748acc945f684209e49",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/counterexample.wit": "6d672c02f51401ea6956be21306bbcf881dd5a31e47baf8c3670dcc041dd5ab5",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/exported.json": "1be7327721a5b0684606f70dce14d1b135c1e8243a56235497a0993b3eb66db5",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/summary.json": "cc8c46967aad0fa2730ff7f1f23fd453be1e6ab86b7f0f91c4871efa301ca6af",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/negative_bmc.log": "6d672c02f51401ea6956be21306bbcf881dd5a31e47baf8c3670dcc041dd5ab5",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/model.info": "126996a9786bf544b7a18833fd1458decc577e0c3e97a3066cc1569413ed16f0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/export.ys": "30740ec106aef31f5e1cd9a734e995e20f771c6c0b4f77c69f749beb0b64ce1c",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/prepare.ys": "764146adb9710df79d1bd3afbc894e746b0b5af4ba8082d532b80197ac55ac7b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/prepare.log": "608a1033096c43b025df9e88a3388a538c7d310b8fc969972ce75200619d5a6c",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/model.ywb": "e221e2954d3fc8a417a4e3104c66bc38ea43a3aa2d54fd74b9a5a6be591ae4dc",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/prepared.json": "1da7d27aade1d577dd5d9a3a6953110f6592ef277041e2048a5addd2e44edead",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/pono.log": "7b6aec70328eb5e033aef37a4858a7c595cddababafd6e3d7a2eabc83bff55ff",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/model.btor2": "461c76c47a2559f11dd1a693bdebb850ec2fad216cc633e5bfe95ed3d21510fd",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/nonzero_initial_value_negative/witness_check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/source.sv": "a17072c3e7ab64da03e9e7d0bde0392cefaeca4bb669a8f2ce3a93240f15355b",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/export.log": "2ab7017bc049ad9c8aebeb26f4493244c70018d73ea88e6669d81af40fb04397",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/counterexample.wit": "035e425bde0791845ad833ffbd1bb70de786944f1ac579128a189e7610dcb7f9",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/exported.json": "34304f8f3dc970b7e5a4083255ddfcb0dba200d93967c1af5e88d22b03a59d28",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/summary.json": "7c17bcd550dbf3148df622f925edbc6f77694090f04100dcb7b7bb6030846210",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/negative_bmc.log": "035e425bde0791845ad833ffbd1bb70de786944f1ac579128a189e7610dcb7f9",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/model.info": "bb65e10042523700c894a4c0f2ce973acaadf892b070a82f43fcad366861ad61",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/export.ys": "2d83bac05bfc949fc337b1d889deb6b779990ac3be9a28c54536a7b547c719c5",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/prepare.ys": "fcef8c859073503de2744a34c82e72e2ad9c8e6b7b584ae158b5209f22837da5",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/prepare.log": "aed425942b45912f8f938f001fda2df3b90b173a72e286951afb0c545676ecfa",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/model.ywb": "284310f9889a3ecf93b182974989c4a56dedd00006a3251211550025da366b9e",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/prepared.json": "34304f8f3dc970b7e5a4083255ddfcb0dba200d93967c1af5e88d22b03a59d28",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/pono.log": "39b73a3b363727154e3a6b0a8c2d04faaa28801856a49743fffaeb5c8e2b8555",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/model.btor2": "1f7884b00d5a13d198d54418dca07198d571740dc1bb71195e996c16bba1edc8",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/symbolic_x_negative/witness_check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/source.sv": "745423dadf6209591138bda9e3f9619963a7f60300dee8e0c523b6d1906efd0f",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/export.log": "59312c6681b350f964bedef0a43becb693f3962bb595e7df38e38c09ee595042",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/counterexample.wit": "5a393ce46fdbe4389ed1dd6f807fa8ba426b2ce502e052ce0b53679a1a8352cf",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/exported.json": "8314646d66f255d8896949f22902d0f1a2553df9a56062d29b9e63dc80fcd22a",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/summary.json": "0d0be15dbd9524536d317cbbe96452d7bba6eff2109376ebe85a7be8338fe67c",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/negative_bmc.log": "5a393ce46fdbe4389ed1dd6f807fa8ba426b2ce502e052ce0b53679a1a8352cf",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/model.info": "126996a9786bf544b7a18833fd1458decc577e0c3e97a3066cc1569413ed16f0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/export.ys": "dc8c5a62aa52e9fb0d99f06a0c5a9eb9a25594f0947dedb827ddf6f84c403811",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/prepare.ys": "0e5e1a493fe5d852cec4f24d410936cb1ad975383d5d9c03e056ed58ed3ef02a",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/prepare.log": "2ad8843c3b4abcb21a8efc4cd59c152d92c1c97d4fd42742f564d9bb2a7232a8",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/model.ywb": "e221e2954d3fc8a417a4e3104c66bc38ea43a3aa2d54fd74b9a5a6be591ae4dc",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/prepared.json": "45253b1afe053dbab217169a9070c9b360217a2af3db04c3390f32a96a43edb6",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/pono.log": "7b6aec70328eb5e033aef37a4858a7c595cddababafd6e3d7a2eabc83bff55ff",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/model.btor2": "64c191aba7095cc2e7d2da465f80adc8d2681fd97dcaa9942fef156e4563cf56",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/uninitialized_state_negative/witness_check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/source.sv": "810230f679f44bdef12edc941b46cb21a64df5be86fb7d372f439f461a602434",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/export.log": "2a6b28288de0b47d29f69d9b4789ffdaa01d47e3f2509f39fabc25b0eee21406",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/exported.json": "178d78fb72a010c7ca2c11cc0a4afe67f020e5fcacf2e9b51a752d042ba54e3a",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/summary.json": "eb23ce146bcf2965d4074c41d77aa37edc8a579591f5ed12a6aa4b7ed618e4e6",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/model.info": "126996a9786bf544b7a18833fd1458decc577e0c3e97a3066cc1569413ed16f0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/export.ys": "f0c854c93430c64cb0702822a5306767c83c17c527a32cfdc01fa81248843fe2",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/prepare.ys": "bbe94ce367842cf798278b07a02e1050ef2b1cf3253d6d67e90b5867de47ffce",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/prepare.log": "dfa038b9039924d661bc98ce7160cbe75af7b9a035563261e33c3884b173908f",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/model.ywb": "f190ac2627ca66cc1f74c34ba1981174d26b505c0ff0bf3908818cdebe908036",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/prepared.json": "4b8b18373fe0c05e1ac295926f7c1ee1150744b88120fa780177e2e49c6940b2",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/pono.log": "49c3863b4f75f5a95c9b0d54307758da4e40ef333757a856ddbdcdb7f8797d3e",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/model.btor2": "9c897c4a6a7b6fe51111a7c84b806f36cab4c3aaa9796f9c037ffaed65223889",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/source.sv": "cac0215a77f87d72ecd31b176e86b7e7b9cabd23e97216a27bf2887dc9b5fd5e",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/export.log": "d99e2e106ae2b618c2dc2b93809102af6dd5ae3bb634d229d3b0e467fee69cd5",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/counterexample.wit": "f5459fddd192be98226dea24e52cda4c3fdf2bece6b4df5158c1dea6282a79ac",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/exported.json": "b2e19f3d2515e341db28eb2220231647f37558aaffa2208f031bd04cfcfc04b9",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/summary.json": "eb33418d8a9c145239a8d014613cfe1a1ae71172a8e909d9703e856094b3b90d",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/negative_bmc.log": "f5459fddd192be98226dea24e52cda4c3fdf2bece6b4df5158c1dea6282a79ac",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/model.info": "126996a9786bf544b7a18833fd1458decc577e0c3e97a3066cc1569413ed16f0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/export.ys": "049fc3323dd3c37f35edd710034fa28d0ae2b318f353c0251c29ab0d0593d147",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/prepare.ys": "f4119590d90eaf5793364fa73cc5748d1a91c94503bb2f7f3826547084ec5c0c",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/prepare.log": "df221238c628ebe06216cf42c7cee187eafefd12fce54469d9eee4f4b37c7ffa",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/model.ywb": "b97796a8906c0eea923c323db60ba7d02b992d6ace3f8091c4491cd0c5cdad22",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/prepared.json": "7036517fa1f7ebb14615055b033c95e7541ff4e46154534704addc562a7eb609",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/pono.log": "63bc49c40b236e7f3272bd07d520382d4d88eba0f82480191924c4bb7977fbf2",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/model.btor2": "7a881ccf5250b84d2358d66083d8c74be8d84562ae93943edc9d96e4e2d2e5ab",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/witness_check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/source.sv": "a9c959954c652400e82c2723eace52f6ede39d20518a68685f306c2b827d7142",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/export.log": "1bb0019dd2efec577e68e48f193cdb103b857b7071f66f59f521840a7e82f280",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/exported.json": "99164a5a2c84ddee64b18fdd907c65659b455b132bf0859348c51fc7b0d07f32",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/summary.json": "57b75e32dc2b61e83977a8c526bc3b348a6e59808420de094f9722c71bf25a45",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/model.info": "126996a9786bf544b7a18833fd1458decc577e0c3e97a3066cc1569413ed16f0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/export.ys": "fb1c02b776e74d969d184b5c8c341f784c8692488fef633bf5367d921f3b733e",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/prepare.ys": "1b725f3c8d42c3a7c15585e81bbd6a3b62cdad1212335af7ab8d10f50f72ceb8",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/prepare.log": "f6056f0801059477d764ecf4502b81f4b73d88c289b30127667484880463c38c",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/model.ywb": "3d799ed0e1fde45071bfabea1c8e9ce2453c07b34a872cb6130776b2fb562fff",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/prepared.json": "2a61736efc5d32795fac03cc990669f8067d9204f91c5f535e6dfb3566b17ada",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/pono.log": "d96eb3ca43bb510603d0d59385f455ab19d054d462f4a8cb9b4ca0a60942cf1e",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/three_asserts_eight_constraints_positive/model.btor2": "50c356de4e2f352b7a05f552055358c6301330392530b86443813fcf9c5b8660",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/source.sv": "34fca1d0dedc4461fe7b21c98dcf7cef738f7390f90deaaa24e6b695bf7f4136",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/export.log": "a18d0c1fadd5d52c35aa457d18d088b14b5b4bdf70a696ba0eb81f30d113f5ba",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/counterexample.wit": "87a46642a4ac726ef5f76c29eb0f4efc22cdff7b3db99b2c35a2c94106de5b20",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/exported.json": "7647e83e15af5d7212ed3aad137eeb62186d4eb3ff8920dafddcc8208b4777a4",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/summary.json": "ab3530fc60f9ba21425cee3a3ac0eccaa6952a36f2dc101c36385f869add23a8",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/negative_bmc.log": "87a46642a4ac726ef5f76c29eb0f4efc22cdff7b3db99b2c35a2c94106de5b20",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/model.info": "126996a9786bf544b7a18833fd1458decc577e0c3e97a3066cc1569413ed16f0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/export.ys": "2d335126c454b12868f28e809f522776d2d9eba19c9ac29a941fceffd9aea3b3",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/prepare.ys": "71ae52c359b86cbbdcfcaa502e2062fa7fe3b5a21bc3217c71ac9c1f4fad7de1",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/prepare.log": "c1f8b9e63f3308170ff72b3e71ff87e51d7ff68ace6d196c5adb120481ebd69d",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/model.ywb": "ab25bb485605c094382298e89f8bef6ca46f6abbfbc876af442311b251b27327",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/prepared.json": "32d4f46b0bba5fb1e730e4effc8361d173cbfe9afb870b8f1a37c26166fb0fa0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/pono.log": "c3519834f68974fba2a37450fbde171b41ed85a068147d04b4c8b48a4b966207",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/model.btor2": "8baab0c5761cbdbf501cce6cd8974e8efabaa03138e8e1dc67c5dc320a99ad29",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/changing_anyseq_negative/witness_check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687"
+  }
+}

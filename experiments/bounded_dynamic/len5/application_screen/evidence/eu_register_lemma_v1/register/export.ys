@@ -1,0 +1,24 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/native.json"
+setundef -anyseq
+bwmuxmap
+bmuxmap
+demuxmap
+setundef -anyseq
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv"
+hierarchy -check -top EUProof
+proc_clean
+proc_prune
+proc_init
+setundef -anyseq
+proc -norom -noopt
+setundef -anyseq
+prep -top EUProof -flatten
+setundef -anyseq
+check -assert
+chformal -lower
+async2sync
+dffunmap
+setundef -anyseq
+check -assert
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/lowered.json"
+write_smt2 -wires "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/model.smt2"

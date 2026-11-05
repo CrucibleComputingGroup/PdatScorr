@@ -1,0 +1,21 @@
+{
+  "version": "Yosys Witness BTOR map",
+  "generator": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "clocks": [
+    {"path": ["\\clk"], "offset": 0, "edge": "posedge"}
+  ],
+  "inputs": [
+    [{"path": ["\\clk"], "width": 1, "offset": 0}],
+    [{"path": ["\\rst_n"], "width": 1, "offset": 0}],
+    [{"path": ["\\step"], "width": 4, "offset": 0}]
+  ],
+  "states": [
+    [{"path": ["$initstate$1_wire"], "width": 1, "offset": 0}],
+    [{"path": ["\\q"], "width": 4, "offset": 0}]
+  ],
+  "asserts": [],
+  "assumes": [
+    ["$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/source.sv:4$assume$3"],
+    ["$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/source.sv:5$assume$5"]
+  ]
+}

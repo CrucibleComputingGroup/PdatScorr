@@ -1,0 +1,60 @@
+{
+  "source_sha256": "ed24382ffdb365818716e70366e1ff0af5b83733206be1b28bb4ee98edb1f9e5",
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/model/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.0334432958625257,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/model/prepare.log",
+    "log_sha256": "a0ce51f8d26f3499cbbbe58bb4f3b98a8f2380eda0d0432a58f8d69e45a3c279"
+  },
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/model/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.033240185119211674,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/positive/model/export.log",
+    "log_sha256": "9b76b8ed9330e4dd3b313b903a89348533ebb879d507d85a8b1942102b1889fb"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "aig_sha256": "9a9b50ceaa31ddd0b255bb2ce6bb4b4aee5d4d85ff3bfad0b1700101380eaac7",
+  "aig_header": [
+    "aig",
+    "32",
+    "10",
+    "3",
+    "0",
+    "19",
+    "1",
+    "8",
+    "0",
+    "0"
+  ],
+  "initial_state": "Native unknown FF initial values remain arbitrary through zinit input encoding"
+}

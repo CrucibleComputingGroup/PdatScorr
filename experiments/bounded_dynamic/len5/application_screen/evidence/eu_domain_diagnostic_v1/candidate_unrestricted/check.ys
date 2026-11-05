@@ -1,0 +1,18 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/decoder.json"
+setundef -anyseq
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/symbolized_before_prep.json"
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv"
+hierarchy -check -top EUDomainProof
+proc_clean
+proc_prune
+proc_init
+setundef -anyseq
+proc -norom -noopt
+setundef -anyseq
+prep -top EUDomainProof -flatten
+setundef -anyseq
+check -assert
+chformal -lower
+setundef -anyseq
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/lowered.json"
+tee -o "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/sat.log" sat -set-assumes -prove-asserts -show instruction_i -show assigned_eu -dump_vcd "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/counterexample.vcd"

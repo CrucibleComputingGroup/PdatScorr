@@ -1,0 +1,60 @@
+{
+  "source_sha256": "c626965b9bd2f04e831044fc9d13e99381160334d636e1fbeeafb69dc4f34423",
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_invariant/model/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.03282692888751626,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_invariant/model/prepare.log",
+    "log_sha256": "52cf0481dedf0213f760b92b2e4eefca8596d5858b029c8d7c70bf2dfda42ea9"
+  },
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_invariant/model/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.06487647583708167,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_invariant/model/export.log",
+    "log_sha256": "0eecf6a75fa852f61a58921b23748ed2a72c742cab966c419747100d906ca498"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "aig_sha256": "8d62e53b6814c563e0d71dd7068a86b38682ea00911eab8849fc9f9448364096",
+  "aig_header": [
+    "aig",
+    "18",
+    "4",
+    "4",
+    "0",
+    "10",
+    "1",
+    "0",
+    "0",
+    "0"
+  ],
+  "initial_state": "Native unknown FF initial values remain arbitrary through zinit input encoding"
+}

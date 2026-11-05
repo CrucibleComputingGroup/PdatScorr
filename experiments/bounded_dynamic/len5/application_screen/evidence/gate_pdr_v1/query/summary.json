@@ -1,0 +1,74 @@
+{
+  "status": "unknown",
+  "accepted_optimization": false,
+  "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstracted.aig",
+  "input_sha256": "d9544bac5ccd5b9a4e447704ec0577a2d62243ecf9ee0b1d94d4d991cf8e325f",
+  "input_header": [
+    "aig",
+    "11367",
+    "1226",
+    "491",
+    "1",
+    "9650"
+  ],
+  "script_sha256": "d1d3e267608241ed7a3bfb34dc7774675651bc21da4beb98cb3a89b4e6ef47ac",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstracted.aig\"; pdr -T 120 -v; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_pdr_v1/pdr/pdr.status\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 120.19480211101472,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_pdr_v1/pdr/pdr.log",
+    "log_sha256": "85f1782bfafbad6bd980b0d688986d00f994cae1ee220d43d1d5e9625037764c"
+  },
+  "raw_status": "snl_UNK 14 unknown\nNULL\nNULL\n",
+  "preprocessing": "None: read the ordinary one-output abstraction directly; no fold, no extra assumptions",
+  "interpretation": "A complete unbounded proof of the overapproximation transfers through the source-bound GLA map. A counterexample here belongs only to the abstraction until concretized against the original model.",
+  "artifacts_sha256": {
+    "gate_pdr.py": "d1d3e267608241ed7a3bfb34dc7774675651bc21da4beb98cb3a89b4e6ef47ac",
+    "pdr.log": "85f1782bfafbad6bd980b0d688986d00f994cae1ee220d43d1d5e9625037764c",
+    "pdr.status": "2702dae2e912ac0aca7d57ea55cca6ce728791c97ddc9328d9d3191088f5438a"
+  },
+  "gate_map_replay": {
+    "map_path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final_map.aig",
+    "map_sha256": "437384c94dadde914ef03476cbb897a4be293c5dbf86299da2cc9ed09eba8ba6",
+    "abstracted_path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstracted.aig",
+    "abstracted_sha256": "d9544bac5ccd5b9a4e447704ec0577a2d62243ecf9ee0b1d94d4d991cf8e325f",
+    "rederived_sha256": "d9544bac5ccd5b9a4e447704ec0577a2d62243ecf9ee0b1d94d4d991cf8e325f",
+    "execution": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "&read \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final_map.aig\"; &gla_derive; &ps; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_pdr_v1/map_replay/rederived.aig\""
+      ],
+      "returncode": 0,
+      "executable": "/usr/local/bin/abc",
+      "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+      "timeout": false,
+      "seconds": 0.1826180974021554,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_pdr_v1/map_replay/derive.log",
+      "log_sha256": "59822f61c3e8cb985da8feb4f9a0158a80781c3538e3bbededa0ea6083e5b211"
+    }
+  },
+  "source_dependencies_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/summary.json": "dac8db2890982cc3af5e88554d6d05d44edd62ff48c9354ab5c13e85cc4e717c",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1/summary.json": "e6beb5dbb1be779bb7ac2e64dc81c3fc858cb595c3555fc965c35e1a52054b8f",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final_map.aig": "437384c94dadde914ef03476cbb897a4be293c5dbf86299da2cc9ed09eba8ba6",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/gla.log": "91b4e860a79b4593dd605ddc15ca9e4775f16a7d4e8e07a857174c945e38d5db",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstraction_map.status": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstracted.aig": "d9544bac5ccd5b9a4e447704ec0577a2d62243ecf9ee0b1d94d4d991cf8e325f",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/final.status": "c7a11fd73711bb6c1f4eb21827273ea6f8f5daec1ed451c8a31e1dfddc38c923",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/derive.log": "8c4776ad4c526107ec8b7cafe732069b255e3ff005016a6f2ca226436b4711d0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/folded.aig": "a1de81d4ca119d33cf80e2235d2d40361dc49cc227043a14a4fc236f113f5944",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/gla.status": "94ff610d08dbf3a6b76b8734390af74aea804d550924bc7bc91f9439cb45d901",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstraction_map.aig": "fce46bf74287a9ce73a4b1a1f4a9868f8a0f88a631a48971cb0c4a75bfddd192"
+  },
+  "source_prepared_directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1",
+  "gla_result_directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1"
+}

@@ -1,0 +1,98 @@
+{
+  "scope": "Read-only inspection of retained qualified safe formal model, no new query",
+  "screen_path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/screen.json",
+  "screen_sha256": "e6df69bf828d6ade72da3fa7492de0702acdfbffc87091b7a1f11c17de0cb627",
+  "selected_aliases": {
+    "dut.u_backend.u_issue_stage.id_assigned_eu": [
+      305356,
+      305357,
+      "0"
+    ],
+    "dut.u_backend.u_issue_stage.ireg_data_out": [
+      40378,
+      40379,
+      40380
+    ],
+    "dut.u_backend.u_exec_stage.issue_valid_i": [
+      107245,
+      100212,
+      109390,
+      115965,
+      117087,
+      117554
+    ]
+  },
+  "registered_high_output_driver": {
+    "name": "$auto$async2sync.cc:233:execute$20163",
+    "cell": {
+      "hide_name": 1,
+      "type": "$mux",
+      "parameters": {
+        "WIDTH": "00000000000000000000000000000011"
+      },
+      "attributes": {},
+      "port_directions": {
+        "A": "input",
+        "B": "input",
+        "S": "input",
+        "Y": "output"
+      },
+      "connections": {
+        "A": [
+          "0",
+          "0",
+          "0"
+        ],
+        "B": [
+          40375,
+          40376,
+          40377
+        ],
+        "S": [
+          3
+        ],
+        "Y": [
+          40378,
+          40379,
+          40380
+        ]
+      }
+    }
+  },
+  "registered_high_internal_ff": {
+    "name": "$flatten\\dut.$driver$u_backend.u_issue_stage.ireg_data_out.assigned_eu",
+    "bit_index": 2,
+    "cell": {
+      "hide_name": 1,
+      "type": "$dff",
+      "parameters": {
+        "CLK_POLARITY": "00000000000000000000000000000001",
+        "WIDTH": "00000000000000000000000000000011"
+      },
+      "attributes": {
+        "src": "source/rtl/expipe/issue-unit/issue_stage.sv:312.3"
+      },
+      "port_directions": {
+        "CLK": "input",
+        "D": "input",
+        "Q": "output"
+      },
+      "connections": {
+        "CLK": [
+          2
+        ],
+        "D": [
+          87584,
+          87585,
+          87586
+        ],
+        "Q": [
+          40375,
+          40376,
+          40377
+        ]
+      }
+    }
+  },
+  "finding": "Decoder high bit is already literal0; registered high bit remains a native-history FF behind async-reset output mux, and MUL/DIV valid outputs are not literal constants. A sequential reset-domain fact, rather than another decoder combinational cut, is the next missing simplification."
+}

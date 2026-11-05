@@ -1,0 +1,6 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/prepared.json"
+check -assert
+formalff -clk2ff
+setundef -anyseq
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/exported.json"
+write_btor -s -v -i /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/model.info -ywmap /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/model.ywb "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/constrained_even_nonzero_init/model.btor2"

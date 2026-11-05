@@ -1,0 +1,495 @@
+{
+  "status": "native_register_and_dispatch_lemmas_proved",
+  "accepted_optimization": false,
+  "classification": "Pscorr program-only derived native facts; no timing premise or hardware rewrite",
+  "external_premises": [
+    "initial rst_ni == 0",
+    "(rst_ni && instr_rvalid_i) -> instruction response word in declared domain"
+  ],
+  "new_environmental_premises": [],
+  "native_visible_register_high_bit": 91687,
+  "native_decoder_high_bit": 202160,
+  "native_mul_issue_valid_bit": 67868,
+  "native_div_issue_valid_bit": 71113,
+  "path": {
+    "decoder_assigned_eu_bits": [
+      202158,
+      202159,
+      202160
+    ],
+    "ireg_assigned_eu_ff": {
+      "name": "$driver$u_backend.u_issue_stage.ireg_data_out.assigned_eu",
+      "cell": {
+        "hide_name": 1,
+        "type": "$aldff",
+        "parameters": {
+          "ALOAD_POLARITY": "00000000000000000000000000000000",
+          "CLK_POLARITY": "00000000000000000000000000000001",
+          "WIDTH": "00000000000000000000000000000011"
+        },
+        "attributes": {
+          "src": "source/rtl/expipe/issue-unit/issue_stage.sv:312.3"
+        },
+        "port_directions": {
+          "AD": "input",
+          "ALOAD": "input",
+          "CLK": "input",
+          "D": "input",
+          "Q": "output"
+        },
+        "connections": {
+          "AD": [
+            "0",
+            "0",
+            "0"
+          ],
+          "ALOAD": [
+            3
+          ],
+          "CLK": [
+            2
+          ],
+          "D": [
+            139304,
+            139305,
+            139306
+          ],
+          "Q": [
+            91685,
+            91686,
+            91687
+          ]
+        }
+      }
+    },
+    "ireg_high_bit": 91687,
+    "native_high_bit_data_mux_slices": {
+      "$procmux$39608": {
+        "hide_name": 1,
+        "type": "$mux",
+        "parameters": {
+          "WIDTH": "00000000000000000000000000000001"
+        },
+        "attributes": {
+          "full_case": "00000000000000000000000000000001",
+          "src": "source/rtl/expipe/issue-unit/issue_stage.sv:316.7-316.27|source/rtl/expipe/issue-unit/issue_stage.sv:315.14-319.8"
+        },
+        "port_directions": {
+          "A": "input",
+          "B": "input",
+          "S": "input",
+          "Y": "output"
+        },
+        "connections": {
+          "A": [
+            202585
+          ],
+          "B": [
+            "0"
+          ],
+          "S": [
+            91658
+          ],
+          "Y": [
+            139306
+          ]
+        }
+      },
+      "$procmux$39604": {
+        "hide_name": 1,
+        "type": "$mux",
+        "parameters": {
+          "WIDTH": "00000000000000000000000000000001"
+        },
+        "attributes": {
+          "full_case": "00000000000000000000000000000001",
+          "src": "source/rtl/expipe/issue-unit/issue_stage.sv:316.7-316.27|source/rtl/expipe/issue-unit/issue_stage.sv:315.14-319.8"
+        },
+        "port_directions": {
+          "A": "input",
+          "B": "input",
+          "S": "input",
+          "Y": "output"
+        },
+        "connections": {
+          "A": [
+            202324
+          ],
+          "B": [
+            "x"
+          ],
+          "S": [
+            91658
+          ],
+          "Y": [
+            202585
+          ]
+        }
+      },
+      "$procmux$39601": {
+        "hide_name": 1,
+        "type": "$mux",
+        "parameters": {
+          "WIDTH": "00000000000000000000000000000001"
+        },
+        "attributes": {
+          "src": "source/rtl/expipe/issue-unit/issue_stage.sv:318.7-318.37|source/rtl/expipe/issue-unit/issue_stage.sv:317.14-319.8"
+        },
+        "port_directions": {
+          "A": "input",
+          "B": "input",
+          "S": "input",
+          "Y": "output"
+        },
+        "connections": {
+          "A": [
+            91687
+          ],
+          "B": [
+            202160
+          ],
+          "S": [
+            91511
+          ],
+          "Y": [
+            202324
+          ]
+        }
+      }
+    },
+    "arbitrary_control_cut_candidates": [
+      91511,
+      91658
+    ],
+    "native_onehot_demux": {
+      "$934": {
+        "hide_name": 1,
+        "type": "$demux",
+        "parameters": {
+          "S_WIDTH": "00000000000000000000000000000011",
+          "WIDTH": "00000000000000000000000000000001"
+        },
+        "attributes": {
+          "src": "source/rtl/expipe/issue-unit/issue_stage.sv:353.5-353.57"
+        },
+        "port_directions": {
+          "A": "input",
+          "S": "input",
+          "Y": "output"
+        },
+        "connections": {
+          "A": [
+            "1"
+          ],
+          "S": [
+            91685,
+            91686,
+            91687
+          ],
+          "Y": [
+            114394,
+            114395,
+            114396,
+            114397,
+            114398,
+            114399,
+            114400,
+            114401
+          ]
+        }
+      }
+    },
+    "native_dispatch_and": {
+      "$auto$opt_expr.cc:797:replace_const_cells$41708": {
+        "hide_name": 1,
+        "type": "$and",
+        "parameters": {
+          "A_SIGNED": "00000000000000000000000000000000",
+          "A_WIDTH": "00000000000000000000000000000110",
+          "B_SIGNED": "00000000000000000000000000000000",
+          "B_WIDTH": "00000000000000000000000000000110",
+          "Y_WIDTH": "00000000000000000000000000000110"
+        },
+        "attributes": {},
+        "port_directions": {
+          "A": "input",
+          "B": "input",
+          "Y": "output"
+        },
+        "connections": {
+          "A": [
+            118912,
+            118912,
+            118912,
+            118912,
+            118912,
+            118912
+          ],
+          "B": [
+            114394,
+            114395,
+            114396,
+            114397,
+            114398,
+            114399
+          ],
+          "Y": [
+            36869,
+            27266,
+            46738,
+            63166,
+            67868,
+            71113
+          ]
+        }
+      }
+    },
+    "mul_issue_valid_bit": 67868,
+    "div_issue_valid_bit": 71113,
+    "register_packed_field_indices": [
+      161,
+      162,
+      163
+    ],
+    "pipeline_theorem_status": "Native visible register invariant and exact dispatch consequences proved in this run"
+  },
+  "decoder_dependency": {
+    "certificate_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+    "diagnostic_summary_sha256": "2a04b8346e8dd8d76ddb1038c4809f663863ea31759d9b694d1e9e69d40a925a",
+    "sat_log_sha256": "9f2f62a6990d0aa96e8351e940781f1a2f3c0d24649072ceda901b0f060bd8d6",
+    "decoder_model_sha256": "f354801084bbbc3c031a691d8384e39b301e5a92ca610e9c839b41cabdc101e7",
+    "certificate_replay": {
+      "argv": [
+        "/home/allenjin/miniconda3/bin/python3",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/isa_baseline/certify.py",
+        "--prepared",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_baseline_prepare_v1",
+        "--candidate",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_alphabet_v1",
+        "--domain-proof",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4",
+        "--pair-recheck",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_pair_symbolic_v1",
+        "--output",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/replayed_decoder_certificate.json"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/miniconda3/bin/python3.13",
+      "executable_sha256": "1a7c41f8f8828f777e4cfb04e5e83377c06b9a005bc69ecc7c7e5ad47ba3c82b",
+      "timeout": false,
+      "seconds": 0.948547669686377,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/certificate_replay.log",
+      "log_sha256": "f21c665ffe65a9cb80d205556bdd67b92d0d00712bac0a0034c02c6dc4262a79"
+    }
+  },
+  "proofs": {
+    "register": {
+      "status": "proved_unbounded",
+      "sequential": true,
+      "derived_premise_present": true,
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03297845786437392,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/export.log",
+        "log_sha256": "4663ed9e8a0b213281f4faa98ec5cb8ac4938640c9853fb651b58c69f51e6a65"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "base": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+          "-s",
+          "z3",
+          "-t",
+          "4",
+          "--noprogress",
+          "--dump-vcd",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/counterexample.vcd",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/model.smt2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+        "timeout": false,
+        "seconds": 0.11509654019027948,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/base.log",
+        "log_sha256": "377d7e6fbb47aa7b7a524f5a57dd59a2c1b8b8300de864dfc1cd282dfa1c2e53"
+      },
+      "induction": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+          "-s",
+          "z3",
+          "-t",
+          "4",
+          "--noprogress",
+          "-i",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/model.smt2"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+        "timeout": false,
+        "seconds": 0.16550300270318985,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/induction.log",
+        "log_sha256": "4536e1f500811e6de5ef27854e3617115f23d8c8cebe6c098610ca0f446fcd4c"
+      },
+      "smt_sha256": "547cb52c1f141d65e909a148c43435c44254734cf54a3e641130e3b2fbe54419",
+      "property_counts": {
+        "assert": 1,
+        "assume": 2
+      },
+      "native_json_sha256": "8f049a22186064aec2bda7608ce8f86d5a6fbe93ad74f8b4de882f78ba4d8b7c",
+      "lowered_json_sha256": "45a04db194b276ae9a809e3d29a201cb6f5b96436f6ec7e9fda694db9bb50cd7",
+      "harness_sha256": "00d6b8656d1141cfca11fb49958cbf98821066cf27f34e8a6f999a692c7a5dc2"
+    },
+    "register_negative": {
+      "status": "counterexample_found",
+      "sequential": true,
+      "derived_premise_present": false,
+      "export": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/export.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03277007723227143,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/export.log",
+        "log_sha256": "fed5725dee7d784db71dae4792e4efeecda6d48ee5b43c6f027b1c7f466b41c6"
+      },
+      "clock_model": {
+        "clocks": [
+          [
+            [
+              2
+            ],
+            1
+          ]
+        ],
+        "model": "single shared global step, validated after async2sync/dffunmap"
+      },
+      "base": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+          "-s",
+          "z3",
+          "-t",
+          "4",
+          "--noprogress",
+          "--dump-vcd",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/counterexample.vcd",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/model.smt2"
+        ],
+        "returncode": 1,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+        "timeout": false,
+        "seconds": 0.11550266295671463,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register_negative/base.log",
+        "log_sha256": "3b68aa98e13cf0842ecbf943f535483e5f16d6b180fbc9755fc0c4445a6070ce"
+      },
+      "smt_sha256": "ffb856a868ed9ed9b90c5ca04af28aff542c1c8d736b7cce3d002c5bfd30dfc0",
+      "property_counts": {
+        "assert": 1,
+        "assume": 1
+      },
+      "native_json_sha256": "8f049a22186064aec2bda7608ce8f86d5a6fbe93ad74f8b4de882f78ba4d8b7c",
+      "lowered_json_sha256": "f6e3b34802e0a003952db2536bbd2a7fba5503c57c103bbaa0702ab6822b8a37",
+      "harness_sha256": "c544358ee7e9743ebc10a4a2dccd6c578b07ee7ef30cdde9a6c6c18c0549d4d0"
+    },
+    "dispatch": {
+      "status": "proved_combinationally",
+      "sequential": false,
+      "derived_premise_present": true,
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/dispatch/check.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03260642709210515,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/dispatch/check.log",
+        "log_sha256": "a9febb9923f6c276e73fb8cdb63aab58ce6ce4ea62ea91184efc49395de3c1bc"
+      },
+      "sat_log_sha256": "8cfb9bd80091950e744b6948bb87a3c562218bc0671be288ac304e6d745d0ba6",
+      "property_counts": {
+        "assert": 1,
+        "assume": 1
+      },
+      "native_json_sha256": "5223d53bb409b7e1b95cedada1804b9b09bf89cda9320c4e682947d48088ba1f",
+      "lowered_json_sha256": "69b151bedecb9adf26fef69a63c6c71a08242c96721d0b8c5dfb96c39e509d11",
+      "harness_sha256": "5b89b2765081cd46d323a8d1c71f698bc8cb885bcb44bf181f6ce20213a96f35"
+    },
+    "dispatch_negative": {
+      "status": "counterexample_found",
+      "sequential": false,
+      "derived_premise_present": false,
+      "execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/dispatch_negative/check.ys"
+        ],
+        "returncode": 0,
+        "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+        "timeout": false,
+        "seconds": 0.03259859699755907,
+        "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/dispatch_negative/check.log",
+        "log_sha256": "f718b629e4e76f8cf33de18f9f188a77b6c2d0af4fafd082bef64d3430862845"
+      },
+      "sat_log_sha256": "dac7a8fcb37a4bd15f9508289436fdafb968e4f5d6559a6b109f9c99bd200b1f",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0
+      },
+      "native_json_sha256": "5223d53bb409b7e1b95cedada1804b9b09bf89cda9320c4e682947d48088ba1f",
+      "lowered_json_sha256": "f974b01c631eb89ddff1d5e96a9620e1e25c965aed8197d5a682e5cb3f13adc4",
+      "harness_sha256": "375a89ece94779fb818a94cf9129f75b9a730c6eb8262655bda4e1bcd1d6c1f1"
+    }
+  },
+  "dependency_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/isa_baseline/results/program_alphabet_certificate_v3.json": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/summary.json": "2a04b8346e8dd8d76ddb1038c4809f663863ea31759d9b694d1e9e69d40a925a",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/isa_baseline/certify.py": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/eu_register_lemma.py": "aa37d5a8f036f076bda615fb57e16dc92c1eee9adb50f963e5e7bc8ce4d3e65f",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/eu_domain_diagnostic.py": "7915411b4394cb374ac6b160744922371c2f309fc37e43ff195cfaa0dfe67e7d",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/reset_storage.py": "0e3a7a637ff563f6554c65a80926c7af6df4a0f75a6579aad47a50ac04cd47c3",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_baseline_prepare_v1/whole_core.json": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_alphabet_v1/candidate_whole_core.json": "82a76125a33790027bf6b86cb97007d048759484d6e96027abd8fa9ad5d215db"
+  },
+  "composition": "Closed decoder equivalence and native input-domain proof imply original/candidate correspondence under the external program-word domain. The exact certified candidate decoder has unconditional high-bit zero. The original one-bit visible issue-register projection proves reset-preserved high-bit zero for arbitrary shared native enable/flush controls. Exact native onehot-decode/valid-AND then proves both MUL/DIV issue valids zero. The local assumptions are discharged by preceding proved conclusions, not perpetual-idle premises. Removing FU state/output cones still requires further native reset/output closure."
+}

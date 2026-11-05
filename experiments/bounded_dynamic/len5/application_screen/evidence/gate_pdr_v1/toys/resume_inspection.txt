@@ -1,0 +1,7 @@
+Saved GLA map restoration (inspection only; no further target GLA run)
+
+Use &read final_map.aig to restore the original folded GIA and its saved gate-class vector. &gla_derive consumes that vector to create the proof abstraction; byte-identical replay has been tested. &gla itself preserves an existing vGateClasses rather than reinitializing it (accessible absGla.c1518-1524). Thus &read final_map.aig; &gla -q ... starts a fresh solver using the saved refined map, not a saved SAT search.
+
+-S N is documented as a starting frame; source absGla.c1586-1606 still unrolls from frame0 and skips checks through N. This is not a snapshot of learned clauses. Do not assume the timeout frame itself completed: the recorded run finished checking through frame24 and timed out during25. The conservative restart omits -S and rechecks the prefix on the much smaller map. No restarted large GLA run was launched here.
+
+&gla_refine refines a saved gate map using a counterexample, with optional suffix-frame parameters. It is distinct from &abs_refine/&abs_derive, which operate on flop maps. A PDR counterexample to the derived gate abstraction is not automatically a native counterexample; it first needs refinement/concretization against the original saved-map GIA.

@@ -1,0 +1,29 @@
+
+21. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 14 cells to SAT database.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/dispatch_negative/harness.sv:4$logic_and$25_Y when 1'1.
+Import show expression: \registered_eu
+Import show expression: \mul_valid
+Import show expression: \div_valid
+
+Solving problem with 99 variables and 256 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Signal Name                 Dec       Hex           Bin
+  ------------------- ----------- --------- -------------
+  \div_valid                    0         0             0
+  \mul_valid                    1         1             1
+  \registered_eu                4         4           100
+Dumping SAT model to VCD file /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/dispatch_negative/counterexample.vcd

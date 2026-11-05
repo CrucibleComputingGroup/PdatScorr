@@ -1,0 +1,124 @@
+{
+  "name": "initial_reset_and_repeated_reset",
+  "expected": "proved_safety_query_only",
+  "source_sha256": "bee941b0c68d697ab2f25721bd2110f451122cc8ff568016795b906b974560e2",
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.03264178894460201,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/prepare.log",
+    "log_sha256": "41a5561b2e5f27a99b2f36b72fb0958d335a91da748e25e792575473e961cd8f"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "property_counts": {
+    "assert": 1,
+    "assume": 2,
+    "cover": 0
+  },
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.032383968122303486,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/export.log",
+    "log_sha256": "a4c9f3c19ec41557348a950736a75ddc4da6e5f0ce3dc49500dd3a101008f27e"
+  },
+  "exported_json_sha256": "72087c64c8917556aed66f1346cdbd311f15aa79eac2e4c2b69d4e3ad080fd9b",
+  "btor_sha256": "a1494c8ba0c2548697a05bb9ab5b5b0e89295f961999b2782d2c3f7b7af1a1b1",
+  "btor": {
+    "operators": {
+      "sort": 3,
+      "input": 3,
+      "not": 6,
+      "const": 4,
+      "state": 2,
+      "init": 1,
+      "next": 2,
+      "ite": 3,
+      "or": 3,
+      "constraint": 2,
+      "redor": 1,
+      "uext": 1,
+      "eq": 1,
+      "slice": 1,
+      "and": 1,
+      "add": 1,
+      "bad": 1
+    },
+    "bad": 1,
+    "constraint": 2,
+    "state_bits": 5,
+    "input_bits": 6,
+    "states": [
+      [
+        "9",
+        "state",
+        "1"
+      ],
+      [
+        "26",
+        "state",
+        "4",
+        "q"
+      ]
+    ],
+    "initializers": [
+      [
+        "10",
+        "init",
+        "1",
+        "9",
+        "8"
+      ]
+    ]
+  },
+  "execution": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+      "-e",
+      "mbic3",
+      "--smt-solver",
+      "btor",
+      "--pseudo-init-prop",
+      "--check-invar",
+      "-v",
+      "1",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/model.btor2"
+    ],
+    "returncode": 1,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+    "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+    "timeout": false,
+    "seconds": 0.016492484137415886,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_and_repeated_reset/pono.log",
+    "log_sha256": "e6b6e9fe4d3e50bc3751394748a0ccf1d0714a51c3f1fc7b314140e1aef844db"
+  },
+  "status": "proved_safety_query_only"
+}

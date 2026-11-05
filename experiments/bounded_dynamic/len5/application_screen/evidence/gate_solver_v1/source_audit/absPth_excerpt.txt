@@ -1,0 +1,110 @@
+40: ///                        DECLARATIONS                              ///
+41: ////////////////////////////////////////////////////////////////////////
+42: 
+43: #ifndef ABC_USE_PTHREADS
+44: 
+45: void Gia_GlaProveAbsracted( Gia_Man_t * p, int fSimpProver, int fVerbose ) {}
+46: void Gia_GlaProveCancel( int fVerbose )                                    {}
+47: int  Gia_GlaProveCheck( int fVerbose )                                     { return 0; }
+48: 
+
+94: ***********************************************************************/
+95: void * Abs_ProverThread( void * pArg )
+96: {
+97:     Abs_ThData_t * pThData = (Abs_ThData_t *)pArg;
+98:     Pdr_Par_t Pars, * pPars = &Pars;
+99:     int RetValue, status;
+100:     // call PDR
+101:     Pdr_ManSetDefaultParams( pPars );
+102:     pPars->fSilent   = 1;
+103:     pPars->RunId     = pThData->RunId;
+104:     pPars->pFuncStop = Abs_CallBackToStop;
+105:     RetValue = Pdr_ManSolve( pThData->pAig, pPars );
+106:     // update the result
+107:     if ( RetValue == 1 )
+108:     {
+109:         status = pthread_mutex_lock(&g_mutex);  assert( status == 0 );
+110:         g_fAbstractionProved = 1;
+111:         status = pthread_mutex_unlock(&g_mutex);  assert( status == 0 );
+112:     }
+113:     // quit this thread
+114:     if ( pThData->fVerbose )
+115:     {
+116:         if ( RetValue == 1 )
+117:             Abc_Print( 1, "Proved abstraction %d.\n", pThData->RunId );
+118:         else if ( RetValue == 0 )
+119:             Abc_Print( 1, "Disproved abstraction %d.\n", pThData->RunId );
+120:         else if ( RetValue == -1 )
+121:             Abc_Print( 1, "Cancelled abstraction %d.\n", pThData->RunId );
+122:         else assert( 0 );
+123:     }
+124:     // free memory
+125:     Aig_ManStop( pThData->pAig );
+126:     ABC_FREE( pThData );
+127:     // quit this thread
+128:     pthread_exit( NULL );
+
+132: void Gia_GlaProveAbsracted( Gia_Man_t * pGia, int fSimpProver, int fVerbose )
+133: {
+134:     extern Aig_Man_t * Dar_ManRwsat( Aig_Man_t * pAig, int fBalance, int fVerbose );
+135:     Abs_ThData_t * pThData;
+136:     Ssw_Pars_t Pars, * pPars = &Pars;
+137:     Aig_Man_t * pAig, * pTemp;
+138:     Gia_Man_t * pAbs;
+139:     pthread_t ProverThread;
+140:     int status;
+141:     // disable verbosity
+142: //    fVerbose = 0;
+143:     // create abstraction 
+144:     assert( pGia->vGateClasses != NULL );
+145:     pAbs = Gia_ManDupAbsGates( pGia, pGia->vGateClasses );
+146:     Gia_ManCleanValue( pGia );
+147:     pAig = Gia_ManToAigSimple( pAbs );
+148:     Gia_ManStop( pAbs );
+149:     // simplify abstraction
+150:     if ( fSimpProver )
+151:     {
+152:         Ssw_ManSetDefaultParams( pPars );
+153:         pPars->nFramesK = 4;
+154:         pAig = Ssw_SignalCorrespondence( pTemp = pAig, pPars );
+155: //printf( "\n" );
+156: //Aig_ManPrintStats( pTemp );
+157: //Aig_ManPrintStats( pAig );
+158:         Aig_ManStop( pTemp );
+159:     }
+160:     // synthesize abstraction
+161: //    pAig = Dar_ManRwsat( pTemp = pAig, 0, 0 ); 
+162: //    Aig_ManStop( pTemp );
+163:     // reset the proof 
+164:     status = pthread_mutex_lock(&g_mutex);  assert( status == 0 );
+165:     g_fAbstractionProved = 0;
+166:     status = pthread_mutex_unlock(&g_mutex);  assert( status == 0 );
+167:     // collect thread data
+168:     pThData = ABC_CALLOC( Abs_ThData_t, 1 );
+169:     pThData->pAig = pAig;
+170:     pThData->fVerbose = fVerbose;
+171:     status = pthread_mutex_lock(&g_mutex);  assert( status == 0 );
+172:     pThData->RunId = ++g_nRunIds;
+173:     status = pthread_mutex_unlock(&g_mutex);  assert( status == 0 );
+174:     // create thread
+175:     if ( fVerbose )  Abc_Print( 1, "\nTrying to prove abstraction %d.\n", pThData->RunId );
+176:     status = pthread_create( &ProverThread, NULL, Abs_ProverThread, pThData );
+177:     assert( status == 0 );
+178: }
+179: void Gia_GlaProveCancel( int fVerbose )
+180: {
+181:     int status;
+182:     status = pthread_mutex_lock(&g_mutex);  assert( status == 0 );
+183:     g_nRunIds++;
+184:     status = pthread_mutex_unlock(&g_mutex);  assert( status == 0 );
+185: }
+186: int Gia_GlaProveCheck( int fVerbose )
+187: {
+188:     int status;
+189:     if ( g_fAbstractionProved == 0 )
+190:         return 0;
+191:     status = pthread_mutex_lock(&g_mutex);  assert( status == 0 );
+192:     g_fAbstractionProved = 0;
+193:     status = pthread_mutex_unlock(&g_mutex);  assert( status == 0 );
+194:     return 1;
+195: }

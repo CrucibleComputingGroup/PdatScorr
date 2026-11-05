@@ -1,0 +1,161 @@
+{
+  "name": "initial_reset_not_permanent_negative",
+  "expected": "counterexample_in_query_model",
+  "source_sha256": "7036517fa1f7ebb14615055b033c95e7541ff4e46154534704addc562a7eb609",
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.03270455822348595,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/prepare.log",
+    "log_sha256": "df221238c628ebe06216cf42c7cee187eafefd12fce54469d9eee4f4b37c7ffa"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "property_counts": {
+    "assert": 1,
+    "assume": 2,
+    "cover": 0
+  },
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.032733789179474115,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/export.log",
+    "log_sha256": "d99e2e106ae2b618c2dc2b93809102af6dd5ae3bb634d229d3b0e467fee69cd5"
+  },
+  "exported_json_sha256": "b2e19f3d2515e341db28eb2220231647f37558aaffa2208f031bd04cfcfc04b9",
+  "btor_sha256": "7a881ccf5250b84d2358d66083d8c74be8d84562ae93943edc9d96e4e2d2e5ab",
+  "btor": {
+    "operators": {
+      "sort": 4,
+      "input": 3,
+      "not": 5,
+      "const": 5,
+      "state": 2,
+      "init": 1,
+      "next": 2,
+      "ite": 3,
+      "or": 3,
+      "constraint": 2,
+      "redor": 1,
+      "uext": 2,
+      "eq": 2,
+      "and": 1,
+      "add": 1,
+      "bad": 1
+    },
+    "bad": 1,
+    "constraint": 2,
+    "state_bits": 5,
+    "input_bits": 6,
+    "states": [
+      [
+        "9",
+        "state",
+        "1"
+      ],
+      [
+        "26",
+        "state",
+        "4",
+        "q"
+      ]
+    ],
+    "initializers": [
+      [
+        "10",
+        "init",
+        "1",
+        "9",
+        "8"
+      ]
+    ]
+  },
+  "execution": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+      "-e",
+      "mbic3",
+      "--smt-solver",
+      "btor",
+      "--pseudo-init-prop",
+      "--check-invar",
+      "-v",
+      "1",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/model.btor2"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+    "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+    "timeout": false,
+    "seconds": 0.03262537810951471,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/pono.log",
+    "log_sha256": "63bc49c40b236e7f3272bd07d520382d4d88eba0f82480191924c4bb7977fbf2"
+  },
+  "status": "counterexample_in_query_model",
+  "counterexample_witness_available": false,
+  "counterexample_scope": "Engine reports SAT; installed MBIC3 witness extraction is not implemented",
+  "negative_bmc": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+      "-e",
+      "bmc",
+      "--smt-solver",
+      "btor",
+      "--witness",
+      "-k",
+      "6",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/model.btor2"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/pono",
+    "executable_sha256": "bfae2c2b04fd8f53a9424b11f6ffe5736002dc3984330b34fa7771f6e6ff9687",
+    "timeout": false,
+    "seconds": 0.032811569049954414,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/negative_bmc.log",
+    "log_sha256": "f5459fddd192be98226dea24e52cda4c3fdf2bece6b4df5158c1dea6282a79ac"
+  },
+  "witness_check": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+      "-c",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/model.btor2",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/counterexample.wit"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/btorsim",
+    "executable_sha256": "d89cfd9a0ed8467b468b2440f438640ecef82907ada2d86789740f7be2a7140f",
+    "timeout": false,
+    "seconds": 0.016888084821403027,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/word_solver_validation_v3/initial_reset_not_permanent_negative/witness_check.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "witness_sha256": "f5459fddd192be98226dea24e52cda4c3fdf2bece6b4df5158c1dea6282a79ac"
+}
