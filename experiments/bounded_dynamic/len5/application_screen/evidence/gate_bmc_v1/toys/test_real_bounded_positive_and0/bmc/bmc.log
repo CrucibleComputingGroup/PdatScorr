@@ -1,0 +1,16 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/folded.aig"; bmc3 -F 8 -T 3 -v; write_status "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/bmc/bmc.status"".
+
+Running "bmc3". PI/PO/Reg = 3/1/4. And =      6. Lev =     4. ObjNums =    16.
+Params: FramesMax = 8. Start = 0. ConfLimit = 0. TimeOut = 3. SolveAll = 0.
+   0 + : Var =       1. Cla =        0. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec 
+   1 + : Var =       5. Cla =        3. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec 
+   2 + : Var =       9. Cla =       10. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec 
+   3 + : Var =      13. Cla =       17. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec 
+   4 + : Var =      17. Cla =       24. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec 
+   5 + : Var =      21. Cla =       31. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec 
+   6 + : Var =      25. Cla =       38. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec 
+   7 + : Var =      29. Cla =       45. Conf =      0. Learn =      0.    0 MB   4 MB     0.01 sec 
+Runtime:  CNF = 0.0 sec (0.2 %)  UNSAT = 0.0 sec (0.0 %)  SAT = 0.0 sec (0.0 %)  UNDEC = 0.0 sec (0.0 %)
+LStart(P) = 10000  LDelta(Q) = 2000  LRatio(R) = 80  ReduceDB = 0  Vars = 1000  Used = 21 (2.10 %)
+Buffs = 8. Dups = 0.   Hash hits = 0.  Hash misses = 13.  UniProps = 0.
+No output asserted in 8 frames. Resource limit reached (conf limit 0). Time =     0.01 sec

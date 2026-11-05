@@ -112,6 +112,13 @@ The [solver records](application_screen/GATE_SOLVER.md) preserve the original
 constraints, validation cases, dependencies, and unknown verdicts. These short
 runs do not establish whether a 24-hour run would finish.
 
+A subsequent [bounded diagnostic](application_screen/GATE_BMC.md) found and
+validated a frame-25 counterexample in the 491-latch abstraction in 8.05 seconds.
+That abstraction cannot prove the safety property without refinement. This does
+not refute the original proof model or native RTL: its extra free choices must
+first be checked for feasibility in those models. Extending PDR on this exact
+abstract model would therefore not establish the desired safety theorem.
+
 The next proof simplification follows a closed program-only chain: the certified
 decoder excludes MUL/DIV dispatch, the native issue register preserves that
 exclusion, and the original insertion gates therefore never admit either unit.

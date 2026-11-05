@@ -1,0 +1,40 @@
+{
+  "status": "bounded_only_no_certificate",
+  "accepted_optimization": false,
+  "unbounded_certificate": false,
+  "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/folded.aig",
+  "input_sha256": "93745e5f40fd3cb3973bd6ccef4c74cbd8d7d1eb60877b26058b435d3158fc51",
+  "input_header": [
+    "aig",
+    "13",
+    "3",
+    "4",
+    "1",
+    "6"
+  ],
+  "script_sha256": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/folded.aig\"; bmc3 -F 8 -T 3 -v; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/bmc/bmc.status\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.14299926906824112,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/bmc/bmc.log",
+    "log_sha256": "6a347a1ec0b08c23b737db56f526f8c4ed1b17f0da9eaeb61f52cc88a10a10c2"
+  },
+  "raw_status": "snl_UNK 7 unknown\nNULL\nNULL\n",
+  "requested_frames": 8,
+  "requested_seconds": 3,
+  "preprocessing": "None. Direct already-folded one-output abstraction; no assumptions, refolding, refinement, or native claim.",
+  "reported_no_counterexample_frames": 8,
+  "artifact_sha256": {
+    "bmc.log": "6a347a1ec0b08c23b737db56f526f8c4ed1b17f0da9eaeb61f52cc88a10a10c2",
+    "bmc.status": "6d8339787488cf97d56e5d5c1d2006bd4ccec403460667da0b81764e0dad363e",
+    "gate_bmc.py": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208"
+  }
+}

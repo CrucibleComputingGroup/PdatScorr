@@ -1,0 +1,1 @@
+module GateToy(input clk,input d); reg q; reg seen=0; always @(posedge clk) begin q<=d;seen<=1;end always @* begin assume(!d); if(seen) assert(!q);end endmodule

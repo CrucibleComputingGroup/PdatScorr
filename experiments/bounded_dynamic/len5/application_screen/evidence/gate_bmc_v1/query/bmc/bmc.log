@@ -1,0 +1,34 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstracted.aig"; bmc3 -F 128 -T 120 -v; write_status "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_bmc128_v1/bmc/bmc.status"".
+
+Running "bmc3". PI/PO/Reg = 1226/1/491. And =   9650. Lev =    55. ObjNums =  5760.
+Params: FramesMax = 128. Start = 0. ConfLimit = 0. TimeOut = 120. SolveAll = 0.
+   0 + : Var =     200. Cla =      466. Conf =      0. Learn =      0.    0 MB   4 MB     0.02 sec 
+   1 + : Var =    1834. Cla =     5014. Conf =      0. Learn =      0.    0 MB   4 MB     0.02 sec 
+   2 + : Var =    5201. Cla =    14962. Conf =      0. Learn =      0.    0 MB   4 MB     0.02 sec 
+   3 + : Var =    9068. Cla =    26510. Conf =      0. Learn =      0.    0 MB   5 MB     0.02 sec 
+   4 + : Var =   13059. Cla =    38482. Conf =      0. Learn =      0.    0 MB   5 MB     0.02 sec 
+   5 + : Var =   17185. Cla =    50929. Conf =      0. Learn =      0.    0 MB   6 MB     0.02 sec 
+   6 + : Var =   21555. Cla =    64009. Conf =      0. Learn =      0.    0 MB   6 MB     0.03 sec 
+   7 + : Var =   26079. Cla =    77526. Conf =      0. Learn =      0.    0 MB   6 MB     0.03 sec 
+   8 + : Var =   30603. Cla =    91043. Conf =      0. Learn =      0.    0 MB   7 MB     0.03 sec 
+   9 + : Var =   35127. Cla =   104560. Conf =      4. Learn =      3.    0 MB   8 MB     0.03 sec 
+  10 + : Var =   39651. Cla =   118077. Conf =     44. Learn =     42.    0 MB   8 MB     0.03 sec 
+  11 + : Var =   44175. Cla =   131594. Conf =     54. Learn =     51.    0 MB   8 MB     0.04 sec 
+  12 + : Var =   48699. Cla =   145111. Conf =     88. Learn =     84.    0 MB   8 MB     0.04 sec 
+  13 + : Var =   53223. Cla =   158628. Conf =    140. Learn =    135.    0 MB  12 MB     0.05 sec 
+  14 + : Var =   57747. Cla =   172145. Conf =    284. Learn =    278.    0 MB  13 MB     0.06 sec 
+  15 + : Var =   62271. Cla =   185662. Conf =    623. Learn =    616.    0 MB  13 MB     0.09 sec 
+  16 + : Var =   66795. Cla =   199179. Conf =   1139. Learn =   1131.    0 MB  14 MB     0.16 sec 
+  17 + : Var =   71319. Cla =   212696. Conf =   1724. Learn =   1715.    0 MB  15 MB     0.23 sec 
+  18 + : Var =   75843. Cla =   226213. Conf =   2566. Learn =   2556.    0 MB  15 MB     0.35 sec 
+  19 + : Var =   80367. Cla =   239730. Conf =   4166. Learn =   4155.    0 MB  18 MB     0.60 sec 
+  20 + : Var =   84891. Cla =   253247. Conf =   5774. Learn =   5762.    0 MB  21 MB     0.87 sec 
+  21 + : Var =   89415. Cla =   266764. Conf =   8445. Learn =   8432.    0 MB  25 MB     1.37 sec 
+  22 + : Var =   93939. Cla =   280281. Conf =  13338. Learn =  11401.    1 MB  28 MB     2.47 sec 
+  23 + : Var =   98463. Cla =   293798. Conf =  18547. Learn =  11483.    1 MB  26 MB     4.02 sec 
+  24 + : Var =  102987. Cla =   307315. Conf =  28021. Learn =  17754.    1 MB  41 MB     7.25 sec 
+  25 + : Var =  107511. Cla =   320832. Conf =  30286. Learn =  16492.    1 MB  37 MB     7.88 sec  
+Runtime:  CNF = 0.1 sec (0.7 %)  UNSAT = 7.2 sec (91.0 %)  SAT = 0.6 sec (8.0 %)  UNDEC = 0.0 sec (0.0 %)
+LStart(P) = 10000  LDelta(Q) = 2000  LRatio(R) = 80  ReduceDB = 5  Vars = 107511  Used = 107511 (100.00 %)
+Buffs = 3685. Dups = 0.   Hash hits = 24.  Hash misses = 80559.  UniProps = 0.
+Output 0 of miter "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_v1/abstracted" was asserted in frame 25. Time =     7.89 sec
