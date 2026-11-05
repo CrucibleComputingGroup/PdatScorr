@@ -1,0 +1,20 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/native_concretization_v2/native_core.json"
+rename datapath ObservedCore
+bwmuxmap
+bmuxmap
+demuxmap
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/native_concretization_v2/AdmissionScreen.sv"
+prep -top AdmissionScreen -flatten
+check -assert
+chformal -lower
+select -assert-count 3 t:$assert
+select *
+memory_map
+opt_clean
+async2sync
+dffunmap
+setundef -anyseq
+opt -keepdc
+dffunmap
+setundef -anyseq
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/native_concretization_v2/native_screen.json"

@@ -73,9 +73,14 @@ def main() -> None:
     ap.add_argument("--instruction-min-spacing", type=int, default=1,
                     help="Minimum cycles between accepted instruction requests; external two-sided handshake gate only")
     ap.add_argument("--tb-compat", action="store_true", help="Remove erroneous const qualifiers on two upstream testbench variables assigned by methods")
+    ap.add_argument("--harvard-rom", action="store_true",
+                    help="Declared external platform: separate immutable instruction ROM via +instruction_rom; zero instruction fault payload")
+    ap.add_argument("--build-only", action="store_true", help="Build simulator without running the legacy smoke program")
     args = ap.parse_args()
     if args.instruction_min_spacing < 1:
         ap.error("Instruction acceptance spacing must be positive")
+    if args.harvard_rom and not args.build_only:
+        ap.error("--harvard-rom requires --build-only; the separate-image program runner performs its qualification")
     deps, frontend, build = args.deps.resolve(), args.frontend.resolve(), args.build.resolve()
     fm = json.loads((frontend / "manifest.json").read_text())
     assert fm["upstream_commit"] == PRE_FPU_PIN
@@ -130,6 +135,9 @@ def main() -> None:
             old = b"expipe_pkg::rob_idx_t rob_idx = tb_len5_get_commit_idx();"
             assert raw.count(old) == 1
             raw = raw.replace(old, b"expipe_pkg::rob_idx_t rob_idx;\n  rob_idx = tb_len5_get_commit_idx();")
+        if rel == "tb/memory/memory_bare_emu.sv" and args.harvard_rom:
+            from program_platform.platform_patch import patch_memory
+            raw = patch_memory(raw)
         dest = build / "source" / rel
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_bytes(raw)
@@ -166,7 +174,15 @@ def main() -> None:
         "compiler_prefix": args.compiler_prefix,
         "build_environment": {"PATH_prefix": "/usr/bin:/bin", "reason": "Select host as/ld for host g++; inherited workspace PATH contains a bare RISC-V as before /usr/bin"},
         "validation_limit": "Upstream C++ returns 0 even on timeout or nonzero program exit; require success text, absence of failure/timeout/ERROR, and a nonempty commit trace.",
+        "builder_sha256": digest(Path(__file__).read_bytes()),
+        "build_only": args.build_only,
+        "instruction_memory_platform": "separate_immutable_elf_executable_rom" if args.harvard_rom else "upstream_unified_memory_object",
     }
+    if args.harvard_rom:
+        manifest["harvard_source_sha256"] = {name: digest((here / "program_platform" / name).read_bytes())
+            for name in ("platform_patch.py", "harvard_lookup.svh")}
+        manifest["testbench_changes"].append({"path": "tb/memory/memory_bare_emu.sv",
+            "change": "Replace only combinational instruction lookup with a separate immutable +instruction_rom memory object, all-byte mapping/alignment checks, and zero fault payload. Native instruction/data pipelines, readiness, flush and data object remain unchanged. This is a declared Harvard platform, not all-behavior equivalence to upstream unified memory."})
     if args.tb_compat:
         manifest["testbench_changes"].append({"path": "tb/memory/memory_class.svh", "change": "Remove const on fd/file_line, which upstream assigns outside the constructor; leave memory_file_path const"})
         manifest["testbench_changes"].append({"path": "tb/len5_utils.svh", "change": "Assign rob_idx at every trace-function call instead of once via static variable initialization; affects trace monitor only"})
@@ -181,9 +197,11 @@ def main() -> None:
         proc = subprocess.run(command, cwd=build, env=child_env, stdout=log, stderr=subprocess.STDOUT)
     manifest.update(build_returncode=proc.returncode, build_seconds=time.monotonic() - start,
                     build_log_sha256=digest((build / "build.log").read_bytes()))
+    if proc.returncode == 0:
+        manifest["binary_sha256"] = digest((build / "obj_dir/Vtb_bare").read_bytes())
     # Preserve successful build provenance even if a later compiler/run command fails.
     (build / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
-    if proc.returncode == 0:
+    if proc.returncode == 0 and not args.build_only:
         (build / "smoke.S").write_text(SMOKE)
         compile_commands = [
             [args.compiler_prefix + "gcc", "-march=rv64im", "-mabi=lp64", "-nostdlib", "-static", "-Wl,-Ttext=0", "-Wl,--build-id=none", "smoke.S", "-o", "smoke.elf"],
@@ -213,7 +231,7 @@ def main() -> None:
     assert not git(deps, "status", "--porcelain")
     (build / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(json.dumps({k: manifest.get(k) for k in ("build_returncode", "build_seconds", "run_returncode", "smoke_passed")}))
-    if not manifest.get("smoke_passed"):
+    if proc.returncode or (not args.build_only and not manifest.get("smoke_passed")):
         raise SystemExit(1)
 
 

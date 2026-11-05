@@ -14,7 +14,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from prepare_frontend import digest
 
 
-def native_edges(vcd):
+def native_edges(vcd, extra_signals=None):
     dp='TOP.tb_bare.u_datapath.'
     names={'cycle':'TOP.tb_bare.curr_cycle','clk':'TOP.tb_bare.clk_i',
            'reset_n':'TOP.tb_bare.rst_ni','flush':dp+'mem_flush_o',
@@ -30,6 +30,10 @@ def native_edges(vcd):
         'load_response_tag':'data_load_tag_i','load_response_data':'data_load_rdata_i',
         'load_exception':'data_load_except_raised_i','load_exception_code':'data_load_except_code_i',
     }.items(): names[key]=dp+port
+    if extra_signals:
+        if set(extra_signals).intersection(names):
+            raise ValueError('Additional observer signal replaces an existing signal')
+        names.update(extra_signals)
     codes,scopes,values,previous,rows={},[],{},{},[]
     time=0
     def number(key,state):

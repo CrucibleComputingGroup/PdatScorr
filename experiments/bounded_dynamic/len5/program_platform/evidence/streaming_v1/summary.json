@@ -1,0 +1,353 @@
+{
+  "status": "passed",
+  "scope": "Finite qualification of declared external Harvard ROM/data platform; no optimization or universal occupancy proof",
+  "core_rtl_source_edits": false,
+  "upstream_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+  "platform": "ELF executable-only immutable instruction ROM; separate data memory object; original gap2 fetch pipeline and 3-cycle data service",
+  "platform_not_claimed_equivalent_to_original_unified_memory": true,
+  "program_exit_ok": true,
+  "all_64_output_stores_and_exit_checked": true,
+  "accepted_store_count": 65,
+  "simulator_manifest_sha256": "4949d23fb78048dbc9d7e4267d00ba5b13fab35b236413318cfb724c6038d6b3",
+  "binary_sha256": "b232885969d74536aaf93658eed6b4eaed2ea73eef33223ddbf91f5f67c26919",
+  "capacity_parameters": {
+    "ROB_DEPTH": 32,
+    "IQ_DEPTH": 4,
+    "LDBUFF_DEPTH": 8,
+    "STBUFF_DEPTH": 16,
+    "ALU_RS_DEPTH": 8,
+    "MULT_RS_DEPTH": 4,
+    "DIV_RS_DEPTH": 4,
+    "BU_RS_DEPTH": 4,
+    "RAS_DEPTH": 8
+  },
+  "elf_images": {
+    "elf_sha256": "974a4c0a9036601fc064544fa42556412a187b51459cb3d8b3b20a4bdb5db1b3",
+    "entry": 0,
+    "selection_rule": "All allocated ELF sections; SHF_EXECINSTR selects instruction ROM; PT_LOAD PF_X must agree",
+    "sections": [
+      {
+        "name": ".text",
+        "type": 1,
+        "flags": 6,
+        "address": 0,
+        "size": 56,
+        "executable": true,
+        "segment_flags": 5,
+        "content_sha256": "653143f1eb94e7a1280231f8d21099f31abdeeeeb5bdacc6d73e8d4ae75cdc12"
+      },
+      {
+        "name": ".rodata",
+        "type": 1,
+        "flags": 2,
+        "address": 4096,
+        "size": 640,
+        "executable": false,
+        "segment_flags": 4,
+        "content_sha256": "ea23caf4dc3963f9e085325805642485f9607a63f56337aa11e9ec53661b7472"
+      }
+    ],
+    "load_segments": [
+      {
+        "flags": 5,
+        "offset": 4096,
+        "address": 0,
+        "size": 56,
+        "memory_size": 56
+      },
+      {
+        "flags": 4,
+        "offset": 8192,
+        "address": 4096,
+        "size": 640,
+        "memory_size": 640
+      }
+    ],
+    "instruction_byte_count": 56,
+    "data_byte_count": 640,
+    "instruction_words": [
+      {
+        "address": 0,
+        "word": "00001437"
+      },
+      {
+        "address": 4,
+        "word": "000024b7"
+      },
+      {
+        "address": 8,
+        "word": "04000913"
+      },
+      {
+        "address": 12,
+        "word": "00043503"
+      },
+      {
+        "address": 16,
+        "word": "00150593"
+      },
+      {
+        "address": 20,
+        "word": "00b4b023"
+      },
+      {
+        "address": 24,
+        "word": "00840413"
+      },
+      {
+        "address": 28,
+        "word": "00848493"
+      },
+      {
+        "address": 32,
+        "word": "fff90913"
+      },
+      {
+        "address": 36,
+        "word": "fe0914e3"
+      },
+      {
+        "address": 40,
+        "word": "200002b7"
+      },
+      {
+        "address": 44,
+        "word": "1002829b"
+      },
+      {
+        "address": 48,
+        "word": "00028023"
+      },
+      {
+        "address": 52,
+        "word": "0000006f"
+      }
+    ],
+    "reference_image_sha256": "6f83855aa2388eecca52bf97a3a266561dda0032a194d871fc239e8931b28bc2",
+    "original_56_instruction_bytes_identical": true,
+    "independent_objcopy_sections_match": true,
+    "instruction_hex_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+    "data_hex_sha256": "c9a6283883d242500dbe2fc626e94eb133ed8779742278c8b8fcde764a125f00",
+    "instruction_data_address_sets_disjoint": true,
+    "data_layout": {
+      "input_address": 4096,
+      "input_bytes": 512,
+      "padding_address": 4608,
+      "padding_zero_bytes": 128
+    }
+  },
+  "memory_timing": {
+    "accepted_fetch_count": 489,
+    "accepted_fetch_gap_histogram": {
+      "2": 486,
+      "4": 2
+    },
+    "minimum_accepted_fetch_gap": 2,
+    "maximum_fetch_outstanding_after_edge": 1,
+    "complete_fetch_response_count": 484,
+    "fetch_latency_histogram": {
+      "2": 484
+    },
+    "fetch_faults": [],
+    "flush_cycles": [
+      37,
+      927,
+      938,
+      942
+    ],
+    "fetch_cancellations": [
+      {
+        "request_cycle": 35,
+        "address": 48,
+        "flush_cycle": 37
+      },
+      {
+        "request_cycle": 925,
+        "address": 20,
+        "flush_cycle": 927
+      },
+      {
+        "request_cycle": 937,
+        "address": 56,
+        "flush_cycle": 938
+      },
+      {
+        "request_cycle": 941,
+        "address": 56,
+        "flush_cycle": 942
+      }
+    ],
+    "fetch_pending_at_end": [
+      {
+        "request_cycle": 991,
+        "address": 52
+      }
+    ],
+    "complete_load_response_count": 65,
+    "maximum_load_outstanding_after_edge": 1,
+    "load_latency_histogram": {
+      "3": 65
+    },
+    "load_faults": [],
+    "load_pending_at_end": [],
+    "endpoint_acceptance_equal_at_all_active_edges": true
+  },
+  "out_of_order": {
+    "witness_found": true,
+    "actual_alu_issue_inversion_count": 64,
+    "first_witness": {
+      "older_alu": {
+        "sequence": 4,
+        "epoch": 9,
+        "dispatch_cycle": 24,
+        "rob": 4,
+        "pc": 16,
+        "instruction": 1377683,
+        "alu_start_cycle": 30,
+        "alu_result_cycle": 30,
+        "result": 1
+      },
+      "younger_alu": {
+        "sequence": 6,
+        "epoch": 9,
+        "dispatch_cycle": 28,
+        "rob": 6,
+        "pc": 24,
+        "instruction": 8651795,
+        "alu_start_cycle": 29,
+        "alu_result_cycle": 29,
+        "result": 4104
+      },
+      "older_load_dependency": {
+        "sequence": 3,
+        "epoch": 9,
+        "dispatch_cycle": 22,
+        "rob": 3,
+        "pc": 12,
+        "instruction": 275715,
+        "request_cycle": 24,
+        "memory_tag": 0,
+        "address": 4096,
+        "response_cycle": 27,
+        "load_value": 0
+      }
+    },
+    "scope": "Actual ALU execution handshakes within one reset/flush epoch; finite trace only"
+  },
+  "occupancy": {
+    "max_live_entries": 2,
+    "first_maximum": {
+      "time": 57,
+      "cycle_pre_edge": 28,
+      "insert": 1,
+      "new_idx": 6,
+      "remove": 0,
+      "cdb_idx": 0,
+      "live_pre": 1,
+      "live_post": 2,
+      "states_post": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        4
+      ]
+    },
+    "all_eight_rs1_pending": false,
+    "first_all_pending": null,
+    "state_encoding": {
+      "EMPTY": 0,
+      "RS1_PENDING": 1
+    },
+    "selected_signal_names": [
+      "TOP.tb_bare.clk_i",
+      "TOP.tb_bare.curr_cycle",
+      "TOP.tb_bare.rst_ni",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.cdb_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[0]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[1]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[2]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[3]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[4]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[5]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[6]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[7]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[0].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[0].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[1].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[1].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[2].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[2].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[3].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[3].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[4].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[4].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[5].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[5].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[6].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[6].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[7].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[7].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.insert",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.new_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.remove"
+    ]
+  },
+  "all_active_instruction_payloads_in_elf_words_or_zero": true,
+  "all_observed_instruction_fault_payloads_zero": true,
+  "source_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/run_platform.py": "b0eb3b099d63187459c469b1d894f4bf4abfafba1f5e1f160597a6405a30ffa2",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/streaming.S": "03c4e5ab1ec563c8169ea0586ff07a8ec27fa28ebb6de16000d44ea3131b508b",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/platform.ld": "d1009e23a7f6da7c5ed2d7390554a6adac3c0f5e9873eaee19112af48da2435b",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/elf_images.py": "e34090260cc0805fb263ea9c6cd4c88b21302028ac9b730539f2f95bea28f083",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/platform_patch.py": "4a737dcd15b9f6af40cf055806c5056d076d62920b462cb8ed75c0c4a2272402",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/harvard_lookup.svh": "f05d587fac947cf4b0ab6cc61671af94455503a56c42cb2802524b0e41daa1df",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/qualify_simulation.py": "c697b59b7cde57fe2b4f430670b32eac4c055695cf552d525ad2b039b0d48dbc",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/run_streaming.py": "d0a97f2abff2a8f5356c73fe1db74427d92f410369db9a9b7b741f2a5da8eed6",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/analyze_fetch_spacing.py": "187aefcd8006026f884a5a89142d971257b5a505ebbfe8e4ca8ef0777305c629",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/run_div_falsifier.py": "c666ff9523956ae31df420aa8b983776080a6bf159b9f5cf08d28461a212a4bc"
+  },
+  "compile_commands": [
+    [
+      "riscv64-linux-gnu-gcc",
+      "-march=rv64im",
+      "-mabi=lp64",
+      "-nostdlib",
+      "-static",
+      "-Wl,-T,platform.ld",
+      "-Wl,--build-id=none",
+      "streaming.S",
+      "-o",
+      "program.elf"
+    ],
+    [
+      "riscv64-linux-gnu-objcopy",
+      "-O",
+      "binary",
+      "--only-section=.text",
+      "program.elf",
+      "text.bin"
+    ],
+    [
+      "riscv64-linux-gnu-objcopy",
+      "-O",
+      "binary",
+      "--only-section=.rodata",
+      "program.elf",
+      "rodata.bin"
+    ]
+  ],
+  "run_command": [
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_gap2_platform_v1/obj_dir/Vtb_bare",
+    "+firmware=/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_streaming_v1/data.hex",
+    "+instruction_rom=/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_streaming_v1/instruction.hex",
+    "--max_cycles=10000",
+    "--dump_waves=true",
+    "--dump_trace=true",
+    "--log_level=LOG_LOW"
+  ],
+  "raw_fst_sha256": "8a71bc95a65049cda4e802259df1a4b735d54eebf8442ddf50dd1114edcac1e4"
+}

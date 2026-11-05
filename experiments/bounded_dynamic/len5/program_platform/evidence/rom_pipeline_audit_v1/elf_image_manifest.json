@@ -1,0 +1,115 @@
+{
+  "elf_sha256": "974a4c0a9036601fc064544fa42556412a187b51459cb3d8b3b20a4bdb5db1b3",
+  "entry": 0,
+  "selection_rule": "All allocated ELF sections; SHF_EXECINSTR selects instruction ROM; PT_LOAD PF_X must agree",
+  "sections": [
+    {
+      "name": ".text",
+      "type": 1,
+      "flags": 6,
+      "address": 0,
+      "size": 56,
+      "executable": true,
+      "segment_flags": 5,
+      "content_sha256": "653143f1eb94e7a1280231f8d21099f31abdeeeeb5bdacc6d73e8d4ae75cdc12"
+    },
+    {
+      "name": ".rodata",
+      "type": 1,
+      "flags": 2,
+      "address": 4096,
+      "size": 640,
+      "executable": false,
+      "segment_flags": 4,
+      "content_sha256": "ea23caf4dc3963f9e085325805642485f9607a63f56337aa11e9ec53661b7472"
+    }
+  ],
+  "load_segments": [
+    {
+      "flags": 5,
+      "offset": 4096,
+      "address": 0,
+      "size": 56,
+      "memory_size": 56
+    },
+    {
+      "flags": 4,
+      "offset": 8192,
+      "address": 4096,
+      "size": 640,
+      "memory_size": 640
+    }
+  ],
+  "instruction_byte_count": 56,
+  "data_byte_count": 640,
+  "instruction_words": [
+    {
+      "address": 0,
+      "word": "00001437"
+    },
+    {
+      "address": 4,
+      "word": "000024b7"
+    },
+    {
+      "address": 8,
+      "word": "04000913"
+    },
+    {
+      "address": 12,
+      "word": "00043503"
+    },
+    {
+      "address": 16,
+      "word": "00150593"
+    },
+    {
+      "address": 20,
+      "word": "00b4b023"
+    },
+    {
+      "address": 24,
+      "word": "00840413"
+    },
+    {
+      "address": 28,
+      "word": "00848493"
+    },
+    {
+      "address": 32,
+      "word": "fff90913"
+    },
+    {
+      "address": 36,
+      "word": "fe0914e3"
+    },
+    {
+      "address": 40,
+      "word": "200002b7"
+    },
+    {
+      "address": 44,
+      "word": "1002829b"
+    },
+    {
+      "address": 48,
+      "word": "00028023"
+    },
+    {
+      "address": 52,
+      "word": "0000006f"
+    }
+  ],
+  "reference_image_sha256": "6f83855aa2388eecca52bf97a3a266561dda0032a194d871fc239e8931b28bc2",
+  "original_56_instruction_bytes_identical": true,
+  "independent_objcopy_sections_match": true,
+  "instruction_hex_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+  "data_hex_sha256": "c9a6283883d242500dbe2fc626e94eb133ed8779742278c8b8fcde764a125f00",
+  "instruction_data_address_sets_disjoint": true,
+  "data_layout": {
+    "input_address": 4096,
+    "input_bytes": 512,
+    "padding_address": 4608,
+    "padding_zero_bytes": 128
+  }
+}

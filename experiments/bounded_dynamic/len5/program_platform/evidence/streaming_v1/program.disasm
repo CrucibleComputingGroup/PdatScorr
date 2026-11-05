@@ -1,0 +1,25 @@
+
+program.elf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <_start>:
+   0:	00001437          	lui	s0,0x1
+   4:	000024b7          	lui	s1,0x2
+   8:	04000913          	li	s2,64
+
+000000000000000c <loop>:
+   c:	00043503          	ld	a0,0(s0) # 1000 <input_values>
+  10:	00150593          	addi	a1,a0,1
+  14:	00b4b023          	sd	a1,0(s1) # 2000 <input_padding+0xe00>
+  18:	00840413          	addi	s0,s0,8
+  1c:	00848493          	addi	s1,s1,8
+  20:	fff90913          	addi	s2,s2,-1
+  24:	fe0914e3          	bnez	s2,c <loop>
+  28:	200002b7          	lui	t0,0x20000
+  2c:	1002829b          	addiw	t0,t0,256 # 20000100 <input_padding+0x1fffef00>
+  30:	00028023          	sb	zero,0(t0)
+
+0000000000000034 <halt>:
+  34:	0000006f          	j	34 <halt>

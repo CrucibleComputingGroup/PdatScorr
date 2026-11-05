@@ -1,0 +1,37 @@
+{
+  "scope": "Finite Harvard instruction pipeline validation and read-only source correspondence review; not a safety proof",
+  "external_query_directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1",
+  "query_identity": {
+    "source_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+    "source_json_sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+    "harness_sha256": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+    "script_sha256": "60e64f5e63b0ba2b3180519878f77b16bd6f02d5066343dc816c6e5f9e1db79f",
+    "rom_helper_sha256": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+    "rom_image_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+    "instruction_fault_payload": "zero"
+  },
+  "source_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_pipeline_audit_v1.json": "8dd4c888cb086a24817b12a95b481022025961c4807a8536ca2287014846c9b1",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/audit_program_rom.py": "3fdf9c777f50145d80e3a64c4c1dc2706169dfdeb1964318b3c14f8bb193e596",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/analyze_fetch_spacing.py": "187aefcd8006026f884a5a89142d971257b5a505ebbfe8e4ca8ef0777305c629",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/formal_screen.py": "60e64f5e63b0ba2b3180519878f77b16bd6f02d5066343dc816c6e5f9e1db79f",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/program_rom.py": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/AdmissionScreen.sv": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_streaming_v1/instruction.hex": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_streaming_v1/elf_image_manifest.json": "2270d23c39193ffb407d1d1c79aea04ddff72492f35a919788e39042bf9ccea8",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/harvard_lookup.svh": "f05d587fac947cf4b0ab6cc61671af94455503a56c42cb2802524b0e41daa1df",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_gap2_platform_v1/source/tb/instruction_spacing_gate.svh": "6bbbb1eae85b1eee01e1884eb5b10000e26704a1be60e50a85d805dfffe7cf51",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_gap2_platform_v1/source/tb/memory/memory_bare_emu.sv": "5bebbffeff81cd0158ea0200754b57631e2717decf683109c90cd33873f6caed",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_gap2_platform_v1/source/tb/tb_bare.sv": "acdd129a88aa236271b4433399ba8ea73719f60a34d22627cf10186360e79266",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/spill_cell_flush.sv": "854e042d90f33170a8f97dc4b7c345a0d82bdb1225585230d132a90f95ded4e0",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_gap2_platform_v1/manifest.json": "4949d23fb78048dbc9d7e4267d00ba5b13fab35b236413318cfb724c6038d6b3",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/evidence/platform_checks_v1/summary.json": "5579e5e59e42415bf5db0881ac522cb07e6a99bc3649c901696e5896ba4c0834"
+  },
+  "active_edges_checked": 983,
+  "returned_fetches_checked": 484,
+  "instruction_recurrence_mismatches": 0,
+  "actual_data_domain": "Sparse mutable RAM may fault outside mapped/aligned accesses; recorded run has no data faults only",
+  "formal_data_domain": "Independent arbitrary data and no data faults; not claimed to contain every behavior of sparse native RAM",
+  "reset_interface_limit": "Formal data grants are rst_ni; native skipped output cells pass through constant core-ready even in reset. Active service matches, but reset-level grants are not identical.",
+  "proof_normalization_limit": "Reviewed formal_screen snapshot runs prep before setundef-anyseq. Its positive safety outcomes require separate undefined-value normalization review; this package certifies no proof."
+}

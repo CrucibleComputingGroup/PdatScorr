@@ -1,0 +1,67 @@
+{
+  "status": "native_alphabet_prefix_counterexample",
+  "accepted_optimization": false,
+  "scope": "Bounded native-core concretization of one abstract witness external prefix; not an unbounded safety proof or exact-ROM workload claim",
+  "source_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+  "source_json_sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+  "abstract_aig_sha256": "63b714fdeb94dbd45c00079aa04673c2f7ec6b7ab7ccf90888fd3c56b909a936",
+  "abstract_witness_sha256": "e9f3fa155ddd9e421e9a81978debbcb6bcd2bc93b782aa2dbcd6dd9f89fd28d3",
+  "native_core_sha256": "768359f216a463829d02067a0c9f08989f714610c46a3e93d8652512c77902a6",
+  "harness_sha256": "c41d11b5073801c911f32a975ab07e0e534d49bec0f721a5e5342fe250963903",
+  "script_sha256": "c5d0b209fdb3a1b3ba39d163f24cdc63d8e0fee6e0623b9f03c7d17e03e8a3c3",
+  "external_prefix_sha256": "4e3e7475e1b54548f302544be0125b990f246317af87e31c14e16706bbc69ad5",
+  "fixed_external_signals": {
+    "rst_ni": 1,
+    "instruction_choice": 4,
+    "load_value": 64,
+    "invalid_code_nonzero": 3
+  },
+  "target_aig_frame": 19,
+  "target_sat_time": 20,
+  "initial_state": "Only original init attributes and the original initial reset premise. No set-init-zero and no abstract witness state imposed.",
+  "native_changes": "Two read-only original RS probe ports; no original cell or connection changes, no ALU/MUL abstraction",
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/native_concretization_v2/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 18.473729096353054,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/native_concretization_v2/prepare.log",
+    "log_sha256": "f9559baf05e13b3e8eedfca24921832852d6de4ad80244da789dc6b76fdbb498"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "native_screen_sha256": "4e2b6272c6fde70c00e4bbbc58cb6db462b161027239b3d47246101a1438232f",
+  "query": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/native_concretization_v2/native_query.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 102.77379572205245,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/native_concretization_v2/native_query.log",
+    "log_sha256": "54b3a9a4225b8b609bcccb6a7ad63196845ff7973bbe6c98669dbd18d5326293"
+  }
+}
