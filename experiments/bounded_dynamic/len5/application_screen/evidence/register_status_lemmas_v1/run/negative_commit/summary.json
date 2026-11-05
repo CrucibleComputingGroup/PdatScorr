@@ -1,0 +1,60 @@
+{
+  "status": "counterexample",
+  "relaxed_index_domain": "commit",
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.11499764211475849,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/export.log",
+    "log_sha256": "eba7a8d238ce41e4578b014f9903f4fc8d714a43f85ec3489117653aeef7635a"
+  },
+  "base": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+      "-s",
+      "z3",
+      "-t",
+      "4",
+      "--noprogress",
+      "--dump-vcd",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/counterexample.vcd",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/model.smt2"
+    ],
+    "returncode": 1,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+    "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+    "timeout": false,
+    "seconds": 0.16533277975395322,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/base.log",
+    "log_sha256": "7a71f89865bfee274a42e91eda804519e21960400449527f0586b6acc023bca9"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "property_counts": {
+    "assert": 50,
+    "assume": 2,
+    "cover": 0
+  },
+  "harness_sha256": "1c1a867feaa1dd2dc3ca9512276cbd1cf0efe759972e487e8222c898acdccc33",
+  "model_sha256": "5b10503ce144db4f0b041e5df6c30690a1a3540aa082f2579a7e1519d5e4aee5",
+  "lowered_sha256": "b804b1802df57839e51bc6cb89e6d43e5975b4a2b8c1b61526174078a9a06767",
+  "counterexample_sha256": "b9b33c29c074ff47a9eddf1bf780bc6b510ff0a6eb61e583f208e49b816052ca"
+}

@@ -1,0 +1,78 @@
+{
+  "status": "proved_unbounded",
+  "relaxed_index_domain": null,
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/positive/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.11516925087198615,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/positive/export.log",
+    "log_sha256": "64156b9e5c5c025b0e6563e9e716722b4401b65f50c183c2ea0b5e8f128ac883"
+  },
+  "base": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+      "-s",
+      "z3",
+      "-t",
+      "4",
+      "--noprogress",
+      "--dump-vcd",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/positive/counterexample.vcd",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/positive/model.smt2"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+    "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+    "timeout": false,
+    "seconds": 0.31584662199020386,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/positive/base.log",
+    "log_sha256": "377d7e6fbb47aa7b7a524f5a57dd59a2c1b8b8300de864dfc1cd282dfa1c2e53"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "property_counts": {
+    "assert": 50,
+    "assume": 3,
+    "cover": 0
+  },
+  "harness_sha256": "0c113cde1d4fa7140e26ad97d7525fede773484dd9227ebc6cc02f6f029f256d",
+  "model_sha256": "018d9774311b6863a72dd55fc2ac87bd7d711751fc4d21d6bdf149309185b0fe",
+  "lowered_sha256": "dd302d244ff460cffbd4a61f33ce0e597346e1f81cd4f167b6240ff775c5cbb7",
+  "induction": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+      "-s",
+      "z3",
+      "-t",
+      "4",
+      "--noprogress",
+      "-i",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/positive/model.smt2"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+    "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+    "timeout": false,
+    "seconds": 0.2147682150825858,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/positive/induction.log",
+    "log_sha256": "4536e1f500811e6de5ef27854e3617115f23d8c8cebe6c098610ca0f446fcd4c"
+  }
+}

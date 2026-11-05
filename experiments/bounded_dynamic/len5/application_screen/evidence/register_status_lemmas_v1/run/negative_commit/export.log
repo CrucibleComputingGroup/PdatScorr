@@ -1,0 +1,660 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/export.ys' --
+
+1. Executing JSON frontend.
+Importing module NativeRegisterStatus from JSON tree.
+
+2. Executing SETUNDEF pass (replace undef values with defined constants).
+
+3. Executing BWMUXMAP pass.
+
+4. Executing BMUXMAP pass.
+
+5. Executing DEMUXMAP pass.
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv' to AST representation.
+Generating RTLIL representation for module `\RegisterStatusProof'.
+Successfully finished Verilog frontend.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1. Analyzing design hierarchy..
+Top module:  \RegisterStatusProof
+Used module:     \NativeRegisterStatus
+
+8.2. Analyzing design hierarchy..
+Top module:  \RegisterStatusProof
+Used module:     \NativeRegisterStatus
+Removed 0 unused modules.
+Module RegisterStatusProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 51 redundant assignments.
+Promoted 51 assignments to connections.
+
+11. Executing PROC_INIT pass (extract init attributes).
+
+12. Executing SETUNDEF pass (replace undef values with defined constants).
+
+13. Executing PROC pass (convert processes to netlists).
+
+13.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+13.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+13.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+13.4. Executing PROC_INIT pass (extract init attributes).
+
+13.5. Executing PROC_ARST pass (detect async resets in processes).
+
+13.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\RegisterStatusProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv:57$proc$6559'.
+     1/1: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv:58$assume$6560_EN
+
+13.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+13.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+13.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+13.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\RegisterStatusProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv:57$proc$6559'.
+Removing empty process `RegisterStatusProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv:57$proc$6559'.
+Cleaned up 1 empty switch.
+
+14. Executing SETUNDEF pass (replace undef values with defined constants).
+
+15. Executing PREP pass.
+
+15.1. Executing HIERARCHY pass (managing design hierarchy).
+
+15.1.1. Analyzing design hierarchy..
+Top module:  \RegisterStatusProof
+Used module:     \NativeRegisterStatus
+
+15.1.2. Analyzing design hierarchy..
+Top module:  \RegisterStatusProof
+Used module:     \NativeRegisterStatus
+Removed 0 unused modules.
+Module RegisterStatusProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+15.2. Executing PROC pass (convert processes to netlists).
+
+15.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+15.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+15.2.4. Executing PROC_INIT pass (extract init attributes).
+
+15.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+15.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+15.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+15.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+15.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+15.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+15.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RegisterStatusProof.
+<suppressed ~51 debug messages>
+Optimizing module NativeRegisterStatus.
+<suppressed ~97 debug messages>
+
+15.3. Executing CHECK pass (checking for obvious problems).
+Checking module RegisterStatusProof...
+Checking module NativeRegisterStatus...
+Found and reported 0 problems.
+
+15.4. Executing FLATTEN pass (flatten design).
+Deleting now unused module NativeRegisterStatus.
+<suppressed ~1 debug messages>
+
+15.5. Executing FUTURE pass.
+
+15.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RegisterStatusProof.
+
+15.7. Executing CHECK pass (checking for obvious problems).
+Checking module RegisterStatusProof...
+Found and reported 0 problems.
+
+15.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RegisterStatusProof..
+Removed 314 unused cells and 1487 unused wires.
+<suppressed ~327 debug messages>
+
+15.9. Executing OPT pass (performing simple optimizations).
+
+15.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RegisterStatusProof.
+
+15.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\RegisterStatusProof'.
+Computing hashes of 800 cells of `\RegisterStatusProof'.
+Finding duplicate cells in `\RegisterStatusProof'.
+Computing hashes of 798 cells of `\RegisterStatusProof'.
+Finding duplicate cells in `\RegisterStatusProof'.
+Computing hashes of 732 cells of `\RegisterStatusProof'.
+Finding duplicate cells in `\RegisterStatusProof'.
+Computing hashes of 730 cells of `\RegisterStatusProof'.
+Finding duplicate cells in `\RegisterStatusProof'.
+<suppressed ~210 debug messages>
+Removed a total of 70 cells.
+
+15.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \RegisterStatusProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38223.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38230.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38239.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38245.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38254.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38261.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38270.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38276.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38285.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38292.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38301.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38183.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38307.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38316.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38323.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38332.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38037.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38338.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38044.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38347.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38354.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38363.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38369.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38378.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38385.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38394.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38400.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38409.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38416.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38177.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38168.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38161.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38456.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38462.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38471.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38478.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38487.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38493.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38502.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38509.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38518.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38524.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38533.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38540.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38549.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38555.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38564.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38571.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38580.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38586.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38595.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38602.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38611.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38617.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38626.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38633.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38152.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38146.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38137.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38130.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38121.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38115.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38106.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38099.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38090.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38084.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38075.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38766.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38772.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38781.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38788.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38797.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38803.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38812.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38819.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38068.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38059.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38053.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38859.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38865.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38874.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38881.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38890.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38896.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38905.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38912.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38921.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38927.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38936.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38943.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38952.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38958.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38967.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38974.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38982.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38985.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38991.
+    dead port 1/2 on $mux $flatten\dut.$procmux$39000.
+    dead port 1/2 on $mux $flatten\dut.$procmux$39004.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38028.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38022.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38192.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38199.
+    dead port 2/2 on $mux $flatten\dut.$procmux$38208.
+    dead port 1/2 on $mux $flatten\dut.$procmux$38214.
+Removed 105 multiplexer ports.
+<suppressed ~470 debug messages>
+
+15.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \RegisterStatusProof.
+Performed a total of 0 changes.
+
+15.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\RegisterStatusProof'.
+Computing hashes of 625 cells of `\RegisterStatusProof'.
+Finding duplicate cells in `\RegisterStatusProof'.
+Computing hashes of 594 cells of `\RegisterStatusProof'.
+Finding duplicate cells in `\RegisterStatusProof'.
+<suppressed ~93 debug messages>
+Removed a total of 31 cells.
+
+15.9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RegisterStatusProof..
+Removed 105 unused cells and 1343 unused wires.
+<suppressed ~106 debug messages>
+
+15.9.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RegisterStatusProof.
+
+15.9.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.9.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \RegisterStatusProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~334 debug messages>
+
+15.9.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \RegisterStatusProof.
+Performed a total of 0 changes.
+
+15.9.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\RegisterStatusProof'.
+Computing hashes of 489 cells of `\RegisterStatusProof'.
+Finding duplicate cells in `\RegisterStatusProof'.
+Removed a total of 0 cells.
+
+15.9.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RegisterStatusProof..
+
+15.9.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RegisterStatusProof.
+
+15.9.14. Finished fast OPT passes. (There is nothing left to do.)
+
+15.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 bits (of 5) from port B of cell RegisterStatusProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv:59$eq$6564 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv:59$eq$6566 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv:59$eq$6568 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv:59$eq$6570 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/register_status_lemmas_v2/negative_commit/harness.sv:59$eq$6572 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6412 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6409 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6406 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6403 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6400 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6397 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6394 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6391 ($eq).
+Removed top 2 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6388 ($eq).
+Removed top 2 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6385 ($eq).
+Removed top 2 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6382 ($eq).
+Removed top 2 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6379 ($eq).
+Removed top 3 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6376 ($eq).
+Removed top 3 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6373 ($eq).
+Removed top 4 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6370 ($eq).
+Removed top 1 bits (of 6) from port A of cell RegisterStatusProof.$flatten\dut.$1062 ($not).
+Removed top 1 bits (of 6) from port A of cell RegisterStatusProof.$flatten\dut.$1076 ($not).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1092 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1092 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1092 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1093 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1093 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1093 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1112 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1112 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1112 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1113 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1113 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1113 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1132 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1132 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1132 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1133 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1133 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1133 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1152 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1152 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1152 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1153 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1153 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1153 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1192 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1192 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1192 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1193 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1193 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1193 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1212 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1212 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1212 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1213 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1213 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1213 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1312 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1312 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1312 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1313 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1313 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1313 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1332 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1332 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1332 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1333 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1333 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1333 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1352 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1352 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1352 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1353 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1353 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1353 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1372 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1372 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1372 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1373 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1373 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1373 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1392 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1392 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1392 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1393 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1393 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1393 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1412 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1412 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1412 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1413 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1413 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1413 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1452 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1452 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1452 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1453 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1453 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1453 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1472 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1472 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1472 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1473 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1473 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1473 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1492 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1492 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1492 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1493 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1493 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1493 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1512 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1512 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1512 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1513 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1513 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1513 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1532 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1532 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1532 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1533 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1533 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1533 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1552 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1552 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1552 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1553 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1553 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1553 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1572 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1572 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1572 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1573 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1573 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1573 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1592 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1592 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1592 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1593 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1593 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1593 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1612 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1612 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1612 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1613 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1613 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1613 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1632 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1632 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1632 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1633 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1633 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1633 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1652 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1652 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1652 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1653 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1653 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1653 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1672 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1672 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1672 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1673 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1673 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1673 ($sub).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1692 ($add).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1692 ($add).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1692 ($add).
+Removed top 26 bits (of 32) from port A of cell RegisterStatusProof.$flatten\dut.$1693 ($sub).
+Removed top 31 bits (of 32) from port B of cell RegisterStatusProof.$flatten\dut.$1693 ($sub).
+Removed top 26 bits (of 32) from port Y of cell RegisterStatusProof.$flatten\dut.$1693 ($sub).
+Removed top 4 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6466 ($eq).
+Removed top 3 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6469 ($eq).
+Removed top 2 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6475 ($eq).
+Removed top 3 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6472 ($eq).
+Removed top 2 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6478 ($eq).
+Removed top 2 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6484 ($eq).
+Removed top 2 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6481 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6487 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6493 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6490 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6496 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6502 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6499 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6505 ($eq).
+Removed top 1 bits (of 5) from port B of cell RegisterStatusProof.$flatten\dut.$auto$demuxmap.cc:64:execute$6508 ($eq).
+
+15.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RegisterStatusProof..
+Removed 0 unused cells and 1300 unused wires.
+<suppressed ~1 debug messages>
+
+15.12. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+15.13. Executing OPT pass (performing simple optimizations).
+
+15.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RegisterStatusProof.
+
+15.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\RegisterStatusProof'.
+Computing hashes of 489 cells of `\RegisterStatusProof'.
+Finding duplicate cells in `\RegisterStatusProof'.
+Removed a total of 0 cells.
+
+15.13.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RegisterStatusProof..
+
+15.13.4. Finished fast OPT passes.
+
+15.14. Executing SORT pass.
+
+15.15. Printing statistics.
+
+=== RegisterStatusProof ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     2351 wires
+     4152 wire bits
+      385 public wires
+     1604 public wire bits
+       10 ports
+       30 port bits
+      489 cells
+       25   $add
+       56   $aldff
+        4   $and
+        1   $anyseq
+       52   $check
+       67   $eq
+        2   $ge
+        1   $initstate
+        4   $logic_and
+       54   $logic_not
+        6   $logic_or
+        2   $lt
+      179   $mux
+        6   $not
+        3   $or
+        1   $reduce_or
+        1   $scopeinfo
+       25   $sub
+
+15.16. Executing CHECK pass (checking for obvious problems).
+Checking module RegisterStatusProof...
+Found and reported 0 problems.
+
+16. Executing SETUNDEF pass (replace undef values with defined constants).
+
+17. Executing CHECK pass (checking for obvious problems).
+Checking module RegisterStatusProof...
+Found and reported 0 problems.
+
+18. Executing ASYNC2SYNC pass.
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[10] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$389 $flatten\dut.$auto$jsonparse.cc:561:json_import$388 $flatten\dut.$auto$jsonparse.cc:561:json_import$387 $flatten\dut.$auto$jsonparse.cc:561:json_import$386 $flatten\dut.$auto$jsonparse.cc:561:json_import$385 }, Q=\dut.u_backend.u_int_regstat.busy_rob_idx [109:105]
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[11] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$384 $flatten\dut.$auto$jsonparse.cc:561:json_import$383 $flatten\dut.$auto$jsonparse.cc:561:json_import$382 $flatten\dut.$auto$jsonparse.cc:561:json_import$381 $flatten\dut.$auto$jsonparse.cc:561:json_import$380 }, Q=\dut.u_backend.u_int_regstat.busy_rob_idx [104:100]
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[12] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$379 $flatten\dut.$auto$jsonparse.cc:561:json_import$378 $flatten\dut.$auto$jsonparse.cc:561:json_import$377 $flatten\dut.$auto$jsonparse.cc:561:json_import$376 $flatten\dut.$auto$jsonparse.cc:561:json_import$375 }, Q=\dut.tag_12
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[13] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$374 $flatten\dut.$auto$jsonparse.cc:561:json_import$373 $flatten\dut.$auto$jsonparse.cc:561:json_import$372 $flatten\dut.$auto$jsonparse.cc:561:json_import$371 $flatten\dut.$auto$jsonparse.cc:561:json_import$370 }, Q=\dut.tag_13
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[14] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$369 $flatten\dut.$auto$jsonparse.cc:561:json_import$368 $flatten\dut.$auto$jsonparse.cc:561:json_import$367 $flatten\dut.$auto$jsonparse.cc:561:json_import$366 $flatten\dut.$auto$jsonparse.cc:561:json_import$365 }, Q=\dut.tag_14
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[15] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$364 $flatten\dut.$auto$jsonparse.cc:561:json_import$363 $flatten\dut.$auto$jsonparse.cc:561:json_import$362 $flatten\dut.$auto$jsonparse.cc:561:json_import$361 $flatten\dut.$auto$jsonparse.cc:561:json_import$360 }, Q=\dut.tag_15
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[16] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$359 $flatten\dut.$auto$jsonparse.cc:561:json_import$358 $flatten\dut.$auto$jsonparse.cc:561:json_import$357 $flatten\dut.$auto$jsonparse.cc:561:json_import$356 $flatten\dut.$auto$jsonparse.cc:561:json_import$355 }, Q=\dut.tag_16
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[17] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$354 $flatten\dut.$auto$jsonparse.cc:561:json_import$353 $flatten\dut.$auto$jsonparse.cc:561:json_import$352 $flatten\dut.$auto$jsonparse.cc:561:json_import$351 $flatten\dut.$auto$jsonparse.cc:561:json_import$350 }, Q=\dut.tag_17
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[18] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$349 $flatten\dut.$auto$jsonparse.cc:561:json_import$348 $flatten\dut.$auto$jsonparse.cc:561:json_import$347 $flatten\dut.$auto$jsonparse.cc:561:json_import$346 $flatten\dut.$auto$jsonparse.cc:561:json_import$345 }, Q=\dut.u_backend.u_int_regstat.busy_rob_idx [69:65]
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[19] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$344 $flatten\dut.$auto$jsonparse.cc:561:json_import$343 $flatten\dut.$auto$jsonparse.cc:561:json_import$342 $flatten\dut.$auto$jsonparse.cc:561:json_import$341 $flatten\dut.$auto$jsonparse.cc:561:json_import$340 }, Q=\dut.tag_19
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[1] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$434 $flatten\dut.$auto$jsonparse.cc:561:json_import$433 $flatten\dut.$auto$jsonparse.cc:561:json_import$432 $flatten\dut.$auto$jsonparse.cc:561:json_import$431 $flatten\dut.$auto$jsonparse.cc:561:json_import$430 }, Q=\dut.tag_1
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[20] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$339 $flatten\dut.$auto$jsonparse.cc:561:json_import$338 $flatten\dut.$auto$jsonparse.cc:561:json_import$337 $flatten\dut.$auto$jsonparse.cc:561:json_import$336 $flatten\dut.$auto$jsonparse.cc:561:json_import$335 }, Q=\dut.tag_20
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[21] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$334 $flatten\dut.$auto$jsonparse.cc:561:json_import$333 $flatten\dut.$auto$jsonparse.cc:561:json_import$332 $flatten\dut.$auto$jsonparse.cc:561:json_import$331 $flatten\dut.$auto$jsonparse.cc:561:json_import$330 }, Q=\dut.tag_21
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[22] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$329 $flatten\dut.$auto$jsonparse.cc:561:json_import$328 $flatten\dut.$auto$jsonparse.cc:561:json_import$327 $flatten\dut.$auto$jsonparse.cc:561:json_import$326 $flatten\dut.$auto$jsonparse.cc:561:json_import$325 }, Q=\dut.tag_22
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[23] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$324 $flatten\dut.$auto$jsonparse.cc:561:json_import$323 $flatten\dut.$auto$jsonparse.cc:561:json_import$322 $flatten\dut.$auto$jsonparse.cc:561:json_import$321 $flatten\dut.$auto$jsonparse.cc:561:json_import$320 }, Q=\dut.tag_23
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[24] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$319 $flatten\dut.$auto$jsonparse.cc:561:json_import$318 $flatten\dut.$auto$jsonparse.cc:561:json_import$317 $flatten\dut.$auto$jsonparse.cc:561:json_import$316 $flatten\dut.$auto$jsonparse.cc:561:json_import$315 }, Q=\dut.tag_24
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[25] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$314 $flatten\dut.$auto$jsonparse.cc:561:json_import$313 $flatten\dut.$auto$jsonparse.cc:561:json_import$312 $flatten\dut.$auto$jsonparse.cc:561:json_import$311 $flatten\dut.$auto$jsonparse.cc:561:json_import$310 }, Q=\dut.tag_25
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[26] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$309 $flatten\dut.$auto$jsonparse.cc:561:json_import$308 $flatten\dut.$auto$jsonparse.cc:561:json_import$307 $flatten\dut.$auto$jsonparse.cc:561:json_import$306 $flatten\dut.$auto$jsonparse.cc:561:json_import$305 }, Q=\dut.tag_26
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[27] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$304 $flatten\dut.$auto$jsonparse.cc:561:json_import$303 $flatten\dut.$auto$jsonparse.cc:561:json_import$302 $flatten\dut.$auto$jsonparse.cc:561:json_import$301 $flatten\dut.$auto$jsonparse.cc:561:json_import$300 }, Q=\dut.tag_27
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[28] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$299 $flatten\dut.$auto$jsonparse.cc:561:json_import$298 $flatten\dut.$auto$jsonparse.cc:561:json_import$297 $flatten\dut.$auto$jsonparse.cc:561:json_import$296 $flatten\dut.$auto$jsonparse.cc:561:json_import$295 }, Q=\dut.tag_28
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[29] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$294 $flatten\dut.$auto$jsonparse.cc:561:json_import$293 $flatten\dut.$auto$jsonparse.cc:561:json_import$292 $flatten\dut.$auto$jsonparse.cc:561:json_import$291 $flatten\dut.$auto$jsonparse.cc:561:json_import$290 }, Q=\dut.tag_29
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[2] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$429 $flatten\dut.$auto$jsonparse.cc:561:json_import$428 $flatten\dut.$auto$jsonparse.cc:561:json_import$427 $flatten\dut.$auto$jsonparse.cc:561:json_import$426 $flatten\dut.$auto$jsonparse.cc:561:json_import$425 }, Q=\dut.tag_2
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[30] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$289 $flatten\dut.$auto$jsonparse.cc:561:json_import$288 $flatten\dut.$auto$jsonparse.cc:561:json_import$287 $flatten\dut.$auto$jsonparse.cc:561:json_import$286 $flatten\dut.$auto$jsonparse.cc:561:json_import$285 }, Q=\dut.tag_30
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[31] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$284 $flatten\dut.$auto$jsonparse.cc:561:json_import$283 $flatten\dut.$auto$jsonparse.cc:561:json_import$282 $flatten\dut.$auto$jsonparse.cc:561:json_import$281 $flatten\dut.$auto$jsonparse.cc:561:json_import$280 }, Q=\dut.tag_31
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[3] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$424 $flatten\dut.$auto$jsonparse.cc:561:json_import$423 $flatten\dut.$auto$jsonparse.cc:561:json_import$422 $flatten\dut.$auto$jsonparse.cc:561:json_import$421 $flatten\dut.$auto$jsonparse.cc:561:json_import$420 }, Q=\dut.tag_3
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[4] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$419 $flatten\dut.$auto$jsonparse.cc:561:json_import$418 $flatten\dut.$auto$jsonparse.cc:561:json_import$417 $flatten\dut.$auto$jsonparse.cc:561:json_import$416 $flatten\dut.$auto$jsonparse.cc:561:json_import$415 }, Q=\dut.tag_4
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[5] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$414 $flatten\dut.$auto$jsonparse.cc:561:json_import$413 $flatten\dut.$auto$jsonparse.cc:561:json_import$412 $flatten\dut.$auto$jsonparse.cc:561:json_import$411 $flatten\dut.$auto$jsonparse.cc:561:json_import$410 }, Q=\dut.u_backend.u_int_regstat.busy_rob_idx [134:130]
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[6] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$409 $flatten\dut.$auto$jsonparse.cc:561:json_import$408 $flatten\dut.$auto$jsonparse.cc:561:json_import$407 $flatten\dut.$auto$jsonparse.cc:561:json_import$406 $flatten\dut.$auto$jsonparse.cc:561:json_import$405 }, Q=\dut.tag_6
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[7] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$404 $flatten\dut.$auto$jsonparse.cc:561:json_import$403 $flatten\dut.$auto$jsonparse.cc:561:json_import$402 $flatten\dut.$auto$jsonparse.cc:561:json_import$401 $flatten\dut.$auto$jsonparse.cc:561:json_import$400 }, Q=\dut.tag_7
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[8] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$399 $flatten\dut.$auto$jsonparse.cc:561:json_import$398 $flatten\dut.$auto$jsonparse.cc:561:json_import$397 $flatten\dut.$auto$jsonparse.cc:561:json_import$396 $flatten\dut.$auto$jsonparse.cc:561:json_import$395 }, Q=\dut.u_backend.u_int_regstat.busy_rob_idx [119:115]
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.busy_rob_idx[9] ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$394 $flatten\dut.$auto$jsonparse.cc:561:json_import$393 $flatten\dut.$auto$jsonparse.cc:561:json_import$392 $flatten\dut.$auto$jsonparse.cc:561:json_import$391 $flatten\dut.$auto$jsonparse.cc:561:json_import$390 }, Q=\dut.u_backend.u_int_regstat.busy_rob_idx [114:110]
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[12].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2163 $flatten\dut.$auto$jsonparse.cc:561:json_import$2162 $flatten\dut.$auto$jsonparse.cc:561:json_import$2161 $flatten\dut.$auto$jsonparse.cc:561:json_import$2160 $flatten\dut.$auto$jsonparse.cc:561:json_import$2159 $flatten\dut.$auto$jsonparse.cc:561:json_import$2158 }, Q=\dut.count_12
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[13].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2235 $flatten\dut.$auto$jsonparse.cc:561:json_import$2234 $flatten\dut.$auto$jsonparse.cc:561:json_import$2233 $flatten\dut.$auto$jsonparse.cc:561:json_import$2232 $flatten\dut.$auto$jsonparse.cc:561:json_import$2231 $flatten\dut.$auto$jsonparse.cc:561:json_import$2230 }, Q=\dut.count_13
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[14].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2307 $flatten\dut.$auto$jsonparse.cc:561:json_import$2306 $flatten\dut.$auto$jsonparse.cc:561:json_import$2305 $flatten\dut.$auto$jsonparse.cc:561:json_import$2304 $flatten\dut.$auto$jsonparse.cc:561:json_import$2303 $flatten\dut.$auto$jsonparse.cc:561:json_import$2302 }, Q=\dut.count_14
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[15].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2379 $flatten\dut.$auto$jsonparse.cc:561:json_import$2378 $flatten\dut.$auto$jsonparse.cc:561:json_import$2377 $flatten\dut.$auto$jsonparse.cc:561:json_import$2376 $flatten\dut.$auto$jsonparse.cc:561:json_import$2375 $flatten\dut.$auto$jsonparse.cc:561:json_import$2374 }, Q=\dut.count_15
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[16].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2451 $flatten\dut.$auto$jsonparse.cc:561:json_import$2450 $flatten\dut.$auto$jsonparse.cc:561:json_import$2449 $flatten\dut.$auto$jsonparse.cc:561:json_import$2448 $flatten\dut.$auto$jsonparse.cc:561:json_import$2447 $flatten\dut.$auto$jsonparse.cc:561:json_import$2446 }, Q=\dut.count_16
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[17].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2523 $flatten\dut.$auto$jsonparse.cc:561:json_import$2522 $flatten\dut.$auto$jsonparse.cc:561:json_import$2521 $flatten\dut.$auto$jsonparse.cc:561:json_import$2520 $flatten\dut.$auto$jsonparse.cc:561:json_import$2519 $flatten\dut.$auto$jsonparse.cc:561:json_import$2518 }, Q=\dut.count_17
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[19].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2667 $flatten\dut.$auto$jsonparse.cc:561:json_import$2666 $flatten\dut.$auto$jsonparse.cc:561:json_import$2665 $flatten\dut.$auto$jsonparse.cc:561:json_import$2664 $flatten\dut.$auto$jsonparse.cc:561:json_import$2663 $flatten\dut.$auto$jsonparse.cc:561:json_import$2662 }, Q=\dut.count_19
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[1].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$1371 $flatten\dut.$auto$jsonparse.cc:561:json_import$1370 $flatten\dut.$auto$jsonparse.cc:561:json_import$1369 $flatten\dut.$auto$jsonparse.cc:561:json_import$1368 $flatten\dut.$auto$jsonparse.cc:561:json_import$1367 $flatten\dut.$auto$jsonparse.cc:561:json_import$1366 }, Q=\dut.count_1
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[20].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2739 $flatten\dut.$auto$jsonparse.cc:561:json_import$2738 $flatten\dut.$auto$jsonparse.cc:561:json_import$2737 $flatten\dut.$auto$jsonparse.cc:561:json_import$2736 $flatten\dut.$auto$jsonparse.cc:561:json_import$2735 $flatten\dut.$auto$jsonparse.cc:561:json_import$2734 }, Q=\dut.count_20
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[21].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2811 $flatten\dut.$auto$jsonparse.cc:561:json_import$2810 $flatten\dut.$auto$jsonparse.cc:561:json_import$2809 $flatten\dut.$auto$jsonparse.cc:561:json_import$2808 $flatten\dut.$auto$jsonparse.cc:561:json_import$2807 $flatten\dut.$auto$jsonparse.cc:561:json_import$2806 }, Q=\dut.count_21
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[22].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2883 $flatten\dut.$auto$jsonparse.cc:561:json_import$2882 $flatten\dut.$auto$jsonparse.cc:561:json_import$2881 $flatten\dut.$auto$jsonparse.cc:561:json_import$2880 $flatten\dut.$auto$jsonparse.cc:561:json_import$2879 $flatten\dut.$auto$jsonparse.cc:561:json_import$2878 }, Q=\dut.count_22
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[23].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$2955 $flatten\dut.$auto$jsonparse.cc:561:json_import$2954 $flatten\dut.$auto$jsonparse.cc:561:json_import$2953 $flatten\dut.$auto$jsonparse.cc:561:json_import$2952 $flatten\dut.$auto$jsonparse.cc:561:json_import$2951 $flatten\dut.$auto$jsonparse.cc:561:json_import$2950 }, Q=\dut.count_23
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[24].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$3027 $flatten\dut.$auto$jsonparse.cc:561:json_import$3026 $flatten\dut.$auto$jsonparse.cc:561:json_import$3025 $flatten\dut.$auto$jsonparse.cc:561:json_import$3024 $flatten\dut.$auto$jsonparse.cc:561:json_import$3023 $flatten\dut.$auto$jsonparse.cc:561:json_import$3022 }, Q=\dut.count_24
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[25].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$3099 $flatten\dut.$auto$jsonparse.cc:561:json_import$3098 $flatten\dut.$auto$jsonparse.cc:561:json_import$3097 $flatten\dut.$auto$jsonparse.cc:561:json_import$3096 $flatten\dut.$auto$jsonparse.cc:561:json_import$3095 $flatten\dut.$auto$jsonparse.cc:561:json_import$3094 }, Q=\dut.count_25
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[26].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$3171 $flatten\dut.$auto$jsonparse.cc:561:json_import$3170 $flatten\dut.$auto$jsonparse.cc:561:json_import$3169 $flatten\dut.$auto$jsonparse.cc:561:json_import$3168 $flatten\dut.$auto$jsonparse.cc:561:json_import$3167 $flatten\dut.$auto$jsonparse.cc:561:json_import$3166 }, Q=\dut.count_26
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[27].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$3243 $flatten\dut.$auto$jsonparse.cc:561:json_import$3242 $flatten\dut.$auto$jsonparse.cc:561:json_import$3241 $flatten\dut.$auto$jsonparse.cc:561:json_import$3240 $flatten\dut.$auto$jsonparse.cc:561:json_import$3239 $flatten\dut.$auto$jsonparse.cc:561:json_import$3238 }, Q=\dut.count_27
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[28].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$3315 $flatten\dut.$auto$jsonparse.cc:561:json_import$3314 $flatten\dut.$auto$jsonparse.cc:561:json_import$3313 $flatten\dut.$auto$jsonparse.cc:561:json_import$3312 $flatten\dut.$auto$jsonparse.cc:561:json_import$3311 $flatten\dut.$auto$jsonparse.cc:561:json_import$3310 }, Q=\dut.count_28
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[29].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$3387 $flatten\dut.$auto$jsonparse.cc:561:json_import$3386 $flatten\dut.$auto$jsonparse.cc:561:json_import$3385 $flatten\dut.$auto$jsonparse.cc:561:json_import$3384 $flatten\dut.$auto$jsonparse.cc:561:json_import$3383 $flatten\dut.$auto$jsonparse.cc:561:json_import$3382 }, Q=\dut.count_29
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[2].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$1443 $flatten\dut.$auto$jsonparse.cc:561:json_import$1442 $flatten\dut.$auto$jsonparse.cc:561:json_import$1441 $flatten\dut.$auto$jsonparse.cc:561:json_import$1440 $flatten\dut.$auto$jsonparse.cc:561:json_import$1439 $flatten\dut.$auto$jsonparse.cc:561:json_import$1438 }, Q=\dut.count_2
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[30].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$3459 $flatten\dut.$auto$jsonparse.cc:561:json_import$3458 $flatten\dut.$auto$jsonparse.cc:561:json_import$3457 $flatten\dut.$auto$jsonparse.cc:561:json_import$3456 $flatten\dut.$auto$jsonparse.cc:561:json_import$3455 $flatten\dut.$auto$jsonparse.cc:561:json_import$3454 }, Q=\dut.count_30
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[31].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$3531 $flatten\dut.$auto$jsonparse.cc:561:json_import$3530 $flatten\dut.$auto$jsonparse.cc:561:json_import$3529 $flatten\dut.$auto$jsonparse.cc:561:json_import$3528 $flatten\dut.$auto$jsonparse.cc:561:json_import$3527 $flatten\dut.$auto$jsonparse.cc:561:json_import$3526 }, Q=\dut.count_31
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[3].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$1515 $flatten\dut.$auto$jsonparse.cc:561:json_import$1514 $flatten\dut.$auto$jsonparse.cc:561:json_import$1513 $flatten\dut.$auto$jsonparse.cc:561:json_import$1512 $flatten\dut.$auto$jsonparse.cc:561:json_import$1511 $flatten\dut.$auto$jsonparse.cc:561:json_import$1510 }, Q=\dut.count_3
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[4].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$1587 $flatten\dut.$auto$jsonparse.cc:561:json_import$1586 $flatten\dut.$auto$jsonparse.cc:561:json_import$1585 $flatten\dut.$auto$jsonparse.cc:561:json_import$1584 $flatten\dut.$auto$jsonparse.cc:561:json_import$1583 $flatten\dut.$auto$jsonparse.cc:561:json_import$1582 }, Q=\dut.count_4
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[6].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$1731 $flatten\dut.$auto$jsonparse.cc:561:json_import$1730 $flatten\dut.$auto$jsonparse.cc:561:json_import$1729 $flatten\dut.$auto$jsonparse.cc:561:json_import$1728 $flatten\dut.$auto$jsonparse.cc:561:json_import$1727 $flatten\dut.$auto$jsonparse.cc:561:json_import$1726 }, Q=\dut.count_6
+Replacing RegisterStatusProof.$flatten\dut.$driver$u_backend.u_int_regstat.gen_busy_counters[7].u_rob_cnt.count_o ($aldff): ALOAD=\rst_ni, AD=6'000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$1803 $flatten\dut.$auto$jsonparse.cc:561:json_import$1802 $flatten\dut.$auto$jsonparse.cc:561:json_import$1801 $flatten\dut.$auto$jsonparse.cc:561:json_import$1800 $flatten\dut.$auto$jsonparse.cc:561:json_import$1799 $flatten\dut.$auto$jsonparse.cc:561:json_import$1798 }, Q=\dut.count_7
+
+19. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+20. Executing SETUNDEF pass (replace undef values with defined constants).
+
+21. Executing CHECK pass (checking for obvious problems).
+Checking module RegisterStatusProof...
+Found and reported 0 problems.
+
+22. Executing JSON backend.
+
+23. Executing SMT2 backend.
+
+23.1. Executing BMUXMAP pass.
+
+23.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module RegisterStatusProof.

@@ -165,6 +165,25 @@ been concretized against the native query. Direct PDR on this unchanged map
 cannot establish safety; further work must refine the abstraction or prove
 additional native invariants, rather than treat the timeout as a certificate.
 
+The [source-bound retained-state inventory](application_screen/GLA_STATE_INVENTORY.md)
+resolves all 684 native-map latches. ROB (139), issue FIFO (123), load/store
+control (67), and prediction state (58) dominate; no integer-RF or wide ALU
+operand/result state is retained. The existing 40 destination-register-field
+theorems overlap 61 retained bits and are a targeted source of additional
+proved facts for the query. These ownership counts are not area estimates.
+
+The [register-status closure](application_screen/REGISTER_STATUS_LEMMAS.md)
+proves 275 reset bits for 25 unused register-status entries using the already
+closed issue/commit destination domains. All 50 counter/tag assertions pass
+base and induction; removing either derived index-domain premise produces an
+actual local counterexample. This is program-only simplification. None of
+those 275 bits is retained in the current gate maps, so it does not directly
+remove retained state there. The next query preparation will also import the
+already-proved field domains that constrain ROB and issue control. Their
+source theorem must be replayed before transferring conclusions through the
+existing pointwise substitutions; no internal occupancy or tag assumption is
+introduced.
+
 The next proof simplification follows a closed program-only chain: the certified
 decoder excludes MUL/DIV dispatch, the native issue register preserves that
 exclusion, and the original insertion gates therefore never admit either unit.
