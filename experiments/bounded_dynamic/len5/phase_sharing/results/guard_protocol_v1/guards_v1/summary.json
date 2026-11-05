@@ -1,0 +1,161 @@
+{
+  "status": "joint_not_proven",
+  "proven": false,
+  "source_proof_sha256": "83d8215affb2d82b05ab410780c7aa8f09d9f6adfa50e667e0be145d3e829619",
+  "source_native_sha256": "8ae22a00de3d08bcf15264ff19a0ee2bb5a8355f99d4c00b8731c38bb6a4c147",
+  "implementation_sha256": "c338e709bd99143e759b9e7a4cca0975f95e6266d9326fd02506e74bfa5b9830",
+  "assumptions_added": 0,
+  "candidate_count": 14,
+  "premise": "Unchanged prior native-reset/environment; candidates are asserted, never assumed",
+  "screen": {
+    "export": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/export.ys"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "timeout": false,
+      "seconds": 0.2661897470243275,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/export.log",
+      "log_sha256": "0fbe840e0d8c8c071d8df9f43f66cba99de6ff8d9170b1a4358df8c242c1d166"
+    },
+    "native_sha256": "fe3727f21f3069d1085caeb9c1eefa63a21e3e671f40583f084128db2a299ce9",
+    "smt_sha256": "7809c429702939ebd9a4351cbf81ccfd32a83affd7f179afa19f219b6103906f",
+    "clock": {
+      "clocks": [
+        [
+          [
+            2
+          ],
+          1
+        ]
+      ],
+      "model": "single shared global step, validated after async2sync/dffunmap"
+    },
+    "property_counts": {
+      "assert": 14,
+      "assume": 1
+    },
+    "run": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "14",
+        "--noprogress",
+        "--keep-going",
+        "--dump-vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/failed_%.vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/model.smt2"
+      ],
+      "returncode": 1,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+      "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+      "timeout": false,
+      "seconds": 14.515505296178162,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/bmc.log",
+      "log_sha256": "488db2e4463fd73273ed29d812528430e8ae978df4e4432b031cdec898ae002a"
+    },
+    "rejected": [
+      "guard_000_a",
+      "guard_002_b",
+      "guard_003_b",
+      "guard_004_b",
+      "guard_005_b",
+      "guard_006_a",
+      "guard_006_b"
+    ],
+    "survivors": [
+      "guard_000_b",
+      "guard_001_a",
+      "guard_001_b",
+      "guard_002_a",
+      "guard_003_a",
+      "guard_004_a",
+      "guard_005_a"
+    ],
+    "scope": "BMC-only rejection in the reduced proof model, never an invariant certificate"
+  },
+  "joint": {
+    "export": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/export.ys"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "timeout": false,
+      "seconds": 0.26612814608961344,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/export.log",
+      "log_sha256": "cafb79cd74ef3788d06552ef1dfc6bc2184ed50b7815225092e85830a7cb14a9"
+    },
+    "native_sha256": "504f4ac3feb41d5999a7dc11bf5fffeca8ecc120720025e81c69c25cf4c0e4a8",
+    "smt_sha256": "c4d0911fca02e001fb0a362f5f2b29193957744ca79bc149f1359069ed6be7d2",
+    "clock": {
+      "clocks": [
+        [
+          [
+            2
+          ],
+          1
+        ]
+      ],
+      "model": "single shared global step, validated after async2sync/dffunmap"
+    },
+    "property_counts": {
+      "assert": 15,
+      "assume": 1
+    },
+    "base": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "3",
+        "--noprogress",
+        "--dump-vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/base.vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/model.smt2"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+      "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+      "timeout": false,
+      "seconds": 0.31643086299300194,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/base.log",
+      "log_sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a"
+    },
+    "induction": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "3",
+        "--noprogress",
+        "-i",
+        "--dump-vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/step.vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/model.smt2"
+      ],
+      "returncode": 1,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+      "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+      "timeout": false,
+      "seconds": 4.830623719841242,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/step.log",
+      "log_sha256": "2c661ba29f5503f4836e70f73313b34b51e3dc372cb01faa16b580063a20843b"
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "status": "conditional_component_not_proven",
+  "conditional_proven": false,
+  "accepted_rewrites": 0,
+  "source_native": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/joint/native.json",
+  "source_native_sha256": "504f4ac3feb41d5999a7dc11bf5fffeca8ecc120720025e81c69c25cf4c0e4a8",
+  "implementation_sha256": "358a11b1311918f00e60f7abf83dd04eb876480e7affa6b726b8980924099ef2",
+  "monitor_sha256": "ec080211efeaeb868a5dee5db967543524248ea83d730f01fac196ef81b01470",
+  "bindings": {
+    "clk_i": [
+      2
+    ],
+    "rst_ni": [
+      3
+    ],
+    "flush_i": [
+      4
+    ],
+    "issue_valid_i": [
+      5
+    ],
+    "issue_ready_i": [
+      615
+    ],
+    "issue_tag_i": [
+      150,
+      151,
+      152,
+      153,
+      154
+    ],
+    "complete_valid_i": [
+      13688
+    ],
+    "complete_ready_i": [
+      620
+    ],
+    "complete_tag_i": [
+      15370,
+      15371,
+      15372,
+      15373,
+      15374
+    ]
+  },
+  "assumptions_added": 1,
+  "scope": "Conditional ALU+CDB component only. Native ROB/issue protocol closure is NOT proved.",
+  "protocol": "Accepted ALU issue reserves its ROB tag until local ALU CDB ready/valid completion or flush/reset. Same-edge completion/reallocation is allowed. No operand/readiness/service restriction.",
+  "source_bit_bindings": "PRE-FPU expipe_pkg.sv cdb_data_t has ROB tag at bits74:70; EU_INT_ALU=3 means normal CDB slot2. Original wrapper and full raw local ALU payload retained.",
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.2659117700532079,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/prepare.log",
+    "log_sha256": "ec3a821b4eaea312507d27180317d4adf36fa0b66c4ef2cfdbc19cc6c283ac24"
+  },
+  "joint": {
+    "export": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/export.ys"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "timeout": false,
+      "seconds": 0.3159831422381103,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/export.log",
+      "log_sha256": "ea47994c97d8fd45d61ae0096924acc28a203d0cc8406bcbbb9df5fefca74724"
+    },
+    "native_sha256": "27e5031d5c4e5c87cd2320301c9c1d304df4559574deb7277f368d6afa95282d",
+    "smt_sha256": "e3c1605758717bda8f79e66f646b14dfd38f346f287d7b41b1e37571adc1246a",
+    "clock": {
+      "clocks": [
+        [
+          [
+            2
+          ],
+          1
+        ]
+      ],
+      "model": "single shared global step, validated after async2sync/dffunmap"
+    },
+    "property_counts": {
+      "assert": 15,
+      "assume": 2
+    },
+    "aig_export": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/aig_export.ys"
+      ],
+      "returncode": 0,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+      "timeout": false,
+      "seconds": 8.79188918415457,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/aig_export.log",
+      "log_sha256": "9897901947ef516104f0edf3332a881c0c19e8385d1bb4952a91d4a010d2ed8d"
+    },
+    "aig_sha256": "be1d9df8c6e5a57a744e3296d12e5e1ad3668be9ae3568036e3960bd3170c675",
+    "aig_bad_properties": 14,
+    "aig_constraints": 2,
+    "pdr": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/model.aig\"; fold; orpos; pdr -T 120 -v"
+      ],
+      "returncode": 0,
+      "executable": "/usr/local/bin/abc",
+      "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+      "timeout": false,
+      "seconds": 120.2271016407758,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/pdr.log",
+      "log_sha256": "a6cb5122aef7d89f6d82bf512fd531abdff1b2098ad485072d80e93d40c34ba7"
+    }
+  },
+  "negative_protocol": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.032845026813447475,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/prepare.log",
+    "log_sha256": "1ab9c7ec6453baad0af7947be2bb01d8cf4130f20de04c800d3838111281acba",
+    "run": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+        "-s",
+        "z3",
+        "-t",
+        "4",
+        "--noprogress",
+        "--dump-vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/counterexample.vcd",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/model.smt2"
+      ],
+      "returncode": 1,
+      "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+      "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+      "timeout": false,
+      "seconds": 0.11521273897960782,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/bmc.log",
+      "log_sha256": "e9c0b0b6ffac5329240e2a037bc3a2f52509fda656fbbc220b5f246286a76228"
+    },
+    "explicit_assertion_counterexample": true,
+    "scope": "Standalone protocol monitor negative, not a bank-rewrite counterexample"
+  }
+}

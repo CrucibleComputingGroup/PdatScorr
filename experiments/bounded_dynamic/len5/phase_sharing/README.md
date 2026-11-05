@@ -6,6 +6,14 @@ lifetime ODCs as a control for the timing-constrained study; it does not establi
 timing-induced savings or a mapped-area reduction. Compact records are in
 [`results/phase_control_v1/summary.json`](results/phase_control_v1/summary.json).
 
+The archived attempts predate the corrected symbolic-undefined frontend.
+Historical successful subproofs require revalidation or a separate certificate
+that their undefined choices are irrelevant; the target outcomes already
+accepted no rewrite. Current `proof.py` uses the shared safe preparation helper
+and archives its exact source for future runs. No historical solver artifact
+has been overwritten. See
+[`formal_frontend/README.md`](../../formal_frontend/README.md).
+
 The source is unmodified PRE-FPU LEN5 commit
 `14291dcc5bef181085d001c5a29e7f4fc4cbc8e9`. The original ALU reservation station
 has eight entries. Every operand remains arbitrary and instructions may wait
@@ -102,6 +110,34 @@ wrong writes, ambiguous state aliases, undefined resets, and unequal ALU
 control/operand tuples. These validate the mechanisms; they do not replace the
 unfinished target proof. See `helper_review.md` and `coherent_alu_review.md`.
 
+## Automatic conditional-invariant experiment
+
+The next bounded experiment discovers predicates from the native write-enable
+cones instead of supplying instruction phases. It selected a three-bit control
+register, found seven existing predicates, and generated fourteen guarded bank
+equalities. BMC rejected seven; the seven survivors remained assertions in the
+joint functional proof. Three-step base checks passed, induction failed, and
+joint PDR returned `UNDECIDED` at 120 seconds. No survivor is called a proved
+LEN5 invariant. A small-model regression does prove automatically selected
+guards plus its functional outputs by base and induction.
+
+One final conditional run added a proof-only bitmap tracking destination tags
+from accepted ALU issue through local ALU CDB completion. It assumes no reuse
+of an outstanding tag, permits same-edge release/reallocation, and clears on
+native reset/flush. This adds exactly one assumption, for two total with the
+initial-reset premise. Payloads, backpressure, and operand readiness stay
+arbitrary. It also returned `UNDECIDED` at 120 seconds. The actual ROB/issue
+context has **not** been proved to satisfy this premise; any conditional proof
+would remain intermediate until that closure is established.
+
+The standalone protocol negative produced an explicit duplicate-allocation
+counterexample. A separate native two-copy duplicate-tag stress screen found
+no functional mismatch through 12,864 cycles and was stopped; this is
+inconclusive. The induction traces point to missing relations between retained
+arbiter requests and row states. See `guard_protocol_review.md` and
+[`results/guard_protocol_v1/summary.json`](results/guard_protocol_v1/summary.json).
+There are still zero accepted target rewrites and no mapped-area result.
+
 ## Reproduction in fresh directories
 
 Run from the code-repository root. Build directories below are examples and
@@ -125,6 +161,27 @@ use `--boundary alu_cdb_rob` in preparation.
 `--wrong-data` invokes the explicit bad rewrite. The driver archives the exact
 bank-sharing and temporal-proof implementations with each fresh run. `negative.py`
 provides the separate functional-only wrong-data/raw-local-output controls.
+
+To reproduce the guard/protocol experiment from its archived original proof
+model, use fresh directories. The source model retains the unchanged native
+reset premise and all prior proof obligations.
+
+```sh
+mkdir /tmp/len5-guard-source
+gzip -dc experiments/bounded_dynamic/len5/phase_sharing/results/guard_protocol_v1/source_model/native.json.gz \
+  > /tmp/len5-guard-source/native.json
+cp experiments/bounded_dynamic/len5/phase_sharing/results/guard_protocol_v1/source_model/proof.json \
+  /tmp/len5-guard-source/proof.json
+python experiments/bounded_dynamic/len5/phase_sharing/guard_invariants.py \
+  --source-proof /tmp/len5-guard-source --output /tmp/len5-guard-screen \
+  --bmc-depth 14 --depth 3 --timeout 120
+python experiments/bounded_dynamic/len5/phase_sharing/guard_invariants.py \
+  --source-proof /tmp/len5-guard-source --resume-screen /tmp/len5-guard-screen \
+  --output /tmp/len5-guard-joint --depth 3 --timeout 120
+python experiments/bounded_dynamic/len5/phase_sharing/conditional_protocol.py \
+  --source-native /tmp/len5-guard-joint/joint/native.json \
+  --output /tmp/len5-conditional-tags --timeout 120
+```
 
 The storage ceilings from source inspection are 512 bits for the eight ALU
 entries and 1,024 bits across the default ALU/MUL/DIV entries. These are not

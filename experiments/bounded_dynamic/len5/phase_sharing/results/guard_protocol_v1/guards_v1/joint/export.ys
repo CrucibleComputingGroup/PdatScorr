@@ -1,0 +1,7 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/native.json"
+check -assert
+async2sync
+dffunmap
+opt_clean
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/lowered.json"
+write_smt2 -wires "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/model.smt2"

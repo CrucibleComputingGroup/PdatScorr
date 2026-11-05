@@ -1,0 +1,243 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/prepare.ys' --
+
+1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv' to AST representation.
+Generating RTLIL representation for module `\UniqueTagProtocol'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \UniqueTagProtocol
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \UniqueTagProtocol
+Removed 0 unused modules.
+Module UniqueTagProtocol directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:13$proc$20 in module UniqueTagProtocol.
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 4 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_ni in `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:13$proc$20'.
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:13$proc$20'.
+     1/10: $4$lookahead\outstanding$19[31:0]$41
+     2/10: $3$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:18$3[4:0]$40
+     3/10: $3$lookahead\outstanding$19[31:0]$32
+     4/10: $3$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:17$2[4:0]$31
+     5/10: $2$lookahead\outstanding$19[31:0]$30
+     6/10: $2$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:18$3[4:0]$29
+     7/10: $2$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:17$2[4:0]$28
+     8/10: $1$lookahead\outstanding$19[31:0]$27
+     9/10: $1$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:18$3[4:0]$26
+    10/10: $1$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:17$2[4:0]$25
+Creating decoders for process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:12$proc$14'.
+     1/1: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:12$assert$18_EN
+Creating decoders for process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:6$proc$4'.
+     1/1: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:6$assume$5_EN
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\UniqueTagProtocol.\outstanding' using process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:13$proc$20'.
+  created $adff cell `$procdff$90' with positive edge clock and positive level reset.
+Creating register for signal `\UniqueTagProtocol.$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:17$2' using process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:13$proc$20'.
+  created $adff cell `$procdff$95' with positive edge clock and positive level reset.
+Creating register for signal `\UniqueTagProtocol.$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:18$3' using process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:13$proc$20'.
+  created $adff cell `$procdff$100' with positive edge clock and positive level reset.
+Creating register for signal `\UniqueTagProtocol.$lookahead\outstanding$19' using process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:13$proc$20'.
+  created $adff cell `$procdff$105' with positive edge clock and positive level reset.
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:13$proc$20'.
+Removing empty process `UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:13$proc$20'.
+Found and cleaned up 1 empty switch in `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:12$proc$14'.
+Removing empty process `UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:12$proc$14'.
+Found and cleaned up 1 empty switch in `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:6$proc$4'.
+Removing empty process `UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:6$proc$4'.
+Cleaned up 5 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UniqueTagProtocol.
+<suppressed ~8 debug messages>
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UniqueTagProtocol.
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module UniqueTagProtocol...
+Found and reported 0 problems.
+
+2.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UniqueTagProtocol..
+Removed 14 unused cells and 50 unused wires.
+<suppressed ~15 debug messages>
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UniqueTagProtocol.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\UniqueTagProtocol'.
+Computing hashes of 36 cells of `\UniqueTagProtocol'.
+Finding duplicate cells in `\UniqueTagProtocol'.
+Computing hashes of 34 cells of `\UniqueTagProtocol'.
+Finding duplicate cells in `\UniqueTagProtocol'.
+Computing hashes of 33 cells of `\UniqueTagProtocol'.
+Finding duplicate cells in `\UniqueTagProtocol'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \UniqueTagProtocol..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$53.
+Removed 1 multiplexer ports.
+<suppressed ~11 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \UniqueTagProtocol.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\UniqueTagProtocol'.
+Computing hashes of 32 cells of `\UniqueTagProtocol'.
+Finding duplicate cells in `\UniqueTagProtocol'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UniqueTagProtocol..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UniqueTagProtocol.
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \UniqueTagProtocol..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~10 debug messages>
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \UniqueTagProtocol.
+Performed a total of 0 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\UniqueTagProtocol'.
+Computing hashes of 32 cells of `\UniqueTagProtocol'.
+Finding duplicate cells in `\UniqueTagProtocol'.
+Removed a total of 0 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UniqueTagProtocol..
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UniqueTagProtocol.
+
+2.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Converting cell UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:17$neg$37 ($neg) from signed to unsigned.
+Removed top 1 bits (of 6) from port A of cell UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:17$neg$37 ($neg).
+Converting cell UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:18$neg$46 ($neg) from signed to unsigned.
+Removed top 1 bits (of 6) from port A of cell UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv:18$neg$46 ($neg).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UniqueTagProtocol..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UniqueTagProtocol.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\UniqueTagProtocol'.
+Computing hashes of 32 cells of `\UniqueTagProtocol'.
+Finding duplicate cells in `\UniqueTagProtocol'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UniqueTagProtocol..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Executing SORT pass.
+
+2.13. Printing statistics.
+
+=== UniqueTagProtocol ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       39 wires
+      491 wire bits
+       13 public wires
+       52 public wire bits
+        9 ports
+       17 port bits
+       32 cells
+        1   $adff
+        2   $and
+        2   $check
+        1   $eq
+        1   $initstate
+        5   $logic_and
+        3   $logic_not
+        1   $logic_or
+        6   $mux
+        2   $neg
+        2   $not
+        2   $or
+        3   $shift
+        1   $shiftx
+
+2.14. Executing CHECK pass (checking for obvious problems).
+Checking module UniqueTagProtocol...
+Found and reported 0 problems.
+
+3. Executing ASYNC2SYNC pass.
+Replacing UniqueTagProtocol.$procdff$90 ($adff): ARST=\rst_ni, D=$0$lookahead\outstanding$19[31:0]$23, Q=\outstanding
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Executing SMT2 backend.
+
+5.1. Executing BMUXMAP pass.
+
+5.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module UniqueTagProtocol.

@@ -1,0 +1,97 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/prepare.ys' --
+
+1. Executing JSON frontend.
+Importing module BankMiter from JSON tree.
+
+2. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv' to AST representation.
+Generating RTLIL representation for module `\UniqueTagProtocol'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \BankMiter
+Used module:     \UniqueTagProtocol
+
+3.2. Analyzing design hierarchy..
+Top module:  \BankMiter
+Used module:     \UniqueTagProtocol
+Removed 0 unused modules.
+Module UniqueTagProtocol directly or indirectly contains formal properties -> setting "keep" attribute.
+Module BankMiter directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:12$proc$6763 in module UniqueTagProtocol.
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 4 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_ni in `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:12$proc$6763'.
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:12$proc$6763'.
+     1/10: $4$lookahead\outstanding$6762[31:0]$6784
+     2/10: $3$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:17$6749[4:0]$6783
+     3/10: $3$lookahead\outstanding$6762[31:0]$6775
+     4/10: $3$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:16$6748[4:0]$6774
+     5/10: $2$lookahead\outstanding$6762[31:0]$6773
+     6/10: $2$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:17$6749[4:0]$6772
+     7/10: $2$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:16$6748[4:0]$6771
+     8/10: $1$lookahead\outstanding$6762[31:0]$6770
+     9/10: $1$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:17$6749[4:0]$6769
+    10/10: $1$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:16$6748[4:0]$6768
+Creating decoders for process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:11$proc$6757'.
+     1/1: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:11$assume$6761_EN
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\UniqueTagProtocol.\outstanding' using process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:12$proc$6763'.
+  created $adff cell `$procdff$6831' with positive edge clock and positive level reset.
+Creating register for signal `\UniqueTagProtocol.$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:16$6748' using process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:12$proc$6763'.
+  created $adff cell `$procdff$6836' with positive edge clock and positive level reset.
+Creating register for signal `\UniqueTagProtocol.$bitselwrite$pos$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:17$6749' using process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:12$proc$6763'.
+  created $adff cell `$procdff$6841' with positive edge clock and positive level reset.
+Creating register for signal `\UniqueTagProtocol.$lookahead\outstanding$6762' using process `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:12$proc$6763'.
+  created $adff cell `$procdff$6846' with positive edge clock and positive level reset.
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:12$proc$6763'.
+Removing empty process `UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:12$proc$6763'.
+Found and cleaned up 1 empty switch in `\UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:11$proc$6757'.
+Removing empty process `UniqueTagProtocol.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv:11$proc$6757'.
+Cleaned up 4 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UniqueTagProtocol.
+<suppressed ~8 debug messages>
+Optimizing module BankMiter.
+<suppressed ~8 debug messages>
+
+5. Executing FLATTEN pass (flatten design).
+Deleting now unused module UniqueTagProtocol.
+<suppressed ~1 debug messages>
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module BankMiter...
+Found and reported 0 problems.
+
+7. Executing JSON backend.

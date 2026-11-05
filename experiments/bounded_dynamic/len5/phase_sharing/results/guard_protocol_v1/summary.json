@@ -1,0 +1,498 @@
+{
+  "status": "no_target_candidate_proven",
+  "accepted_rewrites": 0,
+  "physical_mapping_performed": false,
+  "purpose": "Automatic guarded representation discovery; conditional tag protocol is intermediate only",
+  "source_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+  "guard_candidates": 14,
+  "guard_rejected": 7,
+  "guard_survivors": 7,
+  "guard_joint_proven": false,
+  "conditional_proven": false,
+  "conditional_assumptions_total": 2,
+  "native_allocator_protocol_closure_proved": false,
+  "explicit_negative_protocol_counterexample": true,
+  "native_simulation": {
+    "status": "inconclusive_bounded_native_screen",
+    "mismatch": false,
+    "completed_compared_cycles": 12864,
+    "last_completed_cycle": 12863,
+    "termination": "Task-owned simulator deliberately stopped after bounded cheap screen; planned100000 loop not completed",
+    "interpretation": "No mismatch seen. Does not prove correctness, validate tag ownership, or rule out duplicate-tag counterexamples. Native hardware compared without proof abstractions.",
+    "simulation_log_sha256": "1a7909299efa835a3ba272b1a690ad1a07ee0a30fe45d26d35feb4747f87c13d",
+    "command": [
+      "iverilog -g2012 -s tb -o sim.out tb.sv ../alu_cdb_proof_v1/reference.v ../native_candidate_v1/candidate.v",
+      "vvp sim.out > simulation.log"
+    ]
+  },
+  "native_pair_reference": {
+    "directory": "../phase_control_v1/native",
+    "reference_sha256": "a696a48efaedf6e442c8504a28d227527191293bb00020e860ab532e3e3527d2",
+    "unaccepted_candidate_sha256": "2478b0ee0162c460ca9e95b80634d03b845a5497ad0324e4d1cde7eac0938cd7"
+  },
+  "interpretation": "No target proof or hardware savings established. Failed induction is not a reachable counterexample. Monitor negative validates protocol rejection only. Native simulation has no mismatch and is inconclusive.",
+  "artifacts": [
+    {
+      "path": "guards_v1/discovery.json",
+      "sha256": "a0034981295a0deb45c10fd34ead82a12e67d08d9b0884a8dffeaab58c611f7e",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/discovery.json",
+      "source_sha256": "a0034981295a0deb45c10fd34ead82a12e67d08d9b0884a8dffeaab58c611f7e",
+      "gzip": false
+    },
+    {
+      "path": "guards_v1/guard_invariants_source.py",
+      "sha256": "c338e709bd99143e759b9e7a4cca0975f95e6266d9326fd02506e74bfa5b9830",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/guard_invariants_source.py",
+      "source_sha256": "c338e709bd99143e759b9e7a4cca0975f95e6266d9326fd02506e74bfa5b9830",
+      "gzip": false
+    },
+    {
+      "path": "guards_v1/joint/base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/base.log",
+      "source_sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "gzip": false
+    },
+    {
+      "path": "guards_v1/joint/export.log",
+      "sha256": "cafb79cd74ef3788d06552ef1dfc6bc2184ed50b7815225092e85830a7cb14a9",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/export.log",
+      "source_sha256": "cafb79cd74ef3788d06552ef1dfc6bc2184ed50b7815225092e85830a7cb14a9",
+      "gzip": false
+    },
+    {
+      "path": "guards_v1/joint/export.ys",
+      "sha256": "72a3e8fe97a389b9c86f5beae568d5c1c20cb3ec179a1480b8b3bad578fb0f5a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/export.ys",
+      "source_sha256": "72a3e8fe97a389b9c86f5beae568d5c1c20cb3ec179a1480b8b3bad578fb0f5a",
+      "gzip": false
+    },
+    {
+      "path": "guards_v1/joint/step.log",
+      "sha256": "2c661ba29f5503f4836e70f73313b34b51e3dc372cb01faa16b580063a20843b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/step.log",
+      "source_sha256": "2c661ba29f5503f4836e70f73313b34b51e3dc372cb01faa16b580063a20843b",
+      "gzip": false
+    },
+    {
+      "path": "guards_v1/joint/step.vcd.gz",
+      "sha256": "6a1f440b835c223414996fa83bdd157a440b80adec80a907793bd9d9889c0882",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/joint/step.vcd",
+      "source_sha256": "8bb9d712093efd7ecb62ef61a4fbc5f3f0cd7ba08754563daec27143a45032c6",
+      "gzip": true
+    },
+    {
+      "path": "guards_v1/screen/bmc.log",
+      "sha256": "488db2e4463fd73273ed29d812528430e8ae978df4e4432b031cdec898ae002a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/bmc.log",
+      "source_sha256": "488db2e4463fd73273ed29d812528430e8ae978df4e4432b031cdec898ae002a",
+      "gzip": false
+    },
+    {
+      "path": "guards_v1/screen/export.log",
+      "sha256": "0fbe840e0d8c8c071d8df9f43f66cba99de6ff8d9170b1a4358df8c242c1d166",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/export.log",
+      "source_sha256": "0fbe840e0d8c8c071d8df9f43f66cba99de6ff8d9170b1a4358df8c242c1d166",
+      "gzip": false
+    },
+    {
+      "path": "guards_v1/screen/export.ys",
+      "sha256": "969285f55d0b509ad04df7f60ecbe5fb92636c257ce1f0371aca4e61851a856c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/export.ys",
+      "source_sha256": "969285f55d0b509ad04df7f60ecbe5fb92636c257ce1f0371aca4e61851a856c",
+      "gzip": false
+    },
+    {
+      "path": "guards_v1/screen/failed_0.vcd.gz",
+      "sha256": "a5e810b4a7bbf2e3ffb1ebedc3d2a67ee95deab391a9a0ebdd7b687181f7333a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/failed_0.vcd",
+      "source_sha256": "34594e800fce9d0ffbfa3cdeb10344299749499fcd7970e97cea101e2fb7be38",
+      "gzip": true
+    },
+    {
+      "path": "guards_v1/screen/failed_1.vcd.gz",
+      "sha256": "0f43d12f25c1dc7e0899a35cba275751c5ba76240c0b1585939849aa15724798",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/failed_1.vcd",
+      "source_sha256": "f5829fa67bd34c36ef2d544dbf56f26b38da1e73281bca433e852bde51d3a4d1",
+      "gzip": true
+    },
+    {
+      "path": "guards_v1/screen/failed_2.vcd.gz",
+      "sha256": "7cf3c868d81534439fa54867bc0232053630e79e1e09a6c3bb204faa034bfb51",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/failed_2.vcd",
+      "source_sha256": "c578d643b2b7b7563e48086adf4e4194fb230a58f94d274f18d5cd0e5b522e47",
+      "gzip": true
+    },
+    {
+      "path": "guards_v1/screen/failed_3.vcd.gz",
+      "sha256": "0675e19ca830c690e77d0398f2a4c2cf198f49a132f1a437ebb57410e8f8d6de",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/failed_3.vcd",
+      "source_sha256": "393f11c015cbc09b4d8883636dcbf253b9fcd262e1aed61f5c4c81c906f442d0",
+      "gzip": true
+    },
+    {
+      "path": "guards_v1/screen/failed_4.vcd.gz",
+      "sha256": "94fcd8a2b756ec8f7954ee1a745d07d6630ebe146960f4b7562c2279ca8c96c9",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/failed_4.vcd",
+      "source_sha256": "5478d7789ed674412cdf25fc6554fda1931197681afb923aa3adf8401c76630f",
+      "gzip": true
+    },
+    {
+      "path": "guards_v1/screen/failed_5.vcd.gz",
+      "sha256": "2c91f98d7f84d7e8ca212976bd76bea077e7be946f332eb155e14f274564a8d9",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/failed_5.vcd",
+      "source_sha256": "e675b75b144a00721533aad9807e40844370517b0479af6e3d6fc55bce2b20d2",
+      "gzip": true
+    },
+    {
+      "path": "guards_v1/screen/failed_6.vcd.gz",
+      "sha256": "d9c7a6270619f1037c2e3c8e4c3f230005931fb4c891f043e456f0fd6cc76a63",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/screen/failed_6.vcd",
+      "source_sha256": "6fe5693f920e2906aea123a2a3d1cb078e1022248b33fce807d44c61118c894c",
+      "gzip": true
+    },
+    {
+      "path": "guards_v1/summary.json",
+      "sha256": "16da56a864441a4cdd45a24c92edf4605bb22c53e2e876da7229992877ad822c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v1/summary.json",
+      "source_sha256": "16da56a864441a4cdd45a24c92edf4605bb22c53e2e876da7229992877ad822c",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/guard_certificate/base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/guard_certificate/base.log",
+      "source_sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/guard_certificate/export.log",
+      "sha256": "63ac0204ed99758b1f1b0e1a73e1200901fc9a44c1e9b4728261a4ff24b51e83",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/guard_certificate/export.log",
+      "source_sha256": "63ac0204ed99758b1f1b0e1a73e1200901fc9a44c1e9b4728261a4ff24b51e83",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/guard_certificate/export.ys",
+      "sha256": "889ac20ab9d93d7257f3f54554691d50353224bfe316b7a7a173cdd79b52c213",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/guard_certificate/export.ys",
+      "source_sha256": "889ac20ab9d93d7257f3f54554691d50353224bfe316b7a7a173cdd79b52c213",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/guard_certificate/step.log",
+      "sha256": "d1e8dae0d4ced1fdc31dcfff78140e41f618e880e77e992fb6568d12e9b8b197",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/guard_certificate/step.log",
+      "source_sha256": "d1e8dae0d4ced1fdc31dcfff78140e41f618e880e77e992fb6568d12e9b8b197",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/guard_certificate/step.vcd.gz",
+      "sha256": "c2140b0f02416919f25b2f99fab5404e0de807b065d317567ab9d7d91740e5d3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/guard_certificate/step.vcd",
+      "source_sha256": "73434a8131a0d253e90ee933674f5b0990571b75a5d2d86f28dd15965a956714",
+      "gzip": true
+    },
+    {
+      "path": "guards_v2/guard_invariants_source.py",
+      "sha256": "a6c6f159614bb317a0ee9dcc99c4e8c4ab50b378a7d86bd0bb7894f54f528294",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/guard_invariants_source.py",
+      "source_sha256": "a6c6f159614bb317a0ee9dcc99c4e8c4ab50b378a7d86bd0bb7894f54f528294",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/joint/aig_export.log",
+      "sha256": "b40aae881fce04ee830a06b44e4c660426dcc47c02631c93104fd35f3e71d97d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/joint/aig_export.log",
+      "source_sha256": "b40aae881fce04ee830a06b44e4c660426dcc47c02631c93104fd35f3e71d97d",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/joint/aig_export.ys",
+      "sha256": "0f28833db9614521b8352cf0951344105f3ba8715dd3aa38e51263cdc27641f9",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/joint/aig_export.ys",
+      "source_sha256": "0f28833db9614521b8352cf0951344105f3ba8715dd3aa38e51263cdc27641f9",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/joint/export.log",
+      "sha256": "2322da12761b4e71a8c769b7db1e3ea3150ed59225deacce63c58e73ed8bbde6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/joint/export.log",
+      "source_sha256": "2322da12761b4e71a8c769b7db1e3ea3150ed59225deacce63c58e73ed8bbde6",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/joint/export.ys",
+      "sha256": "362accfb701b191461cdb6ebb7f384003fa9d7a980d5d6a3866cffb8abb4232c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/joint/export.ys",
+      "source_sha256": "362accfb701b191461cdb6ebb7f384003fa9d7a980d5d6a3866cffb8abb4232c",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/joint/model.aig",
+      "sha256": "4887c5ecc5bbb48aba5b800d6d3d379bbc2d77a690205004d50b36582d9abba6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/joint/model.aig",
+      "source_sha256": "4887c5ecc5bbb48aba5b800d6d3d379bbc2d77a690205004d50b36582d9abba6",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/joint/pdr.log",
+      "sha256": "bc90a160a7dde7e5e790e7340cbcbbd2cd15314254be72bce1d3f444683e1569",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/joint/pdr.log",
+      "source_sha256": "bc90a160a7dde7e5e790e7340cbcbbd2cd15314254be72bce1d3f444683e1569",
+      "gzip": false
+    },
+    {
+      "path": "guards_v2/summary.json",
+      "sha256": "61cd5105472b844cf3fbe926c9423a630620b6136628abffc352a58f3bb0ce29",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/guards_v2/summary.json",
+      "source_sha256": "61cd5105472b844cf3fbe926c9423a630620b6136628abffc352a58f3bb0ce29",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/UniqueTagProtocol.sv",
+      "sha256": "ec080211efeaeb868a5dee5db967543524248ea83d730f01fac196ef81b01470",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/UniqueTagProtocol.sv",
+      "source_sha256": "ec080211efeaeb868a5dee5db967543524248ea83d730f01fac196ef81b01470",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/conditional_protocol_source.py",
+      "sha256": "358a11b1311918f00e60f7abf83dd04eb876480e7affa6b726b8980924099ef2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/conditional_protocol_source.py",
+      "source_sha256": "358a11b1311918f00e60f7abf83dd04eb876480e7affa6b726b8980924099ef2",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/joint/aig_export.log",
+      "sha256": "9897901947ef516104f0edf3332a881c0c19e8385d1bb4952a91d4a010d2ed8d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/aig_export.log",
+      "source_sha256": "9897901947ef516104f0edf3332a881c0c19e8385d1bb4952a91d4a010d2ed8d",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/joint/aig_export.ys",
+      "sha256": "266759f32e714ed7b4b9b8d5797ad3d5c390d6d77f029082b64aaaae47abf3ae",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/aig_export.ys",
+      "source_sha256": "266759f32e714ed7b4b9b8d5797ad3d5c390d6d77f029082b64aaaae47abf3ae",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/joint/export.log",
+      "sha256": "ea47994c97d8fd45d61ae0096924acc28a203d0cc8406bcbbb9df5fefca74724",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/export.log",
+      "source_sha256": "ea47994c97d8fd45d61ae0096924acc28a203d0cc8406bcbbb9df5fefca74724",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/joint/export.ys",
+      "sha256": "9a2fe8c61f119d8f09edcedbc04bb48fcefb13caf37915def58799f288420239",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/export.ys",
+      "source_sha256": "9a2fe8c61f119d8f09edcedbc04bb48fcefb13caf37915def58799f288420239",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/joint/model.aig",
+      "sha256": "be1d9df8c6e5a57a744e3296d12e5e1ad3668be9ae3568036e3960bd3170c675",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/model.aig",
+      "source_sha256": "be1d9df8c6e5a57a744e3296d12e5e1ad3668be9ae3568036e3960bd3170c675",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/joint/pdr.log",
+      "sha256": "a6cb5122aef7d89f6d82bf512fd531abdff1b2098ad485072d80e93d40c34ba7",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/pdr.log",
+      "source_sha256": "a6cb5122aef7d89f6d82bf512fd531abdff1b2098ad485072d80e93d40c34ba7",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/negative_protocol/bmc.log",
+      "sha256": "e9c0b0b6ffac5329240e2a037bc3a2f52509fda656fbbc220b5f246286a76228",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/bmc.log",
+      "source_sha256": "e9c0b0b6ffac5329240e2a037bc3a2f52509fda656fbbc220b5f246286a76228",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/negative_protocol/counterexample.vcd.gz",
+      "sha256": "bdf15ac7eb4735dea5f6f48a256cdb331950ffcd2b1cd94ca63bbb27718bb05f",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/counterexample.vcd",
+      "source_sha256": "c2720d59edf657c6bfe74d4fb49ce1a63b436c45d71d3e6baa8f4c62870cb970",
+      "gzip": true
+    },
+    {
+      "path": "conditional_tags_v1/negative_protocol/model.smt2.gz",
+      "sha256": "e2e5ff6fe588aab330b755658cbf409ced1d67c50ab93dd06250a98faad22f91",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/model.smt2",
+      "source_sha256": "9d3263ef03b5301ffed20ad5d1fec3513d873af446164a692ce4924e02bb7084",
+      "gzip": true
+    },
+    {
+      "path": "conditional_tags_v1/negative_protocol/monitor.sv",
+      "sha256": "81e2fda5bc5db4a3436353b5097c0eda086a04dd977a991e92cf90d8d2ffc810",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/monitor.sv",
+      "source_sha256": "81e2fda5bc5db4a3436353b5097c0eda086a04dd977a991e92cf90d8d2ffc810",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/negative_protocol/prepare.log",
+      "sha256": "1ab9c7ec6453baad0af7947be2bb01d8cf4130f20de04c800d3838111281acba",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/prepare.log",
+      "source_sha256": "1ab9c7ec6453baad0af7947be2bb01d8cf4130f20de04c800d3838111281acba",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/negative_protocol/prepare.ys",
+      "sha256": "e3d9703774b983eb56f185d43d430540662aff843d1a4946e3b5979eb0489e38",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/negative_protocol/prepare.ys",
+      "source_sha256": "e3d9703774b983eb56f185d43d430540662aff843d1a4946e3b5979eb0489e38",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/prepare.log",
+      "sha256": "ec3a821b4eaea312507d27180317d4adf36fa0b66c4ef2cfdbc19cc6c283ac24",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/prepare.log",
+      "source_sha256": "ec3a821b4eaea312507d27180317d4adf36fa0b66c4ef2cfdbc19cc6c283ac24",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/prepare.ys",
+      "sha256": "ff64da84d464e12476ba0ba07f89d99e79a1542b1f9edb9b8564b44ba9b11ae4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/prepare.ys",
+      "source_sha256": "ff64da84d464e12476ba0ba07f89d99e79a1542b1f9edb9b8564b44ba9b11ae4",
+      "gzip": false
+    },
+    {
+      "path": "conditional_tags_v1/summary.json",
+      "sha256": "f9964193aee74ab1bd31a2a30bf9ab918331701fb3d6b7408f7128eaefe98b51",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/summary.json",
+      "source_sha256": "f9964193aee74ab1bd31a2a30bf9ab918331701fb3d6b7408f7128eaefe98b51",
+      "gzip": false
+    },
+    {
+      "path": "native_duplicate_tag_falsifier_v1/manifest.json",
+      "sha256": "e0edfa3e7799e7d17f7b5044d9227d50cd4beace368a34f741837eb4b8cb8032",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_duplicate_tag_falsifier_v1/manifest.json",
+      "source_sha256": "e0edfa3e7799e7d17f7b5044d9227d50cd4beace368a34f741837eb4b8cb8032",
+      "gzip": false
+    },
+    {
+      "path": "native_duplicate_tag_falsifier_v1/simulation.log.gz",
+      "sha256": "35a8c4e3ae4039c0a521423c510dbeccf7d5381d798b22c6eea47ce13358ffd3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_duplicate_tag_falsifier_v1/simulation.log",
+      "source_sha256": "1a7909299efa835a3ba272b1a690ad1a07ee0a30fe45d26d35feb4747f87c13d",
+      "gzip": true
+    },
+    {
+      "path": "native_duplicate_tag_falsifier_v1/summary.json",
+      "sha256": "c8f396ba5ae2f2bdfa1f5dfef990d71c445993c0959aa66ee3d9b498681584a8",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_duplicate_tag_falsifier_v1/summary.json",
+      "source_sha256": "c8f396ba5ae2f2bdfa1f5dfef990d71c445993c0959aa66ee3d9b498681584a8",
+      "gzip": false
+    },
+    {
+      "path": "native_duplicate_tag_falsifier_v1/tb.sv",
+      "sha256": "0449c3c72c36748d5f9c852c036c1ae3975c3a721755153de83be3c2494a148a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_duplicate_tag_falsifier_v1/tb.sv",
+      "source_sha256": "0449c3c72c36748d5f9c852c036c1ae3975c3a721755153de83be3c2494a148a",
+      "gzip": false
+    },
+    {
+      "path": "source_model/native.json.gz",
+      "sha256": "651957f1d8726f977ad8aebf888041aacb434766bc2fcfd75e08656221d9aacc",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_candidate_v1/coherent_candidate/native.json",
+      "source_sha256": "8ae22a00de3d08bcf15264ff19a0ee2bb5a8355f99d4c00b8731c38bb6a4c147",
+      "gzip": true
+    },
+    {
+      "path": "source_model/proof.json",
+      "sha256": "83d8215affb2d82b05ab410780c7aa8f09d9f6adfa50e667e0be145d3e829619",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_candidate_v1/coherent_candidate/proof.json",
+      "source_sha256": "83d8215affb2d82b05ab410780c7aa8f09d9f6adfa50e667e0be145d3e829619",
+      "gzip": false
+    },
+    {
+      "path": "current_sources/guard_invariants.py",
+      "sha256": "44a6f8878aae2a7d5fa78fab8cfdab1652a6ec02760b94429a9e90363bb56489",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/phase_sharing/guard_invariants.py",
+      "source_sha256": "44a6f8878aae2a7d5fa78fab8cfdab1652a6ec02760b94429a9e90363bb56489",
+      "gzip": false
+    },
+    {
+      "path": "current_sources/conditional_protocol.py",
+      "sha256": "358a11b1311918f00e60f7abf83dd04eb876480e7affa6b726b8980924099ef2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/phase_sharing/conditional_protocol.py",
+      "source_sha256": "358a11b1311918f00e60f7abf83dd04eb876480e7affa6b726b8980924099ef2",
+      "gzip": false
+    },
+    {
+      "path": "current_sources/guard_protocol_review.md",
+      "sha256": "7a9bf62fb857b71e0341460736c564fadbe47cb2aae88693b9e18aeb3dd95ff3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/phase_sharing/guard_protocol_review.md",
+      "source_sha256": "7a9bf62fb857b71e0341460736c564fadbe47cb2aae88693b9e18aeb3dd95ff3",
+      "gzip": false
+    },
+    {
+      "path": "current_sources/test_guard_invariants.py",
+      "sha256": "bbdf07f735551ca5da11d6e61653fb95dd8b232285483ea2fc5121c297dce55e",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/tests/unit/test_guard_invariants.py",
+      "source_sha256": "bbdf07f735551ca5da11d6e61653fb95dd8b232285483ea2fc5121c297dce55e",
+      "gzip": false
+    },
+    {
+      "path": "source_review/rtl/common/rr_arbiter.sv",
+      "sha256": "97c7c4f902e06ac4bff1f47a813a03f0ebde2e3f6133e04b1595d3e85fec15a6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/rtl/common/rr_arbiter.sv",
+      "source_sha256": "97c7c4f902e06ac4bff1f47a813a03f0ebde2e3f6133e04b1595d3e85fec15a6",
+      "gzip": false
+    },
+    {
+      "path": "source_review/rtl/expipe/exec-units/arith_rs.sv",
+      "sha256": "71ee53a1a294795e4d1558b33e4a353fac68d8ac87b8adbdf76ee8a6f417b56d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/rtl/expipe/exec-units/arith_rs.sv",
+      "source_sha256": "71ee53a1a294795e4d1558b33e4a353fac68d8ac87b8adbdf76ee8a6f417b56d",
+      "gzip": false
+    },
+    {
+      "path": "source_review/rtl/expipe/issue-unit/issue_stage.sv",
+      "sha256": "c5d8be52438e8c4f1b3acb38533012870d78c03eea739c646c4504c1b98d9afa",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/rtl/expipe/issue-unit/issue_stage.sv",
+      "source_sha256": "c5d8be52438e8c4f1b3acb38533012870d78c03eea739c646c4504c1b98d9afa",
+      "gzip": false
+    },
+    {
+      "path": "source_review/rtl/expipe/issue-unit/issue_cu.sv",
+      "sha256": "d36ba0e1efd53e574f3277d2cdba038122ff85a2968c05e1ed96f8bf392b7b03",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/rtl/expipe/issue-unit/issue_cu.sv",
+      "source_sha256": "d36ba0e1efd53e574f3277d2cdba038122ff85a2968c05e1ed96f8bf392b7b03",
+      "gzip": false
+    },
+    {
+      "path": "source_review/rtl/expipe/commit-unit/rob.sv",
+      "sha256": "caea616048adf5435d4942fdd0e26590da1d535059c57fd3781e0f1b55499ec4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/rtl/expipe/commit-unit/rob.sv",
+      "source_sha256": "caea616048adf5435d4942fdd0e26590da1d535059c57fd3781e0f1b55499ec4",
+      "gzip": false
+    },
+    {
+      "path": "source_review/rtl/expipe/commit-unit/commit_stage.sv",
+      "sha256": "895ec46a6c4caf0bce5eea44ef8336a583c7f523001b7d657429a4cd1e87d3d3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/rtl/expipe/commit-unit/commit_stage.sv",
+      "source_sha256": "895ec46a6c4caf0bce5eea44ef8336a583c7f523001b7d657429a4cd1e87d3d3",
+      "gzip": false
+    },
+    {
+      "path": "source_review/rtl/packages/expipe_pkg.sv",
+      "sha256": "de44620bb948f3ce06264af8ce2a9e30f2599090dd77b6edae839c6e25070d62",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/rtl/packages/expipe_pkg.sv",
+      "source_sha256": "de44620bb948f3ce06264af8ce2a9e30f2599090dd77b6edae839c6e25070d62",
+      "gzip": false
+    },
+    {
+      "path": "source_review/rtl/expipe/backend.sv",
+      "sha256": "7acef73f2568cfa8990c5ba4c66af1f21aa74f367301f1a1d5076c3875e29b0e",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation/source/rtl/expipe/backend.sv",
+      "source_sha256": "7acef73f2568cfa8990c5ba4c66af1f21aa74f367301f1a1d5076c3875e29b0e",
+      "gzip": false
+    }
+  ]
+}

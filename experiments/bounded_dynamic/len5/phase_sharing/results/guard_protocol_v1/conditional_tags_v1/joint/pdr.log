@@ -1,0 +1,22 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/conditional_tags_v1/joint/model.aig"; fold; orpos; pdr -T 120 -v".
+
+Warning: The last 2 outputs are interpreted as constraints.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 194                                                               1   195      6.95 sec
+  2 : 0 204 366                                                           4   270     16.69 sec
+  3 : 0 17 298 1257                                                       7   303     47.26 sec
+  4 : 0 16 267 1118 2456                                                  4   303    120.00 sec
+Reached timeout (120 seconds) in frame 4.
+Block = 3829  Oblig =  4896  Clause =  4472  Call = 45701 (sat=81.1%)  Cex =   0  Start = 139
+SAT solving =    45.98 sec ( 38.31 %)
+  unsat     =     9.15 sec (  7.63 %)
+  sat       =    36.82 sec ( 30.68 %)
+Generalize  =    26.05 sec ( 21.71 %)
+Push clause =     1.14 sec (  0.95 %)
+Ternary sim =    64.43 sec ( 53.69 %)
+Containment =     0.17 sec (  0.14 %)
+CNF compute =     0.21 sec (  0.18 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =   120.01 sec (100.00 %)
+Property UNDECIDED.  Time =   120.03 sec

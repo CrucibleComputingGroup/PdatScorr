@@ -1,0 +1,13 @@
+{
+  "status": "inconclusive_bounded_native_screen",
+  "mismatch": false,
+  "completed_compared_cycles": 12864,
+  "last_completed_cycle": 12863,
+  "termination": "Task-owned simulator deliberately stopped after bounded cheap screen; planned100000 loop not completed",
+  "interpretation": "No mismatch seen. Does not prove correctness, validate tag ownership, or rule out duplicate-tag counterexamples. Native hardware compared without proof abstractions.",
+  "simulation_log_sha256": "1a7909299efa835a3ba272b1a690ad1a07ee0a30fe45d26d35feb4747f87c13d",
+  "command": [
+    "iverilog -g2012 -s tb -o sim.out tb.sv ../alu_cdb_proof_v1/reference.v ../native_candidate_v1/candidate.v",
+    "vvp sim.out > simulation.log"
+  ]
+}
