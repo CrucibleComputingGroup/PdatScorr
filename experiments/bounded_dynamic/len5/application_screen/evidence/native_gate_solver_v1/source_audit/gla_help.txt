@@ -1,0 +1,32 @@
+ABC command line: "&gla -h".
+
+usage: &gla [-FSCMDETRQPB num] [-AL file] [-fardmnscbpquwvh]
+	          fixed-time-frame gate-level proof- and cex-based abstraction
+	-F num  : the max number of timeframes to unroll [default = 0]
+	-S num  : the starting time frame (0=unused) [default = 0]
+	-C num  : the max number of SAT solver conflicts (0=unused) [default = 0]
+	-M num  : the max number of learned clauses to keep (0=unused) [default = 1000]
+	-D num  : delta value for learned clause removal [default = 200]
+	-E num  : ratio percentage for learned clause removal [default = 70]
+	-T num  : an approximate timeout, in seconds [default = 0]
+	-R num  : stop when abstraction size exceeds num % (0<=num<=100) [default = 0]
+	-Q num  : stop when abstraction size exceeds num % during refinement (0<=num<=100) [default = 0]
+	-P num  : maximum percentage of added objects before a restart (0<=num<=100) [default = 30]
+	-B num  : the number of stable frames to call prover or dump abstraction [default = 2]
+	-A file : file name for dumping abstrated model (&gla -d) or abstraction map (&gla -m)
+	-L file : the log file name [default = no logging]
+	-f      : toggle propagating fanout implications [default = yes]
+	-a      : toggle refinement by adding one layers of gates [default = no]
+	-r      : toggle using improved refinement heuristics [default = no]
+	-d      : toggle dumping abstracted model into a file [default = no]
+	-m      : toggle dumping abstraction map into a file [default = no]
+	-n      : toggle using new algorithms [default = yes]
+	-s      : toggle skipping previously proved timeframes [default = no]
+	-c      : toggle using naive (2-input AND node) CNF encoding [default = no]
+	-b      : toggle CNF construction without hashing [default = no]
+	-p      : toggle using full-proof for UNSAT cores [default = no]
+	-q      : toggle calling the prover [default = no]
+	-u      : toggle enabling simplifation before calling the prover [default = no]
+	-v      : toggle printing verbose information [default = no]
+	-w      : toggle printing more verbose information [default = no]
+	-h      : print the command usage

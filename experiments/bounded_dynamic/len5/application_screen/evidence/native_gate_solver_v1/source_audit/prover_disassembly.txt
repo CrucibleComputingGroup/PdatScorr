@@ -1,0 +1,97 @@
+
+/usr/local/bin/abc:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000972e6c <Abs_ProverThread>:
+  972e6c:	f3 0f 1e fa          	endbr64
+  972e70:	55                   	push   %rbp
+  972e71:	53                   	push   %rbx
+  972e72:	48 81 ec d8 00 00 00 	sub    $0xd8,%rsp
+  972e79:	48 89 fb             	mov    %rdi,%rbx
+  972e7c:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  972e83:	00 00 
+  972e85:	48 89 84 24 c8 00 00 	mov    %rax,0xc8(%rsp)
+  972e8c:	00 
+  972e8d:	31 c0                	xor    %eax,%eax
+  972e8f:	48 89 e5             	mov    %rsp,%rbp
+  972e92:	48 89 ef             	mov    %rbp,%rdi
+  972e95:	e8 14 31 fb ff       	call   925fae <Pdr_ManSetDefaultParams>
+  972e9a:	c7 44 24 70 01 00 00 	movl   $0x1,0x70(%rsp)
+  972ea1:	00 
+  972ea2:	8b 43 0c             	mov    0xc(%rbx),%eax
+  972ea5:	89 84 24 94 00 00 00 	mov    %eax,0x94(%rsp)
+  972eac:	48 8d 05 cd fd ff ff 	lea    -0x233(%rip),%rax        # 972c80 <Abs_CallBackToStop>
+  972eb3:	48 89 84 24 98 00 00 	mov    %rax,0x98(%rsp)
+  972eba:	00 
+  972ebb:	48 8b 3b             	mov    (%rbx),%rdi
+  972ebe:	48 89 ee             	mov    %rbp,%rsi
+  972ec1:	e8 c3 87 fb ff       	call   92b689 <Pdr_ManSolve>
+  972ec6:	83 f8 01             	cmp    $0x1,%eax
+  972ec9:	74 3a                	je     972f05 <Abs_ProverThread+0x99>
+  972ecb:	83 7b 08 00          	cmpl   $0x0,0x8(%rbx)
+  972ecf:	0f 84 cd 00 00 00    	je     972fa2 <Abs_ProverThread+0x136>
+  972ed5:	85 c0                	test   %eax,%eax
+  972ed7:	0f 84 b1 00 00 00    	je     972f8e <Abs_ProverThread+0x122>
+  972edd:	83 f8 ff             	cmp    $0xffffffff,%eax
+  972ee0:	0f 84 d6 00 00 00    	je     972fbc <Abs_ProverThread+0x150>
+  972ee6:	48 8d 0d f3 0d 6d 00 	lea    0x6d0df3(%rip),%rcx        # 1043ce0 <__PRETTY_FUNCTION__.3>
+  972eed:	ba 7a 00 00 00       	mov    $0x7a,%edx
+  972ef2:	48 8d 35 11 d5 65 00 	lea    0x65d511(%rip),%rsi        # fd040a <_IO_stdin_used+0x14c40a>
+  972ef9:	48 8d 3d 70 e7 62 00 	lea    0x62e770(%rip),%rdi        # fa1670 <_IO_stdin_used+0x11d670>
+  972f00:	e8 8b 50 6c ff       	call   37f90 <__assert_fail@plt>
+  972f05:	48 8d 3d b4 58 af 00 	lea    0xaf58b4(%rip),%rdi        # 14687c0 <g_mutex>
+  972f0c:	e8 af 51 6c ff       	call   380c0 <pthread_mutex_lock@plt>
+  972f11:	85 c0                	test   %eax,%eax
+  972f13:	74 1f                	je     972f34 <Abs_ProverThread+0xc8>
+  972f15:	48 8d 0d c4 0d 6d 00 	lea    0x6d0dc4(%rip),%rcx        # 1043ce0 <__PRETTY_FUNCTION__.3>
+  972f1c:	ba 6d 00 00 00       	mov    $0x6d,%edx
+  972f21:	48 8d 35 e2 d4 65 00 	lea    0x65d4e2(%rip),%rsi        # fd040a <_IO_stdin_used+0x14c40a>
+  972f28:	48 8d 3d 9b 07 64 00 	lea    0x64079b(%rip),%rdi        # fb36ca <_IO_stdin_used+0x12f6ca>
+  972f2f:	e8 5c 50 6c ff       	call   37f90 <__assert_fail@plt>
+  972f34:	c7 05 aa 58 af 00 01 	movl   $0x1,0xaf58aa(%rip)        # 14687e8 <g_fAbstractionProved>
+  972f3b:	00 00 00 
+  972f3e:	48 8d 3d 7b 58 af 00 	lea    0xaf587b(%rip),%rdi        # 14687c0 <g_mutex>
+  972f45:	e8 26 51 6c ff       	call   38070 <pthread_mutex_unlock@plt>
+  972f4a:	85 c0                	test   %eax,%eax
+  972f4c:	75 21                	jne    972f6f <Abs_ProverThread+0x103>
+  972f4e:	83 7b 08 00          	cmpl   $0x0,0x8(%rbx)
+  972f52:	74 4e                	je     972fa2 <Abs_ProverThread+0x136>
+  972f54:	8b 53 0c             	mov    0xc(%rbx),%edx
+  972f57:	48 8d 35 c3 d4 65 00 	lea    0x65d4c3(%rip),%rsi        # fd0421 <_IO_stdin_used+0x14c421>
+  972f5e:	bf 01 00 00 00       	mov    $0x1,%edi
+  972f63:	b8 00 00 00 00       	mov    $0x0,%eax
+  972f68:	e8 53 fd ff ff       	call   972cc0 <Abc_Print>
+  972f6d:	eb 33                	jmp    972fa2 <Abs_ProverThread+0x136>
+  972f6f:	48 8d 0d 6a 0d 6d 00 	lea    0x6d0d6a(%rip),%rcx        # 1043ce0 <__PRETTY_FUNCTION__.3>
+  972f76:	ba 6f 00 00 00       	mov    $0x6f,%edx
+  972f7b:	48 8d 35 88 d4 65 00 	lea    0x65d488(%rip),%rsi        # fd040a <_IO_stdin_used+0x14c40a>
+  972f82:	48 8d 3d 41 07 64 00 	lea    0x640741(%rip),%rdi        # fb36ca <_IO_stdin_used+0x12f6ca>
+  972f89:	e8 02 50 6c ff       	call   37f90 <__assert_fail@plt>
+  972f8e:	8b 53 0c             	mov    0xc(%rbx),%edx
+  972f91:	48 8d 35 a1 d4 65 00 	lea    0x65d4a1(%rip),%rsi        # fd0439 <_IO_stdin_used+0x14c439>
+  972f98:	bf 01 00 00 00       	mov    $0x1,%edi
+  972f9d:	e8 1e fd ff ff       	call   972cc0 <Abc_Print>
+  972fa2:	48 8b 3b             	mov    (%rbx),%rdi
+  972fa5:	e8 8e 04 14 00       	call   ab3438 <Aig_ManStop>
+  972faa:	48 89 df             	mov    %rbx,%rdi
+  972fad:	e8 1e 50 6c ff       	call   37fd0 <free@plt>
+  972fb2:	bf 00 00 00 00       	mov    $0x0,%edi
+  972fb7:	e8 e4 53 6c ff       	call   383a0 <pthread_exit@plt>
+  972fbc:	8b 53 0c             	mov    0xc(%rbx),%edx
+  972fbf:	48 8d 35 8e d4 65 00 	lea    0x65d48e(%rip),%rsi        # fd0454 <_IO_stdin_used+0x14c454>
+  972fc6:	bf 01 00 00 00       	mov    $0x1,%edi
+  972fcb:	b8 00 00 00 00       	mov    $0x0,%eax
+  972fd0:	e8 eb fc ff ff       	call   972cc0 <Abc_Print>
+  972fd5:	eb cb                	jmp    972fa2 <Abs_ProverThread+0x136>
+
+Disassembly of section .fini:

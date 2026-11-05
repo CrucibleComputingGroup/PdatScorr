@@ -1,0 +1,43 @@
+68: void Abc_NtkWriteLogFile( char * pFileName, Abc_Cex_t * pCex, int Status, int nFrames, char * pCommand )
+69: {
+70:     FILE * pFile;
+71:     int i;
+72:     pFile = fopen( pFileName, "w" );
+73:     if ( pFile == NULL )
+74:     {
+75:         printf( "Cannot open log file for writing \"%s\".\n" , pFileName );
+76:         return;
+77:     }
+78:     // write <result>
+79:     if ( Status == 1 )
+80:         fprintf( pFile, "snl_UNSAT" );
+81:     else if ( Status == 0 )
+82:         fprintf( pFile, "snl_SAT" );
+83:     else if ( Status == -1 )
+84:         fprintf( pFile, "snl_UNK" );
+85:     else 
+86:         printf( "Abc_NtkWriteLogFile(): Cannot recognize solving status.\n" );
+87:     fprintf( pFile, " " );
+88:     // write <bug_free_depth>
+89:     fprintf( pFile, "%d", nFrames );
+90:     fprintf( pFile, " " );
+91:     // write <engine_name>
+92:     fprintf( pFile, "%s", pCommand ? pCommand : "unknown" );
+93:     if ( pCex && Status == 0 )
+94:         fprintf( pFile, " %d", pCex->iPo );
+95:     // write <cyc>
+96:     if ( pCex && pCex->iFrame != nFrames )
+97:         fprintf( pFile, " %d", pCex->iFrame );
+98:     fprintf( pFile, "\n" );
+99:     // write <INIT_STATE>
+100:     if ( pCex == NULL )
+101:         fprintf( pFile, "NULL" );
+102:     else
+103:     {
+104:         for ( i = 0; i < pCex->nRegs; i++ )
+105:             fprintf( pFile, "%d", Abc_InfoHasBit(pCex->pData,i) );
+106:     }
+107:     fprintf( pFile, "\n" );
+108:     // write <TRACE>
+109:     if ( pCex == NULL )
+110:         fprintf( pFile, "NULL" );

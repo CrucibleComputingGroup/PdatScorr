@@ -1,0 +1,260 @@
+54576: {
+54577:     Abs_Par_t Pars, * pPars = &Pars;
+54578:     int c, fNewAlgo = 1;
+54579:     char * pLogFileName = NULL;
+54580:     Abs_ParSetDefaults( pPars );
+54581:     Extra_UtilGetoptReset();
+54582:     while ( ( c = Extra_UtilGetopt( argc, argv, "FSCMDETRQPBALtfardmnscbpquwvh" ) ) != EOF )
+54583:     {
+54584:         switch ( c )
+54585:         {
+54586:         case 'F':
+54587:             if ( globalUtilOptind >= argc )
+54588:             {
+54589:                 Abc_Print( -1, "Command line switch \"-F\" should be followed by an integer.\n" );
+54590:                 goto usage;
+54591:             }
+54592:             pPars->nFramesMax = atoi(argv[globalUtilOptind]);
+54593:             globalUtilOptind++;
+54594:             if ( pPars->nFramesMax < 0 )
+54595:                 goto usage;
+54596:             break;
+54597:         case 'S':
+54598:             if ( globalUtilOptind >= argc )
+54599:             {
+54600:                 Abc_Print( -1, "Command line switch \"-S\" should be followed by an integer.\n" );
+54601:                 goto usage;
+54602:             }
+54603:             pPars->nFramesStart = atoi(argv[globalUtilOptind]);
+54604:             globalUtilOptind++;
+54605:             if ( pPars->nFramesStart < 0 )
+54606:                 goto usage;
+54607:             break;
+54608:         case 'C':
+54609:             if ( globalUtilOptind >= argc )
+54610:             {
+54611:                 Abc_Print( -1, "Command line switch \"-C\" should be followed by an integer.\n" );
+54612:                 goto usage;
+54613:             }
+54614:             pPars->nConfLimit = atoi(argv[globalUtilOptind]);
+54615:             globalUtilOptind++;
+54616:             if ( pPars->nConfLimit < 0 )
+54617:                 goto usage;
+54618:             break;
+54619:         case 'M':
+54620:             if ( globalUtilOptind >= argc )
+54621:             {
+54622:                 Abc_Print( -1, "Command line switch \"-M\" should be followed by an integer.\n" );
+54623:                 goto usage;
+54624:             }
+54625:             pPars->nLearnedStart = atoi(argv[globalUtilOptind]);
+54626:             globalUtilOptind++;
+54627:             if ( pPars->nLearnedStart < 0 )
+54628:                 goto usage;
+54629:             break;
+54630:         case 'D':
+54631:             if ( globalUtilOptind >= argc )
+54632:             {
+54633:                 Abc_Print( -1, "Command line switch \"-D\" should be followed by an integer.\n" );
+54634:                 goto usage;
+54635:             }
+54636:             pPars->nLearnedDelta = atoi(argv[globalUtilOptind]);
+54637:             globalUtilOptind++;
+54638:             if ( pPars->nLearnedDelta < 0 )
+54639:                 goto usage;
+54640:             break;
+54641:         case 'E':
+54642:             if ( globalUtilOptind >= argc )
+54643:             {
+54644:                 Abc_Print( -1, "Command line switch \"-P\" should be followed by an integer.\n" );
+54645:                 goto usage;
+54646:             }
+54647:             pPars->nLearnedPerce = atoi(argv[globalUtilOptind]);
+54648:             globalUtilOptind++;
+54649:             if ( pPars->nLearnedPerce < 0 )
+54650:                 goto usage;
+54651:             break;
+54652:         case 'T':
+54653:             if ( globalUtilOptind >= argc )
+54654:             {
+54655:                 Abc_Print( -1, "Command line switch \"-T\" should be followed by an integer.\n" );
+54656:                 goto usage;
+54657:             }
+54658:             pPars->nTimeOut = atoi(argv[globalUtilOptind]);
+54659:             globalUtilOptind++;
+54660:             if ( pPars->nTimeOut < 0 )
+54661:                 goto usage;
+54662:             break;
+54663:         case 'R':
+54664:             if ( globalUtilOptind >= argc )
+54665:             {
+54666:                 Abc_Print( -1, "Command line switch \"-R\" should be followed by an integer.\n" );
+54667:                 goto usage;
+54668:             }
+54669:             pPars->nRatioMin = atoi(argv[globalUtilOptind]);
+54670:             globalUtilOptind++;
+54671:             if ( pPars->nRatioMin < 0 )
+54672:                 goto usage;
+54673:             break;
+54674:         case 'Q':
+54675:             if ( globalUtilOptind >= argc )
+54676:             {
+54677:                 Abc_Print( -1, "Command line switch \"-Q\" should be followed by an integer.\n" );
+54678:                 goto usage;
+54679:             }
+54680:             pPars->nRatioMin2 = atoi(argv[globalUtilOptind]);
+54681:             globalUtilOptind++;
+54682:             if ( pPars->nRatioMin2 < 0 )
+54683:                 goto usage;
+54684:             break;
+54685:         case 'P':
+54686:             if ( globalUtilOptind >= argc )
+54687:             {
+54688:                 Abc_Print( -1, "Command line switch \"-P\" should be followed by an integer.\n" );
+54689:                 goto usage;
+54690:             }
+54691:             pPars->nRatioMax = atoi(argv[globalUtilOptind]);
+54692:             globalUtilOptind++;
+54693:             if ( pPars->nRatioMax < 0 )
+54694:                 goto usage;
+54695:             break;
+54696:         case 'B':
+54697:             if ( globalUtilOptind >= argc )
+54698:             {
+54699:                 Abc_Print( -1, "Command line switch \"-B\" should be followed by an integer.\n" );
+54700:                 goto usage;
+54701:             }
+54702:             pPars->nFramesNoChangeLim = atoi(argv[globalUtilOptind]);
+54703:             globalUtilOptind++;
+54704:             if ( pPars->nFramesNoChangeLim < 0 )
+54705:                 goto usage;
+54706:             break;
+54707:         case 'A':
+54708:             if ( globalUtilOptind >= argc )
+54709:             {
+54710:                 Abc_Print( -1, "Command line switch \"-A\" should be followed by a file name.\n" );
+54711:                 goto usage;
+54712:             }
+54713:             pPars->pFileVabs = argv[globalUtilOptind];
+54714:             globalUtilOptind++;
+54715:             break;
+54716:         case 'L':
+54717:             if ( globalUtilOptind >= argc )
+54718:             {
+54719:                 Abc_Print( -1, "Command line switch \"-L\" should be followed by a file name.\n" );
+54720:                 goto usage;
+54721:             }
+54722:             pLogFileName = argv[globalUtilOptind];
+54723:             globalUtilOptind++;
+54724:             break;
+54725:         case 't':
+54726:             pPars->fUseTermVars ^= 1;
+54727:             break;
+54728:         case 'f':
+54729:             pPars->fPropFanout ^= 1;
+54730:             break;
+54731:         case 'a':
+54732:             pPars->fAddLayer ^= 1;
+54733:             break;
+54734:         case 'r':
+54735:             pPars->fNewRefine ^= 1;
+54736:             break;
+54737:         case 'd':
+54738:             pPars->fDumpVabs ^= 1;
+54739:             break;
+54740:         case 'm':
+54741:             pPars->fDumpMabs ^= 1;
+54742:             break;
+54743:         case 'n':
+54744:             fNewAlgo ^= 1;
+54745:             break;
+54746:         case 's':
+54747:             pPars->fUseSkip ^= 1;
+54748:             break;
+54749:         case 'c':
+54750:             pPars->fUseSimple ^= 1;
+54751:             break;
+54752:         case 'b':
+54753:             pPars->fSkipHash ^= 1;
+54754:             break;
+54755:         case 'p':
+54756:             pPars->fUseFullProof ^= 1;
+54757:             break;
+54758:         case 'q':
+54759:             pPars->fCallProver ^= 1;
+54760:             break;
+54761:         case 'u':
+54762:             pPars->fSimpProver ^= 1;
+54763:             break;
+54764:         case 'v':
+54765:             pPars->fVerbose ^= 1;
+54766:             break;
+54767:         case 'w':
+54768:             pPars->fVeryVerbose ^= 1;
+54769:             break;
+54770:         case 'h':
+54771:             goto usage;
+54772:         default:
+54773:             goto usage;
+54774:         }
+54775:     }
+54776:     if ( pAbc->pGia == NULL )
+54777:     {
+54778:         Abc_Print( -1, "There is no AIG.\n" );
+54779:         return 0;
+54780:     }
+54781: /*
+54782:     if ( Gia_ManRegNum(pAbc->pGia) == 0 )
+54783:     {
+54784:         Abc_Print( -1, "The network is combinational.\n" );
+54785:         return 0;
+54786:     }
+54787: */
+54788:     if ( pPars->nFramesMax < 0 )
+54789:     {
+54790:         Abc_Print( 1, "The number of starting frames should be a positive integer.\n" );
+54791:         return 0;
+54792:     }
+54793:     if ( pPars->nFramesMax && pPars->nFramesStart > pPars->nFramesMax )
+54794:     {
+54795:         Abc_Print( 1, "The starting frame is larger than the max number of frames.\n" );
+54796:         return 0;
+54797:     }
+54798:     if ( Gia_ManPoNum(pAbc->pGia) == 1 )
+54799:     {
+54800:         if ( fNewAlgo )
+54801:             pAbc->Status = Gia_ManPerformGla( pAbc->pGia, pPars );
+54802:         else
+54803:             pAbc->Status  = Gia_ManPerformGlaOld( pAbc->pGia, pPars, 0 );
+54804:         pAbc->nFrames = pPars->iFrame;
+54805:         Abc_FrameReplaceCex( pAbc, &pAbc->pGia->pCexSeq );
+54806:         if ( pLogFileName )
+54807:             Abc_NtkWriteLogFile( pLogFileName, pAbc->pCex, pAbc->Status, pAbc->nFrames, "&gla" );
+54808:     }
+54809:     else // iterate over outputs
+54810:     {
+54811:         Gia_Obj_t * pObj; int o, Status;
+54812:         Vec_Ptr_t * vSeqModelVec = Vec_PtrStart( Gia_ManPoNum(pAbc->pGia) );
+54813:         Vec_Int_t * vStatuses = Vec_IntAlloc( Gia_ManPoNum(pAbc->pGia) );
+54814:         Gia_ManForEachPo( pAbc->pGia, pObj, o )
+54815:         {
+54816:             Gia_Man_t * pOne = Gia_ManDupDfsOnePo( pAbc->pGia, o );
+54817:             if ( fNewAlgo )
+54818:                 Status = Gia_ManPerformGla( pOne, pPars );
+54819:             else
+54820:                 Status = Gia_ManPerformGlaOld( pOne, pPars, 0 );
+54821:             Vec_IntPush( vStatuses, Status );
+54822:             if ( pLogFileName )
+54823:                 Abc_NtkWriteLogFile( pLogFileName, pOne->pCexSeq, Status, pPars->iFrame, "&gla" );
+54824:             if ( pOne->pCexSeq )
+54825:                 Vec_PtrWriteEntry( vSeqModelVec, o, pOne->pCexSeq );
+54826:             pOne->pCexSeq = NULL;
+54827:             Gia_ManStop( pOne );
+54828:         }
+54829:         assert( Vec_IntSize(vStatuses) == Gia_ManPoNum(pAbc->pGia) );
+54830:         Abc_FrameReplaceCexVec( pAbc, &vSeqModelVec );
+54831:         Abc_FrameReplacePoStatuses( pAbc, &vStatuses );
+54832:         pAbc->nFrames = -1;
+54833:     }
+54834:     return 0;
+54835: 

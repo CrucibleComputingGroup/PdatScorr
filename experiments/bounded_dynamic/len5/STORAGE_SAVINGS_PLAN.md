@@ -155,6 +155,10 @@ retains exact loop-counter and pointer computations after the closed inactive-FU
 substitutions. It has 522,336 AND nodes and 22,024 latches, compared with 493,830
 and 20,968 for the corresponding payload-abstracted model. These remain proof
 model counts, not hardware savings.
+Its [first 600-second GLA run](application_screen/NATIVE_GATE_SOLVER.md) also
+remained unknown, timing out in frame 29 without a proof-thread call or a
+validated counterexample. The retained 684-latch abstraction is diagnostic
+evidence only.
 
 The next proof simplification follows a closed program-only chain: the certified
 decoder excludes MUL/DIV dispatch, the native issue register preserves that

@@ -1,0 +1,71 @@
+{
+  "status": "counterexample_in_query_model",
+  "accepted_optimization": false,
+  "engine": "ABC &gla -q",
+  "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/model/query.aig",
+  "input_aig_sha256": "574afa7c8f4882e6ad6c24d15ada45bf117bf24c4d5307aae14d711df6bf4608",
+  "input_header": [
+    "aig",
+    "10",
+    "3",
+    "2",
+    "0",
+    "5",
+    "1",
+    "1",
+    "0",
+    "0"
+  ],
+  "script_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/model/query.aig\"; fold; orpos; &get; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/folded.aig\"; &gla -q -T 3 -v -m -A \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/abstraction_map.aig\" -L \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/gla.status\"; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/final.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/final_map.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.18120035203173757,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/gla.log",
+    "log_sha256": "4b9bf01c3c767043ecd23f7cf4de2091dde7b2e97761c6d92e6f6389f5e2be65"
+  },
+  "raw_status": "snl_SAT -1 unknown 0 0\n000\n001\n",
+  "fold_semantics": "AIGER constraints folded first, all bad outputs ORed, then &get; no extra internal premises",
+  "interpretation": "Only explicit threaded-PDR unbounded proof or trivial constant-zero miter can prove safety. A stable abstraction, bounded checks, and timeout are inconclusive. Maps are proof-only artifacts, never hardware.",
+  "folded_header": [
+    "aig",
+    "11",
+    "3",
+    "3",
+    "1",
+    "5"
+  ],
+  "counterexample_validation": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/folded.aig\"; &get; read_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/final.status\"; testcex; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/counterexample.aiw\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.13104430632665753,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/gla/validate_cex.log",
+    "log_sha256": "2f31a49b9e67920e412db33da5d2973d73bc0a880cae593514c122ac6a35bebb"
+  },
+  "artifacts_sha256": {
+    "validate_cex.log": "2f31a49b9e67920e412db33da5d2973d73bc0a880cae593514c122ac6a35bebb",
+    "final_map.aig": "265b2397338587ef984b2215138182753583519a0521a67ef6f5492c7b9e4dd1",
+    "gla.log": "4b9bf01c3c767043ecd23f7cf4de2091dde7b2e97761c6d92e6f6389f5e2be65",
+    "abstraction_map.status": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+    "counterexample.aiw": "b031da5027077cddf9d29f69bad0de180dba76caceae6ba5d1ea238edba0956a",
+    "final.status": "f1b9aaa636f2911b8cf9550c9992761b78ec03120ca3266eac31d0db7f7eb87d",
+    "folded.aig": "265b2397338587ef984b2215138182753583519a0521a67ef6f5492c7b9e4dd1",
+    "gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+    "gla.status": "e0b339154063da51e35b5a8d3f588a2340fc9b8b44932d80a20717dd0fe12830",
+    "abstraction_map.aig": "23c1be5ba7a557b0e98c268b41c7fc230f7dedf4e33bce93674f294defe2064e"
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "status": "all_four_toys_passed",
+  "accepted_optimization": false,
+  "cases": [
+    {
+      "case": "arbitrary_initial_invariant",
+      "expected": "proved_safety_query_only",
+      "actual": "proved_safety_query_only",
+      "preparation": {
+        "source_sha256": "c626965b9bd2f04e831044fc9d13e99381160334d636e1fbeeafb69dc4f34423",
+        "prepare": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_invariant/model/prepare.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.03282692888751626,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_invariant/model/prepare.log",
+          "log_sha256": "52cf0481dedf0213f760b92b2e4eefca8596d5858b029c8d7c70bf2dfda42ea9"
+        },
+        "export": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_invariant/model/export.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.06487647583708167,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_invariant/model/export.log",
+          "log_sha256": "0eecf6a75fa852f61a58921b23748ed2a72c742cab966c419747100d906ca498"
+        },
+        "clock_model": {
+          "clocks": [
+            [
+              [
+                2
+              ],
+              1
+            ]
+          ],
+          "model": "single shared global step, validated after async2sync/dffunmap"
+        },
+        "aig_sha256": "8d62e53b6814c563e0d71dd7068a86b38682ea00911eab8849fc9f9448364096",
+        "aig_header": [
+          "aig",
+          "18",
+          "4",
+          "4",
+          "0",
+          "10",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        "initial_state": "Native unknown FF initial values remain arbitrary through zinit input encoding"
+      },
+      "result_summary_sha256": "4638a3d4150709a73e0601db9d0fff6e2945ffc036af80d597d1df54c641f2d9"
+    },
+    {
+      "case": "eight_assumptions",
+      "expected": "proved_safety_query_only",
+      "actual": "proved_safety_query_only",
+      "preparation": {
+        "source_sha256": "9859206233bc79a33caa6e7c4d6a15bb9af9360c9064a33bd3fbc0c920d79951",
+        "prepare": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/model/prepare.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.032945199869573116,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/model/prepare.log",
+          "log_sha256": "c2cc51fe8448b74f9e0f022db2135bbe56b09cb9a0b595337c1f0eb720a08222"
+        },
+        "export": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/model/export.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.03265930898487568,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/model/export.log",
+          "log_sha256": "6b35bc1641baac27758bd958a1f0f6776f822c3bfb0d1db7498dfd4dd71a842f"
+        },
+        "clock_model": {
+          "clocks": [
+            [
+              [
+                2
+              ],
+              1
+            ]
+          ],
+          "model": "single shared global step, validated after async2sync/dffunmap"
+        },
+        "aig_sha256": "9a9b50ceaa31ddd0b255bb2ce6bb4b4aee5d4d85ff3bfad0b1700101380eaac7",
+        "aig_header": [
+          "aig",
+          "32",
+          "10",
+          "3",
+          "0",
+          "19",
+          "1",
+          "8",
+          "0",
+          "0"
+        ],
+        "initial_state": "Native unknown FF initial values remain arbitrary through zinit input encoding"
+      },
+      "result_summary_sha256": "be3ac926ca0bc029295f207533438a152b936119fb8eea03765c2202fde8bf5c"
+    },
+    {
+      "case": "missing_one_assumption",
+      "expected": "counterexample_in_query_model",
+      "actual": "counterexample_in_query_model",
+      "preparation": {
+        "source_sha256": "fb453113944a966922b8c5cefc7f09de1962bff44f733f84354b0eaf64460807",
+        "prepare": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/prepare.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.0330584398470819,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/prepare.log",
+          "log_sha256": "45991608d445d7caeb41258dba0d67d494b206ae1d81ebf0aa69330d54c664a3"
+        },
+        "export": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/export.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.03298963978886604,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/missing_one_assumption/model/export.log",
+          "log_sha256": "4fd793b8a307ce1174dcbf3b3178cfa844d304d64554781fa6f6c64472278bca"
+        },
+        "clock_model": {
+          "clocks": [
+            [
+              [
+                2
+              ],
+              1
+            ]
+          ],
+          "model": "single shared global step, validated after async2sync/dffunmap"
+        },
+        "aig_sha256": "39cf4bace94c40fe551ee1d0a19ee23e3f7f5d19235f8a9edcdab355ba84a052",
+        "aig_header": [
+          "aig",
+          "31",
+          "10",
+          "3",
+          "0",
+          "18",
+          "1",
+          "7",
+          "0",
+          "0"
+        ],
+        "initial_state": "Native unknown FF initial values remain arbitrary through zinit input encoding"
+      },
+      "result_summary_sha256": "647e00311421e76c5bbb6ab1d63e018a9eb0d9ad66c0dc84e6e71f7e15d0a58f"
+    },
+    {
+      "case": "arbitrary_initial_negative",
+      "expected": "counterexample_in_query_model",
+      "actual": "counterexample_in_query_model",
+      "preparation": {
+        "source_sha256": "c088835952dd6bcb831005f57789d61eca9948a52213592fe4edaced4d68e03b",
+        "prepare": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/model/prepare.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.03336292179301381,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/model/prepare.log",
+          "log_sha256": "83549840197118d57531d6a5079fc38b7fcee633907c48f634706f24e3dedce9"
+        },
+        "export": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/model/export.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.03267438896000385,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/arbitrary_initial_negative/model/export.log",
+          "log_sha256": "59c6c7a3a787654f868556eea4b5cd28f94cde8409b42bb2e8c2801b325f826a"
+        },
+        "clock_model": {
+          "clocks": [
+            [
+              [
+                2
+              ],
+              1
+            ]
+          ],
+          "model": "single shared global step, validated after async2sync/dffunmap"
+        },
+        "aig_sha256": "574afa7c8f4882e6ad6c24d15ada45bf117bf24c4d5307aae14d711df6bf4608",
+        "aig_header": [
+          "aig",
+          "10",
+          "3",
+          "2",
+          "0",
+          "5",
+          "1",
+          "1",
+          "0",
+          "0"
+        ],
+        "initial_state": "Native unknown FF initial values remain arbitrary through zinit input encoding"
+      },
+      "result_summary_sha256": "8618ef16edbe1ae9d16c129c5ef8cbede84b2a1d7bfdf2dc0ad729fbf71b7927"
+    }
+  ],
+  "gate_solver_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+  "tests_sha256": "bf3444c0ce4fcaf46f0023e4cc06d912b4476e4c05951280eb98d5d36f70c352"
+}

@@ -1,0 +1,80 @@
+{
+  "status": "proved_safety_query_only",
+  "accepted_optimization": false,
+  "engine": "ABC &gla -q",
+  "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/model/query.aig",
+  "input_aig_sha256": "9a9b50ceaa31ddd0b255bb2ce6bb4b4aee5d4d85ff3bfad0b1700101380eaac7",
+  "input_header": [
+    "aig",
+    "32",
+    "10",
+    "3",
+    "0",
+    "19",
+    "1",
+    "8",
+    "0",
+    "0"
+  ],
+  "script_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/model/query.aig\"; fold; orpos; &get; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/gla/folded.aig\"; &gla -q -T 3 -v -m -A \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/gla/abstraction_map.aig\" -L \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/gla/gla.status\"; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/gla/final.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/gla/final_map.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.1823296551592648,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/gla/gla.log",
+    "log_sha256": "f7b17d3e47f7373fbd995297c4eab0d12e25843dfbdcdc3e44840bf52e5fe950"
+  },
+  "raw_status": "snl_UNSAT 1728 unknown\nNULL\nNULL\n",
+  "fold_semantics": "AIGER constraints folded first, all bad outputs ORed, then &get; no extra internal premises",
+  "interpretation": "Only explicit threaded-PDR unbounded proof or trivial constant-zero miter can prove safety. A stable abstraction, bounded checks, and timeout are inconclusive. Maps are proof-only artifacts, never hardware.",
+  "folded_header": [
+    "aig",
+    "34",
+    "10",
+    "4",
+    "1",
+    "20"
+  ],
+  "derive": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "&read \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/gla/final_map.aig\"; &gla_derive; &ps; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/gla/abstracted.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.14965628692880273,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_toys_v1/eight_assumptions/gla/derive.log",
+    "log_sha256": "a6def9f923aff79eaa66cd60ee87f255ae9a960fcb25ca6ea0c69ecc6f4ef648"
+  },
+  "abstracted_header": [
+    "aig",
+    "33",
+    "9",
+    "4",
+    "1",
+    "20"
+  ],
+  "dumped_model_scope": "Recorded map is the last available map; it need not be the exact earlier map solved by the background thread. The verdict refers to the source-bound original folded query.",
+  "artifacts_sha256": {
+    "final_map.aig": "de5a6ff4caf8dc34b1b768c22ef55a9878d4c761dd763f386b4223261c276022",
+    "gla.log": "f7b17d3e47f7373fbd995297c4eab0d12e25843dfbdcdc3e44840bf52e5fe950",
+    "abstraction_map.status": "2ae77aabefb44eaefb890a8f8f80926dbfdd6c4ceebc176c9b2f3fe2d7d86178",
+    "abstracted.aig": "6dfe3e4d9d8165d14ed27373be93d65e22bf2b7918984c2d86bc931a5154be46",
+    "final.status": "789da47eafde60f93f1d8671ff40296df215a846753790561b0b7ac87f6eecc7",
+    "derive.log": "a6def9f923aff79eaa66cd60ee87f255ae9a960fcb25ca6ea0c69ecc6f4ef648",
+    "folded.aig": "718787dff8377bdc280f544c74cd7476e3f9e34ac3e439042749788f4eea9803",
+    "gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+    "gla.status": "a42656b79e63a7a04145c37dd7743d727a869ad67400887e564704b2c46d6fd6",
+    "abstraction_map.aig": "1c19fe82ed4a4661cc1ee5061a8cb794d2aeb9a13dc86b973b0ee95871fb7ebc"
+  }
+}
