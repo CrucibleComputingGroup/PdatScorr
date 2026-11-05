@@ -186,6 +186,25 @@ def test_same_arbitrary_initial_state_is_paired_only_initially(tmp_path):
 
 
 @pytest.mark.parametrize('engine', ['induction', 'pdr'])
+def test_unpaired_unreset_observable_states_are_independent(tmp_path,engine):
+    result = proof(*state_pair(tmp_path),tmp_path/'independent',engine=engine,
+                   abc=ABC,match_initial_state=False)
+    assert not result['proven'], result
+    assert result['initial_state']['paired_state_bits'] == 0
+    assert not result['initial_state']['assert_state_correspondence']
+    cells = json.loads((tmp_path/'independent/miter.json').read_text())['modules']['TemporalMiter']['cells']
+    assert not any(name.startswith('$pscorr_initial_state_') for name in cells)
+    assert not any(cell['type'] == '$assume' for cell in cells.values())
+    assert any(cell['type'] == '$assert' for cell in cells.values())
+    if engine == 'pdr':
+        assert result['pdr']['returncode'] == 0
+        assert 'was asserted' in Path(result['pdr']['log']).read_text()
+    else:
+        assert 'Status: FAILED' in Path(result['base']['log']).read_text()
+        assert (tmp_path/'independent/counterexample.vcd').exists()
+
+
+@pytest.mark.parametrize('engine', ['induction', 'pdr'])
 @pytest.mark.parametrize('body', [
     'always @(posedge clk) q[0] <= d[0]; always @(posedge clk_b) q[1] <= d[1];',
     'always @(posedge clk) q[0] <= d[0]; always @(negedge clk) q[1] <= d[1];',
@@ -213,7 +232,8 @@ def test_unsupported_clock_identity_is_rejected_before_solver(tmp_path, engine, 
     assert 'aig_export' not in result and 'smt_export' not in result
 
 
-def test_async_reset_normalizes_to_checked_single_clock(tmp_path):
+@pytest.mark.parametrize('engine,match_initial', [('induction',True),('induction',False),('pdr',False)])
+def test_async_reset_normalizes_to_checked_single_clock(tmp_path,engine,match_initial):
     template = '''module TOP(input clk,rst,d, output reg q);
       always @(posedge clk or posedge rst) if (rst) q <= 0; else q <= d;
     endmodule'''
@@ -232,16 +252,22 @@ def test_async_reset_normalizes_to_checked_single_clock(tmp_path):
         assert(a == b);
       end
     endmodule''')
-    result = proof(reference, candidate, monitor, tmp_path/'async_normalized')
+    result = proof(reference, candidate, monitor, tmp_path/'async_normalized',engine=engine,
+                   abc=ABC,match_initial_state=match_initial)
     assert result['proven'], result
     assert len(result['clock_model']['clocks']) == 1
     cells = json.loads((tmp_path/'async_normalized/miter.json').read_text())['modules']['TemporalMiter']['cells']
     assert any(c['type'] == '$dff' for c in cells.values())
     assert not any(c['type'] in {'$adff', '$adffe', '$sdff', '$dffe'} for c in cells.values())
+    if not match_initial:
+        assert result['initial_state']['paired_state_bits'] == 0
+        assert not any(name.startswith('$pscorr_initial_state_') for name in cells)
+        # The only premise is the actual shared initial reset in the harness.
+        assert sum(c['type'] == '$assume' for c in cells.values()) == 1
 
 
 @pytest.mark.parametrize('cell_type', ['$adff', '$aldff', '$dffe', '$sdffe', '$dffsr',
-                                      '$dlatchsr', '$_DFF_P_', '$_DLATCH_P_', '$mem_v2'])
+                                      '$dlatchsr', '$_DFF_P_', '$_DLATCH_P_', '$mem_v2', '$anyinit'])
 def test_remaining_sequential_cell_types_fail_clock_validation(cell_type):
     design = {'modules': {'Toy': {'ports': {'clk': {'direction': 'input', 'bits': [2]}},
         'cells': {'unhandled_state': {'type': cell_type, 'connections': {}, 'parameters': {}}}}}}

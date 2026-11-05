@@ -142,7 +142,7 @@ def validate_single_clock(design: dict, top: str) -> dict:
             clocks.add((tuple(cell["connections"]["CLK"]),
                         parameter_int(cell["parameters"]["CLK_POLARITY"])))
         elif (re.match(r"^\$(?:_?(?:adff|aldff|dff|sdff|dlatch|adlatch|sr|ff))", cell["type"], re.I)
-              or cell["type"].startswith("$mem")):
+              or cell["type"].startswith("$mem") or cell["type"] == "$anyinit"):
             raise ValueError("Residual sequential cells or unmapped memories are unsupported; normalize to $dff")
     inputs = {tuple(port["bits"]) for port in module["ports"].values()
               if port["direction"] == "input" and len(port["bits"]) == 1}
@@ -264,7 +264,8 @@ def pair_initial_state(design: dict, top: str, *, assert_state_correspondence: b
 def prove_pair(reference: Path, candidate: Path, harness: Path, top: str,
                directory: Path, *, yosys: str, smtbmc: str, solver: str,
                depth: int, timeout: float, engine: str = "induction",
-               abc: str = "abc", assert_state_correspondence: bool = True) -> dict:
+               abc: str = "abc", assert_state_correspondence: bool = True,
+               match_initial_state: bool = True) -> dict:
     """A bounded pass alone can never return proven=True."""
     directory.mkdir()
     if depth < 2 or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", top) or engine not in ("induction", "pdr"):
@@ -290,8 +291,12 @@ def prove_pair(reference: Path, candidate: Path, harness: Path, top: str,
         cells = miter_design["modules"][top]["cells"]
         result["property_counts"] = {kind: sum(cell["type"] == "$" + kind for cell in cells.values())
                                      for kind in ("assert", "assume", "cover")}
-        result["initial_state"] = pair_initial_state(miter_design, top,
-            assert_state_correspondence=assert_state_correspondence)
+        if match_initial_state:
+            result["initial_state"] = pair_initial_state(miter_design, top,
+                assert_state_correspondence=assert_state_correspondence)
+        else:
+            result["initial_state"] = {"paired_state_bits": 0, "assert_state_correspondence": False,
+                "scope": "Independent initial states; no initial pairing or continuing correspondence assumption. Reset obligations remain in the immutable harness."}
         intermediate.write_text(json.dumps(miter_design) + "\n")
         if engine == "pdr":
             aig = directory / "miter.aig"
