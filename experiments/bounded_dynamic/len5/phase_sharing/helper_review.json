@@ -1,0 +1,13 @@
+{
+  "scope": "Independent source review and generic toy regressions; no claim of a completed native LEN5 candidate proof",
+  "source_sha256": {
+    "experiments/bounded_dynamic/len5/phase_sharing/proof.py": "c40ef159db24761afbc17efe9f1c77dfee42499d9f88eef7bc32c182e353d970",
+    "experiments/bounded_dynamic/len5/phase_sharing/factor_state.py": "ac4f8775e124cf818182ec2884cfedb31a4b68abc8ffd3aa2312b100e98f1c02",
+    "experiments/bounded_dynamic/len5/phase_sharing/last_writer.py": "0ba8df302a6ee43ce7b281d33054d356a8c9052dcd503d7a56d6b76f9fbeb6d7",
+    "tests/unit/test_native_state_certificates.py": "b75b4ab1c5eb776389136878d332dcf5cb5d9a574daa984bf4ba0902d64c7ed9"
+  },
+  "test_command": "PYTHONPATH=../PdatDsl python3 -m pytest -q tests/unit/test_native_state_certificates.py tests/unit/test_bank_sharing.py tests/unit/test_temporal_odc.py tests/unit/test_state_candidates.py tests/regression/test_sec_fail_closed.py tests/regression/test_odc_analysis.py",
+  "observed_result": "108 passed in 18.13s",
+  "new_native_state_tests": 14,
+  "record_kind": "Observed test result summary, not a raw solver transcript"
+}

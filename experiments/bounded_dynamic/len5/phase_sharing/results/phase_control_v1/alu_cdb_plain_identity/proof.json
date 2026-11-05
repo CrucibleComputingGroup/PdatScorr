@@ -1,0 +1,79 @@
+{
+  "proven": false,
+  "method": "abc-pdr-shared-miter",
+  "depth": 12,
+  "reference_sha256": "a696a48efaedf6e442c8504a28d227527191293bb00020e860ab532e3e3527d2",
+  "candidate_sha256": "0ff4636734d6a7ee6b822f399a2dd29b86a81121aa6d31ff238a7741580e3f16",
+  "harness_sha256": "2ac572deeccd9e24cd4d99b430e7368161ffbb6ba315f83466e8018f3e0f63d3",
+  "implementation_sha256": "713820a024f666b15682619ffcc0ec22be2af1f998aba9ef3b9a5a653eb2972d",
+  "elaboration": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/identity_proof/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.8163286973722279,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/identity_proof/prepare.log",
+    "log_sha256": "91fc06b45dd57f1c16a3905afda23a2dfdb8860b6aede500361c2262f686fa83"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "property_counts": {
+    "assert": 5,
+    "assume": 1,
+    "cover": 0
+  },
+  "initial_state": {
+    "paired_state_bits": 0,
+    "assert_state_correspondence": false,
+    "scope": "Independent initial states; no initial pairing or continuing correspondence assumption. Reset obligations remain in the immutable harness."
+  },
+  "aig_export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/identity_proof/aig_export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 7.536226982716471,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/identity_proof/aig_export.log",
+    "log_sha256": "1d47f0d97f3c48d862e21d8fedbe00f7b84766618f30cc79085845d8f12b9b05"
+  },
+  "aig_sha256": "a2d9bae5b1ce204ba0ffef66ccf5dfa62e70ff85e83c8d02d3f3a18e7f5dd512",
+  "aig_bad_properties": 5,
+  "aig_constraints": 1,
+  "pdr": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/identity_proof/miter.aig\"; fold; orpos; pdr -T 120 -v"
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 120.29055196791887,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/identity_proof/pdr.log",
+    "log_sha256": "b48d514d16bd7855aeebcaeb21b5236246bc373a910a97e7faa0abe522d8060d"
+  }
+}

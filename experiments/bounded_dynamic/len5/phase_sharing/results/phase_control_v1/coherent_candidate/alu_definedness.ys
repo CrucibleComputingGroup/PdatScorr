@@ -1,0 +1,6 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_candidate_v1/coherent_candidate/alu_cone.json"
+hierarchy -check -top AluCone
+check -assert
+bwmuxmap
+bmuxmap
+sat -enable_undef -set-def-inputs -set-any-undef result -show result

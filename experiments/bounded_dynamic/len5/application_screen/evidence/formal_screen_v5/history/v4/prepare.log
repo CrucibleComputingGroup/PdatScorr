@@ -1,0 +1,21 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v4_alu_mul/prepare.ys' --
+
+1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v4_alu_mul/core.v
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v4_alu_mul/core.v' to AST representation.
+Generating RTLIL representation for module `\ObservedCore'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v4_alu_mul/AdmissionScreen.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v4_alu_mul/AdmissionScreen.sv' to AST representation.
+Generating RTLIL representation for module `\AdmissionScreen'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+ERROR: Module `\$anyseq' referenced in module `\ObservedCore' in cell `\_36642_' is not part of the design.
+Top module:  \AdmissionScreen
+Used module:     \ObservedCore

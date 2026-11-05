@@ -3,8 +3,64 @@
 This supersedes the small-tag direction as the main experiment. The RSD result
 remains a mechanism check, not a proposed paper payoff. This document reports
 source review, a cheap structural inventory, and the subsequently authorized
-DIV and streaming-kernel counterexamples below. No positive occupancy proof or storage transformation
-has run. The structural counts are separate from physical mapping results.
+DIV and streaming-kernel counterexamples below. No occupancy invariant or
+storage-removal transformation has been certified. The structural counts are
+separate from physical mapping results.
+
+## Research comparison: information versus optimization method
+
+The research hypothesis is that Pscorr can turn program and microarchitectural
+facts into additional ODC-based hardware savings beyond ISA-level pruning.
+Do not presuppose that an ISA-only baseline saves little. Instruction restrictions
+can already remove substantial functional units, and an ISA constraint can itself
+create a microarchitectural ODC. The information supplied and the optimizer's
+ability to exploit that information are separate experimental variables.
+
+Measure a strong program/ISA specialization baseline and Pscorr under the same
+program, external platform, reset, observation boundary, capacities, mapping and
+resource budget. Separately ablate scheduling/timing information in Pscorr while
+keeping the instruction restrictions fixed. Give the existing sequential
+optimizer the complete constraints as an additional control: its result tests
+whether the gain follows from extra information alone or requires ODC discovery
+and rewriting. A method that already uses internal temporal reachability should
+not be relabeled "ISA-only" merely because its input constraints mention ISA
+instructions.
+
+Report total whole-core area and the incremental reduction from the strong
+ISA/program baseline to the microarchitecture-aware result, with each new
+removal tied to a certificate and a matched timing ablation. Formal-monitor or
+encoded AIG area is not a native implementation baseline. A small or negative
+increment is a legitimate experimental outcome; it does not justify weakening
+the baseline. No result currently establishes that ISA-only savings are small
+or that a material additional whole-core saving has been obtained.
+
+## Current screening outcome
+
+The [padded streaming experiment](application_screen/FETCH_SPACING.md) checks all
+64 output values on the unchanged core. Native service allocates ALU slots 1–7;
+the external minimum-two-cycle fetch-spacing platform allocates slots 5–7 and
+retains actual out-of-order issue. Both have three-cycle load responses and no
+memory exceptions. The platform changes reported execution from 805 to 931 cycles;
+all optimizer comparisons must use the same chosen platform. A trace visiting
+fewer slots is a candidate-discovery observation, not a removal certificate.
+
+The [alphabet-domain formal screen](application_screen/evidence/formal_screen_v5/README.md)
+does not yet certify the application. Unbounded checking remains inconclusive.
+A bounded query finds an ALU admission violation at frame 19 after proof-only
+ALU/MUL result abstraction; the witness is validated for that abstraction, and
+its concretization in native RTL is unresolved. The alphabet environment is
+also broader than the recorded instruction sequence and is not an exact ROM
+model. These distinctions prevent using this result as either a native-core
+counterexample or an accepted optimization.
+
+The [program-independent phase-sharing control](phase_sharing/README.md) enumerates
+276 bank pairs and retains 16 after a necessary write-exclusion check. No target
+bank merge has an unbounded certificate. A common-state proof reduction makes
+identity checking fast and passes independent positive/negative tests, but that
+does not prove the proposed merge. No transformed whole-core area has been
+measured. The next substantive obligations are resolving the abstract witness,
+certifying the relevant native program/platform property, and measuring the
+matched program/ISA baseline before attributing an incremental area gain.
 
 ## 1. Settings and source-grounded inventory
 

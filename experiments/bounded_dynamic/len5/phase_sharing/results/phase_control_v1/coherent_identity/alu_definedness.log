@@ -1,0 +1,37 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_candidate_v1/coherent_identity/alu_definedness.ys' --
+
+1. Executing JSON frontend.
+Importing module AluCone from JSON tree.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \AluCone
+
+2.2. Analyzing design hierarchy..
+Top module:  \AluCone
+Removed 0 unused modules.
+
+3. Executing CHECK pass (checking for obvious problems).
+Checking module AluCone...
+Found and reported 0 problems.
+
+4. Executing BWMUXMAP pass.
+
+5. Executing BMUXMAP pass.
+
+6. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \ctl_i
+Import def constraint for this timestep: \rs1_i
+Import def constraint for this timestep: \rs2_i
+Import any_undef constraint for this timestep: \result
+Imported 38 cells to SAT database.
+Import show expression: \result
+
+Solving problem with 21955 variables and 60644 clauses..
+SAT solving finished - no model found.

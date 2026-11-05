@@ -1,0 +1,29 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v5_alu_mul/screen.aig"; fold; orpos; bmc3 -F 48 -T 120 -v; write_cex -a "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v5_alu_mul/bounded_screen/counterexample.aiw"".
+
+Warning: The last output is interpreted as a constraint.
+Running "bmc3". PI/PO/Reg = 29788/1/22714. And = 427878. Lev =    74. ObjNums =200758.
+Params: FramesMax = 48. Start = 0. ConfLimit = 0. TimeOut = 120. SolveAll = 0.
+   0 + : Var =     666. Cla =     1599. Conf =      0. Learn =      0.    1 MB   4 MB     0.36 sec 
+   1 + : Var =   15999. Cla =    46338. Conf =      0. Learn =      0.    2 MB   5 MB     0.37 sec 
+   2 + : Var =   59851. Cla =   189777. Conf =      0. Learn =      0.    2 MB  14 MB     0.41 sec 
+   3 + : Var =  139289. Cla =   459669. Conf =      0. Learn =      0.    3 MB  30 MB     0.50 sec 
+   4 + : Var =  245192. Cla =   832432. Conf =      0. Learn =      0.    4 MB  56 MB     0.65 sec 
+   5 + : Var =  369244. Cla =  1270596. Conf =      0. Learn =      0.    5 MB  73 MB     0.81 sec 
+   6 + : Var =  508925. Cla =  1761650. Conf =      0. Learn =      0.    5 MB 115 MB     1.02 sec 
+   7 + : Var =  653260. Cla =  2275187. Conf =      0. Learn =      0.    6 MB 137 MB     1.24 sec 
+   8 + : Var =  797595. Cla =  2788724. Conf =      0. Learn =      0.    7 MB 157 MB     1.50 sec 
+   9 + : Var =  941930. Cla =  3302261. Conf =      4. Learn =      3.    8 MB 221 MB     1.77 sec 
+  10 + : Var = 1086265. Cla =  3815798. Conf =     62. Learn =     60.    8 MB 242 MB     2.04 sec 
+  11 + : Var = 1230600. Cla =  4329335. Conf =    109. Learn =    106.    9 MB 262 MB     2.43 sec 
+  12 + : Var = 1374935. Cla =  4842872. Conf =    242. Learn =    238.   10 MB 282 MB     3.04 sec 
+  13 + : Var = 1519270. Cla =  5356409. Conf =    466. Learn =    461.   11 MB 305 MB     4.27 sec 
+  14 + : Var = 1663605. Cla =  5869946. Conf =    758. Learn =    750.   11 MB 411 MB     6.25 sec 
+  15 + : Var = 1807940. Cla =  6383483. Conf =   1387. Learn =   1375.   12 MB 431 MB    10.53 sec 
+  16 + : Var = 1952275. Cla =  6897020. Conf =   2349. Learn =   2335.   13 MB 453 MB    18.17 sec 
+  17 + : Var = 2096610. Cla =  7410557. Conf =   4018. Learn =   4002.   14 MB 477 MB    33.64 sec 
+  18 + : Var = 2240945. Cla =  7924094. Conf =   7884. Learn =   7866.   15 MB 506 MB    70.07 sec 
+  19 + : Var = 2385280. Cla =  8437631. Conf =  10249. Learn =   7825.   16 MB 528 MB    97.85 sec  
+Runtime:  CNF = 3.1 sec (3.1 %)  UNSAT = 66.8 sec (68.3 %)  SAT = 27.5 sec (28.1 %)  UNDEC = 0.0 sec (0.0 %)
+LStart(P) = 10000  LDelta(Q) = 2000  LRatio(R) = 80  ReduceDB = 1  Vars = 2385280  Used = 2385280 (100.00 %)
+Buffs = 70299. Dups = 0.   Hash hits = 2330.  Hash misses = 1991939.  UniProps = 0.
+Output 0 of miter "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v5_alu_mul/screen" was asserted in frame 19. Time =    98.21 sec

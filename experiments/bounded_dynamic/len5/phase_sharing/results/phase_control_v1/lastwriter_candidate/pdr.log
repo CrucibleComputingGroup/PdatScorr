@@ -1,0 +1,23 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_candidate_v1/lastwriter_proof_v2/model.aig"; fold; orpos; pdr -T 120 -v".
+
+Warning: The last output is interpreted as a constraint.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 3419                                                              1  3420     20.26 sec
+  2 : 0 308 3419                                                          1  3420     25.34 sec
+  3 : 0 308 440 3422                                                      1  3420     35.35 sec
+  4 : 0 308 440 445 3428                                                  1  3420     60.92 sec
+  5 : 0 308 440 445 451 3273                                              1  3420    120.01 sec
+Reached timeout (120 seconds) in frame 5.
+Block = 4918  Oblig =  4918  Clause =  4917  Call = 32211 (sat=47.3%)  Cex =   0  Start =  88
+SAT solving =    97.27 sec ( 81.05 %)
+  unsat     =    73.32 sec ( 61.09 %)
+  sat       =    23.95 sec ( 19.95 %)
+Generalize  =    38.17 sec ( 31.81 %)
+Push clause =    54.84 sec ( 45.69 %)
+Ternary sim =    13.91 sec ( 11.59 %)
+Containment =     0.35 sec (  0.29 %)
+CNF compute =     0.96 sec (  0.80 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =   120.02 sec (100.00 %)
+Property UNDECIDED.  Time =   120.06 sec

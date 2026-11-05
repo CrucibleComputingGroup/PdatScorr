@@ -1,0 +1,1936 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_v1/prepare.ys' --
+
+1. Executing SLANG frontend.
+Top level design units:
+    AluObserved
+
+
+Build succeeded: 0 errors, 0 warnings
+
+1.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\AluObserved.$978'.
+Found and cleaned up 1 empty switch in `\AluObserved.$971'.
+Found and cleaned up 1 empty switch in `\AluObserved.$962'.
+Found and cleaned up 1 empty switch in `\AluObserved.$957'.
+Found and cleaned up 1 empty switch in `\AluObserved.$942'.
+Found and cleaned up 1 empty switch in `\AluObserved.$890'.
+Found and cleaned up 1 empty switch in `\AluObserved.$883'.
+Found and cleaned up 1 empty switch in `\AluObserved.$750'.
+Found and cleaned up 1 empty switch in `\AluObserved.$747'.
+Found and cleaned up 1 empty switch in `\AluObserved.$736'.
+Found and cleaned up 1 empty switch in `\AluObserved.$697'.
+Found and cleaned up 1 empty switch in `\AluObserved.$693'.
+Found and cleaned up 1 empty switch in `\AluObserved.$683'.
+Found and cleaned up 1 empty switch in `\AluObserved.$662'.
+Found and cleaned up 1 empty switch in `\AluObserved.$648'.
+Found and cleaned up 1 empty switch in `\AluObserved.$644'.
+Found and cleaned up 1 empty switch in `\AluObserved.$634'.
+Found and cleaned up 1 empty switch in `\AluObserved.$613'.
+Found and cleaned up 1 empty switch in `\AluObserved.$591'.
+Found and cleaned up 1 empty switch in `\AluObserved.$528'.
+Found and cleaned up 2 empty switches in `\AluObserved.$524'.
+Found and cleaned up 1 empty switch in `\AluObserved.$122'.
+Removing empty process `AluObserved.$36'.
+Removing empty process `AluObserved.$2'.
+Removing empty process `AluObserved.$0'.
+Cleaned up 23 empty switches.
+
+1.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $942 in module AluObserved.
+Marked 1 switch rules as full_case in process $697 in module AluObserved.
+Marked 1 switch rules as full_case in process $693 in module AluObserved.
+Marked 7 switch rules as full_case in process $662 in module AluObserved.
+Marked 1 switch rules as full_case in process $648 in module AluObserved.
+Marked 1 switch rules as full_case in process $644 in module AluObserved.
+Marked 7 switch rules as full_case in process $613 in module AluObserved.
+Marked 7 switch rules as full_case in process $591 in module AluObserved.
+Marked 71 switch rules as full_case in process $528 in module AluObserved.
+Marked 1 switch rules as full_case in process $524 in module AluObserved.
+Marked 263 switch rules as full_case in process $122 in module AluObserved.
+Marked 1 switch rules as full_case in process $978 in module AluObserved.
+Marked 1 switch rules as full_case in process $971 in module AluObserved.
+Marked 1 switch rules as full_case in process $962 in module AluObserved.
+Removed a total of 0 dead cases.
+
+1.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 183 redundant assignments.
+Promoted 0 assignments to connections.
+
+1.4. Executing PROC_INIT pass (extract init attributes).
+
+1.5. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~420 debug messages>
+
+1.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\AluObserved.$957'.
+     1/1: $u_cdb.u_cdb_arbiter.dec_valid_d$960
+Creating decoders for process `\AluObserved.$942'.
+     1/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.valid_o$952
+     2/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.enc_o$951
+     3/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.valid_o$950
+     4/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.enc_o$949
+     5/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.valid_o$948
+     6/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.enc_o$947
+     7/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.valid_o$946
+     8/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.enc_o$945
+     9/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.valid_o$944
+    10/10: $u_cdb.u_cdb_arbiter.vaild_prio_enc.enc_o[2]$943
+Creating decoders for process `\AluObserved.$890'.
+     1/1: $u_alu.u_alu.result$894
+Creating decoders for process `\AluObserved.$883'.
+     1/1: $u_alu.u_alu.is_less$888
+Creating decoders for process `\AluObserved.$750'.
+     1/1: $u_alu.u_alu.shifter_shamt$751
+Creating decoders for process `\AluObserved.$747'.
+     1/1: $u_alu.u_alu.shifter_a$748
+Creating decoders for process `\AluObserved.$736'.
+     1/3: $u_alu.u_alu.adder_cin$741
+     2/3: $u_alu.u_alu.adder_b$740
+     3/3: $u_alu.u_alu.adder_a$739
+Creating decoders for process `\AluObserved.$697'.
+     1/1: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q$700
+Creating decoders for process `\AluObserved.$693'.
+     1/1: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.ready_o$694
+Creating decoders for process `\AluObserved.$683'.
+     1/1: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.dec_valid_d$686
+Creating decoders for process `\AluObserved.$662'.
+     1/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.valid_o$678
+     2/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.enc_o$677
+     3/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.valid_o$676
+     4/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.enc_o$675
+     5/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.valid_o$674
+     6/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.enc_o$673
+     7/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.valid_o$672
+     8/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.enc_o$671
+     9/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.valid_o$670
+    10/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.enc_o$669
+    11/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.valid_o$668
+    12/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.enc_o$667
+    13/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.valid_o$666
+    14/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.enc_o$665
+    15/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.valid_o$664
+    16/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.vaild_prio_enc.enc_o$663
+Creating decoders for process `\AluObserved.$648'.
+     1/1: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q$651
+Creating decoders for process `\AluObserved.$644'.
+     1/1: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.ready_o$645
+Creating decoders for process `\AluObserved.$634'.
+     1/1: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.dec_valid_d$637
+Creating decoders for process `\AluObserved.$613'.
+     1/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.valid_o$629
+     2/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.enc_o$628
+     3/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.valid_o$627
+     4/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.enc_o$626
+     5/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.valid_o$625
+     6/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.enc_o$624
+     7/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.valid_o$623
+     8/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.enc_o$622
+     9/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.valid_o$621
+    10/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.enc_o$620
+    11/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.valid_o$619
+    12/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.enc_o$618
+    13/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.valid_o$617
+    14/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.enc_o$616
+    15/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.valid_o$615
+    16/16: $u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.vaild_prio_enc.enc_o$614
+Creating decoders for process `\AluObserved.$591'.
+     1/15: $u_alu.u_arith_rs.new_sel.valid_o$606
+     2/15: $u_alu.u_arith_rs.new_sel.enc_o$605
+     3/15: $u_alu.u_arith_rs.new_sel.valid_o$604
+     4/15: $u_alu.u_arith_rs.new_sel.enc_o$603
+     5/15: $u_alu.u_arith_rs.new_sel.valid_o$602
+     6/15: $u_alu.u_arith_rs.new_sel.enc_o$601
+     7/15: $u_alu.u_arith_rs.new_sel.valid_o$600
+     8/15: $u_alu.u_arith_rs.new_sel.enc_o$599
+     9/15: $u_alu.u_arith_rs.new_sel.valid_o$598
+    10/15: $u_alu.u_arith_rs.new_sel.enc_o[1:0]$597
+    11/15: $u_alu.u_arith_rs.new_sel.valid_o$596
+    12/15: $u_alu.u_arith_rs.new_sel.enc_o[1:0]$595
+    13/15: $u_alu.u_arith_rs.new_sel.valid_o$594
+    14/15: $u_alu.u_arith_rs.new_sel.enc_o[0]$593
+    15/15: $u_alu.u_arith_rs.new_sel.valid_o$592
+Creating decoders for process `\AluObserved.$528'.
+     1/80: $u_alu.u_arith_rs.data[138:75]$569
+     2/80: $u_alu.u_arith_rs.data[207:144]$568
+     3/80: $u_alu.u_arith_rs.data[216:0]$570 [216:208]
+     4/80: $u_alu.u_arith_rs.data[216:0]$570 [207:144]
+     5/80: $u_alu.u_arith_rs.data[216:0]$570 [143:139]
+     6/80: $u_alu.u_arith_rs.data[216:0]$570 [138:75]
+     7/80: $u_alu.u_arith_rs.data[216:0]$570 [74:70]
+     8/80: $u_alu.u_arith_rs.data[207:144]$566
+     9/80: $u_alu.u_arith_rs.data[138:75]$567
+    10/80: $u_alu.u_arith_rs.data[216:0]$570 [69:0]
+    11/80: $u_alu.u_arith_rs.data[355:292]$564
+    12/80: $u_alu.u_arith_rs.data[424:361]$563
+    13/80: $u_alu.u_arith_rs.data[433:217]$565 [216:208]
+    14/80: $u_alu.u_arith_rs.data[433:217]$565 [207:144]
+    15/80: $u_alu.u_arith_rs.data[433:217]$565 [143:139]
+    16/80: $u_alu.u_arith_rs.data[433:217]$565 [138:75]
+    17/80: $u_alu.u_arith_rs.data[433:217]$565 [74:70]
+    18/80: $u_alu.u_arith_rs.data[424:361]$561
+    19/80: $u_alu.u_arith_rs.data[355:292]$562
+    20/80: $u_alu.u_arith_rs.data[433:217]$565 [69:0]
+    21/80: $u_alu.u_arith_rs.data[572:509]$559
+    22/80: $u_alu.u_arith_rs.data[641:578]$558
+    23/80: $u_alu.u_arith_rs.data[650:434]$560 [216:208]
+    24/80: $u_alu.u_arith_rs.data[650:434]$560 [207:144]
+    25/80: $u_alu.u_arith_rs.data[650:434]$560 [143:139]
+    26/80: $u_alu.u_arith_rs.data[650:434]$560 [138:75]
+    27/80: $u_alu.u_arith_rs.data[650:434]$560 [74:70]
+    28/80: $u_alu.u_arith_rs.data[641:578]$556
+    29/80: $u_alu.u_arith_rs.data[572:509]$557
+    30/80: $u_alu.u_arith_rs.data[650:434]$560 [69:0]
+    31/80: $u_alu.u_arith_rs.data[789:726]$554
+    32/80: $u_alu.u_arith_rs.data[858:795]$553
+    33/80: $u_alu.u_arith_rs.data[867:651]$555 [216:208]
+    34/80: $u_alu.u_arith_rs.data[867:651]$555 [207:144]
+    35/80: $u_alu.u_arith_rs.data[867:651]$555 [143:139]
+    36/80: $u_alu.u_arith_rs.data[867:651]$555 [138:75]
+    37/80: $u_alu.u_arith_rs.data[867:651]$555 [74:70]
+    38/80: $u_alu.u_arith_rs.data[858:795]$551
+    39/80: $u_alu.u_arith_rs.data[789:726]$552
+    40/80: $u_alu.u_arith_rs.data[867:651]$555 [69:0]
+    41/80: $u_alu.u_arith_rs.data[1006:943]$549
+    42/80: $u_alu.u_arith_rs.data[1075:1012]$548
+    43/80: $u_alu.u_arith_rs.data[1084:868]$550 [216:208]
+    44/80: $u_alu.u_arith_rs.data[1084:868]$550 [207:144]
+    45/80: $u_alu.u_arith_rs.data[1084:868]$550 [143:139]
+    46/80: $u_alu.u_arith_rs.data[1084:868]$550 [138:75]
+    47/80: $u_alu.u_arith_rs.data[1084:868]$550 [74:70]
+    48/80: $u_alu.u_arith_rs.data[1075:1012]$546
+    49/80: $u_alu.u_arith_rs.data[1006:943]$547
+    50/80: $u_alu.u_arith_rs.data[1084:868]$550 [69:0]
+    51/80: $u_alu.u_arith_rs.data[1223:1160]$544
+    52/80: $u_alu.u_arith_rs.data[1292:1229]$543
+    53/80: $u_alu.u_arith_rs.data[1301:1085]$545 [216:208]
+    54/80: $u_alu.u_arith_rs.data[1301:1085]$545 [207:144]
+    55/80: $u_alu.u_arith_rs.data[1301:1085]$545 [143:139]
+    56/80: $u_alu.u_arith_rs.data[1301:1085]$545 [138:75]
+    57/80: $u_alu.u_arith_rs.data[1301:1085]$545 [74:70]
+    58/80: $u_alu.u_arith_rs.data[1292:1229]$541
+    59/80: $u_alu.u_arith_rs.data[1223:1160]$542
+    60/80: $u_alu.u_arith_rs.data[1301:1085]$545 [69:0]
+    61/80: $u_alu.u_arith_rs.data[1440:1377]$539
+    62/80: $u_alu.u_arith_rs.data[1509:1446]$538
+    63/80: $u_alu.u_arith_rs.data[1518:1302]$540 [216:208]
+    64/80: $u_alu.u_arith_rs.data[1518:1302]$540 [207:144]
+    65/80: $u_alu.u_arith_rs.data[1518:1302]$540 [143:139]
+    66/80: $u_alu.u_arith_rs.data[1518:1302]$540 [138:75]
+    67/80: $u_alu.u_arith_rs.data[1518:1302]$540 [74:70]
+    68/80: $u_alu.u_arith_rs.data[1509:1446]$536
+    69/80: $u_alu.u_arith_rs.data[1440:1377]$537
+    70/80: $u_alu.u_arith_rs.data[1518:1302]$540 [69:0]
+    71/80: $u_alu.u_arith_rs.data[1657:1594]$534
+    72/80: $u_alu.u_arith_rs.data[1726:1663]$533
+    73/80: $u_alu.u_arith_rs.data[1735:1519]$535 [216:208]
+    74/80: $u_alu.u_arith_rs.data[1735:1519]$535 [207:144]
+    75/80: $u_alu.u_arith_rs.data[1735:1519]$535 [143:139]
+    76/80: $u_alu.u_arith_rs.data[1735:1519]$535 [138:75]
+    77/80: $u_alu.u_arith_rs.data[1735:1519]$535 [74:70]
+    78/80: $u_alu.u_arith_rs.data[1726:1663]$531
+    79/80: $u_alu.u_arith_rs.data[1657:1594]$532
+    80/80: $u_alu.u_arith_rs.data[1735:1519]$535 [69:0]
+Creating decoders for process `\AluObserved.$524'.
+     1/1: $u_alu.u_arith_rs.curr_state$527
+Creating decoders for process `\AluObserved.$122'.
+     1/352: $u_alu.u_arith_rs.next_state[2:0]$520
+     2/352: $u_alu.u_arith_rs.next_state[2:0]$516
+     3/352: $u_alu.u_arith_rs.arith_op[3]$517
+     4/352: $u_alu.u_arith_rs.next_state[2:0]$511
+     5/352: $u_alu.u_arith_rs.next_state[2:0]$512
+     6/352: $u_alu.u_arith_rs.arith_op[3]$513
+     7/352: $u_alu.u_arith_rs.arith_op[3:0]$522 [2:1]
+     8/352: $u_alu.u_arith_rs.arith_op[2:0]$506
+     9/352: $u_alu.u_arith_rs.arith_op[3:0]$522 [0]
+    10/352: $u_alu.u_arith_rs.next_state[2:0]$505
+    11/352: $u_alu.u_arith_rs.arith_op[2:1]$504
+    12/352: $u_alu.u_arith_rs.arith_op[2:0]$502 [2]
+    13/352: $u_alu.u_arith_rs.arith_op[2:0]$498
+    14/352: $u_alu.u_arith_rs.arith_op[2:0]$500 [0]
+    15/352: $u_alu.u_arith_rs.next_state[2:0]$499
+    16/352: $u_alu.u_arith_rs.next_state[2:0]$497
+    17/352: $u_alu.u_arith_rs.arith_op[2:0]$502 [1]
+    18/352: $u_alu.u_arith_rs.arith_op[2:0]$500 [2:1]
+    19/352: $u_alu.u_arith_rs.next_state[2:0]$501
+    20/352: $u_alu.u_arith_rs.arith_op[2:0]$502 [0]
+    21/352: $u_alu.u_arith_rs.arith_op[3:0]$522 [3]
+    22/352: $u_alu.u_arith_rs.next_state[2:0]$503
+    23/352: $u_alu.u_arith_rs.next_state[2:0]$494
+    24/352: $u_alu.u_arith_rs.arith_op[2:0]$493 [2:1]
+    25/352: $u_alu.u_arith_rs.arith_op[1:0]$487 [0]
+    26/352: $u_alu.u_arith_rs.next_state[2:0]$486
+    27/352: $u_alu.u_arith_rs.arith_op[2:0]$489 [2]
+    28/352: $u_alu.u_arith_rs.arith_op[2:0]$489 [0]
+    29/352: $u_alu.u_arith_rs.next_state[2:0]$488
+    30/352: $u_alu.u_arith_rs.next_state[2:0]$482
+    31/352: $u_alu.u_arith_rs.arith_op[2]$484
+    32/352: $u_alu.u_arith_rs.arith_op[0]$483
+    33/352: $u_alu.u_arith_rs.arith_op[1:0]$487 [1]
+    34/352: $u_alu.u_arith_rs.arith_op[2:0]$489 [1]
+    35/352: $u_alu.u_arith_rs.next_state[2:0]$490
+    36/352: $u_alu.u_arith_rs.arith_op[1:0]$479 [1]
+    37/352: $u_alu.u_arith_rs.next_state[2:0]$478
+    38/352: $u_alu.u_arith_rs.arith_op[1:0]$479 [0]
+    39/352: $u_alu.u_arith_rs.arith_op[2:0]$491 [1:0]
+    40/352: $u_alu.u_arith_rs.arith_op[2:0]$491 [2]
+    41/352: $u_alu.u_arith_rs.next_state[2:0]$492
+    42/352: $u_alu.u_arith_rs.arith_op[2:0]$493 [0]
+    43/352: $u_alu.u_arith_rs.arith_op[2:0]$495
+    44/352: $u_alu.u_arith_rs.next_state[2:0]$521
+    45/352: $u_alu.u_arith_rs.next_state[5:3]$470
+    46/352: $u_alu.u_arith_rs.next_state[5:3]$466
+    47/352: $u_alu.u_arith_rs.arith_op[7]$467
+    48/352: $u_alu.u_arith_rs.next_state[5:3]$461
+    49/352: $u_alu.u_arith_rs.next_state[5:3]$462
+    50/352: $u_alu.u_arith_rs.arith_op[7]$463
+    51/352: $u_alu.u_arith_rs.arith_op[7:4]$472 [2:1]
+    52/352: $u_alu.u_arith_rs.arith_op[6:4]$456
+    53/352: $u_alu.u_arith_rs.arith_op[7:4]$472 [0]
+    54/352: $u_alu.u_arith_rs.next_state[5:3]$455
+    55/352: $u_alu.u_arith_rs.arith_op[6:5]$454
+    56/352: $u_alu.u_arith_rs.arith_op[6:4]$452 [2]
+    57/352: $u_alu.u_arith_rs.arith_op[6:4]$448
+    58/352: $u_alu.u_arith_rs.arith_op[6:4]$450 [0]
+    59/352: $u_alu.u_arith_rs.next_state[5:3]$449
+    60/352: $u_alu.u_arith_rs.next_state[5:3]$447
+    61/352: $u_alu.u_arith_rs.arith_op[6:4]$452 [1]
+    62/352: $u_alu.u_arith_rs.arith_op[6:4]$450 [2:1]
+    63/352: $u_alu.u_arith_rs.next_state[5:3]$451
+    64/352: $u_alu.u_arith_rs.arith_op[6:4]$452 [0]
+    65/352: $u_alu.u_arith_rs.arith_op[7:4]$472 [3]
+    66/352: $u_alu.u_arith_rs.next_state[5:3]$453
+    67/352: $u_alu.u_arith_rs.next_state[5:3]$444
+    68/352: $u_alu.u_arith_rs.arith_op[6:4]$443 [2:1]
+    69/352: $u_alu.u_arith_rs.arith_op[5:4]$437 [0]
+    70/352: $u_alu.u_arith_rs.next_state[5:3]$436
+    71/352: $u_alu.u_arith_rs.arith_op[6:4]$439 [2]
+    72/352: $u_alu.u_arith_rs.arith_op[6:4]$439 [0]
+    73/352: $u_alu.u_arith_rs.next_state[5:3]$438
+    74/352: $u_alu.u_arith_rs.next_state[5:3]$432
+    75/352: $u_alu.u_arith_rs.arith_op[6]$434
+    76/352: $u_alu.u_arith_rs.arith_op[4]$433
+    77/352: $u_alu.u_arith_rs.arith_op[5:4]$437 [1]
+    78/352: $u_alu.u_arith_rs.arith_op[6:4]$439 [1]
+    79/352: $u_alu.u_arith_rs.next_state[5:3]$440
+    80/352: $u_alu.u_arith_rs.arith_op[5:4]$429 [1]
+    81/352: $u_alu.u_arith_rs.next_state[5:3]$428
+    82/352: $u_alu.u_arith_rs.arith_op[5:4]$429 [0]
+    83/352: $u_alu.u_arith_rs.arith_op[6:4]$441 [1:0]
+    84/352: $u_alu.u_arith_rs.arith_op[6:4]$441 [2]
+    85/352: $u_alu.u_arith_rs.next_state[5:3]$442
+    86/352: $u_alu.u_arith_rs.arith_op[6:4]$443 [0]
+    87/352: $u_alu.u_arith_rs.arith_op[6:4]$445
+    88/352: $u_alu.u_arith_rs.next_state[5:3]$471
+    89/352: $u_alu.u_arith_rs.next_state[8:6]$420
+    90/352: $u_alu.u_arith_rs.next_state[8:6]$416
+    91/352: $u_alu.u_arith_rs.arith_op[11]$417
+    92/352: $u_alu.u_arith_rs.next_state[8:6]$411
+    93/352: $u_alu.u_arith_rs.next_state[8:6]$412
+    94/352: $u_alu.u_arith_rs.arith_op[11]$413
+    95/352: $u_alu.u_arith_rs.arith_op[11:8]$422 [2:1]
+    96/352: $u_alu.u_arith_rs.arith_op[10:8]$406
+    97/352: $u_alu.u_arith_rs.arith_op[11:8]$422 [0]
+    98/352: $u_alu.u_arith_rs.next_state[8:6]$405
+    99/352: $u_alu.u_arith_rs.arith_op[10:9]$404
+   100/352: $u_alu.u_arith_rs.arith_op[10:8]$402 [2]
+   101/352: $u_alu.u_arith_rs.arith_op[10:8]$398
+   102/352: $u_alu.u_arith_rs.arith_op[10:8]$400 [0]
+   103/352: $u_alu.u_arith_rs.next_state[8:6]$399
+   104/352: $u_alu.u_arith_rs.next_state[8:6]$397
+   105/352: $u_alu.u_arith_rs.arith_op[10:8]$402 [1]
+   106/352: $u_alu.u_arith_rs.arith_op[10:8]$400 [2:1]
+   107/352: $u_alu.u_arith_rs.next_state[8:6]$401
+   108/352: $u_alu.u_arith_rs.arith_op[10:8]$402 [0]
+   109/352: $u_alu.u_arith_rs.arith_op[11:8]$422 [3]
+   110/352: $u_alu.u_arith_rs.next_state[8:6]$403
+   111/352: $u_alu.u_arith_rs.next_state[8:6]$394
+   112/352: $u_alu.u_arith_rs.arith_op[10:8]$393 [2:1]
+   113/352: $u_alu.u_arith_rs.arith_op[9:8]$387 [0]
+   114/352: $u_alu.u_arith_rs.next_state[8:6]$386
+   115/352: $u_alu.u_arith_rs.arith_op[10:8]$389 [2]
+   116/352: $u_alu.u_arith_rs.arith_op[10:8]$389 [0]
+   117/352: $u_alu.u_arith_rs.next_state[8:6]$388
+   118/352: $u_alu.u_arith_rs.next_state[8:6]$382
+   119/352: $u_alu.u_arith_rs.arith_op[10]$384
+   120/352: $u_alu.u_arith_rs.arith_op[8]$383
+   121/352: $u_alu.u_arith_rs.arith_op[9:8]$387 [1]
+   122/352: $u_alu.u_arith_rs.arith_op[10:8]$389 [1]
+   123/352: $u_alu.u_arith_rs.next_state[8:6]$390
+   124/352: $u_alu.u_arith_rs.arith_op[9:8]$379 [1]
+   125/352: $u_alu.u_arith_rs.next_state[8:6]$378
+   126/352: $u_alu.u_arith_rs.arith_op[9:8]$379 [0]
+   127/352: $u_alu.u_arith_rs.arith_op[10:8]$391 [1:0]
+   128/352: $u_alu.u_arith_rs.arith_op[10:8]$391 [2]
+   129/352: $u_alu.u_arith_rs.next_state[8:6]$392
+   130/352: $u_alu.u_arith_rs.arith_op[10:8]$393 [0]
+   131/352: $u_alu.u_arith_rs.arith_op[10:8]$395
+   132/352: $u_alu.u_arith_rs.next_state[8:6]$421
+   133/352: $u_alu.u_arith_rs.next_state[11:9]$370
+   134/352: $u_alu.u_arith_rs.next_state[11:9]$366
+   135/352: $u_alu.u_arith_rs.arith_op[15]$367
+   136/352: $u_alu.u_arith_rs.next_state[11:9]$361
+   137/352: $u_alu.u_arith_rs.next_state[11:9]$362
+   138/352: $u_alu.u_arith_rs.arith_op[15]$363
+   139/352: $u_alu.u_arith_rs.arith_op[15:12]$372 [2:1]
+   140/352: $u_alu.u_arith_rs.arith_op[14:12]$356
+   141/352: $u_alu.u_arith_rs.arith_op[15:12]$372 [0]
+   142/352: $u_alu.u_arith_rs.next_state[11:9]$355
+   143/352: $u_alu.u_arith_rs.arith_op[14:13]$354
+   144/352: $u_alu.u_arith_rs.arith_op[14:12]$352 [2]
+   145/352: $u_alu.u_arith_rs.arith_op[14:12]$348
+   146/352: $u_alu.u_arith_rs.arith_op[14:12]$350 [0]
+   147/352: $u_alu.u_arith_rs.next_state[11:9]$349
+   148/352: $u_alu.u_arith_rs.next_state[11:9]$347
+   149/352: $u_alu.u_arith_rs.arith_op[14:12]$352 [1]
+   150/352: $u_alu.u_arith_rs.arith_op[14:12]$350 [2:1]
+   151/352: $u_alu.u_arith_rs.next_state[11:9]$351
+   152/352: $u_alu.u_arith_rs.arith_op[14:12]$352 [0]
+   153/352: $u_alu.u_arith_rs.arith_op[15:12]$372 [3]
+   154/352: $u_alu.u_arith_rs.next_state[11:9]$353
+   155/352: $u_alu.u_arith_rs.next_state[11:9]$344
+   156/352: $u_alu.u_arith_rs.arith_op[14:12]$343 [2:1]
+   157/352: $u_alu.u_arith_rs.arith_op[13:12]$337 [0]
+   158/352: $u_alu.u_arith_rs.next_state[11:9]$336
+   159/352: $u_alu.u_arith_rs.arith_op[14:12]$339 [2]
+   160/352: $u_alu.u_arith_rs.arith_op[14:12]$339 [0]
+   161/352: $u_alu.u_arith_rs.next_state[11:9]$338
+   162/352: $u_alu.u_arith_rs.next_state[11:9]$332
+   163/352: $u_alu.u_arith_rs.arith_op[14]$334
+   164/352: $u_alu.u_arith_rs.arith_op[12]$333
+   165/352: $u_alu.u_arith_rs.arith_op[13:12]$337 [1]
+   166/352: $u_alu.u_arith_rs.arith_op[14:12]$339 [1]
+   167/352: $u_alu.u_arith_rs.next_state[11:9]$340
+   168/352: $u_alu.u_arith_rs.arith_op[13:12]$329 [1]
+   169/352: $u_alu.u_arith_rs.next_state[11:9]$328
+   170/352: $u_alu.u_arith_rs.arith_op[13:12]$329 [0]
+   171/352: $u_alu.u_arith_rs.arith_op[14:12]$341 [1:0]
+   172/352: $u_alu.u_arith_rs.arith_op[14:12]$341 [2]
+   173/352: $u_alu.u_arith_rs.next_state[11:9]$342
+   174/352: $u_alu.u_arith_rs.arith_op[14:12]$343 [0]
+   175/352: $u_alu.u_arith_rs.arith_op[14:12]$345
+   176/352: $u_alu.u_arith_rs.next_state[11:9]$371
+   177/352: $u_alu.u_arith_rs.next_state[14:12]$320
+   178/352: $u_alu.u_arith_rs.next_state[14:12]$316
+   179/352: $u_alu.u_arith_rs.arith_op[19]$317
+   180/352: $u_alu.u_arith_rs.next_state[14:12]$311
+   181/352: $u_alu.u_arith_rs.next_state[14:12]$312
+   182/352: $u_alu.u_arith_rs.arith_op[19]$313
+   183/352: $u_alu.u_arith_rs.arith_op[19:16]$322 [2:1]
+   184/352: $u_alu.u_arith_rs.arith_op[18:16]$306
+   185/352: $u_alu.u_arith_rs.arith_op[19:16]$322 [0]
+   186/352: $u_alu.u_arith_rs.next_state[14:12]$305
+   187/352: $u_alu.u_arith_rs.arith_op[18:17]$304
+   188/352: $u_alu.u_arith_rs.arith_op[18:16]$302 [2]
+   189/352: $u_alu.u_arith_rs.arith_op[18:16]$298
+   190/352: $u_alu.u_arith_rs.arith_op[18:16]$300 [0]
+   191/352: $u_alu.u_arith_rs.next_state[14:12]$299
+   192/352: $u_alu.u_arith_rs.next_state[14:12]$297
+   193/352: $u_alu.u_arith_rs.arith_op[18:16]$302 [1]
+   194/352: $u_alu.u_arith_rs.arith_op[18:16]$300 [2:1]
+   195/352: $u_alu.u_arith_rs.next_state[14:12]$301
+   196/352: $u_alu.u_arith_rs.arith_op[18:16]$302 [0]
+   197/352: $u_alu.u_arith_rs.arith_op[19:16]$322 [3]
+   198/352: $u_alu.u_arith_rs.next_state[14:12]$303
+   199/352: $u_alu.u_arith_rs.next_state[14:12]$294
+   200/352: $u_alu.u_arith_rs.arith_op[18:16]$293 [2:1]
+   201/352: $u_alu.u_arith_rs.arith_op[17:16]$287 [0]
+   202/352: $u_alu.u_arith_rs.next_state[14:12]$286
+   203/352: $u_alu.u_arith_rs.arith_op[18:16]$289 [2]
+   204/352: $u_alu.u_arith_rs.arith_op[18:16]$289 [0]
+   205/352: $u_alu.u_arith_rs.next_state[14:12]$288
+   206/352: $u_alu.u_arith_rs.next_state[14:12]$282
+   207/352: $u_alu.u_arith_rs.arith_op[18]$284
+   208/352: $u_alu.u_arith_rs.arith_op[16]$283
+   209/352: $u_alu.u_arith_rs.arith_op[17:16]$287 [1]
+   210/352: $u_alu.u_arith_rs.arith_op[18:16]$289 [1]
+   211/352: $u_alu.u_arith_rs.next_state[14:12]$290
+   212/352: $u_alu.u_arith_rs.arith_op[17:16]$279 [1]
+   213/352: $u_alu.u_arith_rs.next_state[14:12]$278
+   214/352: $u_alu.u_arith_rs.arith_op[17:16]$279 [0]
+   215/352: $u_alu.u_arith_rs.arith_op[18:16]$291 [1:0]
+   216/352: $u_alu.u_arith_rs.arith_op[18:16]$291 [2]
+   217/352: $u_alu.u_arith_rs.next_state[14:12]$292
+   218/352: $u_alu.u_arith_rs.arith_op[18:16]$293 [0]
+   219/352: $u_alu.u_arith_rs.arith_op[18:16]$295
+   220/352: $u_alu.u_arith_rs.next_state[14:12]$321
+   221/352: $u_alu.u_arith_rs.next_state[17:15]$270
+   222/352: $u_alu.u_arith_rs.next_state[17:15]$266
+   223/352: $u_alu.u_arith_rs.arith_op[23]$267
+   224/352: $u_alu.u_arith_rs.next_state[17:15]$261
+   225/352: $u_alu.u_arith_rs.next_state[17:15]$262
+   226/352: $u_alu.u_arith_rs.arith_op[23]$263
+   227/352: $u_alu.u_arith_rs.arith_op[23:20]$272 [2:1]
+   228/352: $u_alu.u_arith_rs.arith_op[22:20]$256
+   229/352: $u_alu.u_arith_rs.arith_op[23:20]$272 [0]
+   230/352: $u_alu.u_arith_rs.next_state[17:15]$255
+   231/352: $u_alu.u_arith_rs.arith_op[22:21]$254
+   232/352: $u_alu.u_arith_rs.arith_op[22:20]$252 [2]
+   233/352: $u_alu.u_arith_rs.arith_op[22:20]$248
+   234/352: $u_alu.u_arith_rs.arith_op[22:20]$250 [0]
+   235/352: $u_alu.u_arith_rs.next_state[17:15]$249
+   236/352: $u_alu.u_arith_rs.next_state[17:15]$247
+   237/352: $u_alu.u_arith_rs.arith_op[22:20]$252 [1]
+   238/352: $u_alu.u_arith_rs.arith_op[22:20]$250 [2:1]
+   239/352: $u_alu.u_arith_rs.next_state[17:15]$251
+   240/352: $u_alu.u_arith_rs.arith_op[22:20]$252 [0]
+   241/352: $u_alu.u_arith_rs.arith_op[23:20]$272 [3]
+   242/352: $u_alu.u_arith_rs.next_state[17:15]$253
+   243/352: $u_alu.u_arith_rs.next_state[17:15]$244
+   244/352: $u_alu.u_arith_rs.arith_op[22:20]$243 [2:1]
+   245/352: $u_alu.u_arith_rs.arith_op[21:20]$237 [0]
+   246/352: $u_alu.u_arith_rs.next_state[17:15]$236
+   247/352: $u_alu.u_arith_rs.arith_op[22:20]$239 [2]
+   248/352: $u_alu.u_arith_rs.arith_op[22:20]$239 [0]
+   249/352: $u_alu.u_arith_rs.next_state[17:15]$238
+   250/352: $u_alu.u_arith_rs.next_state[17:15]$232
+   251/352: $u_alu.u_arith_rs.arith_op[22]$234
+   252/352: $u_alu.u_arith_rs.arith_op[20]$233
+   253/352: $u_alu.u_arith_rs.arith_op[21:20]$237 [1]
+   254/352: $u_alu.u_arith_rs.arith_op[22:20]$239 [1]
+   255/352: $u_alu.u_arith_rs.next_state[17:15]$240
+   256/352: $u_alu.u_arith_rs.arith_op[21:20]$229 [1]
+   257/352: $u_alu.u_arith_rs.next_state[17:15]$228
+   258/352: $u_alu.u_arith_rs.arith_op[21:20]$229 [0]
+   259/352: $u_alu.u_arith_rs.arith_op[22:20]$241 [1:0]
+   260/352: $u_alu.u_arith_rs.arith_op[22:20]$241 [2]
+   261/352: $u_alu.u_arith_rs.next_state[17:15]$242
+   262/352: $u_alu.u_arith_rs.arith_op[22:20]$243 [0]
+   263/352: $u_alu.u_arith_rs.arith_op[22:20]$245
+   264/352: $u_alu.u_arith_rs.next_state[17:15]$271
+   265/352: $u_alu.u_arith_rs.next_state[20:18]$220
+   266/352: $u_alu.u_arith_rs.next_state[20:18]$216
+   267/352: $u_alu.u_arith_rs.arith_op[27]$217
+   268/352: $u_alu.u_arith_rs.next_state[20:18]$211
+   269/352: $u_alu.u_arith_rs.next_state[20:18]$212
+   270/352: $u_alu.u_arith_rs.arith_op[27]$213
+   271/352: $u_alu.u_arith_rs.arith_op[27:24]$222 [2:1]
+   272/352: $u_alu.u_arith_rs.arith_op[26:24]$206
+   273/352: $u_alu.u_arith_rs.arith_op[27:24]$222 [0]
+   274/352: $u_alu.u_arith_rs.next_state[20:18]$205
+   275/352: $u_alu.u_arith_rs.arith_op[26:25]$204
+   276/352: $u_alu.u_arith_rs.arith_op[26:24]$202 [2]
+   277/352: $u_alu.u_arith_rs.arith_op[26:24]$198
+   278/352: $u_alu.u_arith_rs.arith_op[26:24]$200 [0]
+   279/352: $u_alu.u_arith_rs.next_state[20:18]$199
+   280/352: $u_alu.u_arith_rs.next_state[20:18]$197
+   281/352: $u_alu.u_arith_rs.arith_op[26:24]$202 [1]
+   282/352: $u_alu.u_arith_rs.arith_op[26:24]$200 [2:1]
+   283/352: $u_alu.u_arith_rs.next_state[20:18]$201
+   284/352: $u_alu.u_arith_rs.arith_op[26:24]$202 [0]
+   285/352: $u_alu.u_arith_rs.arith_op[27:24]$222 [3]
+   286/352: $u_alu.u_arith_rs.next_state[20:18]$203
+   287/352: $u_alu.u_arith_rs.next_state[20:18]$194
+   288/352: $u_alu.u_arith_rs.arith_op[26:24]$193 [2:1]
+   289/352: $u_alu.u_arith_rs.arith_op[25:24]$187 [0]
+   290/352: $u_alu.u_arith_rs.next_state[20:18]$186
+   291/352: $u_alu.u_arith_rs.arith_op[26:24]$189 [2]
+   292/352: $u_alu.u_arith_rs.arith_op[26:24]$189 [0]
+   293/352: $u_alu.u_arith_rs.next_state[20:18]$188
+   294/352: $u_alu.u_arith_rs.next_state[20:18]$182
+   295/352: $u_alu.u_arith_rs.arith_op[26]$184
+   296/352: $u_alu.u_arith_rs.arith_op[24]$183
+   297/352: $u_alu.u_arith_rs.arith_op[25:24]$187 [1]
+   298/352: $u_alu.u_arith_rs.arith_op[26:24]$189 [1]
+   299/352: $u_alu.u_arith_rs.next_state[20:18]$190
+   300/352: $u_alu.u_arith_rs.arith_op[25:24]$179 [1]
+   301/352: $u_alu.u_arith_rs.next_state[20:18]$178
+   302/352: $u_alu.u_arith_rs.arith_op[25:24]$179 [0]
+   303/352: $u_alu.u_arith_rs.arith_op[26:24]$191 [1:0]
+   304/352: $u_alu.u_arith_rs.arith_op[26:24]$191 [2]
+   305/352: $u_alu.u_arith_rs.next_state[20:18]$192
+   306/352: $u_alu.u_arith_rs.arith_op[26:24]$193 [0]
+   307/352: $u_alu.u_arith_rs.arith_op[26:24]$195
+   308/352: $u_alu.u_arith_rs.next_state[20:18]$221
+   309/352: $u_alu.u_arith_rs.next_state[23:21]$170
+   310/352: $u_alu.u_arith_rs.next_state[23:21]$166
+   311/352: $u_alu.u_arith_rs.arith_op[31]$167
+   312/352: $u_alu.u_arith_rs.next_state[23:21]$161
+   313/352: $u_alu.u_arith_rs.next_state[23:21]$162
+   314/352: $u_alu.u_arith_rs.arith_op[31]$163
+   315/352: $u_alu.u_arith_rs.arith_op[31:28]$172 [2:1]
+   316/352: $u_alu.u_arith_rs.arith_op[30:28]$156
+   317/352: $u_alu.u_arith_rs.arith_op[31:28]$172 [0]
+   318/352: $u_alu.u_arith_rs.next_state[23:21]$155
+   319/352: $u_alu.u_arith_rs.arith_op[30:29]$154
+   320/352: $u_alu.u_arith_rs.arith_op[30:28]$152 [2]
+   321/352: $u_alu.u_arith_rs.arith_op[30:28]$148
+   322/352: $u_alu.u_arith_rs.arith_op[30:28]$150 [0]
+   323/352: $u_alu.u_arith_rs.next_state[23:21]$149
+   324/352: $u_alu.u_arith_rs.next_state[23:21]$147
+   325/352: $u_alu.u_arith_rs.arith_op[30:28]$152 [1]
+   326/352: $u_alu.u_arith_rs.arith_op[30:28]$150 [2:1]
+   327/352: $u_alu.u_arith_rs.next_state[23:21]$151
+   328/352: $u_alu.u_arith_rs.arith_op[30:28]$152 [0]
+   329/352: $u_alu.u_arith_rs.arith_op[31:28]$172 [3]
+   330/352: $u_alu.u_arith_rs.next_state[23:21]$153
+   331/352: $u_alu.u_arith_rs.next_state[23:21]$144
+   332/352: $u_alu.u_arith_rs.arith_op[30:28]$143 [2:1]
+   333/352: $u_alu.u_arith_rs.arith_op[29:28]$137 [0]
+   334/352: $u_alu.u_arith_rs.next_state[23:21]$136
+   335/352: $u_alu.u_arith_rs.arith_op[30:28]$139 [2]
+   336/352: $u_alu.u_arith_rs.arith_op[30:28]$139 [0]
+   337/352: $u_alu.u_arith_rs.next_state[23:21]$138
+   338/352: $u_alu.u_arith_rs.next_state[23:21]$132
+   339/352: $u_alu.u_arith_rs.arith_op[30]$134
+   340/352: $u_alu.u_arith_rs.arith_op[28]$133
+   341/352: $u_alu.u_arith_rs.arith_op[29:28]$137 [1]
+   342/352: $u_alu.u_arith_rs.arith_op[30:28]$139 [1]
+   343/352: $u_alu.u_arith_rs.next_state[23:21]$140
+   344/352: $u_alu.u_arith_rs.arith_op[29:28]$129 [1]
+   345/352: $u_alu.u_arith_rs.next_state[23:21]$128
+   346/352: $u_alu.u_arith_rs.arith_op[29:28]$129 [0]
+   347/352: $u_alu.u_arith_rs.arith_op[30:28]$141 [1:0]
+   348/352: $u_alu.u_arith_rs.arith_op[30:28]$141 [2]
+   349/352: $u_alu.u_arith_rs.next_state[23:21]$142
+   350/352: $u_alu.u_arith_rs.arith_op[30:28]$143 [0]
+   351/352: $u_alu.u_arith_rs.arith_op[30:28]$145
+   352/352: $u_alu.u_arith_rs.next_state[23:21]$171
+Creating decoders for process `\AluObserved.$978'.
+     1/1: $u_cdb.u_cdb_arbiter.rem_valid_q$981
+Creating decoders for process `\AluObserved.$971'.
+     1/1: $u_cdb.u_cdb_arbiter.ready_o$974
+Creating decoders for process `\AluObserved.$962'.
+     1/1: $u_cdb.u_cdb_arbiter.msk_valid_d$965
+
+1.7. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\AluObserved.$957'.
+Removing empty process `AluObserved.$957'.
+Found and cleaned up 9 empty switches in `\AluObserved.$942'.
+Removing empty process `AluObserved.$942'.
+Found and cleaned up 1 empty switch in `\AluObserved.$890'.
+Removing empty process `AluObserved.$890'.
+Found and cleaned up 1 empty switch in `\AluObserved.$883'.
+Removing empty process `AluObserved.$883'.
+Found and cleaned up 1 empty switch in `\AluObserved.$750'.
+Removing empty process `AluObserved.$750'.
+Found and cleaned up 1 empty switch in `\AluObserved.$747'.
+Removing empty process `AluObserved.$747'.
+Found and cleaned up 1 empty switch in `\AluObserved.$736'.
+Removing empty process `AluObserved.$736'.
+Found and cleaned up 1 empty switch in `\AluObserved.$697'.
+Removing empty process `AluObserved.$697'.
+Found and cleaned up 1 empty switch in `\AluObserved.$693'.
+Removing empty process `AluObserved.$693'.
+Found and cleaned up 1 empty switch in `\AluObserved.$683'.
+Removing empty process `AluObserved.$683'.
+Found and cleaned up 15 empty switches in `\AluObserved.$662'.
+Removing empty process `AluObserved.$662'.
+Found and cleaned up 1 empty switch in `\AluObserved.$648'.
+Removing empty process `AluObserved.$648'.
+Found and cleaned up 1 empty switch in `\AluObserved.$644'.
+Removing empty process `AluObserved.$644'.
+Found and cleaned up 1 empty switch in `\AluObserved.$634'.
+Removing empty process `AluObserved.$634'.
+Found and cleaned up 15 empty switches in `\AluObserved.$613'.
+Removing empty process `AluObserved.$613'.
+Found and cleaned up 15 empty switches in `\AluObserved.$591'.
+Removing empty process `AluObserved.$591'.
+Found and cleaned up 79 empty switches in `\AluObserved.$528'.
+Removing empty process `AluObserved.$528'.
+Found and cleaned up 1 empty switch in `\AluObserved.$524'.
+Removing empty process `AluObserved.$524'.
+Found and cleaned up 271 empty switches in `\AluObserved.$122'.
+Removing empty process `AluObserved.$122'.
+Found and cleaned up 1 empty switch in `\AluObserved.$978'.
+Removing empty process `AluObserved.$978'.
+Found and cleaned up 1 empty switch in `\AluObserved.$971'.
+Removing empty process `AluObserved.$971'.
+Found and cleaned up 1 empty switch in `\AluObserved.$962'.
+Removing empty process `AluObserved.$962'.
+Cleaned up 420 empty switches.
+
+1.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AluObserved.
+<suppressed ~213 debug messages>
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \AluObserved
+
+2.2. Analyzing design hierarchy..
+Top module:  \AluObserved
+Removed 0 unused modules.
+
+3. Executing FLATTEN pass (flatten design).
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AluObserved.
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AluObserved.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AluObserved'.
+Computing hashes of 2748 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+Computing hashes of 2089 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+Computing hashes of 2058 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+Computing hashes of 2056 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+<suppressed ~2076 debug messages>
+Removed a total of 692 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \AluObserved..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$4105.
+    dead port 2/2 on $mux $procmux$4089.
+    dead port 2/2 on $mux $procmux$4087.
+    dead port 1/2 on $mux $procmux$4085.
+    dead port 1/2 on $mux $procmux$4082.
+    dead port 2/2 on $mux $procmux$4067.
+    dead port 2/2 on $mux $procmux$5919.
+    dead port 2/2 on $mux $procmux$4065.
+    dead port 1/2 on $mux $procmux$4063.
+    dead port 1/2 on $mux $procmux$4060.
+    dead port 1/2 on $mux $procmux$4057.
+    dead port 2/2 on $mux $procmux$4043.
+    dead port 2/2 on $mux $procmux$6388.
+    dead port 2/2 on $mux $procmux$4041.
+    dead port 1/2 on $mux $procmux$4039.
+    dead port 1/2 on $mux $procmux$4036.
+    dead port 1/2 on $mux $procmux$4033.
+    dead port 2/2 on $mux $procmux$4019.
+    dead port 2/2 on $mux $procmux$4017.
+    dead port 2/2 on $mux $procmux$4003.
+    dead port 2/2 on $mux $procmux$5909.
+    dead port 2/2 on $mux $procmux$3990.
+    dead port 2/2 on $mux $procmux$6479.
+    dead port 2/2 on $mux $procmux$3972.
+    dead port 2/2 on $mux $procmux$6386.
+    dead port 2/2 on $mux $procmux$3960.
+    dead port 2/2 on $mux $procmux$3948.
+    dead port 1/2 on $mux $procmux$6384.
+    dead port 1/2 on $mux $procmux$3946.
+    dead port 2/2 on $mux $procmux$3933.
+    dead port 2/2 on $mux $procmux$5889.
+    dead port 2/2 on $mux $procmux$3921.
+    dead port 2/2 on $mux $procmux$6381.
+    dead port 1/2 on $mux $procmux$3919.
+    dead port 1/2 on $mux $procmux$3916.
+    dead port 2/2 on $mux $procmux$3904.
+    dead port 1/2 on $mux $procmux$3902.
+    dead port 2/2 on $mux $procmux$3889.
+    dead port 1/2 on $mux $procmux$3887.
+    dead port 2/2 on $mux $procmux$3874.
+    dead port 2/2 on $mux $procmux$6367.
+    dead port 1/2 on $mux $procmux$3872.
+    dead port 1/2 on $mux $procmux$3869.
+    dead port 2/2 on $mux $procmux$3857.
+    dead port 2/2 on $mux $procmux$3845.
+    dead port 2/2 on $mux $procmux$3835.
+    dead port 2/2 on $mux $procmux$6365.
+    dead port 2/2 on $mux $procmux$5867.
+    dead port 1/2 on $mux $procmux$6363.
+    dead port 2/2 on $mux $procmux$3814.
+    dead port 2/2 on $mux $procmux$5859.
+    dead port 2/2 on $mux $procmux$6360.
+    dead port 2/2 on $mux $procmux$5850.
+    dead port 2/2 on $mux $procmux$3791.
+    dead port 1/2 on $mux $procmux$5848.
+    dead port 2/2 on $mux $procmux$3783.
+    dead port 2/2 on $mux $procmux$3774.
+    dead port 2/2 on $mux $procmux$5839.
+    dead port 1/2 on $mux $procmux$3772.
+    dead port 2/2 on $mux $procmux$3763.
+    dead port 2/2 on $mux $procmux$6346.
+    dead port 2/2 on $mux $procmux$3756.
+    dead port 2/2 on $mux $procmux$3749.
+    dead port 2/2 on $mux $procmux$5832.
+    dead port 2/2 on $mux $procmux$3727.
+    dead port 2/2 on $mux $procmux$6477.
+    dead port 2/2 on $mux $procmux$3714.
+    dead port 2/2 on $mux $procmux$3712.
+    dead port 2/2 on $mux $procmux$3698.
+    dead port 2/2 on $mux $procmux$5825.
+    dead port 2/2 on $mux $procmux$3696.
+    dead port 2/2 on $mux $procmux$3682.
+    dead port 2/2 on $mux $procmux$6344.
+    dead port 2/2 on $mux $procmux$3680.
+    dead port 1/2 on $mux $procmux$3678.
+    dead port 2/2 on $mux $procmux$3663.
+    dead port 2/2 on $mux $procmux$3661.
+    dead port 1/2 on $mux $procmux$3659.
+    dead port 2/2 on $mux $procmux$3643.
+    dead port 2/2 on $mux $procmux$3641.
+    dead port 1/2 on $mux $procmux$3639.
+    dead port 2/2 on $mux $procmux$3636.
+    dead port 2/2 on $mux $procmux$3623.
+    dead port 2/2 on $mux $procmux$3621.
+    dead port 1/2 on $mux $procmux$3619.
+    dead port 2/2 on $mux $procmux$3616.
+    dead port 2/2 on $mux $procmux$3602.
+    dead port 2/2 on $mux $procmux$3600.
+    dead port 1/2 on $mux $procmux$3598.
+    dead port 2/2 on $mux $procmux$3595.
+    dead port 2/2 on $mux $procmux$3581.
+    dead port 2/2 on $mux $procmux$3579.
+    dead port 1/2 on $mux $procmux$3577.
+    dead port 2/2 on $mux $procmux$3561.
+    dead port 2/2 on $mux $procmux$3559.
+    dead port 1/2 on $mux $procmux$3557.
+    dead port 1/2 on $mux $procmux$3554.
+    dead port 2/2 on $mux $procmux$3539.
+    dead port 2/2 on $mux $procmux$3537.
+    dead port 1/2 on $mux $procmux$3535.
+    dead port 1/2 on $mux $procmux$3532.
+    dead port 1/2 on $mux $procmux$3529.
+    dead port 2/2 on $mux $procmux$3515.
+    dead port 2/2 on $mux $procmux$3513.
+    dead port 1/2 on $mux $procmux$3511.
+    dead port 1/2 on $mux $procmux$3508.
+    dead port 2/2 on $mux $procmux$3505.
+    dead port 2/2 on $mux $procmux$3491.
+    dead port 2/2 on $mux $procmux$3489.
+    dead port 1/2 on $mux $procmux$3487.
+    dead port 1/2 on $mux $procmux$3484.
+    dead port 2/2 on $mux $procmux$3481.
+    dead port 2/2 on $mux $procmux$3467.
+    dead port 2/2 on $mux $procmux$5803.
+    dead port 2/2 on $mux $procmux$3465.
+    dead port 1/2 on $mux $procmux$3463.
+    dead port 1/2 on $mux $procmux$3460.
+    dead port 2/2 on $mux $procmux$3457.
+    dead port 2/2 on $mux $procmux$3443.
+    dead port 1/2 on $mux $procmux$6342.
+    dead port 2/2 on $mux $procmux$3441.
+    dead port 1/2 on $mux $procmux$3439.
+    dead port 1/2 on $mux $procmux$3436.
+    dead port 2/2 on $mux $procmux$3420.
+    dead port 2/2 on $mux $procmux$3418.
+    dead port 1/2 on $mux $procmux$3416.
+    dead port 1/2 on $mux $procmux$3413.
+    dead port 2/2 on $mux $procmux$3397.
+    dead port 2/2 on $mux $procmux$5790.
+    dead port 2/2 on $mux $procmux$3395.
+    dead port 1/2 on $mux $procmux$3393.
+    dead port 1/2 on $mux $procmux$3390.
+    dead port 2/2 on $mux $procmux$3375.
+    dead port 2/2 on $mux $procmux$3373.
+    dead port 1/2 on $mux $procmux$3371.
+    dead port 1/2 on $mux $procmux$3368.
+    dead port 1/2 on $mux $procmux$3365.
+    dead port 2/2 on $mux $procmux$3351.
+    dead port 2/2 on $mux $procmux$5788.
+    dead port 2/2 on $mux $procmux$3349.
+    dead port 1/2 on $mux $procmux$3347.
+    dead port 1/2 on $mux $procmux$3344.
+    dead port 1/2 on $mux $procmux$3341.
+    dead port 2/2 on $mux $procmux$3327.
+    dead port 2/2 on $mux $procmux$3325.
+    dead port 2/2 on $mux $procmux$3311.
+    dead port 2/2 on $mux $procmux$5774.
+    dead port 2/2 on $mux $procmux$3298.
+    dead port 2/2 on $mux $procmux$6326.
+    dead port 2/2 on $mux $procmux$5772.
+    dead port 2/2 on $mux $procmux$3280.
+    dead port 2/2 on $mux $procmux$5758.
+    dead port 2/2 on $mux $procmux$3268.
+    dead port 2/2 on $mux $procmux$3256.
+    dead port 2/2 on $mux $procmux$5756.
+    dead port 1/2 on $mux $procmux$3254.
+    dead port 2/2 on $mux $procmux$3241.
+    dead port 1/2 on $mux $procmux$5754.
+    dead port 2/2 on $mux $procmux$3229.
+    dead port 1/2 on $mux $procmux$3227.
+    dead port 1/2 on $mux $procmux$3224.
+    dead port 2/2 on $mux $procmux$3212.
+    dead port 2/2 on $mux $procmux$5739.
+    dead port 1/2 on $mux $procmux$3210.
+    dead port 2/2 on $mux $procmux$3197.
+    dead port 2/2 on $mux $procmux$6324.
+    dead port 1/2 on $mux $procmux$3195.
+    dead port 2/2 on $mux $procmux$3182.
+    dead port 2/2 on $mux $procmux$5737.
+    dead port 1/2 on $mux $procmux$3180.
+    dead port 1/2 on $mux $procmux$3177.
+    dead port 2/2 on $mux $procmux$3165.
+    dead port 1/2 on $mux $procmux$5735.
+    dead port 2/2 on $mux $procmux$3153.
+    dead port 2/2 on $mux $procmux$3143.
+    dead port 2/2 on $mux $procmux$5719.
+    dead port 1/2 on $mux $procmux$6322.
+    dead port 2/2 on $mux $procmux$5717.
+    dead port 1/2 on $mux $procmux$5715.
+    dead port 2/2 on $mux $procmux$3122.
+    dead port 2/2 on $mux $procmux$5712.
+    dead port 2/2 on $mux $procmux$5699.
+    dead port 1/2 on $mux $procmux$6319.
+    dead port 2/2 on $mux $procmux$5697.
+    dead port 1/2 on $mux $procmux$5695.
+    dead port 2/2 on $mux $procmux$3099.
+    dead port 2/2 on $mux $procmux$5692.
+    dead port 2/2 on $mux $procmux$3091.
+    dead port 2/2 on $mux $procmux$3082.
+    dead port 2/2 on $mux $procmux$5678.
+    dead port 1/2 on $mux $procmux$3080.
+    dead port 2/2 on $mux $procmux$3071.
+    dead port 2/2 on $mux $procmux$3064.
+    dead port 2/2 on $mux $procmux$5676.
+    dead port 2/2 on $mux $procmux$3057.
+    dead port 1/2 on $mux $procmux$5674.
+    dead port 2/2 on $mux $procmux$3035.
+    dead port 2/2 on $mux $procmux$5671.
+    dead port 2/2 on $mux $procmux$3022.
+    dead port 2/2 on $mux $procmux$3020.
+    dead port 2/2 on $mux $procmux$3006.
+    dead port 2/2 on $mux $procmux$5657.
+    dead port 2/2 on $mux $procmux$3004.
+    dead port 2/2 on $mux $procmux$2990.
+    dead port 2/2 on $mux $procmux$6304.
+    dead port 2/2 on $mux $procmux$2988.
+    dead port 1/2 on $mux $procmux$2986.
+    dead port 2/2 on $mux $procmux$2971.
+    dead port 2/2 on $mux $procmux$5655.
+    dead port 2/2 on $mux $procmux$2969.
+    dead port 1/2 on $mux $procmux$2967.
+    dead port 2/2 on $mux $procmux$2951.
+    dead port 1/2 on $mux $procmux$5653.
+    dead port 2/2 on $mux $procmux$2949.
+    dead port 1/2 on $mux $procmux$2947.
+    dead port 2/2 on $mux $procmux$2944.
+    dead port 2/2 on $mux $procmux$2931.
+    dead port 2/2 on $mux $procmux$2929.
+    dead port 1/2 on $mux $procmux$2927.
+    dead port 2/2 on $mux $procmux$2924.
+    dead port 2/2 on $mux $procmux$2910.
+    dead port 2/2 on $mux $procmux$5637.
+    dead port 2/2 on $mux $procmux$2908.
+    dead port 1/2 on $mux $procmux$2906.
+    dead port 2/2 on $mux $procmux$2903.
+    dead port 2/2 on $mux $procmux$2889.
+    dead port 2/2 on $mux $procmux$6463.
+    dead port 2/2 on $mux $procmux$2887.
+    dead port 1/2 on $mux $procmux$2885.
+    dead port 2/2 on $mux $procmux$2869.
+    dead port 2/2 on $mux $procmux$5635.
+    dead port 2/2 on $mux $procmux$2867.
+    dead port 1/2 on $mux $procmux$2865.
+    dead port 1/2 on $mux $procmux$2862.
+    dead port 2/2 on $mux $procmux$2847.
+    dead port 1/2 on $mux $procmux$5633.
+    dead port 2/2 on $mux $procmux$2845.
+    dead port 1/2 on $mux $procmux$2843.
+    dead port 1/2 on $mux $procmux$2840.
+    dead port 1/2 on $mux $procmux$2837.
+    dead port 2/2 on $mux $procmux$2823.
+    dead port 1/2 on $mux $procmux$5630.
+    dead port 2/2 on $mux $procmux$2821.
+    dead port 1/2 on $mux $procmux$2819.
+    dead port 1/2 on $mux $procmux$2816.
+    dead port 2/2 on $mux $procmux$2813.
+    dead port 2/2 on $mux $procmux$2799.
+    dead port 2/2 on $mux $procmux$2797.
+    dead port 1/2 on $mux $procmux$2795.
+    dead port 1/2 on $mux $procmux$2792.
+    dead port 2/2 on $mux $procmux$2789.
+    dead port 2/2 on $mux $procmux$2775.
+    dead port 2/2 on $mux $procmux$5615.
+    dead port 2/2 on $mux $procmux$2773.
+    dead port 1/2 on $mux $procmux$2771.
+    dead port 1/2 on $mux $procmux$2768.
+    dead port 2/2 on $mux $procmux$2765.
+    dead port 2/2 on $mux $procmux$2751.
+    dead port 2/2 on $mux $procmux$6302.
+    dead port 2/2 on $mux $procmux$2749.
+    dead port 1/2 on $mux $procmux$2747.
+    dead port 1/2 on $mux $procmux$2744.
+    dead port 2/2 on $mux $procmux$2728.
+    dead port 2/2 on $mux $procmux$5613.
+    dead port 2/2 on $mux $procmux$2726.
+    dead port 1/2 on $mux $procmux$2724.
+    dead port 1/2 on $mux $procmux$2721.
+    dead port 2/2 on $mux $procmux$2705.
+    dead port 1/2 on $mux $procmux$5611.
+    dead port 2/2 on $mux $procmux$2703.
+    dead port 1/2 on $mux $procmux$2701.
+    dead port 1/2 on $mux $procmux$2698.
+    dead port 2/2 on $mux $procmux$2683.
+    dead port 1/2 on $mux $procmux$5608.
+    dead port 2/2 on $mux $procmux$2681.
+    dead port 1/2 on $mux $procmux$2679.
+    dead port 1/2 on $mux $procmux$2676.
+    dead port 1/2 on $mux $procmux$2673.
+    dead port 2/2 on $mux $procmux$2659.
+    dead port 1/2 on $mux $procmux$5605.
+    dead port 2/2 on $mux $procmux$2657.
+    dead port 1/2 on $mux $procmux$2655.
+    dead port 1/2 on $mux $procmux$2652.
+    dead port 1/2 on $mux $procmux$2649.
+    dead port 2/2 on $mux $procmux$2635.
+    dead port 2/2 on $mux $procmux$2633.
+    dead port 2/2 on $mux $procmux$2619.
+    dead port 2/2 on $mux $procmux$5591.
+    dead port 2/2 on $mux $procmux$2606.
+    dead port 1/2 on $mux $procmux$6300.
+    dead port 2/2 on $mux $procmux$5589.
+    dead port 1/2 on $mux $procmux$5587.
+    dead port 2/2 on $mux $procmux$2588.
+    dead port 1/2 on $mux $procmux$5584.
+    dead port 2/2 on $mux $procmux$2576.
+    dead port 2/2 on $mux $procmux$5581.
+    dead port 2/2 on $mux $procmux$2564.
+    dead port 1/2 on $mux $procmux$2562.
+    dead port 2/2 on $mux $procmux$2549.
+    dead port 2/2 on $mux $procmux$5567.
+    dead port 2/2 on $mux $procmux$2537.
+    dead port 1/2 on $mux $procmux$6297.
+    dead port 1/2 on $mux $procmux$2535.
+    dead port 1/2 on $mux $procmux$2532.
+    dead port 2/2 on $mux $procmux$2520.
+    dead port 2/2 on $mux $procmux$5565.
+    dead port 1/2 on $mux $procmux$2518.
+    dead port 2/2 on $mux $procmux$2505.
+    dead port 1/2 on $mux $procmux$5563.
+    dead port 1/2 on $mux $procmux$2503.
+    dead port 2/2 on $mux $procmux$2490.
+    dead port 1/2 on $mux $procmux$5560.
+    dead port 1/2 on $mux $procmux$2488.
+    dead port 1/2 on $mux $procmux$2485.
+    dead port 2/2 on $mux $procmux$2473.
+    dead port 2/2 on $mux $procmux$5557.
+    dead port 2/2 on $mux $procmux$2461.
+    dead port 2/2 on $mux $procmux$2451.
+    dead port 2/2 on $mux $procmux$5543.
+    dead port 1/2 on $mux $procmux$6294.
+    dead port 2/2 on $mux $procmux$5541.
+    dead port 1/2 on $mux $procmux$5539.
+    dead port 2/2 on $mux $procmux$2430.
+    dead port 1/2 on $mux $procmux$5536.
+    dead port 2/2 on $mux $procmux$5533.
+    dead port 2/2 on $mux $procmux$5519.
+    dead port 2/2 on $mux $procmux$2407.
+    dead port 2/2 on $mux $procmux$5517.
+    dead port 2/2 on $mux $procmux$2399.
+    dead port 1/2 on $mux $procmux$5515.
+    dead port 2/2 on $mux $procmux$2390.
+    dead port 1/2 on $mux $procmux$5512.
+    dead port 1/2 on $mux $procmux$2388.
+    dead port 2/2 on $mux $procmux$2379.
+    dead port 2/2 on $mux $procmux$2372.
+    dead port 2/2 on $mux $procmux$5496.
+    dead port 2/2 on $mux $procmux$2365.
+    dead port 2/2 on $mux $procmux$6280.
+    dead port 2/2 on $mux $procmux$2343.
+    dead port 2/2 on $mux $procmux$5494.
+    dead port 2/2 on $mux $procmux$2330.
+    dead port 1/2 on $mux $procmux$5492.
+    dead port 2/2 on $mux $procmux$2328.
+    dead port 2/2 on $mux $procmux$2314.
+    dead port 1/2 on $mux $procmux$5489.
+    dead port 2/2 on $mux $procmux$2312.
+    dead port 2/2 on $mux $procmux$2298.
+    dead port 2/2 on $mux $procmux$2296.
+    dead port 1/2 on $mux $procmux$2294.
+    dead port 2/2 on $mux $procmux$2279.
+    dead port 2/2 on $mux $procmux$5473.
+    dead port 2/2 on $mux $procmux$2277.
+    dead port 1/2 on $mux $procmux$2275.
+    dead port 2/2 on $mux $procmux$2259.
+    dead port 2/2 on $mux $procmux$2257.
+    dead port 1/2 on $mux $procmux$2255.
+    dead port 2/2 on $mux $procmux$2252.
+    dead port 2/2 on $mux $procmux$2239.
+    dead port 2/2 on $mux $procmux$5471.
+    dead port 2/2 on $mux $procmux$2237.
+    dead port 1/2 on $mux $procmux$2235.
+    dead port 2/2 on $mux $procmux$2232.
+    dead port 2/2 on $mux $procmux$2218.
+    dead port 1/2 on $mux $procmux$5469.
+    dead port 2/2 on $mux $procmux$2216.
+    dead port 1/2 on $mux $procmux$2214.
+    dead port 2/2 on $mux $procmux$2211.
+    dead port 2/2 on $mux $procmux$2197.
+    dead port 1/2 on $mux $procmux$5466.
+    dead port 2/2 on $mux $procmux$2195.
+    dead port 1/2 on $mux $procmux$2193.
+    dead port 2/2 on $mux $procmux$2177.
+    dead port 2/2 on $mux $procmux$2175.
+    dead port 1/2 on $mux $procmux$2173.
+    dead port 1/2 on $mux $procmux$2170.
+    dead port 2/2 on $mux $procmux$2155.
+    dead port 2/2 on $mux $procmux$5451.
+    dead port 2/2 on $mux $procmux$2153.
+    dead port 1/2 on $mux $procmux$2151.
+    dead port 1/2 on $mux $procmux$2148.
+    dead port 1/2 on $mux $procmux$2145.
+    dead port 2/2 on $mux $procmux$2131.
+    dead port 2/2 on $mux $procmux$6278.
+    dead port 2/2 on $mux $procmux$2129.
+    dead port 1/2 on $mux $procmux$2127.
+    dead port 1/2 on $mux $procmux$2124.
+    dead port 2/2 on $mux $procmux$2121.
+    dead port 2/2 on $mux $procmux$2107.
+    dead port 2/2 on $mux $procmux$5449.
+    dead port 2/2 on $mux $procmux$2105.
+    dead port 1/2 on $mux $procmux$2103.
+    dead port 1/2 on $mux $procmux$2100.
+    dead port 2/2 on $mux $procmux$2097.
+    dead port 2/2 on $mux $procmux$2083.
+    dead port 1/2 on $mux $procmux$5447.
+    dead port 2/2 on $mux $procmux$2081.
+    dead port 1/2 on $mux $procmux$2079.
+    dead port 1/2 on $mux $procmux$2076.
+    dead port 2/2 on $mux $procmux$2073.
+    dead port 2/2 on $mux $procmux$2059.
+    dead port 1/2 on $mux $procmux$5444.
+    dead port 2/2 on $mux $procmux$2057.
+    dead port 1/2 on $mux $procmux$2055.
+    dead port 1/2 on $mux $procmux$2052.
+    dead port 2/2 on $mux $procmux$2036.
+    dead port 1/2 on $mux $procmux$5441.
+    dead port 2/2 on $mux $procmux$2034.
+    dead port 1/2 on $mux $procmux$2032.
+    dead port 1/2 on $mux $procmux$2029.
+    dead port 2/2 on $mux $procmux$2013.
+    dead port 2/2 on $mux $procmux$2011.
+    dead port 1/2 on $mux $procmux$2009.
+    dead port 1/2 on $mux $procmux$2006.
+    dead port 2/2 on $mux $procmux$1991.
+    dead port 2/2 on $mux $procmux$5427.
+    dead port 2/2 on $mux $procmux$1989.
+    dead port 1/2 on $mux $procmux$1987.
+    dead port 1/2 on $mux $procmux$1984.
+    dead port 1/2 on $mux $procmux$1981.
+    dead port 2/2 on $mux $procmux$1967.
+    dead port 1/2 on $mux $procmux$6276.
+    dead port 2/2 on $mux $procmux$1965.
+    dead port 1/2 on $mux $procmux$1963.
+    dead port 1/2 on $mux $procmux$1960.
+    dead port 1/2 on $mux $procmux$1957.
+    dead port 2/2 on $mux $procmux$1943.
+    dead port 2/2 on $mux $procmux$5425.
+    dead port 2/2 on $mux $procmux$1941.
+    dead port 2/2 on $mux $procmux$1927.
+    dead port 1/2 on $mux $procmux$5423.
+    dead port 2/2 on $mux $procmux$1914.
+    dead port 1/2 on $mux $procmux$5420.
+    dead port 1/2 on $mux $procmux$5417.
+    dead port 2/2 on $mux $procmux$1896.
+    dead port 2/2 on $mux $procmux$5403.
+    dead port 2/2 on $mux $procmux$1884.
+    dead port 1/2 on $mux $procmux$6273.
+    dead port 2/2 on $mux $procmux$1872.
+    dead port 2/2 on $mux $procmux$5401.
+    dead port 1/2 on $mux $procmux$1870.
+    dead port 2/2 on $mux $procmux$1857.
+    dead port 2/2 on $mux $procmux$1845.
+    dead port 2/2 on $mux $procmux$5387.
+    dead port 1/2 on $mux $procmux$1843.
+    dead port 1/2 on $mux $procmux$1840.
+    dead port 2/2 on $mux $procmux$1828.
+    dead port 2/2 on $mux $procmux$6270.
+    dead port 1/2 on $mux $procmux$1826.
+    dead port 2/2 on $mux $procmux$1813.
+    dead port 1/2 on $mux $procmux$1811.
+    dead port 2/2 on $mux $procmux$1798.
+    dead port 2/2 on $mux $procmux$5374.
+    dead port 1/2 on $mux $procmux$1796.
+    dead port 1/2 on $mux $procmux$1793.
+    dead port 2/2 on $mux $procmux$1781.
+    dead port 2/2 on $mux $procmux$1769.
+    dead port 2/2 on $mux $procmux$1759.
+    dead port 2/2 on $mux $procmux$6256.
+    dead port 2/2 on $mux $procmux$6461.
+    dead port 2/2 on $mux $procmux$5356.
+    dead port 2/2 on $mux $procmux$1738.
+    dead port 2/2 on $mux $procmux$6254.
+    dead port 2/2 on $mux $procmux$5344.
+    dead port 1/2 on $mux $procmux$6252.
+    dead port 2/2 on $mux $procmux$1715.
+    dead port 2/2 on $mux $procmux$5332.
+    dead port 2/2 on $mux $procmux$1707.
+    dead port 1/2 on $mux $procmux$6249.
+    dead port 2/2 on $mux $procmux$1698.
+    dead port 1/2 on $mux $procmux$5330.
+    dead port 1/2 on $mux $procmux$1696.
+    dead port 2/2 on $mux $procmux$1687.
+    dead port 2/2 on $mux $procmux$1680.
+    dead port 2/2 on $mux $procmux$5317.
+    dead port 2/2 on $mux $procmux$1673.
+    dead port 2/2 on $mux $procmux$6246.
+    dead port 2/2 on $mux $procmux$1651.
+    dead port 2/2 on $mux $procmux$1638.
+    dead port 2/2 on $mux $procmux$5305.
+    dead port 2/2 on $mux $procmux$1636.
+    dead port 2/2 on $mux $procmux$1622.
+    dead port 2/2 on $mux $procmux$1620.
+    dead port 2/2 on $mux $procmux$1606.
+    dead port 1/2 on $mux $procmux$5303.
+    dead port 2/2 on $mux $procmux$1604.
+    dead port 1/2 on $mux $procmux$1602.
+    dead port 2/2 on $mux $procmux$1587.
+    dead port 1/2 on $mux $procmux$5300.
+    dead port 2/2 on $mux $procmux$1585.
+    dead port 1/2 on $mux $procmux$1583.
+    dead port 2/2 on $mux $procmux$1567.
+    dead port 2/2 on $mux $procmux$1565.
+    dead port 1/2 on $mux $procmux$1563.
+    dead port 2/2 on $mux $procmux$1560.
+    dead port 2/2 on $mux $procmux$1547.
+    dead port 2/2 on $mux $procmux$5288.
+    dead port 2/2 on $mux $procmux$1545.
+    dead port 1/2 on $mux $procmux$1543.
+    dead port 2/2 on $mux $procmux$1540.
+    dead port 2/2 on $mux $procmux$1526.
+    dead port 2/2 on $mux $procmux$6232.
+    dead port 2/2 on $mux $procmux$1524.
+    dead port 1/2 on $mux $procmux$1522.
+    dead port 2/2 on $mux $procmux$1519.
+    dead port 2/2 on $mux $procmux$1505.
+    dead port 1/2 on $mux $procmux$5286.
+    dead port 2/2 on $mux $procmux$1503.
+    dead port 1/2 on $mux $procmux$1501.
+    dead port 2/2 on $mux $procmux$1485.
+    dead port 2/2 on $mux $procmux$1483.
+    dead port 1/2 on $mux $procmux$1481.
+    dead port 1/2 on $mux $procmux$1478.
+    dead port 2/2 on $mux $procmux$1463.
+    dead port 2/2 on $mux $procmux$5273.
+    dead port 2/2 on $mux $procmux$1461.
+    dead port 1/2 on $mux $procmux$1459.
+    dead port 1/2 on $mux $procmux$1456.
+    dead port 1/2 on $mux $procmux$1453.
+    dead port 2/2 on $mux $procmux$1439.
+    dead port 2/2 on $mux $procmux$1437.
+    dead port 1/2 on $mux $procmux$1435.
+    dead port 1/2 on $mux $procmux$1432.
+    dead port 2/2 on $mux $procmux$1429.
+    dead port 2/2 on $mux $procmux$1415.
+    dead port 1/2 on $mux $procmux$5271.
+    dead port 2/2 on $mux $procmux$1413.
+    dead port 1/2 on $mux $procmux$1411.
+    dead port 1/2 on $mux $procmux$1408.
+    dead port 2/2 on $mux $procmux$1405.
+    dead port 2/2 on $mux $procmux$1391.
+    dead port 2/2 on $mux $procmux$1389.
+    dead port 1/2 on $mux $procmux$1387.
+    dead port 1/2 on $mux $procmux$1384.
+    dead port 2/2 on $mux $procmux$1381.
+    dead port 2/2 on $mux $procmux$1367.
+    dead port 2/2 on $mux $procmux$5258.
+    dead port 2/2 on $mux $procmux$1365.
+    dead port 1/2 on $mux $procmux$1363.
+    dead port 1/2 on $mux $procmux$1360.
+    dead port 2/2 on $mux $procmux$1344.
+    dead port 2/2 on $mux $procmux$6230.
+    dead port 2/2 on $mux $procmux$1342.
+    dead port 1/2 on $mux $procmux$1340.
+    dead port 1/2 on $mux $procmux$1337.
+    dead port 2/2 on $mux $procmux$1321.
+    dead port 1/2 on $mux $procmux$5256.
+    dead port 2/2 on $mux $procmux$1319.
+    dead port 1/2 on $mux $procmux$1317.
+    dead port 1/2 on $mux $procmux$1314.
+    dead port 2/2 on $mux $procmux$1299.
+    dead port 1/2 on $mux $procmux$5253.
+    dead port 2/2 on $mux $procmux$1297.
+    dead port 1/2 on $mux $procmux$1295.
+    dead port 1/2 on $mux $procmux$1292.
+    dead port 1/2 on $mux $procmux$1289.
+    dead port 2/2 on $mux $procmux$1275.
+    dead port 2/2 on $mux $procmux$1273.
+    dead port 1/2 on $mux $procmux$1271.
+    dead port 1/2 on $mux $procmux$1268.
+    dead port 1/2 on $mux $procmux$1265.
+    dead port 2/2 on $mux $procmux$1251.
+    dead port 2/2 on $mux $procmux$5241.
+    dead port 2/2 on $mux $procmux$1249.
+    dead port 2/2 on $mux $procmux$1235.
+    dead port 1/2 on $mux $procmux$6228.
+    dead port 2/2 on $mux $procmux$1222.
+    dead port 2/2 on $mux $procmux$5229.
+    dead port 1/2 on $mux $procmux$6225.
+    dead port 2/2 on $mux $procmux$1204.
+    dead port 2/2 on $mux $procmux$1192.
+    dead port 2/2 on $mux $procmux$5219.
+    dead port 2/2 on $mux $procmux$1180.
+    dead port 2/2 on $mux $procmux$6222.
+    dead port 1/2 on $mux $procmux$1178.
+    dead port 2/2 on $mux $procmux$1165.
+    dead port 2/2 on $mux $procmux$1153.
+    dead port 1/2 on $mux $procmux$1151.
+    dead port 1/2 on $mux $procmux$1148.
+    dead port 2/2 on $mux $procmux$1136.
+    dead port 2/2 on $mux $procmux$6208.
+    dead port 1/2 on $mux $procmux$1134.
+    dead port 2/2 on $mux $procmux$1121.
+    dead port 1/2 on $mux $procmux$1119.
+    dead port 2/2 on $mux $procmux$1106.
+    dead port 2/2 on $mux $procmux$6447.
+    dead port 1/2 on $mux $procmux$1104.
+    dead port 1/2 on $mux $procmux$1101.
+    dead port 2/2 on $mux $procmux$1089.
+    dead port 2/2 on $mux $procmux$5198.
+    dead port 2/2 on $mux $procmux$1077.
+    dead port 2/2 on $mux $procmux$6206.
+    dead port 2/2 on $mux $procmux$1067.
+    dead port 1/2 on $mux $procmux$6204.
+    dead port 1/2 on $mux $procmux$6201.
+    dead port 2/2 on $mux $procmux$1046.
+    dead port 2/2 on $mux $procmux$6185.
+    dead port 2/2 on $mux $procmux$5175.
+    dead port 2/2 on $mux $procmux$6492.
+    dead port 2/2 on $mux $procmux$1023.
+    dead port 2/2 on $mux $procmux$5167.
+    dead port 2/2 on $mux $procmux$1015.
+    dead port 2/2 on $mux $procmux$6183.
+    dead port 2/2 on $mux $procmux$1006.
+    dead port 1/2 on $mux $procmux$1004.
+    dead port 2/2 on $mux $procmux$995.
+    dead port 2/2 on $mux $procmux$5158.
+    dead port 2/2 on $mux $procmux$988.
+    dead port 1/2 on $mux $procmux$6181.
+    dead port 2/2 on $mux $procmux$981.
+    dead port 1/2 on $mux $procmux$5156.
+    dead port 2/2 on $mux $procmux$969.
+    dead port 2/2 on $mux $procmux$960.
+    dead port 2/2 on $mux $procmux$5147.
+    dead port 1/2 on $mux $procmux$6178.
+    dead port 2/2 on $mux $procmux$5140.
+    dead port 2/2 on $mux $procmux$5133.
+    dead port 2/2 on $mux $procmux$6162.
+    dead port 2/2 on $mux $procmux$5111.
+    dead port 2/2 on $mux $procmux$898.
+    dead port 2/2 on $mux $procmux$6445.
+    dead port 2/2 on $mux $procmux$890.
+    dead port 2/2 on $mux $procmux$879.
+    dead port 2/2 on $mux $procmux$870.
+    dead port 2/2 on $mux $procmux$5098.
+    dead port 2/2 on $mux $procmux$6160.
+    dead port 2/2 on $mux $procmux$5096.
+    dead port 2/2 on $mux $procmux$5082.
+    dead port 1/2 on $mux $procmux$6158.
+    dead port 2/2 on $mux $procmux$5080.
+    dead port 2/2 on $mux $procmux$5066.
+    dead port 1/2 on $mux $procmux$6155.
+    dead port 2/2 on $mux $procmux$5064.
+    dead port 1/2 on $mux $procmux$5062.
+    dead port 2/2 on $mux $procmux$5047.
+    dead port 2/2 on $mux $procmux$5045.
+    dead port 1/2 on $mux $procmux$5043.
+    dead port 2/2 on $mux $procmux$5027.
+    dead port 2/2 on $mux $procmux$803.
+    dead port 2/2 on $mux $procmux$6140.
+    dead port 2/2 on $mux $procmux$795.
+    dead port 2/2 on $mux $procmux$5025.
+    dead port 2/2 on $mux $procmux$784.
+    dead port 2/2 on $mux $procmux$775.
+    dead port 1/2 on $mux $procmux$5023.
+    dead port 2/2 on $mux $procmux$5020.
+    dead port 2/2 on $mux $procmux$5007.
+    dead port 1/2 on $mux $procmux$6443.
+    dead port 2/2 on $mux $procmux$5005.
+    dead port 1/2 on $mux $procmux$5003.
+    dead port 2/2 on $mux $procmux$5000.
+    dead port 2/2 on $mux $procmux$4986.
+    dead port 2/2 on $mux $procmux$6138.
+    dead port 2/2 on $mux $procmux$4984.
+    dead port 1/2 on $mux $procmux$4982.
+    dead port 2/2 on $mux $procmux$4979.
+    dead port 2/2 on $mux $procmux$4965.
+    dead port 1/2 on $mux $procmux$6136.
+    dead port 2/2 on $mux $procmux$4963.
+    dead port 1/2 on $mux $procmux$4961.
+    dead port 2/2 on $mux $procmux$708.
+    dead port 2/2 on $mux $procmux$4945.
+    dead port 2/2 on $mux $procmux$700.
+    dead port 1/2 on $mux $procmux$6133.
+    dead port 2/2 on $mux $procmux$689.
+    dead port 2/2 on $mux $procmux$680.
+    dead port 2/2 on $mux $procmux$4943.
+    dead port 1/2 on $mux $procmux$4941.
+    dead port 1/2 on $mux $procmux$4938.
+    dead port 2/2 on $mux $procmux$4923.
+    dead port 1/2 on $mux $procmux$6130.
+    dead port 2/2 on $mux $procmux$4921.
+    dead port 1/2 on $mux $procmux$4919.
+    dead port 1/2 on $mux $procmux$4916.
+    dead port 1/2 on $mux $procmux$4913.
+    dead port 2/2 on $mux $procmux$4899.
+    dead port 2/2 on $mux $procmux$4897.
+    dead port 1/2 on $mux $procmux$4895.
+    dead port 1/2 on $mux $procmux$4892.
+    dead port 2/2 on $mux $procmux$4889.
+    dead port 2/2 on $mux $procmux$4875.
+    dead port 2/2 on $mux $procmux$613.
+    dead port 2/2 on $mux $procmux$6116.
+    dead port 2/2 on $mux $procmux$605.
+    dead port 2/2 on $mux $procmux$4873.
+    dead port 2/2 on $mux $procmux$594.
+    dead port 2/2 on $mux $procmux$585.
+    dead port 1/2 on $mux $procmux$4871.
+    dead port 1/2 on $mux $procmux$4868.
+    dead port 2/2 on $mux $procmux$4865.
+    dead port 2/2 on $mux $procmux$4851.
+    dead port 2/2 on $mux $procmux$4849.
+    dead port 1/2 on $mux $procmux$4847.
+    dead port 1/2 on $mux $procmux$4844.
+    dead port 2/2 on $mux $procmux$4841.
+    dead port 2/2 on $mux $procmux$4827.
+    dead port 2/2 on $mux $procmux$6114.
+    dead port 2/2 on $mux $procmux$4825.
+    dead port 1/2 on $mux $procmux$4823.
+    dead port 1/2 on $mux $procmux$4820.
+    dead port 2/2 on $mux $procmux$4804.
+    dead port 1/2 on $mux $procmux$6112.
+    dead port 2/2 on $mux $procmux$518.
+    dead port 2/2 on $mux $procmux$4802.
+    dead port 2/2 on $mux $procmux$510.
+    dead port 1/2 on $mux $procmux$4800.
+    dead port 2/2 on $mux $procmux$499.
+    dead port 2/2 on $mux $procmux$490.
+    dead port 1/2 on $mux $procmux$4797.
+    dead port 2/2 on $mux $procmux$4781.
+    dead port 1/2 on $mux $procmux$6109.
+    dead port 2/2 on $mux $procmux$4779.
+    dead port 1/2 on $mux $procmux$4777.
+    dead port 1/2 on $mux $procmux$4774.
+    dead port 2/2 on $mux $procmux$4759.
+    dead port 1/2 on $mux $procmux$6106.
+    dead port 2/2 on $mux $procmux$4757.
+    dead port 1/2 on $mux $procmux$4755.
+    dead port 1/2 on $mux $procmux$4752.
+    dead port 1/2 on $mux $procmux$4749.
+    dead port 2/2 on $mux $procmux$4735.
+    dead port 2/2 on $mux $procmux$4733.
+    dead port 1/2 on $mux $procmux$4731.
+    dead port 2/2 on $mux $procmux$423.
+    dead port 1/2 on $mux $procmux$4728.
+    dead port 2/2 on $mux $procmux$415.
+    dead port 1/2 on $mux $procmux$4725.
+    dead port 2/2 on $mux $procmux$404.
+    dead port 2/2 on $mux $procmux$395.
+    dead port 2/2 on $mux $procmux$4711.
+    dead port 2/2 on $mux $procmux$6092.
+    dead port 2/2 on $mux $procmux$4709.
+    dead port 2/2 on $mux $procmux$4695.
+    dead port 2/2 on $mux $procmux$6428.
+    dead port 2/2 on $mux $procmux$4682.
+    dead port 2/2 on $mux $procmux$6090.
+    dead port 2/2 on $mux $procmux$6076.
+    dead port 2/2 on $mux $procmux$4664.
+    dead port 2/2 on $mux $procmux$4652.
+    dead port 2/2 on $mux $procmux$328.
+    dead port 2/2 on $mux $procmux$320.
+    dead port 2/2 on $mux $procmux$4640.
+    dead port 2/2 on $mux $procmux$309.
+    dead port 2/2 on $mux $procmux$300.
+    dead port 2/2 on $mux $procmux$6063.
+    dead port 1/2 on $mux $procmux$4638.
+    dead port 2/2 on $mux $procmux$4625.
+    dead port 2/2 on $mux $procmux$4613.
+    dead port 1/2 on $mux $procmux$4611.
+    dead port 1/2 on $mux $procmux$4608.
+    dead port 2/2 on $mux $procmux$4596.
+    dead port 1/2 on $mux $procmux$4594.
+    dead port 2/2 on $mux $procmux$4581.
+    dead port 1/2 on $mux $procmux$4579.
+    dead port 2/2 on $mux $procmux$233.
+    dead port 2/2 on $mux $procmux$4566.
+    dead port 2/2 on $mux $procmux$225.
+    dead port 1/2 on $mux $procmux$4564.
+    dead port 1/2 on $mux $procmux$4561.
+    dead port 1/2 on $mux $procmux$4221.
+    dead port 2/2 on $mux $procmux$4549.
+    dead port 2/2 on $mux $procmux$6046.
+    dead port 2/2 on $mux $procmux$4537.
+    dead port 2/2 on $mux $procmux$4527.
+    dead port 2/2 on $mux $procmux$6034.
+    dead port 2/2 on $mux $procmux$6426.
+    dead port 2/2 on $mux $procmux$4506.
+    dead port 2/2 on $mux $procmux$6022.
+    dead port 1/2 on $mux $procmux$6424.
+    dead port 1/2 on $mux $procmux$6020.
+    dead port 2/2 on $mux $procmux$6007.
+    dead port 2/2 on $mux $procmux$4483.
+    dead port 2/2 on $mux $procmux$4110.
+    dead port 2/2 on $mux $procmux$4207.
+    dead port 1/2 on $mux $procmux$5946.
+    dead port 2/2 on $mux $procmux$4205.
+    dead port 2/2 on $mux $procmux$4475.
+    dead port 1/2 on $mux $procmux$4203.
+    dead port 1/2 on $mux $procmux$4200.
+    dead port 2/2 on $mux $procmux$4197.
+    dead port 2/2 on $mux $procmux$4466.
+    dead port 2/2 on $mux $procmux$5995.
+    dead port 1/2 on $mux $procmux$4464.
+    dead port 2/2 on $mux $procmux$4455.
+    dead port 2/2 on $mux $procmux$6408.
+    dead port 2/2 on $mux $procmux$4448.
+    dead port 1/2 on $mux $procmux$5993.
+    dead port 2/2 on $mux $procmux$4441.
+    dead port 1/2 on $mux $procmux$5990.
+    dead port 1/2 on $mux $procmux$4108.
+    dead port 2/2 on $mux $procmux$4183.
+    dead port 1/2 on $mux $procmux$5943.
+    dead port 2/2 on $mux $procmux$4181.
+    dead port 1/2 on $mux $procmux$4179.
+    dead port 1/2 on $mux $procmux$4176.
+    dead port 2/2 on $mux $procmux$4419.
+    dead port 2/2 on $mux $procmux$4173.
+    dead port 2/2 on $mux $procmux$4406.
+    dead port 2/2 on $mux $procmux$5978.
+    dead port 2/2 on $mux $procmux$4159.
+    dead port 2/2 on $mux $procmux$4404.
+    dead port 2/2 on $mux $procmux$4390.
+    dead port 2/2 on $mux $procmux$4157.
+    dead port 2/2 on $mux $procmux$4388.
+    dead port 1/2 on $mux $procmux$4155.
+    dead port 2/2 on $mux $procmux$4374.
+    dead port 1/2 on $mux $procmux$4152.
+    dead port 1/2 on $mux $procmux$5976.
+    dead port 2/2 on $mux $procmux$4149.
+    dead port 2/2 on $mux $procmux$4372.
+    dead port 1/2 on $mux $procmux$4370.
+    dead port 2/2 on $mux $procmux$4355.
+    dead port 2/2 on $mux $procmux$4135.
+    dead port 2/2 on $mux $procmux$5931.
+    dead port 2/2 on $mux $procmux$4353.
+    dead port 1/2 on $mux $procmux$4351.
+    dead port 2/2 on $mux $procmux$4133.
+    dead port 2/2 on $mux $procmux$4335.
+    dead port 1/2 on $mux $procmux$4131.
+    dead port 2/2 on $mux $procmux$5963.
+    dead port 1/2 on $mux $procmux$4128.
+    dead port 2/2 on $mux $procmux$4333.
+    dead port 1/2 on $mux $procmux$4331.
+    dead port 2/2 on $mux $procmux$4328.
+    dead port 2/2 on $mux $procmux$4315.
+    dead port 2/2 on $mux $procmux$4112.
+    dead port 2/2 on $mux $procmux$6406.
+    dead port 2/2 on $mux $procmux$6401.
+    dead port 2/2 on $mux $procmux$4313.
+    dead port 1/2 on $mux $procmux$4311.
+    dead port 2/2 on $mux $procmux$4308.
+    dead port 2/2 on $mux $procmux$4294.
+    dead port 1/2 on $mux $procmux$5961.
+    dead port 2/2 on $mux $procmux$4292.
+    dead port 1/2 on $mux $procmux$4290.
+    dead port 2/2 on $mux $procmux$4287.
+    dead port 2/2 on $mux $procmux$4273.
+    dead port 2/2 on $mux $procmux$4271.
+    dead port 1/2 on $mux $procmux$4269.
+    dead port 2/2 on $mux $procmux$4253.
+    dead port 2/2 on $mux $procmux$5948.
+    dead port 2/2 on $mux $procmux$4251.
+    dead port 1/2 on $mux $procmux$4249.
+    dead port 1/2 on $mux $procmux$4246.
+    dead port 2/2 on $mux $procmux$4231.
+    dead port 1/2 on $mux $procmux$6404.
+    dead port 2/2 on $mux $procmux$4229.
+    dead port 1/2 on $mux $procmux$4227.
+    dead port 1/2 on $mux $procmux$4224.
+Removed 848 multiplexer ports.
+<suppressed ~4048 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \AluObserved.
+    New ctrl vector for $pmux cell $procmux$948: $auto$opt_reduce.cc:137:opt_pmux$6526
+    New ctrl vector for $pmux cell $procmux$935: { $procmux$936_CMP $procmux$970_CMP $auto$opt_reduce.cc:137:opt_pmux$6530 $auto$opt_reduce.cc:137:opt_pmux$6528 }
+    New ctrl vector for $pmux cell $procmux$927: $auto$opt_reduce.cc:137:opt_pmux$6532
+    New ctrl vector for $pmux cell $procmux$914: { $procmux$915_CMP $procmux$970_CMP $auto$opt_reduce.cc:137:opt_pmux$6536 $auto$opt_reduce.cc:137:opt_pmux$6534 }
+    New ctrl vector for $pmux cell $procmux$905: $auto$opt_reduce.cc:137:opt_pmux$6538
+    New ctrl vector for $pmux cell $procmux$858: $auto$opt_reduce.cc:137:opt_pmux$6540
+    New ctrl vector for $pmux cell $procmux$844: { $procmux$845_CMP $procmux$880_CMP $auto$opt_reduce.cc:137:opt_pmux$6544 $auto$opt_reduce.cc:137:opt_pmux$6542 }
+    New ctrl vector for $pmux cell $procmux$835: $auto$opt_reduce.cc:137:opt_pmux$6546
+    New ctrl vector for $pmux cell $procmux$821: { $procmux$822_CMP $procmux$880_CMP $auto$opt_reduce.cc:137:opt_pmux$6550 $auto$opt_reduce.cc:137:opt_pmux$6548 }
+    New ctrl vector for $pmux cell $procmux$811: $auto$opt_reduce.cc:137:opt_pmux$6552
+    New ctrl vector for $pmux cell $procmux$763: $auto$opt_reduce.cc:137:opt_pmux$6554
+    New ctrl vector for $pmux cell $procmux$749: { $procmux$750_CMP $procmux$785_CMP $auto$opt_reduce.cc:137:opt_pmux$6558 $auto$opt_reduce.cc:137:opt_pmux$6556 }
+    New ctrl vector for $pmux cell $procmux$740: $auto$opt_reduce.cc:137:opt_pmux$6560
+    New ctrl vector for $pmux cell $procmux$726: { $procmux$727_CMP $procmux$785_CMP $auto$opt_reduce.cc:137:opt_pmux$6564 $auto$opt_reduce.cc:137:opt_pmux$6562 }
+    New ctrl vector for $pmux cell $procmux$716: $auto$opt_reduce.cc:137:opt_pmux$6566
+    New ctrl vector for $pmux cell $procmux$668: $auto$opt_reduce.cc:137:opt_pmux$6568
+    New ctrl vector for $pmux cell $procmux$654: { $procmux$655_CMP $procmux$690_CMP $auto$opt_reduce.cc:137:opt_pmux$6572 $auto$opt_reduce.cc:137:opt_pmux$6570 }
+    New ctrl vector for $pmux cell $procmux$645: $auto$opt_reduce.cc:137:opt_pmux$6574
+    New ctrl vector for $pmux cell $procmux$631: { $procmux$632_CMP $procmux$690_CMP $auto$opt_reduce.cc:137:opt_pmux$6578 $auto$opt_reduce.cc:137:opt_pmux$6576 }
+    New ctrl vector for $pmux cell $procmux$621: $auto$opt_reduce.cc:137:opt_pmux$6580
+    New ctrl vector for $pmux cell $procmux$573: $auto$opt_reduce.cc:137:opt_pmux$6582
+    New ctrl vector for $pmux cell $procmux$559: { $procmux$560_CMP $procmux$595_CMP $auto$opt_reduce.cc:137:opt_pmux$6586 $auto$opt_reduce.cc:137:opt_pmux$6584 }
+    New ctrl vector for $pmux cell $procmux$550: $auto$opt_reduce.cc:137:opt_pmux$6588
+    New ctrl vector for $pmux cell $procmux$536: { $procmux$537_CMP $procmux$595_CMP $auto$opt_reduce.cc:137:opt_pmux$6592 $auto$opt_reduce.cc:137:opt_pmux$6590 }
+    New ctrl vector for $pmux cell $procmux$526: $auto$opt_reduce.cc:137:opt_pmux$6594
+    New ctrl vector for $pmux cell $procmux$478: $auto$opt_reduce.cc:137:opt_pmux$6596
+    New ctrl vector for $pmux cell $procmux$464: { $procmux$465_CMP $procmux$500_CMP $auto$opt_reduce.cc:137:opt_pmux$6600 $auto$opt_reduce.cc:137:opt_pmux$6598 }
+    New ctrl vector for $pmux cell $procmux$455: $auto$opt_reduce.cc:137:opt_pmux$6602
+    New ctrl vector for $pmux cell $procmux$441: { $procmux$442_CMP $procmux$500_CMP $auto$opt_reduce.cc:137:opt_pmux$6606 $auto$opt_reduce.cc:137:opt_pmux$6604 }
+    New ctrl vector for $pmux cell $procmux$431: $auto$opt_reduce.cc:137:opt_pmux$6608
+    New ctrl vector for $pmux cell $procmux$383: $auto$opt_reduce.cc:137:opt_pmux$6610
+    New ctrl vector for $pmux cell $procmux$369: { $procmux$370_CMP $procmux$405_CMP $auto$opt_reduce.cc:137:opt_pmux$6614 $auto$opt_reduce.cc:137:opt_pmux$6612 }
+    New ctrl vector for $pmux cell $procmux$360: $auto$opt_reduce.cc:137:opt_pmux$6616
+    New ctrl vector for $pmux cell $procmux$346: { $procmux$347_CMP $procmux$405_CMP $auto$opt_reduce.cc:137:opt_pmux$6620 $auto$opt_reduce.cc:137:opt_pmux$6618 }
+    New ctrl vector for $pmux cell $procmux$336: $auto$opt_reduce.cc:137:opt_pmux$6622
+    New ctrl vector for $pmux cell $procmux$288: $auto$opt_reduce.cc:137:opt_pmux$6624
+    New ctrl vector for $pmux cell $procmux$274: { $procmux$275_CMP $procmux$310_CMP $auto$opt_reduce.cc:137:opt_pmux$6628 $auto$opt_reduce.cc:137:opt_pmux$6626 }
+    New ctrl vector for $pmux cell $procmux$265: $auto$opt_reduce.cc:137:opt_pmux$6630
+    New ctrl vector for $pmux cell $procmux$251: { $procmux$252_CMP $procmux$310_CMP $auto$opt_reduce.cc:137:opt_pmux$6634 $auto$opt_reduce.cc:137:opt_pmux$6632 }
+    New ctrl vector for $pmux cell $procmux$241: $auto$opt_reduce.cc:137:opt_pmux$6636
+    New ctrl vector for $pmux cell $procmux$65: $auto$opt_reduce.cc:137:opt_pmux$6638
+    New ctrl vector for $pmux cell $procmux$56: $auto$opt_reduce.cc:137:opt_pmux$6640
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$6639: { $procmux$66_CMP $procmux$63_CMP }
+  Optimizing cells in module \AluObserved.
+Performed a total of 43 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AluObserved'.
+Computing hashes of 1266 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+Computing hashes of 1160 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+Computing hashes of 1132 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+Computing hashes of 1111 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+Computing hashes of 1090 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+<suppressed ~528 debug messages>
+Removed a total of 176 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.curr_state[0] ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.curr_state[1] ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.curr_state[2] ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.curr_state[3] ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.curr_state[4] ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.curr_state[5] ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.curr_state[6] ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.curr_state[7] ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[0].eu_ctl ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[0].rs1_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[0].rs1_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[0].rs2_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[0].rs2_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[0].dest_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[0].res_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[0].except_raised ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[0].except_code ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[1].eu_ctl ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[1].rs1_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[1].rs1_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[1].rs2_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[1].rs2_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[1].dest_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[1].res_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[1].except_raised ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[1].except_code ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[2].eu_ctl ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[2].rs1_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[2].rs1_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[2].rs2_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[2].rs2_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[2].dest_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[2].res_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[2].except_raised ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[2].except_code ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[3].eu_ctl ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[3].rs1_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[3].rs1_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[3].rs2_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[3].rs2_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[3].dest_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[3].res_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[3].except_raised ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[3].except_code ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[4].eu_ctl ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[4].rs1_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[4].rs1_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[4].rs2_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[4].rs2_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[4].dest_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[4].res_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[4].except_raised ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[4].except_code ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[5].eu_ctl ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[5].rs1_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[5].rs1_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[5].rs2_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[5].rs2_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[5].dest_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[5].res_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[5].except_raised ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[5].except_code ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[6].eu_ctl ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[6].rs1_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[6].rs1_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[6].rs2_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[6].rs2_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[6].dest_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[6].res_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[6].except_raised ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[6].except_code ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[7].eu_ctl ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[7].rs1_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[7].rs1_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[7].rs2_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[7].rs2_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[7].dest_rob_idx ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[7].res_value ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[7].except_raised ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.data[7].except_code ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q ($aldff) from module AluObserved.
+Changing const-value async load to async reset on $driver$u_cdb.u_cdb_arbiter.rem_valid_q ($aldff) from module AluObserved.
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AluObserved..
+Removed 12 unused cells and 3147 unused wires.
+<suppressed ~296 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AluObserved.
+<suppressed ~2 debug messages>
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \AluObserved..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1351 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \AluObserved.
+    New ctrl vector for $pmux cell $procmux$844: { $auto$opt_reduce.cc:137:opt_pmux$6542 $auto$opt_reduce.cc:137:opt_pmux$6544 $auto$opt_reduce.cc:137:opt_pmux$6642 }
+    New ctrl vector for $pmux cell $procmux$821: { $auto$opt_reduce.cc:137:opt_pmux$6548 $auto$opt_reduce.cc:137:opt_pmux$6550 $auto$opt_reduce.cc:137:opt_pmux$6644 }
+    New ctrl vector for $pmux cell $procmux$1902: $auto$opt_reduce.cc:137:opt_pmux$6646
+    New ctrl vector for $pmux cell $procmux$2594: $auto$opt_reduce.cc:137:opt_pmux$6648
+    New ctrl vector for $pmux cell $procmux$749: { $auto$opt_reduce.cc:137:opt_pmux$6556 $auto$opt_reduce.cc:137:opt_pmux$6558 $auto$opt_reduce.cc:137:opt_pmux$6650 }
+    New ctrl vector for $pmux cell $procmux$726: { $auto$opt_reduce.cc:137:opt_pmux$6562 $auto$opt_reduce.cc:137:opt_pmux$6564 $auto$opt_reduce.cc:137:opt_pmux$6652 }
+    New ctrl vector for $pmux cell $procmux$654: { $auto$opt_reduce.cc:137:opt_pmux$6570 $auto$opt_reduce.cc:137:opt_pmux$6572 $auto$opt_reduce.cc:137:opt_pmux$6654 }
+    New ctrl vector for $pmux cell $procmux$631: { $auto$opt_reduce.cc:137:opt_pmux$6576 $auto$opt_reduce.cc:137:opt_pmux$6578 $auto$opt_reduce.cc:137:opt_pmux$6656 }
+    New ctrl vector for $pmux cell $procmux$5362: $auto$opt_reduce.cc:137:opt_pmux$6658
+    New ctrl vector for $pmux cell $procmux$559: { $auto$opt_reduce.cc:137:opt_pmux$6584 $auto$opt_reduce.cc:137:opt_pmux$6586 $auto$opt_reduce.cc:137:opt_pmux$6660 }
+    New ctrl vector for $pmux cell $procmux$536: { $auto$opt_reduce.cc:137:opt_pmux$6590 $auto$opt_reduce.cc:137:opt_pmux$6592 $auto$opt_reduce.cc:137:opt_pmux$6662 }
+    New ctrl vector for $pmux cell $procmux$464: { $auto$opt_reduce.cc:137:opt_pmux$6598 $auto$opt_reduce.cc:137:opt_pmux$6600 $auto$opt_reduce.cc:137:opt_pmux$6664 }
+    New ctrl vector for $pmux cell $procmux$441: { $auto$opt_reduce.cc:137:opt_pmux$6604 $auto$opt_reduce.cc:137:opt_pmux$6606 $auto$opt_reduce.cc:137:opt_pmux$6666 }
+    New ctrl vector for $pmux cell $procmux$369: { $auto$opt_reduce.cc:137:opt_pmux$6612 $auto$opt_reduce.cc:137:opt_pmux$6614 $auto$opt_reduce.cc:137:opt_pmux$6668 }
+    New ctrl vector for $pmux cell $procmux$4670: $auto$opt_reduce.cc:137:opt_pmux$6670
+    New ctrl vector for $pmux cell $procmux$346: { $auto$opt_reduce.cc:137:opt_pmux$6618 $auto$opt_reduce.cc:137:opt_pmux$6620 $auto$opt_reduce.cc:137:opt_pmux$6672 }
+    New ctrl vector for $pmux cell $procmux$3978: $auto$opt_reduce.cc:137:opt_pmux$6674
+    New ctrl vector for $pmux cell $procmux$935: { $auto$opt_reduce.cc:137:opt_pmux$6528 $auto$opt_reduce.cc:137:opt_pmux$6530 $auto$opt_reduce.cc:137:opt_pmux$6676 }
+    New ctrl vector for $pmux cell $procmux$274: { $auto$opt_reduce.cc:137:opt_pmux$6626 $auto$opt_reduce.cc:137:opt_pmux$6628 $auto$opt_reduce.cc:137:opt_pmux$6678 }
+    New ctrl vector for $pmux cell $procmux$3286: $auto$opt_reduce.cc:137:opt_pmux$6680
+    New ctrl vector for $pmux cell $procmux$914: { $auto$opt_reduce.cc:137:opt_pmux$6534 $auto$opt_reduce.cc:137:opt_pmux$6536 $auto$opt_reduce.cc:137:opt_pmux$6682 }
+    New ctrl vector for $pmux cell $procmux$251: { $auto$opt_reduce.cc:137:opt_pmux$6632 $auto$opt_reduce.cc:137:opt_pmux$6634 $auto$opt_reduce.cc:137:opt_pmux$6684 }
+    New ctrl vector for $pmux cell $procmux$1210: $auto$opt_reduce.cc:137:opt_pmux$6686
+    New ctrl vector for $pmux cell $procmux$6051: $auto$opt_reduce.cc:137:opt_pmux$6688
+  Optimizing cells in module \AluObserved.
+Performed a total of 24 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AluObserved'.
+Computing hashes of 820 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[0].eu_ctl ($adff) from module AluObserved (D = \issue_eu_ctl_i, Q = \u_alu.u_arith_rs.data [216:213]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[0].rs1_rob_idx ($adff) from module AluObserved (D = \issue_rs1_i [68:64], Q = \u_alu.u_arith_rs.data [212:208]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[0].rs1_value ($adff) from module AluObserved (D = $procmux$251_Y, Q = \u_alu.u_arith_rs.data [207:144]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[0].rs2_rob_idx ($adff) from module AluObserved (D = \issue_rs2_i [68:64], Q = \u_alu.u_arith_rs.data [143:139]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[0].rs2_value ($adff) from module AluObserved (D = $procmux$274_Y, Q = \u_alu.u_arith_rs.data [138:75]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[0].dest_rob_idx ($adff) from module AluObserved (D = \issue_dest_rob_idx_i, Q = \u_alu.u_arith_rs.data [74:70]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[0].res_value ($adff) from module AluObserved (D = \u_alu.u_arith_rs.eu_result_i, Q = \u_alu.u_arith_rs.data [69:6]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[0].except_raised ($adff) from module AluObserved (D = 1'0, Q = \u_alu.u_arith_rs.data [5]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[0].except_code ($adff) from module AluObserved (D = 5'11111, Q = \u_alu.u_arith_rs.data [4:0]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[1].eu_ctl ($adff) from module AluObserved (D = \issue_eu_ctl_i, Q = \u_alu.u_arith_rs.data [433:430]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[1].rs1_rob_idx ($adff) from module AluObserved (D = \issue_rs1_i [68:64], Q = \u_alu.u_arith_rs.data [429:425]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[1].rs1_value ($adff) from module AluObserved (D = $procmux$346_Y, Q = \u_alu.u_arith_rs.data [424:361]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[1].rs2_rob_idx ($adff) from module AluObserved (D = \issue_rs2_i [68:64], Q = \u_alu.u_arith_rs.data [360:356]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[1].rs2_value ($adff) from module AluObserved (D = $procmux$369_Y, Q = \u_alu.u_arith_rs.data [355:292]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[1].dest_rob_idx ($adff) from module AluObserved (D = \issue_dest_rob_idx_i, Q = \u_alu.u_arith_rs.data [291:287]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[1].res_value ($adff) from module AluObserved (D = \u_alu.u_arith_rs.eu_result_i, Q = \u_alu.u_arith_rs.data [286:223]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[1].except_raised ($adff) from module AluObserved (D = 1'0, Q = \u_alu.u_arith_rs.data [222]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[1].except_code ($adff) from module AluObserved (D = 5'11111, Q = \u_alu.u_arith_rs.data [221:217]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[2].eu_ctl ($adff) from module AluObserved (D = \issue_eu_ctl_i, Q = \u_alu.u_arith_rs.data [650:647]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[2].rs1_rob_idx ($adff) from module AluObserved (D = \issue_rs1_i [68:64], Q = \u_alu.u_arith_rs.data [646:642]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[2].rs1_value ($adff) from module AluObserved (D = $procmux$441_Y, Q = \u_alu.u_arith_rs.data [641:578]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[2].rs2_rob_idx ($adff) from module AluObserved (D = \issue_rs2_i [68:64], Q = \u_alu.u_arith_rs.data [577:573]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[2].rs2_value ($adff) from module AluObserved (D = $procmux$464_Y, Q = \u_alu.u_arith_rs.data [572:509]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[2].dest_rob_idx ($adff) from module AluObserved (D = \issue_dest_rob_idx_i, Q = \u_alu.u_arith_rs.data [508:504]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[2].res_value ($adff) from module AluObserved (D = \u_alu.u_arith_rs.eu_result_i, Q = \u_alu.u_arith_rs.data [503:440]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[2].except_raised ($adff) from module AluObserved (D = 1'0, Q = \u_alu.u_arith_rs.data [439]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[2].except_code ($adff) from module AluObserved (D = 5'11111, Q = \u_alu.u_arith_rs.data [438:434]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[3].eu_ctl ($adff) from module AluObserved (D = \issue_eu_ctl_i, Q = \u_alu.u_arith_rs.data [867:864]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[3].rs1_rob_idx ($adff) from module AluObserved (D = \issue_rs1_i [68:64], Q = \u_alu.u_arith_rs.data [863:859]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[3].rs1_value ($adff) from module AluObserved (D = $procmux$536_Y, Q = \u_alu.u_arith_rs.data [858:795]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[3].rs2_rob_idx ($adff) from module AluObserved (D = \issue_rs2_i [68:64], Q = \u_alu.u_arith_rs.data [794:790]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[3].rs2_value ($adff) from module AluObserved (D = $procmux$559_Y, Q = \u_alu.u_arith_rs.data [789:726]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[3].dest_rob_idx ($adff) from module AluObserved (D = \issue_dest_rob_idx_i, Q = \u_alu.u_arith_rs.data [725:721]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[3].res_value ($adff) from module AluObserved (D = \u_alu.u_arith_rs.eu_result_i, Q = \u_alu.u_arith_rs.data [720:657]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[3].except_raised ($adff) from module AluObserved (D = 1'0, Q = \u_alu.u_arith_rs.data [656]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[3].except_code ($adff) from module AluObserved (D = 5'11111, Q = \u_alu.u_arith_rs.data [655:651]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[4].eu_ctl ($adff) from module AluObserved (D = \issue_eu_ctl_i, Q = \u_alu.u_arith_rs.data [1084:1081]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[4].rs1_rob_idx ($adff) from module AluObserved (D = \issue_rs1_i [68:64], Q = \u_alu.u_arith_rs.data [1080:1076]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[4].rs1_value ($adff) from module AluObserved (D = $procmux$631_Y, Q = \u_alu.u_arith_rs.data [1075:1012]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[4].rs2_rob_idx ($adff) from module AluObserved (D = \issue_rs2_i [68:64], Q = \u_alu.u_arith_rs.data [1011:1007]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[4].rs2_value ($adff) from module AluObserved (D = $procmux$654_Y, Q = \u_alu.u_arith_rs.data [1006:943]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[4].dest_rob_idx ($adff) from module AluObserved (D = \issue_dest_rob_idx_i, Q = \u_alu.u_arith_rs.data [942:938]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[4].res_value ($adff) from module AluObserved (D = \u_alu.u_arith_rs.eu_result_i, Q = \u_alu.u_arith_rs.data [937:874]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[4].except_raised ($adff) from module AluObserved (D = 1'0, Q = \u_alu.u_arith_rs.data [873]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[4].except_code ($adff) from module AluObserved (D = 5'11111, Q = \u_alu.u_arith_rs.data [872:868]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[5].eu_ctl ($adff) from module AluObserved (D = \issue_eu_ctl_i, Q = \u_alu.u_arith_rs.data [1301:1298]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[5].rs1_rob_idx ($adff) from module AluObserved (D = \issue_rs1_i [68:64], Q = \u_alu.u_arith_rs.data [1297:1293]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[5].rs1_value ($adff) from module AluObserved (D = $procmux$726_Y, Q = \u_alu.u_arith_rs.data [1292:1229]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[5].rs2_rob_idx ($adff) from module AluObserved (D = \issue_rs2_i [68:64], Q = \u_alu.u_arith_rs.data [1228:1224]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[5].rs2_value ($adff) from module AluObserved (D = $procmux$749_Y, Q = \u_alu.u_arith_rs.data [1223:1160]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[5].dest_rob_idx ($adff) from module AluObserved (D = \issue_dest_rob_idx_i, Q = \u_alu.u_arith_rs.data [1159:1155]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[5].res_value ($adff) from module AluObserved (D = \u_alu.u_arith_rs.eu_result_i, Q = \u_alu.u_arith_rs.data [1154:1091]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[5].except_raised ($adff) from module AluObserved (D = 1'0, Q = \u_alu.u_arith_rs.data [1090]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[5].except_code ($adff) from module AluObserved (D = 5'11111, Q = \u_alu.u_arith_rs.data [1089:1085]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[6].eu_ctl ($adff) from module AluObserved (D = \issue_eu_ctl_i, Q = \u_alu.u_arith_rs.data [1518:1515]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[6].rs1_rob_idx ($adff) from module AluObserved (D = \issue_rs1_i [68:64], Q = \u_alu.u_arith_rs.data [1514:1510]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[6].rs1_value ($adff) from module AluObserved (D = $procmux$821_Y, Q = \u_alu.u_arith_rs.data [1509:1446]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[6].rs2_rob_idx ($adff) from module AluObserved (D = \issue_rs2_i [68:64], Q = \u_alu.u_arith_rs.data [1445:1441]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[6].rs2_value ($adff) from module AluObserved (D = $procmux$844_Y, Q = \u_alu.u_arith_rs.data [1440:1377]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[6].dest_rob_idx ($adff) from module AluObserved (D = \issue_dest_rob_idx_i, Q = \u_alu.u_arith_rs.data [1376:1372]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[6].res_value ($adff) from module AluObserved (D = \u_alu.u_arith_rs.eu_result_i, Q = \u_alu.u_arith_rs.data [1371:1308]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[6].except_raised ($adff) from module AluObserved (D = 1'0, Q = \u_alu.u_arith_rs.data [1307]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[6].except_code ($adff) from module AluObserved (D = 5'11111, Q = \u_alu.u_arith_rs.data [1306:1302]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[7].eu_ctl ($adff) from module AluObserved (D = \issue_eu_ctl_i, Q = \u_alu.u_arith_rs.data [1735:1732]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[7].rs1_rob_idx ($adff) from module AluObserved (D = \issue_rs1_i [68:64], Q = \u_alu.u_arith_rs.data [1731:1727]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[7].rs1_value ($adff) from module AluObserved (D = $procmux$914_Y, Q = \u_alu.u_arith_rs.data [1726:1663]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[7].rs2_rob_idx ($adff) from module AluObserved (D = \issue_rs2_i [68:64], Q = \u_alu.u_arith_rs.data [1662:1658]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[7].rs2_value ($adff) from module AluObserved (D = $procmux$935_Y, Q = \u_alu.u_arith_rs.data [1657:1594]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[7].dest_rob_idx ($adff) from module AluObserved (D = \issue_dest_rob_idx_i, Q = \u_alu.u_arith_rs.data [1593:1589]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[7].res_value ($adff) from module AluObserved (D = \u_alu.u_arith_rs.eu_result_i, Q = \u_alu.u_arith_rs.data [1588:1525]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[7].except_raised ($adff) from module AluObserved (D = 1'0, Q = \u_alu.u_arith_rs.data [1524]).
+Adding EN signal on $driver$u_alu.u_arith_rs.data[7].except_code ($adff) from module AluObserved (D = 5'11111, Q = \u_alu.u_arith_rs.data [1523:1519]).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AluObserved..
+Removed 32 unused cells and 32 unused wires.
+<suppressed ~33 debug messages>
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AluObserved.
+<suppressed ~16 debug messages>
+
+5.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \AluObserved..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~999 debug messages>
+
+5.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \AluObserved.
+Performed a total of 0 changes.
+
+5.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AluObserved'.
+Computing hashes of 804 cells of `\AluObserved'.
+Finding duplicate cells in `\AluObserved'.
+Removed a total of 0 cells.
+
+5.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AluObserved..
+
+5.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AluObserved.
+
+5.23. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$6791 ($adffe) from module AluObserved.
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$6778 ($adffe) from module AluObserved.
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$6765 ($adffe) from module AluObserved.
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$6752 ($adffe) from module AluObserved.
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$6739 ($adffe) from module AluObserved.
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$6726 ($adffe) from module AluObserved.
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$6713 ($adffe) from module AluObserved.
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$6700 ($adffe) from module AluObserved.
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AluObserved..
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module AluObserved...
+Found and reported 0 problems.
+
+9. Executing JSON backend.
+
+10. Executing Verilog backend.
+
+10.1. Executing BMUXMAP pass.
+
+10.2. Executing DEMUXMAP pass.
+Dumping module `\AluObserved'.
+
+11. Printing statistics.
+
+=== AluObserved ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      791 wires
+    13535 wire bits
+      203 public wires
+     6192 public wire bits
+       18 ports
+      693 port bits
+      841 cells
+        2   $add
+       11   $adff
+       64   $adffe
+       41   $and
+      213   $eq
+       44   $logic_and
+       15   $logic_not
+      289   $mux
+        1   $ne
+        6   $not
+       18   $or
+       43   $pmux
+       16   $reduce_bool
+       76   $reduce_or
+        1   $sshr
+        1   $xor
+

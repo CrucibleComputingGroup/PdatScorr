@@ -1,0 +1,321 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/identity_native_induction/sat_induction/run.ys' --
+
+1. Executing JSON frontend.
+Importing module BankMiter from JSON tree.
+
+2. Executing SETUNDEF pass (replace undef values with defined constants).
+
+3. Executing OPT pass (performing simple optimizations).
+
+3.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module BankMiter.
+<suppressed ~7 debug messages>
+
+3.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\BankMiter'.
+Computing hashes of 14125 cells of `\BankMiter'.
+Finding duplicate cells in `\BankMiter'.
+Removed a total of 0 cells.
+
+3.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \BankMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5180 debug messages>
+
+3.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \BankMiter.
+Performed a total of 0 changes.
+
+3.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\BankMiter'.
+Computing hashes of 14125 cells of `\BankMiter'.
+Finding duplicate cells in `\BankMiter'.
+Removed a total of 0 cells.
+
+3.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $flatten\reference.$procdff$3993 ($dff) from module BankMiter (D = $flatten\reference.$0\_0836_[3:0], Q = $auto$async2sync.cc:253:execute$299, rval = 4'0000).
+Adding SRST signal on $flatten\reference.$procdff$3988 ($dff) from module BankMiter (D = $flatten\reference.$0\_0837_[4:0], Q = $auto$async2sync.cc:253:execute$297, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3983 ($dff) from module BankMiter (D = $flatten\reference.$0\_0838_[63:0], Q = $auto$async2sync.cc:253:execute$295, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3978 ($dff) from module BankMiter (D = $flatten\reference.$0\_0839_[4:0], Q = $auto$async2sync.cc:253:execute$293, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3973 ($dff) from module BankMiter (D = $flatten\reference.$0\_0840_[63:0], Q = $auto$async2sync.cc:253:execute$291, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3968 ($dff) from module BankMiter (D = $flatten\reference.$0\_0841_[4:0], Q = $auto$async2sync.cc:253:execute$289, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3963 ($dff) from module BankMiter (D = $flatten\reference.$0\_0842_[63:0], Q = $auto$async2sync.cc:253:execute$287, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3958 ($dff) from module BankMiter (D = $flatten\reference.$0\_0843_[4:0], Q = $auto$async2sync.cc:253:execute$285, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3953 ($dff) from module BankMiter (D = $flatten\reference.$0\_0844_[3:0], Q = $auto$async2sync.cc:253:execute$283, rval = 4'0000).
+Adding SRST signal on $flatten\reference.$procdff$3948 ($dff) from module BankMiter (D = $flatten\reference.$0\_0845_[4:0], Q = $auto$async2sync.cc:253:execute$281, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3943 ($dff) from module BankMiter (D = $flatten\reference.$0\_0846_[63:0], Q = $auto$async2sync.cc:253:execute$279, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3938 ($dff) from module BankMiter (D = $flatten\reference.$0\_0847_[4:0], Q = $auto$async2sync.cc:253:execute$277, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3933 ($dff) from module BankMiter (D = $flatten\reference.$0\_0848_[63:0], Q = $auto$async2sync.cc:253:execute$275, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3928 ($dff) from module BankMiter (D = $flatten\reference.$0\_0849_[4:0], Q = $auto$async2sync.cc:253:execute$273, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3923 ($dff) from module BankMiter (D = $flatten\reference.$0\_0850_[63:0], Q = $auto$async2sync.cc:253:execute$271, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3918 ($dff) from module BankMiter (D = $flatten\reference.$0\_0851_[4:0], Q = $auto$async2sync.cc:253:execute$269, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3913 ($dff) from module BankMiter (D = $flatten\reference.$0\_0852_[3:0], Q = $auto$async2sync.cc:253:execute$267, rval = 4'0000).
+Adding SRST signal on $flatten\reference.$procdff$3908 ($dff) from module BankMiter (D = $flatten\reference.$0\_0853_[4:0], Q = $auto$async2sync.cc:253:execute$265, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3903 ($dff) from module BankMiter (D = $flatten\reference.$0\_0854_[63:0], Q = $auto$async2sync.cc:253:execute$263, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3898 ($dff) from module BankMiter (D = $flatten\reference.$0\_0855_[4:0], Q = $auto$async2sync.cc:253:execute$261, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3893 ($dff) from module BankMiter (D = $flatten\reference.$0\_0856_[63:0], Q = $auto$async2sync.cc:253:execute$259, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3888 ($dff) from module BankMiter (D = $flatten\reference.$0\_0857_[4:0], Q = $auto$async2sync.cc:253:execute$257, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3883 ($dff) from module BankMiter (D = $flatten\reference.$0\_0858_[63:0], Q = $auto$async2sync.cc:253:execute$255, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3878 ($dff) from module BankMiter (D = $flatten\reference.$0\_0859_[4:0], Q = $auto$async2sync.cc:253:execute$253, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3873 ($dff) from module BankMiter (D = $flatten\reference.$0\_0860_[3:0], Q = $auto$async2sync.cc:253:execute$251, rval = 4'0000).
+Adding SRST signal on $flatten\reference.$procdff$3868 ($dff) from module BankMiter (D = $flatten\reference.$0\_0861_[4:0], Q = $auto$async2sync.cc:253:execute$249, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3863 ($dff) from module BankMiter (D = $flatten\reference.$0\_0862_[63:0], Q = $auto$async2sync.cc:253:execute$247, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3858 ($dff) from module BankMiter (D = $flatten\reference.$0\_0863_[4:0], Q = $auto$async2sync.cc:253:execute$245, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3853 ($dff) from module BankMiter (D = $flatten\reference.$0\_0864_[63:0], Q = $auto$async2sync.cc:253:execute$243, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3848 ($dff) from module BankMiter (D = $flatten\reference.$0\_0865_[4:0], Q = $auto$async2sync.cc:253:execute$241, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3843 ($dff) from module BankMiter (D = $flatten\reference.$0\_0866_[63:0], Q = $auto$async2sync.cc:253:execute$239, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3838 ($dff) from module BankMiter (D = $flatten\reference.$0\_0867_[4:0], Q = $auto$async2sync.cc:253:execute$237, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3833 ($dff) from module BankMiter (D = $flatten\reference.$0\_0868_[3:0], Q = $auto$async2sync.cc:253:execute$235, rval = 4'0000).
+Adding SRST signal on $flatten\reference.$procdff$3828 ($dff) from module BankMiter (D = $flatten\reference.$0\_0869_[4:0], Q = $auto$async2sync.cc:253:execute$233, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3823 ($dff) from module BankMiter (D = $flatten\reference.$0\_0870_[63:0], Q = $auto$async2sync.cc:253:execute$231, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3818 ($dff) from module BankMiter (D = $flatten\reference.$0\_0871_[4:0], Q = $auto$async2sync.cc:253:execute$229, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3813 ($dff) from module BankMiter (D = $flatten\reference.$0\_0872_[63:0], Q = $auto$async2sync.cc:253:execute$227, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3808 ($dff) from module BankMiter (D = $flatten\reference.$0\_0873_[4:0], Q = $auto$async2sync.cc:253:execute$225, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3803 ($dff) from module BankMiter (D = $flatten\reference.$0\_0874_[63:0], Q = $auto$async2sync.cc:253:execute$223, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3798 ($dff) from module BankMiter (D = $flatten\reference.$0\_0875_[4:0], Q = $auto$async2sync.cc:253:execute$221, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3793 ($dff) from module BankMiter (D = $flatten\reference.$0\_0876_[3:0], Q = $auto$async2sync.cc:253:execute$219, rval = 4'0000).
+Adding SRST signal on $flatten\reference.$procdff$3788 ($dff) from module BankMiter (D = $flatten\reference.$0\_0877_[4:0], Q = $auto$async2sync.cc:253:execute$217, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3783 ($dff) from module BankMiter (D = $flatten\reference.$0\_0878_[63:0], Q = $auto$async2sync.cc:253:execute$215, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3778 ($dff) from module BankMiter (D = $flatten\reference.$0\_0879_[4:0], Q = $auto$async2sync.cc:253:execute$213, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3773 ($dff) from module BankMiter (D = $flatten\reference.$0\_0880_[63:0], Q = $auto$async2sync.cc:253:execute$211, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3768 ($dff) from module BankMiter (D = $flatten\reference.$0\_0881_[4:0], Q = $auto$async2sync.cc:253:execute$209, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3763 ($dff) from module BankMiter (D = $flatten\reference.$0\_0882_[63:0], Q = $auto$async2sync.cc:253:execute$207, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3758 ($dff) from module BankMiter (D = $flatten\reference.$0\_0883_[4:0], Q = $auto$async2sync.cc:253:execute$205, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3753 ($dff) from module BankMiter (D = $flatten\reference.$0\_0884_[3:0], Q = $auto$async2sync.cc:253:execute$203, rval = 4'0000).
+Adding SRST signal on $flatten\reference.$procdff$3748 ($dff) from module BankMiter (D = $flatten\reference.$0\_0885_[4:0], Q = $auto$async2sync.cc:253:execute$201, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3743 ($dff) from module BankMiter (D = $flatten\reference.$0\_0886_[63:0], Q = $auto$async2sync.cc:253:execute$199, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3738 ($dff) from module BankMiter (D = $flatten\reference.$0\_0887_[4:0], Q = $auto$async2sync.cc:253:execute$197, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3733 ($dff) from module BankMiter (D = $flatten\reference.$0\_0888_[63:0], Q = $auto$async2sync.cc:253:execute$195, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3728 ($dff) from module BankMiter (D = $flatten\reference.$0\_0889_[4:0], Q = $auto$async2sync.cc:253:execute$193, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3723 ($dff) from module BankMiter (D = $flatten\reference.$0\_0890_[63:0], Q = $auto$async2sync.cc:253:execute$191, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3718 ($dff) from module BankMiter (D = $flatten\reference.$0\_0891_[4:0], Q = $auto$async2sync.cc:253:execute$189, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3713 ($dff) from module BankMiter (D = $flatten\reference.$0\_0892_[3:0], Q = $auto$async2sync.cc:253:execute$187, rval = 4'0000).
+Adding SRST signal on $flatten\reference.$procdff$3708 ($dff) from module BankMiter (D = $flatten\reference.$0\_0893_[4:0], Q = $auto$async2sync.cc:253:execute$185, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3703 ($dff) from module BankMiter (D = $flatten\reference.$0\_0894_[63:0], Q = $auto$async2sync.cc:253:execute$183, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3698 ($dff) from module BankMiter (D = $flatten\reference.$0\_0895_[4:0], Q = $auto$async2sync.cc:253:execute$181, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3693 ($dff) from module BankMiter (D = $flatten\reference.$0\_0896_[63:0], Q = $auto$async2sync.cc:253:execute$179, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3688 ($dff) from module BankMiter (D = $flatten\reference.$0\_0897_[4:0], Q = $auto$async2sync.cc:253:execute$177, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3683 ($dff) from module BankMiter (D = $flatten\reference.$0\_0898_[63:0], Q = $auto$async2sync.cc:253:execute$175, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\reference.$procdff$3678 ($dff) from module BankMiter (D = $flatten\reference.$0\_0899_[4:0], Q = $auto$async2sync.cc:253:execute$173, rval = 5'00000).
+Adding SRST signal on $flatten\reference.$procdff$3673 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.next_state [2:0], Q = $auto$async2sync.cc:253:execute$171, rval = 3'000).
+Adding SRST signal on $flatten\reference.$procdff$3668 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.next_state [5:3], Q = $auto$async2sync.cc:253:execute$169, rval = 3'000).
+Adding SRST signal on $flatten\reference.$procdff$3663 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.next_state [8:6], Q = $auto$async2sync.cc:253:execute$167, rval = 3'000).
+Adding SRST signal on $flatten\reference.$procdff$3658 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.next_state [11:9], Q = $auto$async2sync.cc:253:execute$165, rval = 3'000).
+Adding SRST signal on $flatten\reference.$procdff$3653 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.next_state [14:12], Q = $auto$async2sync.cc:253:execute$163, rval = 3'000).
+Adding SRST signal on $flatten\reference.$procdff$3648 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.next_state [17:15], Q = $auto$async2sync.cc:253:execute$161, rval = 3'000).
+Adding SRST signal on $flatten\reference.$procdff$3643 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.next_state [20:18], Q = $auto$async2sync.cc:253:execute$159, rval = 3'000).
+Adding SRST signal on $flatten\reference.$procdff$3638 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.next_state [23:21], Q = $auto$async2sync.cc:253:execute$157, rval = 3'000).
+Adding SRST signal on $flatten\reference.$procdff$3633 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.msk_valid_d, Q = $auto$async2sync.cc:253:execute$155, rval = 8'00000000).
+Adding SRST signal on $flatten\reference.$procdff$3628 ($dff) from module BankMiter (D = \reference.u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.msk_valid_d, Q = $auto$async2sync.cc:253:execute$153, rval = 8'00000000).
+Adding SRST signal on $flatten\reference.$procdff$3623 ($dff) from module BankMiter (D = \reference.u_cdb.u_cdb_arbiter.msk_valid_d, Q = $auto$async2sync.cc:253:execute$151, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3618 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0836_[3:0], Q = $auto$async2sync.cc:253:execute$149, rval = 4'0000).
+Adding SRST signal on $flatten\candidate.$procdff$3613 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0837_[4:0], Q = $auto$async2sync.cc:253:execute$147, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3608 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0838_[63:0], Q = $auto$async2sync.cc:253:execute$145, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3603 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0839_[4:0], Q = $auto$async2sync.cc:253:execute$143, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3598 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0840_[63:0], Q = $auto$async2sync.cc:253:execute$141, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3593 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0841_[4:0], Q = $auto$async2sync.cc:253:execute$139, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3588 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0842_[63:0], Q = $auto$async2sync.cc:253:execute$137, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3583 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0843_[4:0], Q = $auto$async2sync.cc:253:execute$135, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3578 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0844_[3:0], Q = $auto$async2sync.cc:253:execute$133, rval = 4'0000).
+Adding SRST signal on $flatten\candidate.$procdff$3573 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0845_[4:0], Q = $auto$async2sync.cc:253:execute$131, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3568 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0846_[63:0], Q = $auto$async2sync.cc:253:execute$129, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3563 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0847_[4:0], Q = $auto$async2sync.cc:253:execute$127, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3558 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0848_[63:0], Q = $auto$async2sync.cc:253:execute$125, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3553 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0849_[4:0], Q = $auto$async2sync.cc:253:execute$123, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3548 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0850_[63:0], Q = $auto$async2sync.cc:253:execute$121, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3543 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0851_[4:0], Q = $auto$async2sync.cc:253:execute$119, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3538 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0852_[3:0], Q = $auto$async2sync.cc:253:execute$117, rval = 4'0000).
+Adding SRST signal on $flatten\candidate.$procdff$3533 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0853_[4:0], Q = $auto$async2sync.cc:253:execute$115, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3528 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0854_[63:0], Q = $auto$async2sync.cc:253:execute$113, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3523 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0855_[4:0], Q = $auto$async2sync.cc:253:execute$111, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3518 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0856_[63:0], Q = $auto$async2sync.cc:253:execute$109, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3513 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0857_[4:0], Q = $auto$async2sync.cc:253:execute$107, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3508 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0858_[63:0], Q = $auto$async2sync.cc:253:execute$105, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3503 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0859_[4:0], Q = $auto$async2sync.cc:253:execute$103, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3498 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0860_[3:0], Q = $auto$async2sync.cc:253:execute$101, rval = 4'0000).
+Adding SRST signal on $flatten\candidate.$procdff$3493 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0861_[4:0], Q = $auto$async2sync.cc:253:execute$99, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3488 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0862_[63:0], Q = $auto$async2sync.cc:253:execute$97, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3483 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0863_[4:0], Q = $auto$async2sync.cc:253:execute$95, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3478 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0864_[63:0], Q = $auto$async2sync.cc:253:execute$93, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3473 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0865_[4:0], Q = $auto$async2sync.cc:253:execute$91, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3468 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0866_[63:0], Q = $auto$async2sync.cc:253:execute$89, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3463 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0867_[4:0], Q = $auto$async2sync.cc:253:execute$87, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3458 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0868_[3:0], Q = $auto$async2sync.cc:253:execute$85, rval = 4'0000).
+Adding SRST signal on $flatten\candidate.$procdff$3453 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0869_[4:0], Q = $auto$async2sync.cc:253:execute$83, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3448 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0870_[63:0], Q = $auto$async2sync.cc:253:execute$81, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3443 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0871_[4:0], Q = $auto$async2sync.cc:253:execute$79, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3438 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0872_[63:0], Q = $auto$async2sync.cc:253:execute$77, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3433 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0873_[4:0], Q = $auto$async2sync.cc:253:execute$75, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3428 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0874_[63:0], Q = $auto$async2sync.cc:253:execute$73, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3423 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0875_[4:0], Q = $auto$async2sync.cc:253:execute$71, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3418 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0876_[3:0], Q = $auto$async2sync.cc:253:execute$69, rval = 4'0000).
+Adding SRST signal on $flatten\candidate.$procdff$3413 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0877_[4:0], Q = $auto$async2sync.cc:253:execute$67, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3408 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0878_[63:0], Q = $auto$async2sync.cc:253:execute$65, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3403 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0879_[4:0], Q = $auto$async2sync.cc:253:execute$63, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3398 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0880_[63:0], Q = $auto$async2sync.cc:253:execute$61, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3393 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0881_[4:0], Q = $auto$async2sync.cc:253:execute$59, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3388 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0882_[63:0], Q = $auto$async2sync.cc:253:execute$57, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3383 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0883_[4:0], Q = $auto$async2sync.cc:253:execute$55, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3378 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0884_[3:0], Q = $auto$async2sync.cc:253:execute$53, rval = 4'0000).
+Adding SRST signal on $flatten\candidate.$procdff$3373 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0885_[4:0], Q = $auto$async2sync.cc:253:execute$51, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3368 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0886_[63:0], Q = $auto$async2sync.cc:253:execute$49, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3363 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0887_[4:0], Q = $auto$async2sync.cc:253:execute$47, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3358 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0888_[63:0], Q = $auto$async2sync.cc:253:execute$45, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3353 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0889_[4:0], Q = $auto$async2sync.cc:253:execute$43, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3348 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0890_[63:0], Q = $auto$async2sync.cc:253:execute$41, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3343 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0891_[4:0], Q = $auto$async2sync.cc:253:execute$39, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3338 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0892_[3:0], Q = $auto$async2sync.cc:253:execute$37, rval = 4'0000).
+Adding SRST signal on $flatten\candidate.$procdff$3333 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0893_[4:0], Q = $auto$async2sync.cc:253:execute$35, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3328 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0894_[63:0], Q = $auto$async2sync.cc:253:execute$33, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3323 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0895_[4:0], Q = $auto$async2sync.cc:253:execute$31, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3318 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0896_[63:0], Q = $auto$async2sync.cc:253:execute$29, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3313 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0897_[4:0], Q = $auto$async2sync.cc:253:execute$27, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3308 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0898_[63:0], Q = $auto$async2sync.cc:253:execute$25, rval = 64'0000000000000000000000000000000000000000000000000000000000000000).
+Adding SRST signal on $flatten\candidate.$procdff$3303 ($dff) from module BankMiter (D = $flatten\candidate.$0\_0899_[4:0], Q = $auto$async2sync.cc:253:execute$23, rval = 5'00000).
+Adding SRST signal on $flatten\candidate.$procdff$3298 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.next_state [2:0], Q = $auto$async2sync.cc:253:execute$21, rval = 3'000).
+Adding SRST signal on $flatten\candidate.$procdff$3293 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.next_state [5:3], Q = $auto$async2sync.cc:253:execute$19, rval = 3'000).
+Adding SRST signal on $flatten\candidate.$procdff$3288 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.next_state [8:6], Q = $auto$async2sync.cc:253:execute$17, rval = 3'000).
+Adding SRST signal on $flatten\candidate.$procdff$3283 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.next_state [11:9], Q = $auto$async2sync.cc:253:execute$15, rval = 3'000).
+Adding SRST signal on $flatten\candidate.$procdff$3278 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.next_state [14:12], Q = $auto$async2sync.cc:253:execute$13, rval = 3'000).
+Adding SRST signal on $flatten\candidate.$procdff$3273 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.next_state [17:15], Q = $auto$async2sync.cc:253:execute$11, rval = 3'000).
+Adding SRST signal on $flatten\candidate.$procdff$3268 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.next_state [20:18], Q = $auto$async2sync.cc:253:execute$9, rval = 3'000).
+Adding SRST signal on $flatten\candidate.$procdff$3263 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.next_state [23:21], Q = $auto$async2sync.cc:253:execute$7, rval = 3'000).
+Adding SRST signal on $flatten\candidate.$procdff$3258 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.gen_rr_arbiters.u_cdb_sel.msk_valid_d, Q = $auto$async2sync.cc:253:execute$5, rval = 8'00000000).
+Adding SRST signal on $flatten\candidate.$procdff$3253 ($dff) from module BankMiter (D = \candidate.u_alu.u_arith_rs.gen_rr_arbiters.u_ex_sel.msk_valid_d, Q = $auto$async2sync.cc:253:execute$3, rval = 8'00000000).
+Adding SRST signal on $flatten\candidate.$procdff$3248 ($dff) from module BankMiter (D = \candidate.u_cdb.u_cdb_arbiter.msk_valid_d, Q = $auto$async2sync.cc:253:execute$1, rval = 5'00000).
+
+3.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \BankMiter..
+Removed 12167 unused cells and 12354 unused wires.
+<suppressed ~12354 debug messages>
+
+3.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module BankMiter.
+
+3.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \BankMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2824 debug messages>
+
+3.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \BankMiter.
+Performed a total of 0 changes.
+
+3.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\BankMiter'.
+Computing hashes of 2002 cells of `\BankMiter'.
+Finding duplicate cells in `\BankMiter'.
+Computing hashes of 1981 cells of `\BankMiter'.
+Finding duplicate cells in `\BankMiter'.
+Computing hashes of 1960 cells of `\BankMiter'.
+Finding duplicate cells in `\BankMiter'.
+<suppressed ~126 debug messages>
+Removed a total of 42 cells.
+
+3.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \BankMiter..
+Removed 0 unused cells and 42 unused wires.
+<suppressed ~1 debug messages>
+
+3.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module BankMiter.
+
+3.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \BankMiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2824 debug messages>
+
+3.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \BankMiter.
+Performed a total of 0 changes.
+
+3.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\BankMiter'.
+Computing hashes of 1960 cells of `\BankMiter'.
+Finding duplicate cells in `\BankMiter'.
+Removed a total of 0 cells.
+
+3.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \BankMiter..
+
+3.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module BankMiter.
+
+3.23. Finished fast OPT passes. (There is nothing left to do.)
+
+4. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 1960 cells to SAT database.
+Import constraint from assume cell: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:17$logic_not$2444_Y when $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:17$assume$2443_EN.
+No constraints for initial state found.
+
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 1960 cells to SAT database.
+Import constraint from assume cell: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:17$logic_not$2444_Y when $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:17$assume$2443_EN.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:63$eq$2447_Y when 1'1.
+Import proof for assert: 1'1 when 1'1.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:65$eq$2453_Y when 1'1.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:66$eq$2456_Y when 1'1.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:67$eq$2459_Y when 1'1.
+Import proof for assert: \candidate._0129_ [5] when 1'1.
+
+** Trying induction with length 1 **
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 1960 cells to SAT database.
+Import constraint from assume cell: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:17$logic_not$2444_Y when $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:17$assume$2443_EN.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:63$eq$2447_Y when 1'1.
+Import proof for assert: 1'1 when 1'1.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:65$eq$2453_Y when 1'1.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:66$eq$2456_Y when 1'1.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:67$eq$2459_Y when 1'1.
+Import proof for assert: \candidate._0129_ [5] when 1'1.
+
+[base case 1] Solving problem with 351131 variables and 944023 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 1960 cells to SAT database.
+Import constraint from assume cell: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:17$logic_not$2444_Y when $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:17$assume$2443_EN.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:63$eq$2447_Y when 1'1.
+Import proof for assert: 1'1 when 1'1.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:65$eq$2453_Y when 1'1.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:66$eq$2456_Y when 1'1.
+Import proof for assert: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv:67$eq$2459_Y when 1'1.
+Import proof for assert: \candidate._0129_ [5] when 1'1.
+
+[induction step 1] Solving problem with 351133 variables and 944034 clauses..
+ERROR: Called with -verify and proof did time out!
+Interrupted SAT solver: TIMEOUT!
+
+        _____  _  _      _____ ____  _     _____
+       /__ __\/ \/ \__/|/  __//  _ \/ \ /\/__ __\
+         / \  | || |\/|||  \  | / \|| | ||  / \
+         | |  | || |  |||  /_ | \_/|| \_/|  | |
+         \_/  \_/\_/  \|\____\\____/\____/  \_/
+

@@ -1,0 +1,445 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v5_alu_mul/export.ys' --
+
+1. Executing JSON frontend.
+Importing module AdmissionScreen from JSON tree.
+
+2. Executing FORMALFF pass.
+
+3. Executing SETUNDEF pass (replace undef values with defined constants).
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AdmissionScreen.
+<suppressed ~12 debug messages>
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AdmissionScreen'.
+Computing hashes of 37018 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \AdmissionScreen..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$10015.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$10019.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$10023.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$10027.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$10031.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$10035.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$10039.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$10043.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$5271.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$5283.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$5287.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$5291.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$5299.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$5303.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$6939.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7051.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7071.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7079.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7087.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7107.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7115.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7123.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7143.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7151.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7159.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7179.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7187.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7231.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7251.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7259.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7267.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7287.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7295.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7303.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7323.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7331.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7339.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7359.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7367.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7415.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7443.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7471.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7499.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7527.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7555.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7583.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$7611.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$9487.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$9515.
+    dead port 2/2 on $mux $auto$async2sync.cc:233:execute$9519.
+Removed 50 multiplexer ports.
+<suppressed ~186177 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \AdmissionScreen.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AdmissionScreen'.
+Computing hashes of 36968 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AdmissionScreen..
+Removed 25554 unused cells and 25622 unused wires.
+<suppressed ~25561 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AdmissionScreen.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \AdmissionScreen..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~185324 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \AdmissionScreen.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AdmissionScreen'.
+Computing hashes of 11414 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AdmissionScreen..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AdmissionScreen.
+
+4.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5. Executing TECHMAP pass (map to technology primitives).
+
+5.1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+5.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $ff.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $pmux.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $and.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $reduce_bool.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=5:B_SIGNED=1:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=5:B_SIGNED=1:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=5:B_SIGNED=1:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $logic_and.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $xor.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=6:B_SIGNED=1:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=6:B_SIGNED=1:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=6:B_SIGNED=1:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=1:A_WIDTH=6:B_SIGNED=1:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=1:A_WIDTH=6:B_SIGNED=1:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=1:A_WIDTH=6:B_SIGNED=1:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $ne.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$gt:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$gt:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$gt:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$neg:A_SIGNED=0:A_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:A_SIGNED=0:A_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:A_SIGNED=0:A_WIDTH=64:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod$constmap:3cd11ce7e4105831327edaf6701247df87b1bc16$paramod$af39e82a7a1e107d15996e442b5764e7a2d1108a\_90_shift_ops_shr_shl_sshl_sshr for cells of type $sshl.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=2:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=2:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=2:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=2:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=3:B_SIGNED=1:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=3:B_SIGNED=1:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=3:B_SIGNED=1:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=1:A_WIDTH=5:B_SIGNED=1:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=1:A_WIDTH=5:B_SIGNED=1:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=1:A_WIDTH=5:B_SIGNED=1:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $reduce_and.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=64:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=64:B_SIGNED=0:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=64:B_SIGNED=1:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=64:B_SIGNED=1:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=64:B_SIGNED=1:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=1:A_WIDTH=64:B_SIGNED=1:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=1:A_WIDTH=64:B_SIGNED=1:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=1:A_WIDTH=64:B_SIGNED=1:B_WIDTH=64:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=4:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=4:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=4:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=2:B_SIGNED=1:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=2:B_SIGNED=1:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=2:B_SIGNED=1:B_WIDTH=2:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=1:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=1:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=1:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=3:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=4:B_SIGNED=1:B_WIDTH=4:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=4:B_SIGNED=1:B_WIDTH=4:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=1:A_WIDTH=4:B_SIGNED=1:B_WIDTH=4:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=6:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=1:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=1:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=1:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=3:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod$cc80a4e89b0341cb117f5d28b0e7244620640141\_90_alu for cells of type $alu.
+Using template $paramod$f47943a1f8520b2e9fab25220c0025f020e7013b\_90_alu for cells of type $alu.
+Using template $paramod$aee11c82f58f9d0a6a5c3c5fb950d365f0b8ec3d\_90_alu for cells of type $alu.
+Using template $paramod$030af2d453228ec4a0bf9aab9aacebf7dbcaada7\_90_alu for cells of type $alu.
+Using template $paramod$672a140277c71df8314410f22acc08d55222c3c7\_90_alu for cells of type $alu.
+Using template $paramod$797f304753ada25e81e0136e8550054714e53b0b\_90_alu for cells of type $alu.
+Using template $paramod$a04dd9d4d8b430140c4ff94b50470fb380fda2a0\_90_alu for cells of type $alu.
+Using template $paramod$039520c137afc9cd69dd56c3fb11a4e1fbe5f664\_90_alu for cells of type $alu.
+Using template $paramod$38ea46ffd892378bfaf8febe0c8ac03b94ee7ee9\_90_alu for cells of type $alu.
+Using template $paramod$7ef5df9e753d3f8c692994a58e47039e65e856ea\_90_alu for cells of type $alu.
+Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using template $paramod$619a7e60d42ca0996ea4b1b41bb5412f6a52141d\_90_alu for cells of type $alu.
+Using template $paramod$ec1df30a75a6f571ba98538220df9024281fe2ee\_90_alu for cells of type $alu.
+Using template $paramod$e18933546fa509c22352c74dccd86650a26040b2\_90_alu for cells of type $alu.
+Using template $paramod$c902248951c526246774c2c266eae0951dd5fd6e\_90_alu for cells of type $alu.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+Using template $paramod$418b96f4892c9e1a6a74526184651c8ae040d0c0\_90_alu for cells of type $alu.
+Using template $paramod$fc972a7a46956c1788f3cb5257b53c8f1df2d0cc\_90_alu for cells of type $alu.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using template $paramod$82dbbf18339f9c177cf323a2d12653b430c46f4d\_90_alu for cells of type $alu.
+Using template $paramod$32efbfac1c4dc57230cf86180788fdfd12e3b511\_90_alu for cells of type $alu.
+Using template $paramod$78e969f2586efcf3a5b0b0440bcca0db83d5cca2\_90_alu for cells of type $alu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000001000000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000001000000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000101 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000110 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000110 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000001 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~23222 debug messages>
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AdmissionScreen.
+<suppressed ~125928 debug messages>
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AdmissionScreen'.
+Computing hashes of 258899 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 245950 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 237664 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234924 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234544 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234418 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234349 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234317 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234280 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234262 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234229 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234211 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234169 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234145 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234082 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 234043 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233964 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233922 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233847 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233814 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233766 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233751 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233733 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233730 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233726 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Computing hashes of 233725 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+<suppressed ~75522 debug messages>
+Removed a total of 25174 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \AdmissionScreen..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \AdmissionScreen.
+Performed a total of 0 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AdmissionScreen'.
+Computing hashes of 233725 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AdmissionScreen..
+Removed 18282 unused cells and 23829 unused wires.
+<suppressed ~18284 debug messages>
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AdmissionScreen.
+<suppressed ~97 debug messages>
+
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \AdmissionScreen..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \AdmissionScreen.
+Performed a total of 0 changes.
+
+6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AdmissionScreen'.
+Computing hashes of 215346 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Removed a total of 0 cells.
+
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AdmissionScreen..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AdmissionScreen.
+
+6.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \AdmissionScreen..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \AdmissionScreen.
+Performed a total of 0 changes.
+
+6.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AdmissionScreen'.
+Computing hashes of 215346 cells of `\AdmissionScreen'.
+Finding duplicate cells in `\AdmissionScreen'.
+Removed a total of 0 cells.
+
+6.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AdmissionScreen..
+
+6.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AdmissionScreen.
+
+6.23. Finished fast OPT passes. (There is nothing left to do.)
+
+7. Executing SETUNDEF pass (replace undef values with defined constants).
+
+8. Executing AIGMAP pass (map logic to AIG).
+Module AdmissionScreen: replaced 158296 cells with 1041067 new cells, skipped 57050 cells.
+  replaced 3 cell types:
+  132925 $_MUX_
+   22335 $_OR_
+    3036 $_XOR_
+  not replaced 8 cell types:
+   30771 $_AND_
+   22712 $_FF_
+    3365 $_NOT_
+     196 $anyseq
+       3 $assert
+       1 $assume
+       1 $initstate
+       1 $scopeinfo
+
+9. Executing AIGER backend.
+Warning: Treating undriven bit AdmissionScreen.\rst_ni like $anyseq.
+Warning: Treating undriven bit AdmissionScreen.\instruction_choice [0] like $anyseq.
+Warning: Treating undriven bit AdmissionScreen.\instruction_choice [1] like $anyseq.
+Warning: Treating a total of 3 undriven bits in AdmissionScreen like $anyseq.

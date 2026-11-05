@@ -1,0 +1,23 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/negative_raw_v1/proof/miter.aig"; fold; orpos; pdr -T 60 -v".
+
+Warning: The last output is interpreted as a constraint.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 60. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 1016                                                              1  1017      4.59 sec
+  2 : 0 884 384                                                           3  1101      7.20 sec
+  3 : 0 26 239 1442                                                       4  1442     16.84 sec
+  4 : 0 26 226 1056 1662                                                 12  1729     55.33 sec
+  5 : 0 26 94 614 1587 0                                                  0  1729     60.00 sec
+Reached timeout (60 seconds) in frame 5.
+Block = 1676  Oblig =  4044  Clause =  3142  Call = 40456 (sat=39.6%)  Cex =   0  Start = 127
+SAT solving =    38.28 sec ( 63.79 %)
+  unsat     =    16.67 sec ( 27.78 %)
+  sat       =    21.61 sec ( 36.01 %)
+Generalize  =    39.93 sec ( 66.54 %)
+Push clause =     1.83 sec (  3.04 %)
+Ternary sim =    15.43 sec ( 25.72 %)
+Containment =     0.68 sec (  1.13 %)
+CNF compute =     1.08 sec (  1.79 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =    60.01 sec (100.00 %)
+Property UNDECIDED.  Time =    60.05 sec

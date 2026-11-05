@@ -1,0 +1,9 @@
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/proof_v1/reference.v" "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/proof_v1/identity.v" "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/proof_v1/BankMiter.sv"
+prep -top BankMiter -flatten
+check -assert
+chformal -lower
+select -assert-min 1 t:$assert
+select *
+async2sync
+dffunmap
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/proof_v1/identity_proof/miter.json"

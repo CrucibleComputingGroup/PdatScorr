@@ -1,0 +1,44 @@
+{
+  "scope": "Read-only audit of recorded finite trace versus v3 handshake recurrence; no new simulation, proof, or acceptance",
+  "formal_v3_harness_sha256": "2091f52c3bbf687038e63d8daaea337d0016e73be868fff37a60a91bc0149646",
+  "formal_v3_script_sha256": "c90c484ad2021abf7833ef53eae1347c6c87cc65df69663838e7c92d6d293082",
+  "trace_sha256": "03f5b15c3ed63db1cee46f3f5d14e47ef47e7ac686b41bed185b7060c913ad97",
+  "audited_active_edges_after_first_reset": 983,
+  "handshake_or_load_tag_mismatches": [],
+  "native_load_grant_high_during_reset_cycles": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "reset_grant_scope": "Formal grant low/native high while reset asserted; no accepted requests in these recorded cycles. Not counted as active-domain input correspondence.",
+  "returned_fetch_addresses": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48,
+    52
+  ],
+  "returned_addresses_outside_14word_text": [],
+  "core_json_exactly_original_except_two_output_probes": true,
+  "source_json_matches_manifest_bound_inventory": true,
+  "unverified_by_this_csv": [
+    "store response timing/tags/payload",
+    "fetch response data (address/ROM alphabet checked instead)",
+    "nonexception code equality (v3 drives0/native31; source audit required)"
+  ]
+}

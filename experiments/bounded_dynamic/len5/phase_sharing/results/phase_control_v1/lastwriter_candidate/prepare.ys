@@ -1,0 +1,6 @@
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/reference.v" "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_candidate_v1/candidate.v" "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/BankMiter.sv"
+prep -top BankMiter -flatten
+opt_dff
+check -assert
+chformal -lower
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/native_candidate_v1/lastwriter_proof_v2/native.json"

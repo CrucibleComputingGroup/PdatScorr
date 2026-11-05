@@ -1,0 +1,36 @@
+[1m[CONFIG] len5_tb.cpp:115 >[0m          Log level set to 1
+[1m[CONFIG] len5_tb.cpp:116 >[0m          Reset cycles: 10
+[1m[CONFIG] len5_tb.cpp:117 >[0m          Max simulation time: 2000
+[1m[CONFIG] len5_tb.cpp:118 >[0m          Wave dump: ENABLED
+[1m[CONFIG] len5_tb.cpp:119 >[0m          Wave dump file: logs/waves.fst
+[1m[CONFIG] len5_tb.cpp:120 >[0m          Instruction trace dump: ENABLED
+[1m[CONFIG] len5_tb.cpp:121 >[0m          Instruction trace file: logs/trace.log
+[TB] Firmware: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_chain_gap2_v1/program.hex
+[TB] Boot program counter: 0x0000000000000000
+[TB] Memory image: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_chain_gap2_v1/program.hex
+[TB] Serial regiter memory address: 0x0000000020000000
+[TB] Exit register memory address: 0x0000000020000100
+[TB] M extension: YES
+[TB] D extension:  NO
+[       0] MEM EMU > Flashing memory image '/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_chain_gap2_v1/program.hex'...
+ - Loaded 532 bytes (133 words)
+[LOG   ] len5_tb.cpp:129 >          [    0] Starting simulation...
+
+[1;32m[     409] TB > Program exit with code: 0x00 (SUCCESS)[0m
+
+[1m### EXECUTION REPORT[0m
+ ## retired instructions:                      67
+    - total CPU cycles:                       143
+    - average IPC:                           0.47
+  # retired jump/branch instructions:           0 (0.0%)
+    - jumps:                                    0 (-nan%)
+    - branches:                                 0 (-nan%)
+  # retired load/store instructions:            0 (0.0%)
+    - loads:                                    0 (-nan%)
+    - stores:                                   0 (-nan%)
+ ## memory requests:                           72
+    - instruction fetches:                     71 (98.6%)
+    - read requests:                            0 (0.0%)
+    - write requests:                           1 (1.4%)
+- /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation_fetchgap2_v1/source/tb/tb_bare.sv:240: Verilog $finish
+[1;32m[OK!   ] len5_tb.cpp:152 >[0m          [  410] Simulation completed successfully.

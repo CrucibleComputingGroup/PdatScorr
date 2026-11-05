@@ -1,0 +1,9 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v5_alu_mul/screen.json"
+formalff -clk2ff
+setundef -anyseq
+opt -keepdc
+techmap
+opt -keepdc
+setundef -anyseq
+aigmap
+write_aiger -zinit -symbols "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v5_alu_mul/screen.aig"

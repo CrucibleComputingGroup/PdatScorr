@@ -1,0 +1,24 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/phase_sharing/build/alu_cdb_proof_v1/identity_proof/miter.aig"; fold; orpos; pdr -T 120 -v".
+
+Warning: The last output is interpreted as a constraint.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 49                                                                1    50      0.32 sec
+  2 : 0 46 131                                                            3   163      1.20 sec
+  3 : 0 20 167 564                                                        4   593     12.28 sec
+  4 : 0 19 148 574 902                                                    6  1015     39.23 sec
+  5 : 0 19 17 23 1352 1765                                                4  1447     97.62 sec
+  6 : 0 19 17 19 54 1824 631                                              5  1507    120.00 sec
+Reached timeout (120 seconds) in frame 6.
+Block = 1904  Oblig =  5439  Clause =  3775  Call = 60146 (sat=40.6%)  Cex =   0  Start = 190
+SAT solving =    80.13 sec ( 66.77 %)
+  unsat     =    46.49 sec ( 38.74 %)
+  sat       =    33.63 sec ( 28.03 %)
+Generalize  =    71.47 sec ( 59.55 %)
+Push clause =    18.83 sec ( 15.69 %)
+Ternary sim =    29.48 sec ( 24.56 %)
+Containment =     0.91 sec (  0.76 %)
+CNF compute =     1.64 sec (  1.37 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =   120.01 sec (100.00 %)
+Property UNDECIDED.  Time =   120.05 sec

@@ -1,0 +1,207 @@
+{
+  "scope": "Finite counterexample screen for arbitrary sequences from the streaming alphabet; different program, not a counterexample to the exact streaming kernel",
+  "program_exit_ok": true,
+  "all_dependent_addi_retired_values_checked": true,
+  "repetitions": 64,
+  "same_14_word_alphabet": [
+    "0000006f",
+    "00001437",
+    "000024b7",
+    "00028023",
+    "00043503",
+    "00150593",
+    "00840413",
+    "00848493",
+    "00b4b023",
+    "04000913",
+    "1002829b",
+    "200002b7",
+    "fe0914e3",
+    "fff90913"
+  ],
+  "all_program_words_in_alphabet": true,
+  "allocated_alu_indices": [
+    6,
+    7
+  ],
+  "falsifies_no_allocation_to_indices_0_through_3": false,
+  "first_low_slot_allocation": null,
+  "occupancy": {
+    "max_live_entries": 1,
+    "first_maximum": {
+      "time": 37,
+      "cycle_pre_edge": 18,
+      "insert": 1,
+      "new_idx": 7,
+      "remove": 0,
+      "cdb_idx": 0,
+      "live_pre": 0,
+      "live_post": 1,
+      "states_post": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4
+      ]
+    },
+    "all_eight_rs1_pending": false,
+    "first_all_pending": null,
+    "state_encoding": {
+      "EMPTY": 0,
+      "RS1_PENDING": 1
+    },
+    "selected_signal_names": [
+      "TOP.tb_bare.clk_i",
+      "TOP.tb_bare.curr_cycle",
+      "TOP.tb_bare.rst_ni",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.cdb_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[0]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[1]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[2]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[3]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[4]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[5]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[6]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[7]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[0].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[0].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[1].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[1].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[2].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[2].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[3].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[3].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[4].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[4].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[5].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[5].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[6].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[6].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[7].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[7].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.insert",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.new_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.remove"
+    ]
+  },
+  "platform": {
+    "accepted_fetch_count": 97,
+    "accepted_fetch_gap_histogram": {
+      "2": 96
+    },
+    "minimum_accepted_fetch_gap": 2,
+    "maximum_fetch_outstanding_after_edge": 1,
+    "complete_fetch_response_count": 94,
+    "fetch_latency_histogram": {
+      "2": 94
+    },
+    "fetch_faults": [],
+    "flush_cycles": [
+      150,
+      154
+    ],
+    "fetch_cancellations": [
+      {
+        "request_cycle": 149,
+        "address": 276,
+        "flush_cycle": 150
+      },
+      {
+        "request_cycle": 153,
+        "address": 276,
+        "flush_cycle": 154
+      }
+    ],
+    "fetch_pending_at_end": [
+      {
+        "request_cycle": 203,
+        "address": 272
+      }
+    ],
+    "complete_load_response_count": 0,
+    "maximum_load_outstanding_after_edge": 0,
+    "load_latency_histogram": {},
+    "load_faults": [],
+    "load_pending_at_end": [],
+    "endpoint_acceptance_equal_at_all_active_edges": true
+  },
+  "reported_cpu_cycles": 143,
+  "all_fetch_and_load_exception_flags_zero": true,
+  "compile_commands": [
+    [
+      "riscv64-linux-gnu-gcc",
+      "-march=rv64im",
+      "-mabi=lp64",
+      "-nostdlib",
+      "-static",
+      "-Wl,-Ttext=0",
+      "-Wl,--build-id=none",
+      "program.S",
+      "-o",
+      "program.elf"
+    ],
+    [
+      "riscv64-linux-gnu-objcopy",
+      "-O",
+      "verilog",
+      "program.elf",
+      "program.hex"
+    ]
+  ],
+  "run_command": [
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation_fetchgap2_v1/obj_dir/Vtb_bare",
+    "+firmware=/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_chain_gap2_v1/program.hex",
+    "--max_cycles=2000",
+    "--dump_waves=true",
+    "--dump_trace=true",
+    "--log_level=LOG_LOW"
+  ],
+  "run_returncode": 0,
+  "core_rebuilt": false,
+  "core_rtl_source_edits": false,
+  "capacity_parameters": {
+    "ROB_DEPTH": 32,
+    "IQ_DEPTH": 4,
+    "LDBUFF_DEPTH": 8,
+    "STBUFF_DEPTH": 16,
+    "ALU_RS_DEPTH": 8,
+    "MULT_RS_DEPTH": 4,
+    "DIV_RS_DEPTH": 4,
+    "BU_RS_DEPTH": 4,
+    "RAS_DEPTH": 8
+  },
+  "binary_sha256": "0dec060da70ea31e543f5060f46b19a730e496e65a27125108d0b0bdbc5c0e4a",
+  "simulator_manifest_sha256": "e3f0260964661ae643fca0a395fec2a245a45e2150cc91817ee2c6c7009c28e4",
+  "alphabet_disassembly_sha256": "0ecb323e4ecab6827f76995524632c44ba2d6355f4a8b777ec1b70e4c475457d",
+  "source_hashes": {
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/run_alphabet_falsifier.py": "5476a03e15dcdf716432f0ed3589b9d60840554b9176045fe3eb113e50dd615b",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/run_streaming.py": "d0a97f2abff2a8f5356c73fe1db74427d92f410369db9a9b7b741f2a5da8eed6",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/analyze_fetch_spacing.py": "01dfea00301b054290125dc69bf879d8960418e0f51b90f0b6fbaf3edd845739",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/run_div_falsifier.py": "c666ff9523956ae31df420aa8b983776080a6bf159b9f5cf08d28461a212a4bc"
+  },
+  "raw_run_directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_chain_gap2_v1",
+  "raw_fst_sha256": "4bbd4397794f8d3ae907fcdaa44d1e62d5dbadd5f9e913ce48edb5726867ee73",
+  "raw_vcd_sha256": "954c590cf08583c64f3a4e5377cc438bbab023143dfecea95b6483bc86b669ea",
+  "artifact_sha256": {
+    "accepted_stores.csv": "2cdba666f502dfbc0a69d09ef9eb27b778127cd12d1bda9a0703ae4eb03e1ed1",
+    "fetch_response_intervals.csv": "a3bd4c8e754d8995951575a0232dd51166b64433615e11a7421be40690723b94",
+    "simulator_manifest.json": "e3f0260964661ae643fca0a395fec2a245a45e2150cc91817ee2c6c7009c28e4",
+    "program.S": "b2b9ac02f4529109cbc5fb1148ab7b8e135ec8b2d07c8786158149cae5b14ef7",
+    "native_platform_edges.csv": "316f3b930b74d293956af119e25b1c364e7ca2982fcb618f3e343624b5b81085",
+    "program.hex": "b2fbc7264eb87848bc6e07f9bc47d6bc699e03019d31e8969129921618c629c8",
+    "run_alphabet_falsifier.py": "5476a03e15dcdf716432f0ed3589b9d60840554b9176045fe3eb113e50dd615b",
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "retired_addi.csv": "867017f4f790ba0672bcfb83acd3724c5f1efb25aab09c8bfd220baf5af06bc4",
+    "program.disasm": "bf38d85c4a2ce614fdb8763334e1245fd76cd7d1bcd5d1d31345002205c01dbe",
+    "run.log": "aff1db96dba390117aa1de2883293ed06b19ecf58655785e4f99bfbcc2de5362",
+    "occupancy.csv": "ae3c5d8944cdd054d3d6111eebe6d58b3f0c843c135db9662032407273415a08",
+    "rs_state.vcd": "56462f6bf44a57a00cb8ad6e04d92602b5ec5ebdabd3200e845505f698423507",
+    "logs/sim-trace.log": "eb1d08fc99c146bf9936cd1b0c75ab8417bdc1df91a1a63a72cc9df8140a3fef",
+    "logs/platform_edges.csv": "8f5672cba838faa2c76324ddbfbd0fc19dc1504d3145d11f95ae5ef3d0de7e22",
+    "logs/qualification_events.csv": "119ea13c54dfffcbc6d2567d0e32dc03986348efb3227dfdacf57259f0654e01"
+  }
+}

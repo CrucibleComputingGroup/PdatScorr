@@ -1,0 +1,21 @@
+{
+  "scope": "Bounded falsifier on the proof-only datapath abstraction; NEVER an unbounded proof or accepted hardware optimization",
+  "aig_sha256": "63b714fdeb94dbd45c00079aa04673c2f7ec6b7ab7ccf90888fd3c56b909a936",
+  "requested_frames": 48,
+  "accepted_optimization": false,
+  "run": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v5_alu_mul/screen.aig\"; fold; orpos; bmc3 -F 48 -T 120 -v; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v5_alu_mul/bounded_screen/counterexample.aiw\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 99.32094443496317,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v5_alu_mul/bounded_screen/bmc.log",
+    "log_sha256": "1684041a4107a14f0e0cbc635ce0bf7161c189b4416fb074acea651e2666fbf9"
+  },
+  "counterexample_written": true
+}

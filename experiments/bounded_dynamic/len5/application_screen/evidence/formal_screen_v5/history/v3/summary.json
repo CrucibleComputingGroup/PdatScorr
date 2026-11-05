@@ -1,0 +1,108 @@
+{
+  "status": "unknown",
+  "accepted_optimization": false,
+  "scope": "Original whole-core safety screen over the streaming instruction alphabet; not an exact program trace model",
+  "source_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+  "source_json_sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+  "core_sha256": "870c0344da6be523abd1c37f31e12b8939388623450863f16c0ea919ddb25120",
+  "harness_sha256": "2091f52c3bbf687038e63d8daaea337d0016e73be868fff37a60a91bc0149646",
+  "script_sha256": "c90c484ad2021abf7833ef53eae1347c6c87cc65df69663838e7c92d6d293082",
+  "instruction_alphabet": [
+    "00001437",
+    "000024b7",
+    "04000913",
+    "00043503",
+    "00150593",
+    "00b4b023",
+    "00840413",
+    "00848493",
+    "fff90913",
+    "fe0914e3",
+    "200002b7",
+    "1002829b",
+    "00028023",
+    "0000006f"
+  ],
+  "instruction_acceptance_gap": 2,
+  "instruction_min_response_latency": 2,
+  "instruction_pipeline_stages": 2,
+  "instruction_pipeline_enable": "core instr_rready_o",
+  "flush_semantics": "clear pending instruction stages at edge; retain data replies",
+  "data_response_latency": 3,
+  "forbidden_ALU_insertion_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v3/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 23.293175322003663,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v3/prepare.log",
+    "log_sha256": "d74b61380ff0d8c22bedfda0c75889cd12a04b199a9c421a2221d9df0682295e"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v3/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 23.488189841620624,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v3/export.log",
+    "log_sha256": "ce2a05d610cdc62587576907083013011409ce2eee01467781b98cb1742dfb6b"
+  },
+  "aig_header": [
+    "aig",
+    "671034",
+    "31353",
+    "24409",
+    "0",
+    "615272",
+    "3",
+    "1",
+    "0",
+    "0"
+  ],
+  "aig_sha256": "2c3ae48fc2745929e76c142cf0a9eca5f8f2746c452e0e90e0f712811ffcf5fa",
+  "pdr": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v3/screen.aig\"; fold; orpos; pdr -T 120 -v"
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 121.75115778995678,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v3/pdr.log",
+    "log_sha256": "b58cdb9a0f4137cff5e0b21fb96087089ae9dc3aa1ffcdd54b346c0723343f53"
+  }
+}

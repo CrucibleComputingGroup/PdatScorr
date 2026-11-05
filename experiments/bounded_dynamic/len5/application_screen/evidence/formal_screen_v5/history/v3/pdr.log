@@ -1,0 +1,25 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/streaming_alphabet_gap2_v3/screen.aig"; fold; orpos; pdr -T 120 -v".
+
+Warning: The last output is interpreted as a constraint.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 9                                                                 1    10      0.67 sec
+  2 : 0 24 43                                                             3    72      2.06 sec
+  3 : 0 77 160 167                                                       22   279     23.90 sec
+  4 : 0 52 109 166 225                                                    8   339     35.92 sec
+  5 : 0 50 100 153 472 556                                               35   437     86.59 sec
+  6 : 0 44 81 89 257 293 318                                              4   445     95.56 sec
+  7 : 0 44 81 86 241 248 195 356                                         22   515    120.00 sec
+Reached timeout (120 seconds) in frame 7.
+Block =   67  Oblig =  3388  Clause =  2004  Call = 30712 (sat=53.3%)  Cex =   0  Start =  98
+SAT solving =    82.44 sec ( 68.69 %)
+  unsat     =     1.94 sec (  1.62 %)
+  sat       =    80.50 sec ( 67.07 %)
+Generalize  =    88.92 sec ( 74.09 %)
+Push clause =     6.79 sec (  5.66 %)
+Ternary sim =    18.49 sec ( 15.40 %)
+Containment =     0.49 sec (  0.41 %)
+CNF compute =     3.29 sec (  2.74 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =   120.02 sec (100.00 %)
+Property UNDECIDED.  Time =   120.30 sec
