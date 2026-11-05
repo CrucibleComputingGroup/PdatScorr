@@ -207,6 +207,15 @@ source bits were already absent from the lowered observation cone. The query
 still has the original three assertions, initial reset, and 47 proved
 conclusions; it adds no new environmental premise or accepted hardware result.
 
+The [600-second combined-query run](application_screen/COMBINED_GATE_SOLVER.md)
+also finished unknown, timing out in frame 29 with zero stable frames and no
+concurrent proof-thread calls. All 2,329 dependency checks passed. Its saved
+abstraction has 629 latches and 13,106 AND nodes, but neither an unbounded proof
+nor a validated target counterexample was obtained. This does not demonstrate
+that adding the destination domains and reset constants resolved the proof
+bottleneck, or that a 24-hour run would finish. No follow-on PDR or continuation
+was launched. The accepted area result remains the 12.40% program-only baseline.
+
 The next proof simplification follows a closed program-only chain: the certified
 decoder excludes MUL/DIV dispatch, the native issue register preserves that
 exclusion, and the original insertion gates therefore never admit either unit.

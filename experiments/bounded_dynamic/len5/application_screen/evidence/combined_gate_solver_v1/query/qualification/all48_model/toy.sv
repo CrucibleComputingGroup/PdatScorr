@@ -1,0 +1,55 @@
+module GateToy(input clk, input [47:0] d);
+reg q; reg seen=0;
+always @(posedge clk) begin q <= |d; seen <= 1; end
+always @* begin
+assume(!d[0]);
+assume(!d[1]);
+assume(!d[2]);
+assume(!d[3]);
+assume(!d[4]);
+assume(!d[5]);
+assume(!d[6]);
+assume(!d[7]);
+assume(!d[8]);
+assume(!d[9]);
+assume(!d[10]);
+assume(!d[11]);
+assume(!d[12]);
+assume(!d[13]);
+assume(!d[14]);
+assume(!d[15]);
+assume(!d[16]);
+assume(!d[17]);
+assume(!d[18]);
+assume(!d[19]);
+assume(!d[20]);
+assume(!d[21]);
+assume(!d[22]);
+assume(!d[23]);
+assume(!d[24]);
+assume(!d[25]);
+assume(!d[26]);
+assume(!d[27]);
+assume(!d[28]);
+assume(!d[29]);
+assume(!d[30]);
+assume(!d[31]);
+assume(!d[32]);
+assume(!d[33]);
+assume(!d[34]);
+assume(!d[35]);
+assume(!d[36]);
+assume(!d[37]);
+assume(!d[38]);
+assume(!d[39]);
+assume(!d[40]);
+assume(!d[41]);
+assume(!d[42]);
+assume(!d[43]);
+assume(!d[44]);
+assume(!d[45]);
+assume(!d[46]);
+assume(!d[47]);
+if(seen) assert(!q);
+end
+endmodule

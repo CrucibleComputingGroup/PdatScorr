@@ -1,0 +1,108 @@
+{
+  "status": "source_and_installed_binary_audited",
+  "installed_abc_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+  "local_source_commit": "18f6464ec765c2ca14ede4f7a17f09011b0a0600",
+  "local_source_directory": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/abc",
+  "commands": {
+    "version": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "version"
+      ],
+      "returncode": 0,
+      "output_sha256": "61356a97e80b91cbf8ee4a8ce43e3831e06caf384ca65da569ed6a6b9e9fe168"
+    },
+    "gla_help": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "&gla -h"
+      ],
+      "returncode": 0,
+      "output_sha256": "eb0b654616f0c56cc985e71e3a0868a277d22ce9008baf34ae8826b4bbb5f710"
+    },
+    "prover_symbols": {
+      "argv": [
+        "/usr/bin/nm",
+        "-S",
+        "/usr/local/bin/abc"
+      ],
+      "returncode": 0,
+      "output_sha256": "cdda529f93f4a5fc9ab20fd90a4b6f0939b185c124d81dd490435995732d705a"
+    },
+    "prover_disassembly": {
+      "argv": [
+        "/usr/bin/objdump",
+        "-d",
+        "--disassemble=Abs_ProverThread",
+        "/usr/local/bin/abc"
+      ],
+      "returncode": 0,
+      "output_sha256": "b7c9b9873acda35e4ac602854689ec2703be4c9561041dff2b74dddb2d8702cf"
+    }
+  },
+  "source_files": {
+    "src/base/abci/abc.c": {
+      "file_sha256": "e892b60fd01a62c042464420dbd79ded1c6b3824bb181c6ee9b4d5c5eb1a0dd5",
+      "line_ranges": [
+        [
+          54576,
+          54835
+        ]
+      ],
+      "excerpt_sha256": "0d4429c26dfc54b27a2d6e21c196c76c9f2fe3d58f94e93ebea81aff4e471dea"
+    },
+    "src/proof/abs/absGla.c": {
+      "file_sha256": "a565d67a7d4d748039e7729958fec46187ca1b5294c7a42af831e9bf4a9fc658",
+      "line_ranges": [
+        [
+          1418,
+          1459
+        ],
+        [
+          1498,
+          1524
+        ],
+        [
+          1769,
+          1830
+        ],
+        [
+          1846,
+          1888
+        ]
+      ],
+      "excerpt_sha256": "f43406008cf6e4a3927443c5ca0bfccebfe731f3bc625de249af2be5f28b2d5d"
+    },
+    "src/proof/abs/absPth.c": {
+      "file_sha256": "9d8307e4988cd7a9c0f5a25fd29184168b1b689d7d1bdc13ca7fd5e092984805",
+      "line_ranges": [
+        [
+          40,
+          48
+        ],
+        [
+          94,
+          128
+        ],
+        [
+          132,
+          195
+        ]
+      ],
+      "excerpt_sha256": "ada7232b1a32be3ab558dc3fdde4b0c266ccebd986efbf6e9f3310447fa84973"
+    },
+    "src/base/abci/abcLog.c": {
+      "file_sha256": "6cb641a548c5075580998b701002c3c80f9c422c2513e610d52c4ae6e69ae954",
+      "line_ranges": [
+        [
+          68,
+          110
+        ]
+      ],
+      "excerpt_sha256": "79324ba0d9939f7e535fd15115c3c27df8173291291d9813d2c3fc442ce16b51"
+    }
+  },
+  "source_identity_caveat": "Installed ABC was compiled Oct7,2025 at /home/nbleier/abc; accessible source commit is Oct24,2025. Exact source-to-binary identity is not established. Installed symbols/disassembly confirm the PDR thread and return1 proof flag path, and concrete positive/negative toys validate the installed command flow."
+}

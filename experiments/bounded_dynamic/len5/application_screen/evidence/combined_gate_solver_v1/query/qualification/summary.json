@@ -1,0 +1,322 @@
+{
+  "status": "qualified",
+  "cases": {
+    "all48": {
+      "preparation": {
+        "source_sha256": "4ba70aacc2eec6ccfb0638b3bc8ad22a9fb4d2fab3d5943b8e75123a3c8a937f",
+        "prepare": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/prepare.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.03231428889557719,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/prepare.log",
+          "log_sha256": "cf02b20b434ad877e0121586e5b2e8217e0a822f32dbc9e38917a553bd296362"
+        },
+        "export": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/export.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.03222362790256739,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/export.log",
+          "log_sha256": "8ceb6d424bc60389ee7d7782e46723e578b7573100802b8a0b7ce02389910773"
+        },
+        "clock_model": {
+          "clocks": [
+            [
+              [
+                2
+              ],
+              1
+            ]
+          ],
+          "model": "single shared global step, validated after async2sync/dffunmap"
+        },
+        "aig_sha256": "9c7cb984136d3e33ffadb9af8e136b5c86614161982a08778ec9ca29ad349d29",
+        "aig_header": [
+          "aig",
+          "152",
+          "50",
+          "3",
+          "0",
+          "99",
+          "1",
+          "48",
+          "0",
+          "0"
+        ],
+        "initial_state": "Native unknown FF initial values remain arbitrary through zinit input encoding"
+      },
+      "result": {
+        "status": "proved_safety_query_only",
+        "accepted_optimization": false,
+        "engine": "ABC &gla -q",
+        "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/query.aig",
+        "input_aig_sha256": "9c7cb984136d3e33ffadb9af8e136b5c86614161982a08778ec9ca29ad349d29",
+        "input_header": [
+          "aig",
+          "152",
+          "50",
+          "3",
+          "0",
+          "99",
+          "1",
+          "48",
+          "0",
+          "0"
+        ],
+        "script_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+        "execution": {
+          "argv": [
+            "/usr/local/bin/abc",
+            "-c",
+            "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/query.aig\"; fold; orpos; &get; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/folded.aig\"; &gla -q -T 5 -v -m -A \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/abstraction_map.aig\" -L \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/gla.status\"; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/final.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/final_map.aig\""
+          ],
+          "returncode": 0,
+          "executable": "/usr/local/bin/abc",
+          "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+          "timeout": false,
+          "seconds": 0.18067228607833385,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/gla.log",
+          "log_sha256": "b735c0aa79a590adc214778a38a5a8fa3b9e304f93aad70cd1c06bace6c2ba23"
+        },
+        "raw_status": "snl_UNSAT 493 unknown\nNULL\nNULL\n",
+        "fold_semantics": "AIGER constraints folded first, all bad outputs ORed, then &get; no extra internal premises",
+        "interpretation": "Only explicit threaded-PDR unbounded proof or trivial constant-zero miter can prove safety. A stable abstraction, bounded checks, and timeout are inconclusive. Maps are proof-only artifacts, never hardware.",
+        "folded_header": [
+          "aig",
+          "153",
+          "50",
+          "4",
+          "1",
+          "99"
+        ],
+        "derive": {
+          "argv": [
+            "/usr/local/bin/abc",
+            "-c",
+            "&read \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/final_map.aig\"; &gla_derive; &ps; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/abstracted.aig\""
+          ],
+          "returncode": 0,
+          "executable": "/usr/local/bin/abc",
+          "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+          "timeout": false,
+          "seconds": 0.13072558725252748,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/derive.log",
+          "log_sha256": "5979be44bc4460613ef75bd7a78b9ba54bb8f733726c5dea9718fff0440df24d"
+        },
+        "abstracted_header": [
+          "aig",
+          "150",
+          "48",
+          "4",
+          "1",
+          "98"
+        ],
+        "dumped_model_scope": "Recorded map is the last available map; it need not be the exact earlier map solved by the background thread. The verdict refers to the source-bound original folded query.",
+        "artifacts_sha256": {
+          "final_map.aig": "c13cafc943840e38a24a9a8c8861600a938b40f73782b4a389f6e1654879a234",
+          "gla.log": "b735c0aa79a590adc214778a38a5a8fa3b9e304f93aad70cd1c06bace6c2ba23",
+          "abstraction_map.status": "2ae77aabefb44eaefb890a8f8f80926dbfdd6c4ceebc176c9b2f3fe2d7d86178",
+          "abstracted.aig": "9838af0e869e857aa23a16ae166015c14fe954d3f8d45940e02fea9845543660",
+          "final.status": "93a0e0199a2526539583e1982c0a903084539dab8c6fffd784819e44bc0c4273",
+          "derive.log": "5979be44bc4460613ef75bd7a78b9ba54bb8f733726c5dea9718fff0440df24d",
+          "folded.aig": "cdac252d22980a063db67c2b3ed609ef6da38f7e4cd444105aa8889246f32079",
+          "gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+          "gla.status": "31346348176240c4829a4679082702c093aad7d7be29903232b1137a9bd4e54f",
+          "abstraction_map.aig": "53bec40f54c8594ceaa6bfdd1586a313162187db2e731ff10d64756348681d06"
+        }
+      }
+    },
+    "without_last": {
+      "preparation": {
+        "source_sha256": "7cc415e66591f834bbb6c7b3e8386e0066c7e261149397ea601c648ea18e2ef0",
+        "prepare": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/prepare.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.03263934887945652,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/prepare.log",
+          "log_sha256": "055b69e4e88f610dd2e44685ca448cf4c392e2196601de612fd057386ff08b11"
+        },
+        "export": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/export.ys"
+          ],
+          "returncode": 0,
+          "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+          "timeout": false,
+          "seconds": 0.06481921812519431,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/export.log",
+          "log_sha256": "5d5c89edcc36965c60cc937b5fa06fc2665b4b16bc63317b46b261f23b2161b0"
+        },
+        "clock_model": {
+          "clocks": [
+            [
+              [
+                2
+              ],
+              1
+            ]
+          ],
+          "model": "single shared global step, validated after async2sync/dffunmap"
+        },
+        "aig_sha256": "9d965829225231ae699af061beaf53514ca2079396242caebbc60d025cb637c9",
+        "aig_header": [
+          "aig",
+          "151",
+          "50",
+          "3",
+          "0",
+          "98",
+          "1",
+          "47",
+          "0",
+          "0"
+        ],
+        "initial_state": "Native unknown FF initial values remain arbitrary through zinit input encoding"
+      },
+      "result": {
+        "status": "counterexample_in_query_model",
+        "accepted_optimization": false,
+        "engine": "ABC &gla -q",
+        "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/query.aig",
+        "input_aig_sha256": "9d965829225231ae699af061beaf53514ca2079396242caebbc60d025cb637c9",
+        "input_header": [
+          "aig",
+          "151",
+          "50",
+          "3",
+          "0",
+          "98",
+          "1",
+          "47",
+          "0",
+          "0"
+        ],
+        "script_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+        "execution": {
+          "argv": [
+            "/usr/local/bin/abc",
+            "-c",
+            "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/query.aig\"; fold; orpos; &get; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/folded.aig\"; &gla -q -T 5 -v -m -A \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/abstraction_map.aig\" -L \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/gla.status\"; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/final.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/final_map.aig\""
+          ],
+          "returncode": 0,
+          "executable": "/usr/local/bin/abc",
+          "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+          "timeout": false,
+          "seconds": 0.1472376761958003,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/gla.log",
+          "log_sha256": "786fe926338b6abf93b9326a43627c9a91dea33c35eda321649c9b1fe5e4b1ef"
+        },
+        "raw_status": "snl_SAT 0 unknown 0 1\n0000\n0000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000\n",
+        "fold_semantics": "AIGER constraints folded first, all bad outputs ORed, then &get; no extra internal premises",
+        "interpretation": "Only explicit threaded-PDR unbounded proof or trivial constant-zero miter can prove safety. A stable abstraction, bounded checks, and timeout are inconclusive. Maps are proof-only artifacts, never hardware.",
+        "folded_header": [
+          "aig",
+          "152",
+          "50",
+          "4",
+          "1",
+          "98"
+        ],
+        "counterexample_validation": {
+          "argv": [
+            "/usr/local/bin/abc",
+            "-c",
+            "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/folded.aig\"; &get; read_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/final.status\"; testcex; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/counterexample.aiw\""
+          ],
+          "returncode": 0,
+          "executable": "/usr/local/bin/abc",
+          "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+          "timeout": false,
+          "seconds": 0.13102470710873604,
+          "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/validate_cex.log",
+          "log_sha256": "e25ad3ff3ca917ebb23a61f872ee9688dd4d2aa986da50f51c46983748d37726"
+        },
+        "artifacts_sha256": {
+          "validate_cex.log": "e25ad3ff3ca917ebb23a61f872ee9688dd4d2aa986da50f51c46983748d37726",
+          "final_map.aig": "e50c170a8fe33cc913e52477f56b4492f9b9335004da6dcb53d82ff715efa8a8",
+          "gla.log": "786fe926338b6abf93b9326a43627c9a91dea33c35eda321649c9b1fe5e4b1ef",
+          "abstraction_map.status": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+          "counterexample.aiw": "3178c7628917b3b7e3fcf23a0f291f8555537fdb5b8bd9e6eb80db9a976b524d",
+          "final.status": "f479ef162cb664e74a316aebd07e963da3377218cc9ca403b36a4e00356086df",
+          "folded.aig": "e50c170a8fe33cc913e52477f56b4492f9b9335004da6dcb53d82ff715efa8a8",
+          "gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+          "gla.status": "8a81a84b90c40f6138e37f9beac679f3b1e76577e9d5e7a33cfdf710ea31f9e9",
+          "abstraction_map.aig": "ddf014e226a3c9d2dc74060777f32f6d027aaa52c2c053fa7e1ddb1cce98aadd"
+        }
+      }
+    }
+  },
+  "last_constraint_is_necessary": true,
+  "scope": "Real installed frontend and GLA; positive has48constraints, negative omits only d[47]==0. Unknown initial q is preserved and observation begins after its first update.",
+  "artifacts_sha256": {
+    "all48_gla/final_map.aig": "c13cafc943840e38a24a9a8c8861600a938b40f73782b4a389f6e1654879a234",
+    "all48_gla/gla.log": "b735c0aa79a590adc214778a38a5a8fa3b9e304f93aad70cd1c06bace6c2ba23",
+    "all48_gla/abstraction_map.status": "2ae77aabefb44eaefb890a8f8f80926dbfdd6c4ceebc176c9b2f3fe2d7d86178",
+    "all48_gla/abstracted.aig": "9838af0e869e857aa23a16ae166015c14fe954d3f8d45940e02fea9845543660",
+    "all48_gla/summary.json": "d8013fb8673783d9675c5a894a10791cc44d1ab7152040bad59dfa5ffa582589",
+    "all48_gla/final.status": "93a0e0199a2526539583e1982c0a903084539dab8c6fffd784819e44bc0c4273",
+    "all48_gla/derive.log": "5979be44bc4460613ef75bd7a78b9ba54bb8f733726c5dea9718fff0440df24d",
+    "all48_gla/folded.aig": "cdac252d22980a063db67c2b3ed609ef6da38f7e4cd444105aa8889246f32079",
+    "all48_gla/gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+    "all48_gla/gla.status": "31346348176240c4829a4679082702c093aad7d7be29903232b1137a9bd4e54f",
+    "all48_gla/abstraction_map.aig": "53bec40f54c8594ceaa6bfdd1586a313162187db2e731ff10d64756348681d06",
+    "all48_model/export.log": "8ceb6d424bc60389ee7d7782e46723e578b7573100802b8a0b7ce02389910773",
+    "all48_model/toy.sv": "4ba70aacc2eec6ccfb0638b3bc8ad22a9fb4d2fab3d5943b8e75123a3c8a937f",
+    "all48_model/model.json": "9cd965752641c50d028584d9629b516f3ab40df0c05cef0e7fc59cb832ee585e",
+    "all48_model/export.ys": "c7bded334889608b9ceeaa4b5b07b6c9ebd3bde43b992443c87a6639560fbcfc",
+    "all48_model/preparation.json": "65df592f58d2ebef5acdf10d6361319f0fbe747fb4dfd7abe64d6d6a5788e91f",
+    "all48_model/query.aig": "9c7cb984136d3e33ffadb9af8e136b5c86614161982a08778ec9ca29ad349d29",
+    "all48_model/prepare.ys": "5f1e3daf73a1f925e3ca8923188848bc3750f2aa40f628de1ec1ec7c29c8a66a",
+    "all48_model/prepare.log": "cf02b20b434ad877e0121586e5b2e8217e0a822f32dbc9e38917a553bd296362",
+    "without_last_gla/validate_cex.log": "e25ad3ff3ca917ebb23a61f872ee9688dd4d2aa986da50f51c46983748d37726",
+    "without_last_gla/final_map.aig": "e50c170a8fe33cc913e52477f56b4492f9b9335004da6dcb53d82ff715efa8a8",
+    "without_last_gla/gla.log": "786fe926338b6abf93b9326a43627c9a91dea33c35eda321649c9b1fe5e4b1ef",
+    "without_last_gla/abstraction_map.status": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+    "without_last_gla/summary.json": "a73504bafff2be5fe2492077e07a8cfb2953cb0b37049fbec269001325e541a0",
+    "without_last_gla/counterexample.aiw": "3178c7628917b3b7e3fcf23a0f291f8555537fdb5b8bd9e6eb80db9a976b524d",
+    "without_last_gla/final.status": "f479ef162cb664e74a316aebd07e963da3377218cc9ca403b36a4e00356086df",
+    "without_last_gla/folded.aig": "e50c170a8fe33cc913e52477f56b4492f9b9335004da6dcb53d82ff715efa8a8",
+    "without_last_gla/gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+    "without_last_gla/gla.status": "8a81a84b90c40f6138e37f9beac679f3b1e76577e9d5e7a33cfdf710ea31f9e9",
+    "without_last_gla/abstraction_map.aig": "ddf014e226a3c9d2dc74060777f32f6d027aaa52c2c053fa7e1ddb1cce98aadd",
+    "without_last_model/export.log": "5d5c89edcc36965c60cc937b5fa06fc2665b4b16bc63317b46b261f23b2161b0",
+    "without_last_model/toy.sv": "7cc415e66591f834bbb6c7b3e8386e0066c7e261149397ea601c648ea18e2ef0",
+    "without_last_model/model.json": "17859772a6a8796321e503a0f92ff99aa3e51459448e823bb8087d6df92cec95",
+    "without_last_model/export.ys": "1a6442a0319782b3c725a09f0e05e85f83a9cdf7626d8f7d3ce5373b7363123f",
+    "without_last_model/preparation.json": "6f0338fe04b5f7d28a8e9e5a9e8dcd075ae588884bd1fd155098d314ab17093a",
+    "without_last_model/query.aig": "9d965829225231ae699af061beaf53514ca2079396242caebbc60d025cb637c9",
+    "without_last_model/prepare.ys": "b4ea84f8c20fc93c4392e2a3719f339184022a5f9efa7a25a72d363e8db34347",
+    "without_last_model/prepare.log": "055b69e4e88f610dd2e44685ca448cf4c392e2196601de612fd057386ff08b11"
+  }
+}

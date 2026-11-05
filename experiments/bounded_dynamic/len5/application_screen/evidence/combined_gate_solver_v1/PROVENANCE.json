@@ -1,0 +1,531 @@
+{
+  "status": "unknown",
+  "accepted_optimization": false,
+  "requested_seconds": 600,
+  "execution_seconds": 601.1593942400068,
+  "native_hardware_json_sha256": "2426b17743dfc23d806d5c544f9c6ebbc722909ed01442f0cb41403a11ad4b48",
+  "query_model_sha256": "baf5dff3bab42b3eb1b8c65ab16b8c0a744e3404c3aa2c8355e7e30e9c319cfd",
+  "input_aig_sha256": "7c9c57f7b8e4003d145f51e7b60f605c2fe40a762cb7c1129672656e471b310c",
+  "input_header": [
+    "aig",
+    "568783",
+    "31964",
+    "21741",
+    "0",
+    "515078",
+    "3",
+    "48",
+    "0",
+    "0"
+  ],
+  "folded_header": [
+    "aig",
+    "472283",
+    "31964",
+    "21742",
+    "1",
+    "418577"
+  ],
+  "abstracted_header": [
+    "aig",
+    "15243",
+    "1508",
+    "629",
+    "1",
+    "13106"
+  ],
+  "query_property_counts": {
+    "assert": 3,
+    "assume": 48,
+    "cover": 0
+  },
+  "proof_dependency_count": 2329,
+  "native_arithmetic_retained": true,
+  "new_environmental_premises": [],
+  "new_unproved_internal_premises": 0,
+  "tiny_qualification": "All48constraints proved; omitting only48th yielded testcex-validated query counterexample.",
+  "timeout_frame": 29,
+  "stable_frames_at_timeout": 0,
+  "proof_thread_calls": 0,
+  "source_identity_caveat": "Installed ABC was compiled Oct7,2025 at /home/nbleier/abc; accessible source commit is Oct24,2025. Exact source-to-binary identity is not established. Installed symbols/disassembly confirm the PDR thread and return1 proof flag path, and concrete positive/negative toys validate the installed command flow.",
+  "scope": "Native arithmetic and original controls retained; existing closed program-only lemmas only. The three safety obligations remain the acceptance target. No new premise, payload cut, physical model change or hardware savings claim. A validated CEX belongs to the original folded formal query, not automatically to a concrete benchmark execution. No automatic PDR or continuation.",
+  "interpretation": "Only an explicit unbounded verdict establishes this safety query. Maps, stability, bounded success and timeout are not certificates or hardware savings. No automatic follow-on solve.",
+  "artifacts": [
+    {
+      "path": "query/gla/abstracted.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/abstracted.aig",
+      "source_sha256": "cf2f5b0d919e96a3852fa2a885b62e472b43cc57d1455b7fb6c48d4cef18e898",
+      "sha256": "35c3d9c89c8da539147e671ae0672f434286b8e2627af2d5f9d4b2d566583351",
+      "gzip": true
+    },
+    {
+      "path": "query/gla/abstraction_map.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/abstraction_map.aig",
+      "source_sha256": "35b49693cb2d68f9e04d1fccd3f77b5eac62a114c8262c40b324388ce0bb4c79",
+      "sha256": "a9078d156c8a384ab9552f08c5fd2ceb1080f862568e05551ab7bfcaeaa2c484",
+      "gzip": true
+    },
+    {
+      "path": "query/gla/abstraction_map.status",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/abstraction_map.status",
+      "source_sha256": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+      "sha256": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+      "gzip": false
+    },
+    {
+      "path": "query/gla/derive.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/derive.log",
+      "source_sha256": "64a833e2a1b757e10f198126205147ec089896d78d9d9e68f5517afcf79da37d",
+      "sha256": "64a833e2a1b757e10f198126205147ec089896d78d9d9e68f5517afcf79da37d",
+      "gzip": false
+    },
+    {
+      "path": "query/gla/final.status",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/final.status",
+      "source_sha256": "6a5ddb954300351309eecd1a78e49b9c022b648ff16a092492d1130c34a54414",
+      "sha256": "6a5ddb954300351309eecd1a78e49b9c022b648ff16a092492d1130c34a54414",
+      "gzip": false
+    },
+    {
+      "path": "query/gla/final_map.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/final_map.aig",
+      "source_sha256": "f6eb5f1000a620e0c7bef8900d361409ad2ccfcd18f82670c7913b1bb626b654",
+      "sha256": "171ae5e027f9af05cc6a5eaebbd965ea1871ae2b0eea3827c57168c58f83e264",
+      "gzip": true
+    },
+    {
+      "path": "query/gla/folded.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/folded.aig",
+      "source_sha256": "f3e9af17cf76c1f111ae5eac0e56d4dc1c4864c51e57f2ec8554e68f98521f7f",
+      "sha256": "c23dee6f6475e3e02be96af50f2a4181fed5dd4c2997ab5009a8a97eee068de9",
+      "gzip": true
+    },
+    {
+      "path": "query/gla/gate_solver.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/gate_solver.py",
+      "source_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "gzip": false
+    },
+    {
+      "path": "query/gla/gla.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/gla.log",
+      "source_sha256": "f297cbe5bcbb3566dacf32fd8a559646d256d406391d82b6994357040dd59f70",
+      "sha256": "f297cbe5bcbb3566dacf32fd8a559646d256d406391d82b6994357040dd59f70",
+      "gzip": false
+    },
+    {
+      "path": "query/gla/gla.status",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/gla.status",
+      "source_sha256": "63b58bbad65c72217cdebea31d2e0be5aaab31207b7bfdfc894e92822ccdf924",
+      "sha256": "63b58bbad65c72217cdebea31d2e0be5aaab31207b7bfdfc894e92822ccdf924",
+      "gzip": false
+    },
+    {
+      "path": "query/gla/summary.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/summary.json",
+      "source_sha256": "467de21615ddb0e09c2dcbd562313a478865c44f7162d566bd673e21757e9630",
+      "sha256": "467de21615ddb0e09c2dcbd562313a478865c44f7162d566bd673e21757e9630",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_gla/abstracted.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/abstracted.aig",
+      "source_sha256": "9838af0e869e857aa23a16ae166015c14fe954d3f8d45940e02fea9845543660",
+      "sha256": "27b324019b0b0db698afa7b46de31df81b9cf055731c6bd589c8687dcb60d31f",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/all48_gla/abstraction_map.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/abstraction_map.aig",
+      "source_sha256": "53bec40f54c8594ceaa6bfdd1586a313162187db2e731ff10d64756348681d06",
+      "sha256": "78e9f257146e17e3ea17ce1fda389120e37ac71818893a717db36ae458aa2821",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/all48_gla/abstraction_map.status",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/abstraction_map.status",
+      "source_sha256": "2ae77aabefb44eaefb890a8f8f80926dbfdd6c4ceebc176c9b2f3fe2d7d86178",
+      "sha256": "2ae77aabefb44eaefb890a8f8f80926dbfdd6c4ceebc176c9b2f3fe2d7d86178",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_gla/derive.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/derive.log",
+      "source_sha256": "5979be44bc4460613ef75bd7a78b9ba54bb8f733726c5dea9718fff0440df24d",
+      "sha256": "5979be44bc4460613ef75bd7a78b9ba54bb8f733726c5dea9718fff0440df24d",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_gla/final.status",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/final.status",
+      "source_sha256": "93a0e0199a2526539583e1982c0a903084539dab8c6fffd784819e44bc0c4273",
+      "sha256": "93a0e0199a2526539583e1982c0a903084539dab8c6fffd784819e44bc0c4273",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_gla/final_map.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/final_map.aig",
+      "source_sha256": "c13cafc943840e38a24a9a8c8861600a938b40f73782b4a389f6e1654879a234",
+      "sha256": "4adf61e5709343661fce83f5f7bea3b97c3319b2b09384e44c8a0a1d15865535",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/all48_gla/folded.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/folded.aig",
+      "source_sha256": "cdac252d22980a063db67c2b3ed609ef6da38f7e4cd444105aa8889246f32079",
+      "sha256": "ce6407334fe3939fcff3893d90282f59f4e3fc540395829dd615ada3f169e138",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/all48_gla/gate_solver.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/gate_solver.py",
+      "source_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_gla/gla.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/gla.log",
+      "source_sha256": "b735c0aa79a590adc214778a38a5a8fa3b9e304f93aad70cd1c06bace6c2ba23",
+      "sha256": "b735c0aa79a590adc214778a38a5a8fa3b9e304f93aad70cd1c06bace6c2ba23",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_gla/gla.status",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/gla.status",
+      "source_sha256": "31346348176240c4829a4679082702c093aad7d7be29903232b1137a9bd4e54f",
+      "sha256": "31346348176240c4829a4679082702c093aad7d7be29903232b1137a9bd4e54f",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_gla/summary.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_gla/summary.json",
+      "source_sha256": "d8013fb8673783d9675c5a894a10791cc44d1ab7152040bad59dfa5ffa582589",
+      "sha256": "d8013fb8673783d9675c5a894a10791cc44d1ab7152040bad59dfa5ffa582589",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_model/export.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/export.log",
+      "source_sha256": "8ceb6d424bc60389ee7d7782e46723e578b7573100802b8a0b7ce02389910773",
+      "sha256": "8ceb6d424bc60389ee7d7782e46723e578b7573100802b8a0b7ce02389910773",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_model/export.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/export.ys",
+      "source_sha256": "c7bded334889608b9ceeaa4b5b07b6c9ebd3bde43b992443c87a6639560fbcfc",
+      "sha256": "c7bded334889608b9ceeaa4b5b07b6c9ebd3bde43b992443c87a6639560fbcfc",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_model/model.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/model.json",
+      "source_sha256": "9cd965752641c50d028584d9629b516f3ab40df0c05cef0e7fc59cb832ee585e",
+      "sha256": "4ce7ecf83fac37233ddaa5363e31e285f0a018db254daa8b89c6bc35fbad426c",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/all48_model/preparation.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/preparation.json",
+      "source_sha256": "65df592f58d2ebef5acdf10d6361319f0fbe747fb4dfd7abe64d6d6a5788e91f",
+      "sha256": "65df592f58d2ebef5acdf10d6361319f0fbe747fb4dfd7abe64d6d6a5788e91f",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_model/prepare.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/prepare.log",
+      "source_sha256": "cf02b20b434ad877e0121586e5b2e8217e0a822f32dbc9e38917a553bd296362",
+      "sha256": "cf02b20b434ad877e0121586e5b2e8217e0a822f32dbc9e38917a553bd296362",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_model/prepare.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/prepare.ys",
+      "source_sha256": "5f1e3daf73a1f925e3ca8923188848bc3750f2aa40f628de1ec1ec7c29c8a66a",
+      "sha256": "5f1e3daf73a1f925e3ca8923188848bc3750f2aa40f628de1ec1ec7c29c8a66a",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/all48_model/query.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/query.aig",
+      "source_sha256": "9c7cb984136d3e33ffadb9af8e136b5c86614161982a08778ec9ca29ad349d29",
+      "sha256": "75b7d6802a7a7b909bb2f8691bd7bd864c4390fda5aa4ee8a3c1eb927b368383",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/all48_model/toy.sv",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/all48_model/toy.sv",
+      "source_sha256": "4ba70aacc2eec6ccfb0638b3bc8ad22a9fb4d2fab3d5943b8e75123a3c8a937f",
+      "sha256": "4ba70aacc2eec6ccfb0638b3bc8ad22a9fb4d2fab3d5943b8e75123a3c8a937f",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/summary.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/summary.json",
+      "source_sha256": "c461205261f49bc3c90733dcb0344b6badfe98ab2d7a4f467c83d4b64fd04ed4",
+      "sha256": "c461205261f49bc3c90733dcb0344b6badfe98ab2d7a4f467c83d4b64fd04ed4",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_gla/abstraction_map.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/abstraction_map.aig",
+      "source_sha256": "ddf014e226a3c9d2dc74060777f32f6d027aaa52c2c053fa7e1ddb1cce98aadd",
+      "sha256": "efe253dc79b8670f1492bd9169f869fd5b479753d9799778cb116d719687eb62",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/without_last_gla/abstraction_map.status",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/abstraction_map.status",
+      "source_sha256": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+      "sha256": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_gla/counterexample.aiw",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/counterexample.aiw",
+      "source_sha256": "3178c7628917b3b7e3fcf23a0f291f8555537fdb5b8bd9e6eb80db9a976b524d",
+      "sha256": "3178c7628917b3b7e3fcf23a0f291f8555537fdb5b8bd9e6eb80db9a976b524d",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_gla/final.status",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/final.status",
+      "source_sha256": "f479ef162cb664e74a316aebd07e963da3377218cc9ca403b36a4e00356086df",
+      "sha256": "f479ef162cb664e74a316aebd07e963da3377218cc9ca403b36a4e00356086df",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_gla/final_map.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/final_map.aig",
+      "source_sha256": "e50c170a8fe33cc913e52477f56b4492f9b9335004da6dcb53d82ff715efa8a8",
+      "sha256": "bc7ee40c9540cc0ccd94c50aa876a13c47da09620e19cd007b6d2a6932d60bc9",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/without_last_gla/folded.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/folded.aig",
+      "source_sha256": "e50c170a8fe33cc913e52477f56b4492f9b9335004da6dcb53d82ff715efa8a8",
+      "sha256": "bc7ee40c9540cc0ccd94c50aa876a13c47da09620e19cd007b6d2a6932d60bc9",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/without_last_gla/gate_solver.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/gate_solver.py",
+      "source_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_gla/gla.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/gla.log",
+      "source_sha256": "786fe926338b6abf93b9326a43627c9a91dea33c35eda321649c9b1fe5e4b1ef",
+      "sha256": "786fe926338b6abf93b9326a43627c9a91dea33c35eda321649c9b1fe5e4b1ef",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_gla/gla.status",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/gla.status",
+      "source_sha256": "8a81a84b90c40f6138e37f9beac679f3b1e76577e9d5e7a33cfdf710ea31f9e9",
+      "sha256": "8a81a84b90c40f6138e37f9beac679f3b1e76577e9d5e7a33cfdf710ea31f9e9",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_gla/summary.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/summary.json",
+      "source_sha256": "a73504bafff2be5fe2492077e07a8cfb2953cb0b37049fbec269001325e541a0",
+      "sha256": "a73504bafff2be5fe2492077e07a8cfb2953cb0b37049fbec269001325e541a0",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_gla/validate_cex.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_gla/validate_cex.log",
+      "source_sha256": "e25ad3ff3ca917ebb23a61f872ee9688dd4d2aa986da50f51c46983748d37726",
+      "sha256": "e25ad3ff3ca917ebb23a61f872ee9688dd4d2aa986da50f51c46983748d37726",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_model/export.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/export.log",
+      "source_sha256": "5d5c89edcc36965c60cc937b5fa06fc2665b4b16bc63317b46b261f23b2161b0",
+      "sha256": "5d5c89edcc36965c60cc937b5fa06fc2665b4b16bc63317b46b261f23b2161b0",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_model/export.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/export.ys",
+      "source_sha256": "1a6442a0319782b3c725a09f0e05e85f83a9cdf7626d8f7d3ce5373b7363123f",
+      "sha256": "1a6442a0319782b3c725a09f0e05e85f83a9cdf7626d8f7d3ce5373b7363123f",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_model/model.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/model.json",
+      "source_sha256": "17859772a6a8796321e503a0f92ff99aa3e51459448e823bb8087d6df92cec95",
+      "sha256": "b662dcdf460f71ae95cbba0504750ef0dba3b3d7abc661dc53513f3c10adf9e8",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/without_last_model/preparation.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/preparation.json",
+      "source_sha256": "6f0338fe04b5f7d28a8e9e5a9e8dcd075ae588884bd1fd155098d314ab17093a",
+      "sha256": "6f0338fe04b5f7d28a8e9e5a9e8dcd075ae588884bd1fd155098d314ab17093a",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_model/prepare.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/prepare.log",
+      "source_sha256": "055b69e4e88f610dd2e44685ca448cf4c392e2196601de612fd057386ff08b11",
+      "sha256": "055b69e4e88f610dd2e44685ca448cf4c392e2196601de612fd057386ff08b11",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_model/prepare.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/prepare.ys",
+      "source_sha256": "b4ea84f8c20fc93c4392e2a3719f339184022a5f9efa7a25a72d363e8db34347",
+      "sha256": "b4ea84f8c20fc93c4392e2a3719f339184022a5f9efa7a25a72d363e8db34347",
+      "gzip": false
+    },
+    {
+      "path": "query/qualification/without_last_model/query.aig.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/query.aig",
+      "source_sha256": "9d965829225231ae699af061beaf53514ca2079396242caebbc60d025cb637c9",
+      "sha256": "c1b5295b7b295f6cae2fd4ed541c301c48c5b44f2c1ce39f5d09186c6d595244",
+      "gzip": true
+    },
+    {
+      "path": "query/qualification/without_last_model/toy.sv",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/qualification/without_last_model/toy.sv",
+      "source_sha256": "7cc415e66591f834bbb6c7b3e8386e0066c7e261149397ea601c648ea18e2ef0",
+      "sha256": "7cc415e66591f834bbb6c7b3e8386e0066c7e261149397ea601c648ea18e2ef0",
+      "gzip": false
+    },
+    {
+      "path": "query/summary.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/summary.json",
+      "source_sha256": "8ab65e304f33417d43d387c0531243eabeb7ca60614eebaba22e6b4188608665",
+      "sha256": "c3d01d0cb38a0017f8b144c0a2af3dc30a09e1b25c6e0f1cd82bb9e036f525ed",
+      "gzip": true
+    },
+    {
+      "path": "query/wrapper_sources/combined_gate_solver.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/wrapper_sources/combined_gate_solver.py",
+      "source_sha256": "6c418b4db7fc0d622485ae907b4316640b45d287074a6ceb42d3b69cd5e3c7c1",
+      "sha256": "6c418b4db7fc0d622485ae907b4316640b45d287074a6ceb42d3b69cd5e3c7c1",
+      "gzip": false
+    },
+    {
+      "path": "query/wrapper_sources/gate_solver.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/wrapper_sources/gate_solver.py",
+      "source_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "gzip": false
+    },
+    {
+      "path": "query/wrapper_sources/register_status_prepared.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/wrapper_sources/register_status_prepared.py",
+      "source_sha256": "a16c957bcba204e974a86407eb7eb24741f4f30c7228b76bdd58a2fbec07475f",
+      "sha256": "a16c957bcba204e974a86407eb7eb24741f4f30c7228b76bdd58a2fbec07475f",
+      "gzip": false
+    },
+    {
+      "path": "query/wrapper_sources/reset_cube_prepared.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/wrapper_sources/reset_cube_prepared.py",
+      "source_sha256": "0886ca65e0adf72b0cfbc5535f267bd6d58bd9df06e7fc2f3f3c8952234a13a1",
+      "sha256": "0886ca65e0adf72b0cfbc5535f267bd6d58bd9df06e7fc2f3f3c8952234a13a1",
+      "gzip": false
+    },
+    {
+      "path": "query/wrapper_sources/solve_prepared.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/wrapper_sources/solve_prepared.py",
+      "source_sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/abcLog_excerpt.txt",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/abcLog_excerpt.txt",
+      "source_sha256": "79324ba0d9939f7e535fd15115c3c27df8173291291d9813d2c3fc442ce16b51",
+      "sha256": "79324ba0d9939f7e535fd15115c3c27df8173291291d9813d2c3fc442ce16b51",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/abc_excerpt.txt",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/abc_excerpt.txt",
+      "source_sha256": "0d4429c26dfc54b27a2d6e21c196c76c9f2fe3d58f94e93ebea81aff4e471dea",
+      "sha256": "0d4429c26dfc54b27a2d6e21c196c76c9f2fe3d58f94e93ebea81aff4e471dea",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/absGla_excerpt.txt",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/absGla_excerpt.txt",
+      "source_sha256": "f43406008cf6e4a3927443c5ca0bfccebfe731f3bc625de249af2be5f28b2d5d",
+      "sha256": "f43406008cf6e4a3927443c5ca0bfccebfe731f3bc625de249af2be5f28b2d5d",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/absPth_excerpt.txt",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/absPth_excerpt.txt",
+      "source_sha256": "ada7232b1a32be3ab558dc3fdde4b0c266ccebd986efbf6e9f3310447fa84973",
+      "sha256": "ada7232b1a32be3ab558dc3fdde4b0c266ccebd986efbf6e9f3310447fa84973",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/gla_help.txt",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/gla_help.txt",
+      "source_sha256": "eb0b654616f0c56cc985e71e3a0868a277d22ce9008baf34ae8826b4bbb5f710",
+      "sha256": "eb0b654616f0c56cc985e71e3a0868a277d22ce9008baf34ae8826b4bbb5f710",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/prover_disassembly.txt",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/prover_disassembly.txt",
+      "source_sha256": "b7c9b9873acda35e4ac602854689ec2703be4c9561041dff2b74dddb2d8702cf",
+      "sha256": "b7c9b9873acda35e4ac602854689ec2703be4c9561041dff2b74dddb2d8702cf",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/prover_symbols.txt",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/prover_symbols.txt",
+      "source_sha256": "cdda529f93f4a5fc9ab20fd90a4b6f0939b185c124d81dd490435995732d705a",
+      "sha256": "cdda529f93f4a5fc9ab20fd90a4b6f0939b185c124d81dd490435995732d705a",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/source_analysis.txt",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/source_analysis.txt",
+      "source_sha256": "8b8d187cd945c89444b88d7817fe8c460bfaf36f8e8f406a4f42c229f6fc67c8",
+      "sha256": "8b8d187cd945c89444b88d7817fe8c460bfaf36f8e8f406a4f42c229f6fc67c8",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/summary.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/summary.json",
+      "source_sha256": "38b187d9a0036350262e8ee50ba700dcfbfdcf5a504396fe048df1de71d07d2d",
+      "sha256": "38b187d9a0036350262e8ee50ba700dcfbfdcf5a504396fe048df1de71d07d2d",
+      "gzip": false
+    },
+    {
+      "path": "source_audit/version.txt",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_solver_source_analysis_v1/version.txt",
+      "source_sha256": "61356a97e80b91cbf8ee4a8ce43e3831e06caf384ca65da569ed6a6b9e9fe168",
+      "sha256": "61356a97e80b91cbf8ee4a8ce43e3831e06caf384ca65da569ed6a6b9e9fe168",
+      "gzip": false
+    },
+    {
+      "path": "prepared_summary.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_prepare_v1/summary.json",
+      "source_sha256": "34d5a32076526f9dc9dfbeef8a34371f1aa07beddfc01c1a095a47c1446aa6ad",
+      "sha256": "a78904fc497a6a2a5e74a9ed45c89586f84a73c7754a4a32973683ed47c2f38b",
+      "gzip": true
+    },
+    {
+      "path": "collector_source.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/collect_combined_gate.py",
+      "source_sha256": "4e7f7cde2ee19436b05057eb46330f8863b7d9b495e625294c22a28549a33cfa",
+      "sha256": "4e7f7cde2ee19436b05057eb46330f8863b7d9b495e625294c22a28549a33cfa",
+      "gzip": false
+    }
+  ]
+}

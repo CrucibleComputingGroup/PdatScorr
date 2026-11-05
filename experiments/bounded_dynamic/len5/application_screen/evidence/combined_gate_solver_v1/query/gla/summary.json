@@ -1,0 +1,80 @@
+{
+  "status": "unknown",
+  "accepted_optimization": false,
+  "engine": "ABC &gla -q",
+  "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_prepare_v1/screen.aig",
+  "input_aig_sha256": "7c9c57f7b8e4003d145f51e7b60f605c2fe40a762cb7c1129672656e471b310c",
+  "input_header": [
+    "aig",
+    "568783",
+    "31964",
+    "21741",
+    "0",
+    "515078",
+    "3",
+    "48",
+    "0",
+    "0"
+  ],
+  "script_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_prepare_v1/screen.aig\"; fold; orpos; &get; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/folded.aig\"; &gla -q -T 600 -v -m -A \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/abstraction_map.aig\" -L \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/gla.status\"; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/final.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/final_map.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 601.1593942400068,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/gla.log",
+    "log_sha256": "f297cbe5bcbb3566dacf32fd8a559646d256d406391d82b6994357040dd59f70"
+  },
+  "raw_status": "snl_UNK 28 unknown\nNULL\nNULL\n",
+  "fold_semantics": "AIGER constraints folded first, all bad outputs ORed, then &get; no extra internal premises",
+  "interpretation": "Only explicit threaded-PDR unbounded proof or trivial constant-zero miter can prove safety. A stable abstraction, bounded checks, and timeout are inconclusive. Maps are proof-only artifacts, never hardware.",
+  "folded_header": [
+    "aig",
+    "472283",
+    "31964",
+    "21742",
+    "1",
+    "418577"
+  ],
+  "derive": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "&read \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/final_map.aig\"; &gla_derive; &ps; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/abstracted.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.17446068534627557,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_cube_native_gla_v1/gla/derive.log",
+    "log_sha256": "64a833e2a1b757e10f198126205147ec089896d78d9d9e68f5517afcf79da37d"
+  },
+  "abstracted_header": [
+    "aig",
+    "15243",
+    "1508",
+    "629",
+    "1",
+    "13106"
+  ],
+  "dumped_model_scope": "Recorded map is the last available map; it need not be the exact earlier map solved by the background thread. The verdict refers to the source-bound original folded query.",
+  "artifacts_sha256": {
+    "final_map.aig": "f6eb5f1000a620e0c7bef8900d361409ad2ccfcd18f82670c7913b1bb626b654",
+    "gla.log": "f297cbe5bcbb3566dacf32fd8a559646d256d406391d82b6994357040dd59f70",
+    "abstraction_map.status": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+    "abstracted.aig": "cf2f5b0d919e96a3852fa2a885b62e472b43cc57d1455b7fb6c48d4cef18e898",
+    "final.status": "6a5ddb954300351309eecd1a78e49b9c022b648ff16a092492d1130c34a54414",
+    "derive.log": "64a833e2a1b757e10f198126205147ec089896d78d9d9e68f5517afcf79da37d",
+    "folded.aig": "f3e9af17cf76c1f111ae5eac0e56d4dc1c4864c51e57f2ec8554e68f98521f7f",
+    "gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+    "gla.status": "63b58bbad65c72217cdebea31d2e0be5aaab31207b7bfdfc894e92822ccdf924",
+    "abstraction_map.aig": "35b49693cb2d68f9e04d1fccd3f77b5eac62a114c8262c40b324388ce0bb4c79"
+  }
+}
