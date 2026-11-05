@@ -178,11 +178,16 @@ closed issue/commit destination domains. All 50 counter/tag assertions pass
 base and induction; removing either derived index-domain premise produces an
 actual local counterexample. This is program-only simplification. None of
 those 275 bits is retained in the current gate maps, so it does not directly
-remove retained state there. The next query preparation will also import the
-already-proved field domains that constrain ROB and issue control. Their
-source theorem must be replayed before transferring conclusions through the
-existing pointwise substitutions; no internal occupancy or tag assumption is
-introduced.
+remove retained state there. The
+[prepared native-arithmetic query](application_screen/REGISTER_STATUS_IMPORT.md)
+also imports the 40 already-proved field domains that constrain ROB and issue
+control. It contains 21,749 latches and 515,298 AND nodes, with the original
+three safety assertions and 48 assumptions: initial reset plus 47 proved
+conclusions. Independent review reconstructs the exact graph and verifies the
+unchanged native hardware and memory harness. The source theorem is replayed
+before transferring conclusions through the existing pointwise substitutions;
+no internal occupancy or tag assumption is introduced. No target solver has
+run on this preparation.
 
 The [automatic reset-constant pass](application_screen/RESET_CUBE.md) also
 reaches a fixed point of 42 whole FF words, 583 bits, in seven conservative

@@ -1,0 +1,290 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/register_replay/replay.ys' --
+
+1. Executing JSON frontend.
+Importing module NativeEURegister from JSON tree.
+
+2. Executing SETUNDEF pass (replace undef values with defined constants).
+
+3. Executing BWMUXMAP pass.
+
+4. Executing BMUXMAP pass.
+
+5. Executing DEMUXMAP pass.
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv' to AST representation.
+Generating RTLIL representation for module `\EUProof'.
+Successfully finished Verilog frontend.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1. Analyzing design hierarchy..
+Top module:  \EUProof
+Used module:     \NativeEURegister
+
+8.2. Analyzing design hierarchy..
+Top module:  \EUProof
+Used module:     \NativeEURegister
+Removed 0 unused modules.
+Module EUProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 2 assignments to connections.
+
+11. Executing PROC_INIT pass (extract init attributes).
+
+12. Executing SETUNDEF pass (replace undef values with defined constants).
+
+13. Executing PROC pass (convert processes to netlists).
+
+13.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+13.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+13.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+13.4. Executing PROC_INIT pass (extract init attributes).
+
+13.5. Executing PROC_ARST pass (detect async resets in processes).
+
+13.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\EUProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:3$proc$7'.
+     1/1: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4$assume$8_EN
+
+13.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+13.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+13.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+13.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\EUProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:3$proc$7'.
+Removing empty process `EUProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:3$proc$7'.
+Cleaned up 1 empty switch.
+
+14. Executing SETUNDEF pass (replace undef values with defined constants).
+
+15. Executing PREP pass.
+
+15.1. Executing HIERARCHY pass (managing design hierarchy).
+
+15.1.1. Analyzing design hierarchy..
+Top module:  \EUProof
+Used module:     \NativeEURegister
+
+15.1.2. Analyzing design hierarchy..
+Top module:  \EUProof
+Used module:     \NativeEURegister
+Removed 0 unused modules.
+Module EUProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+15.2. Executing PROC pass (convert processes to netlists).
+
+15.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+15.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+15.2.4. Executing PROC_INIT pass (extract init attributes).
+
+15.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+15.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+15.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+15.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+15.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+15.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+15.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUProof.
+<suppressed ~2 debug messages>
+Optimizing module NativeEURegister.
+
+15.3. Executing CHECK pass (checking for obvious problems).
+Checking module EUProof...
+Checking module NativeEURegister...
+Found and reported 0 problems.
+
+15.4. Executing FLATTEN pass (flatten design).
+Deleting now unused module NativeEURegister.
+<suppressed ~1 debug messages>
+
+15.5. Executing FUTURE pass.
+
+15.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUProof.
+
+15.7. Executing CHECK pass (checking for obvious problems).
+Checking module EUProof...
+Found and reported 0 problems.
+
+15.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUProof..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+15.9. Executing OPT pass (performing simple optimizations).
+
+15.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUProof.
+
+15.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\EUProof'.
+Computing hashes of 14 cells of `\EUProof'.
+Finding duplicate cells in `\EUProof'.
+Removed a total of 0 cells.
+
+15.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \EUProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\dut.$procmux$39604.
+Removed 1 multiplexer ports.
+<suppressed ~6 debug messages>
+
+15.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \EUProof.
+Performed a total of 0 changes.
+
+15.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\EUProof'.
+Computing hashes of 13 cells of `\EUProof'.
+Finding duplicate cells in `\EUProof'.
+Removed a total of 0 cells.
+
+15.9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUProof..
+Removed 1 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+15.9.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUProof.
+
+15.9.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.9.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \EUProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+15.9.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \EUProof.
+Performed a total of 0 changes.
+
+15.9.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\EUProof'.
+Computing hashes of 12 cells of `\EUProof'.
+Finding duplicate cells in `\EUProof'.
+Removed a total of 0 cells.
+
+15.9.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUProof..
+
+15.9.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUProof.
+
+15.9.14. Finished fast OPT passes. (There is nothing left to do.)
+
+15.10. Executing WREDUCE pass (reducing word size of cells).
+
+15.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUProof..
+
+15.12. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+15.13. Executing OPT pass (performing simple optimizations).
+
+15.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUProof.
+
+15.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\EUProof'.
+Computing hashes of 12 cells of `\EUProof'.
+Finding duplicate cells in `\EUProof'.
+Removed a total of 0 cells.
+
+15.13.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUProof..
+
+15.13.4. Finished fast OPT passes.
+
+15.14. Executing SORT pass.
+
+15.15. Printing statistics.
+
+=== EUProof ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       17 wires
+       19 wire bits
+       10 public wires
+       12 public wire bits
+        5 ports
+        6 port bits
+       12 cells
+        1   $aldff
+        3   $check
+        1   $initstate
+        1   $logic_not
+        3   $mux
+        2   $not
+        1   $scopeinfo
+
+15.16. Executing CHECK pass (checking for obvious problems).
+Checking module EUProof...
+Found and reported 0 problems.
+
+16. Executing SETUNDEF pass (replace undef values with defined constants).
+
+17. Executing CHECK pass (checking for obvious problems).
+Checking module EUProof...
+Found and reported 0 problems.
+
+18. Executing ASYNC2SYNC pass.
+Replacing EUProof.$flatten\dut.$driver$u_backend.u_issue_stage.ireg_data_out.assigned_eu ($aldff): ALOAD=\rst_ni, AD=1'0, D=$flatten\dut.$auto$jsonparse.cc:561:json_import$1, Q=\dut.visible_high
+
+19. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+20. Executing SETUNDEF pass (replace undef values with defined constants).
+
+21. Executing CHECK pass (checking for obvious problems).
+Checking module EUProof...
+Found and reported 0 problems.
+
+22. Executing JSON backend.
+
+23. Executing SMT2 backend.
+
+23.1. Executing BMUXMAP pass.
+
+23.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module EUProof.

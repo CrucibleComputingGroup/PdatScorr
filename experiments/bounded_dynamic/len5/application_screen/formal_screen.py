@@ -189,6 +189,7 @@ def main():
     ap.add_argument("--word-domain-lemmas", action="store_true", help="Import seven source-bound native word theorems into a separate proof-only model")
     ap.add_argument("--rom-domain-proof", type=Path, help="Exact external ROM producer theorem required for --word-domain-lemmas")
     ap.add_argument("--inactive-fu-lemmas", type=Path, help="Opt-in raw theorem directory for exact MUL/DIV reset-state substitutions in the proof model only")
+    ap.add_argument("--register-status-lemmas", type=Path, help="Opt-in closed275-bit register-status theorem and40derived RD domains; native-arithmetic preparation only")
     ap.add_argument("--engine", choices=("pdr", "bmc", "prepare"), default="pdr")
     ap.add_argument("--frames", type=int, default=48, help="Bounded falsifier depth; never an unbounded certificate")
     ap.add_argument("--gap", type=int, default=2)
@@ -209,6 +210,8 @@ def main():
         ap.error("--word-domain-lemmas and --rom-domain-proof require each other and --decoder-certificate")
     if args.inactive_fu_lemmas and not args.word_domain_lemmas:
         ap.error('--inactive-fu-lemmas requires the closed decoder, native word lemmas, and exact ROM theorem')
+    if args.register_status_lemmas and (not args.inactive_fu_lemmas or args.datapath_abstraction != 'none' or args.engine != 'prepare'):
+        ap.error('--register-status-lemmas requires the closed inactive-FU chain, native arithmetic, and --engine prepare')
     out = args.output.resolve(); out.mkdir(parents=True, exist_ok=False)
     (out/"formal_screen.py").write_bytes(Path(__file__).read_bytes())
     temporal_helper = REPO/"odc/temporal.py"
@@ -261,6 +264,7 @@ def main():
     word_import = None
     rom_domain_import = None
     inactive_import = None
+    register_status_import = None
     query_native_counts = None
     if args.word_domain_lemmas:
         from certified_decoder import exact_alphabet
@@ -293,6 +297,18 @@ def main():
             if previous!=expected:raise ValueError('Conflicting transitive inactive-FU proof dependency')
             word_import['proof_dependencies_sha256'][path]=expected
         word_import['additional_dependency_closures']=['inactive_fu_reset_facts_replayed']
+    if args.register_status_lemmas:
+        from register_status_import import import_register_status
+        query_design,register_status_import=import_register_status(args.register_status_lemmas,json.loads(source.read_text()),
+            unobserved_native,reduced,query_design,word_import,inactive_import,rom_domain_import,out/'register_status_theorems',yosys=args.yosys)
+        query_core=out/'register_status_query_core.json'
+        query_core.write_text(json.dumps(query_design,indent=2)+'\n')
+        query_native_counts=register_status_import['composition']['proof_only_property_counts']
+        for path,expected in register_status_import['proof_dependencies_sha256'].items():
+            previous=word_import['proof_dependencies_sha256'].get(path,expected)
+            if previous!=expected:raise ValueError('Conflicting transitive register-status theorem dependency')
+            word_import['proof_dependencies_sha256'][path]=expected
+        word_import['additional_dependency_closures'].append('forty_rd_domains_and_register_status_facts_imported')
     if args.datapath_abstraction != 'none':
         abstraction_source = HERE/'abstract_datapath.py'
         (out/'abstract_datapath.py').write_bytes(abstraction_source.read_bytes())
@@ -312,6 +328,7 @@ def main():
         "certified_decoder_import":decoder_import,
         "external_rom_domain_import":rom_domain_import, "native_word_domain_import":word_import,
         "inactive_fu_import":inactive_import,
+        "register_status_import":register_status_import,
         "query_core_path":str(query_core), "query_core_sha256":digest(query_core),
         "proof_only_native_property_counts":query_native_counts,
         "native_hardware_contains_formal_properties":False,
@@ -337,6 +354,8 @@ def main():
         record['scope'] += '; seven previously proved instruction-word domains imported only into the proof model after exact external ROM theorem validation'
     if inactive_import:
         record['scope'] += '; 1761 source-proved program-only reset bits substituted only in the proof model, with no added premises'
+    if register_status_import:
+        record['scope'] += ';275source-proved register-status reset bits and40existing RD-domain conclusions imported into proof model only, no RF replacement'
     if abstraction:
         record['scope'] += '; proof-only payload overapproximation, original native hardware export retained separately'
     save()
@@ -346,9 +365,10 @@ def main():
             "bwmuxmap\nbmuxmap\ndemuxmap\n"
             f"read_verilog -formal -sv {yosys_path(monitor)}\n"
             + formal_prepare_command("AdmissionScreen") + formal_lower_command(args.yosys)+
-            f"select -assert-count 3 t:$assert\nselect -assert-count {8 if word_import else 1} t:$assume\nselect *\nmemory_map\nsetundef -anyseq\nopt_clean\nasync2sync\ndffunmap\nsetundef -anyseq\n"
+            f"select -assert-count 3 t:$assert\nselect -assert-count {48 if register_status_import else 8 if word_import else 1} t:$assume\nselect *\nmemory_map\nsetundef -anyseq\nopt_clean\nasync2sync\ndffunmap\nsetundef -anyseq\n"
             f"write_json {yosys_path(out/'screen.json')}\n", out, "prepare", args.timeout)
         model = json.loads((out/"screen.json").read_text())
+        record['screen_json_sha256'] = digest(out/'screen.json')
         record['query_property_counts'] = {kind:sum(c['type'] == '$'+kind for c in model['modules']['AdmissionScreen']['cells'].values())
                                            for kind in ('assert', 'assume', 'cover')}
         record["clock_model"] = validate_single_clock(model, "AdmissionScreen")
@@ -421,6 +441,12 @@ def main():
         try:
             from inactive_fu_import import verify_dependencies as verify_inactive_dependencies
             verify_inactive_dependencies(inactive_import)
+        except (ValueError,OSError) as error:
+            record.update(status='error',error=str(error))
+    if register_status_import:
+        try:
+            from register_status_import import verify_dependencies as verify_register_status_dependencies
+            verify_register_status_dependencies(register_status_import)
         except (ValueError,OSError) as error:
             record.update(status='error',error=str(error))
     save(); print(json.dumps({k:record[k] for k in ("status", "accepted_optimization")}))

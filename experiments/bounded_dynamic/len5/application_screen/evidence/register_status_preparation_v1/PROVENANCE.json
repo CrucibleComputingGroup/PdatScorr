@@ -1,0 +1,837 @@
+{
+  "status": "prepared_query_only",
+  "accepted_optimization": false,
+  "target_solver_run": false,
+  "native_hardware_json_sha256": "2426b17743dfc23d806d5c544f9c6ebbc722909ed01442f0cb41403a11ad4b48",
+  "query_model_sha256": "03445de2fa6f79055ae6df6fbc71be625a8ec0d7f024902462f7a3da80a7f79b",
+  "aig_sha256": "55a08396fbce700e9d8ac20ce22bef4aff7589c26cf63fafecacd21593801536",
+  "aig_header": [
+    "aig",
+    "569019",
+    "31972",
+    "21749",
+    "0",
+    "515298",
+    "3",
+    "48",
+    "0",
+    "0"
+  ],
+  "query_property_counts": {
+    "assert": 3,
+    "assume": 48,
+    "cover": 0
+  },
+  "native_hardware_unchanged": true,
+  "rf_candidate_substituted": false,
+  "native_arithmetic_retained": true,
+  "proved_word_domains": 7,
+  "proved_rd_domains": 40,
+  "inactive_reset_constants": 1761,
+  "register_status_reset_constants": 275,
+  "new_unproved_internal_premises": 0,
+  "proof_dependency_count": 1964,
+  "source_rd_projection_controls_transferred_through_closed_inactive_equivalence": [
+    "$5850",
+    "$5853",
+    "$5856",
+    "$6146",
+    "$6371",
+    "$6374",
+    "$6377",
+    "$6667",
+    "$855",
+    "$procmux$39601"
+  ],
+  "scope": "Preparation only. Original three safety assertions remain open; all47internal assumptions are previously proved conclusions under the same ROM/reset environment. No full-core admission proof, physical area or hardware/storage-saving claim.",
+  "artifacts": [
+    {
+      "path": "prepared/AdmissionScreen.sv",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/AdmissionScreen.sv",
+      "sha256": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+      "source_sha256": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/certificate.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/certified_decoder/certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/certificate_recheck.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/certified_decoder/certificate_recheck.log",
+      "sha256": "cf79bb0dbeaf6586a5681d34a07b68950f75eee167d9452e31d85fb374b147e2",
+      "source_sha256": "cf79bb0dbeaf6586a5681d34a07b68950f75eee167d9452e31d85fb374b147e2",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/certifier_source.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/certified_decoder/certifier_source.py",
+      "sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "source_sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/importer_source.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/certified_decoder/importer_source.py",
+      "sha256": "71d17c8d430963fb4f7acb81b6b81b53b940ebb377cd85c6174c421f455fff6b",
+      "source_sha256": "71d17c8d430963fb4f7acb81b6b81b53b940ebb377cd85c6174c421f455fff6b",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/revalidated_certificate.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/certified_decoder/revalidated_certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/summary.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/certified_decoder/summary.json",
+      "sha256": "2ee8412f0d7b5cb1d5a28ddcbd9f1b276f5413279b0d46b76ea188814e26db33",
+      "source_sha256": "2ee8412f0d7b5cb1d5a28ddcbd9f1b276f5413279b0d46b76ea188814e26db33",
+      "gzip": false
+    },
+    {
+      "path": "prepared/core_export.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/core_export.log",
+      "sha256": "bdfaae7117897f32a81855ab75cb08373f280bce5ddc491cbb85dfe566c7ab7f",
+      "source_sha256": "bdfaae7117897f32a81855ab75cb08373f280bce5ddc491cbb85dfe566c7ab7f",
+      "gzip": false
+    },
+    {
+      "path": "prepared/core_export.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/core_export.ys",
+      "sha256": "d3e38476d952fac8d008b21ef3da54ecf83cb720940b19b05ed83f2bad8e23e4",
+      "source_sha256": "d3e38476d952fac8d008b21ef3da54ecf83cb720940b19b05ed83f2bad8e23e4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/export.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/export.log",
+      "sha256": "8375fdc55ad23fb8037008f4250813c0382c6461cdcb4e0d44808927c6409396",
+      "source_sha256": "8375fdc55ad23fb8037008f4250813c0382c6461cdcb4e0d44808927c6409396",
+      "gzip": false
+    },
+    {
+      "path": "prepared/export.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/export.ys",
+      "sha256": "c4cf9873e993f4da3815c1cf9f6f14f9bfa1c202b824208ffe76fb4d475fd556",
+      "source_sha256": "c4cf9873e993f4da3815c1cf9f6f14f9bfa1c202b824208ffe76fb4d475fd556",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/certificate.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/external_rom_theorem/certificate.json",
+      "sha256": "1d24b9a23bd75fbcb569abae2733d437e214e3217c54578318a67506fc04b62c",
+      "source_sha256": "1d24b9a23bd75fbcb569abae2733d437e214e3217c54578318a67506fc04b62c",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/importer_source.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/external_rom_theorem/importer_source.py",
+      "sha256": "8de4a3fd39bbffe97a2b0b0eaa87b4b740001dd5240ad0cc56dbc2bbcf3cd38a",
+      "source_sha256": "8de4a3fd39bbffe97a2b0b0eaa87b4b740001dd5240ad0cc56dbc2bbcf3cd38a",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/model.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/external_rom_theorem/model.json",
+      "sha256": "46eb85a0ddaabacedd3862106003e1768c90ca4c72666e32550fbc57721cdadf",
+      "source_sha256": "b951f8fed491065071cefb591a5a8de21144db0511f5bb055caede42f5331da2",
+      "gzip": true
+    },
+    {
+      "path": "prepared/external_rom_theorem/model.smt2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/external_rom_theorem/model.smt2",
+      "sha256": "c16a2e30e2ca39cd59f3795ad59531b802a716f4882240eec3e0fed89ed25738",
+      "source_sha256": "c16a2e30e2ca39cd59f3795ad59531b802a716f4882240eec3e0fed89ed25738",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/external_rom_theorem/replay.log",
+      "sha256": "5e5db466c0ede61a4fdb493eedc81a79d734c08074d07282fbc8172ade45ea64",
+      "source_sha256": "5e5db466c0ede61a4fdb493eedc81a79d734c08074d07282fbc8172ade45ea64",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/external_rom_theorem/replay.ys",
+      "sha256": "02f4c86a3137e3f1406b77849ed8bd3d55509dd36f493098883bf33ad27637ac",
+      "source_sha256": "02f4c86a3137e3f1406b77849ed8bd3d55509dd36f493098883bf33ad27637ac",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/summary.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/external_rom_theorem/summary.json",
+      "sha256": "e923064f40f94ff41cb7b51f3017fd49e8538c216738a9ebf28649ed65e2360f",
+      "source_sha256": "e923064f40f94ff41cb7b51f3017fd49e8538c216738a9ebf28649ed65e2360f",
+      "gzip": false
+    },
+    {
+      "path": "prepared/formal_screen.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/formal_screen.py",
+      "sha256": "8378f42eb779570a34d255a8c493a7208bd0ac10af34684c498e13f4c66fbad9",
+      "source_sha256": "8378f42eb779570a34d255a8c493a7208bd0ac10af34684c498e13f4c66fbad9",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_0/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_0/lowered.json",
+      "sha256": "de680f41ad18d429b5bf410d0cc1be771f54ca79b945302259eb3e0163182395",
+      "source_sha256": "8b6743a77ed86365c6f340dbe0d79f13d349e5da6cfd3b9dd8c376ccfa833c90",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_0/model.smt2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_0/model.smt2",
+      "sha256": "6f4d7fdd8c6714b36cbe1aa4e6498f1b950ef7722a5a44cbc88a5266d3b86c7f",
+      "source_sha256": "6f4d7fdd8c6714b36cbe1aa4e6498f1b950ef7722a5a44cbc88a5266d3b86c7f",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_0/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_0/replay.log",
+      "sha256": "e689d3271cd26e284a21c99f90f3279076a692d6bccbc34aca87b246f0a244c4",
+      "source_sha256": "e689d3271cd26e284a21c99f90f3279076a692d6bccbc34aca87b246f0a244c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_0/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_0/replay.ys",
+      "sha256": "deab49d3c29d5bf3785df5ad2c23e3f12aba4b38f01d8e9cf7eb6fb11b22c6a0",
+      "source_sha256": "deab49d3c29d5bf3785df5ad2c23e3f12aba4b38f01d8e9cf7eb6fb11b22c6a0",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_1/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_1/lowered.json",
+      "sha256": "17b89fd42107c60cfeb66cd8abb4a589b4a585e12abe8594d0d9b7b0106da6ac",
+      "source_sha256": "9be362cf6024c61777ff6e2971cccc584b3f6b59bbc555712e1d0ba4bb431831",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_1/model.smt2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_1/model.smt2",
+      "sha256": "0c2d90e07b5d588bfdebe353ba447e1fa451964e51573ff7461606bb598c2e9d",
+      "source_sha256": "0c2d90e07b5d588bfdebe353ba447e1fa451964e51573ff7461606bb598c2e9d",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_1/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_1/replay.log",
+      "sha256": "909eac4a9a62ee20ab17d467ea7408f95d52aa6dfabfde16480caf09f4fef97d",
+      "source_sha256": "909eac4a9a62ee20ab17d467ea7408f95d52aa6dfabfde16480caf09f4fef97d",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_1/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_1/replay.ys",
+      "sha256": "0f9adb29103c9abfdc2f6f18c351fcd44971f74496be6ba7ea99d36435a350a3",
+      "source_sha256": "0f9adb29103c9abfdc2f6f18c351fcd44971f74496be6ba7ea99d36435a350a3",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_2/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_2/lowered.json",
+      "sha256": "64a12863b0e6d9509c7eaad5a64d892fc92ffbcd7fcc9e99e71d1ce8f0cd96c2",
+      "source_sha256": "2e5df35ccb422c5efb5854922f5e6f9bac7089d1dcceb5fea9b1d82cc20448f6",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_2/model.smt2.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_2/model.smt2",
+      "sha256": "4e7cf4186a311a2fce849ee1dbc7ace1379b7b531e749657f6d6c5f4b1e1299a",
+      "source_sha256": "0fa9a85e5e4e9c5d04587422233484a276464c1e07250e6e01db4f4b4d5815ce",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_2/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_2/replay.log",
+      "sha256": "092b571c95e1c2e2dcba36e79447231cd6ee67ddbb1b6d208b6cc979973f3d18",
+      "source_sha256": "092b571c95e1c2e2dcba36e79447231cd6ee67ddbb1b6d208b6cc979973f3d18",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_2/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_2/replay.ys",
+      "sha256": "08dc1b3fc0532b952b72ea36cff05d6f3310ab5c534b5931ca38d9ee46b87734",
+      "source_sha256": "08dc1b3fc0532b952b72ea36cff05d6f3310ab5c534b5931ca38d9ee46b87734",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_3/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_3/lowered.json",
+      "sha256": "e79fe651a7c2a4d4316e2278a0195cd7a78d6a1b1cf950739186135d12900ead",
+      "source_sha256": "75f6914f93139b33d73227cbbf28154ed486e9486e53fffa2d7a17a470a28119",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_3/model.smt2.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_3/model.smt2",
+      "sha256": "78c6b8263e7f4964f8027dbcda31d0679a6af0f986a5abaf9b794678959775be",
+      "source_sha256": "db4a6afe62928449d64a5b5d441e8086216ec24d425e44e5db5d1b17fa511855",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_3/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_3/replay.log",
+      "sha256": "4eaf860a3099b16a9cf75861e45bb3a54debf09aa6cce77338a61a6dc999112e",
+      "source_sha256": "4eaf860a3099b16a9cf75861e45bb3a54debf09aa6cce77338a61a6dc999112e",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/div_row_3/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/div_row_3/replay.ys",
+      "sha256": "444a4c925fa02bc461b078c8f743db8a63847278535bd6a12ff0ff28b7dbd6ae",
+      "source_sha256": "444a4c925fa02bc461b078c8f743db8a63847278535bd6a12ff0ff28b7dbd6ae",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/certificate_replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/certificate_replay.log",
+      "sha256": "4a4145e8ba82589d5c86e8990772e15a199c85bfeebbcf4c91445173ab4a68e2",
+      "source_sha256": "4a4145e8ba82589d5c86e8990772e15a199c85bfeebbcf4c91445173ab4a68e2",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/decoder_replay/lowered.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/decoder_replay/lowered.json",
+      "sha256": "f354801084bbbc3c031a691d8384e39b301e5a92ca610e9c839b41cabdc101e7",
+      "source_sha256": "f354801084bbbc3c031a691d8384e39b301e5a92ca610e9c839b41cabdc101e7",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/decoder_replay/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/decoder_replay/replay.log",
+      "sha256": "0579ae0245f97550e69a978a192c0d76790a24f876a410252d9a83ad0ef723de",
+      "source_sha256": "0579ae0245f97550e69a978a192c0d76790a24f876a410252d9a83ad0ef723de",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/decoder_replay/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/decoder_replay/replay.ys",
+      "sha256": "688a47e216f08e01783f120ab97ba29b98b29ebb2ab14489399a0149feb78157",
+      "source_sha256": "688a47e216f08e01783f120ab97ba29b98b29ebb2ab14489399a0149feb78157",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/decoder_replay/symbolized_before_prep.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/decoder_replay/symbolized_before_prep.json",
+      "sha256": "06071897a8ab18ee8a3abd77786d9b001c090553ffab52498ac893969cf5839b",
+      "source_sha256": "2bf2d361408d7d75de960fade098b4219ccd3222278faf2dc3fe3c5a02104e4a",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/dispatch_replay/lowered.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/dispatch_replay/lowered.json",
+      "sha256": "69b151bedecb9adf26fef69a63c6c71a08242c96721d0b8c5dfb96c39e509d11",
+      "source_sha256": "69b151bedecb9adf26fef69a63c6c71a08242c96721d0b8c5dfb96c39e509d11",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/dispatch_replay/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/dispatch_replay/replay.log",
+      "sha256": "bb85ec8ef9fd3152cb2e4549521b878fe848f14034c19ec3d62d0ce8a39a609e",
+      "source_sha256": "bb85ec8ef9fd3152cb2e4549521b878fe848f14034c19ec3d62d0ce8a39a609e",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/dispatch_replay/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/dispatch_replay/replay.ys",
+      "sha256": "71e2b3a202854bbcd51c6b23d4f7602fed6d8350eaf5463088f39f3dfe4ec2a8",
+      "source_sha256": "71e2b3a202854bbcd51c6b23d4f7602fed6d8350eaf5463088f39f3dfe4ec2a8",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/register_replay/lowered.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/register_replay/lowered.json",
+      "sha256": "45a04db194b276ae9a809e3d29a201cb6f5b96436f6ec7e9fda694db9bb50cd7",
+      "source_sha256": "45a04db194b276ae9a809e3d29a201cb6f5b96436f6ec7e9fda694db9bb50cd7",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/register_replay/model.smt2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/register_replay/model.smt2",
+      "sha256": "547cb52c1f141d65e909a148c43435c44254734cf54a3e641130e3b2fbe54419",
+      "source_sha256": "547cb52c1f141d65e909a148c43435c44254734cf54a3e641130e3b2fbe54419",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/register_replay/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/register_replay/replay.log",
+      "sha256": "0848f47c2630955734087933ea5b09fb584e706a4e7758100d5da6e671119ded",
+      "source_sha256": "0848f47c2630955734087933ea5b09fb584e706a4e7758100d5da6e671119ded",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/register_replay/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/register_replay/replay.ys",
+      "sha256": "2ce5333ef82bb283cf1ac8ce89990b53893945e9ed6493054d16ac9b3b3ce420",
+      "source_sha256": "2ce5333ef82bb283cf1ac8ce89990b53893945e9ed6493054d16ac9b3b3ce420",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/eu_chain/replayed_decoder_certificate.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/eu_chain/replayed_decoder_certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/importer_source.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/importer_source.py",
+      "sha256": "1e155339cf739e87d9a6f822003220f34e484afd9cfae19bd999360a77a74ca5",
+      "source_sha256": "1e155339cf739e87d9a6f822003220f34e484afd9cfae19bd999360a77a74ca5",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_0/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_0/lowered.json",
+      "sha256": "641aa20a09321d58809c4fb14500934dcc852a1c12980015161fb7d386fcdb7e",
+      "source_sha256": "58d2eb6c3a08e1eb6d38406c108921f21dc060348087f7f2d424672803828de0",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_0/model.smt2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_0/model.smt2",
+      "sha256": "5b6d4f9fe4b7b4d091a75ed44413ad2eda46e80776ef4ce4326ee491128f48ea",
+      "source_sha256": "5b6d4f9fe4b7b4d091a75ed44413ad2eda46e80776ef4ce4326ee491128f48ea",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_0/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_0/replay.log",
+      "sha256": "6b0f4fc3f899834ec8119e5ef8f2fa6e28cb3418babd0d71ebb342964bf3ced3",
+      "source_sha256": "6b0f4fc3f899834ec8119e5ef8f2fa6e28cb3418babd0d71ebb342964bf3ced3",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_0/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_0/replay.ys",
+      "sha256": "51113e951fe7a8a0360f5e2359517d64c0bd6eefb4286ec52c1b61abfde11e1f",
+      "source_sha256": "51113e951fe7a8a0360f5e2359517d64c0bd6eefb4286ec52c1b61abfde11e1f",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_1/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_1/lowered.json",
+      "sha256": "2dfab7067b79e91b55584a99df35abc90407255fcd49312b484efb7774af2b4a",
+      "source_sha256": "d716a57d26c4163f9cc2e3191f61b9aed1cf7b35a7ef7f2ffc3c034e3ffba352",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_1/model.smt2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_1/model.smt2",
+      "sha256": "c33941f7636f4cf6f2be829d50b3d4448d7e4775b0565774fd573d9d4e101fb6",
+      "source_sha256": "c33941f7636f4cf6f2be829d50b3d4448d7e4775b0565774fd573d9d4e101fb6",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_1/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_1/replay.log",
+      "sha256": "362afb54b940aec5324a462ec5d707d9b9a399fd2e2d05642af65f0b13e91e8c",
+      "source_sha256": "362afb54b940aec5324a462ec5d707d9b9a399fd2e2d05642af65f0b13e91e8c",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_1/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_1/replay.ys",
+      "sha256": "b2f0941f9f394ed45335265783dcf240aed9547a68fa161b09731acf6bbb5260",
+      "source_sha256": "b2f0941f9f394ed45335265783dcf240aed9547a68fa161b09731acf6bbb5260",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_2/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_2/lowered.json",
+      "sha256": "f841ec1605a39226addfe7012fa538004a8a03c9ef7e1e38b335d8356f549fc2",
+      "source_sha256": "55a25de6297f854bf07e2a6ff8cda8cc346fb3c2a8b0dc9b1101ef14179e9232",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_2/model.smt2.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_2/model.smt2",
+      "sha256": "a1347cf1b22dcbe8d9b8cb441dd572308cf9e989dbac19614c9929045b32a9f5",
+      "source_sha256": "eaa20b9d8e52b11c6893ddb805103276782acd6f4c42a6ff90af8565d4c1c254",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_2/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_2/replay.log",
+      "sha256": "82188603830926db6e34c8aef452e578b322288d75531f8b9bb62c5436333043",
+      "source_sha256": "82188603830926db6e34c8aef452e578b322288d75531f8b9bb62c5436333043",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_2/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_2/replay.ys",
+      "sha256": "7a92aa25862af2f733a5b44415ebf867b760164645188e7849577112a343a01d",
+      "source_sha256": "7a92aa25862af2f733a5b44415ebf867b760164645188e7849577112a343a01d",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_3/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_3/lowered.json",
+      "sha256": "658b94aee22816ba035fb3aff838e6a0e477ebb3dd0d6b5de819ca9860c8cc09",
+      "source_sha256": "2062f650dd7c5a385ed109a9b42327c247e4b6297dc690d0d248b0396489cbba",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_3/model.smt2.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_3/model.smt2",
+      "sha256": "f4608cbbb59066afdf4ca01cea4d64f295a2962a06da42bf6667d483e9f36e6b",
+      "source_sha256": "4c0ca3e150eee3e0c9930b381035c30a650993ecd8212cf5b161804c3959639a",
+      "gzip": true
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_3/replay.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_3/replay.log",
+      "sha256": "4e293a65a8336a8bff3d36eadab763d193ed607ea70c40e9b2f671633378f963",
+      "source_sha256": "4e293a65a8336a8bff3d36eadab763d193ed607ea70c40e9b2f671633378f963",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/mul_row_3/replay.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/mul_row_3/replay.ys",
+      "sha256": "3cd803abfc139ef457f92c07813459c34cc6034a5be3129a578825961126c193",
+      "source_sha256": "3cd803abfc139ef457f92c07813459c34cc6034a5be3129a578825961126c193",
+      "gzip": false
+    },
+    {
+      "path": "prepared/inactive_fu_theorems/summary.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_fu_theorems/summary.json",
+      "sha256": "379bbe449e133d3227716218c59a9ed1c44c9d04b30bdbd84b024a2f3470cb41",
+      "source_sha256": "3a44ebff7e237bd2584d76d5b3cadeebc5198e89c1d65dd74ff4203e55618e66",
+      "gzip": true
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/certificate.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/certificate_replay/certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/certificate_recheck.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/certificate_replay/certificate_recheck.log",
+      "sha256": "36ca56ec4cc990ed1e9ff337382bdf84d9b25ab342a27d8828276fcbe498ad10",
+      "source_sha256": "36ca56ec4cc990ed1e9ff337382bdf84d9b25ab342a27d8828276fcbe498ad10",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/certifier_source.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/certificate_replay/certifier_source.py",
+      "sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "source_sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/importer_source.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/certificate_replay/importer_source.py",
+      "sha256": "71d17c8d430963fb4f7acb81b6b81b53b940ebb377cd85c6174c421f455fff6b",
+      "source_sha256": "71d17c8d430963fb4f7acb81b6b81b53b940ebb377cd85c6174c421f455fff6b",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/revalidated_certificate.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/certificate_replay/revalidated_certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/summary.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/certificate_replay/summary.json",
+      "sha256": "8f4f15c47d31eef3392946030ffa766d37458cba1bf7727e11b86642ea3f3e36",
+      "source_sha256": "8f4f15c47d31eef3392946030ffa766d37458cba1bf7727e11b86642ea3f3e36",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/domain_export_replay/lowered.json",
+      "sha256": "d5e08acb5d2da6b68ff8dc488eea5909d4c49f0318184180160dbcf5207e0853",
+      "source_sha256": "cdb2583f2257830903befde2cc8418113958d7ebbe7bdaba944aa17c3961c202",
+      "gzip": true
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/model.smt2.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/domain_export_replay/model.smt2",
+      "sha256": "ad8215876663816ea0b2617d76b444eac63e118ea95ccc6b7e1a07290aa795d3",
+      "source_sha256": "18d37a2aba528ae2a8e60558a2394d68345629b5f7ccb1b9034b0183830673db",
+      "gzip": true
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/regenerate.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/domain_export_replay/regenerate.log",
+      "sha256": "afa36f6d1cb70d282df4413b2c43b04311685df8c7a60bc8582245f3ded09632",
+      "source_sha256": "afa36f6d1cb70d282df4413b2c43b04311685df8c7a60bc8582245f3ded09632",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/regenerate.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/domain_export_replay/regenerate.ys",
+      "sha256": "6a59a33db57178b2a1bb98f267aed7bb42ca0fc9a88e808f303e4316462e0dcf",
+      "source_sha256": "6a59a33db57178b2a1bb98f267aed7bb42ca0fc9a88e808f303e4316462e0dcf",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/symbolized_before_prep.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/domain_export_replay/symbolized_before_prep.json",
+      "sha256": "26bcd5ac0c233f786b04b9dc0c6ee1e3db1e0d6ff2df1d2d4d103a66850d3392",
+      "source_sha256": "69ef05018d76a3f11066a466d97bc64bc36472eef2f971c41100486d5b21a5a2",
+      "gzip": true
+    },
+    {
+      "path": "prepared/native_word_theorems/importer_source.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/importer_source.py",
+      "sha256": "676af86c4b79a53afaa3416388672e58f0f5c89545bf283a2e1f1c1d817d9da6",
+      "source_sha256": "676af86c4b79a53afaa3416388672e58f0f5c89545bf283a2e1f1c1d817d9da6",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/summary.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/summary.json",
+      "sha256": "eba87b38a703eb75ba5f9c06422e04ef3d690025512325e49c55186e38413f97",
+      "source_sha256": "eba87b38a703eb75ba5f9c06422e04ef3d690025512325e49c55186e38413f97",
+      "gzip": false
+    },
+    {
+      "path": "prepared/prepare.log.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/prepare.log",
+      "sha256": "a985b0b335089d90626ce03782cf9a7f1a7e3606871e409ff72cea0a365e0582",
+      "source_sha256": "8f67a25bdc7d988e3c8e6f02840d36d20f07fb11811b6fb9c5c2477a815f1ed2",
+      "gzip": true
+    },
+    {
+      "path": "prepared/prepare.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/prepare.ys",
+      "sha256": "dbf72af37d374a56ba726a3715b58616628f8ee8d761ef1bd134c51db99c8d7f",
+      "source_sha256": "dbf72af37d374a56ba726a3715b58616628f8ee8d761ef1bd134c51db99c8d7f",
+      "gzip": false
+    },
+    {
+      "path": "prepared/program.hex",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/program.hex",
+      "sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+      "source_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+      "gzip": false
+    },
+    {
+      "path": "prepared/program_rom.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/program_rom.py",
+      "sha256": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+      "source_sha256": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/decoder_certificate.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/decoder_certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/decoder_certificate.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/decoder_certificate.log",
+      "sha256": "35ec885d9e8bb9b9dffd31d238f36e388b58eaeb95e93dce4d5eb5dc851acf17",
+      "source_sha256": "35ec885d9e8bb9b9dffd31d238f36e388b58eaeb95e93dce4d5eb5dc851acf17",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/local_export_replay/lowered.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/local_export_replay/lowered.json",
+      "sha256": "bdb918f5173bdce7be495d39223dec7c6f19b4af5a9f1eaf6bd8b392a1bc830e",
+      "source_sha256": "dd302d244ff460cffbd4a61f33ce0e597346e1f81cd4f167b6240ff775c5cbb7",
+      "gzip": true
+    },
+    {
+      "path": "prepared/register_status_theorems/local_export_replay/model.smt2.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/local_export_replay/model.smt2",
+      "sha256": "1207e5956db9de58e3380a48e310500fb39b5784ab7bfd646ea528cc38fcdf37",
+      "source_sha256": "018d9774311b6863a72dd55fc2ac87bd7d711751fc4d21d6bdf149309185b0fe",
+      "gzip": true
+    },
+    {
+      "path": "prepared/register_status_theorems/local_export_replay/regenerate.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/local_export_replay/regenerate.log",
+      "sha256": "93fd91955f77604e5c71790482cb843c859a7247656de71f153fa0c66b26bd1c",
+      "source_sha256": "93fd91955f77604e5c71790482cb843c859a7247656de71f153fa0c66b26bd1c",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/local_export_replay/regenerate.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/local_export_replay/regenerate.ys",
+      "sha256": "08900b69833bf5288178f79d5f455316bb04e9589dda5d15d3df39f8d40e02e7",
+      "source_sha256": "08900b69833bf5288178f79d5f455316bb04e9589dda5d15d3df39f8d40e02e7",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/rd_export_replay/regenerate.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/rd_export_replay/regenerate.log",
+      "sha256": "8989371978a4255913b44fc51956a111ab29bee851668190dfff79be316ca7c6",
+      "source_sha256": "8989371978a4255913b44fc51956a111ab29bee851668190dfff79be316ca7c6",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/rd_export_replay/regenerate.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/rd_export_replay/regenerate.ys",
+      "sha256": "ac3a34cd5faf8367799c413e4bef86c447b26abd0e5817bf65db1102e79903e8",
+      "source_sha256": "ac3a34cd5faf8367799c413e4bef86c447b26abd0e5817bf65db1102e79903e8",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/register_certificate.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/register_certificate.json",
+      "sha256": "2710ed44c2e459f2df8ad74e1747976f3fbc7dae3f83a6f7114a971e5a782969",
+      "source_sha256": "2710ed44c2e459f2df8ad74e1747976f3fbc7dae3f83a6f7114a971e5a782969",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/register_certificate.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/register_certificate.log",
+      "sha256": "2303ffb25f85deed0ce991ba3914f924162545d3c902cbfc771da7e73d58a36a",
+      "source_sha256": "2303ffb25f85deed0ce991ba3914f924162545d3c902cbfc771da7e73d58a36a",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/register_status_import_source.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/register_status_import_source.py",
+      "sha256": "3db0e5ecdf9b2424694f158e44b22da2335e8ff70ee120790a1414be7885c64b",
+      "source_sha256": "3db0e5ecdf9b2424694f158e44b22da2335e8ff70ee120790a1414be7885c64b",
+      "gzip": false
+    },
+    {
+      "path": "prepared/register_status_theorems/summary.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/summary.json",
+      "sha256": "f08138d6801012048ae67d9dbeb03273f1244f6ea36cd1e805b1d5fa1bedc4da",
+      "source_sha256": "13b75e1cd08348738fc7d967e01cb4fbff8cdcff99fc0a9ce23231066c1aab40",
+      "gzip": true
+    },
+    {
+      "path": "prepared/rom.json",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/rom.json",
+      "sha256": "dcf3a29b00ff33e878a41e1ef77a1eaafecb0c1420e2b5ff6c5af48a2855efb3",
+      "source_sha256": "dcf3a29b00ff33e878a41e1ef77a1eaafecb0c1420e2b5ff6c5af48a2855efb3",
+      "gzip": false
+    },
+    {
+      "path": "prepared/source_export.log",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/source_export.log",
+      "sha256": "7652e684a0000035f9f62123788dce7783d4517467385c04bef926bcb0050888",
+      "source_sha256": "7652e684a0000035f9f62123788dce7783d4517467385c04bef926bcb0050888",
+      "gzip": false
+    },
+    {
+      "path": "prepared/source_export.ys",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/source_export.ys",
+      "sha256": "27b5ba35b212ec005f01dff2f37b730461c94df7aba3681eb7681c9594bd09ac",
+      "source_sha256": "27b5ba35b212ec005f01dff2f37b730461c94df7aba3681eb7681c9594bd09ac",
+      "gzip": false
+    },
+    {
+      "path": "prepared/summary.json.gz",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/summary.json",
+      "sha256": "fb463eddf38f804b51848aadc26c69774ec0e434666f980261799543c9d80ed1",
+      "source_sha256": "92cc0ffdc00814e59a06c94753cc4b6d185194d6357129150844deb6eb99bd30",
+      "gzip": true
+    },
+    {
+      "path": "prepared/temporal.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/temporal.py",
+      "sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+      "source_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+      "gzip": false
+    },
+    {
+      "path": "register_status_import.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/register_status_import.py",
+      "sha256": "3db0e5ecdf9b2424694f158e44b22da2335e8ff70ee120790a1414be7885c64b",
+      "source_sha256": "3db0e5ecdf9b2424694f158e44b22da2335e8ff70ee120790a1414be7885c64b",
+      "gzip": false
+    },
+    {
+      "path": "register_status_prepared.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/register_status_prepared.py",
+      "sha256": "a16c957bcba204e974a86407eb7eb24741f4f30c7228b76bdd58a2fbec07475f",
+      "source_sha256": "a16c957bcba204e974a86407eb7eb24741f4f30c7228b76bdd58a2fbec07475f",
+      "gzip": false
+    },
+    {
+      "path": "collect_register_status_preparation.py",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/collect_register_status_preparation.py",
+      "sha256": "bd7cea75a5ecc106a4e6f17e79e301b801168abec2276f1494c7e6e83c6e480e",
+      "source_sha256": "bd7cea75a5ecc106a4e6f17e79e301b801168abec2276f1494c7e6e83c6e480e",
+      "gzip": false
+    }
+  ],
+  "large_external_artifacts": [
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/certified_decoder/native_candidate.json",
+      "sha256": "82a76125a33790027bf6b86cb97007d048759484d6e96027abd8fa9ad5d215db",
+      "bytes": 18583741
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/core.json",
+      "sha256": "2426b17743dfc23d806d5c544f9c6ebbc722909ed01442f0cb41403a11ad4b48",
+      "bytes": 41642648
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/core.v",
+      "sha256": "fa7a83d7daed73b10f9be5f0d5dc8f927045f4d867b52bc795fffbbb500778b5",
+      "bytes": 9029533
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/inactive_query_core.json",
+      "sha256": "7406d6177bcdc33f3b1c0d7d13510f262fe301bb026b81b444c8137e86e623cc",
+      "bytes": 41625847
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/lemma_core.json",
+      "sha256": "16e274435b6f542d4304df7885deba4f27ce25fa87c2be398bdf707367f90b34",
+      "bytes": 41847601
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/native_word_theorems/certificate_replay/native_candidate.json",
+      "sha256": "82a76125a33790027bf6b86cb97007d048759484d6e96027abd8fa9ad5d215db",
+      "bytes": 18583741
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_query_core.json",
+      "sha256": "03445de2fa6f79055ae6df6fbc71be625a8ec0d7f024902462f7a3da80a7f79b",
+      "bytes": 41826739
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/rd_export_replay/lowered.json",
+      "sha256": "059b7c6ecdfa0ca9d02e595e5ea4b17051751f5a9f62f3acdd98cec7a7183960",
+      "bytes": 6311084
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/rd_export_replay/model.smt2",
+      "sha256": "ce0376861716edad142f90de82adb0406d586c17e1959a9b4195dc3878f9d419",
+      "bytes": 3810356
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/register_status_theorems/rd_export_replay/symbolized_before_prep.json",
+      "sha256": "7d8657ea87c0fbbbd5ae5898931356d2ab4824e245307db13714217bbc1a66d9",
+      "bytes": 3234718
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/screen.aig",
+      "sha256": "55a08396fbce700e9d8ac20ce22bef4aff7589c26cf63fafecacd21593801536",
+      "bytes": 2300193
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/screen.json",
+      "sha256": "96fc9ae9666cc3569d9d1b864ce7f412c5e81e61f50aa169a4fb1638ec58aa96",
+      "bytes": 17360190
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_register_status_native_prepare_v1/source.json",
+      "sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+      "bytes": 24775841
+    }
+  ]
+}
