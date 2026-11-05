@@ -1,0 +1,223 @@
+{
+  "status": "target_refinement_not_launched_due_to_failed_plumbing_controls",
+  "target_refinement_launched": false,
+  "accepted_optimization": false,
+  "target_cex_still_abstraction_only": true,
+  "target_dependencies_revalidated": true,
+  "cases": {
+    "spurious": {
+      "original_independent_status": "proved_safety_query_only",
+      "returned_status": "snl_UNK 0 unknown\nNULL\nNULL\n",
+      "exact_input_abstraction_cex_validation_present": true,
+      "native_mapping_warning": false,
+      "internal_log_reports_real_counterexample": false,
+      "concrete_witness_exported": false,
+      "qualification": "map_bound_but_no_concrete_verdict"
+    },
+    "negative": {
+      "original_independent_status": "counterexample_in_query_model",
+      "returned_status": "snl_UNK 0 unknown\nNULL\nNULL\n",
+      "exact_input_abstraction_cex_validation_present": true,
+      "native_mapping_warning": true,
+      "internal_log_reports_real_counterexample": true,
+      "concrete_witness_exported": false,
+      "qualification": "rejected_mapping_warning"
+    }
+  },
+  "observed_probe_process_exit": 1,
+  "observed_probe_exception": "ValueError: Refinement did not bind the exact tiny CEX/map",
+  "source_analysis": {
+    "command": "Abc_CommandAbc9GlaRefine calls Gia_ManNewRefine, then replaces the global CEX with pGia->pCexSeq.",
+    "function": "Gia_ManNewRefine validates the abstract CEX then invokes bounded GLA, destroys pNew without moving its CEX to p, and unconditionally returns -1.",
+    "source_checkout_commit": "5d51a5e420f5de493d07bf61109a977248c86ffb",
+    "absOut_sha256": "ddbe9221da7d9bd359ed16899589589ab1ed862eb2c12956d9271a9629057be2",
+    "abc_c_sha256": "903b9ab69f115638f2c16a9a1e943012dada5d6796a752c36bad065797e8e077",
+    "binary_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "binding_caveat": "Local source inspection is consistent with observed installed-binary behavior; no claim that this checkout alone proves binary build provenance."
+  },
+  "conclusion": "The tiny known-real case emits a true-CEX log but loses SAT status and witness, so testcex cannot validate a concrete original-model result. A mapping-invalidated warning separately fails the strict binding guard. No target attempt, weaker guard, further search, or native claim follows.",
+  "artifacts": [
+    {
+      "path": "probe/spurious/input_cex_validation.log",
+      "sha256": "5903b4c37b0515ae0833d71f61950c58e2d3a47b7b99984cd571286271bd7b7a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/input_cex_validation.log",
+      "source_sha256": "5903b4c37b0515ae0833d71f61950c58e2d3a47b7b99984cd571286271bd7b7a",
+      "gzip": false
+    },
+    {
+      "path": "probe/spurious/map_replay/derive.log",
+      "sha256": "71ccf03a2fbd6cda15d90116b5e5ea801cb5ddc8cacaa50d43933347e6518ec4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/map_replay/derive.log",
+      "source_sha256": "71ccf03a2fbd6cda15d90116b5e5ea801cb5ddc8cacaa50d43933347e6518ec4",
+      "gzip": false
+    },
+    {
+      "path": "probe/spurious/map_replay/rederived.aig.gz",
+      "sha256": "0a7f5aeabd23cf3ef22edbe5aa9ee581de8887d66372bafc813510e5bde257f7",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/map_replay/rederived.aig",
+      "source_sha256": "2326c2c2087b9fb7cc61603d190b9cdc2b09399265a54c743d29f13a34e3db90",
+      "gzip": true
+    },
+    {
+      "path": "probe/spurious/refine.log",
+      "sha256": "a3adddc31e11cc6c92f51123314527210ddec226082fd0618860371636b16ad7",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/refine.log",
+      "source_sha256": "a3adddc31e11cc6c92f51123314527210ddec226082fd0618860371636b16ad7",
+      "gzip": false
+    },
+    {
+      "path": "probe/spurious/refined.status",
+      "sha256": "5bb9d9a4adcca6c042d73ddd35b9d787590970382d3be9d38323febe94c04e43",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/refined.status",
+      "source_sha256": "5bb9d9a4adcca6c042d73ddd35b9d787590970382d3be9d38323febe94c04e43",
+      "gzip": false
+    },
+    {
+      "path": "probe/spurious/refined_map.aig.gz",
+      "sha256": "c64f3f6a6a297881ce279699022c452892b19b0ee4149d5da898f3807d8bccf1",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/refined_map.aig",
+      "source_sha256": "bce033896b85b9991714c03fa79c47ed9bc56fa5d68d49d78990b7a7b42f7de3",
+      "gzip": true
+    },
+    {
+      "path": "probe/spurious/summary.json",
+      "sha256": "86264d73fcb0be62b619548861c1997b395de0de38183380c750184e9aaf6a20",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/summary.json",
+      "source_sha256": "86264d73fcb0be62b619548861c1997b395de0de38183380c750184e9aaf6a20",
+      "gzip": false
+    },
+    {
+      "path": "prior_controls/spurious/prior_abstract_cex_summary.json",
+      "sha256": "9518dc6e19205aa043c5dc4d4b893f8db89949b3c5cb3be14b37b2cd696aec55",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/pdr/summary.json",
+      "source_sha256": "9518dc6e19205aa043c5dc4d4b893f8db89949b3c5cb3be14b37b2cd696aec55",
+      "gzip": false
+    },
+    {
+      "path": "prior_controls/spurious/input_cex.status",
+      "sha256": "dd98755531cbe3be97c31e860fffa308a5ac8acce0e633bc6742f2f2e5b05035",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/pdr/pdr.status",
+      "source_sha256": "dd98755531cbe3be97c31e860fffa308a5ac8acce0e633bc6742f2f2e5b05035",
+      "gzip": false
+    },
+    {
+      "path": "prior_controls/spurious/input_map.aig.gz",
+      "sha256": "d84bbe938648e65b8ff5b9892e38b8a737454fc2321a87ab42fbe225cb4bd78d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/bounded_map.aig",
+      "source_sha256": "5d33374cae8392a393fa1197dacb04cd8e3a2f9cd924bd72416d08310379da0c",
+      "gzip": true
+    },
+    {
+      "path": "prior_controls/spurious/prior_original_summary.json",
+      "sha256": "848a9cd6f45f3c051f3cb3225011a367f14c990084004c5aa645bde0fb9d2ef6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/unbounded/summary.json",
+      "source_sha256": "848a9cd6f45f3c051f3cb3225011a367f14c990084004c5aa645bde0fb9d2ef6",
+      "gzip": false
+    },
+    {
+      "path": "probe/negative/input_cex_validation.log",
+      "sha256": "f161d189f778a6630ef18d74d4dd463c00c762be15621407220950318d3b672a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/negative/input_cex_validation.log",
+      "source_sha256": "f161d189f778a6630ef18d74d4dd463c00c762be15621407220950318d3b672a",
+      "gzip": false
+    },
+    {
+      "path": "probe/negative/map_replay/derive.log",
+      "sha256": "ae7b7898d8ed702151a3511b27203e231c03bf21d1086c565003b26579783b49",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/negative/map_replay/derive.log",
+      "source_sha256": "ae7b7898d8ed702151a3511b27203e231c03bf21d1086c565003b26579783b49",
+      "gzip": false
+    },
+    {
+      "path": "probe/negative/map_replay/rederived.aig.gz",
+      "sha256": "f01f3017d34b1b0c4d10f18c4bae730bd2607ea4109afb37d493915fdae5a2dc",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/negative/map_replay/rederived.aig",
+      "source_sha256": "823ff7545553a3ad669ee51b80b782e7f5e4f8e8fcccebf61d8cc93275417415",
+      "gzip": true
+    },
+    {
+      "path": "probe/negative/refine.log",
+      "sha256": "665ee9c5d7c68e60a3712970cc1ed1077783db279e8d08bc1808cffa8ab968c4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/negative/refine.log",
+      "source_sha256": "665ee9c5d7c68e60a3712970cc1ed1077783db279e8d08bc1808cffa8ab968c4",
+      "gzip": false
+    },
+    {
+      "path": "probe/negative/refined.status",
+      "sha256": "5bb9d9a4adcca6c042d73ddd35b9d787590970382d3be9d38323febe94c04e43",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/negative/refined.status",
+      "source_sha256": "5bb9d9a4adcca6c042d73ddd35b9d787590970382d3be9d38323febe94c04e43",
+      "gzip": false
+    },
+    {
+      "path": "probe/negative/refined_map.aig.gz",
+      "sha256": "5a6c099054aaf0bebd78a3c18662ccd762f8d2ea1a6cc49d129e77e2597db4af",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/negative/refined_map.aig",
+      "source_sha256": "024abe85cad21f3b2c921332adfa8001e8e6be982976972ffd5d337ac42eca33",
+      "gzip": true
+    },
+    {
+      "path": "prior_controls/negative/prior_abstract_cex_summary.json",
+      "sha256": "fe81c5159b67bafcf5bc1dc502d9dd59679a488588f9b8877688233d216fd5b2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/pdr/summary.json",
+      "source_sha256": "fe81c5159b67bafcf5bc1dc502d9dd59679a488588f9b8877688233d216fd5b2",
+      "gzip": false
+    },
+    {
+      "path": "prior_controls/negative/input_cex.status",
+      "sha256": "9178a7d94b38b001e72fb4a475fc99799782b02a2a7f3810b48ceb3d74d17779",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/pdr/pdr.status",
+      "source_sha256": "9178a7d94b38b001e72fb4a475fc99799782b02a2a7f3810b48ceb3d74d17779",
+      "gzip": false
+    },
+    {
+      "path": "prior_controls/negative/input_map.aig.gz",
+      "sha256": "302e58c866d6e943963c0c9425ab077dd4fda53faf48b641937b6c22cfa74477",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/abstraction_map.aig",
+      "source_sha256": "e0e0f41fdb60facc755b286f5d3f9c39864e51b29bdef472578b95f563147821",
+      "gzip": true
+    },
+    {
+      "path": "prior_controls/negative/prior_original_summary.json",
+      "sha256": "4d4c82af5327b65faa7721879c9c874fef749c7f0180caa57b5b28010bbf28b7",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/summary.json",
+      "source_sha256": "4d4c82af5327b65faa7721879c9c874fef749c7f0180caa57b5b28010bbf28b7",
+      "gzip": false
+    },
+    {
+      "path": "abc_source/absOut.c",
+      "sha256": "ddbe9221da7d9bd359ed16899589589ab1ed862eb2c12956d9271a9629057be2",
+      "source": "/home/allenjin/Projects/abc/src/proof/abs/absOut.c",
+      "source_sha256": "ddbe9221da7d9bd359ed16899589589ab1ed862eb2c12956d9271a9629057be2",
+      "gzip": false
+    },
+    {
+      "path": "abc_source/copyright.txt",
+      "sha256": "819151b8f059a48f806c75732ef62b1f873b49b6a04fb128aed28bf87d3dcd6c",
+      "source": "/home/allenjin/Projects/abc/copyright.txt",
+      "source_sha256": "819151b8f059a48f806c75732ef62b1f873b49b6a04fb128aed28bf87d3dcd6c",
+      "gzip": false
+    },
+    {
+      "path": "refine_map_probe.py",
+      "sha256": "f4fd952e060dc43eaf195b90ac298dd5f5db16c79124ee304c2728dbd424386f",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/refine_map_probe.py",
+      "source_sha256": "f4fd952e060dc43eaf195b90ac298dd5f5db16c79124ee304c2728dbd424386f",
+      "gzip": false
+    },
+    {
+      "path": "collector_source.py",
+      "sha256": "41fc768542cdb6e1d891b2001c806efdbdaa54488d3d204d810b34e18f20f90b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/collect_refine_probe.py",
+      "source_sha256": "41fc768542cdb6e1d891b2001c806efdbdaa54488d3d204d810b34e18f20f90b",
+      "gzip": false
+    },
+    {
+      "path": "validated_target_bmc_summary.json",
+      "sha256": "7077c80d0b85ec0a914c42ba9783dd8eec3aa12f2721d9976102c92d13bb1b27",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_gla_bmc128_v1/summary.json",
+      "source_sha256": "7077c80d0b85ec0a914c42ba9783dd8eec3aa12f2721d9976102c92d13bb1b27",
+      "gzip": false
+    }
+  ]
+}

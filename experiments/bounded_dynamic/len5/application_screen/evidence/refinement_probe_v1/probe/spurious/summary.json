@@ -1,0 +1,50 @@
+{
+  "known_original_result": "safe",
+  "input_abstraction_cex_validated": true,
+  "gate_map_replay": {
+    "map_path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/bounded_map.aig",
+    "map_sha256": "5d33374cae8392a393fa1197dacb04cd8e3a2f9cd924bd72416d08310379da0c",
+    "abstracted_path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/abstract.aig",
+    "abstracted_sha256": "2326c2c2087b9fb7cc61603d190b9cdc2b09399265a54c743d29f13a34e3db90",
+    "rederived_sha256": "2326c2c2087b9fb7cc61603d190b9cdc2b09399265a54c743d29f13a34e3db90",
+    "execution": {
+      "argv": [
+        "/usr/local/bin/abc",
+        "-c",
+        "&read \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/bounded_map.aig\"; &gla_derive; &ps; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/map_replay/rederived.aig\""
+      ],
+      "returncode": 0,
+      "executable": "/usr/local/bin/abc",
+      "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+      "timeout": false,
+      "seconds": 0.12644723383709788,
+      "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/map_replay/derive.log",
+      "log_sha256": "71ccf03a2fbd6cda15d90116b5e5ea801cb5ddc8cacaa50d43933347e6518ec4"
+    }
+  },
+  "input_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/bounded_map.aig": "5d33374cae8392a393fa1197dacb04cd8e3a2f9cd924bd72416d08310379da0c",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/abstract.aig": "2326c2c2087b9fb7cc61603d190b9cdc2b09399265a54c743d29f13a34e3db90",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/pdr/pdr.status": "dd98755531cbe3be97c31e860fffa308a5ac8acce0e633bc6742f2f2e5b05035",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/pdr/summary.json": "9518dc6e19205aa043c5dc4d4b893f8db89949b3c5cb3be14b37b2cd696aec55"
+  },
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "&read \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/bounded_map.aig\"; read_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/spurious/pdr/pdr.status\"; &gla_refine -F 0 -G 0 -v; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/refined.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/refined_map.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.141927570104599,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_refinement_probe_v1/spurious/refine.log",
+    "log_sha256": "a3adddc31e11cc6c92f51123314527210ddec226082fd0618860371636b16ad7"
+  },
+  "raw_returned_status": "snl_UNK 0 unknown\nNULL\nNULL\n",
+  "output_status_is_unknown": true,
+  "concrete_witness_returned": false,
+  "output_map_sha256": "bce033896b85b9991714c03fa79c47ed9bc56fa5d68d49d78990b7a7b42f7de3",
+  "map_changed": true
+}

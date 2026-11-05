@@ -75,6 +75,22 @@ def abstract_query_model(design, mode, word_import=None):
     return result, audit
 
 
+def compose_inactive_query(native, current_query, reduced, word_import, facts):
+    """Preserve each original word lemma while applying exact reset facts."""
+    validate_query_only_delta(add_native_probes(native), current_query, word_import['added_cells'])
+    result=add_native_probes(reduced)
+    substituted={int(bit) for bit in facts['reset_substitutions']}
+    before=current_query['modules']['datapath']['cells'];after=result['modules']['datapath']['cells']
+    for name in word_import['added_cells']:
+        if name in after or any(substituted & set(bits) for bits in before[name]['connections'].values()):
+            raise ValueError('Inactive-FU substitution overlaps a certified word lemma')
+        after[name]=copy.deepcopy(before[name])
+    counts={kind:sum(cell['type']=='$'+kind for cell in after.values()) for kind in ('assert','assume','cover')}
+    if counts!={'assert':0,'assume':7,'cover':0}:
+        raise ValueError('Inactive-FU composition changed the proved-premise inventory')
+    return result
+
+
 def harness(ports, instructions, gap, threshold, rom=None, zero_fault_data=False):
     lines = ["module AdmissionScreen(input wire clk_i, rst_ni,",
              "  input wire [3:0] instruction_choice, input wire [63:0] load_value,",
@@ -172,6 +188,7 @@ def main():
     ap.add_argument("--decoder-certificate", type=Path, help="Replay an exact-alphabet decoder certificate before substituting its native candidate")
     ap.add_argument("--word-domain-lemmas", action="store_true", help="Import seven source-bound native word theorems into a separate proof-only model")
     ap.add_argument("--rom-domain-proof", type=Path, help="Exact external ROM producer theorem required for --word-domain-lemmas")
+    ap.add_argument("--inactive-fu-lemmas", type=Path, help="Opt-in raw theorem directory for exact MUL/DIV reset-state substitutions in the proof model only")
     ap.add_argument("--engine", choices=("pdr", "bmc", "prepare"), default="pdr")
     ap.add_argument("--frames", type=int, default=48, help="Bounded falsifier depth; never an unbounded certificate")
     ap.add_argument("--gap", type=int, default=2)
@@ -190,6 +207,8 @@ def main():
         ap.error("--decoder-certificate requires an exact zero-fault ROM; payload abstraction requires --word-domain-lemmas and all projection-preservation checks")
     if bool(args.word_domain_lemmas) != bool(args.rom_domain_proof) or (args.word_domain_lemmas and not args.decoder_certificate):
         ap.error("--word-domain-lemmas and --rom-domain-proof require each other and --decoder-certificate")
+    if args.inactive_fu_lemmas and not args.word_domain_lemmas:
+        ap.error('--inactive-fu-lemmas requires the closed decoder, native word lemmas, and exact ROM theorem')
     out = args.output.resolve(); out.mkdir(parents=True, exist_ok=False)
     (out/"formal_screen.py").write_bytes(Path(__file__).read_bytes())
     temporal_helper = REPO/"odc/temporal.py"
@@ -241,6 +260,7 @@ def main():
     query_design = design
     word_import = None
     rom_domain_import = None
+    inactive_import = None
     query_native_counts = None
     if args.word_domain_lemmas:
         from certified_decoder import exact_alphabet
@@ -257,6 +277,22 @@ def main():
         query_design = lemma_design
         query_core = out/'lemma_core.json'
         query_core.write_text(json.dumps(lemma_design, indent=2)+'\n')
+    if args.inactive_fu_lemmas:
+        from inactive_fu_import import import_inactive_facts
+        reduced,inactive_import=import_inactive_facts(args.inactive_fu_lemmas,args.decoder_certificate,
+            unobserved_native,args.frontend/'source/rtl/expipe/exec-units/arith_rs.sv',out/'inactive_fu_theorems',
+            yosys=args.yosys,dependency_records=(word_import,rom_domain_import))
+        query_design=compose_inactive_query(unobserved_native,query_design,reduced,word_import,inactive_import)
+        query_core=out/'inactive_query_core.json'
+        query_core.write_text(json.dumps(query_design,indent=2)+'\n')
+        # All existing prepared-query solvers already recheck this dependency
+        # map. Extend it rather than leaving a new unverified solver pathway.
+        word_import=copy.deepcopy(word_import)
+        for path,expected in inactive_import['proof_dependencies_sha256'].items():
+            previous=word_import['proof_dependencies_sha256'].get(path,expected)
+            if previous!=expected:raise ValueError('Conflicting transitive inactive-FU proof dependency')
+            word_import['proof_dependencies_sha256'][path]=expected
+        word_import['additional_dependency_closures']=['inactive_fu_reset_facts_replayed']
     if args.datapath_abstraction != 'none':
         abstraction_source = HERE/'abstract_datapath.py'
         (out/'abstract_datapath.py').write_bytes(abstraction_source.read_bytes())
@@ -275,6 +311,7 @@ def main():
         "source_commit":PRE_FPU_PIN, "source_json_sha256":digest(source),
         "certified_decoder_import":decoder_import,
         "external_rom_domain_import":rom_domain_import, "native_word_domain_import":word_import,
+        "inactive_fu_import":inactive_import,
         "query_core_path":str(query_core), "query_core_sha256":digest(query_core),
         "proof_only_native_property_counts":query_native_counts,
         "native_hardware_contains_formal_properties":False,
@@ -298,6 +335,8 @@ def main():
         record["scope"] = "Whole-core safety query with certified exact-alphabet decoder substitution, immutable instruction ROM, and overapproximated nonfaulting data service"
     if word_import:
         record['scope'] += '; seven previously proved instruction-word domains imported only into the proof model after exact external ROM theorem validation'
+    if inactive_import:
+        record['scope'] += '; 1761 source-proved program-only reset bits substituted only in the proof model, with no added premises'
     if abstraction:
         record['scope'] += '; proof-only payload overapproximation, original native hardware export retained separately'
     save()
@@ -378,6 +417,12 @@ def main():
             verify_rom_dependencies(rom_domain_import)
         except (ValueError, OSError) as error:
             record.update(status='error', error=str(error))
+    if inactive_import:
+        try:
+            from inactive_fu_import import verify_dependencies as verify_inactive_dependencies
+            verify_inactive_dependencies(inactive_import)
+        except (ValueError,OSError) as error:
+            record.update(status='error',error=str(error))
     save(); print(json.dumps({k:record[k] for k in ("status", "accepted_optimization")}))
 
 

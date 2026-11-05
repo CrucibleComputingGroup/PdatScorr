@@ -45,6 +45,23 @@ timing-enhanced Pscorr area `AM`, report `(A0-AI)/A0` as the first Pscorr gain,
 gain. Additional percentage points relative to the original core use `A0` as
 their denominator and must be labeled separately.
 
+The measured 12.40% result uses an exact instruction alphabet in arbitrary
+order, whereas the current admission query also uses an address-indexed ROM.
+These differ in program information as well as timing. Before attributing a
+later area increment to timing, add a matched exact-ROM/program-only baseline
+and hold the ROM, fault policy, decoder, reset, data service, observation,
+candidate search, mapping, and resource budget fixed while varying the fetch
+spacing information. The intended attribution is alphabet specialization,
+then any additional ROM/program-only specialization, then the timing increment.
+The current 12.40% is not an upper bound on program-only Pscorr.
+
+For an individual storage row, a feasible gap1 admission witness together with
+a closed gap2 no-admission proof and accepted replacement demonstrates timing
+dependence. The matched native witnesses already cover rows 1, 2, and 3; they
+do not establish timing dependence for row 0. Keep any row-0 saving separate
+until its matched control is resolved. This prevents crediting a gain from
+more precise program information to timing.
+
 ## Current screening outcome
 
 The [padded streaming experiment](application_screen/FETCH_SPACING.md) checks all

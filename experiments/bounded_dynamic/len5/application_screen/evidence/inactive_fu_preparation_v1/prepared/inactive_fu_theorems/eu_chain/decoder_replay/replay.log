@@ -1,0 +1,308 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_alu_mul_prepare_v1/inactive_fu_theorems/eu_chain/decoder_replay/replay.ys' --
+
+1. Executing JSON frontend.
+Importing module DecoderBase from JSON tree.
+
+2. Executing SETUNDEF pass (replace undef values with defined constants).
+
+3. Executing JSON backend.
+
+4. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv' to AST representation.
+Generating RTLIL representation for module `\EUDomainProof'.
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \EUDomainProof
+Used module:     \DecoderBase
+
+5.2. Analyzing design hierarchy..
+Top module:  \EUDomainProof
+Used module:     \DecoderBase
+Removed 0 unused modules.
+Module EUDomainProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+6. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
+
+8. Executing PROC_INIT pass (extract init attributes).
+
+9. Executing SETUNDEF pass (replace undef values with defined constants).
+
+10. Executing PROC pass (convert processes to netlists).
+
+10.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `EUDomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_domain_diagnostic_v1/candidate_unrestricted/harness.sv:3$proc$744'.
+Cleaned up 0 empty switches.
+
+10.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+10.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+10.4. Executing PROC_INIT pass (extract init attributes).
+
+10.5. Executing PROC_ARST pass (detect async resets in processes).
+
+10.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+10.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+10.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+10.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+10.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11. Executing SETUNDEF pass (replace undef values with defined constants).
+
+12. Executing PREP pass.
+
+12.1. Executing HIERARCHY pass (managing design hierarchy).
+
+12.1.1. Analyzing design hierarchy..
+Top module:  \EUDomainProof
+Used module:     \DecoderBase
+
+12.1.2. Analyzing design hierarchy..
+Top module:  \EUDomainProof
+Used module:     \DecoderBase
+Removed 0 unused modules.
+Module EUDomainProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+12.2. Executing PROC pass (convert processes to netlists).
+
+12.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+12.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+12.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+12.2.4. Executing PROC_INIT pass (extract init attributes).
+
+12.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+12.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+12.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+12.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+12.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+12.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+12.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+12.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUDomainProof.
+<suppressed ~1 debug messages>
+Optimizing module DecoderBase.
+<suppressed ~653 debug messages>
+
+12.3. Executing CHECK pass (checking for obvious problems).
+Checking module EUDomainProof...
+Checking module DecoderBase...
+Found and reported 0 problems.
+
+12.4. Executing FLATTEN pass (flatten design).
+Deleting now unused module DecoderBase.
+<suppressed ~1 debug messages>
+
+12.5. Executing FUTURE pass.
+
+12.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUDomainProof.
+<suppressed ~1 debug messages>
+
+12.7. Executing CHECK pass (checking for obvious problems).
+Checking module EUDomainProof...
+Found and reported 0 problems.
+
+12.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUDomainProof..
+Removed 100 unused cells and 763 unused wires.
+<suppressed ~129 debug messages>
+
+12.9. Executing OPT pass (performing simple optimizations).
+
+12.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUDomainProof.
+
+12.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\EUDomainProof'.
+Computing hashes of 11 cells of `\EUDomainProof'.
+Finding duplicate cells in `\EUDomainProof'.
+Computing hashes of 9 cells of `\EUDomainProof'.
+Finding duplicate cells in `\EUDomainProof'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+12.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \EUDomainProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 2/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 3/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 4/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 5/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 7/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 8/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 10/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 11/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 12/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 13/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 15/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 16/18 on $pmux $flatten\dut.$procmux$40066.
+    dead port 1/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 2/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 3/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 4/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 5/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 6/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 7/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 8/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 9/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 10/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 11/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 12/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 13/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 15/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 16/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 19/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 20/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 21/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 22/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 23/25 on $pmux $flatten\dut.$procmux$40093.
+    dead port 24/25 on $pmux $flatten\dut.$procmux$40093.
+Removed 34 multiplexer ports.
+<suppressed ~4 debug messages>
+
+12.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \EUDomainProof.
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$40066: $auto$opt_reduce.cc:137:opt_pmux$749
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$40093: $auto$opt_reduce.cc:137:opt_pmux$751
+  Optimizing cells in module \EUDomainProof.
+Performed a total of 2 changes.
+
+12.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\EUDomainProof'.
+Computing hashes of 11 cells of `\EUDomainProof'.
+Finding duplicate cells in `\EUDomainProof'.
+Removed a total of 0 cells.
+
+12.9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUDomainProof..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+12.9.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUDomainProof.
+
+12.9.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.9.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \EUDomainProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+12.9.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \EUDomainProof.
+Performed a total of 0 changes.
+
+12.9.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\EUDomainProof'.
+Computing hashes of 11 cells of `\EUDomainProof'.
+Finding duplicate cells in `\EUDomainProof'.
+Removed a total of 0 cells.
+
+12.9.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUDomainProof..
+
+12.9.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUDomainProof.
+
+12.9.14. Finished fast OPT passes. (There is nothing left to do.)
+
+12.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 bits (of 10) from port B of cell EUDomainProof.$flatten\dut.$procmux$40080_CMP0 ($eq).
+Removed top 1 bits (of 10) from port B of cell EUDomainProof.$flatten\dut.$procmux$40072_CMP0 ($eq).
+Removed top 1 bits (of 10) from port B of cell EUDomainProof.$flatten\dut.$procmux$40111_CMP0 ($eq).
+Removed top 4 bits (of 10) from port B of cell EUDomainProof.$flatten\dut.$procmux$40110_CMP0 ($eq).
+
+12.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUDomainProof..
+
+12.12. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+12.13. Executing OPT pass (performing simple optimizations).
+
+12.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module EUDomainProof.
+
+12.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\EUDomainProof'.
+Computing hashes of 11 cells of `\EUDomainProof'.
+Finding duplicate cells in `\EUDomainProof'.
+Removed a total of 0 cells.
+
+12.13.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \EUDomainProof..
+
+12.13.4. Finished fast OPT passes.
+
+12.14. Executing SORT pass.
+
+12.15. Printing statistics.
+
+=== EUDomainProof ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       24 wires
+      138 wire bits
+       17 public wires
+      131 public wire bits
+        2 ports
+       35 port bits
+       11 cells
+        1   $check
+        5   $eq
+        2   $mux
+        2   $reduce_or
+        1   $scopeinfo
+
+12.16. Executing CHECK pass (checking for obvious problems).
+Checking module EUDomainProof...
+Found and reported 0 problems.
+
+13. Executing SETUNDEF pass (replace undef values with defined constants).
+
+14. Executing CHECK pass (checking for obvious problems).
+Checking module EUDomainProof...
+Found and reported 0 problems.
+
+15. Executing SETUNDEF pass (replace undef values with defined constants).
+
+16. Executing JSON backend.

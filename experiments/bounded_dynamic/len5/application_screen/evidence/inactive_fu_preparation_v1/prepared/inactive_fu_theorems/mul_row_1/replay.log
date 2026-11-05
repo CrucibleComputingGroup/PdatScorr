@@ -1,0 +1,619 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_alu_mul_prepare_v1/inactive_fu_theorems/mul_row_1/replay.ys' --
+
+1. Executing JSON frontend.
+Importing module NativeRow from JSON tree.
+
+2. Executing SETUNDEF pass (replace undef values with defined constants).
+
+3. Executing BWMUXMAP pass.
+
+4. Executing BMUXMAP pass.
+
+5. Executing DEMUXMAP pass.
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/inactive_fu_lemmas_v1/mul_row_1/positive/harness.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/inactive_fu_lemmas_v1/mul_row_1/positive/harness.sv' to AST representation.
+Generating RTLIL representation for module `\ResetStorageProof'.
+Successfully finished Verilog frontend.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1. Analyzing design hierarchy..
+Top module:  \ResetStorageProof
+Used module:     \NativeRow
+
+8.2. Analyzing design hierarchy..
+Top module:  \ResetStorageProof
+Used module:     \NativeRow
+Removed 0 unused modules.
+Module ResetStorageProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
+
+11. Executing PROC_INIT pass (extract init attributes).
+
+12. Executing SETUNDEF pass (replace undef values with defined constants).
+
+13. Executing PROC pass (convert processes to netlists).
+
+13.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+13.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+13.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+13.4. Executing PROC_INIT pass (extract init attributes).
+
+13.5. Executing PROC_ARST pass (detect async resets in processes).
+
+13.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ResetStorageProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/inactive_fu_lemmas_v1/mul_row_1/positive/harness.sv:4$proc$2282'.
+     1/2: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/inactive_fu_lemmas_v1/mul_row_1/positive/harness.sv:6$assume$2285_EN
+     2/2: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/inactive_fu_lemmas_v1/mul_row_1/positive/harness.sv:5$assume$2283_EN
+
+13.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+13.8. Executing PROC_DFF pass (convert process syncs to FFs).
+
+13.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+13.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\ResetStorageProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/inactive_fu_lemmas_v1/mul_row_1/positive/harness.sv:4$proc$2282'.
+Removing empty process `ResetStorageProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/inactive_fu_lemmas_v1/mul_row_1/positive/harness.sv:4$proc$2282'.
+Cleaned up 2 empty switches.
+
+14. Executing SETUNDEF pass (replace undef values with defined constants).
+
+15. Executing PREP pass.
+
+15.1. Executing HIERARCHY pass (managing design hierarchy).
+
+15.1.1. Analyzing design hierarchy..
+Top module:  \ResetStorageProof
+Used module:     \NativeRow
+
+15.1.2. Analyzing design hierarchy..
+Top module:  \ResetStorageProof
+Used module:     \NativeRow
+Removed 0 unused modules.
+Module ResetStorageProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+15.2. Executing PROC pass (convert processes to netlists).
+
+15.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+15.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+15.2.4. Executing PROC_INIT pass (extract init attributes).
+
+15.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+15.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+15.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+15.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+15.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+15.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+15.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetStorageProof.
+<suppressed ~1 debug messages>
+Optimizing module NativeRow.
+<suppressed ~4 debug messages>
+
+15.3. Executing CHECK pass (checking for obvious problems).
+Checking module ResetStorageProof...
+Checking module NativeRow...
+Found and reported 0 problems.
+
+15.4. Executing FLATTEN pass (flatten design).
+Deleting now unused module NativeRow.
+<suppressed ~1 debug messages>
+
+15.5. Executing FUTURE pass.
+
+15.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetStorageProof.
+
+15.7. Executing CHECK pass (checking for obvious problems).
+Checking module ResetStorageProof...
+Found and reported 0 problems.
+
+15.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetStorageProof..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+15.9. Executing OPT pass (performing simple optimizations).
+
+15.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetStorageProof.
+
+15.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetStorageProof'.
+Computing hashes of 868 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+Computing hashes of 717 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+Computing hashes of 706 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+<suppressed ~486 debug messages>
+Removed a total of 162 cells.
+
+15.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ResetStorageProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9147.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9092.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10662.
+    dead port 2/2 on $mux $flatten\dut.$procmux$11049.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9041.
+    dead port 2/2 on $mux $flatten\dut.$procmux$11047.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10932.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10930.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10928.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10974.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10972.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10970.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10967.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10794.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10792.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10790.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10787.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10818.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10816.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10814.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10811.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10808.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10726.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10724.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10722.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10719.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10716.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10620.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10564.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10562.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10581.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9135.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10579.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10576.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10649.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8054.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10495.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10445.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9211.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10436.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10434.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10418.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9226.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10411.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8129.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9973.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9224.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10360.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10358.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10243.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9123.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10241.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10239.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10285.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10283.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10281.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10278.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10105.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10103.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10101.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10098.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10129.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10127.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10125.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10122.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10119.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10037.
+    dead port 2/2 on $mux $flatten\dut.$procmux$10035.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10033.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8062.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10030.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9250.
+    dead port 1/2 on $mux $flatten\dut.$procmux$10027.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9697.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9930.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9874.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9297.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9872.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9891.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9889.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9886.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9960.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9295.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9805.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9753.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9652.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9744.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9742.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9726.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9650.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9648.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9719.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9367.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9365.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9363.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9360.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9281.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9461.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9668.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9666.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9551.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9459.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9549.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9547.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9593.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9457.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9591.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9589.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9586.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9413.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9454.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9411.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9409.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9406.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9437.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9451.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9435.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9433.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9430.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9427.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9345.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9343.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9341.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9684.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9338.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9167.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9335.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9682.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9238.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9633.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9182.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9180.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9199.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9631.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9197.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9194.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9268.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9629.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9113.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9061.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9572.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9052.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9050.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9034.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9570.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9165.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9568.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9027.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9565.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8589.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8976.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9613.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8974.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8859.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8857.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8855.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8901.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9611.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8899.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8897.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8894.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8721.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9609.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8719.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8717.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8714.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8745.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9606.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8743.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8741.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8738.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8735.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8653.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9531.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8651.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8649.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8646.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9529.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8643.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9152.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9527.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9524.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8546.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8490.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9509.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8488.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8507.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8505.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8502.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8576.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9507.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8421.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9505.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8369.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9502.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8360.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9499.
+    dead port 1/2 on $mux $flatten\dut.$procmux$8358.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9390.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9388.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9386.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9383.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8342.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9069.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9485.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8138.
+    dead port 2/2 on $mux $flatten\dut.$procmux$8335.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9483.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9481.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9478.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9475.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9321.
+    dead port 2/2 on $mux $flatten\dut.$procmux$9319.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9317.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9314.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9150.
+    dead port 1/2 on $mux $flatten\dut.$procmux$9311.
+Removed 217 multiplexer ports.
+<suppressed ~687 debug messages>
+
+15.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ResetStorageProof.
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$8094: $auto$opt_reduce.cc:137:opt_pmux$2297
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$8117: $auto$opt_reduce.cc:137:opt_pmux$2299
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$8080: { $flatten\dut.$auto$jsonparse.cc:561:json_import$407 $flatten\dut.$auto$jsonparse.cc:561:json_import$66 $auto$opt_reduce.cc:137:opt_pmux$2303 $auto$opt_reduce.cc:137:opt_pmux$2301 }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$8070: $auto$opt_reduce.cc:137:opt_pmux$2305
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$8103: { $flatten\dut.$auto$jsonparse.cc:561:json_import$65 $flatten\dut.$auto$jsonparse.cc:561:json_import$66 $auto$opt_reduce.cc:137:opt_pmux$2309 $auto$opt_reduce.cc:137:opt_pmux$2307 }
+  Optimizing cells in module \ResetStorageProof.
+Performed a total of 5 changes.
+
+15.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetStorageProof'.
+Computing hashes of 496 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+Computing hashes of 481 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+Computing hashes of 478 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+Computing hashes of 475 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+Computing hashes of 472 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+<suppressed ~72 debug messages>
+Removed a total of 24 cells.
+
+15.9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetStorageProof..
+Removed 217 unused cells and 1350 unused wires.
+<suppressed ~218 debug messages>
+
+15.9.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetStorageProof.
+
+15.9.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.9.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ResetStorageProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~225 debug messages>
+
+15.9.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ResetStorageProof.
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$8080: { $auto$opt_reduce.cc:137:opt_pmux$2301 $auto$opt_reduce.cc:137:opt_pmux$2303 $auto$opt_reduce.cc:137:opt_pmux$2311 }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$9256: $auto$opt_reduce.cc:137:opt_pmux$2313
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$8103: { $auto$opt_reduce.cc:137:opt_pmux$2307 $auto$opt_reduce.cc:137:opt_pmux$2309 $auto$opt_reduce.cc:137:opt_pmux$2315 }
+  Optimizing cells in module \ResetStorageProof.
+Performed a total of 3 changes.
+
+15.9.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetStorageProof'.
+Computing hashes of 258 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+Removed a total of 0 cells.
+
+15.9.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetStorageProof..
+
+15.9.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetStorageProof.
+
+15.9.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.9.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ResetStorageProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~216 debug messages>
+
+15.9.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ResetStorageProof.
+Performed a total of 0 changes.
+
+15.9.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetStorageProof'.
+Computing hashes of 258 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+Removed a total of 0 cells.
+
+15.9.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetStorageProof..
+
+15.9.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetStorageProof.
+
+15.9.20. Finished fast OPT passes. (There is nothing left to do.)
+
+15.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$8340 ($mux).
+Removed top 2 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$8355 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$8367 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$8499 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$8485 ($mux).
+Removed top 1 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$9016_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$9018_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$9020_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell ResetStorageProof.$flatten\dut.$6063 ($eq).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9032 ($mux).
+Removed top 1 bits (of 2) from port B of cell ResetStorageProof.$flatten\dut.$6054 ($eq).
+Removed top 2 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9047 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9059 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9191 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9177 ($mux).
+Removed top 1 bits (of 2) from port B of cell ResetStorageProof.$flatten\dut.$6018 ($eq).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9724 ($mux).
+Removed top 2 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9739 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9751 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9883 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$9869 ($mux).
+Removed top 1 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$10400_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$10402_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$10404_CMP0 ($eq).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$10416 ($mux).
+Removed top 2 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$10431 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$10443 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$10573 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetStorageProof.$flatten\dut.$procmux$10559 ($mux).
+Removed top 1 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$11089_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$11091_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$11093_CMP0 ($eq).
+Removed top 6 bits (of 12) from mux cell ResetStorageProof.$flatten\dut.$procmux$8329 ($mux).
+Removed top 1 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$9078_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$9080_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetStorageProof.$flatten\dut.$procmux$9082_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetStorageProof.$flatten\dut.$procmux$8081_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetStorageProof.$flatten\dut.$procmux$8104_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetStorageProof.$flatten\dut.$procmux$8106_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetStorageProof.$flatten\dut.$procmux$8107_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetStorageProof.$flatten\dut.$procmux$8108_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetStorageProof.$flatten\dut.$procmux$8109_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetStorageProof.$flatten\dut.$procmux$8110_CMP0 ($eq).
+Removed cell ResetStorageProof.$flatten\dut.$procmux$10393 ($pmux).
+Removed cell ResetStorageProof.$flatten\dut.$procmux$11082 ($pmux).
+
+15.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetStorageProof..
+Removed 64 unused cells and 128 unused wires.
+<suppressed ~65 debug messages>
+
+15.12. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+15.13. Executing OPT pass (performing simple optimizations).
+
+15.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetStorageProof.
+
+15.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetStorageProof'.
+Computing hashes of 192 cells of `\ResetStorageProof'.
+Finding duplicate cells in `\ResetStorageProof'.
+Removed a total of 0 cells.
+
+15.13.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetStorageProof..
+
+15.13.4. Finished fast OPT passes.
+
+15.14. Executing SORT pass.
+
+15.15. Printing statistics.
+
+=== ResetStorageProof ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      607 wires
+     1765 wire bits
+       14 public wires
+     1172 public wire bits
+        6 ports
+      366 port bits
+      192 cells
+       10   $aldff
+       12   $and
+        3   $check
+       43   $eq
+        1   $initstate
+       13   $logic_and
+       10   $logic_not
+       77   $mux
+        4   $or
+        6   $pmux
+       12   $reduce_or
+        1   $scopeinfo
+
+15.16. Executing CHECK pass (checking for obvious problems).
+Checking module ResetStorageProof...
+Found and reported 0 problems.
+
+16. Executing SETUNDEF pass (replace undef values with defined constants).
+
+17. Executing CHECK pass (checking for obvious problems).
+Checking module ResetStorageProof...
+Found and reported 0 problems.
+
+18. Executing ASYNC2SYNC pass.
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.curr_state[1] ($aldff): ALOAD=\rst_ni, AD=3'000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$931 $flatten\dut.$auto$jsonparse.cc:561:json_import$930 $flatten\dut.$auto$jsonparse.cc:561:json_import$929 }, Q=\dut.row_q [219:217]
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[1].dest_rob_idx ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$760 $flatten\dut.$auto$jsonparse.cc:561:json_import$759 $flatten\dut.$auto$jsonparse.cc:561:json_import$758 $flatten\dut.$auto$jsonparse.cc:561:json_import$757 $flatten\dut.$auto$jsonparse.cc:561:json_import$756 }, Q=\dut.row_q [74:70]
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[1].eu_ctl ($aldff): ALOAD=\rst_ni, AD=4'0000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$751 $flatten\dut.$auto$jsonparse.cc:561:json_import$750 $flatten\dut.$auto$jsonparse.cc:561:json_import$749 $flatten\dut.$auto$jsonparse.cc:561:json_import$748 }, Q=\dut.row_q [216:213]
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[1].except_code ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$676 $flatten\dut.$auto$jsonparse.cc:561:json_import$675 $flatten\dut.$auto$jsonparse.cc:561:json_import$674 $flatten\dut.$auto$jsonparse.cc:561:json_import$673 $flatten\dut.$auto$jsonparse.cc:561:json_import$672 }, Q=\dut.row_q [4:0]
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[1].except_raised ($aldff): ALOAD=\rst_ni, AD=1'0, D=$flatten\dut.$auto$jsonparse.cc:561:json_import$677, Q=\dut.row_q [5]
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[1].res_value ($aldff): ALOAD=\rst_ni, AD=64'0000000000000000000000000000000000000000000000000000000000000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$741 $flatten\dut.$auto$jsonparse.cc:561:json_import$740 $flatten\dut.$auto$jsonparse.cc:561:json_import$739 $flatten\dut.$auto$jsonparse.cc:561:json_import$738 $flatten\dut.$auto$jsonparse.cc:561:json_import$737 $flatten\dut.$auto$jsonparse.cc:561:json_import$736 $flatten\dut.$auto$jsonparse.cc:561:json_import$735 $flatten\dut.$auto$jsonparse.cc:561:json_import$734 $flatten\dut.$auto$jsonparse.cc:561:json_import$733 $flatten\dut.$auto$jsonparse.cc:561:json_import$732 $flatten\dut.$auto$jsonparse.cc:561:json_import$731 $flatten\dut.$auto$jsonparse.cc:561:json_import$730 $flatten\dut.$auto$jsonparse.cc:561:json_import$729 $flatten\dut.$auto$jsonparse.cc:561:json_import$728 $flatten\dut.$auto$jsonparse.cc:561:json_import$727 $flatten\dut.$auto$jsonparse.cc:561:json_import$726 $flatten\dut.$auto$jsonparse.cc:561:json_import$725 $flatten\dut.$auto$jsonparse.cc:561:json_import$724 $flatten\dut.$auto$jsonparse.cc:561:json_import$723 $flatten\dut.$auto$jsonparse.cc:561:json_import$722 $flatten\dut.$auto$jsonparse.cc:561:json_import$721 $flatten\dut.$auto$jsonparse.cc:561:json_import$720 $flatten\dut.$auto$jsonparse.cc:561:json_import$719 $flatten\dut.$auto$jsonparse.cc:561:json_import$718 $flatten\dut.$auto$jsonparse.cc:561:json_import$717 $flatten\dut.$auto$jsonparse.cc:561:json_import$716 $flatten\dut.$auto$jsonparse.cc:561:json_import$715 $flatten\dut.$auto$jsonparse.cc:561:json_import$714 $flatten\dut.$auto$jsonparse.cc:561:json_import$713 $flatten\dut.$auto$jsonparse.cc:561:json_import$712 $flatten\dut.$auto$jsonparse.cc:561:json_import$711 $flatten\dut.$auto$jsonparse.cc:561:json_import$710 $flatten\dut.$auto$jsonparse.cc:561:json_import$709 $flatten\dut.$auto$jsonparse.cc:561:json_import$708 $flatten\dut.$auto$jsonparse.cc:561:json_import$707 $flatten\dut.$auto$jsonparse.cc:561:json_import$706 $flatten\dut.$auto$jsonparse.cc:561:json_import$705 $flatten\dut.$auto$jsonparse.cc:561:json_import$704 $flatten\dut.$auto$jsonparse.cc:561:json_import$703 $flatten\dut.$auto$jsonparse.cc:561:json_import$702 $flatten\dut.$auto$jsonparse.cc:561:json_import$701 $flatten\dut.$auto$jsonparse.cc:561:json_import$700 $flatten\dut.$auto$jsonparse.cc:561:json_import$699 $flatten\dut.$auto$jsonparse.cc:561:json_import$698 $flatten\dut.$auto$jsonparse.cc:561:json_import$697 $flatten\dut.$auto$jsonparse.cc:561:json_import$696 $flatten\dut.$auto$jsonparse.cc:561:json_import$695 $flatten\dut.$auto$jsonparse.cc:561:json_import$694 $flatten\dut.$auto$jsonparse.cc:561:json_import$693 $flatten\dut.$auto$jsonparse.cc:561:json_import$692 $flatten\dut.$auto$jsonparse.cc:561:json_import$691 $flatten\dut.$auto$jsonparse.cc:561:json_import$690 $flatten\dut.$auto$jsonparse.cc:561:json_import$689 $flatten\dut.$auto$jsonparse.cc:561:json_import$688 $flatten\dut.$auto$jsonparse.cc:561:json_import$687 $flatten\dut.$auto$jsonparse.cc:561:json_import$686 $flatten\dut.$auto$jsonparse.cc:561:json_import$685 $flatten\dut.$auto$jsonparse.cc:561:json_import$684 $flatten\dut.$auto$jsonparse.cc:561:json_import$683 $flatten\dut.$auto$jsonparse.cc:561:json_import$682 $flatten\dut.$auto$jsonparse.cc:561:json_import$681 $flatten\dut.$auto$jsonparse.cc:561:json_import$680 $flatten\dut.$auto$jsonparse.cc:561:json_import$679 $flatten\dut.$auto$jsonparse.cc:561:json_import$678 }, Q=\dut.row_q [69:6]
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[1].rs1_rob_idx ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$747 $flatten\dut.$auto$jsonparse.cc:561:json_import$746 $flatten\dut.$auto$jsonparse.cc:561:json_import$745 $flatten\dut.$auto$jsonparse.cc:561:json_import$744 $flatten\dut.$auto$jsonparse.cc:561:json_import$743 }, Q=\dut.row_q [212:208]
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[1].rs1_value ($aldff): ALOAD=\rst_ni, AD=64'0000000000000000000000000000000000000000000000000000000000000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$406 $flatten\dut.$auto$jsonparse.cc:561:json_import$405 $flatten\dut.$auto$jsonparse.cc:561:json_import$404 $flatten\dut.$auto$jsonparse.cc:561:json_import$403 $flatten\dut.$auto$jsonparse.cc:561:json_import$402 $flatten\dut.$auto$jsonparse.cc:561:json_import$401 $flatten\dut.$auto$jsonparse.cc:561:json_import$400 $flatten\dut.$auto$jsonparse.cc:561:json_import$399 $flatten\dut.$auto$jsonparse.cc:561:json_import$398 $flatten\dut.$auto$jsonparse.cc:561:json_import$397 $flatten\dut.$auto$jsonparse.cc:561:json_import$396 $flatten\dut.$auto$jsonparse.cc:561:json_import$395 $flatten\dut.$auto$jsonparse.cc:561:json_import$394 $flatten\dut.$auto$jsonparse.cc:561:json_import$393 $flatten\dut.$auto$jsonparse.cc:561:json_import$392 $flatten\dut.$auto$jsonparse.cc:561:json_import$391 $flatten\dut.$auto$jsonparse.cc:561:json_import$390 $flatten\dut.$auto$jsonparse.cc:561:json_import$389 $flatten\dut.$auto$jsonparse.cc:561:json_import$388 $flatten\dut.$auto$jsonparse.cc:561:json_import$387 $flatten\dut.$auto$jsonparse.cc:561:json_import$386 $flatten\dut.$auto$jsonparse.cc:561:json_import$385 $flatten\dut.$auto$jsonparse.cc:561:json_import$384 $flatten\dut.$auto$jsonparse.cc:561:json_import$383 $flatten\dut.$auto$jsonparse.cc:561:json_import$382 $flatten\dut.$auto$jsonparse.cc:561:json_import$381 $flatten\dut.$auto$jsonparse.cc:561:json_import$380 $flatten\dut.$auto$jsonparse.cc:561:json_import$379 $flatten\dut.$auto$jsonparse.cc:561:json_import$378 $flatten\dut.$auto$jsonparse.cc:561:json_import$377 $flatten\dut.$auto$jsonparse.cc:561:json_import$376 $flatten\dut.$auto$jsonparse.cc:561:json_import$375 $flatten\dut.$auto$jsonparse.cc:561:json_import$374 $flatten\dut.$auto$jsonparse.cc:561:json_import$373 $flatten\dut.$auto$jsonparse.cc:561:json_import$372 $flatten\dut.$auto$jsonparse.cc:561:json_import$371 $flatten\dut.$auto$jsonparse.cc:561:json_import$370 $flatten\dut.$auto$jsonparse.cc:561:json_import$369 $flatten\dut.$auto$jsonparse.cc:561:json_import$368 $flatten\dut.$auto$jsonparse.cc:561:json_import$367 $flatten\dut.$auto$jsonparse.cc:561:json_import$366 $flatten\dut.$auto$jsonparse.cc:561:json_import$365 $flatten\dut.$auto$jsonparse.cc:561:json_import$364 $flatten\dut.$auto$jsonparse.cc:561:json_import$363 $flatten\dut.$auto$jsonparse.cc:561:json_import$362 $flatten\dut.$auto$jsonparse.cc:561:json_import$361 $flatten\dut.$auto$jsonparse.cc:561:json_import$360 $flatten\dut.$auto$jsonparse.cc:561:json_import$359 $flatten\dut.$auto$jsonparse.cc:561:json_import$358 $flatten\dut.$auto$jsonparse.cc:561:json_import$357 $flatten\dut.$auto$jsonparse.cc:561:json_import$356 $flatten\dut.$auto$jsonparse.cc:561:json_import$355 $flatten\dut.$auto$jsonparse.cc:561:json_import$354 $flatten\dut.$auto$jsonparse.cc:561:json_import$353 $flatten\dut.$auto$jsonparse.cc:561:json_import$352 $flatten\dut.$auto$jsonparse.cc:561:json_import$351 $flatten\dut.$auto$jsonparse.cc:561:json_import$350 $flatten\dut.$auto$jsonparse.cc:561:json_import$349 $flatten\dut.$auto$jsonparse.cc:561:json_import$348 $flatten\dut.$auto$jsonparse.cc:561:json_import$347 $flatten\dut.$auto$jsonparse.cc:561:json_import$346 $flatten\dut.$auto$jsonparse.cc:561:json_import$345 $flatten\dut.$auto$jsonparse.cc:561:json_import$344 $flatten\dut.$auto$jsonparse.cc:561:json_import$343 }, Q=\dut.row_q [207:144]
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[1].rs2_rob_idx ($aldff): ALOAD=\rst_ni, AD=5'00000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$338 $flatten\dut.$auto$jsonparse.cc:561:json_import$337 $flatten\dut.$auto$jsonparse.cc:561:json_import$336 $flatten\dut.$auto$jsonparse.cc:561:json_import$335 $flatten\dut.$auto$jsonparse.cc:561:json_import$334 }, Q=\dut.row_q [143:139]
+Replacing ResetStorageProof.$flatten\dut.$driver$u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[1].rs2_value ($aldff): ALOAD=\rst_ni, AD=64'0000000000000000000000000000000000000000000000000000000000000000, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$64 $flatten\dut.$auto$jsonparse.cc:561:json_import$63 $flatten\dut.$auto$jsonparse.cc:561:json_import$62 $flatten\dut.$auto$jsonparse.cc:561:json_import$61 $flatten\dut.$auto$jsonparse.cc:561:json_import$60 $flatten\dut.$auto$jsonparse.cc:561:json_import$59 $flatten\dut.$auto$jsonparse.cc:561:json_import$58 $flatten\dut.$auto$jsonparse.cc:561:json_import$57 $flatten\dut.$auto$jsonparse.cc:561:json_import$56 $flatten\dut.$auto$jsonparse.cc:561:json_import$55 $flatten\dut.$auto$jsonparse.cc:561:json_import$54 $flatten\dut.$auto$jsonparse.cc:561:json_import$53 $flatten\dut.$auto$jsonparse.cc:561:json_import$52 $flatten\dut.$auto$jsonparse.cc:561:json_import$51 $flatten\dut.$auto$jsonparse.cc:561:json_import$50 $flatten\dut.$auto$jsonparse.cc:561:json_import$49 $flatten\dut.$auto$jsonparse.cc:561:json_import$48 $flatten\dut.$auto$jsonparse.cc:561:json_import$47 $flatten\dut.$auto$jsonparse.cc:561:json_import$46 $flatten\dut.$auto$jsonparse.cc:561:json_import$45 $flatten\dut.$auto$jsonparse.cc:561:json_import$44 $flatten\dut.$auto$jsonparse.cc:561:json_import$43 $flatten\dut.$auto$jsonparse.cc:561:json_import$42 $flatten\dut.$auto$jsonparse.cc:561:json_import$41 $flatten\dut.$auto$jsonparse.cc:561:json_import$40 $flatten\dut.$auto$jsonparse.cc:561:json_import$39 $flatten\dut.$auto$jsonparse.cc:561:json_import$38 $flatten\dut.$auto$jsonparse.cc:561:json_import$37 $flatten\dut.$auto$jsonparse.cc:561:json_import$36 $flatten\dut.$auto$jsonparse.cc:561:json_import$35 $flatten\dut.$auto$jsonparse.cc:561:json_import$34 $flatten\dut.$auto$jsonparse.cc:561:json_import$33 $flatten\dut.$auto$jsonparse.cc:561:json_import$32 $flatten\dut.$auto$jsonparse.cc:561:json_import$31 $flatten\dut.$auto$jsonparse.cc:561:json_import$30 $flatten\dut.$auto$jsonparse.cc:561:json_import$29 $flatten\dut.$auto$jsonparse.cc:561:json_import$28 $flatten\dut.$auto$jsonparse.cc:561:json_import$27 $flatten\dut.$auto$jsonparse.cc:561:json_import$26 $flatten\dut.$auto$jsonparse.cc:561:json_import$25 $flatten\dut.$auto$jsonparse.cc:561:json_import$24 $flatten\dut.$auto$jsonparse.cc:561:json_import$23 $flatten\dut.$auto$jsonparse.cc:561:json_import$22 $flatten\dut.$auto$jsonparse.cc:561:json_import$21 $flatten\dut.$auto$jsonparse.cc:561:json_import$20 $flatten\dut.$auto$jsonparse.cc:561:json_import$19 $flatten\dut.$auto$jsonparse.cc:561:json_import$18 $flatten\dut.$auto$jsonparse.cc:561:json_import$17 $flatten\dut.$auto$jsonparse.cc:561:json_import$16 $flatten\dut.$auto$jsonparse.cc:561:json_import$15 $flatten\dut.$auto$jsonparse.cc:561:json_import$14 $flatten\dut.$auto$jsonparse.cc:561:json_import$13 $flatten\dut.$auto$jsonparse.cc:561:json_import$12 $flatten\dut.$auto$jsonparse.cc:561:json_import$11 $flatten\dut.$auto$jsonparse.cc:561:json_import$10 $flatten\dut.$auto$jsonparse.cc:561:json_import$9 $flatten\dut.$auto$jsonparse.cc:561:json_import$8 $flatten\dut.$auto$jsonparse.cc:561:json_import$7 $flatten\dut.$auto$jsonparse.cc:561:json_import$6 $flatten\dut.$auto$jsonparse.cc:561:json_import$5 $flatten\dut.$auto$jsonparse.cc:561:json_import$4 $flatten\dut.$auto$jsonparse.cc:561:json_import$3 $flatten\dut.$auto$jsonparse.cc:561:json_import$2 $flatten\dut.$auto$jsonparse.cc:561:json_import$1 }, Q=\dut.row_q [138:75]
+
+19. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+20. Executing SETUNDEF pass (replace undef values with defined constants).
+
+21. Executing CHECK pass (checking for obvious problems).
+Checking module ResetStorageProof...
+Found and reported 0 problems.
+
+22. Executing JSON backend.
+
+23. Executing SMT2 backend.
+
+23.1. Executing BMUXMAP pass.
+
+23.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module ResetStorageProof.

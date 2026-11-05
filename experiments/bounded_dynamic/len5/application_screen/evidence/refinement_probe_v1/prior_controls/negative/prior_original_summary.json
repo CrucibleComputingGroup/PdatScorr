@@ -1,0 +1,71 @@
+{
+  "status": "counterexample_in_query_model",
+  "accepted_optimization": false,
+  "engine": "ABC &gla -q",
+  "input_aig": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/model/query.aig",
+  "input_aig_sha256": "39cf4bace94c40fe551ee1d0a19ee23e3f7f5d19235f8a9edcdab355ba84a052",
+  "input_header": [
+    "aig",
+    "31",
+    "10",
+    "3",
+    "0",
+    "18",
+    "1",
+    "7",
+    "0",
+    "0"
+  ],
+  "script_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/model/query.aig\"; fold; orpos; &get; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/folded.aig\"; &gla -q -T 3 -v -m -A \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/abstraction_map.aig\" -L \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/gla.status\"; write_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/final.status\"; &write -s \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/final_map.aig\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.18827658612281084,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/gla.log",
+    "log_sha256": "70707dc30241bb88962a33addd4cf9978ead1442fec091a4b137bb16216d8565"
+  },
+  "raw_status": "snl_SAT 0 unknown 0 1\n0000\n01000000000000000000\n",
+  "fold_semantics": "AIGER constraints folded first, all bad outputs ORed, then &get; no extra internal premises",
+  "interpretation": "Only explicit threaded-PDR unbounded proof or trivial constant-zero miter can prove safety. A stable abstraction, bounded checks, and timeout are inconclusive. Maps are proof-only artifacts, never hardware.",
+  "folded_header": [
+    "aig",
+    "32",
+    "10",
+    "4",
+    "1",
+    "18"
+  ],
+  "counterexample_validation": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/folded.aig\"; &get; read_status \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/final.status\"; testcex; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/counterexample.aiw\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 0.1536493762396276,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_pdr_toys_v1/negative/gla/validate_cex.log",
+    "log_sha256": "488ba9daf92871e84895fb1d7a3101e9e6e4696d12d4681220fe2aca0347c77a"
+  },
+  "artifacts_sha256": {
+    "validate_cex.log": "488ba9daf92871e84895fb1d7a3101e9e6e4696d12d4681220fe2aca0347c77a",
+    "final_map.aig": "7948eca1ef30959630edda7be63602d77b8e81afd5d14f72c062da39cfb08ca6",
+    "gla.log": "70707dc30241bb88962a33addd4cf9978ead1442fec091a4b137bb16216d8565",
+    "abstraction_map.status": "12dc2381495facd110804db6ff3af8b8e2866f8e00a1f0b5b1d1e7ecf076b739",
+    "counterexample.aiw": "7127d54832ffc015ab615d699ad16b57307e9e81db5229321d0524e708e3ceec",
+    "final.status": "36a612fe109ecc49cd291d921254ec8a178d50ff342941d5f21a49ba9029748b",
+    "folded.aig": "7948eca1ef30959630edda7be63602d77b8e81afd5d14f72c062da39cfb08ca6",
+    "gate_solver.py": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+    "gla.status": "aa97ad172a2ebd838dbebb3f0c903916956ce5e8d75fc5e12908b7ed87c443c5",
+    "abstraction_map.aig": "e0e0f41fdb60facc755b286f5d3f9c39864e51b29bdef472578b95f563147821"
+  }
+}

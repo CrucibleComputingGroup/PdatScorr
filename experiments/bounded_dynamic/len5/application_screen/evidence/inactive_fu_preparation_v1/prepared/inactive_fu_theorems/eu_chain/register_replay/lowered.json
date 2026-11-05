@@ -1,0 +1,608 @@
+{
+  "creator": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "EUProof": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:1.1-8.10"
+      },
+      "ports": {
+        "clk_i": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst_ni": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "decoded_high": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "controls": {
+          "direction": "input",
+          "bits": [ 5, 6 ]
+        },
+        "visible_high": {
+          "direction": "output",
+          "bits": [ 7 ]
+        }
+      },
+      "cells": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4$assume$8": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4.17-4.32"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "EN": [ 9 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4$logic_not$9": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4.24-4.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "Y": [ 8 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:5$assume$10": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:5.1-5.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:5$eq$11": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:5.8-5.25"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "Y": [ 10 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:6$assert$12": {
+          "hide_name": 1,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:6.1-6.26"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 11 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:6$eq$13": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:6.8-6.25"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$auto$async2sync.cc:233:execute$34": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 12 ],
+            "S": [ 3 ],
+            "Y": [ 7 ]
+          }
+        },
+        "$auto$async2sync.cc:234:execute$35": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 13 ],
+            "S": [ 3 ],
+            "Y": [ 14 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$18": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "Y": [ 15 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$23": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "Y": [ 16 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$28": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11 ],
+            "Y": [ 17 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$20": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15 ],
+            "B": [ 9 ],
+            "Y": [ 18 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$25": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16 ],
+            "B": [ "1" ],
+            "Y": [ 19 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$30": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 17 ],
+            "B": [ "1" ],
+            "Y": [ 20 ]
+          }
+        },
+        "$flatten\\dut.$driver$u_backend.u_issue_stage.ireg_data_out.assigned_eu": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "source/rtl/expipe/issue-unit/issue_stage.sv:312.3"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 14 ],
+            "Q": [ 12 ]
+          }
+        },
+        "$flatten\\dut.$procmux$39601": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "source/rtl/expipe/issue-unit/issue_stage.sv:318.7-318.37|source/rtl/expipe/issue-unit/issue_stage.sv:317.14-319.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "B": [ 4 ],
+            "S": [ 5 ],
+            "Y": [ 21 ]
+          }
+        },
+        "$flatten\\dut.$procmux$39608": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "source/rtl/expipe/issue-unit/issue_stage.sv:316.7-316.27|source/rtl/expipe/issue-unit/issue_stage.sv:315.14-319.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 21 ],
+            "B": [ "0" ],
+            "S": [ 6 ],
+            "Y": [ 13 ]
+          }
+        },
+        "$initstate$6": {
+          "hide_name": 1,
+          "type": "$initstate",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4.5-4.15"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 22 ]
+          }
+        },
+        "$procmux$14": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4.5-4.15|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4.1-4.33"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 22 ],
+            "Y": [ 9 ]
+          }
+        },
+        "dut": {
+          "hide_name": 0,
+          "type": "$scopeinfo",
+          "parameters": {
+            "TYPE": "module"
+          },
+          "attributes": {
+            "cell_module_not_derived": "00000000000000000000000000000001",
+            "cell_src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:2.18-2.132",
+            "module": "NativeEURegister"
+          },
+          "port_directions": {
+          },
+          "connections": {
+          }
+        }
+      },
+      "netnames": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4$assume$8_EN": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4.17-4.32"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4$logic_not$9_Y": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4.24-4.31"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:5$eq$11_Y": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:5.8-5.25"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:6$eq$13_Y": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:6.8-6.25"
+          }
+        },
+        "$auto$async2sync.cc:220:execute$32": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:221:execute$33": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$19": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$24": {
+          "hide_name": 1,
+          "bits": [ 16 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$29": {
+          "hide_name": 1,
+          "bits": [ 17 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$21": {
+          "hide_name": 1,
+          "bits": [ 18 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$26": {
+          "hide_name": 1,
+          "bits": [ 19 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$31": {
+          "hide_name": 1,
+          "bits": [ 20 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\dut.$auto$jsonparse.cc:561:json_import$1": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\dut.$auto$jsonparse.cc:561:json_import$2": {
+          "hide_name": 1,
+          "bits": [ 21 ],
+          "attributes": {
+          }
+        },
+        "$initstate$6_wire": {
+          "hide_name": 1,
+          "bits": [ 22 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:4.5-4.15"
+          }
+        },
+        "clk_i": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:1.28-1.33"
+          }
+        },
+        "controls": {
+          "hide_name": 0,
+          "bits": [ 5, 6 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:1.93-1.101"
+          }
+        },
+        "decoded_high": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:1.67-1.79"
+          }
+        },
+        "dut.clk_i": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "hdlname": "dut clk_i"
+          }
+        },
+        "dut.controls": {
+          "hide_name": 0,
+          "bits": [ 5, 6 ],
+          "attributes": {
+            "hdlname": "dut controls"
+          }
+        },
+        "dut.decoded_high": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "hdlname": "dut decoded_high"
+          }
+        },
+        "dut.rst_ni": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "hdlname": "dut rst_ni"
+          }
+        },
+        "dut.visible_high": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "hdlname": "dut visible_high"
+          }
+        },
+        "rst_ni": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:1.47-1.53"
+          }
+        },
+        "visible_high": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/eu_register_lemma_v1/register/harness.sv:1.116-1.128"
+          }
+        }
+      }
+    }
+  }
+}
