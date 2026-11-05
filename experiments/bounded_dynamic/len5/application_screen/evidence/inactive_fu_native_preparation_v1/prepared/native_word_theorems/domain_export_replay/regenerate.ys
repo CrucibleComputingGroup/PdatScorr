@@ -1,0 +1,14 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/data_path.json"
+bwmuxmap
+bmuxmap
+setundef -anyseq
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_prepare_v1/native_word_theorems/domain_export_replay/symbolized_before_prep.json"
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv"
+prep -top DomainProof -flatten
+chformal -lower
+check -assert
+opt_dff
+async2sync
+dffunmap
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_prepare_v1/native_word_theorems/domain_export_replay/lowered.json"
+write_smt2 -wires "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_prepare_v1/native_word_theorems/domain_export_replay/model.smt2"

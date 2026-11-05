@@ -1,0 +1,45 @@
+{
+  "status": "matched_native_arithmetic_preparation_verified",
+  "accepted_optimization": false,
+  "same_files_sha256": {
+    "source.json": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+    "core.json": "2426b17743dfc23d806d5c544f9c6ebbc722909ed01442f0cb41403a11ad4b48",
+    "core.v": "fa7a83d7daed73b10f9be5f0d5dc8f927045f4d867b52bc795fffbbb500778b5",
+    "AdmissionScreen.sv": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+    "lemma_core.json": "16e274435b6f542d4304df7885deba4f27ce25fa87c2be398bdf707367f90b34",
+    "inactive_query_core.json": "7406d6177bcdc33f3b1c0d7d13510f262fe301bb026b81b444c8137e86e623cc",
+    "formal_screen.py": "1219e8c67643a26d89049accdc31ec92f57a510e835917f37655241809019356"
+  },
+  "properties": {
+    "assert": 3,
+    "assume": 8,
+    "cover": 0
+  },
+  "models": [
+    {
+      "directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_alu_mul_prepare_v1",
+      "mode": "alu_mul",
+      "summary_sha256": "3b30b02e762187a3706a7c510068e013cb5c5ca02898d7423a3214ddd4c8b92a",
+      "aig_sha256": "938bb126afe42b436aaaa00747c8d40fe717e7a369516d265dbc0c4c6003c3f8",
+      "and_nodes": 493830,
+      "latches": 20968,
+      "inputs": 31255,
+      "dependency_count": 269
+    },
+    {
+      "directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_prepare_v1",
+      "mode": "none",
+      "summary_sha256": "6b551342f51dfb34f19a1e11aa4af0428ca9d61a7bee1409b11dd5f525a623c6",
+      "aig_sha256": "664d43bfd5c703da92f194eb121862dc395992e076e3ec2c1dd3430878f8dc6d",
+      "and_nodes": 522336,
+      "latches": 22024,
+      "inputs": 32247,
+      "dependency_count": 269
+    }
+  ],
+  "native_payload_arithmetic_retained": true,
+  "target_solver_executed": false,
+  "and_delta_native_minus_abstract": 28506,
+  "latch_delta_native_minus_abstract": 1056,
+  "scope": "Preparation-only precision/cost comparison. Both models share exact native hardware, reset facts, ROM, timing, probes, and premises. Only the first applies payload overapproximation."
+}
