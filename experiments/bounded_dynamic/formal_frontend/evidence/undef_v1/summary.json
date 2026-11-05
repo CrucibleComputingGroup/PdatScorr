@@ -1,0 +1,693 @@
+{
+  "status": "regression_verified",
+  "implementation_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+  "old_failure_mode": "write_smt2 converted residual X in a mux arm to #b0; old base AND induction accepted y=s?X:0 versus0",
+  "fixed_result": "Independent anyseq choice survives; both SMT and PDR give explicit counterexample. Inactive-X condition remains provable.",
+  "native_export": "export_design retains original JSON then lowers bmux/bwmux/demux structurally and writes Verilog; no opt pass inserted",
+  "initial_state": "proc_clean/proc_prune/proc_init preserves constant and unknown init attributes before source symbolization; no -init/-params concretization",
+  "historical_scope": "Historical certificates are not automatically invalid merely because X existed. Revalidate with this flow, or separately certify removed X choices irrelevant under the actual domain. This package establishes a real generic old SMT false certificate.",
+  "tests": [
+    {
+      "command": "python -m pytest -q tests/unit/test_temporal_undef.py tests/unit/test_temporal_odc.py tests/unit/test_bank_sharing.py tests/unit/test_native_state_certificates.py tests/unit/test_coherent_alu.py tests/unit/test_state_candidates.py",
+      "passed": 100,
+      "seconds": 18.38
+    },
+    {
+      "command": "PATH=<pinned OSS CAD Suite bin>:$PATH python -m pytest -q tests/unit/test_temporal_undef.py",
+      "passed": 11,
+      "seconds": 3.83
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "system_yosys/case0/candidate.v",
+      "sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/candidate.v"
+    },
+    {
+      "path": "system_yosys/case0/fixed/base.log",
+      "sha256": "47ca9f5b4ed7bc430ee10f1395a86c7d48ea31aec8473ee92163b2510be2eb37",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/fixed/base.log"
+    },
+    {
+      "path": "system_yosys/case0/fixed/counterexample.vcd",
+      "sha256": "a1ab7e0f00f5d38a31f92893ce804440ce4bf03a5f1dadbcbf1b8e5319be6c8b",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/fixed/counterexample.vcd"
+    },
+    {
+      "path": "system_yosys/case0/fixed/miter.json",
+      "sha256": "10ac78dc0e99e7606854c6209dd95945d6d8b1d62c10e311dea17ff65cdd0de9",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/fixed/miter.json"
+    },
+    {
+      "path": "system_yosys/case0/fixed/miter.smt2",
+      "sha256": "590d62b9f07590efd3b2170ce8e66c09a27844324e84372d86a16e45aaa93397",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/fixed/miter.smt2"
+    },
+    {
+      "path": "system_yosys/case0/fixed/prepare.log",
+      "sha256": "b934d21c8a7a3a5fa5e8a4d61f36e885c722a5f6b0c7bfd50e6e04395b19f4dd",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/fixed/prepare.log"
+    },
+    {
+      "path": "system_yosys/case0/fixed/prepare.ys",
+      "sha256": "ce4078cfe6170c6b7b74d4cb623f701428d913c50afae28e33e33345340fba18",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/fixed/prepare.ys"
+    },
+    {
+      "path": "system_yosys/case0/fixed/proof.json",
+      "sha256": "a99ba45a4e9b27c5a95c0e14c7918ef1e5a642b1e92da21ee4e98ed5549ba4a4",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/fixed/proof.json"
+    },
+    {
+      "path": "system_yosys/case0/fixed/smt_export.log",
+      "sha256": "0e5d027415d540f4b2794ac29a9681f2920b9deb9303e80b1fb2eefb362650c1",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/fixed/smt_export.log"
+    },
+    {
+      "path": "system_yosys/case0/fixed/smt_export.ys",
+      "sha256": "d30c1516b4f1dec5bcccc644649e493237f1d2b2a8a26f210bade1cafc8922c4",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/fixed/smt_export.ys"
+    },
+    {
+      "path": "system_yosys/case0/harness.sv",
+      "sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/harness.sv"
+    },
+    {
+      "path": "system_yosys/case0/legacy.log",
+      "sha256": "241176d6c642622e3634ce2327a17c59c7ed4ce4dcf60d1c2b6b7a9a6f33670b",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/legacy.log"
+    },
+    {
+      "path": "system_yosys/case0/legacy.smt2",
+      "sha256": "4cbce04d663746aec9e377eabd96c2ae3eecf943558a6e0dcfdb5124203d01c4",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/legacy.smt2"
+    },
+    {
+      "path": "system_yosys/case0/legacy.ys",
+      "sha256": "4a9d2813a785a0a86454d7497069fd9858abb85764d8eb82192b94544d2cb3ed",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/legacy.ys"
+    },
+    {
+      "path": "system_yosys/case0/legacy_base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/legacy_base.log"
+    },
+    {
+      "path": "system_yosys/case0/legacy_step.log",
+      "sha256": "bc18f0e26765409885301f9ad3df3323bce6db552ddf9b9ae05163e038f2d5a2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/legacy_step.log"
+    },
+    {
+      "path": "system_yosys/case0/reference.v",
+      "sha256": "23d57e2a3fa350427db55585e4c167392b7fda4d2c3e3172de909496ad147da6",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can0/reference.v"
+    },
+    {
+      "path": "system_yosys/case1/candidate.v",
+      "sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/candidate.v"
+    },
+    {
+      "path": "system_yosys/case1/fixed/base.log",
+      "sha256": "872cafb6f439a65aa4aad5e73da575a25cee05d0f03f83d5c04d5062b07aaa58",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/base.log"
+    },
+    {
+      "path": "system_yosys/case1/fixed/counterexample.vcd",
+      "sha256": "a1ab7e0f00f5d38a31f92893ce804440ce4bf03a5f1dadbcbf1b8e5319be6c8b",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/counterexample.vcd"
+    },
+    {
+      "path": "system_yosys/case1/fixed/miter.json",
+      "sha256": "a12aae0bae0176a5896a2a44c19878227c8805a862fd6584b4ed503b7f072cd4",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/miter.json"
+    },
+    {
+      "path": "system_yosys/case1/fixed/miter.smt2",
+      "sha256": "1525b53e39fe7bdf059eaacf83afe632d0d3b8eb80b9fdfb4740fd65b1bbaf43",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/miter.smt2"
+    },
+    {
+      "path": "system_yosys/case1/fixed/prepare.log",
+      "sha256": "66b3282368af8ffb2d75289c7779d004c7ec8e84b33926f9702e215beace1687",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/prepare.log"
+    },
+    {
+      "path": "system_yosys/case1/fixed/prepare.ys",
+      "sha256": "1da4b1795478e51653c4c2a941697d001e7ac4168cfdb51d2feb150b14d5ade6",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/prepare.ys"
+    },
+    {
+      "path": "system_yosys/case1/fixed/proof.json",
+      "sha256": "fcc47b90f1d69ddeb7209676f44c37851d155d75a99a9ade0da7382ff0a9c9a8",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/proof.json"
+    },
+    {
+      "path": "system_yosys/case1/fixed/smt_export.log",
+      "sha256": "f3ac81b26e431d090c45b3ce102a8a4821c49d5a0bbb50688cbd3a2d3ac44f15",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/smt_export.log"
+    },
+    {
+      "path": "system_yosys/case1/fixed/smt_export.ys",
+      "sha256": "1b31f6052a64b8cfc25e29335866f2f5ffbc80a61e2b7008799e22832ef688af",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/smt_export.ys"
+    },
+    {
+      "path": "system_yosys/case1/harness.sv",
+      "sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/harness.sv"
+    },
+    {
+      "path": "system_yosys/case1/legacy.log",
+      "sha256": "12ca8498596af6970af9d58c3bef89da1477233e3076b3894d245a46f6e77082",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/legacy.log"
+    },
+    {
+      "path": "system_yosys/case1/legacy.smt2",
+      "sha256": "e7e63673af56646943f1425f880c82e22d5cd4e8cd71b7bd7f7f1ae8ffb08ffb",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/legacy.smt2"
+    },
+    {
+      "path": "system_yosys/case1/legacy.ys",
+      "sha256": "5986e69806154950493eed13f8819a1124beda423f38119007c7cf1d6a832f6f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/legacy.ys"
+    },
+    {
+      "path": "system_yosys/case1/legacy_base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/legacy_base.log"
+    },
+    {
+      "path": "system_yosys/case1/legacy_step.log",
+      "sha256": "bc18f0e26765409885301f9ad3df3323bce6db552ddf9b9ae05163e038f2d5a2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/legacy_step.log"
+    },
+    {
+      "path": "system_yosys/case1/reference.v",
+      "sha256": "858eeffacd4f7eab91501d8363a612b462e39f39aff0d211c9cdd0b7c8178148",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/reference.v"
+    },
+    {
+      "path": "system_yosys/case2/candidate.v",
+      "sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/candidate.v"
+    },
+    {
+      "path": "system_yosys/case2/fixed/aig_export.log",
+      "sha256": "e2a514a28dd5b5d58233be4eec530aa99e5aefdbda14b5ad178fc897cc0406dd",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/aig_export.log"
+    },
+    {
+      "path": "system_yosys/case2/fixed/aig_export.ys",
+      "sha256": "872344b298c9dc5d3411f4688a91874c878a0f39f6331f5ec18f27dd2383041f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/aig_export.ys"
+    },
+    {
+      "path": "system_yosys/case2/fixed/miter.aig",
+      "sha256": "fb4faf914b887a3bff1d0c99367139a9195874dbbe92477301d91f338a6aa4b1",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/miter.aig"
+    },
+    {
+      "path": "system_yosys/case2/fixed/miter.json",
+      "sha256": "332806dd376894d631af9723b15dfe044f5bbf84f46bb80702d2a3fc054a36b2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/miter.json"
+    },
+    {
+      "path": "system_yosys/case2/fixed/pdr.log",
+      "sha256": "fc340ea1fe6ec7c02236e0ddfcbfd7c925f8e2d6cdda2c7e2cae2af6d4c54706",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/pdr.log"
+    },
+    {
+      "path": "system_yosys/case2/fixed/prepare.log",
+      "sha256": "4a05de576b1dc5396d765810275768f84a92904ec6f53ee57ae11d015d08eaf6",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/prepare.log"
+    },
+    {
+      "path": "system_yosys/case2/fixed/prepare.ys",
+      "sha256": "df18cc1c7e052aca44d38b8ddc6252699bc800a172d30d238a95918d10bc2459",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/prepare.ys"
+    },
+    {
+      "path": "system_yosys/case2/fixed/proof.json",
+      "sha256": "4e89050636fd008b60a34d84fb4390bb2f65e7f836acb6e31293bf4e178e3e35",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/proof.json"
+    },
+    {
+      "path": "system_yosys/case2/harness.sv",
+      "sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/harness.sv"
+    },
+    {
+      "path": "system_yosys/case2/legacy.log",
+      "sha256": "a64642bed361db1e07017b068e4aa5a1cd9a82a232d96c473bec4c0275960895",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/legacy.log"
+    },
+    {
+      "path": "system_yosys/case2/legacy.smt2",
+      "sha256": "9443886f1519c509d9a67989eed96de5b2845e96f9464f038b308f666872c4c6",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/legacy.smt2"
+    },
+    {
+      "path": "system_yosys/case2/legacy.ys",
+      "sha256": "43836ce7a0f8bd5e5a7057c7a2ea44b84ac3de1442731a5011560425b780592d",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/legacy.ys"
+    },
+    {
+      "path": "system_yosys/case2/legacy_base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/legacy_base.log"
+    },
+    {
+      "path": "system_yosys/case2/legacy_step.log",
+      "sha256": "bc18f0e26765409885301f9ad3df3323bce6db552ddf9b9ae05163e038f2d5a2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/legacy_step.log"
+    },
+    {
+      "path": "system_yosys/case2/reference.v",
+      "sha256": "23d57e2a3fa350427db55585e4c167392b7fda4d2c3e3172de909496ad147da6",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/reference.v"
+    },
+    {
+      "path": "system_yosys/case3/candidate.v",
+      "sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/candidate.v"
+    },
+    {
+      "path": "system_yosys/case3/fixed/aig_export.log",
+      "sha256": "5fe932228dc24434a041f71d1fa647d2587547abb4b055fab255b9bd3df7a9a5",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/fixed/aig_export.log"
+    },
+    {
+      "path": "system_yosys/case3/fixed/aig_export.ys",
+      "sha256": "92607632f1d2d176ab0b53d3fd92a154b516b57fbb8206dc43b9bdd3878a5810",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/fixed/aig_export.ys"
+    },
+    {
+      "path": "system_yosys/case3/fixed/miter.aig",
+      "sha256": "fb4faf914b887a3bff1d0c99367139a9195874dbbe92477301d91f338a6aa4b1",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/fixed/miter.aig"
+    },
+    {
+      "path": "system_yosys/case3/fixed/miter.json",
+      "sha256": "ea70edf77b16146b896d5047cb0ab42164cfc6a0733bb50d6392a3aa62e1a44c",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/fixed/miter.json"
+    },
+    {
+      "path": "system_yosys/case3/fixed/pdr.log",
+      "sha256": "c1d749a4af04ac46babf99bd4c977772d486d89cc04ce70e6f5108d95919f03e",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/fixed/pdr.log"
+    },
+    {
+      "path": "system_yosys/case3/fixed/prepare.log",
+      "sha256": "dfa7104dd70c23436e435e4ec9bca2cf4464b27d216da487cda0a9766f6a3612",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/fixed/prepare.log"
+    },
+    {
+      "path": "system_yosys/case3/fixed/prepare.ys",
+      "sha256": "bf4b705cfd1ea169f24fe1220f521ce70065980c318e3701aaa0634d3a6dff70",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/fixed/prepare.ys"
+    },
+    {
+      "path": "system_yosys/case3/fixed/proof.json",
+      "sha256": "4666dce42716f2e62905b1e20527f46a0ad75c2ff92fceb25b1d3f3f274b838a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/fixed/proof.json"
+    },
+    {
+      "path": "system_yosys/case3/harness.sv",
+      "sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/harness.sv"
+    },
+    {
+      "path": "system_yosys/case3/legacy.log",
+      "sha256": "e717dbf2181907fdaf04c0ee62b5a1248a28e46ab9da1188a049a4f338596e18",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/legacy.log"
+    },
+    {
+      "path": "system_yosys/case3/legacy.smt2",
+      "sha256": "56f9a5f3c6b9c552f211554d089f45cc55e083ca57a5777afc8612aa931dd7b3",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/legacy.smt2"
+    },
+    {
+      "path": "system_yosys/case3/legacy.ys",
+      "sha256": "c265f6e407431e950e7ae7478d62e80c189cec48a9f526931b192ee209ea41d3",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/legacy.ys"
+    },
+    {
+      "path": "system_yosys/case3/legacy_base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/legacy_base.log"
+    },
+    {
+      "path": "system_yosys/case3/legacy_step.log",
+      "sha256": "bc18f0e26765409885301f9ad3df3323bce6db552ddf9b9ae05163e038f2d5a2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/legacy_step.log"
+    },
+    {
+      "path": "system_yosys/case3/reference.v",
+      "sha256": "858eeffacd4f7eab91501d8363a612b462e39f39aff0d211c9cdd0b7c8178148",
+      "source": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/reference.v"
+    },
+    {
+      "path": "pinned_yosys/case0/candidate.v",
+      "sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/candidate.v"
+    },
+    {
+      "path": "pinned_yosys/case0/fixed/base.log",
+      "sha256": "a4fe16390f81068307561b6d10d5ad258dd5b3e245d1f83ee80d3c5b993084ca",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/base.log"
+    },
+    {
+      "path": "pinned_yosys/case0/fixed/counterexample.vcd",
+      "sha256": "a1ab7e0f00f5d38a31f92893ce804440ce4bf03a5f1dadbcbf1b8e5319be6c8b",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/counterexample.vcd"
+    },
+    {
+      "path": "pinned_yosys/case0/fixed/miter.json",
+      "sha256": "3eb413fe057ddd8db47ba4e9c361454c5d96377ec944794db2909f317875dee5",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/miter.json"
+    },
+    {
+      "path": "pinned_yosys/case0/fixed/miter.smt2",
+      "sha256": "fb70d5ef03b49dc65f32bd1b1ca2f09e23f3ee0ba48a1e4858df346a0bd51f7f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/miter.smt2"
+    },
+    {
+      "path": "pinned_yosys/case0/fixed/prepare.log",
+      "sha256": "316acf7c896a1566e938fc1fcba07ae71a3a3adbb3a5fb2609562c62a0677492",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/prepare.log"
+    },
+    {
+      "path": "pinned_yosys/case0/fixed/prepare.ys",
+      "sha256": "375d07233528769031adbd91270a053afcc8fcc8aa703bf1e73a17929ac9a6e9",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/prepare.ys"
+    },
+    {
+      "path": "pinned_yosys/case0/fixed/proof.json",
+      "sha256": "baf7b8c6fec9c9c1c1294b0f22bdd6b147935fd70970932683ca6b4816dc2da9",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/proof.json"
+    },
+    {
+      "path": "pinned_yosys/case0/fixed/smt_export.log",
+      "sha256": "78de054211e5982f8e6e9f3d43680338daf9961c03377a9e88ff8d8531286acb",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/smt_export.log"
+    },
+    {
+      "path": "pinned_yosys/case0/fixed/smt_export.ys",
+      "sha256": "244e7fb4a1e5cba351c1004bacdb2aaa19ab6c88026fae551a58ad8884f255c1",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/smt_export.ys"
+    },
+    {
+      "path": "pinned_yosys/case0/harness.sv",
+      "sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/harness.sv"
+    },
+    {
+      "path": "pinned_yosys/case0/legacy.log",
+      "sha256": "865b8e3b4b8c74903d420e2d059d92b38fc671a31fd537b0a0999089a129ffcb",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/legacy.log"
+    },
+    {
+      "path": "pinned_yosys/case0/legacy.smt2",
+      "sha256": "3cdc287b3059544e8835270b292ed469d44f328b709c5f93f3d448882b972c4a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/legacy.smt2"
+    },
+    {
+      "path": "pinned_yosys/case0/legacy.ys",
+      "sha256": "d7c432062f0c425e4a0e5738a0341771f35aa1dfb75f330294c9e98e652de083",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/legacy.ys"
+    },
+    {
+      "path": "pinned_yosys/case0/legacy_base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/legacy_base.log"
+    },
+    {
+      "path": "pinned_yosys/case0/legacy_step.log",
+      "sha256": "bc18f0e26765409885301f9ad3df3323bce6db552ddf9b9ae05163e038f2d5a2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/legacy_step.log"
+    },
+    {
+      "path": "pinned_yosys/case0/reference.v",
+      "sha256": "23d57e2a3fa350427db55585e4c167392b7fda4d2c3e3172de909496ad147da6",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/reference.v"
+    },
+    {
+      "path": "pinned_yosys/case1/candidate.v",
+      "sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/candidate.v"
+    },
+    {
+      "path": "pinned_yosys/case1/fixed/base.log",
+      "sha256": "5bd3ced6ff7487c1a38e012872a24328156a16ff63091cd1a5072abb5ee53d8e",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/fixed/base.log"
+    },
+    {
+      "path": "pinned_yosys/case1/fixed/counterexample.vcd",
+      "sha256": "a1ab7e0f00f5d38a31f92893ce804440ce4bf03a5f1dadbcbf1b8e5319be6c8b",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/fixed/counterexample.vcd"
+    },
+    {
+      "path": "pinned_yosys/case1/fixed/miter.json",
+      "sha256": "86889caf1e6a05dc5dec939f37b0003b42171191cc5a392d17b518ebc09048c2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/fixed/miter.json"
+    },
+    {
+      "path": "pinned_yosys/case1/fixed/miter.smt2",
+      "sha256": "67eefe67d1fdc15ed47c02953ebdfe5d0a0f297ff40b34ec11bedc6115023c2e",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/fixed/miter.smt2"
+    },
+    {
+      "path": "pinned_yosys/case1/fixed/prepare.log",
+      "sha256": "afd2795b2a790d08bc89d677e76a7329f50d38c05a054fe7a0130a5e2fd1805a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/fixed/prepare.log"
+    },
+    {
+      "path": "pinned_yosys/case1/fixed/prepare.ys",
+      "sha256": "81b43759dcbeb3165df895dc7db2555669b09a97f41c22c4ea24ec99574007f8",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/fixed/prepare.ys"
+    },
+    {
+      "path": "pinned_yosys/case1/fixed/proof.json",
+      "sha256": "10b96860ff1ec2bf84452b06cac90a19b353bdb483feb11bc365fada3b46b3dc",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/fixed/proof.json"
+    },
+    {
+      "path": "pinned_yosys/case1/fixed/smt_export.log",
+      "sha256": "121c83e8b3848f9a9e9bec088168b4d52a153dc8702fdc029f7d29a9f5acf464",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/fixed/smt_export.log"
+    },
+    {
+      "path": "pinned_yosys/case1/fixed/smt_export.ys",
+      "sha256": "1aaf18fcaa2311ecb8c26c3e4415d2eb515afb6dbef2245a9169e0ab9d40cb34",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/fixed/smt_export.ys"
+    },
+    {
+      "path": "pinned_yosys/case1/harness.sv",
+      "sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/harness.sv"
+    },
+    {
+      "path": "pinned_yosys/case1/legacy.log",
+      "sha256": "c2e00e6c6ec5aacc786a6747ff12a463f066014599eada98b1d2453376f35799",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/legacy.log"
+    },
+    {
+      "path": "pinned_yosys/case1/legacy.smt2",
+      "sha256": "76a70911e598c9f64687ae70bc475f2440b969cc682390414bf62e3a0ed0e8ad",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/legacy.smt2"
+    },
+    {
+      "path": "pinned_yosys/case1/legacy.ys",
+      "sha256": "1fcbf55dce7e582643c47664de30a41362d9455b49c46ad34f9f20561783e352",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/legacy.ys"
+    },
+    {
+      "path": "pinned_yosys/case1/legacy_base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/legacy_base.log"
+    },
+    {
+      "path": "pinned_yosys/case1/legacy_step.log",
+      "sha256": "bc18f0e26765409885301f9ad3df3323bce6db552ddf9b9ae05163e038f2d5a2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/legacy_step.log"
+    },
+    {
+      "path": "pinned_yosys/case1/reference.v",
+      "sha256": "858eeffacd4f7eab91501d8363a612b462e39f39aff0d211c9cdd0b7c8178148",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can1/reference.v"
+    },
+    {
+      "path": "pinned_yosys/case2/candidate.v",
+      "sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/candidate.v"
+    },
+    {
+      "path": "pinned_yosys/case2/fixed/aig_export.log",
+      "sha256": "23243e58420d7720d4a9574abc83e2fff589eede0b6b5398ba1eaffd58d999f3",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/fixed/aig_export.log"
+    },
+    {
+      "path": "pinned_yosys/case2/fixed/aig_export.ys",
+      "sha256": "dc4891815a9265ff8b9eac065fdf1c72a2e2b08f6eecce0eddb160572520b326",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/fixed/aig_export.ys"
+    },
+    {
+      "path": "pinned_yosys/case2/fixed/miter.aig",
+      "sha256": "98aa697709b25316cec96fa4e3ab30c02c987a8a8849f2576258db6515a2fc8b",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/fixed/miter.aig"
+    },
+    {
+      "path": "pinned_yosys/case2/fixed/miter.json",
+      "sha256": "f6cff7f4a34768e7bc3b32553dfb7847a07549647a7d9b07bf2a3eaecbce6349",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/fixed/miter.json"
+    },
+    {
+      "path": "pinned_yosys/case2/fixed/pdr.log",
+      "sha256": "d7a2894f9f1d5f00fe00bc10dc659b05e63d5245962805b5e05b973c68a7b9bc",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/fixed/pdr.log"
+    },
+    {
+      "path": "pinned_yosys/case2/fixed/prepare.log",
+      "sha256": "7eb7c0023d747f47103503cf35e4619c4f95e413cf4fece23647b5b1dd0975e2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/fixed/prepare.log"
+    },
+    {
+      "path": "pinned_yosys/case2/fixed/prepare.ys",
+      "sha256": "d9869478d2ecd6fbfebba69107ba5f67f7874d092f37561345f686bf025880df",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/fixed/prepare.ys"
+    },
+    {
+      "path": "pinned_yosys/case2/fixed/proof.json",
+      "sha256": "8db9496a90bdcf034726e9089721c26ec8950e99fda821cb5fcbfaf9c171406f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/fixed/proof.json"
+    },
+    {
+      "path": "pinned_yosys/case2/harness.sv",
+      "sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/harness.sv"
+    },
+    {
+      "path": "pinned_yosys/case2/legacy.log",
+      "sha256": "0248a0029d0ffee9c186bc0023d0b0ebf37702ed8a49fac4660eb292cb76f4eb",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/legacy.log"
+    },
+    {
+      "path": "pinned_yosys/case2/legacy.smt2",
+      "sha256": "cf205a2dce3d4fe677b0fae05bb582e32f13cc8cf30192c405aacdf17739ffa8",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/legacy.smt2"
+    },
+    {
+      "path": "pinned_yosys/case2/legacy.ys",
+      "sha256": "040859cec5cda4511245ad0aa402eef98685b10013ea1f7e7cce6b62f04cd712",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/legacy.ys"
+    },
+    {
+      "path": "pinned_yosys/case2/legacy_base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/legacy_base.log"
+    },
+    {
+      "path": "pinned_yosys/case2/legacy_step.log",
+      "sha256": "bc18f0e26765409885301f9ad3df3323bce6db552ddf9b9ae05163e038f2d5a2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/legacy_step.log"
+    },
+    {
+      "path": "pinned_yosys/case2/reference.v",
+      "sha256": "23d57e2a3fa350427db55585e4c167392b7fda4d2c3e3172de909496ad147da6",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can2/reference.v"
+    },
+    {
+      "path": "pinned_yosys/case3/candidate.v",
+      "sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/candidate.v"
+    },
+    {
+      "path": "pinned_yosys/case3/fixed/aig_export.log",
+      "sha256": "d52ea88c491881d30c05b8f5005db57a7f92c913707ff3bcb148515def3eeed4",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/fixed/aig_export.log"
+    },
+    {
+      "path": "pinned_yosys/case3/fixed/aig_export.ys",
+      "sha256": "8fb7da848df5ead77b0fb9927cd4c97b82c908e88f6de9bdc0e9d880ba41e118",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/fixed/aig_export.ys"
+    },
+    {
+      "path": "pinned_yosys/case3/fixed/miter.aig",
+      "sha256": "98aa697709b25316cec96fa4e3ab30c02c987a8a8849f2576258db6515a2fc8b",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/fixed/miter.aig"
+    },
+    {
+      "path": "pinned_yosys/case3/fixed/miter.json",
+      "sha256": "b0754e8261eb5217160b0f1fb843b5ac740ce3ceba9758ce627cd9eb3545a302",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/fixed/miter.json"
+    },
+    {
+      "path": "pinned_yosys/case3/fixed/pdr.log",
+      "sha256": "03628d82283a9410e6268b5c77f7c96bb828845c71f38f495733a7033394e157",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/fixed/pdr.log"
+    },
+    {
+      "path": "pinned_yosys/case3/fixed/prepare.log",
+      "sha256": "91a92c8568dd50bb0e8e5112cdcee754a5c12f771320108d7b4516a68679780d",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/fixed/prepare.log"
+    },
+    {
+      "path": "pinned_yosys/case3/fixed/prepare.ys",
+      "sha256": "8ad0ddbb3c7134ddc23dbbec62e8e5b44ecbfbda0c81653a6d54f681b8c758cc",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/fixed/prepare.ys"
+    },
+    {
+      "path": "pinned_yosys/case3/fixed/proof.json",
+      "sha256": "a3e28335ba5f8744e965b5456bebf747461fbe4e15f95fffde414ed7ca5c6fb2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/fixed/proof.json"
+    },
+    {
+      "path": "pinned_yosys/case3/harness.sv",
+      "sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/harness.sv"
+    },
+    {
+      "path": "pinned_yosys/case3/legacy.log",
+      "sha256": "353944b22f467dd571ca6a2b8eb4c32654659a993fea6c14602261781feb2261",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/legacy.log"
+    },
+    {
+      "path": "pinned_yosys/case3/legacy.smt2",
+      "sha256": "d249e39fade8e736c43e0f72b0c57cbf3fc8f81af187cb2de3540e9cc84b7b88",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/legacy.smt2"
+    },
+    {
+      "path": "pinned_yosys/case3/legacy.ys",
+      "sha256": "de9af5beb2c5060b760635fb7bd9a531b3548c0f182432dccf3124709edf3932",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/legacy.ys"
+    },
+    {
+      "path": "pinned_yosys/case3/legacy_base.log",
+      "sha256": "9ac3eb49250d9ebceb1ae6676c55fd14598358e465124ee9120cb3fd917db15a",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/legacy_base.log"
+    },
+    {
+      "path": "pinned_yosys/case3/legacy_step.log",
+      "sha256": "bc18f0e26765409885301f9ad3df3323bce6db552ddf9b9ae05163e038f2d5a2",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/legacy_step.log"
+    },
+    {
+      "path": "pinned_yosys/case3/reference.v",
+      "sha256": "858eeffacd4f7eab91501d8363a612b462e39f39aff0d211c9cdd0b7c8178148",
+      "source": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can3/reference.v"
+    },
+    {
+      "path": "sources/temporal.py",
+      "sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/odc/temporal.py"
+    },
+    {
+      "path": "sources/test_temporal_undef.py",
+      "sha256": "87033a338b5935afb49a0587ba0e6b7d12d4da1690fa7cdfd16e2e2ac15cfaf2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/tests/unit/test_temporal_undef.py"
+    }
+  ]
+}

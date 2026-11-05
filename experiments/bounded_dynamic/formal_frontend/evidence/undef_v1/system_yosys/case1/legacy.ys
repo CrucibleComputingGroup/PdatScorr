@@ -1,0 +1,5 @@
+read_verilog -formal -sv "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/reference.v" "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/candidate.v" "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/harness.sv"
+prep -top M -flatten
+async2sync
+dffunmap
+write_smt2 "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/legacy.smt2"

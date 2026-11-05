@@ -8,8 +8,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import re
+import odc.temporal as temporal_backend
 
-from odc.temporal import (checked_yosys, digest, formal_lower_command, proof_passed,
+from odc.temporal import (checked_yosys, digest, formal_lower_command, formal_prepare_command, proof_passed,
                           run_command, validate_single_clock, yosys_path)
 
 
@@ -65,6 +66,9 @@ def prove(reference, candidate, harness, directory, *, yosys, timeout=120,
     hashes = {n: digest(p) for n, p in (("reference", reference), ("candidate", candidate),
                                         ("harness", harness), ("proof_helper", Path(__file__)))}
     (directory / "proof_helper_source.py").write_bytes(Path(__file__).read_bytes())
+    temporal_path = Path(temporal_backend.__file__)
+    hashes["generic_frontend_helper"] = digest(temporal_path)
+    (directory / "temporal_source.py").write_bytes(temporal_path.read_bytes())
     last_writer_path = Path(__file__).with_name("last_writer.py")
     if last_writer:
         hashes["last_writer_helper"] = digest(last_writer_path)
@@ -78,12 +82,13 @@ def prove(reference, candidate, harness, directory, *, yosys, timeout=120,
         hashes["coherent_alu_helper"] = digest(coherent_path)
         (directory / "coherent_alu_source.py").write_bytes(coherent_path.read_bytes())
     result = {"proven": False, "method": "native-state-assertions-" + engine, "input_sha256": hashes,
-              "initial_pairing": False, "state_assumptions_added": 0}
+              "initial_pairing": False, "state_assumptions_added": 0,
+              "undefined_value_model": "Shared formal_prepare_command before optimization; symbolic residual choices after sequential normalization"}
     try:
         native = directory / "native.json"
         result["prepare"] = checked_yosys(yosys,
             f"read_verilog -formal -sv {yosys_path(reference)} {yosys_path(candidate)} {yosys_path(harness)}\n"
-            f"prep -top {top} -flatten\n" + ("opt_dff\n" if last_writer else "")
+            + formal_prepare_command(top) + ("opt_dff -keepdc\n" if last_writer else "")
             + "check -assert\n" + formal_lower_command(yosys)
             + f"write_json {yosys_path(native)}\n", directory, "prepare", timeout)
         design = json.loads(native.read_text())
@@ -102,7 +107,7 @@ def prove(reference, candidate, harness, directory, *, yosys, timeout=120,
         native.write_text(json.dumps(design) + "\n")
         lowered = directory / "lowered.json"
         result["lower"] = checked_yosys(yosys,
-            f"read_json {yosys_path(native)}\ncheck -assert\nasync2sync\ndffunmap\n"
+            f"read_json {yosys_path(native)}\ncheck -assert\nsetundef -anyseq\nasync2sync\ndffunmap\nsetundef -anyseq\n"
             f"write_json {yosys_path(lowered)}\n", directory, "lower", timeout)
         lower = json.loads(lowered.read_text())
         result["clock_model"] = validate_single_clock(lower, top)
@@ -155,5 +160,8 @@ def prove(reference, candidate, harness, directory, *, yosys, timeout=120,
     if coherent_alu and digest(coherent_path) != hashes["coherent_alu_helper"]:
         result["proven"] = False
         result["error"] = "ALU abstraction helper changed during proof"
+    if digest(temporal_path) != hashes["generic_frontend_helper"]:
+        result["proven"] = False
+        result["error"] = "Generic formal frontend changed during proof"
     (directory / "proof.json").write_text(json.dumps(result, indent=2) + "\n")
     return result

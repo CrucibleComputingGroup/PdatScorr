@@ -1,0 +1,6 @@
+read_rtlil elaborated.il
+opt_expr
+opt_clean
+check -assert
+stat
+write_rtlil normalized.il

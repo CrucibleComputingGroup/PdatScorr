@@ -1,0 +1,77 @@
+{
+  "proven": false,
+  "method": "reset-base-and-k-induction",
+  "depth": 3,
+  "reference_sha256": "858eeffacd4f7eab91501d8363a612b462e39f39aff0d211c9cdd0b7c8178148",
+  "candidate_sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+  "harness_sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+  "implementation_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+  "undefined_value_model": "Independent symbolic choices before process optimization, after nonoptimizing process lowering, and after sequential normalization; no -init/-params concretization",
+  "elaboration": {
+    "argv": [
+      "/usr/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/usr/bin/yosys",
+    "executable_sha256": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+    "timeout": false,
+    "seconds": 0.0218144366517663,
+    "log": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/prepare.log",
+    "log_sha256": "66b3282368af8ffb2d75289c7779d004c7ec8e84b33926f9702e215beace1687"
+  },
+  "clock_model": {
+    "clocks": [],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "property_counts": {
+    "assert": 1,
+    "assume": 1,
+    "cover": 0
+  },
+  "initial_state": {
+    "paired_state_bits": 0,
+    "assert_state_correspondence": false,
+    "scope": "Independent initial states; no initial pairing or continuing correspondence assumption. Reset obligations remain in the immutable harness."
+  },
+  "smt_export": {
+    "argv": [
+      "/usr/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/smt_export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/usr/bin/yosys",
+    "executable_sha256": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+    "timeout": false,
+    "seconds": 0.01375601114705205,
+    "log": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/smt_export.log",
+    "log_sha256": "f3ac81b26e431d090c45b3ce102a8a4821c49d5a0bbb50688cbd3a2d3ac44f15"
+  },
+  "smt_sha256": "1525b53e39fe7bdf059eaacf83afe632d0d3b8eb80b9fdfb4740fd65b1bbaf43",
+  "base": {
+    "argv": [
+      "/usr/bin/yosys-smtbmc",
+      "-s",
+      "z3",
+      "-t",
+      "3",
+      "--noprogress",
+      "--dump-vcd",
+      "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/counterexample.vcd",
+      "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/miter.smt2"
+    ],
+    "returncode": 1,
+    "executable": "/usr/bin/yosys-smtbmc",
+    "executable_sha256": "f80da935829097fa2ecd77d9b90fc3cb49da148be6f70e1af40bf4c4370d5c2d",
+    "timeout": false,
+    "seconds": 0.0649810959585011,
+    "log": "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can1/fixed/base.log",
+    "log_sha256": "872cafb6f439a65aa4aad5e73da575a25cee05d0f03f83d5c04d5062b07aaa58"
+  }
+}

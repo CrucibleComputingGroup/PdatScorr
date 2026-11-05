@@ -7,6 +7,15 @@ including 14 new tests in `tests/unit/test_native_state_certificates.py`.
 These are generic toy regressions and a source review; native LEN5 proof
 completion must be established by its separate solver artifacts.
 
+The current wrapper additionally uses the shared symbolic-undefined frontend.
+The reviewed `assert_native_correspondence` function is AST-identical to its
+archived version; the factoring and last-writer helpers are unchanged. The
+implementation owner checked the migrated wrapper with active-X rejection and
+inactive-X equivalence cases, together with the helper suites: 34 tests passed.
+The JSON retains historical hashes and separately records this migration. This
+does not retroactively certify historical frontend handling of undefined
+choices; prior positive subproofs need revalidation or an irrelevance argument.
+
 `assert_native_correspondence` matches native FF Q bits before `async2sync`.
 Duplicate aliases are deduplicated; every edge involved in one-to-many or
 many-to-one matching is excluded. It adds an unconditional equality assertion

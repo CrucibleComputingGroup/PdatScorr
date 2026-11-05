@@ -1,0 +1,68 @@
+
+-- Executing script file `normalize.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: elaborated.il
+
+2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module datapath.
+Couldn't topologically sort cells, optimizing module datapath may take a longer time.
+Couldn't topologically sort cells, optimizing module datapath may take a longer time.
+
+3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \datapath..
+Removed 344 unused cells and 10281 unused wires.
+<suppressed ~3004 debug messages>
+
+4. Executing CHECK pass (checking for obvious problems).
+Checking module datapath...
+Found and reported 0 problems.
+
+5. Printing statistics.
+
+=== datapath ===
+
+        +----------Local Count, excluding submodules.
+        | 
+    17522 wires
+   259457 wire bits
+     2181 public wires
+    61812 public wire bits
+       41 ports
+      460 port bits
+        2 memories
+      144 memory bits
+    17785 cells
+       66   $add
+     1218   $aldff
+      229   $and
+      128   $bmux
+       11   $bwmux
+       34   $demux
+       10   $dffe
+     5164   $eq
+      111   $ge
+        1   $gt
+      803   $logic_and
+      847   $logic_not
+       13   $logic_or
+       20   $lt
+        2   $meminit
+        2   $memrd_v2
+        1   $mul
+     8155   $mux
+        8   $ne
+        1   $neg
+      139   $not
+      196   $or
+      501   $pmux
+        2   $reduce_and
+        7   $reduce_bool
+       72   $reduce_or
+        1   $sshl
+        1   $sshr
+       34   $sub
+        8   $xor
+
+6. Executing RTLIL backend.
+Output filename: normalized.il

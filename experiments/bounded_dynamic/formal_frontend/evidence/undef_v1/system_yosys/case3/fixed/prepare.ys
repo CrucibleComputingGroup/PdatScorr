@@ -1,0 +1,17 @@
+read_verilog -formal -sv "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/reference.v" "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/candidate.v" "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/harness.sv"
+hierarchy -check -top M
+proc_clean
+proc_prune
+proc_init
+setundef -anyseq
+proc -norom -noopt
+setundef -anyseq
+prep -top M -flatten
+setundef -anyseq
+check -assert
+select -assert-min 1 t:$assert
+select *
+async2sync
+dffunmap
+setundef -anyseq
+write_json "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can3/fixed/miter.json"

@@ -133,6 +133,26 @@ def formal_lower_command(yosys: str) -> str:
     return "chformal -lower\n" if "-lower" in help_text else ""
 
 
+def formal_prepare_command(top: str) -> str:
+    """Symbolize source and process-generated X before optimizing preparation.
+
+    Assignment cleanup and proc_init first extract initialization attributes,
+    preserving unconstrained initial bits instead of turning them into illegal
+    dynamic initialization. No expression/case optimization runs in this step.
+    setundef visits process RHS assignments as well as cell connections. The
+    first pass preserves explicit source choices; proc -noopt/-norom then
+    exposes implicit mux defaults without optimizing them into another arm.
+    A second pass symbolizes those new choices before prep. Initial attributes
+    are not assigned arbitrary values: neither -init nor -params is requested.
+    Residual memories/unsupported state are rejected by validate_single_clock.
+    """
+    if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", top):
+        raise ValueError("Formal top must be an ordinary Verilog identifier")
+    return (f"hierarchy -check -top {top}\nproc_clean\nproc_prune\nproc_init\n"
+            "setundef -anyseq\nproc -norom -noopt\nsetundef -anyseq\n"
+            f"prep -top {top} -flatten\nsetundef -anyseq\ncheck -assert\n")
+
+
 def validate_single_clock(design: dict, top: str) -> dict:
     """The global-step backends may not silently erase gated/multiple clocks."""
     module = design["modules"][top]
@@ -274,16 +294,17 @@ def prove_pair(reference: Path, candidate: Path, harness: Path, top: str,
     result = {"proven": False, "method": "reset-base-and-k-induction" if engine == "induction" else "abc-pdr-shared-miter",
               "depth": depth, "reference_sha256": digest(reference),
               "candidate_sha256": digest(candidate), "harness_sha256": digest(harness),
-              "implementation_sha256": digest(Path(__file__))}
+              "implementation_sha256": digest(Path(__file__)),
+              "undefined_value_model": "Independent symbolic choices before process optimization, after nonoptimizing process lowering, and after sequential normalization; no -init/-params concretization"}
     try:
         intermediate = directory / "miter.json"
         result["elaboration"] = checked_yosys(yosys,
             f"read_verilog -formal -sv {yosys_path(reference)} {yosys_path(candidate)} {yosys_path(harness)}\n"
-            f"prep -top {top} -flatten\ncheck -assert\n"
+            + formal_prepare_command(top)
             + formal_lower_command(yosys)
             # Fail if all observation assertions have disappeared.
             + "select -assert-min 1 t:$assert\nselect *\n"
-            "async2sync\ndffunmap\n"
+            "async2sync\ndffunmap\nsetundef -anyseq\n"
             f"write_json {yosys_path(intermediate)}\n",
             directory, "prepare", timeout)
         miter_design = json.loads(intermediate.read_text())

@@ -1,0 +1,77 @@
+{
+  "proven": false,
+  "method": "reset-base-and-k-induction",
+  "depth": 3,
+  "reference_sha256": "23d57e2a3fa350427db55585e4c167392b7fda4d2c3e3172de909496ad147da6",
+  "candidate_sha256": "42e7dc3417d497d5d839bec56f29feb0e6ce4d333d0e615ac256c562832a82b0",
+  "harness_sha256": "7df5821d9c6a5222e9d246209dfc083a278ae9fae8629724c50b8670289fd49f",
+  "implementation_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+  "undefined_value_model": "Independent symbolic choices before process optimization, after nonoptimizing process lowering, and after sequential normalization; no -init/-params concretization",
+  "elaboration": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.03304130490869284,
+    "log": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/prepare.log",
+    "log_sha256": "316acf7c896a1566e938fc1fcba07ae71a3a3adbb3a5fb2609562c62a0677492"
+  },
+  "clock_model": {
+    "clocks": [],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "property_counts": {
+    "assert": 1,
+    "assume": 1,
+    "cover": 0
+  },
+  "initial_state": {
+    "paired_state_bits": 0,
+    "assert_state_correspondence": false,
+    "scope": "Independent initial states; no initial pairing or continuing correspondence assumption. Reset obligations remain in the immutable harness."
+  },
+  "smt_export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/smt_export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.016721168998628855,
+    "log": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/smt_export.log",
+    "log_sha256": "78de054211e5982f8e6e9f3d43680338daf9961c03377a9e88ff8d8531286acb"
+  },
+  "smt_sha256": "fb70d5ef03b49dc65f32bd1b1ca2f09e23f3ee0ba48a1e4858df346a0bd51f7f",
+  "base": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+      "-s",
+      "z3",
+      "-t",
+      "3",
+      "--noprogress",
+      "--dump-vcd",
+      "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/counterexample.vcd",
+      "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/miter.smt2"
+    ],
+    "returncode": 1,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys-smtbmc",
+    "executable_sha256": "1eaa8457ba53f48df9c7023f2eac3a40022ddb005401a6214f25b7be364b6b08",
+    "timeout": false,
+    "seconds": 0.11506285006180406,
+    "log": "/tmp/pytest-of-allenjin/pytest-2704/test_original_x_mux_choice_can0/fixed/base.log",
+    "log_sha256": "a4fe16390f81068307561b6d10d5ad258dd5b3e245d1f83ee80d3c5b993084ca"
+  }
+}

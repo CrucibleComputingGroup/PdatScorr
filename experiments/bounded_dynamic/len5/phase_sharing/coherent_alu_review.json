@@ -2,7 +2,7 @@
   "scope": "Independent generic coherent-function helper review; native candidate equivalence remains a separate obligation",
   "source_sha256": {
     "experiments/bounded_dynamic/len5/phase_sharing/coherent_alu.py": "ac97a7bd3f236fa0aed6735c57f8e6908292fd3c5c055f3557b5af7e315e2eef",
-    "experiments/bounded_dynamic/len5/phase_sharing/proof.py": "a78b31a42a23bc2aed272beb8cba7c8e34278252ac781f8506a9fbc5853243b7",
+    "experiments/bounded_dynamic/len5/phase_sharing/proof.py": "e64f9b86489dd4a15cc5fba8b289613a7a7ceb097383e62115d0f5e0fcaf3457",
     "tests/unit/test_coherent_alu.py": "20033befceaea61b921de59423ccada42b04838eb636b57c39a98999f24604b6",
     "tests/unit/test_native_state_certificates.py": "b75b4ab1c5eb776389136878d332dcf5cb5d9a574daa984bf4ba0902d64c7ed9"
   },
@@ -10,5 +10,17 @@
   "observed_result": "21 passed in 4.06s",
   "new_coherent_tests": 7,
   "record_kind": "Observed test result summary, not a raw solver transcript",
-  "fixed_review_finding": "Require equal per-role input widths before concatenating complete tuples"
+  "fixed_review_finding": "Require equal per-role input widths before concatenating complete tuples",
+  "historical_proof_wrapper_sha256_before_symbolic_frontend": "a78b31a42a23bc2aed272beb8cba7c8e34278252ac781f8506a9fbc5853243b7",
+  "frontend_migration": {
+    "scope": "Implementation-owner integration check; earlier independent invariant/coherent helper reviews retained; no new native candidate proof",
+    "generic_temporal_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+    "test_source_sha256": "d02ef2e3f842bc7f9a9a8db48b2b8b079e59a8a49375029ad28a4ee59d2de6ca",
+    "native_correspondence_ast_unchanged_from_archived_proof": true,
+    "archived_proof_helper_sha256": "a78b31a42a23bc2aed272beb8cba7c8e34278252ac781f8506a9fbc5853243b7",
+    "test_command": "python -m pytest -q tests/unit/test_temporal_undef.py tests/unit/test_native_state_certificates.py tests/unit/test_coherent_alu.py",
+    "observed_result": "34 passed in 6.95s",
+    "new_wrapper_cases": "Initial-reset native-state proof: activeX rejected, inactiveX proved; two paired native bits; no state assumptions/initial pairing added",
+    "historical_scope": "Existing solver archives unchanged. Any historical positive relying on undefined choices requires revalidation or separate irrelevance proof."
+  }
 }

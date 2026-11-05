@@ -1,7 +1,7 @@
 {
   "scope": "Independent source review and generic toy regressions; no claim of a completed native LEN5 candidate proof",
   "source_sha256": {
-    "experiments/bounded_dynamic/len5/phase_sharing/proof.py": "c40ef159db24761afbc17efe9f1c77dfee42499d9f88eef7bc32c182e353d970",
+    "experiments/bounded_dynamic/len5/phase_sharing/proof.py": "e64f9b86489dd4a15cc5fba8b289613a7a7ceb097383e62115d0f5e0fcaf3457",
     "experiments/bounded_dynamic/len5/phase_sharing/factor_state.py": "ac4f8775e124cf818182ec2884cfedb31a4b68abc8ffd3aa2312b100e98f1c02",
     "experiments/bounded_dynamic/len5/phase_sharing/last_writer.py": "0ba8df302a6ee43ce7b281d33054d356a8c9052dcd503d7a56d6b76f9fbeb6d7",
     "tests/unit/test_native_state_certificates.py": "b75b4ab1c5eb776389136878d332dcf5cb5d9a574daa984bf4ba0902d64c7ed9"
@@ -9,5 +9,20 @@
   "test_command": "PYTHONPATH=../PdatDsl python3 -m pytest -q tests/unit/test_native_state_certificates.py tests/unit/test_bank_sharing.py tests/unit/test_temporal_odc.py tests/unit/test_state_candidates.py tests/regression/test_sec_fail_closed.py tests/regression/test_odc_analysis.py",
   "observed_result": "108 passed in 18.13s",
   "new_native_state_tests": 14,
-  "record_kind": "Observed test result summary, not a raw solver transcript"
+  "record_kind": "Observed test result summary, not a raw solver transcript",
+  "historical_wrapper_sha256_at_original_suite": "c40ef159db24761afbc17efe9f1c77dfee42499d9f88eef7bc32c182e353d970",
+  "reviewed_native_correspondence_function_sha256": "8413a2bd5e36895cc01afd18d16dd585781038d2875944872c42dc88a2a59de6",
+  "binding_refresh": "Wrapper later gained optional coherent-ALU mode; assert_native_correspondence function unchanged. Current helper body rerun in the 21-test suite recorded by coherent_alu_review.json.",
+  "historical_proof_wrapper_sha256_before_symbolic_frontend": "a78b31a42a23bc2aed272beb8cba7c8e34278252ac781f8506a9fbc5853243b7",
+  "frontend_migration": {
+    "scope": "Implementation-owner integration check; earlier independent invariant/coherent helper reviews retained; no new native candidate proof",
+    "generic_temporal_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+    "test_source_sha256": "d02ef2e3f842bc7f9a9a8db48b2b8b079e59a8a49375029ad28a4ee59d2de6ca",
+    "native_correspondence_ast_unchanged_from_archived_proof": true,
+    "archived_proof_helper_sha256": "a78b31a42a23bc2aed272beb8cba7c8e34278252ac781f8506a9fbc5853243b7",
+    "test_command": "python -m pytest -q tests/unit/test_temporal_undef.py tests/unit/test_native_state_certificates.py tests/unit/test_coherent_alu.py",
+    "observed_result": "34 passed in 6.95s",
+    "new_wrapper_cases": "Initial-reset native-state proof: activeX rejected, inactiveX proved; two paired native bits; no state assumptions/initial pairing added",
+    "historical_scope": "Existing solver archives unchanged. Any historical positive relying on undefined choices requires revalidation or separate irrelevance proof."
+  }
 }

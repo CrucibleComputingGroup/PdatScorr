@@ -1,0 +1,12 @@
+read_json "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/miter.json"
+check -assert
+chformal -cover -remove
+formalff -clk2ff
+setundef -anyseq
+opt -keepdc
+techmap
+opt -keepdc
+setundef -anyseq
+abc -g AND
+aigmap
+write_aiger -zinit -symbols "/tmp/pytest-of-allenjin/pytest-2703/test_original_x_mux_choice_can2/fixed/miter.aig"
