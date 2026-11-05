@@ -1,0 +1,37 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/screen.aig"; fold; orpos; bmc3 -F 64 -T 120 -v; write_cex -a "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_bmc64_v1/counterexample.aiw"".
+
+Warning: The last 8 outputs are interpreted as constraints.
+Running "bmc3". PI/PO/Reg = 34646/1/24422. And = 499990. Lev =    87. ObjNums =247717.
+Params: FramesMax = 64. Start = 0. ConfLimit = 0. TimeOut = 120. SolveAll = 0.
+   0 + : Var =    1868. Cla =     5359. Conf =      0. Learn =      0.    1 MB   4 MB     0.49 sec 
+   1 + : Var =   18223. Cla =    53892. Conf =      0. Learn =      0.    2 MB   6 MB     0.51 sec 
+   2 + : Var =   62889. Cla =   200257. Conf =      0. Learn =      0.    3 MB  14 MB     0.56 sec 
+   3 + : Var =  160703. Cla =   531320. Conf =      0. Learn =      0.    4 MB  32 MB     0.68 sec 
+   4 + : Var =  309710. Cla =  1050972. Conf =      0. Learn =      0.    5 MB  64 MB     0.93 sec 
+   5 + : Var =  480971. Cla =  1660830. Conf =      0. Learn =      0.    6 MB 108 MB     1.26 sec 
+   6 + : Var =  660777. Cla =  2295906. Conf =      0. Learn =      0.    7 MB 134 MB     1.64 sec 
+   7 + : Var =  844876. Cla =  2951885. Conf =      0. Learn =      0.    8 MB 201 MB     2.15 sec 
+   8 + : Var = 1028975. Cla =  3607864. Conf =      0. Learn =      0.    9 MB 227 MB     2.61 sec 
+   9 + : Var = 1213074. Cla =  4263843. Conf =      6. Learn =      5.    9 MB 252 MB     3.10 sec 
+  10 + : Var = 1397173. Cla =  4919822. Conf =     43. Learn =     41.   10 MB 277 MB     3.62 sec 
+  11 + : Var = 1581272. Cla =  5575801. Conf =     62. Learn =     59.   11 MB 304 MB     4.38 sec 
+  12 + : Var = 1765371. Cla =  6231780. Conf =     68. Learn =     64.   12 MB 415 MB     5.01 sec 
+  13 + : Var = 1949470. Cla =  6887759. Conf =     92. Learn =     87.   13 MB 439 MB     6.01 sec 
+  14 + : Var = 2133569. Cla =  7543738. Conf =    120. Learn =    114.   14 MB 468 MB     7.25 sec 
+  15 + : Var = 2317668. Cla =  8199717. Conf =    176. Learn =    169.   15 MB 493 MB     8.92 sec 
+  16 + : Var = 2501767. Cla =  8855696. Conf =    228. Learn =    220.   16 MB 518 MB    11.22 sec 
+  17 + : Var = 2685866. Cla =  9511675. Conf =    336. Learn =    327.   17 MB 543 MB    15.60 sec 
+  18 + : Var = 2869965. Cla = 10167654. Conf =    480. Learn =    470.   18 MB 567 MB    20.93 sec 
+  19 + : Var = 3054064. Cla = 10823633. Conf =    662. Learn =    651.   19 MB 592 MB    28.25 sec 
+  20 + : Var = 3238163. Cla = 11479612. Conf =    827. Learn =    815.   20 MB 795 MB    38.22 sec 
+  21 + : Var = 3422262. Cla = 12135591. Conf =   1043. Learn =   1030.   21 MB 820 MB    49.01 sec 
+  22 + : Var = 3606361. Cla = 12791570. Conf =   1398. Learn =   1384.   22 MB 846 MB    63.79 sec 
+  23 + : Var = 3790460. Cla = 13447549. Conf =   1795. Learn =   1780.   23 MB 871 MB    79.19 sec 
+  24 + : Var = 3974559. Cla = 14103528. Conf =   2225. Learn =   2209.   24 MB 896 MB    95.53 sec 
+  25 + : Var = 4158658. Cla = 14759507. Conf =   3472. Learn =   3455.   25 MB 924 MB   120.01 sec 
+Reached timeout (120 seconds).
+Runtime:  CNF = 7.1 sec (5.9 %)  UNSAT = 112.3 sec (93.6 %)  SAT = 0.0 sec (0.0 %)  UNDEC = 0.0 sec (0.0 %)
+LStart(P) = 10000  LDelta(Q) = 2000  LRatio(R) = 80  ReduceDB = 0  Vars = 4158658  Used = 3540902 (85.15 %)
+Buffs = 110258. Dups = 0.   Hash hits = 3243.  Hash misses = 3585786.  UniProps = 0.
+No output asserted in 26 frames. Resource limit reached (timeout 120 sec). Time =   120.53 sec
+Counter-example is not available.

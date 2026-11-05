@@ -1,0 +1,32 @@
+{
+  "status": "unknown",
+  "accepted_optimization": false,
+  "engine": "pdr",
+  "prepared_directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1",
+  "prepared_summary_sha256": "b351578dd13e0a49b74fc6d8b86ad8986114ea51fcfe7927bc01ffa8565b3763",
+  "aig_sha256": "743095fcc285f1ac64cf368897f2e9d7b13815cbfef4e6db5c64565089de4176",
+  "query_property_counts": {
+    "assert": 3,
+    "assume": 8,
+    "cover": 0
+  },
+  "script_sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+  "requested_seconds": 120,
+  "requested_frames": null,
+  "scope": "Original three safety obligations with certified decoder and seven proved instruction-domain lemmas; no admission premise",
+  "execution": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/screen.aig\"; fold; orpos; pdr -T 120 -v; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_pdr_v1/counterexample.aiw\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 121.50637151813135,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_pdr_v1/pdr.log",
+    "log_sha256": "9f5c0132013cc2a20e58d7e151230a7188a1fdf3e204bce4c41d7b7b01cdb712"
+  },
+  "counterexample_sha256": null
+}

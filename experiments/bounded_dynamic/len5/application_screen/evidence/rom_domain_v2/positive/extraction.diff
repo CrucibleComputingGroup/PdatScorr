@@ -1,0 +1,99 @@
+--- original_harness
++++ producer_checker
+@@ -1,49 +1,52 @@
+-module AdmissionScreen(input wire clk_i, rst_ni,
++module RomDomain(input wire clk_i, rst_ni,
+   input wire [3:0] instruction_choice, input wire [63:0] load_value,
+-  input wire [2:0] invalid_code_nonzero, input wire [31:0] instruction_fault_data);
++  input wire [2:0] invalid_code_nonzero, input wire [31:0] instruction_fault_data,
++  input wire [0:0] mem_flush_o,
++  input wire [0:0] instr_req_o,
++  input wire [0:0] instr_rready_o,
++  input wire [0:0] instr_we_o,
++  input wire [63:0] instr_addr_o,
++  input wire [0:0] data_load_req_o,
++  input wire [0:0] data_load_rready_o,
++  input wire [0:0] data_load_we_o,
++  input wire [63:0] data_load_addr_o,
++  input wire [3:0] data_load_tag_o,
++  input wire [7:0] data_load_be_o,
++  input wire [0:0] data_store_req_o,
++  input wire [0:0] data_store_rready_o,
++  input wire [0:0] data_store_we_o,
++  input wire [63:0] data_store_addr_o,
++  input wire [3:0] data_store_tag_o,
++  input wire [7:0] data_store_be_o,
++  input wire [63:0] data_store_wdata_o,
++  input wire [0:0] irq_ack_o,
++  input wire [4:0] irq_id_o,
++  input wire [0:0] core_sleep_o,
++  input wire [0:0] probe_insert,
++  input wire [2:0] probe_index,
++  output wire observed_valid,
++  output wire [31:0] observed_word,
++  output wire observed_fault,
++  output wire [4:0] observed_code);
+   always @* if ($initstate) assume (!rst_ni);
+-  wire [0:0] mem_flush_o;
+-  wire [0:0] instr_req_o;
+   wire [0:0] instr_gnt_i;
+   wire [0:0] instr_rvalid_i;
+-  wire [0:0] instr_rready_o;
+-  wire [0:0] instr_we_o;
+-  wire [63:0] instr_addr_o;
+   wire [31:0] instr_rdata_i;
+   wire [0:0] instr_except_raised_i;
+   wire [4:0] instr_except_code_i;
+-  wire [0:0] data_load_req_o;
+   wire [0:0] data_load_gnt_i;
+   wire [0:0] data_load_rvalid_i;
+-  wire [0:0] data_load_rready_o;
+-  wire [0:0] data_load_we_o;
+-  wire [63:0] data_load_addr_o;
+-  wire [3:0] data_load_tag_o;
+-  wire [7:0] data_load_be_o;
+   wire [63:0] data_load_rdata_i;
+   wire [3:0] data_load_tag_i;
+   wire [0:0] data_load_except_raised_i;
+   wire [4:0] data_load_except_code_i;
+-  wire [0:0] data_store_req_o;
+   wire [0:0] data_store_gnt_i;
+   wire [0:0] data_store_rvalid_i;
+-  wire [0:0] data_store_rready_o;
+-  wire [0:0] data_store_we_o;
+-  wire [63:0] data_store_addr_o;
+-  wire [3:0] data_store_tag_o;
+-  wire [7:0] data_store_be_o;
+-  wire [63:0] data_store_wdata_o;
+   wire [3:0] data_store_tag_i;
+   wire [0:0] data_store_except_raised_i;
+   wire [4:0] data_store_except_code_i;
+   wire [31:0] irq_i;
+-  wire [0:0] irq_ack_o;
+-  wire [4:0] irq_id_o;
+   wire [0:0] fetch_enable_i;
+-  wire [0:0] core_sleep_o;
+-  wire [0:0] probe_insert;
+-  wire [2:0] probe_index;
+-  ObservedCore dut(.clk_i(clk_i),.rst_ni(rst_ni),.mem_flush_o(mem_flush_o),.instr_req_o(instr_req_o),.instr_gnt_i(instr_gnt_i),.instr_rvalid_i(instr_rvalid_i),.instr_rready_o(instr_rready_o),.instr_we_o(instr_we_o),.instr_addr_o(instr_addr_o),.instr_rdata_i(instr_rdata_i),.instr_except_raised_i(instr_except_raised_i),.instr_except_code_i(instr_except_code_i),.data_load_req_o(data_load_req_o),.data_load_gnt_i(data_load_gnt_i),.data_load_rvalid_i(data_load_rvalid_i),.data_load_rready_o(data_load_rready_o),.data_load_we_o(data_load_we_o),.data_load_addr_o(data_load_addr_o),.data_load_tag_o(data_load_tag_o),.data_load_be_o(data_load_be_o),.data_load_rdata_i(data_load_rdata_i),.data_load_tag_i(data_load_tag_i),.data_load_except_raised_i(data_load_except_raised_i),.data_load_except_code_i(data_load_except_code_i),.data_store_req_o(data_store_req_o),.data_store_gnt_i(data_store_gnt_i),.data_store_rvalid_i(data_store_rvalid_i),.data_store_rready_o(data_store_rready_o),.data_store_we_o(data_store_we_o),.data_store_addr_o(data_store_addr_o),.data_store_tag_o(data_store_tag_o),.data_store_be_o(data_store_be_o),.data_store_wdata_o(data_store_wdata_o),.data_store_tag_i(data_store_tag_i),.data_store_except_raised_i(data_store_except_raised_i),.data_store_except_code_i(data_store_except_code_i),.irq_i(irq_i),.irq_ack_o(irq_ack_o),.irq_id_o(irq_id_o),.fetch_enable_i(fetch_enable_i),.core_sleep_o(core_sleep_o),.probe_insert(probe_insert),.probe_index(probe_index));
+   reg [31:0] selected_instruction;
+   reg selected_instruction_fault; reg [4:0] selected_instruction_code;
+   always @* begin
+@@ -127,8 +130,14 @@
+   end
+   // These are proof obligations, never premises on internal service.
+   always @* if (rst_ni) begin
+-    assert (!data_load_rvalid_i || data_load_rready_o);
+-    assert (!data_store_rvalid_i || data_store_rready_o);
+-    assert (!(probe_insert && probe_index < 3'd4));
++  end
++  assign observed_valid = instr_rvalid_i;
++  assign observed_word = instr_rdata_i;
++  assign observed_fault = instr_except_raised_i;
++  assign observed_code = instr_except_code_i;
++  always @* if (rst_ni) begin
++    assert (!observed_valid || (observed_word == 32'h00000000 || observed_word == 32'h0000006f || observed_word == 32'h00001437 || observed_word == 32'h000024b7 || observed_word == 32'h00028023 || observed_word == 32'h00043503 || observed_word == 32'h00150593 || observed_word == 32'h00840413 || observed_word == 32'h00848493 || observed_word == 32'h00b4b023 || observed_word == 32'h04000913 || observed_word == 32'h1002829b || observed_word == 32'h200002b7 || observed_word == 32'hfe0914e3 || observed_word == 32'hfff90913));
++    assert (!iv[0] || (ins0 == 32'h00000000 || ins0 == 32'h0000006f || ins0 == 32'h00001437 || ins0 == 32'h000024b7 || ins0 == 32'h00028023 || ins0 == 32'h00043503 || ins0 == 32'h00150593 || ins0 == 32'h00840413 || ins0 == 32'h00848493 || ins0 == 32'h00b4b023 || ins0 == 32'h04000913 || ins0 == 32'h1002829b || ins0 == 32'h200002b7 || ins0 == 32'hfe0914e3 || ins0 == 32'hfff90913));
++    assert (!iv[1] || (ins1 == 32'h00000000 || ins1 == 32'h0000006f || ins1 == 32'h00001437 || ins1 == 32'h000024b7 || ins1 == 32'h00028023 || ins1 == 32'h00043503 || ins1 == 32'h00150593 || ins1 == 32'h00840413 || ins1 == 32'h00848493 || ins1 == 32'h00b4b023 || ins1 == 32'h04000913 || ins1 == 32'h1002829b || ins1 == 32'h200002b7 || ins1 == 32'hfe0914e3 || ins1 == 32'hfff90913));
+   end
+ endmodule

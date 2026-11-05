@@ -1,0 +1,168 @@
+{
+  "status": "read_only_branch_composition_review_passed",
+  "new_backend_queries": 0,
+  "accepted_optimization": false,
+  "sources": {
+    "audit": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/review/branch_taken_composition_v1/audit.py",
+      "sha256": "ba457714ef20fba50dc82d9c27d0d266c28278c7c1a8697a4487eabbd0cc659e"
+    },
+    "helper": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/abstract_datapath.py",
+      "sha256": "f7f0cd1093bccefcaf86f45f9dbd65b7d9ff86964fedf4327ab26afd467b3349"
+    },
+    "lemma_helper": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/domain_lemmas.py",
+      "sha256": "676af86c4b79a53afaa3416388672e58f0f5c89545bf283a2e1f1c1d817d9da6"
+    },
+    "certificate": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/isa_baseline/results/program_alphabet_certificate_v3.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4"
+    },
+    "native_original": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_baseline_prepare_v1/whole_core.json",
+      "sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131"
+    },
+    "native_candidate": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_alphabet_v1/candidate_whole_core.json",
+      "sha256": "82a76125a33790027bf6b86cb97007d048759484d6e96027abd8fa9ad5d215db"
+    },
+    "domain_summary": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/summary.json",
+      "sha256": "cb09ae6b7801cdc20b96656106a8e10dcd868aec6a0b1c143c94070f86fa27c9"
+    },
+    "projection": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/data_path.json",
+      "sha256": "6ed0aeb95b5e3e6d5e4c2b064e763c2ed6c06449696e0ddcb7297f8e8b3e63fc"
+    },
+    "rom_proof": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/evidence/rom_domain_v2/summary.json",
+      "sha256": "1d24b9a23bd75fbcb569abae2733d437e214e3217c54578318a67506fc04b62c"
+    },
+    "previous_review": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/review/alu_mul_composition_v1/summary.json",
+      "sha256": "eec2c246845bd1fcb59216c93e5c381f88a472cae75863558d529810f41a1be8"
+    }
+  },
+  "mode": "alu_mul_branch_taken",
+  "rtl_source_command": [
+    "git",
+    "-C",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/deps/len5",
+    "show",
+    "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9:rtl/expipe/exec-units/branch_unit.sv"
+  ],
+  "rtl_source_sha256": "0b9dc3bc8721c4662b7598798f227c6ab1e08c681e315929afcf5506543ca8a5",
+  "branch_cut": {
+    "target": "branch_taken",
+    "alias": "u_backend.u_exec_stage.u_branch_unit.res_taken",
+    "width": 1,
+    "source_suffix": "/exec-units/branch_unit.sv:",
+    "meaning": "Optional semantic branch outcome; original branch valid/tag/latency and downstream recovery logic retained",
+    "original_cell_name": "$procmux$20161",
+    "original_cell": {
+      "hide_name": 1,
+      "type": "$pmux",
+      "parameters": {
+        "S_WIDTH": "00000000000000000000000000001010",
+        "WIDTH": "00000000000000000000000000000001"
+      },
+      "attributes": {
+        "full_case": "00000000000000000000000000000001",
+        "src": "source/rtl/expipe/exec-units/branch_unit.sv:121.16-121.33|source/rtl/expipe/exec-units/branch_unit.sv:111.5-123.12"
+      },
+      "port_directions": {
+        "A": "input",
+        "B": "input",
+        "S": "input",
+        "Y": "output"
+      },
+      "connections": {
+        "A": [
+          "0"
+        ],
+        "B": [
+          "1",
+          "1",
+          "1",
+          "1",
+          46328,
+          46327,
+          46326,
+          46325,
+          46324,
+          46323
+        ],
+        "S": [
+          162587,
+          162588,
+          162589,
+          162590,
+          162591,
+          162592,
+          162593,
+          162594,
+          162595,
+          162596
+        ],
+        "Y": [
+          46726
+        ]
+      }
+    },
+    "output_bits": [
+      46726
+    ],
+    "overlapping_aliases": [
+      "u_backend.u_exec_stage.u_branch_unit.res_taken"
+    ],
+    "replacement_cell_name": "$pscorr_proof_only_datapath_branch_taken"
+  },
+  "direct_branch_consumers": [
+    {
+      "cell": "$4419",
+      "type": "$ne",
+      "pins": {
+        "B": [
+          46726
+        ]
+      },
+      "source": "source/rtl/expipe/exec-units/branch_unit.sv:157.29-157.58"
+    },
+    {
+      "cell": "$4424",
+      "type": "$logic_and",
+      "pins": {
+        "A": [
+          46726
+        ]
+      },
+      "source": "source/rtl/expipe/exec-units/branch_unit.sv:165.26-165.52"
+    },
+    {
+      "cell": "$procmux$20137",
+      "type": "$mux",
+      "pins": {
+        "B": [
+          46726
+        ]
+      },
+      "source": "source/rtl/expipe/exec-units/branch_unit.sv:196.29-203.8|source/rtl/expipe/exec-units/branch_unit.sv:196.10-203.8"
+    }
+  ],
+  "fresh_symbolic_bits_per_cycle": 129,
+  "native_cell_count": 17785,
+  "native_state_cells_unchanged": 1232,
+  "native_cells_unchanged_except_cuts": 17782,
+  "lemma_encoding_cells_unchanged": 119,
+  "lemma_assumptions_unchanged": 7,
+  "ports_aliases_module_attributes_unchanged": true,
+  "native_projection_cell_overlap": [],
+  "lemma_encoding_cell_overlap": [],
+  "branch_bit_occurs_as_projection_cell_input": false,
+  "commutes_with_lemma_addition": true,
+  "abstract_structural_sha256": "a1dc672e674d756ab81620ad988f98433d3aa83166842efbfa6a8e29390e1403",
+  "trace_inclusion": "For each original constrained trace, choose all three fresh outputs equal to the original ALU result, MUL result, and branch outcome each cycle. All original state, retained equations, and already-proved word-domain lemmas then agree. Therefore the restricted abstract model includes every original constrained trace.",
+  "qualification": "The scalar branch outcome is deliberately relaxed, including the possibility of not-taken unconditional jumps. This can change misprediction, target-alignment exceptions, recovery, and later control paths on abstract traces. Such traces may be spurious. This audit proves no admission bound and no hardware saving.",
+  "projection_scope": "No projected data/control cell or input bit overlaps the third cut in this exact model. More generally overlap would require recording altered projection behavior, but would not refute original-trace inclusion when the imported lemmas are independently established on the original design first."
+}

@@ -1,0 +1,242 @@
+{
+  "status": "unknown_no_accepted_optimization",
+  "accepted_optimization": false,
+  "certificate_replay_identical": true,
+  "original_native_source_hash_matches": true,
+  "certified_candidate_plus_exact_native_probes_only": true,
+  "native_probe_ports": {
+    "probe_insert": {
+      "direction": "output",
+      "bits": [
+        63168
+      ]
+    },
+    "probe_index": {
+      "direction": "output",
+      "bits": [
+        63371,
+        63372,
+        63373
+      ]
+    }
+  },
+  "assumptions_added_by_import": 0,
+  "query_property_counts": {
+    "assert": 3,
+    "assume": 1
+  },
+  "data_abstraction": "none",
+  "instruction_platform": "Immutable Harvard ROM; aligned mapped words or zero fault payload; common native initial reset",
+  "pdr_seconds": 121.72128023812547,
+  "aig_header": [
+    "aig",
+    "674878",
+    "34646",
+    "24421",
+    "0",
+    "615811",
+    "3",
+    "1",
+    "0",
+    "0"
+  ],
+  "runtime_importer_sha256": "b9eb6115b3ea4794623ad1664ca5ec2d7367430e0fe8e6509f47566ecde85c23",
+  "current_importer_sha256": "71d17c8d430963fb4f7acb81b6b81b53b940ebb377cd85c6174c421f455fff6b",
+  "post_run_hardening": "Current importer also captures source bytes and rejects changes during verifier replay. Archived runtime inputs/candidate/certificate all match the exact certified hashes; no target rerun was needed.",
+  "interpretation": "The certified program-only substitution is used as proof preprocessing. The timing/admission property remains unproved; no timing-induced hardware removal or area reduction follows.",
+  "large_artifacts": {
+    "source.json": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/source.json",
+      "sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+      "bytes": 24775841
+    },
+    "core.json": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/core.json",
+      "sha256": "2426b17743dfc23d806d5c544f9c6ebbc722909ed01442f0cb41403a11ad4b48",
+      "bytes": 41642648
+    },
+    "core.v": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/core.v",
+      "sha256": "fa7a83d7daed73b10f9be5f0d5dc8f927045f4d867b52bc795fffbbb500778b5",
+      "bytes": 9029533
+    },
+    "screen.json": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/screen.json",
+      "sha256": "e6df69bf828d6ade72da3fa7492de0702acdfbffc87091b7a1f11c17de0cb627",
+      "bytes": 18946778
+    },
+    "screen.aig": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/screen.aig",
+      "sha256": "7ee3b8b42a4ce92d668061f221c5e2708616e9862078f3716c27c362a3aaac83",
+      "bytes": 2833608
+    },
+    "certified_decoder/native_candidate.json": {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/certified_decoder/native_candidate.json",
+      "sha256": "82a76125a33790027bf6b86cb97007d048759484d6e96027abd8fa9ad5d215db",
+      "bytes": 18583741
+    }
+  },
+  "artifacts": [
+    {
+      "path": "run/AdmissionScreen.sv",
+      "sha256": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/AdmissionScreen.sv",
+      "source_sha256": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+      "gzip": false
+    },
+    {
+      "path": "run/core_export.log",
+      "sha256": "1229b82e8c583ba3660dde48250148f42b52e526703d6147ec341baaf88889fa",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/core_export.log",
+      "source_sha256": "1229b82e8c583ba3660dde48250148f42b52e526703d6147ec341baaf88889fa",
+      "gzip": false
+    },
+    {
+      "path": "run/core_export.ys",
+      "sha256": "25f3f72bef61ea1ed95f294c5d440b1d47ba17c9109d72b88d3d717b2d92d0f7",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/core_export.ys",
+      "source_sha256": "25f3f72bef61ea1ed95f294c5d440b1d47ba17c9109d72b88d3d717b2d92d0f7",
+      "gzip": false
+    },
+    {
+      "path": "run/export.log",
+      "sha256": "eacb307d01dfd1a3cf4e4c19d47581c929e10cbaf8db9e04c4f5bf453749ec45",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/export.log",
+      "source_sha256": "eacb307d01dfd1a3cf4e4c19d47581c929e10cbaf8db9e04c4f5bf453749ec45",
+      "gzip": false
+    },
+    {
+      "path": "run/export.ys",
+      "sha256": "b20e35487fc54f187df3b5199a763b3537026521c408a2f89e45f4bfa3d3b632",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/export.ys",
+      "source_sha256": "b20e35487fc54f187df3b5199a763b3537026521c408a2f89e45f4bfa3d3b632",
+      "gzip": false
+    },
+    {
+      "path": "run/formal_screen.py",
+      "sha256": "8605309d62290754a5d921133c82d63938d228c0a6023c387248cff6af8a707b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/formal_screen.py",
+      "source_sha256": "8605309d62290754a5d921133c82d63938d228c0a6023c387248cff6af8a707b",
+      "gzip": false
+    },
+    {
+      "path": "run/pdr.log",
+      "sha256": "767d6e4798ba6ab9336db350d8189e5f755ab9184ec31939fd01adcc2dbe79a4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/pdr.log",
+      "source_sha256": "767d6e4798ba6ab9336db350d8189e5f755ab9184ec31939fd01adcc2dbe79a4",
+      "gzip": false
+    },
+    {
+      "path": "run/prepare.log.gz",
+      "sha256": "e326912bba5a14497722bdff5efb67ce7850a91dfbbddf099d7322c2668db681",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/prepare.log",
+      "source_sha256": "ad60fa5cc3ce9a6692d8929e8bd578616efe15dedee5f2c3c473de3937d788e7",
+      "gzip": true
+    },
+    {
+      "path": "run/prepare.ys",
+      "sha256": "9304c4ec49dbb81c2d555b638b036207ca9cdbc818e29d5cfbd522fd2da9c77b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/prepare.ys",
+      "source_sha256": "9304c4ec49dbb81c2d555b638b036207ca9cdbc818e29d5cfbd522fd2da9c77b",
+      "gzip": false
+    },
+    {
+      "path": "run/program.hex",
+      "sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/program.hex",
+      "source_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+      "gzip": false
+    },
+    {
+      "path": "run/program_rom.py",
+      "sha256": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/program_rom.py",
+      "source_sha256": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+      "gzip": false
+    },
+    {
+      "path": "run/rom.json",
+      "sha256": "dcf3a29b00ff33e878a41e1ef77a1eaafecb0c1420e2b5ff6c5af48a2855efb3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/rom.json",
+      "source_sha256": "dcf3a29b00ff33e878a41e1ef77a1eaafecb0c1420e2b5ff6c5af48a2855efb3",
+      "gzip": false
+    },
+    {
+      "path": "run/source_export.log",
+      "sha256": "a15516128cb60cc4056f885e84c5ca8e6f371dff427a88fc6fc5731d818f51fa",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/source_export.log",
+      "source_sha256": "a15516128cb60cc4056f885e84c5ca8e6f371dff427a88fc6fc5731d818f51fa",
+      "gzip": false
+    },
+    {
+      "path": "run/source_export.ys",
+      "sha256": "c60db1777f3af7e03911da463d86c4a5a629657d39d350f9d3a5b2aef7457066",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/source_export.ys",
+      "source_sha256": "c60db1777f3af7e03911da463d86c4a5a629657d39d350f9d3a5b2aef7457066",
+      "gzip": false
+    },
+    {
+      "path": "run/summary.json",
+      "sha256": "45ab50dc33e55837b1055720489d9614b278bfe35d9a4049485a8f1390c3da0d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/summary.json",
+      "source_sha256": "45ab50dc33e55837b1055720489d9614b278bfe35d9a4049485a8f1390c3da0d",
+      "gzip": false
+    },
+    {
+      "path": "run/temporal.py",
+      "sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/temporal.py",
+      "source_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+      "gzip": false
+    },
+    {
+      "path": "run/certified_decoder/certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/certified_decoder/certificate.json",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "run/certified_decoder/certificate_recheck.log",
+      "sha256": "4f77040c7be906310243536b9be76862af821f671639d0976ad956fbc9db1681",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/certified_decoder/certificate_recheck.log",
+      "source_sha256": "4f77040c7be906310243536b9be76862af821f671639d0976ad956fbc9db1681",
+      "gzip": false
+    },
+    {
+      "path": "run/certified_decoder/certifier_source.py",
+      "sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/certified_decoder/certifier_source.py",
+      "source_sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "gzip": false
+    },
+    {
+      "path": "run/certified_decoder/importer_source.py",
+      "sha256": "b9eb6115b3ea4794623ad1664ca5ec2d7367430e0fe8e6509f47566ecde85c23",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/certified_decoder/importer_source.py",
+      "source_sha256": "b9eb6115b3ea4794623ad1664ca5ec2d7367430e0fe8e6509f47566ecde85c23",
+      "gzip": false
+    },
+    {
+      "path": "run/certified_decoder/revalidated_certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/certified_decoder/revalidated_certificate.json",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "run/certified_decoder/summary.json",
+      "sha256": "0b3ae8a6726dcdb2cc375cc9046ac845f87e79e35ef3dc7b65cc96b85d344d57",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/certified_decoder/summary.json",
+      "source_sha256": "0b3ae8a6726dcdb2cc375cc9046ac845f87e79e35ef3dc7b65cc96b85d344d57",
+      "gzip": false
+    },
+    {
+      "path": "collector_source.py",
+      "sha256": "6cac15873b7f7def095beeb3b7c5ec9c25ac1da844c29cc690b35ca60d6ab520",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/collect_certified_screen.py",
+      "source_sha256": "6cac15873b7f7def095beeb3b7c5ec9c25ac1da844c29cc690b35ca60d6ab520",
+      "gzip": false
+    }
+  ]
+}

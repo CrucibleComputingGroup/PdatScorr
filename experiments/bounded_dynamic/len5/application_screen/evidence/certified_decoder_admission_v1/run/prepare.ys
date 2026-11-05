@@ -1,0 +1,26 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/core.json"
+rename datapath ObservedCore
+bwmuxmap
+bmuxmap
+demuxmap
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/AdmissionScreen.sv"
+hierarchy -check -top AdmissionScreen
+proc_clean
+proc_prune
+proc_init
+setundef -anyseq
+proc -norom -noopt
+setundef -anyseq
+prep -top AdmissionScreen -flatten
+setundef -anyseq
+check -assert
+chformal -lower
+select -assert-count 3 t:$assert
+select *
+memory_map
+setundef -anyseq
+opt_clean
+async2sync
+dffunmap
+setundef -anyseq
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_decoder_symbolic_pdr_v1/screen.json"

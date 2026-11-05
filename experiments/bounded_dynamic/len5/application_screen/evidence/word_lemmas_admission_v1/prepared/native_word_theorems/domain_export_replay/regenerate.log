@@ -1,0 +1,370 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/domain_export_replay/regenerate.ys' --
+
+1. Executing JSON frontend.
+Importing module InstructionDataPath from JSON tree.
+
+2. Executing BWMUXMAP pass.
+
+3. Executing BMUXMAP pass.
+
+4. Executing SETUNDEF pass (replace undef values with defined constants).
+
+5. Executing JSON backend.
+
+6. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv' to AST representation.
+Generating RTLIL representation for module `\DomainProof'.
+Successfully finished Verilog frontend.
+
+7. Executing PREP pass.
+
+7.1. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1.1. Analyzing design hierarchy..
+Top module:  \DomainProof
+Used module:     \InstructionDataPath
+
+7.1.2. Analyzing design hierarchy..
+Top module:  \DomainProof
+Used module:     \InstructionDataPath
+Removed 0 unused modules.
+Module DomainProof directly or indirectly contains formal properties -> setting "keep" attribute.
+
+7.2. Executing PROC pass (convert processes to netlists).
+
+7.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+7.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 7 redundant assignments.
+Promoted 7 assignments to connections.
+
+7.2.4. Executing PROC_INIT pass (extract init attributes).
+
+7.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+7.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+7.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:10$proc$612'.
+     1/2: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$assume$616_EN
+     2/2: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:11$assume$613_EN
+
+7.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+7.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+7.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+7.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:10$proc$612'.
+Removing empty process `DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:10$proc$612'.
+Cleaned up 2 empty switches.
+
+7.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module DomainProof.
+<suppressed ~8 debug messages>
+Optimizing module InstructionDataPath.
+
+7.3. Executing CHECK pass (checking for obvious problems).
+Checking module DomainProof...
+Checking module InstructionDataPath...
+Found and reported 0 problems.
+
+7.4. Executing FLATTEN pass (flatten design).
+Deleting now unused module InstructionDataPath.
+<suppressed ~1 debug messages>
+
+7.5. Executing FUTURE pass.
+
+7.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module DomainProof.
+
+7.7. Executing CHECK pass (checking for obvious problems).
+Checking module DomainProof...
+Found and reported 0 problems.
+
+7.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \DomainProof..
+Removed 0 unused cells and 44 unused wires.
+<suppressed ~1 debug messages>
+
+7.9. Executing OPT pass (performing simple optimizations).
+
+7.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module DomainProof.
+
+7.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\DomainProof'.
+Computing hashes of 316 cells of `\DomainProof'.
+Finding duplicate cells in `\DomainProof'.
+Computing hashes of 312 cells of `\DomainProof'.
+Finding duplicate cells in `\DomainProof'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+7.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \DomainProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\dut.$procmux$40926.
+    dead port 1/2 on $mux $flatten\dut.$procmux$40905.
+    dead port 1/2 on $mux $flatten\dut.$procmux$40883.
+    dead port 1/2 on $mux $flatten\dut.$procmux$40861.
+Removed 4 multiplexer ports.
+<suppressed ~48 debug messages>
+
+7.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \DomainProof.
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$41311: $auto$opt_reduce.cc:137:opt_pmux$862
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$41330: $auto$opt_reduce.cc:137:opt_pmux$864
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$41321: $auto$opt_reduce.cc:137:opt_pmux$866
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$17718: $auto$opt_reduce.cc:137:opt_pmux$868
+  Optimizing cells in module \DomainProof.
+Performed a total of 4 changes.
+
+7.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\DomainProof'.
+Computing hashes of 312 cells of `\DomainProof'.
+Finding duplicate cells in `\DomainProof'.
+Removed a total of 0 cells.
+
+7.9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \DomainProof..
+Removed 4 unused cells and 136 unused wires.
+<suppressed ~5 debug messages>
+
+7.9.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module DomainProof.
+
+7.9.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.9.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \DomainProof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~44 debug messages>
+
+7.9.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \DomainProof.
+Performed a total of 0 changes.
+
+7.9.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\DomainProof'.
+Computing hashes of 308 cells of `\DomainProof'.
+Finding duplicate cells in `\DomainProof'.
+Removed a total of 0 cells.
+
+7.9.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \DomainProof..
+
+7.9.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module DomainProof.
+
+7.9.14. Finished fast OPT passes. (There is nothing left to do.)
+
+7.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 25 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$618 ($eq).
+Removed top 19 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$620 ($eq).
+Removed top 18 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$622 ($eq).
+Removed top 14 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$624 ($eq).
+Removed top 13 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$626 ($eq).
+Removed top 11 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$628 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$630 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$632 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$634 ($eq).
+Removed top 5 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$636 ($eq).
+Removed top 3 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$638 ($eq).
+Removed top 2 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:12$eq$640 ($eq).
+Removed top 25 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$648 ($eq).
+Removed top 19 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$650 ($eq).
+Removed top 18 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$652 ($eq).
+Removed top 14 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$654 ($eq).
+Removed top 13 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$656 ($eq).
+Removed top 11 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$658 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$660 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$662 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$664 ($eq).
+Removed top 5 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$666 ($eq).
+Removed top 3 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$668 ($eq).
+Removed top 2 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:13$eq$670 ($eq).
+Removed top 25 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$678 ($eq).
+Removed top 19 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$680 ($eq).
+Removed top 18 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$682 ($eq).
+Removed top 14 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$684 ($eq).
+Removed top 13 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$686 ($eq).
+Removed top 11 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$688 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$690 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$692 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$694 ($eq).
+Removed top 5 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$696 ($eq).
+Removed top 3 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$698 ($eq).
+Removed top 2 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:14$eq$700 ($eq).
+Removed top 25 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$708 ($eq).
+Removed top 19 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$710 ($eq).
+Removed top 18 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$712 ($eq).
+Removed top 14 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$714 ($eq).
+Removed top 13 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$716 ($eq).
+Removed top 11 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$718 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$720 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$722 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$724 ($eq).
+Removed top 5 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$726 ($eq).
+Removed top 3 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$728 ($eq).
+Removed top 2 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:15$eq$730 ($eq).
+Removed top 25 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$738 ($eq).
+Removed top 19 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$740 ($eq).
+Removed top 18 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$742 ($eq).
+Removed top 14 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$744 ($eq).
+Removed top 13 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$746 ($eq).
+Removed top 11 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$748 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$750 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$752 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$754 ($eq).
+Removed top 5 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$756 ($eq).
+Removed top 3 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$758 ($eq).
+Removed top 2 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:16$eq$760 ($eq).
+Removed top 25 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$768 ($eq).
+Removed top 19 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$770 ($eq).
+Removed top 18 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$772 ($eq).
+Removed top 14 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$774 ($eq).
+Removed top 13 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$776 ($eq).
+Removed top 11 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$778 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$780 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$782 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$784 ($eq).
+Removed top 5 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$786 ($eq).
+Removed top 3 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$788 ($eq).
+Removed top 2 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:17$eq$790 ($eq).
+Removed top 25 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$798 ($eq).
+Removed top 19 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$800 ($eq).
+Removed top 18 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$802 ($eq).
+Removed top 14 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$804 ($eq).
+Removed top 13 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$806 ($eq).
+Removed top 11 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$808 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$810 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$812 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$814 ($eq).
+Removed top 5 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$816 ($eq).
+Removed top 3 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$818 ($eq).
+Removed top 2 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:18$eq$820 ($eq).
+Removed top 25 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$828 ($eq).
+Removed top 19 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$830 ($eq).
+Removed top 18 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$832 ($eq).
+Removed top 14 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$834 ($eq).
+Removed top 13 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$836 ($eq).
+Removed top 11 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$838 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$840 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$842 ($eq).
+Removed top 8 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$844 ($eq).
+Removed top 5 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$846 ($eq).
+Removed top 3 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$848 ($eq).
+Removed top 2 bits (of 32) from port B of cell DomainProof.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/alphabet_domain_symbolic_v4/harness.sv:19$eq$850 ($eq).
+Removed top 1 bits (of 2) from port B of cell DomainProof.$flatten\dut.$677 ($eq).
+Removed top 1 bits (of 3) from port A of cell DomainProof.$flatten\dut.$706 ($not).
+Removed top 1 bits (of 3) from port A of cell DomainProof.$flatten\dut.$713 ($not).
+Removed top 1 bits (of 5) from port B of cell DomainProof.$flatten\dut.$procmux$17720_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell DomainProof.$flatten\dut.$procmux$41318_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell DomainProof.$flatten\dut.$procmux$41323_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell DomainProof.$flatten\dut.$procmux$41333_CMP0 ($eq).
+
+7.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \DomainProof..
+
+7.12. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.13. Executing OPT pass (performing simple optimizations).
+
+7.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module DomainProof.
+
+7.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\DomainProof'.
+Computing hashes of 308 cells of `\DomainProof'.
+Finding duplicate cells in `\DomainProof'.
+Removed a total of 0 cells.
+
+7.13.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \DomainProof..
+
+7.13.4. Finished fast OPT passes.
+
+7.14. Executing SORT pass.
+
+7.15. Printing statistics.
+
+=== DomainProof ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      730 wires
+     1383 wire bits
+       62 public wires
+      558 public wire bits
+       24 ports
+       55 port bits
+      308 cells
+        6   $aldff
+        4   $anyseq
+        9   $check
+      123   $eq
+        2   $ge
+        1   $initstate
+        6   $logic_and
+       11   $logic_not
+      112   $logic_or
+       26   $mux
+        2   $not
+        1   $or
+        4   $reduce_or
+        1   $scopeinfo
+
+7.16. Executing CHECK pass (checking for obvious problems).
+Checking module DomainProof...
+Found and reported 0 problems.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module DomainProof...
+Found and reported 0 problems.
+
+9. Executing OPT_DFF pass (perform DFF optimizations).
+Changing const-value async load to async reset on $flatten\dut.$driver$u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.instr ($aldff) from module DomainProof.
+Adding EN signal on $flatten\dut.$driver$u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.instr ($aldff) from module DomainProof (D = \instruction_i, Q = \dut.state_word_1).
+Changing const-value async load to async reset on $flatten\dut.$driver$u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.instr ($aldff) from module DomainProof.
+Adding EN signal on $flatten\dut.$driver$u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.instr ($aldff) from module DomainProof (D = \instruction_i, Q = \dut.state_word_2).
+Changing const-value async load to async reset on $flatten\dut.$driver$u_backend.u_issue_stage.u_issue_fifo.data[3].instruction ($aldff) from module DomainProof.
+Adding EN signal on $flatten\dut.$driver$u_backend.u_issue_stage.u_issue_fifo.data[3].instruction ($aldff) from module DomainProof (D = { $flatten\dut.$auto$jsonparse.cc:561:json_import$104 $flatten\dut.$auto$jsonparse.cc:561:json_import$103 $flatten\dut.$auto$jsonparse.cc:561:json_import$102 $flatten\dut.$auto$jsonparse.cc:561:json_import$101 $flatten\dut.$auto$jsonparse.cc:561:json_import$100 $flatten\dut.$auto$jsonparse.cc:561:json_import$99 $flatten\dut.$auto$jsonparse.cc:561:json_import$98 $flatten\dut.$auto$jsonparse.cc:561:json_import$97 $flatten\dut.$auto$jsonparse.cc:561:json_import$96 $flatten\dut.$auto$jsonparse.cc:561:json_import$95 $flatten\dut.$auto$jsonparse.cc:561:json_import$94 $flatten\dut.$auto$jsonparse.cc:561:json_import$93 $flatten\dut.$auto$jsonparse.cc:561:json_import$92 $flatten\dut.$auto$jsonparse.cc:561:json_import$91 $flatten\dut.$auto$jsonparse.cc:561:json_import$90 $flatten\dut.$auto$jsonparse.cc:561:json_import$89 $flatten\dut.$auto$jsonparse.cc:561:json_import$88 $flatten\dut.$auto$jsonparse.cc:561:json_import$87 $flatten\dut.$auto$jsonparse.cc:561:json_import$86 $flatten\dut.$auto$jsonparse.cc:561:json_import$85 $flatten\dut.$auto$jsonparse.cc:561:json_import$84 $flatten\dut.$auto$jsonparse.cc:561:json_import$83 $flatten\dut.$auto$jsonparse.cc:561:json_import$82 $flatten\dut.$auto$jsonparse.cc:561:json_import$81 $flatten\dut.$auto$jsonparse.cc:561:json_import$80 $flatten\dut.$auto$jsonparse.cc:561:json_import$79 $flatten\dut.$auto$jsonparse.cc:561:json_import$78 $flatten\dut.$auto$jsonparse.cc:561:json_import$77 $flatten\dut.$auto$jsonparse.cc:561:json_import$76 $flatten\dut.$auto$jsonparse.cc:561:json_import$75 $flatten\dut.$auto$jsonparse.cc:561:json_import$74 $flatten\dut.$auto$jsonparse.cc:561:json_import$73 }, Q = \dut.state_word_5).
+Changing const-value async load to async reset on $flatten\dut.$driver$u_backend.u_issue_stage.u_issue_fifo.data[2].instruction ($aldff) from module DomainProof.
+Adding EN signal on $flatten\dut.$driver$u_backend.u_issue_stage.u_issue_fifo.data[2].instruction ($aldff) from module DomainProof (D = { $flatten\dut.$auto$jsonparse.cc:561:json_import$104 $flatten\dut.$auto$jsonparse.cc:561:json_import$103 $flatten\dut.$auto$jsonparse.cc:561:json_import$102 $flatten\dut.$auto$jsonparse.cc:561:json_import$101 $flatten\dut.$auto$jsonparse.cc:561:json_import$100 $flatten\dut.$auto$jsonparse.cc:561:json_import$99 $flatten\dut.$auto$jsonparse.cc:561:json_import$98 $flatten\dut.$auto$jsonparse.cc:561:json_import$97 $flatten\dut.$auto$jsonparse.cc:561:json_import$96 $flatten\dut.$auto$jsonparse.cc:561:json_import$95 $flatten\dut.$auto$jsonparse.cc:561:json_import$94 $flatten\dut.$auto$jsonparse.cc:561:json_import$93 $flatten\dut.$auto$jsonparse.cc:561:json_import$92 $flatten\dut.$auto$jsonparse.cc:561:json_import$91 $flatten\dut.$auto$jsonparse.cc:561:json_import$90 $flatten\dut.$auto$jsonparse.cc:561:json_import$89 $flatten\dut.$auto$jsonparse.cc:561:json_import$88 $flatten\dut.$auto$jsonparse.cc:561:json_import$87 $flatten\dut.$auto$jsonparse.cc:561:json_import$86 $flatten\dut.$auto$jsonparse.cc:561:json_import$85 $flatten\dut.$auto$jsonparse.cc:561:json_import$84 $flatten\dut.$auto$jsonparse.cc:561:json_import$83 $flatten\dut.$auto$jsonparse.cc:561:json_import$82 $flatten\dut.$auto$jsonparse.cc:561:json_import$81 $flatten\dut.$auto$jsonparse.cc:561:json_import$80 $flatten\dut.$auto$jsonparse.cc:561:json_import$79 $flatten\dut.$auto$jsonparse.cc:561:json_import$78 $flatten\dut.$auto$jsonparse.cc:561:json_import$77 $flatten\dut.$auto$jsonparse.cc:561:json_import$76 $flatten\dut.$auto$jsonparse.cc:561:json_import$75 $flatten\dut.$auto$jsonparse.cc:561:json_import$74 $flatten\dut.$auto$jsonparse.cc:561:json_import$73 }, Q = \dut.state_word_4).
+Changing const-value async load to async reset on $flatten\dut.$driver$u_backend.u_issue_stage.u_issue_fifo.data[1].instruction ($aldff) from module DomainProof.
+Adding EN signal on $flatten\dut.$driver$u_backend.u_issue_stage.u_issue_fifo.data[1].instruction ($aldff) from module DomainProof (D = { $flatten\dut.$auto$jsonparse.cc:561:json_import$104 $flatten\dut.$auto$jsonparse.cc:561:json_import$103 $flatten\dut.$auto$jsonparse.cc:561:json_import$102 $flatten\dut.$auto$jsonparse.cc:561:json_import$101 $flatten\dut.$auto$jsonparse.cc:561:json_import$100 $flatten\dut.$auto$jsonparse.cc:561:json_import$99 $flatten\dut.$auto$jsonparse.cc:561:json_import$98 $flatten\dut.$auto$jsonparse.cc:561:json_import$97 $flatten\dut.$auto$jsonparse.cc:561:json_import$96 $flatten\dut.$auto$jsonparse.cc:561:json_import$95 $flatten\dut.$auto$jsonparse.cc:561:json_import$94 $flatten\dut.$auto$jsonparse.cc:561:json_import$93 $flatten\dut.$auto$jsonparse.cc:561:json_import$92 $flatten\dut.$auto$jsonparse.cc:561:json_import$91 $flatten\dut.$auto$jsonparse.cc:561:json_import$90 $flatten\dut.$auto$jsonparse.cc:561:json_import$89 $flatten\dut.$auto$jsonparse.cc:561:json_import$88 $flatten\dut.$auto$jsonparse.cc:561:json_import$87 $flatten\dut.$auto$jsonparse.cc:561:json_import$86 $flatten\dut.$auto$jsonparse.cc:561:json_import$85 $flatten\dut.$auto$jsonparse.cc:561:json_import$84 $flatten\dut.$auto$jsonparse.cc:561:json_import$83 $flatten\dut.$auto$jsonparse.cc:561:json_import$82 $flatten\dut.$auto$jsonparse.cc:561:json_import$81 $flatten\dut.$auto$jsonparse.cc:561:json_import$80 $flatten\dut.$auto$jsonparse.cc:561:json_import$79 $flatten\dut.$auto$jsonparse.cc:561:json_import$78 $flatten\dut.$auto$jsonparse.cc:561:json_import$77 $flatten\dut.$auto$jsonparse.cc:561:json_import$76 $flatten\dut.$auto$jsonparse.cc:561:json_import$75 $flatten\dut.$auto$jsonparse.cc:561:json_import$74 $flatten\dut.$auto$jsonparse.cc:561:json_import$73 }, Q = \dut.state_word_3).
+Changing const-value async load to async reset on $flatten\dut.$driver$u_backend.u_issue_stage.u_issue_fifo.data[0].instruction ($aldff) from module DomainProof.
+Adding EN signal on $flatten\dut.$driver$u_backend.u_issue_stage.u_issue_fifo.data[0].instruction ($aldff) from module DomainProof (D = { $flatten\dut.$auto$jsonparse.cc:561:json_import$104 $flatten\dut.$auto$jsonparse.cc:561:json_import$103 $flatten\dut.$auto$jsonparse.cc:561:json_import$102 $flatten\dut.$auto$jsonparse.cc:561:json_import$101 $flatten\dut.$auto$jsonparse.cc:561:json_import$100 $flatten\dut.$auto$jsonparse.cc:561:json_import$99 $flatten\dut.$auto$jsonparse.cc:561:json_import$98 $flatten\dut.$auto$jsonparse.cc:561:json_import$97 $flatten\dut.$auto$jsonparse.cc:561:json_import$96 $flatten\dut.$auto$jsonparse.cc:561:json_import$95 $flatten\dut.$auto$jsonparse.cc:561:json_import$94 $flatten\dut.$auto$jsonparse.cc:561:json_import$93 $flatten\dut.$auto$jsonparse.cc:561:json_import$92 $flatten\dut.$auto$jsonparse.cc:561:json_import$91 $flatten\dut.$auto$jsonparse.cc:561:json_import$90 $flatten\dut.$auto$jsonparse.cc:561:json_import$89 $flatten\dut.$auto$jsonparse.cc:561:json_import$88 $flatten\dut.$auto$jsonparse.cc:561:json_import$87 $flatten\dut.$auto$jsonparse.cc:561:json_import$86 $flatten\dut.$auto$jsonparse.cc:561:json_import$85 $flatten\dut.$auto$jsonparse.cc:561:json_import$84 $flatten\dut.$auto$jsonparse.cc:561:json_import$83 $flatten\dut.$auto$jsonparse.cc:561:json_import$82 $flatten\dut.$auto$jsonparse.cc:561:json_import$81 $flatten\dut.$auto$jsonparse.cc:561:json_import$80 $flatten\dut.$auto$jsonparse.cc:561:json_import$79 $flatten\dut.$auto$jsonparse.cc:561:json_import$78 $flatten\dut.$auto$jsonparse.cc:561:json_import$77 $flatten\dut.$auto$jsonparse.cc:561:json_import$76 $flatten\dut.$auto$jsonparse.cc:561:json_import$75 $flatten\dut.$auto$jsonparse.cc:561:json_import$74 $flatten\dut.$auto$jsonparse.cc:561:json_import$73 }, Q = \dut.state_word_0).
+
+10. Executing ASYNC2SYNC pass.
+Replacing DomainProof.$auto$ff.cc:337:slice$931 ($adffe): ARST=\rst_ni, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$104 $flatten\dut.$auto$jsonparse.cc:561:json_import$103 $flatten\dut.$auto$jsonparse.cc:561:json_import$102 $flatten\dut.$auto$jsonparse.cc:561:json_import$101 $flatten\dut.$auto$jsonparse.cc:561:json_import$100 $flatten\dut.$auto$jsonparse.cc:561:json_import$99 $flatten\dut.$auto$jsonparse.cc:561:json_import$98 $flatten\dut.$auto$jsonparse.cc:561:json_import$97 $flatten\dut.$auto$jsonparse.cc:561:json_import$96 $flatten\dut.$auto$jsonparse.cc:561:json_import$95 $flatten\dut.$auto$jsonparse.cc:561:json_import$94 $flatten\dut.$auto$jsonparse.cc:561:json_import$93 $flatten\dut.$auto$jsonparse.cc:561:json_import$92 $flatten\dut.$auto$jsonparse.cc:561:json_import$91 $flatten\dut.$auto$jsonparse.cc:561:json_import$90 $flatten\dut.$auto$jsonparse.cc:561:json_import$89 $flatten\dut.$auto$jsonparse.cc:561:json_import$88 $flatten\dut.$auto$jsonparse.cc:561:json_import$87 $flatten\dut.$auto$jsonparse.cc:561:json_import$86 $flatten\dut.$auto$jsonparse.cc:561:json_import$85 $flatten\dut.$auto$jsonparse.cc:561:json_import$84 $flatten\dut.$auto$jsonparse.cc:561:json_import$83 $flatten\dut.$auto$jsonparse.cc:561:json_import$82 $flatten\dut.$auto$jsonparse.cc:561:json_import$81 $flatten\dut.$auto$jsonparse.cc:561:json_import$80 $flatten\dut.$auto$jsonparse.cc:561:json_import$79 $flatten\dut.$auto$jsonparse.cc:561:json_import$78 $flatten\dut.$auto$jsonparse.cc:561:json_import$77 $flatten\dut.$auto$jsonparse.cc:561:json_import$76 $flatten\dut.$auto$jsonparse.cc:561:json_import$75 $flatten\dut.$auto$jsonparse.cc:561:json_import$74 $flatten\dut.$auto$jsonparse.cc:561:json_import$73 }, Q=\dut.state_word_0
+Replacing DomainProof.$auto$ff.cc:337:slice$926 ($adffe): ARST=\rst_ni, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$104 $flatten\dut.$auto$jsonparse.cc:561:json_import$103 $flatten\dut.$auto$jsonparse.cc:561:json_import$102 $flatten\dut.$auto$jsonparse.cc:561:json_import$101 $flatten\dut.$auto$jsonparse.cc:561:json_import$100 $flatten\dut.$auto$jsonparse.cc:561:json_import$99 $flatten\dut.$auto$jsonparse.cc:561:json_import$98 $flatten\dut.$auto$jsonparse.cc:561:json_import$97 $flatten\dut.$auto$jsonparse.cc:561:json_import$96 $flatten\dut.$auto$jsonparse.cc:561:json_import$95 $flatten\dut.$auto$jsonparse.cc:561:json_import$94 $flatten\dut.$auto$jsonparse.cc:561:json_import$93 $flatten\dut.$auto$jsonparse.cc:561:json_import$92 $flatten\dut.$auto$jsonparse.cc:561:json_import$91 $flatten\dut.$auto$jsonparse.cc:561:json_import$90 $flatten\dut.$auto$jsonparse.cc:561:json_import$89 $flatten\dut.$auto$jsonparse.cc:561:json_import$88 $flatten\dut.$auto$jsonparse.cc:561:json_import$87 $flatten\dut.$auto$jsonparse.cc:561:json_import$86 $flatten\dut.$auto$jsonparse.cc:561:json_import$85 $flatten\dut.$auto$jsonparse.cc:561:json_import$84 $flatten\dut.$auto$jsonparse.cc:561:json_import$83 $flatten\dut.$auto$jsonparse.cc:561:json_import$82 $flatten\dut.$auto$jsonparse.cc:561:json_import$81 $flatten\dut.$auto$jsonparse.cc:561:json_import$80 $flatten\dut.$auto$jsonparse.cc:561:json_import$79 $flatten\dut.$auto$jsonparse.cc:561:json_import$78 $flatten\dut.$auto$jsonparse.cc:561:json_import$77 $flatten\dut.$auto$jsonparse.cc:561:json_import$76 $flatten\dut.$auto$jsonparse.cc:561:json_import$75 $flatten\dut.$auto$jsonparse.cc:561:json_import$74 $flatten\dut.$auto$jsonparse.cc:561:json_import$73 }, Q=\dut.state_word_3
+Replacing DomainProof.$auto$ff.cc:337:slice$921 ($adffe): ARST=\rst_ni, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$104 $flatten\dut.$auto$jsonparse.cc:561:json_import$103 $flatten\dut.$auto$jsonparse.cc:561:json_import$102 $flatten\dut.$auto$jsonparse.cc:561:json_import$101 $flatten\dut.$auto$jsonparse.cc:561:json_import$100 $flatten\dut.$auto$jsonparse.cc:561:json_import$99 $flatten\dut.$auto$jsonparse.cc:561:json_import$98 $flatten\dut.$auto$jsonparse.cc:561:json_import$97 $flatten\dut.$auto$jsonparse.cc:561:json_import$96 $flatten\dut.$auto$jsonparse.cc:561:json_import$95 $flatten\dut.$auto$jsonparse.cc:561:json_import$94 $flatten\dut.$auto$jsonparse.cc:561:json_import$93 $flatten\dut.$auto$jsonparse.cc:561:json_import$92 $flatten\dut.$auto$jsonparse.cc:561:json_import$91 $flatten\dut.$auto$jsonparse.cc:561:json_import$90 $flatten\dut.$auto$jsonparse.cc:561:json_import$89 $flatten\dut.$auto$jsonparse.cc:561:json_import$88 $flatten\dut.$auto$jsonparse.cc:561:json_import$87 $flatten\dut.$auto$jsonparse.cc:561:json_import$86 $flatten\dut.$auto$jsonparse.cc:561:json_import$85 $flatten\dut.$auto$jsonparse.cc:561:json_import$84 $flatten\dut.$auto$jsonparse.cc:561:json_import$83 $flatten\dut.$auto$jsonparse.cc:561:json_import$82 $flatten\dut.$auto$jsonparse.cc:561:json_import$81 $flatten\dut.$auto$jsonparse.cc:561:json_import$80 $flatten\dut.$auto$jsonparse.cc:561:json_import$79 $flatten\dut.$auto$jsonparse.cc:561:json_import$78 $flatten\dut.$auto$jsonparse.cc:561:json_import$77 $flatten\dut.$auto$jsonparse.cc:561:json_import$76 $flatten\dut.$auto$jsonparse.cc:561:json_import$75 $flatten\dut.$auto$jsonparse.cc:561:json_import$74 $flatten\dut.$auto$jsonparse.cc:561:json_import$73 }, Q=\dut.state_word_4
+Replacing DomainProof.$auto$ff.cc:337:slice$916 ($adffe): ARST=\rst_ni, D={ $flatten\dut.$auto$jsonparse.cc:561:json_import$104 $flatten\dut.$auto$jsonparse.cc:561:json_import$103 $flatten\dut.$auto$jsonparse.cc:561:json_import$102 $flatten\dut.$auto$jsonparse.cc:561:json_import$101 $flatten\dut.$auto$jsonparse.cc:561:json_import$100 $flatten\dut.$auto$jsonparse.cc:561:json_import$99 $flatten\dut.$auto$jsonparse.cc:561:json_import$98 $flatten\dut.$auto$jsonparse.cc:561:json_import$97 $flatten\dut.$auto$jsonparse.cc:561:json_import$96 $flatten\dut.$auto$jsonparse.cc:561:json_import$95 $flatten\dut.$auto$jsonparse.cc:561:json_import$94 $flatten\dut.$auto$jsonparse.cc:561:json_import$93 $flatten\dut.$auto$jsonparse.cc:561:json_import$92 $flatten\dut.$auto$jsonparse.cc:561:json_import$91 $flatten\dut.$auto$jsonparse.cc:561:json_import$90 $flatten\dut.$auto$jsonparse.cc:561:json_import$89 $flatten\dut.$auto$jsonparse.cc:561:json_import$88 $flatten\dut.$auto$jsonparse.cc:561:json_import$87 $flatten\dut.$auto$jsonparse.cc:561:json_import$86 $flatten\dut.$auto$jsonparse.cc:561:json_import$85 $flatten\dut.$auto$jsonparse.cc:561:json_import$84 $flatten\dut.$auto$jsonparse.cc:561:json_import$83 $flatten\dut.$auto$jsonparse.cc:561:json_import$82 $flatten\dut.$auto$jsonparse.cc:561:json_import$81 $flatten\dut.$auto$jsonparse.cc:561:json_import$80 $flatten\dut.$auto$jsonparse.cc:561:json_import$79 $flatten\dut.$auto$jsonparse.cc:561:json_import$78 $flatten\dut.$auto$jsonparse.cc:561:json_import$77 $flatten\dut.$auto$jsonparse.cc:561:json_import$76 $flatten\dut.$auto$jsonparse.cc:561:json_import$75 $flatten\dut.$auto$jsonparse.cc:561:json_import$74 $flatten\dut.$auto$jsonparse.cc:561:json_import$73 }, Q=\dut.state_word_5
+Replacing DomainProof.$auto$ff.cc:337:slice$915 ($adffe): ARST=\rst_ni, D=\instruction_i, Q=\dut.state_word_2
+Replacing DomainProof.$auto$ff.cc:337:slice$914 ($adffe): ARST=\rst_ni, D=\instruction_i, Q=\dut.state_word_1
+
+11. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+12. Executing JSON backend.
+
+13. Executing SMT2 backend.
+
+13.1. Executing BMUXMAP pass.
+
+13.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module DomainProof.

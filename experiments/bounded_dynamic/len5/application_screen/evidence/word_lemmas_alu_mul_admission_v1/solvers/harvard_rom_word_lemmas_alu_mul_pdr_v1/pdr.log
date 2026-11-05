@@ -1,0 +1,25 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1/screen.aig"; fold; orpos; pdr -T 120 -v; write_cex -a "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_pdr_v1/counterexample.aiw"".
+
+Warning: The last 8 outputs are interpreted as constraints.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 7                                                                 1     8      0.41 sec
+  2 : 0 9 15                                                              4    57      0.57 sec
+  3 : 0 5 4 12                                                            1    57      0.59 sec
+  4 : 0 5 4 9 16                                                          3    69      0.71 sec
+  5 : 0 7 15 43 77 269                                                   10   370     33.94 sec
+  6 : 0 17 45 122 144 168 757                                            63   568    120.00 sec
+Reached timeout (120 seconds) in frame 6.
+Block =   58  Oblig =  2541  Clause =  1391  Call = 21936 (sat=58.3%)  Cex =   0  Start =  69
+SAT solving =    80.24 sec ( 66.85 %)
+  unsat     =     2.26 sec (  1.88 %)
+  sat       =    77.97 sec ( 64.97 %)
+Generalize  =    94.25 sec ( 78.53 %)
+Push clause =     0.34 sec (  0.28 %)
+Ternary sim =    17.49 sec ( 14.57 %)
+Containment =     0.60 sec (  0.50 %)
+CNF compute =     3.01 sec (  2.51 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =   120.02 sec (100.00 %)
+Property UNDECIDED.  Time =   120.25 sec
+Counter-example is not available.

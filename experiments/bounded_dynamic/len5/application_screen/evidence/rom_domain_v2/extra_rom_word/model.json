@@ -1,0 +1,3449 @@
+{
+  "creator": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "RomDomain": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:1.1-142.10"
+      },
+      "ports": {
+        "clk_i": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst_ni": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "instruction_choice": {
+          "direction": "input",
+          "bits": [ 4, 5, 6, 7 ]
+        },
+        "load_value": {
+          "direction": "input",
+          "bits": [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71 ]
+        },
+        "invalid_code_nonzero": {
+          "direction": "input",
+          "bits": [ 72, 73, 74 ]
+        },
+        "instruction_fault_data": {
+          "direction": "input",
+          "bits": [ 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106 ]
+        },
+        "mem_flush_o": {
+          "direction": "input",
+          "bits": [ 107 ]
+        },
+        "instr_req_o": {
+          "direction": "input",
+          "bits": [ 108 ]
+        },
+        "instr_rready_o": {
+          "direction": "input",
+          "bits": [ 109 ]
+        },
+        "instr_we_o": {
+          "direction": "input",
+          "bits": [ 110 ]
+        },
+        "instr_addr_o": {
+          "direction": "input",
+          "bits": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ]
+        },
+        "data_load_req_o": {
+          "direction": "input",
+          "bits": [ 175 ]
+        },
+        "data_load_rready_o": {
+          "direction": "input",
+          "bits": [ 176 ]
+        },
+        "data_load_we_o": {
+          "direction": "input",
+          "bits": [ 177 ]
+        },
+        "data_load_addr_o": {
+          "direction": "input",
+          "bits": [ 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241 ]
+        },
+        "data_load_tag_o": {
+          "direction": "input",
+          "bits": [ 242, 243, 244, 245 ]
+        },
+        "data_load_be_o": {
+          "direction": "input",
+          "bits": [ 246, 247, 248, 249, 250, 251, 252, 253 ]
+        },
+        "data_store_req_o": {
+          "direction": "input",
+          "bits": [ 254 ]
+        },
+        "data_store_rready_o": {
+          "direction": "input",
+          "bits": [ 255 ]
+        },
+        "data_store_we_o": {
+          "direction": "input",
+          "bits": [ 256 ]
+        },
+        "data_store_addr_o": {
+          "direction": "input",
+          "bits": [ 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320 ]
+        },
+        "data_store_tag_o": {
+          "direction": "input",
+          "bits": [ 321, 322, 323, 324 ]
+        },
+        "data_store_be_o": {
+          "direction": "input",
+          "bits": [ 325, 326, 327, 328, 329, 330, 331, 332 ]
+        },
+        "data_store_wdata_o": {
+          "direction": "input",
+          "bits": [ 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396 ]
+        },
+        "irq_ack_o": {
+          "direction": "input",
+          "bits": [ 397 ]
+        },
+        "irq_id_o": {
+          "direction": "input",
+          "bits": [ 398, 399, 400, 401, 402 ]
+        },
+        "core_sleep_o": {
+          "direction": "input",
+          "bits": [ 403 ]
+        },
+        "probe_insert": {
+          "direction": "input",
+          "bits": [ 404 ]
+        },
+        "probe_index": {
+          "direction": "input",
+          "bits": [ 405, 406, 407 ]
+        },
+        "observed_valid": {
+          "direction": "output",
+          "bits": [ 408 ]
+        },
+        "observed_word": {
+          "direction": "output",
+          "bits": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ]
+        },
+        "observed_fault": {
+          "direction": "output",
+          "bits": [ 441 ]
+        },
+        "observed_code": {
+          "direction": "output",
+          "bits": [ 442, 443, 444, 445, 446 ]
+        }
+      },
+      "cells": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:100$sub$18": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:100.38-100.50"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 447 ],
+            "B": [ "1" ],
+            "Y": [ 448 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:105$ternary$21": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:105.17-105.70"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480 ],
+            "S": [ 481 ],
+            "Y": [ 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:107$logic_and$23": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:107.31-107.85"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 481 ],
+            "B": [ 514 ],
+            "Y": [ 515 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:108$logic_and$24": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:108.20-108.44"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 108 ],
+            "B": [ 516 ],
+            "Y": [ 481 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:108$ternary$26": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:108.19-108.78"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "1", "1", "1", "1" ],
+            "B": [ 517, 518, 519, 520, 521 ],
+            "S": [ 481 ],
+            "Y": [ 522, 523, 524, 525, 526 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$assert$31": {
+          "hide_name": 1,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.5-140.526"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 527 ],
+            "EN": [ 528 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$33": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.62"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "Y": [ 529 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$34": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.66-140.95"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "1", "1", "0", "1", "1" ],
+            "Y": [ 530 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$36": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.99-140.128"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "1", "0", "1", "1", "0", "0", "0", "0", "1", "0", "1" ],
+            "Y": [ 531 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$38": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.132-140.161"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "1", "0", "1", "1", "0", "1", "0", "0", "1", "0", "0", "1" ],
+            "Y": [ 532 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$40": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.165-140.194"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "1" ],
+            "Y": [ 533 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$42": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.198-140.227"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "0", "0", "0", "0", "0", "1", "0", "1", "0", "1", "1", "0", "0", "0", "0", "1" ],
+            "Y": [ 534 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$44": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000010101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.231-140.260"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "0", "1", "0", "0", "1", "1", "0", "1", "0", "0", "0", "0", "0", "1", "0", "1", "0", "1" ],
+            "Y": [ 535 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$46": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000011000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.264-140.293"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "0", "1", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "1" ],
+            "Y": [ 536 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$48": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000011000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.297-140.326"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "0", "1", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "1" ],
+            "Y": [ 537 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$50": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000011000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.330-140.359"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "1", "1", "0", "1", "0", "0", "1", "0", "1", "1", "0", "1" ],
+            "Y": [ 538 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$52": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000011011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.363-140.392"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "0", "1", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1" ],
+            "Y": [ 539 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$54": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000011101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.396-140.425"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "1", "1", "0", "0", "1", "0", "1", "0", "0", "0", "0", "0", "1", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1" ],
+            "Y": [ 540 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$56": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000011110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.429-140.458"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "1", "0", "1", "1", "0", "1", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1" ],
+            "Y": [ 541 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$58": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000100000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.462-140.491"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "0", "0", "1", "1", "1", "0", "0", "1", "0", "1", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "0", "1", "1", "1", "1", "1", "1", "1" ],
+            "Y": [ 542 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$60": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000100000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.495-140.524"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ "1", "1", "0", "0", "1", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "1", "0", "0", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1" ],
+            "Y": [ 543 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_not$32": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.13-140.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 408 ],
+            "Y": [ 544 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$35": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.95"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 529 ],
+            "B": [ 530 ],
+            "Y": [ 545 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$37": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.128"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 545 ],
+            "B": [ 531 ],
+            "Y": [ 546 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$39": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.161"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 546 ],
+            "B": [ 532 ],
+            "Y": [ 547 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$41": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.194"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 547 ],
+            "B": [ 533 ],
+            "Y": [ 548 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$43": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.227"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 548 ],
+            "B": [ 534 ],
+            "Y": [ 549 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$45": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.260"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 549 ],
+            "B": [ 535 ],
+            "Y": [ 550 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$47": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.293"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 550 ],
+            "B": [ 536 ],
+            "Y": [ 551 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$49": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.326"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 551 ],
+            "B": [ 537 ],
+            "Y": [ 552 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$51": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.359"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 552 ],
+            "B": [ 538 ],
+            "Y": [ 553 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$53": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.392"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 553 ],
+            "B": [ 539 ],
+            "Y": [ 554 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$55": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.425"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 554 ],
+            "B": [ 540 ],
+            "Y": [ 555 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$57": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.458"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 555 ],
+            "B": [ 541 ],
+            "Y": [ 556 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$59": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.491"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 556 ],
+            "B": [ 542 ],
+            "Y": [ 557 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$61": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.524"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 557 ],
+            "B": [ 543 ],
+            "Y": [ 558 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$62": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.13-140.525"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 544 ],
+            "B": [ 558 ],
+            "Y": [ 527 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31$assume$3": {
+          "hide_name": 1,
+          "type": "$assume",
+          "parameters": {
+          },
+          "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31.29-31.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 559 ],
+            "EN": [ 560 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31$logic_not$4": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31.37-31.44"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "Y": [ 559 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55$ne$6": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55.9-55.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112 ],
+            "Y": [ 561 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56$lt$7": {
+          "hide_name": 1,
+          "type": "$lt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56.14-56.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "1", "1", "1", "1" ],
+            "Y": [ 562 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:91$eq$12": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:91.20-91.33"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 447 ],
+            "Y": [ 516 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:92$logic_and$13": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:92.16-92.42"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 108 ],
+            "B": [ 563 ],
+            "Y": [ 564 ]
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:93$logic_and$14": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:93.24-93.51"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 109 ],
+            "B": [ 516 ],
+            "Y": [ 563 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$236": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 527 ],
+            "Y": [ 565 ]
+          }
+        },
+        "$auto$chformal.cc:428:execute$241": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 559 ],
+            "Y": [ 566 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$238": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 565 ],
+            "B": [ 528 ],
+            "Y": [ 567 ]
+          }
+        },
+        "$auto$chformal.cc:430:execute$243": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 566 ],
+            "B": [ 560 ],
+            "Y": [ 568 ]
+          }
+        },
+        "$initstate$1": {
+          "hide_name": 1,
+          "type": "$initstate",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31.17-31.27"
+          },
+          "port_directions": {
+            "Y": "output"
+          },
+          "connections": {
+            "Y": [ 569 ]
+          }
+        },
+        "$procdff$216": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 570, 571 ],
+            "Q": [ 572, 408 ]
+          }
+        },
+        "$procdff$217": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 573, 574 ],
+            "Q": [ 575, 441 ]
+          }
+        },
+        "$procdff$218": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607 ],
+            "Q": [ 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639 ]
+          }
+        },
+        "$procdff$219": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671 ],
+            "Q": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ]
+          }
+        },
+        "$procdff$220": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 672, 673, 674, 675, 676 ],
+            "Q": [ 677, 678, 679, 680, 681 ]
+          }
+        },
+        "$procdff$221": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 682, 683, 684, 685, 686 ],
+            "Q": [ 442, 443, 444, 445, 446 ]
+          }
+        },
+        "$procdff$222": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 687 ],
+            "Q": [ 447 ]
+          }
+        },
+        "$procmux$100": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:101.11-101.16|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:101.7-101.32"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 688 ],
+            "B": [ "1" ],
+            "S": [ 564 ],
+            "Y": [ 689 ]
+          }
+        },
+        "$procmux$103": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.9-97.16|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.5-111.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 689 ],
+            "S": [ 3 ],
+            "Y": [ 687 ]
+          }
+        },
+        "$procmux$105": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.16-103.30|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.12-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 442, 443, 444, 445, 446 ],
+            "B": [ 677, 678, 679, 680, 681 ],
+            "S": [ 109 ],
+            "Y": [ 690, 691, 692, 693, 694 ]
+          }
+        },
+        "$procmux$108": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.11-102.22|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.7-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 690, 691, 692, 693, 694 ],
+            "B": [ "0", "0", "0", "0", "0" ],
+            "S": [ 107 ],
+            "Y": [ 695, 696, 697, 698, 699 ]
+          }
+        },
+        "$procmux$111": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.9-97.16|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.5-111.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0" ],
+            "B": [ 695, 696, 697, 698, 699 ],
+            "S": [ 3 ],
+            "Y": [ 682, 683, 684, 685, 686 ]
+          }
+        },
+        "$procmux$113": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.16-103.30|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.12-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 677, 678, 679, 680, 681 ],
+            "B": [ 522, 523, 524, 525, 526 ],
+            "S": [ 109 ],
+            "Y": [ 700, 701, 702, 703, 704 ]
+          }
+        },
+        "$procmux$116": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.11-102.22|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.7-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 700, 701, 702, 703, 704 ],
+            "B": [ "0", "0", "0", "0", "0" ],
+            "S": [ 107 ],
+            "Y": [ 705, 706, 707, 708, 709 ]
+          }
+        },
+        "$procmux$119": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.9-97.16|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.5-111.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0" ],
+            "B": [ 705, 706, 707, 708, 709 ],
+            "S": [ 3 ],
+            "Y": [ 672, 673, 674, 675, 676 ]
+          }
+        },
+        "$procmux$121": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.16-103.30|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.12-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+            "B": [ 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639 ],
+            "S": [ 109 ],
+            "Y": [ 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741 ]
+          }
+        },
+        "$procmux$124": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.11-102.22|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.7-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 107 ],
+            "Y": [ 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773 ]
+          }
+        },
+        "$procmux$127": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.9-97.16|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.5-111.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773 ],
+            "S": [ 3 ],
+            "Y": [ 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671 ]
+          }
+        },
+        "$procmux$129": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.16-103.30|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.12-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639 ],
+            "B": [ 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513 ],
+            "S": [ 109 ],
+            "Y": [ 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805 ]
+          }
+        },
+        "$procmux$132": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.11-102.22|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.7-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 107 ],
+            "Y": [ 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837 ]
+          }
+        },
+        "$procmux$135": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.9-97.16|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.5-111.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837 ],
+            "S": [ 3 ],
+            "Y": [ 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607 ]
+          }
+        },
+        "$procmux$137": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.16-103.30|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.12-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 575, 441 ],
+            "B": [ 515, 575 ],
+            "S": [ 109 ],
+            "Y": [ 838, 839 ]
+          }
+        },
+        "$procmux$140": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.11-102.22|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.7-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 838, 839 ],
+            "B": [ "0", "0" ],
+            "S": [ 107 ],
+            "Y": [ 840, 841 ]
+          }
+        },
+        "$procmux$143": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.9-97.16|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.5-111.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0" ],
+            "B": [ 840, 841 ],
+            "S": [ 3 ],
+            "Y": [ 573, 574 ]
+          }
+        },
+        "$procmux$145": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.16-103.30|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:103.12-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 572, 408 ],
+            "B": [ 481, 572 ],
+            "S": [ 109 ],
+            "Y": [ 842, 843 ]
+          }
+        },
+        "$procmux$148": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.11-102.22|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:102.7-110.10"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 842, 843 ],
+            "B": [ "0", "0" ],
+            "S": [ 107 ],
+            "Y": [ 844, 845 ]
+          }
+        },
+        "$procmux$151": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.9-97.16|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:97.5-111.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0" ],
+            "B": [ 844, 845 ],
+            "S": [ 3 ],
+            "Y": [ 570, 571 ]
+          }
+        },
+        "$procmux$155": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000001111",
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:73.67-73.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ "1", "1", "1", "1", "0", "1", "1", "1", "0", "1", "1", "1", "1", "1", "0", "1", "1", "0", "1", "1", "0", "1", "0", "1", "0", "1", "1", "1", "1", "0", "1", "1", "1", "1", "1", "1", "0", "1", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "0", "1", "1", "0", "0", "1", "0", "1", "0", "0", "0", "0", "0", "1", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "1", "1", "1", "0", "1", "1", "0", "1", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "1", "1", "0", "0", "0", "1", "1", "1", "0", "0", "1", "0", "1", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "0", "1", "1", "1", "1", "1", "1", "1", "1", "1", "0", "0", "1", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "1", "0", "0", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "0", "0", "1", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "0", "0", "1", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "1", "1", "0", "1", "0", "0", "1", "0", "1", "1", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "0", "0", "1", "0", "0", "1", "1", "0", "1", "0", "0", "0", "0", "0", "1", "0", "1", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "0", "0", "0", "0", "0", "0", "1", "0", "1", "0", "1", "1", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "0", "0", "1", "0", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "1", "1", "1", "0", "1", "1", "0", "1", "0", "0", "1", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "1", "0", "1", "1", "0", "0", "0", "0", "1", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860 ],
+            "Y": [ 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892 ]
+          }
+        },
+        "$procmux$156_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:73.67-73.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "0", "1", "1", "1" ],
+            "Y": [ 846 ]
+          }
+        },
+        "$procmux$157_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:72.67-72.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "1", "0", "1", "1" ],
+            "Y": [ 847 ]
+          }
+        },
+        "$procmux$158_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:71.67-71.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "0", "0", "1", "1" ],
+            "Y": [ 848 ]
+          }
+        },
+        "$procmux$159_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:70.67-70.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "1", "1", "0", "1" ],
+            "Y": [ 849 ]
+          }
+        },
+        "$procmux$160_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:69.67-69.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "0", "1", "0", "1" ],
+            "Y": [ 850 ]
+          }
+        },
+        "$procmux$161_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:68.67-68.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "1", "0", "0", "1" ],
+            "Y": [ 851 ]
+          }
+        },
+        "$procmux$162_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:67.67-67.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "0", "0", "0", "1" ],
+            "Y": [ 852 ]
+          }
+        },
+        "$procmux$163_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:66.67-66.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "1", "1", "1" ],
+            "Y": [ 853 ]
+          }
+        },
+        "$procmux$164_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:65.67-65.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "0", "1", "1" ],
+            "Y": [ 854 ]
+          }
+        },
+        "$procmux$165_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:64.67-64.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "1", "0", "1" ],
+            "Y": [ 855 ]
+          }
+        },
+        "$procmux$166_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:63.67-63.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "0", "0", "1" ],
+            "Y": [ 856 ]
+          }
+        },
+        "$procmux$167_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:62.67-62.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "1", "1" ],
+            "Y": [ 857 ]
+          }
+        },
+        "$procmux$168_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:61.67-61.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "0", "1" ],
+            "Y": [ 858 ]
+          }
+        },
+        "$procmux$169_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:60.67-60.67|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "B": [ "0", "0", "1" ],
+            "Y": [ 859 ]
+          }
+        },
+        "$procmux$170_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000001000000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.26-59.26|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:59.7-76.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+            "Y": [ 860 ]
+          }
+        },
+        "$procmux$177": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56.14-56.35|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56.10-77.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892 ],
+            "S": [ 562 ],
+            "Y": [ 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924 ]
+          }
+        },
+        "$procmux$183": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56.14-56.35|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56.10-77.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0", "0", "0", "0" ],
+            "B": [ "1", "1", "1", "1", "1" ],
+            "S": [ 562 ],
+            "Y": [ 925, 926, 927, 928, 929 ]
+          }
+        },
+        "$procmux$189": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56.14-56.35|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56.10-77.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ "0" ],
+            "S": [ 562 ],
+            "Y": [ 930 ]
+          }
+        },
+        "$procmux$195": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55.9-55.31|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55.5-77.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 925, 926, 927, 928, 929 ],
+            "B": [ "0", "0", "0", "0", "0" ],
+            "S": [ 561 ],
+            "Y": [ 517, 518, 519, 520, 521 ]
+          }
+        },
+        "$procmux$198": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55.9-55.31|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55.5-77.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 930 ],
+            "B": [ "1" ],
+            "S": [ 561 ],
+            "Y": [ 514 ]
+          }
+        },
+        "$procmux$201": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55.9-55.31|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55.5-77.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 561 ],
+            "Y": [ 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480 ]
+          }
+        },
+        "$procmux$203": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31.17-31.27|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31.13-31.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 569 ],
+            "Y": [ 560 ]
+          }
+        },
+        "$procmux$63": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:139.17-139.23|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:139.13-141.6"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 3 ],
+            "Y": [ 528 ]
+          }
+        },
+        "$procmux$98": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:100.11-100.24|/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:100.7-100.51"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 448 ],
+            "S": [ 447 ],
+            "Y": [ 688 ]
+          }
+        }
+      },
+      "netnames": {
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:100$sub$18_Y": {
+          "hide_name": 1,
+          "bits": [ 448 ],
+          "attributes": {
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:104$logic_and$19_Y": {
+          "hide_name": 1,
+          "bits": [ 481 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:104.23-104.47"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:105$ternary$21_Y": {
+          "hide_name": 1,
+          "bits": [ 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:105.17-105.70"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:107$logic_and$23_Y": {
+          "hide_name": 1,
+          "bits": [ 515 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:107.31-107.85"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:108$ternary$26_Y": {
+          "hide_name": 1,
+          "bits": [ 522, 523, 524, 525, 526 ],
+          "attributes": {
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$assert$31_EN": {
+          "hide_name": 1,
+          "bits": [ 528 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.5-140.526"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$33_Y": {
+          "hide_name": 1,
+          "bits": [ 529 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.62"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$34_Y": {
+          "hide_name": 1,
+          "bits": [ 530 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.66-140.95"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$36_Y": {
+          "hide_name": 1,
+          "bits": [ 531 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.99-140.128"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$38_Y": {
+          "hide_name": 1,
+          "bits": [ 532 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.132-140.161"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$40_Y": {
+          "hide_name": 1,
+          "bits": [ 533 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.165-140.194"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$42_Y": {
+          "hide_name": 1,
+          "bits": [ 534 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.198-140.227"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$44_Y": {
+          "hide_name": 1,
+          "bits": [ 535 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.231-140.260"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$46_Y": {
+          "hide_name": 1,
+          "bits": [ 536 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.264-140.293"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$48_Y": {
+          "hide_name": 1,
+          "bits": [ 537 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.297-140.326"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$50_Y": {
+          "hide_name": 1,
+          "bits": [ 538 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.330-140.359"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$52_Y": {
+          "hide_name": 1,
+          "bits": [ 539 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.363-140.392"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$54_Y": {
+          "hide_name": 1,
+          "bits": [ 540 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.396-140.425"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$56_Y": {
+          "hide_name": 1,
+          "bits": [ 541 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.429-140.458"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$58_Y": {
+          "hide_name": 1,
+          "bits": [ 542 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.462-140.491"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$eq$60_Y": {
+          "hide_name": 1,
+          "bits": [ 543 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.495-140.524"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_not$32_Y": {
+          "hide_name": 1,
+          "bits": [ 544 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.13-140.28"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$35_Y": {
+          "hide_name": 1,
+          "bits": [ 545 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.95"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$37_Y": {
+          "hide_name": 1,
+          "bits": [ 546 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.128"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$39_Y": {
+          "hide_name": 1,
+          "bits": [ 547 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.161"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$41_Y": {
+          "hide_name": 1,
+          "bits": [ 548 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.194"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$43_Y": {
+          "hide_name": 1,
+          "bits": [ 549 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.227"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$45_Y": {
+          "hide_name": 1,
+          "bits": [ 550 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.260"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$47_Y": {
+          "hide_name": 1,
+          "bits": [ 551 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.293"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$49_Y": {
+          "hide_name": 1,
+          "bits": [ 552 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.326"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$51_Y": {
+          "hide_name": 1,
+          "bits": [ 553 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.359"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$53_Y": {
+          "hide_name": 1,
+          "bits": [ 554 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.392"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$55_Y": {
+          "hide_name": 1,
+          "bits": [ 555 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.425"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$57_Y": {
+          "hide_name": 1,
+          "bits": [ 556 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.458"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$59_Y": {
+          "hide_name": 1,
+          "bits": [ 557 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.491"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$61_Y": {
+          "hide_name": 1,
+          "bits": [ 558 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.33-140.524"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140$logic_or$62_Y": {
+          "hide_name": 1,
+          "bits": [ 527 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:140.13-140.525"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31$assume$3_EN": {
+          "hide_name": 1,
+          "bits": [ 560 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31.29-31.45"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31$logic_not$4_Y": {
+          "hide_name": 1,
+          "bits": [ 559 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31.37-31.44"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55$ne$6_Y": {
+          "hide_name": 1,
+          "bits": [ 561 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:55.9-55.31"
+          }
+        },
+        "$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56$lt$7_Y": {
+          "hide_name": 1,
+          "bits": [ 562 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:56.14-56.35"
+          }
+        },
+        "$0\\gap_left[0:0]": {
+          "hide_name": 1,
+          "bits": [ 687 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          }
+        },
+        "$0\\icode0[4:0]": {
+          "hide_name": 1,
+          "bits": [ 672, 673, 674, 675, 676 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          }
+        },
+        "$0\\icode1[4:0]": {
+          "hide_name": 1,
+          "bits": [ 682, 683, 684, 685, 686 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          }
+        },
+        "$0\\ifault[1:0]": {
+          "hide_name": 1,
+          "bits": [ 573, 574 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          }
+        },
+        "$0\\ins0[31:0]": {
+          "hide_name": 1,
+          "bits": [ 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          }
+        },
+        "$0\\ins1[31:0]": {
+          "hide_name": 1,
+          "bits": [ 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          }
+        },
+        "$0\\iv[1:0]": {
+          "hide_name": 1,
+          "bits": [ 570, 571 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:96.3-112.6"
+          }
+        },
+        "$2\\selected_instruction[31:0]": {
+          "hide_name": 1,
+          "bits": [ 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:52.3-78.6"
+          }
+        },
+        "$2\\selected_instruction_code[4:0]": {
+          "hide_name": 1,
+          "bits": [ 925, 926, 927, 928, 929 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:52.3-78.6"
+          }
+        },
+        "$2\\selected_instruction_fault[0:0]": {
+          "hide_name": 1,
+          "bits": [ 930 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:52.3-78.6"
+          }
+        },
+        "$3\\selected_instruction[31:0]": {
+          "hide_name": 1,
+          "bits": [ 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:52.3-78.6"
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$237": {
+          "hide_name": 1,
+          "bits": [ 565 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3197:Not$242": {
+          "hide_name": 1,
+          "bits": [ 566 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$239": {
+          "hide_name": 1,
+          "bits": [ 567 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:3245:And$244": {
+          "hide_name": 1,
+          "bits": [ 568 ],
+          "attributes": {
+          }
+        },
+        "$initstate$1_wire": {
+          "hide_name": 1,
+          "bits": [ 569 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:31.17-31.27"
+          }
+        },
+        "$procmux$100_Y": {
+          "hide_name": 1,
+          "bits": [ 689 ],
+          "attributes": {
+          }
+        },
+        "$procmux$105_Y": {
+          "hide_name": 1,
+          "bits": [ 690, 691, 692, 693, 694 ],
+          "attributes": {
+          }
+        },
+        "$procmux$108_Y": {
+          "hide_name": 1,
+          "bits": [ 695, 696, 697, 698, 699 ],
+          "attributes": {
+          }
+        },
+        "$procmux$113_Y": {
+          "hide_name": 1,
+          "bits": [ 700, 701, 702, 703, 704 ],
+          "attributes": {
+          }
+        },
+        "$procmux$116_Y": {
+          "hide_name": 1,
+          "bits": [ 705, 706, 707, 708, 709 ],
+          "attributes": {
+          }
+        },
+        "$procmux$121_Y": {
+          "hide_name": 1,
+          "bits": [ 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741 ],
+          "attributes": {
+          }
+        },
+        "$procmux$124_Y": {
+          "hide_name": 1,
+          "bits": [ 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773 ],
+          "attributes": {
+          }
+        },
+        "$procmux$129_Y": {
+          "hide_name": 1,
+          "bits": [ 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805 ],
+          "attributes": {
+          }
+        },
+        "$procmux$132_Y": {
+          "hide_name": 1,
+          "bits": [ 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837 ],
+          "attributes": {
+          }
+        },
+        "$procmux$137_Y": {
+          "hide_name": 1,
+          "bits": [ 838, 839 ],
+          "attributes": {
+          }
+        },
+        "$procmux$140_Y": {
+          "hide_name": 1,
+          "bits": [ 840, 841 ],
+          "attributes": {
+          }
+        },
+        "$procmux$145_Y": {
+          "hide_name": 1,
+          "bits": [ 842, 843 ],
+          "attributes": {
+          }
+        },
+        "$procmux$148_Y": {
+          "hide_name": 1,
+          "bits": [ 844, 845 ],
+          "attributes": {
+          }
+        },
+        "$procmux$156_CMP": {
+          "hide_name": 1,
+          "bits": [ 846 ],
+          "attributes": {
+          }
+        },
+        "$procmux$157_CMP": {
+          "hide_name": 1,
+          "bits": [ 847 ],
+          "attributes": {
+          }
+        },
+        "$procmux$158_CMP": {
+          "hide_name": 1,
+          "bits": [ 848 ],
+          "attributes": {
+          }
+        },
+        "$procmux$159_CMP": {
+          "hide_name": 1,
+          "bits": [ 849 ],
+          "attributes": {
+          }
+        },
+        "$procmux$160_CMP": {
+          "hide_name": 1,
+          "bits": [ 850 ],
+          "attributes": {
+          }
+        },
+        "$procmux$161_CMP": {
+          "hide_name": 1,
+          "bits": [ 851 ],
+          "attributes": {
+          }
+        },
+        "$procmux$162_CMP": {
+          "hide_name": 1,
+          "bits": [ 852 ],
+          "attributes": {
+          }
+        },
+        "$procmux$163_CMP": {
+          "hide_name": 1,
+          "bits": [ 853 ],
+          "attributes": {
+          }
+        },
+        "$procmux$164_CMP": {
+          "hide_name": 1,
+          "bits": [ 854 ],
+          "attributes": {
+          }
+        },
+        "$procmux$165_CMP": {
+          "hide_name": 1,
+          "bits": [ 855 ],
+          "attributes": {
+          }
+        },
+        "$procmux$166_CMP": {
+          "hide_name": 1,
+          "bits": [ 856 ],
+          "attributes": {
+          }
+        },
+        "$procmux$167_CMP": {
+          "hide_name": 1,
+          "bits": [ 857 ],
+          "attributes": {
+          }
+        },
+        "$procmux$168_CMP": {
+          "hide_name": 1,
+          "bits": [ 858 ],
+          "attributes": {
+          }
+        },
+        "$procmux$169_CMP": {
+          "hide_name": 1,
+          "bits": [ 859 ],
+          "attributes": {
+          }
+        },
+        "$procmux$170_CMP": {
+          "hide_name": 1,
+          "bits": [ 860 ],
+          "attributes": {
+          }
+        },
+        "$procmux$98_Y": {
+          "hide_name": 1,
+          "bits": [ 688 ],
+          "attributes": {
+          }
+        },
+        "clk_i": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:1.29-1.34"
+          }
+        },
+        "core_sleep_o": {
+          "hide_name": 0,
+          "bits": [ 403 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:24.20-24.32"
+          }
+        },
+        "data_load_addr_o": {
+          "hide_name": 0,
+          "bits": [ 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:12.21-12.37"
+          }
+        },
+        "data_load_be_o": {
+          "hide_name": 0,
+          "bits": [ 246, 247, 248, 249, 250, 251, 252, 253 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:14.20-14.34"
+          }
+        },
+        "data_load_except_raised_i": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:41.14-41.39"
+          }
+        },
+        "data_load_gnt_i": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:37.14-37.29"
+          }
+        },
+        "data_load_req_o": {
+          "hide_name": 0,
+          "bits": [ 175 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:9.20-9.35"
+          }
+        },
+        "data_load_rready_o": {
+          "hide_name": 0,
+          "bits": [ 176 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:10.20-10.38"
+          }
+        },
+        "data_load_tag_o": {
+          "hide_name": 0,
+          "bits": [ 242, 243, 244, 245 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:13.20-13.35"
+          }
+        },
+        "data_load_we_o": {
+          "hide_name": 0,
+          "bits": [ 177 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:11.20-11.34"
+          }
+        },
+        "data_store_addr_o": {
+          "hide_name": 0,
+          "bits": [ 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:18.21-18.38"
+          }
+        },
+        "data_store_be_o": {
+          "hide_name": 0,
+          "bits": [ 325, 326, 327, 328, 329, 330, 331, 332 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:20.20-20.35"
+          }
+        },
+        "data_store_except_raised_i": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:46.14-46.40"
+          }
+        },
+        "data_store_gnt_i": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:43.14-43.30"
+          }
+        },
+        "data_store_req_o": {
+          "hide_name": 0,
+          "bits": [ 254 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:15.20-15.36"
+          }
+        },
+        "data_store_rready_o": {
+          "hide_name": 0,
+          "bits": [ 255 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:16.20-16.39"
+          }
+        },
+        "data_store_tag_o": {
+          "hide_name": 0,
+          "bits": [ 321, 322, 323, 324 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:19.20-19.36"
+          }
+        },
+        "data_store_wdata_o": {
+          "hide_name": 0,
+          "bits": [ 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:21.21-21.39"
+          }
+        },
+        "data_store_we_o": {
+          "hide_name": 0,
+          "bits": [ 256 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:17.20-17.35"
+          }
+        },
+        "fetch_enable_i": {
+          "hide_name": 0,
+          "bits": [ "1" ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:49.14-49.28"
+          }
+        },
+        "gap_left": {
+          "hide_name": 0,
+          "bits": [ 447 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:90.13-90.21"
+          }
+        },
+        "gate_open": {
+          "hide_name": 0,
+          "bits": [ 516 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:91.8-91.17"
+          }
+        },
+        "icode0": {
+          "hide_name": 0,
+          "bits": [ 677, 678, 679, 680, 681 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:89.58-89.64"
+          }
+        },
+        "icode1": {
+          "hide_name": 0,
+          "bits": [ 442, 443, 444, 445, 446 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:89.66-89.72"
+          }
+        },
+        "ifault": {
+          "hide_name": 0,
+          "bits": [ 575, 441 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:89.17-89.23"
+          }
+        },
+        "ins0": {
+          "hide_name": 0,
+          "bits": [ 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:89.36-89.40"
+          }
+        },
+        "ins1": {
+          "hide_name": 0,
+          "bits": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:89.42-89.46"
+          }
+        },
+        "instr_addr_o": {
+          "hide_name": 0,
+          "bits": [ 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:8.21-8.33"
+          }
+        },
+        "instr_except_code_i": {
+          "hide_name": 0,
+          "bits": [ 442, 443, 444, 445, 446 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:36.14-36.33"
+          }
+        },
+        "instr_except_raised_i": {
+          "hide_name": 0,
+          "bits": [ 441 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:35.14-35.35"
+          }
+        },
+        "instr_gnt_i": {
+          "hide_name": 0,
+          "bits": [ 563 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:32.14-32.25"
+          }
+        },
+        "instr_rdata_i": {
+          "hide_name": 0,
+          "bits": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:34.15-34.28"
+          }
+        },
+        "instr_req_o": {
+          "hide_name": 0,
+          "bits": [ 108 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:5.20-5.31"
+          }
+        },
+        "instr_rready_o": {
+          "hide_name": 0,
+          "bits": [ 109 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:6.20-6.34"
+          }
+        },
+        "instr_rvalid_i": {
+          "hide_name": 0,
+          "bits": [ 408 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:33.14-33.28"
+          }
+        },
+        "instr_we_o": {
+          "hide_name": 0,
+          "bits": [ 110 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:7.20-7.30"
+          }
+        },
+        "instruction_choice": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:2.20-2.38"
+          }
+        },
+        "instruction_fault_data": {
+          "hide_name": 0,
+          "bits": [ 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:3.60-3.82"
+          }
+        },
+        "invalid_code_nonzero": {
+          "hide_name": 0,
+          "bits": [ 72, 73, 74 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:3.20-3.40"
+          }
+        },
+        "ipush": {
+          "hide_name": 0,
+          "bits": [ 564 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:92.8-92.13"
+          }
+        },
+        "irq_ack_o": {
+          "hide_name": 0,
+          "bits": [ 397 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:22.20-22.29"
+          }
+        },
+        "irq_i": {
+          "hide_name": 0,
+          "bits": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:48.15-48.20"
+          }
+        },
+        "irq_id_o": {
+          "hide_name": 0,
+          "bits": [ 398, 399, 400, 401, 402 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:23.20-23.28"
+          }
+        },
+        "iv": {
+          "hide_name": 0,
+          "bits": [ 572, 408 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:89.13-89.15"
+          }
+        },
+        "load_value": {
+          "hide_name": 0,
+          "bits": [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:2.58-2.68"
+          }
+        },
+        "mem_flush_o": {
+          "hide_name": 0,
+          "bits": [ 107 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:4.20-4.31"
+          }
+        },
+        "observed_code": {
+          "hide_name": 0,
+          "bits": [ 442, 443, 444, 445, 446 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:30.21-30.34"
+          }
+        },
+        "observed_fault": {
+          "hide_name": 0,
+          "bits": [ 441 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:29.15-29.29"
+          }
+        },
+        "observed_valid": {
+          "hide_name": 0,
+          "bits": [ 408 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:27.15-27.29"
+          }
+        },
+        "observed_word": {
+          "hide_name": 0,
+          "bits": [ 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:28.22-28.35"
+          }
+        },
+        "probe_index": {
+          "hide_name": 0,
+          "bits": [ 405, 406, 407 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:26.20-26.31"
+          }
+        },
+        "probe_insert": {
+          "hide_name": 0,
+          "bits": [ 404 ],
+          "attributes": {
+            "single_bit_vector": "00000000000000000000000000000001",
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:25.20-25.32"
+          }
+        },
+        "rst_ni": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:1.36-1.42"
+          }
+        },
+        "selected_instruction": {
+          "hide_name": 0,
+          "bits": [ 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:50.14-50.34"
+          }
+        },
+        "selected_instruction_code": {
+          "hide_name": 0,
+          "bits": [ 517, 518, 519, 520, 521 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:51.45-51.70"
+          }
+        },
+        "selected_instruction_fault": {
+          "hide_name": 0,
+          "bits": [ 514 ],
+          "attributes": {
+            "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/extra_rom_word/RomDomain.sv:51.7-51.33"
+          }
+        }
+      }
+    }
+  }
+}

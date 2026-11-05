@@ -1,0 +1,71 @@
+{
+  "rows": [
+    {
+      "vcd_time": 0,
+      "smt_step": 0,
+      "instr_addr_o": 130,
+      "instr_req_o": 1,
+      "instr_rready_o": 1,
+      "mem_flush_o": 0,
+      "observed_code": 0,
+      "observed_fault": 0,
+      "observed_valid": 0,
+      "observed_word": 0,
+      "rst_ni": 0
+    },
+    {
+      "vcd_time": 10,
+      "smt_step": 1,
+      "instr_addr_o": 130,
+      "instr_req_o": 1,
+      "instr_rready_o": 1,
+      "mem_flush_o": 0,
+      "observed_code": 0,
+      "observed_fault": 0,
+      "observed_valid": 0,
+      "observed_word": 0,
+      "rst_ni": 1
+    },
+    {
+      "vcd_time": 20,
+      "smt_step": 2,
+      "instr_addr_o": 1073741825,
+      "instr_req_o": 0,
+      "instr_rready_o": 1,
+      "mem_flush_o": 0,
+      "observed_code": 0,
+      "observed_fault": 0,
+      "observed_valid": 0,
+      "observed_word": 0,
+      "rst_ni": 1
+    },
+    {
+      "vcd_time": 30,
+      "smt_step": 3,
+      "instr_addr_o": 130,
+      "instr_req_o": 1,
+      "instr_rready_o": 1,
+      "mem_flush_o": 0,
+      "observed_code": 0,
+      "observed_fault": 1,
+      "observed_valid": 1,
+      "observed_word": 1,
+      "rst_ni": 1
+    }
+  ],
+  "failing_external_responses": [
+    {
+      "vcd_time": 30,
+      "smt_step": 3,
+      "instr_addr_o": 130,
+      "instr_req_o": 1,
+      "instr_rready_o": 1,
+      "mem_flush_o": 0,
+      "observed_code": 0,
+      "observed_fault": 1,
+      "observed_valid": 1,
+      "observed_word": 1,
+      "rst_ni": 1
+    }
+  ]
+}

@@ -86,6 +86,24 @@ while reset is released and the external response is valid; it introduces no
 timing or occupancy premise. Earlier certificates withdrawn during that audit
 remain archived. No larger timing-derived saving has yet been certified.
 
+The scheduling query now composes an independently proved external ROM domain
+with seven source-bound native instruction-word invariants. These are proved
+conclusions reused by the checker, not guessed internal occupancy assumptions.
+Native-arithmetic and payload-abstracted PDR runs remain unknown at 120 seconds;
+their bounded searches did not complete the requested 64 frames. The optional
+branch abstraction has been prepared and reviewed but not solved. All native
+hardware exports remain identical; smaller proof models are not hardware gains.
+See [the source-bound query record](application_screen/README.md#source-bound-instruction-domain-lemmas).
+
+The [automatic reset-storage preparation](application_screen/RESET_STORAGE.md)
+proves a conditional native theorem for every ALU RS row: if it receives no
+admission while reset is released, its 220 raw state/payload FF bits remain at
+their reset values. Each theorem has a counterexample when that premise is
+removed. The generator derives constant-state patches from the original FF
+drivers without changing capacity parameters. No patch is an accepted core
+rewrite until the whole-core admission theorem discharges its premise; no
+additional mapped-area result is claimed from these local proofs.
+
 The [program-independent phase-sharing control](phase_sharing/README.md) enumerates
 276 bank pairs and retains 16 after a necessary write-exclusion check. No target
 bank merge has an unbounded certificate. A common-state proof reduction makes

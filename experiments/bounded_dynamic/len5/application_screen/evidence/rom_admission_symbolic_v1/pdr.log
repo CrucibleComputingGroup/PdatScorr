@@ -1,0 +1,26 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/screen.aig"; fold; orpos; pdr -T 120 -v; write_cex -a "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/counterexample.aiw"".
+
+Warning: The last output is interpreted as a constraint.
+VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 120. MonoCNF = no. SkipGen = no. SolveAll = no.
+Frame Clauses                                                     Max Queue Flops Cex      Time
+  1 : 0 3                                                                 1     4      0.50 sec
+  2 : 0 7 11                                                              3    17      0.68 sec
+  3 : 0 3 3 11                                                            1    17      0.69 sec
+  4 : 0 3 3 2 9                                                           0    17      0.70 sec
+  5 : 0 4 7 9 14 59                                                      11   190      4.05 sec
+  6 : 0 4 5 2 5 3 57                                                      0   190      4.22 sec
+  7 : 0 14 64 146 120 121 26 330                                         92   565    120.01 sec
+Reached timeout (120 seconds) in frame 7.
+Block =   12  Oblig =  1726  Clause =   841  Call = 17217 (sat=62.1%)  Cex =   0  Start =  54
+SAT solving =    91.18 sec ( 75.97 %)
+  unsat     =     1.84 sec (  1.53 %)
+  sat       =    89.35 sec ( 74.44 %)
+Generalize  =    99.57 sec ( 82.96 %)
+Push clause =     0.37 sec (  0.31 %)
+Ternary sim =    11.78 sec (  9.82 %)
+Containment =     0.24 sec (  0.20 %)
+CNF compute =     2.70 sec (  2.25 %)
+Refinement  =     0.00 sec (  0.00 %)
+TOTAL       =   120.02 sec (100.00 %)
+Property UNDECIDED.  Time =   120.29 sec
+Counter-example is not available.

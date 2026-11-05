@@ -1,0 +1,7 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/core.json"
+hierarchy -check -top datapath
+rename datapath ObservedCore
+bwmuxmap
+bmuxmap
+demuxmap
+write_verilog "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/core.v"

@@ -1,0 +1,148 @@
+{
+  "status": "unknown",
+  "accepted_optimization": false,
+  "scope": "Original whole-core safety query with immutable instruction ROM and overapproximated nonfaulting data service",
+  "instruction_model": "immutable_rom",
+  "rom_image_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+  "rom_helper_sha256": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+  "instruction_fault_payload": "zero",
+  "engine": "pdr",
+  "requested_frames": null,
+  "source_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+  "source_json_sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+  "source_rtlil_sha256": "a2cacea645a0cee816fe427ed6d9df3f3ad987570d1e904cf493e1de3c57353e",
+  "source_export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/source_export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 3.9762839539907873,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/source_export.log",
+    "log_sha256": "391592ca8d7d0e56c9e42e168b71bb7dc38e571cee0ae299377374979e9219c4"
+  },
+  "datapath_abstraction": null,
+  "abstraction_mode": "none",
+  "abstraction_helper_sha256": null,
+  "core_sha256": "870c0344da6be523abd1c37f31e12b8939388623450863f16c0ea919ddb25120",
+  "core_json_sha256": "e18687b4ce5b7dfabbe940f4509860a9e76f1aa7856c4b3ab37d04ba8bb9b0c4",
+  "harness_sha256": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+  "script_sha256": "b5aa969f6e846c5eb4747e7bd2540fefecd00f435eb3254b5ce39b6b9991dc13",
+  "instruction_alphabet": [
+    "00001437",
+    "000024b7",
+    "04000913",
+    "00043503",
+    "00150593",
+    "00b4b023",
+    "00840413",
+    "00848493",
+    "fff90913",
+    "fe0914e3",
+    "200002b7",
+    "1002829b",
+    "00028023",
+    "0000006f"
+  ],
+  "temporal_helper_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+  "undefined_value_model": "Symbolic choices before process optimization and after lowering; no initial-state concretization",
+  "instruction_acceptance_gap": 2,
+  "instruction_min_response_latency": 2,
+  "instruction_pipeline_stages": 2,
+  "instruction_pipeline_enable": "core instr_rready_o",
+  "flush_semantics": "clear pending instruction stages at edge; retain data replies",
+  "data_response_latency": 3,
+  "memory_faults": {
+    "instruction": "address alignment/mapping faults",
+    "data": false
+  },
+  "memory_domain": "Immutable instruction image, separate nonfaulting data service with arbitrary load values",
+  "nonfaulting_response_code": 31,
+  "invalid_response_codes": [
+    0,
+    31
+  ],
+  "forbidden_ALU_insertion_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 13.607111362274736,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/prepare.log",
+    "log_sha256": "4f3196304d0146ced4f5acb4c7f2b84f50bbf3bde9a72faebcbcfd7c3dba69f9"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 21.72588043194264,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/export.log",
+    "log_sha256": "9f41e31115e45d821d4e88955bc91534831227a022932d20f13030ddd37f2f2a"
+  },
+  "aig_header": [
+    "aig",
+    "675361",
+    "34646",
+    "24421",
+    "0",
+    "616294",
+    "3",
+    "1",
+    "0",
+    "0"
+  ],
+  "aig_sha256": "ae79c663adcdff5e7b6a268459409ff42fb10c4903017fad2566404233a83d71",
+  "pdr": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/screen.aig\"; fold; orpos; pdr -T 120 -v; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/counterexample.aiw\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 121.46558408299461,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_symbolic_pdr_v1/pdr.log",
+    "log_sha256": "7bb3b7161fba060e674f2045115602480d47b3f859ce9fdee14a72ffe75c8c9a"
+  },
+  "counterexample_sha256": null
+}

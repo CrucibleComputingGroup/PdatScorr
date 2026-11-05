@@ -1,0 +1,412 @@
+{
+  "status": "theorem_assisted_query_evidence",
+  "accepted_optimization": false,
+  "solver_outcomes": [
+    {
+      "engine": "pdr",
+      "status": "unknown",
+      "seconds": 121.50637151813135,
+      "requested_frames": null
+    },
+    {
+      "engine": "bmc",
+      "status": "resource_limited_no_certificate",
+      "seconds": 121.96153993532062,
+      "requested_frames": 64
+    }
+  ],
+  "native_source_sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+  "native_core_sha256": "2426b17743dfc23d806d5c544f9c6ebbc722909ed01442f0cb41403a11ad4b48",
+  "query_only_model_sha256": "16e274435b6f542d4304df7885deba4f27ce25fa87c2be398bdf707367f90b34",
+  "query_property_counts": {
+    "assert": 3,
+    "assume": 8,
+    "cover": 0
+  },
+  "native_hardware_contains_formal_properties": false,
+  "data_abstraction": "none",
+  "native_word_theorem_count": 7,
+  "new_unproved_internal_premises": 0,
+  "external_rom_theorem_sha256": "1d24b9a23bd75fbcb569abae2733d437e214e3217c54578318a67506fc04b62c",
+  "interpretation": "Seven source-bound unbounded instruction-domain theorems are proof-only consequences of the exact ROM/reset environment. Three original safety properties remain obligations. No hardware rewrite, storage saving, or area credit follows from an unknown or bounded result.",
+  "large_artifacts": [
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/certified_decoder/native_candidate.json",
+      "sha256": "82a76125a33790027bf6b86cb97007d048759484d6e96027abd8fa9ad5d215db",
+      "bytes": 18583741
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/core.json",
+      "sha256": "2426b17743dfc23d806d5c544f9c6ebbc722909ed01442f0cb41403a11ad4b48",
+      "bytes": 41642648
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/core.v",
+      "sha256": "fa7a83d7daed73b10f9be5f0d5dc8f927045f4d867b52bc795fffbbb500778b5",
+      "bytes": 9029533
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/lemma_core.json",
+      "sha256": "16e274435b6f542d4304df7885deba4f27ce25fa87c2be398bdf707367f90b34",
+      "bytes": 41847601
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/certificate_replay/native_candidate.json",
+      "sha256": "82a76125a33790027bf6b86cb97007d048759484d6e96027abd8fa9ad5d215db",
+      "bytes": 18583741
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/screen.aig",
+      "sha256": "743095fcc285f1ac64cf368897f2e9d7b13815cbfef4e6db5c64565089de4176",
+      "bytes": 2837216
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/screen.json",
+      "sha256": "c1139e22d2d324ac51a754ce358218e1e742f77f3aaac6fdd45d18ed300315ad",
+      "bytes": 19083505
+    },
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/source.json",
+      "sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+      "bytes": 24775841
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "prepared/AdmissionScreen.sv",
+      "sha256": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/AdmissionScreen.sv",
+      "source_sha256": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/certified_decoder/certificate.json",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/certificate_recheck.log",
+      "sha256": "3a471f08ce0312f9cd59bee31bf605b3ff335ff4e241e90c81b8fc93e1b1f92c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/certified_decoder/certificate_recheck.log",
+      "source_sha256": "3a471f08ce0312f9cd59bee31bf605b3ff335ff4e241e90c81b8fc93e1b1f92c",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/certifier_source.py",
+      "sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/certified_decoder/certifier_source.py",
+      "source_sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/importer_source.py",
+      "sha256": "71d17c8d430963fb4f7acb81b6b81b53b940ebb377cd85c6174c421f455fff6b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/certified_decoder/importer_source.py",
+      "source_sha256": "71d17c8d430963fb4f7acb81b6b81b53b940ebb377cd85c6174c421f455fff6b",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/revalidated_certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/certified_decoder/revalidated_certificate.json",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/certified_decoder/summary.json",
+      "sha256": "40774a54008d965aebffc1f2c093b8541990031e6f3598e4e7e42b9fe1636791",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/certified_decoder/summary.json",
+      "source_sha256": "40774a54008d965aebffc1f2c093b8541990031e6f3598e4e7e42b9fe1636791",
+      "gzip": false
+    },
+    {
+      "path": "prepared/core_export.log",
+      "sha256": "780967cfae6b671575c22c1dd8091bd610a251e521cc8f9fa2c0855e25babffe",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/core_export.log",
+      "source_sha256": "780967cfae6b671575c22c1dd8091bd610a251e521cc8f9fa2c0855e25babffe",
+      "gzip": false
+    },
+    {
+      "path": "prepared/core_export.ys",
+      "sha256": "26d0b979a46baf5e6735d73e8ebdc33a8bca190d9b33ba6a5fdd79b3565f6f18",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/core_export.ys",
+      "source_sha256": "26d0b979a46baf5e6735d73e8ebdc33a8bca190d9b33ba6a5fdd79b3565f6f18",
+      "gzip": false
+    },
+    {
+      "path": "prepared/export.log",
+      "sha256": "9c76ba2d3de1879330db528343e1da7c9e84ab69a8a53dc301f23378bc9baf62",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/export.log",
+      "source_sha256": "9c76ba2d3de1879330db528343e1da7c9e84ab69a8a53dc301f23378bc9baf62",
+      "gzip": false
+    },
+    {
+      "path": "prepared/export.ys",
+      "sha256": "4f1d99442c4c447101b340b019ed43f6b2395fa6a9bb54697f8986dc2f807a90",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/export.ys",
+      "source_sha256": "4f1d99442c4c447101b340b019ed43f6b2395fa6a9bb54697f8986dc2f807a90",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/certificate.json",
+      "sha256": "1d24b9a23bd75fbcb569abae2733d437e214e3217c54578318a67506fc04b62c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/external_rom_theorem/certificate.json",
+      "source_sha256": "1d24b9a23bd75fbcb569abae2733d437e214e3217c54578318a67506fc04b62c",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/importer_source.py",
+      "sha256": "8de4a3fd39bbffe97a2b0b0eaa87b4b740001dd5240ad0cc56dbc2bbcf3cd38a",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/external_rom_theorem/importer_source.py",
+      "source_sha256": "8de4a3fd39bbffe97a2b0b0eaa87b4b740001dd5240ad0cc56dbc2bbcf3cd38a",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/model.json",
+      "sha256": "b951f8fed491065071cefb591a5a8de21144db0511f5bb055caede42f5331da2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/external_rom_theorem/model.json",
+      "source_sha256": "b951f8fed491065071cefb591a5a8de21144db0511f5bb055caede42f5331da2",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/model.smt2",
+      "sha256": "c16a2e30e2ca39cd59f3795ad59531b802a716f4882240eec3e0fed89ed25738",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/external_rom_theorem/model.smt2",
+      "source_sha256": "c16a2e30e2ca39cd59f3795ad59531b802a716f4882240eec3e0fed89ed25738",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/replay.log",
+      "sha256": "933ef86765cef4e220cbaf1b3b829c56680c7a620dd3706e927635cd102074c8",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/external_rom_theorem/replay.log",
+      "source_sha256": "933ef86765cef4e220cbaf1b3b829c56680c7a620dd3706e927635cd102074c8",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/replay.ys",
+      "sha256": "d2ad9ee01c838642d546c3c9f93a445d18da4113d8f301c9760233d3bb900a00",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/external_rom_theorem/replay.ys",
+      "source_sha256": "d2ad9ee01c838642d546c3c9f93a445d18da4113d8f301c9760233d3bb900a00",
+      "gzip": false
+    },
+    {
+      "path": "prepared/external_rom_theorem/summary.json",
+      "sha256": "168c33818bcbc9795ced9ed7d553218547c6f3ceeebbcb54fe734182bc738d3f",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/external_rom_theorem/summary.json",
+      "source_sha256": "168c33818bcbc9795ced9ed7d553218547c6f3ceeebbcb54fe734182bc738d3f",
+      "gzip": false
+    },
+    {
+      "path": "prepared/formal_screen.py",
+      "sha256": "ab8042a55c450fa1bfcfdc7bf4a81e683737e4a95772bd142252c93747d1ebd2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/formal_screen.py",
+      "source_sha256": "ab8042a55c450fa1bfcfdc7bf4a81e683737e4a95772bd142252c93747d1ebd2",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/certificate_replay/certificate.json",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/certificate_recheck.log",
+      "sha256": "c4db9fa4a0b20099557fbcffb4bbcc37adf90151c6024edd2d2986b67385ae6f",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/certificate_replay/certificate_recheck.log",
+      "source_sha256": "c4db9fa4a0b20099557fbcffb4bbcc37adf90151c6024edd2d2986b67385ae6f",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/certifier_source.py",
+      "sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/certificate_replay/certifier_source.py",
+      "source_sha256": "f1719327e1dbc820136d6e5bfd11b40bb4e656be70f22f705781dc4c6140be99",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/importer_source.py",
+      "sha256": "71d17c8d430963fb4f7acb81b6b81b53b940ebb377cd85c6174c421f455fff6b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/certificate_replay/importer_source.py",
+      "source_sha256": "71d17c8d430963fb4f7acb81b6b81b53b940ebb377cd85c6174c421f455fff6b",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/revalidated_certificate.json",
+      "sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/certificate_replay/revalidated_certificate.json",
+      "source_sha256": "6446b3ea369641d568526cd6aa49940d0a7b36cc48b26844512b9bf4f09348c4",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/certificate_replay/summary.json",
+      "sha256": "93f1d4a0fa1c2a3d36bc3e2dea354f3c80f1971b146c1a6b3a0a63796e5a2008",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/certificate_replay/summary.json",
+      "source_sha256": "93f1d4a0fa1c2a3d36bc3e2dea354f3c80f1971b146c1a6b3a0a63796e5a2008",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/lowered.json",
+      "sha256": "cdb2583f2257830903befde2cc8418113958d7ebbe7bdaba944aa17c3961c202",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/domain_export_replay/lowered.json",
+      "source_sha256": "cdb2583f2257830903befde2cc8418113958d7ebbe7bdaba944aa17c3961c202",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/model.smt2",
+      "sha256": "18d37a2aba528ae2a8e60558a2394d68345629b5f7ccb1b9034b0183830673db",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/domain_export_replay/model.smt2",
+      "source_sha256": "18d37a2aba528ae2a8e60558a2394d68345629b5f7ccb1b9034b0183830673db",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/regenerate.log",
+      "sha256": "9b739a3622a22ebae77392377c8cb8a19b5ba7281426412643f1e83f3134a92c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/domain_export_replay/regenerate.log",
+      "source_sha256": "9b739a3622a22ebae77392377c8cb8a19b5ba7281426412643f1e83f3134a92c",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/regenerate.ys",
+      "sha256": "39b3c1392562c0d750b0d61de96d87658e09659dc308ab77c0ad5caaada6df7b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/domain_export_replay/regenerate.ys",
+      "source_sha256": "39b3c1392562c0d750b0d61de96d87658e09659dc308ab77c0ad5caaada6df7b",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/domain_export_replay/symbolized_before_prep.json",
+      "sha256": "69ef05018d76a3f11066a466d97bc64bc36472eef2f971c41100486d5b21a5a2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/domain_export_replay/symbolized_before_prep.json",
+      "source_sha256": "69ef05018d76a3f11066a466d97bc64bc36472eef2f971c41100486d5b21a5a2",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/importer_source.py",
+      "sha256": "676af86c4b79a53afaa3416388672e58f0f5c89545bf283a2e1f1c1d817d9da6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/importer_source.py",
+      "source_sha256": "676af86c4b79a53afaa3416388672e58f0f5c89545bf283a2e1f1c1d817d9da6",
+      "gzip": false
+    },
+    {
+      "path": "prepared/native_word_theorems/summary.json",
+      "sha256": "8016edbc7dc63fa3bd791b8bb81459c37f7b77b5692e3b0d6f393be590e29510",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/native_word_theorems/summary.json",
+      "source_sha256": "8016edbc7dc63fa3bd791b8bb81459c37f7b77b5692e3b0d6f393be590e29510",
+      "gzip": false
+    },
+    {
+      "path": "prepared/prepare.log.gz",
+      "sha256": "c0200fd5adf1d0c782cf62565e52a5fd82e09bb72a73e50e8361eff90d65ae50",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/prepare.log",
+      "source_sha256": "baf541a1a925dd607607a992e5c6f28d3004530e01285b6e7eb677347ed61b66",
+      "gzip": true
+    },
+    {
+      "path": "prepared/prepare.ys",
+      "sha256": "5fe33c7208b60ea6a9b67c16ec0ebe291dab14116528c7f6da61f472e97a3103",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/prepare.ys",
+      "source_sha256": "5fe33c7208b60ea6a9b67c16ec0ebe291dab14116528c7f6da61f472e97a3103",
+      "gzip": false
+    },
+    {
+      "path": "prepared/program.hex",
+      "sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/program.hex",
+      "source_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+      "gzip": false
+    },
+    {
+      "path": "prepared/program_rom.py",
+      "sha256": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/program_rom.py",
+      "source_sha256": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+      "gzip": false
+    },
+    {
+      "path": "prepared/rom.json",
+      "sha256": "dcf3a29b00ff33e878a41e1ef77a1eaafecb0c1420e2b5ff6c5af48a2855efb3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/rom.json",
+      "source_sha256": "dcf3a29b00ff33e878a41e1ef77a1eaafecb0c1420e2b5ff6c5af48a2855efb3",
+      "gzip": false
+    },
+    {
+      "path": "prepared/source_export.log",
+      "sha256": "1f7eba18b8323d4add4425130ef52bc877c3e4756c8e21c6c97e5a36f2b152de",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/source_export.log",
+      "source_sha256": "1f7eba18b8323d4add4425130ef52bc877c3e4756c8e21c6c97e5a36f2b152de",
+      "gzip": false
+    },
+    {
+      "path": "prepared/source_export.ys",
+      "sha256": "a8c7218837180405c1b74be88c896cb9431326fa488cf89e78220d72917cbd12",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/source_export.ys",
+      "source_sha256": "a8c7218837180405c1b74be88c896cb9431326fa488cf89e78220d72917cbd12",
+      "gzip": false
+    },
+    {
+      "path": "prepared/summary.json",
+      "sha256": "b351578dd13e0a49b74fc6d8b86ad8986114ea51fcfe7927bc01ffa8565b3763",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/summary.json",
+      "source_sha256": "b351578dd13e0a49b74fc6d8b86ad8986114ea51fcfe7927bc01ffa8565b3763",
+      "gzip": false
+    },
+    {
+      "path": "prepared/temporal.py",
+      "sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/temporal.py",
+      "source_sha256": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b",
+      "gzip": false
+    },
+    {
+      "path": "solvers/harvard_rom_word_lemmas_pdr_v1/pdr.log",
+      "sha256": "9f5c0132013cc2a20e58d7e151230a7188a1fdf3e204bce4c41d7b7b01cdb712",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_pdr_v1/pdr.log",
+      "source_sha256": "9f5c0132013cc2a20e58d7e151230a7188a1fdf3e204bce4c41d7b7b01cdb712",
+      "gzip": false
+    },
+    {
+      "path": "solvers/harvard_rom_word_lemmas_pdr_v1/solve_prepared.py",
+      "sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_pdr_v1/solve_prepared.py",
+      "source_sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "gzip": false
+    },
+    {
+      "path": "solvers/harvard_rom_word_lemmas_pdr_v1/summary.json",
+      "sha256": "a1f866a4344f18615c408374faeee760917c1411f8cb7ce61cfe60da40241f5e",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_pdr_v1/summary.json",
+      "source_sha256": "a1f866a4344f18615c408374faeee760917c1411f8cb7ce61cfe60da40241f5e",
+      "gzip": false
+    },
+    {
+      "path": "solvers/harvard_rom_word_lemmas_bmc64_v1/bmc.log",
+      "sha256": "d811e5baf956af5c8dd99720c145eb0c6ee5c5298b1159b03adbce27e6222188",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_bmc64_v1/bmc.log",
+      "source_sha256": "d811e5baf956af5c8dd99720c145eb0c6ee5c5298b1159b03adbce27e6222188",
+      "gzip": false
+    },
+    {
+      "path": "solvers/harvard_rom_word_lemmas_bmc64_v1/solve_prepared.py",
+      "sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_bmc64_v1/solve_prepared.py",
+      "source_sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "gzip": false
+    },
+    {
+      "path": "solvers/harvard_rom_word_lemmas_bmc64_v1/summary.json",
+      "sha256": "6c69068aeee3d497c2b560d2c8eedcec0c5ceccf3221b9c70f6bc79682239c09",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_bmc64_v1/summary.json",
+      "source_sha256": "6c69068aeee3d497c2b560d2c8eedcec0c5ceccf3221b9c70f6bc79682239c09",
+      "gzip": false
+    },
+    {
+      "path": "collector_source.py",
+      "sha256": "063a6d710dde819ee84e2c544630d3c4239159bcf5249cf6919275b47c3e70a8",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/collect_lemma_screen.py",
+      "source_sha256": "063a6d710dde819ee84e2c544630d3c4239159bcf5249cf6919275b47c3e70a8",
+      "gzip": false
+    }
+  ]
+}

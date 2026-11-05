@@ -1,0 +1,440 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_prepare_v1/external_rom_theorem/replay.ys' --
+
+1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv
+Parsing formal SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv' to AST representation.
+Generating RTLIL representation for module `\RomDomain'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \RomDomain
+
+2.2. Analyzing design hierarchy..
+Top module:  \RomDomain
+Removed 0 unused modules.
+Module RomDomain directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:132$proc$29'.
+Removing empty process `RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:132$proc$29'.
+Cleaned up 1 empty switch.
+
+4. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 11 redundant assignments.
+Promoted 3 assignments to connections.
+
+5. Executing PROC_INIT pass (extract init attributes).
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing PROC pass (convert processes to netlists).
+
+7.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27 in module RomDomain.
+Marked 2 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15 in module RomDomain.
+Marked 3 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:52$proc$5 in module RomDomain.
+Removed a total of 0 dead cases.
+
+7.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+7.4. Executing PROC_INIT pass (extract init attributes).
+
+7.5. Executing PROC_ARST pass (detect async resets in processes).
+
+7.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:138$proc$30'.
+     1/3: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$assert$95_EN
+     2/3: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$assert$63_EN
+     3/3: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:139$assert$31_EN
+Creating decoders for process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+     1/11: $0\ld2[63:0]
+     2/11: $0\ld1[63:0]
+     3/11: $0\ld0[63:0]
+     4/11: $0\st2[3:0]
+     5/11: $0\st1[3:0]
+     6/11: $0\st0[3:0]
+     7/11: $0\lt2[3:0]
+     8/11: $0\lt1[3:0]
+     9/11: $0\lt0[3:0]
+    10/11: $0\sv[2:0]
+    11/11: $0\lv[2:0]
+Creating decoders for process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+     1/7: $0\gap_left[0:0]
+     2/7: $0\icode1[4:0]
+     3/7: $0\icode0[4:0]
+     4/7: $0\ins1[31:0]
+     5/7: $0\ins0[31:0]
+     6/7: $0\ifault[1:0]
+     7/7: $0\iv[1:0]
+Creating decoders for process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:52$proc$5'.
+     1/7: $3\selected_instruction[31:0]
+     2/7: $2\selected_instruction[31:0]
+     3/7: $2\selected_instruction_code[4:0]
+     4/7: $2\selected_instruction_fault[0:0]
+     5/7: $1\selected_instruction_code[4:0]
+     6/7: $1\selected_instruction_fault[0:0]
+     7/7: $1\selected_instruction[31:0]
+Creating decoders for process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:31$proc$2'.
+     1/1: $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:31$assume$3_EN
+
+7.7. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\RomDomain.\selected_instruction' from process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:52$proc$5'.
+No latch inferred for signal `\RomDomain.\selected_instruction_fault' from process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:52$proc$5'.
+No latch inferred for signal `\RomDomain.\selected_instruction_code' from process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:52$proc$5'.
+
+7.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\RomDomain.\lv' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$272' with positive edge clock.
+Creating register for signal `\RomDomain.\sv' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$273' with positive edge clock.
+Creating register for signal `\RomDomain.\lt0' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$274' with positive edge clock.
+Creating register for signal `\RomDomain.\lt1' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$275' with positive edge clock.
+Creating register for signal `\RomDomain.\lt2' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$276' with positive edge clock.
+Creating register for signal `\RomDomain.\st0' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$277' with positive edge clock.
+Creating register for signal `\RomDomain.\st1' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$278' with positive edge clock.
+Creating register for signal `\RomDomain.\st2' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$279' with positive edge clock.
+Creating register for signal `\RomDomain.\ld0' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$280' with positive edge clock.
+Creating register for signal `\RomDomain.\ld1' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$281' with positive edge clock.
+Creating register for signal `\RomDomain.\ld2' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+  created $dff cell `$procdff$282' with positive edge clock.
+Creating register for signal `\RomDomain.\iv' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+  created $dff cell `$procdff$283' with positive edge clock.
+Creating register for signal `\RomDomain.\ifault' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+  created $dff cell `$procdff$284' with positive edge clock.
+Creating register for signal `\RomDomain.\ins0' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+  created $dff cell `$procdff$285' with positive edge clock.
+Creating register for signal `\RomDomain.\ins1' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+  created $dff cell `$procdff$286' with positive edge clock.
+Creating register for signal `\RomDomain.\icode0' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+  created $dff cell `$procdff$287' with positive edge clock.
+Creating register for signal `\RomDomain.\icode1' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+  created $dff cell `$procdff$288' with positive edge clock.
+Creating register for signal `\RomDomain.\gap_left' using process `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+  created $dff cell `$procdff$289' with positive edge clock.
+
+7.9. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+7.10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:138$proc$30'.
+Removing empty process `RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:138$proc$30'.
+Found and cleaned up 1 empty switch in `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+Removing empty process `RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:120$proc$27'.
+Found and cleaned up 5 empty switches in `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+Removing empty process `RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:95$proc$15'.
+Found and cleaned up 3 empty switches in `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:52$proc$5'.
+Removing empty process `RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:52$proc$5'.
+Found and cleaned up 1 empty switch in `\RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:31$proc$2'.
+Removing empty process `RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:31$proc$2'.
+Cleaned up 11 empty switches.
+
+8. Executing SETUNDEF pass (replace undef values with defined constants).
+
+9. Executing PREP pass.
+
+9.1. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1.1. Analyzing design hierarchy..
+Top module:  \RomDomain
+
+9.1.2. Analyzing design hierarchy..
+Top module:  \RomDomain
+Removed 0 unused modules.
+Module RomDomain directly or indirectly contains formal properties -> setting "keep" attribute.
+
+9.2. Executing PROC pass (convert processes to netlists).
+
+9.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+9.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+9.2.4. Executing PROC_INIT pass (extract init attributes).
+
+9.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+9.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+9.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+9.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+9.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+9.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+9.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RomDomain.
+<suppressed ~25 debug messages>
+
+9.3. Executing CHECK pass (checking for obvious problems).
+Checking module RomDomain...
+Found and reported 0 problems.
+
+9.4. Executing FLATTEN pass (flatten design).
+
+9.5. Executing FUTURE pass.
+
+9.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RomDomain.
+
+9.7. Executing CHECK pass (checking for obvious problems).
+Checking module RomDomain...
+Found and reported 0 problems.
+
+9.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RomDomain..
+Removed 28 unused cells and 122 unused wires.
+<suppressed ~48 debug messages>
+
+9.9. Executing OPT pass (performing simple optimizations).
+
+9.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RomDomain.
+
+9.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\RomDomain'.
+Computing hashes of 175 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 156 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 155 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 154 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 153 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 152 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 151 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 150 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 149 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 148 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 147 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 146 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 145 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 144 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 143 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 142 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 141 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+<suppressed ~102 debug messages>
+Removed a total of 34 cells.
+
+9.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \RomDomain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$166: \gap_left -> 1'0
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$259.
+    dead port 1/2 on $mux $procmux$253.
+    dead port 1/2 on $mux $procmux$247.
+    dead port 1/2 on $mux $procmux$241.
+    dead port 2/2 on $mux $procmux$238.
+Removed 5 multiplexer ports.
+<suppressed ~51 debug messages>
+
+9.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \RomDomain.
+Performed a total of 0 changes.
+
+9.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\RomDomain'.
+Computing hashes of 136 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Computing hashes of 134 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+9.9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RomDomain..
+Removed 5 unused cells and 46 unused wires.
+<suppressed ~6 debug messages>
+
+9.9.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RomDomain.
+
+9.9.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.9.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \RomDomain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+9.9.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \RomDomain.
+Performed a total of 0 changes.
+
+9.9.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\RomDomain'.
+Computing hashes of 129 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Removed a total of 0 cells.
+
+9.9.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RomDomain..
+
+9.9.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RomDomain.
+
+9.9.14. Finished fast OPT passes. (There is nothing left to do.)
+
+9.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 58 bits (of 64) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:56$lt$7 ($lt).
+Removed top 31 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:99$sub$18 ($sub).
+Removed top 31 bits (of 32) from port Y of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:99$sub$18 ($sub).
+Removed top 27 bits (of 32) from mux cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:107$ternary$26 ($mux).
+Removed top 25 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$66 ($eq).
+Removed top 19 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$68 ($eq).
+Removed top 18 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$70 ($eq).
+Removed top 14 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$72 ($eq).
+Removed top 13 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$74 ($eq).
+Removed top 11 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$76 ($eq).
+Removed top 8 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$78 ($eq).
+Removed top 8 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$80 ($eq).
+Removed top 8 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$82 ($eq).
+Removed top 5 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$84 ($eq).
+Removed top 3 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$86 ($eq).
+Removed top 2 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:140$eq$88 ($eq).
+Removed top 25 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$98 ($eq).
+Removed top 19 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$100 ($eq).
+Removed top 18 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$102 ($eq).
+Removed top 14 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$104 ($eq).
+Removed top 13 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$106 ($eq).
+Removed top 11 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$108 ($eq).
+Removed top 8 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$110 ($eq).
+Removed top 8 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$112 ($eq).
+Removed top 8 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$114 ($eq).
+Removed top 5 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$116 ($eq).
+Removed top 3 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$118 ($eq).
+Removed top 2 bits (of 32) from port B of cell RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:141$eq$120 ($eq).
+Removed top 58 bits (of 64) from port B of cell RomDomain.$procmux$224_CMP0 ($eq).
+Removed top 58 bits (of 64) from port B of cell RomDomain.$procmux$225_CMP0 ($eq).
+Removed top 58 bits (of 64) from port B of cell RomDomain.$procmux$226_CMP0 ($eq).
+Removed top 58 bits (of 64) from port B of cell RomDomain.$procmux$227_CMP0 ($eq).
+Removed top 58 bits (of 64) from port B of cell RomDomain.$procmux$228_CMP0 ($eq).
+Removed top 58 bits (of 64) from port B of cell RomDomain.$procmux$229_CMP0 ($eq).
+Removed top 59 bits (of 64) from port B of cell RomDomain.$procmux$230_CMP0 ($eq).
+Removed top 59 bits (of 64) from port B of cell RomDomain.$procmux$231_CMP0 ($eq).
+Removed top 59 bits (of 64) from port B of cell RomDomain.$procmux$232_CMP0 ($eq).
+Removed top 59 bits (of 64) from port B of cell RomDomain.$procmux$233_CMP0 ($eq).
+Removed top 60 bits (of 64) from port B of cell RomDomain.$procmux$234_CMP0 ($eq).
+Removed top 60 bits (of 64) from port B of cell RomDomain.$procmux$235_CMP0 ($eq).
+Removed top 61 bits (of 64) from port B of cell RomDomain.$procmux$236_CMP0 ($eq).
+Removed top 27 bits (of 32) from wire RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:107$ternary$26_Y.
+Removed top 31 bits (of 32) from wire RomDomain.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv:99$sub$18_Y.
+
+9.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RomDomain..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+9.12. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+9.13. Executing OPT pass (performing simple optimizations).
+
+9.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RomDomain.
+
+9.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\RomDomain'.
+Computing hashes of 129 cells of `\RomDomain'.
+Finding duplicate cells in `\RomDomain'.
+Removed a total of 0 cells.
+
+9.13.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RomDomain..
+
+9.13.4. Finished fast OPT passes.
+
+9.14. Executing SORT pass.
+
+9.15. Printing statistics.
+
+=== RomDomain ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      168 wires
+     1070 wire bits
+       56 public wires
+      641 public wire bits
+       33 ports
+      445 port bits
+      129 cells
+        4   $check
+        7   $dff
+       41   $eq
+        1   $initstate
+        4   $logic_and
+        6   $logic_not
+       30   $logic_or
+        1   $lt
+       31   $mux
+        1   $not
+        1   $pmux
+        1   $reduce_bool
+        1   $sub
+
+9.16. Executing CHECK pass (checking for obvious problems).
+Checking module RomDomain...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing CHECK pass (checking for obvious problems).
+Checking module RomDomain...
+Found and reported 0 problems.
+
+12. Executing ASYNC2SYNC pass.
+
+13. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+14. Executing SETUNDEF pass (replace undef values with defined constants).
+
+15. Executing JSON backend.
+
+16. Executing SMT2 backend.
+
+16.1. Executing BMUXMAP pass.
+
+16.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module RomDomain.

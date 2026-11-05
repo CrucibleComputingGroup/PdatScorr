@@ -1,0 +1,146 @@
+{
+  "status": "unknown",
+  "accepted_optimization": false,
+  "scope": "Original whole-core safety query with immutable instruction ROM and overapproximated nonfaulting data service",
+  "instruction_model": "immutable_rom",
+  "rom_image_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+  "rom_helper_sha256": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+  "instruction_fault_payload": "zero",
+  "engine": "pdr",
+  "requested_frames": null,
+  "source_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+  "source_json_sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+  "source_rtlil_sha256": "a2cacea645a0cee816fe427ed6d9df3f3ad987570d1e904cf493e1de3c57353e",
+  "source_export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/source_export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 4.280818269122392,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/source_export.log",
+    "log_sha256": "eb13d84a0a83b856052fbf5d7db91853d9a1f05b0108d3f071af9db8fc543ea6"
+  },
+  "datapath_abstraction": null,
+  "abstraction_mode": "none",
+  "abstraction_helper_sha256": null,
+  "core_sha256": "870c0344da6be523abd1c37f31e12b8939388623450863f16c0ea919ddb25120",
+  "core_json_sha256": "e18687b4ce5b7dfabbe940f4509860a9e76f1aa7856c4b3ab37d04ba8bb9b0c4",
+  "harness_sha256": "4253300319931de8db1d9c921b714b63a72b21579ca9461bfb9670cb4b330ec6",
+  "script_sha256": "60e64f5e63b0ba2b3180519878f77b16bd6f02d5066343dc816c6e5f9e1db79f",
+  "instruction_alphabet": [
+    "00001437",
+    "000024b7",
+    "04000913",
+    "00043503",
+    "00150593",
+    "00b4b023",
+    "00840413",
+    "00848493",
+    "fff90913",
+    "fe0914e3",
+    "200002b7",
+    "1002829b",
+    "00028023",
+    "0000006f"
+  ],
+  "instruction_acceptance_gap": 2,
+  "instruction_min_response_latency": 2,
+  "instruction_pipeline_stages": 2,
+  "instruction_pipeline_enable": "core instr_rready_o",
+  "flush_semantics": "clear pending instruction stages at edge; retain data replies",
+  "data_response_latency": 3,
+  "memory_faults": {
+    "instruction": "address alignment/mapping faults",
+    "data": false
+  },
+  "memory_domain": "Immutable instruction image, separate nonfaulting data service with arbitrary load values",
+  "nonfaulting_response_code": 31,
+  "invalid_response_codes": [
+    0,
+    31
+  ],
+  "forbidden_ALU_insertion_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 17.12351330090314,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/prepare.log",
+    "log_sha256": "1e22e67d5fc37105fe824f26320ad2cbe7f5a93ae1dd176c76cf247637b76787"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 24.19111969321966,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/export.log",
+    "log_sha256": "f3017decd5147e111f5395c69ca87039711af0d2b225b852d9adb008b9ae0772"
+  },
+  "aig_header": [
+    "aig",
+    "671909",
+    "31400",
+    "24421",
+    "0",
+    "616088",
+    "3",
+    "1",
+    "0",
+    "0"
+  ],
+  "aig_sha256": "9041bd014caa1141f52c4e0a8e7c253137ab3dfa495d6c6fcbd214495d4dcd46",
+  "pdr": {
+    "argv": [
+      "/usr/local/bin/abc",
+      "-c",
+      "read_aiger \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/screen.aig\"; fold; orpos; pdr -T 120 -v; write_cex -a \"/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/counterexample.aiw\""
+    ],
+    "returncode": 0,
+    "executable": "/usr/local/bin/abc",
+    "executable_sha256": "5cdbf62439ea8cf52eb912399d5539099aa249afbc630bc89f725c68f52257e8",
+    "timeout": false,
+    "seconds": 121.76539485203102,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_native_pdr_v1/pdr.log",
+    "log_sha256": "2a68f6ade4a0feb16811a8cb60ef63620fc2081b8fb28009b76f1d9615a90560"
+  },
+  "counterexample_sha256": null
+}

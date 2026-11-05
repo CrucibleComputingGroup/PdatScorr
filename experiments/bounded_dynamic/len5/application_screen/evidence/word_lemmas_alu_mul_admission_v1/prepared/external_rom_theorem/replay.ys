@@ -1,0 +1,17 @@
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_external_domain_v2/positive/RomDomain.sv"
+hierarchy -check -top RomDomain
+proc_clean
+proc_prune
+proc_init
+setundef -anyseq
+proc -norom -noopt
+setundef -anyseq
+prep -top RomDomain -flatten
+setundef -anyseq
+check -assert
+chformal -lower
+async2sync
+dffunmap
+setundef -anyseq
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1/external_rom_theorem/model.json"
+write_smt2 -wires "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_word_lemmas_alu_mul_prepare_v1/external_rom_theorem/model.smt2"

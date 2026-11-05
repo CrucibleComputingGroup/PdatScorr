@@ -1,0 +1,26 @@
+{
+  "status": "inconclusive_only",
+  "runs": [
+    {
+      "directory": "streaming_rom_native_v1",
+      "raw_status": "bounded_only_no_certificate",
+      "accepted_optimization": false,
+      "engine": "bmc",
+      "requested_frames": 64,
+      "reported_frames": 25,
+      "interpretation": "Resource limit before requested64frames; no unbounded certificate",
+      "normalization_limit": "Historical prep precedes undef symbolization; cannot support positive acceptance pending revalidation"
+    },
+    {
+      "directory": "harvard_rom_native_pdr_v1",
+      "raw_status": "unknown",
+      "accepted_optimization": false,
+      "engine": "pdr",
+      "requested_frames": null,
+      "reported_frames": null,
+      "interpretation": "PDR unknown after120s; no invariant or rewrite accepted",
+      "normalization_limit": "Historical prep precedes undef symbolization; cannot support positive acceptance pending revalidation"
+    }
+  ],
+  "larger_storage_savings_certified": false
+}

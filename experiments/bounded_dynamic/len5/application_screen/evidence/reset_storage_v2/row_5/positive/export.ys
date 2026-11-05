@@ -1,0 +1,24 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_storage_local_v2/row_5/projection.json"
+setundef -anyseq
+bwmuxmap
+bmuxmap
+demuxmap
+setundef -anyseq
+read_verilog -formal -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_storage_local_v2/row_5/positive/harness.sv"
+hierarchy -check -top ResetStorageProof
+proc_clean
+proc_prune
+proc_init
+setundef -anyseq
+proc -norom -noopt
+setundef -anyseq
+prep -top ResetStorageProof -flatten
+setundef -anyseq
+check -assert
+chformal -lower
+async2sync
+dffunmap
+setundef -anyseq
+check -assert
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_storage_local_v2/row_5/positive/lowered.json"
+write_smt2 -wires "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_storage_local_v2/row_5/positive/model.smt2"
