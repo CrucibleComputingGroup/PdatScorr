@@ -1,0 +1,220 @@
+{
+  "status": "reset_cube_proved",
+  "query_only": true,
+  "accepted_optimization": false,
+  "input_sha256": "c991ca621bf3a150ef759d939b0fd6bb5133d70d31984e1a685fcfbbe2c2da4a",
+  "runner_sha256": "d3723f7a96bebd21ba9cd06021a0ac928cebc048bbadec02c7910e31180dca28",
+  "yosys_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+  "eligibility": {
+    "top": "Tiny",
+    "clock": "clk_i",
+    "reset": "rst_ni",
+    "clock_polarity": 1,
+    "reset_polarity": 0,
+    "eligible_words": 1,
+    "eligible_bits": 1,
+    "rejected_state_cells": {},
+    "native_memory_arrays": 0
+  },
+  "rounds": [
+    {
+      "candidate_words": 1,
+      "candidate_bits": 1,
+      "proof": {
+        "symbolize_execution": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_shared_flush_correlation_0/proof/round_0/symbolize/run.ys"
+          ],
+          "returncode": 0,
+          "timeout": false,
+          "seconds": 0.011100167874246836,
+          "script_sha256": "24ec0f2906c729a242ae42ad1a384d9949316111338ba60b7898cce1b6396ee0",
+          "log_sha256": "60ca4e678ed13796bfcc90f5bf2d8d4cd2913b1b83477caf28d03b4aca1948c5"
+        },
+        "projection_sha256": "d74be0c2693625fbc2ea0fdf5aa49480042abd654749f13902e376556568c1ac",
+        "new_environmental_premises": [],
+        "source_cell_adapter_semantics": "Reset overrides enable; otherwise source D updates when native enable is active and source Q holds when inactive. Base observes reset-visible native Q. All clocks/resets/polarities and constant reset words are bound to original cells.",
+        "status": "proved_combinationally",
+        "execution": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_shared_flush_correlation_0/proof/round_0/execution/run.ys"
+          ],
+          "returncode": 0,
+          "timeout": false,
+          "seconds": 0.01104170922189951,
+          "script_sha256": "ba9c342f5ef4945ef4831427e10f960beef5791384d00ec725be5c4c3fdbb204",
+          "log_sha256": "0ac029a5d167fd708f5e169277dd88f206fb79e5512d7292c788b2d23dfcb7b2"
+        },
+        "binary_choice_exposure": {
+          "before_prep": [
+            {
+              "original_cell": "$auto$setundef.cc:552:execute$10",
+              "type": "$anyseq",
+              "bits": [
+                7
+              ],
+              "input_port": "free_choice_0"
+            }
+          ],
+          "after_prep": [],
+          "semantics": "Every symbolic output becomes a fresh unrestricted binary top input. No symbolic value is fixed or omitted."
+        },
+        "lowered_sha256": "9762106b519e45a414bf23e61ab061f0f7bed75f3b27357e7d85381f41ebd4f1",
+        "lowered_cells": 0,
+        "lowered_cell_types": {},
+        "lowered_input_bits": 4,
+        "initial_cofactor_output_constants": {
+          "$procdff$9": "0"
+        },
+        "sat_execution": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_shared_flush_correlation_0/proof/round_0/sat_execution/run.ys"
+          ],
+          "returncode": 0,
+          "timeout": false,
+          "seconds": 0.012991250026971102,
+          "script_sha256": "18e9d1039ec399ea915a1f1ad165a8dd441ae05edf1ca10892a09e2222290751",
+          "log_sha256": "5da9652bc0455e09c3f55fda210d5420778e159b357449544309777764a1e27b"
+        },
+        "sat_log_sha256": "76fc3a9d23a2e1e62d29767d4e6f899390dd80a77d2de566052cc9db92ede420"
+      }
+    }
+  ],
+  "selected_words": [
+    {
+      "name": "$procdff$9",
+      "cell": {
+        "hide_name": 1,
+        "type": "$adff",
+        "parameters": {
+          "ARST_POLARITY": "00000000000000000000000000000000",
+          "ARST_VALUE": "0",
+          "CLK_POLARITY": "1",
+          "WIDTH": "00000000000000000000000000000001"
+        },
+        "attributes": {
+          "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_shared_flush_correlation_0/rtl/source.sv:3.7-3.96"
+        },
+        "port_directions": {
+          "ARST": "input",
+          "CLK": "input",
+          "D": "input",
+          "Q": "output"
+        },
+        "connections": {
+          "ARST": [
+            3
+          ],
+          "CLK": [
+            2
+          ],
+          "D": [
+            8
+          ],
+          "Q": [
+            5
+          ]
+        }
+      },
+      "width": 1,
+      "q": [
+        5
+      ],
+      "reset_value": [
+        "0"
+      ],
+      "reset_pin": "ARST",
+      "reset_polarity": 0,
+      "clock_polarity": 1,
+      "enable_polarity": null
+    }
+  ],
+  "selected_bits": 1,
+  "scope": "Reset-conditioned whole-word constant facts; no timing, occupancy, readiness, program-order or admission premise.",
+  "base": {
+    "symbolize_execution": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_shared_flush_correlation_0/proof/base/symbolize/run.ys"
+      ],
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 0.012108359020203352,
+      "script_sha256": "c9a1b6ff6ecd0ed9dadb1382116a1423de5ccca6118c2d320e97560a510f0de9",
+      "log_sha256": "045abf12333355a51aa8f42949681836a73bbb7c9ef216ef23f6d79ae366ae9a"
+    },
+    "projection_sha256": "0431e54f8e9d9def022e1d9422113d8ccaf6b61ec2b64221862f9b131e1a181e",
+    "new_environmental_premises": [],
+    "source_cell_adapter_semantics": "Reset overrides enable; otherwise source D updates when native enable is active and source Q holds when inactive. Base observes reset-visible native Q. All clocks/resets/polarities and constant reset words are bound to original cells.",
+    "status": "proved_combinationally",
+    "execution": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_shared_flush_correlation_0/proof/base/execution/run.ys"
+      ],
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 0.016636726912111044,
+      "script_sha256": "98ca931756ade6721f857d9b026a80bbf5eb556831a888fa0cfaf518db6676b9",
+      "log_sha256": "045fd9711b7274caeb2d4e027d553c860ff46eb4efdf66ac799482dbea8fcb1f"
+    },
+    "binary_choice_exposure": {
+      "before_prep": [
+        {
+          "original_cell": "$auto$setundef.cc:552:execute$10",
+          "type": "$anyseq",
+          "bits": [
+            8
+          ],
+          "input_port": "free_choice_0"
+        }
+      ],
+      "after_prep": [],
+      "semantics": "Every symbolic output becomes a fresh unrestricted binary top input. No symbolic value is fixed or omitted."
+    },
+    "lowered_sha256": "9ab87bf6e8c9c16808b915cf7acdf0c86776c2c18acb5e11c001f80c8489d0c3",
+    "lowered_cells": 1,
+    "lowered_cell_types": {
+      "$mux": 1
+    },
+    "lowered_input_bits": 5,
+    "initial_cofactor_output_constants": {
+      "$procdff$9": 6
+    },
+    "sat_execution": {
+      "argv": [
+        "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+        "-Q",
+        "-T",
+        "-s",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_shared_flush_correlation_0/proof/base/sat_execution/run.ys"
+      ],
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 0.015026854816824198,
+      "script_sha256": "349d927d628c434e0bd157d8a271fc8ce2d510adceaf45f259d10167a703db08",
+      "log_sha256": "e69046b02022b6787ffb182a2eb60fec1f8f7bec8a8d2c25ad797924d68ee528"
+    },
+    "sat_log_sha256": "0f6506ed469b5b387a8d2f9e9cdb71b26198d7e288ca546142e84646cfa05ad4"
+  },
+  "final_induction_round": 0,
+  "theorem": "Initial active native asynchronous reset establishes every selected word. Joint next-state closure under the simultaneous current-state cube holds for arbitrary external inputs and arbitrary other state outputs. Thus induction proves the selected native visible reset constants for all subsequent clock steps; asynchronous reset events also preserve the cube."
+}

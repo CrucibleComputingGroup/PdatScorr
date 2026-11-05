@@ -1,0 +1,251 @@
+{
+  "creator": "Yosys 0.70+329 (git sha1 b8d84f823, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "modules": {
+    "ResetCube": {
+      "attributes": {
+        "top": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "clk_i": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst_ni": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "free_state_0": {
+          "direction": "input",
+          "bits": [ 4, 5 ]
+        },
+        "free_state_1": {
+          "direction": "input",
+          "bits": [ 6, 7 ]
+        },
+        "bad_0": {
+          "direction": "output",
+          "bits": [ 8 ]
+        },
+        "bad_1": {
+          "direction": "output",
+          "bits": [ 9 ]
+        },
+        "cube_bad": {
+          "direction": "output",
+          "bits": [ 10 ]
+        }
+      },
+      "cells": {
+        "$reset_cube_adapter_0": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0" ],
+            "B": [ 4, 5 ],
+            "S": [ 3 ],
+            "Y": [ 11, 12 ]
+          }
+        },
+        "$reset_cube_adapter_1": {
+          "hide_name": 1,
+          "type": "$ne",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11, 12 ],
+            "B": [ "1" ],
+            "Y": [ 8 ]
+          }
+        },
+        "$reset_cube_adapter_2": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0" ],
+            "B": [ 6, 7 ],
+            "S": [ 3 ],
+            "Y": [ 13, 14 ]
+          }
+        },
+        "$reset_cube_adapter_3": {
+          "hide_name": 1,
+          "type": "$ne",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14 ],
+            "B": [ "1" ],
+            "Y": [ 9 ]
+          }
+        },
+        "$reset_cube_adapter_4": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 8, 9 ],
+            "Y": [ 10 ]
+          }
+        },
+        "first": {
+          "hide_name": 0,
+          "type": "$scopeinfo",
+          "parameters": {
+            "TYPE": "module"
+          },
+          "attributes": {
+            "cell_module_not_derived": "00000000000000000000000000000001",
+            "cell_src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_native_async_load_primiti0/rtl/source.sv:6.17-6.46",
+            "module": "AsyncLoad",
+            "module_src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_native_async_load_primiti0/rtl/source.sv:1.1-4.16"
+          },
+          "port_directions": {
+          },
+          "connections": {
+          }
+        },
+        "second": {
+          "hide_name": 0,
+          "type": "$scopeinfo",
+          "parameters": {
+            "TYPE": "module"
+          },
+          "attributes": {
+            "cell_module_not_derived": "00000000000000000000000000000001",
+            "cell_src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_native_async_load_primiti0/rtl/source.sv:7.17-7.47",
+            "module": "AsyncLoad",
+            "module_src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_native_async_load_primiti0/rtl/source.sv:1.1-4.16"
+          },
+          "port_directions": {
+          },
+          "connections": {
+          }
+        }
+      },
+      "netnames": {
+        "$auto$jsonparse.cc:561:json_import$1": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$auto$jsonparse.cc:561:json_import$2": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "$auto$jsonparse.cc:561:json_import$3": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+          }
+        },
+        "$auto$jsonparse.cc:561:json_import$4": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "bad_0": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        },
+        "bad_1": {
+          "hide_name": 0,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "clk_i": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+          }
+        },
+        "cube_bad": {
+          "hide_name": 0,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "free_state_0": {
+          "hide_name": 0,
+          "bits": [ 4, 5 ],
+          "attributes": {
+          }
+        },
+        "free_state_1": {
+          "hide_name": 0,
+          "bits": [ 6, 7 ],
+          "attributes": {
+          }
+        },
+        "rst_ni": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        }
+      }
+    }
+  }
+}

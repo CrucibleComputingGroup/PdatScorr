@@ -1,0 +1,58 @@
+{
+  "mode": "base",
+  "candidate_words": 2,
+  "candidate_bits": 8,
+  "hypothesis_q_constants": {},
+  "arbitrary_other_state_outputs": [
+    {
+      "native_cell": "$procdff$12",
+      "native_port": "Q",
+      "bits": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "port": "free_state_0"
+    },
+    {
+      "native_cell": "$procdff$7",
+      "native_port": "Q",
+      "bits": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "port": "free_state_1"
+    }
+  ],
+  "observations": [
+    {
+      "port": "bad_0",
+      "candidate": "$procdff$12",
+      "native_q": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "width": 4
+    },
+    {
+      "port": "bad_1",
+      "candidate": "$procdff$7",
+      "native_q": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "width": 4
+    }
+  ],
+  "reset_base_premise": {
+    "rst_ni": 0
+  },
+  "transition": "Reset overrides enable; otherwise source D updates when native enable is active and source Q holds when inactive. Base observes reset-visible native Q. All clocks/resets/polarities and constant reset words are bound to original cells."
+}

@@ -1,0 +1,91 @@
+{
+  "status": "incomplete_iteration_cap_no_certificate",
+  "accepted_optimization": false,
+  "query_only": true,
+  "source_sha256": "688adb42521c6061961b5338e2e186f1ddc567fca6eb532bbc8906973483b299",
+  "dependencies_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/reset_cube_fixedpoint.py": "3c1c28ff8024e4af598e0b9490cb4ca6f1746614d877e5c164ea4ab9b8fb88dc",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/reset_cube.py": "d3723f7a96bebd21ba9cd06021a0ac928cebc048bbadec02c7910e31180dca28",
+    "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6"
+  },
+  "eligibility": {
+    "top": "Tiny",
+    "clock": "clk_i",
+    "reset": "rst_ni",
+    "clock_polarity": 1,
+    "reset_polarity": 0,
+    "eligible_words": 2,
+    "eligible_bits": 2,
+    "rejected_state_cells": {},
+    "native_memory_arrays": 0
+  },
+  "max_rounds": 1,
+  "overall_seconds_cap": 15,
+  "final_proof_seconds_cap": 120,
+  "rounds": [
+    {
+      "index": 0,
+      "candidate_words": 2,
+      "candidate_bits": 2,
+      "kept_words": 1,
+      "discarded_words": [
+        "$procdff$7"
+      ],
+      "cofactor": {
+        "symbolize_execution": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_iteration_cap_never_certi0/run/round_0/symbolize/run.ys"
+          ],
+          "returncode": 0,
+          "timeout": false,
+          "seconds": 0.013208472169935703,
+          "script_sha256": "7e645a6529cc62189d3a3bde8c88219b2b86f2465cd9fd1280497e9301da83c9",
+          "log_sha256": "29927f3177d998c09ad8b307f6c91a4a3d2c0f907a079f144260f98796c81db7"
+        },
+        "projection_sha256": "59ef5514126bbbc1dff74ffe6f137feee805fb0bb216814a7fbe585cd01e5035",
+        "new_environmental_premises": [],
+        "source_cell_adapter_semantics": "Reset overrides enable; otherwise source D updates when native enable is active and source Q holds when inactive. Base observes reset-visible native Q. All clocks/resets/polarities and constant reset words are bound to original cells.",
+        "status": "prepared_only_no_invariant_certificate",
+        "execution": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_iteration_cap_never_certi0/run/round_0/execution/run.ys"
+          ],
+          "returncode": 0,
+          "timeout": false,
+          "seconds": 0.0145819541066885,
+          "script_sha256": "f0dad057209c69e382ab786a3d56edbb2693c847aba009c789cdce182e1e6ada",
+          "log_sha256": "0a82d4c3b41734f8d0373318d4017751a106ca5368b0c56259db9591bdc4263f"
+        },
+        "binary_choice_exposure": {
+          "before_prep": [],
+          "after_prep": [],
+          "semantics": "Every symbolic output becomes a fresh unrestricted binary top input. No symbolic value is fixed or omitted."
+        },
+        "lowered_sha256": "e5355969b9094c31146ced318f125496dd5cf1284bced9860f8111928a4160e3",
+        "lowered_cells": 1,
+        "lowered_cell_types": {
+          "$mux": 1
+        },
+        "lowered_input_bits": 3,
+        "initial_cofactor_output_constants": {
+          "$procdff$12": "0",
+          "$procdff$7": 5
+        }
+      },
+      "discard_policy": "Discard every entire word not proved constant by safe structural simplification; dynamic outputs are not presumed invariant."
+    }
+  ],
+  "certified_bits": 0,
+  "certified_words": 0,
+  "native_fixed_point": false,
+  "new_environmental_premises": [],
+  "elapsed_seconds": 0.029040847439318895
+}

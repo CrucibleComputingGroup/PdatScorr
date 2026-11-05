@@ -1,0 +1,21 @@
+{
+  "mode": "induction",
+  "candidate_words": 1,
+  "candidate_bits": 1,
+  "hypothesis_q_constants": {
+    "4": "0"
+  },
+  "arbitrary_other_state_outputs": [],
+  "observations": [
+    {
+      "port": "bad_0",
+      "candidate": "$procdff$7",
+      "native_q": [
+        4
+      ],
+      "width": 1
+    }
+  ],
+  "reset_base_premise": null,
+  "transition": "Reset overrides enable; otherwise source D updates when native enable is active and source Q holds when inactive. Base observes reset-visible native Q. All clocks/resets/polarities and constant reset words are bound to original cells."
+}

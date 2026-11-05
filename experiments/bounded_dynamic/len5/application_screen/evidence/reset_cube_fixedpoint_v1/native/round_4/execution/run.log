@@ -1,0 +1,1792 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_native_fixedpoint_v1/round_4/execution/run.ys' --
+
+1. Executing JSON frontend.
+Importing module ResetCube from JSON tree.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \ResetCube
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \ResetCube
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+<suppressed ~4553 debug messages>
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module ResetCube...
+Found and reported 0 problems.
+
+2.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+Removed 10877 unused cells and 192565 unused wires.
+<suppressed ~10878 debug messages>
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+<suppressed ~4 debug messages>
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetCube'.
+Computing hashes of 4734 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 3838 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 3734 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 3719 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 3713 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+<suppressed ~3063 debug messages>
+Removed a total of 1021 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ResetCube..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$15649.
+    dead port 1/2 on $mux $procmux$15647.
+    dead port 1/2 on $mux $procmux$15644.
+    dead port 1/2 on $mux $procmux$15641.
+    dead port 2/2 on $mux $procmux$15632.
+    dead port 1/2 on $mux $procmux$13338.
+    dead port 2/2 on $mux $procmux$11677.
+    dead port 2/2 on $mux $procmux$34984.
+    dead port 2/2 on $mux $procmux$17197.
+    dead port 1/2 on $mux $procmux$13297.
+    dead port 2/2 on $mux $procmux$11688.
+    dead port 1/2 on $mux $procmux$16688.
+    dead port 2/2 on $mux $procmux$11696.
+    dead port 1/2 on $mux $procmux$117.
+    dead port 1/2 on $mux $procmux$33453.
+    dead port 1/2 on $mux $procmux$33459.
+    dead port 1/2 on $mux $procmux$33472.
+    dead port 1/2 on $mux $procmux$33475.
+    dead port 1/2 on $mux $procmux$33482.
+    dead port 1/2 on $mux $procmux$33488.
+    dead port 1/2 on $mux $procmux$33501.
+    dead port 1/2 on $mux $procmux$33504.
+    dead port 1/2 on $mux $procmux$33511.
+    dead port 1/2 on $mux $procmux$33517.
+    dead port 1/2 on $mux $procmux$33530.
+    dead port 1/2 on $mux $procmux$33533.
+    dead port 2/2 on $mux $procmux$36571.
+    dead port 2/2 on $mux $procmux$36573.
+    dead port 2/2 on $mux $procmux$15620.
+    dead port 2/2 on $mux $procmux$36581.
+    dead port 2/2 on $mux $procmux$16640.
+    dead port 1/2 on $mux $procmux$12202.
+    dead port 2/2 on $mux $procmux$37392.
+    dead port 2/2 on $mux $procmux$12204.
+    dead port 2/2 on $mux $procmux$12248.
+    dead port 2/2 on $mux $procmux$37401.
+    dead port 2/2 on $mux $procmux$35054.
+    dead port 2/2 on $mux $procmux$12172.
+    dead port 1/2 on $mux $procmux$12181.
+    dead port 2/2 on $mux $procmux$34566.
+    dead port 2/2 on $mux $procmux$16761.
+    dead port 1/2 on $mux $procmux$16757.
+    dead port 2/2 on $mux $procmux$16759.
+    dead port 2/2 on $mux $procmux$37424.
+    dead port 2/2 on $mux $procmux$37006.
+    dead port 1/2 on $mux $procmux$19112.
+    dead port 2/2 on $mux $procmux$35152.
+    dead port 2/2 on $mux $procmux$12881.
+    dead port 1/2 on $mux $procmux$16818.
+    dead port 2/2 on $mux $procmux$35109.
+    dead port 2/2 on $mux $procmux$35117.
+    dead port 2/2 on $mux $procmux$35171.
+    dead port 2/2 on $mux $procmux$35166.
+    dead port 2/2 on $mux $procmux$15589.
+    dead port 2/2 on $mux $procmux$35097.
+    dead port 1/2 on $mux $procmux$18313.
+    dead port 2/2 on $mux $procmux$18315.
+    dead port 2/2 on $mux $procmux$15566.
+    dead port 1/2 on $mux $procmux$17938.
+    dead port 2/2 on $mux $procmux$36688.
+    dead port 1/2 on $mux $procmux$17931.
+    dead port 2/2 on $mux $procmux$34611.
+    dead port 1/2 on $mux $procmux$12420.
+    dead port 2/2 on $mux $procmux$34695.
+    dead port 2/2 on $mux $procmux$37494.
+    dead port 2/2 on $mux $procmux$15538.
+    dead port 2/2 on $mux $procmux$19103.
+    dead port 1/2 on $mux $procmux$12879.
+    dead port 1/2 on $mux $procmux$18284.
+    dead port 1/2 on $mux $procmux$18281.
+    dead port 1/2 on $mux $procmux$18278.
+    dead port 2/2 on $mux $procmux$16341.
+    dead port 2/2 on $mux $procmux$34704.
+    dead port 2/2 on $mux $procmux$36416.
+    dead port 2/2 on $mux $procmux$13362.
+    dead port 1/2 on $mux $procmux$33269.
+    dead port 2/2 on $mux $procmux$37536.
+    dead port 2/2 on $mux $procmux$37538.
+    dead port 2/2 on $mux $procmux$37546.
+    dead port 2/2 on $mux $procmux$13360.
+    dead port 2/2 on $mux $procmux$37548.
+    dead port 1/2 on $mux $procmux$33540.
+    dead port 1/2 on $mux $procmux$33546.
+    dead port 2/2 on $mux $procmux$13426.
+    dead port 2/2 on $mux $procmux$37556.
+    dead port 1/2 on $mux $procmux$158.
+    dead port 2/2 on $mux $procmux$13413.
+    dead port 2/2 on $mux $procmux$13411.
+    dead port 2/2 on $mux $procmux$11478.
+    dead port 2/2 on $mux $procmux$11411.
+    dead port 1/2 on $mux $procmux$33430.
+    dead port 2/2 on $mux $procmux$17129.
+    dead port 1/2 on $mux $procmux$33446.
+    dead port 2/2 on $mux $procmux$16720.
+    dead port 2/2 on $mux $procmux$13299.
+    dead port 1/2 on $mux $procmux$171.
+    dead port 1/2 on $mux $procmux$18422.
+    dead port 1/2 on $mux $procmux$12876.
+    dead port 2/2 on $mux $procmux$34621.
+    dead port 2/2 on $mux $procmux$34354.
+    dead port 1/2 on $mux $procmux$12873.
+    dead port 2/2 on $mux $procmux$11403.
+    dead port 2/2 on $mux $procmux$12425.
+    dead port 2/2 on $mux $procmux$37590.
+    dead port 2/2 on $mux $procmux$16648.
+    dead port 1/2 on $mux $procmux$37593.
+    dead port 2/2 on $mux $procmux$15794.
+    dead port 2/2 on $mux $procmux$37595.
+    dead port 2/2 on $mux $procmux$15792.
+    dead port 1/2 on $mux $procmux$17900.
+    dead port 1/2 on $mux $procmux$17893.
+    dead port 2/2 on $mux $procmux$37604.
+    dead port 1/2 on $mux $procmux$37607.
+    dead port 2/2 on $mux $procmux$37609.
+    dead port 1/2 on $mux $procmux$37619.
+    dead port 2/2 on $mux $procmux$37621.
+    dead port 2/2 on $mux $procmux$13381.
+    dead port 2/2 on $mux $procmux$37630.
+    dead port 2/2 on $mux $procmux$15502.
+    dead port 2/2 on $mux $procmux$13379.
+    dead port 1/2 on $mux $procmux$13377.
+    dead port 1/2 on $mux $procmux$16339.
+    dead port 2/2 on $mux $procmux$37662.
+    dead port 2/2 on $mux $procmux$37049.
+    dead port 2/2 on $mux $procmux$37051.
+    dead port 2/2 on $mux $procmux$15489.
+    dead port 2/2 on $mux $procmux$15487.
+    dead port 1/2 on $mux $procmux$37695.
+    dead port 2/2 on $mux $procmux$37695.
+    dead port 1/2 on $mux $procmux$37697.
+    dead port 2/2 on $mux $procmux$37697.
+    dead port 2/2 on $mux $procmux$19077.
+    dead port 1/2 on $mux $procmux$37699.
+    dead port 2/2 on $mux $procmux$37699.
+    dead port 2/2 on $mux $procmux$37059.
+    dead port 2/2 on $mux $procmux$15457.
+    dead port 2/2 on $mux $procmux$15455.
+    dead port 1/2 on $mux $procmux$15453.
+    dead port 2/2 on $mux $procmux$11392.
+    dead port 2/2 on $mux $procmux$15438.
+    dead port 2/2 on $mux $procmux$37061.
+    dead port 1/2 on $mux $procmux$37724.
+    dead port 2/2 on $mux $procmux$37724.
+    dead port 2/2 on $mux $procmux$34678.
+    dead port 1/2 on $mux $procmux$37726.
+    dead port 2/2 on $mux $procmux$37726.
+    dead port 2/2 on $mux $procmux$35654.
+    dead port 1/2 on $mux $procmux$37728.
+    dead port 2/2 on $mux $procmux$37728.
+    dead port 2/2 on $mux $procmux$35605.
+    dead port 2/2 on $mux $procmux$11953.
+    dead port 2/2 on $mux $procmux$35597.
+    dead port 2/2 on $mux $procmux$35587.
+    dead port 1/2 on $mux $procmux$37738.
+    dead port 2/2 on $mux $procmux$37738.
+    dead port 1/2 on $mux $procmux$37740.
+    dead port 2/2 on $mux $procmux$37740.
+    dead port 1/2 on $mux $procmux$37742.
+    dead port 2/2 on $mux $procmux$37742.
+    dead port 1/2 on $mux $procmux$12351.
+    dead port 1/2 on $mux $procmux$12348.
+    dead port 2/2 on $mux $procmux$37069.
+    dead port 2/2 on $mux $procmux$34664.
+    dead port 2/2 on $mux $procmux$34842.
+    dead port 2/2 on $mux $procmux$35712.
+    dead port 2/2 on $mux $procmux$35680.
+    dead port 2/2 on $mux $procmux$35671.
+    dead port 2/2 on $mux $procmux$16415.
+    dead port 2/2 on $mux $procmux$11886.
+    dead port 1/2 on $mux $procmux$16716.
+    dead port 1/2 on $mux $procmux$37765.
+    dead port 2/2 on $mux $procmux$37767.
+    dead port 1/2 on $mux $procmux$33295.
+    dead port 1/2 on $mux $procmux$41145.
+    dead port 2/2 on $mux $procmux$35960.
+    dead port 2/2 on $mux $procmux$35928.
+    dead port 1/2 on $mux $procmux$16413.
+    dead port 1/2 on $mux $procmux$16336.
+    dead port 2/2 on $mux $procmux$15436.
+    dead port 1/2 on $mux $procmux$15434.
+    dead port 2/2 on $mux $procmux$15418.
+    dead port 2/2 on $mux $procmux$15416.
+    dead port 1/2 on $mux $procmux$15414.
+    dead port 2/2 on $mux $procmux$15411.
+    dead port 1/2 on $mux $procmux$37800.
+    dead port 2/2 on $mux $procmux$37802.
+    dead port 2/2 on $mux $procmux$37804.
+    dead port 2/2 on $mux $procmux$11498.
+    dead port 2/2 on $mux $procmux$19044.
+    dead port 2/2 on $mux $procmux$15377.
+    dead port 2/2 on $mux $procmux$15375.
+    dead port 1/2 on $mux $procmux$15373.
+    dead port 2/2 on $mux $procmux$15370.
+    dead port 2/2 on $mux $procmux$19641.
+    dead port 1/2 on $mux $procmux$20140.
+    dead port 2/2 on $mux $procmux$16672.
+    dead port 2/2 on $mux $procmux$15336.
+    dead port 1/2 on $mux $procmux$41288.
+    dead port 1/2 on $mux $procmux$41291.
+    dead port 1/2 on $mux $procmux$41298.
+    dead port 2/2 on $mux $procmux$15334.
+    dead port 1/2 on $mux $procmux$15332.
+    dead port 1/2 on $mux $procmux$15329.
+    dead port 2/2 on $mux $procmux$19026.
+    dead port 2/2 on $mux $procmux$11383.
+    dead port 2/2 on $mux $procmux$15314.
+    dead port 2/2 on $mux $procmux$15312.
+    dead port 1/2 on $mux $procmux$15310.
+    dead port 1/2 on $mux $procmux$15307.
+    dead port 1/2 on $mux $procmux$15304.
+    dead port 2/2 on $mux $procmux$37833.
+    dead port 2/2 on $mux $procmux$37835.
+    dead port 2/2 on $mux $procmux$15290.
+    dead port 2/2 on $mux $procmux$15288.
+    dead port 1/2 on $mux $procmux$15286.
+    dead port 1/2 on $mux $procmux$15283.
+    dead port 2/2 on $mux $procmux$15280.
+    dead port 2/2 on $mux $procmux$15266.
+    dead port 2/2 on $mux $procmux$15264.
+    dead port 1/2 on $mux $procmux$15262.
+    dead port 1/2 on $mux $procmux$15259.
+    dead port 2/2 on $mux $procmux$15256.
+    dead port 2/2 on $mux $procmux$19018.
+    dead port 2/2 on $mux $procmux$37848.
+    dead port 2/2 on $mux $procmux$37850.
+    dead port 1/2 on $mux $procmux$19.
+    dead port 2/2 on $mux $procmux$37104.
+    dead port 2/2 on $mux $procmux$18990.
+    dead port 1/2 on $mux $procmux$16333.
+    dead port 2/2 on $mux $procmux$15195.
+    dead port 2/2 on $mux $procmux$15193.
+    dead port 1/2 on $mux $procmux$15191.
+    dead port 1/2 on $mux $procmux$15188.
+    dead port 2/2 on $mux $procmux$37875.
+    dead port 2/2 on $mux $procmux$15172.
+    dead port 2/2 on $mux $procmux$15170.
+    dead port 1/2 on $mux $procmux$15168.
+    dead port 1/2 on $mux $procmux$15165.
+    dead port 2/2 on $mux $procmux$18983.
+    dead port 1/2 on $mux $procmux$20111.
+    dead port 2/2 on $mux $procmux$37877.
+    dead port 1/2 on $mux $procmux$178.
+    dead port 2/2 on $mux $procmux$19590.
+    dead port 2/2 on $mux $procmux$18286.
+    dead port 2/2 on $mux $procmux$15126.
+    dead port 2/2 on $mux $procmux$15124.
+    dead port 1/2 on $mux $procmux$15122.
+    dead port 1/2 on $mux $procmux$15119.
+    dead port 1/2 on $mux $procmux$15116.
+    dead port 2/2 on $mux $procmux$15102.
+    dead port 2/2 on $mux $procmux$15100.
+    dead port 2/2 on $mux $procmux$36621.
+    dead port 2/2 on $mux $procmux$37886.
+    dead port 2/2 on $mux $procmux$37109.
+    dead port 2/2 on $mux $procmux$36904.
+    dead port 2/2 on $mux $procmux$16324.
+    dead port 2/2 on $mux $procmux$36075.
+    dead port 2/2 on $mux $procmux$18156.
+    dead port 2/2 on $mux $procmux$36085.
+    dead port 2/2 on $mux $procmux$16698.
+    dead port 2/2 on $mux $procmux$36083.
+    dead port 2/2 on $mux $procmux$19260.
+    dead port 2/2 on $mux $procmux$37909.
+    dead port 2/2 on $mux $procmux$16754.
+    dead port 2/2 on $mux $procmux$16312.
+    dead port 2/2 on $mux $procmux$15055.
+    dead port 2/2 on $mux $procmux$36448.
+    dead port 1/2 on $mux $procmux$41636.
+    dead port 2/2 on $mux $procmux$19563.
+    dead port 1/2 on $mux $procmux$19561.
+    dead port 2/2 on $mux $procmux$37118.
+    dead port 2/2 on $mux $procmux$18149.
+    dead port 2/2 on $mux $procmux$15031.
+    dead port 2/2 on $mux $procmux$18947.
+    dead port 1/2 on $mux $procmux$15029.
+    dead port 2/2 on $mux $procmux$12864.
+    dead port 2/2 on $mux $procmux$15016.
+    dead port 1/2 on $mux $procmux$111.
+    dead port 2/2 on $mux $procmux$35659.
+    dead port 2/2 on $mux $procmux$12648.
+    dead port 2/2 on $mux $procmux$16718.
+    dead port 2/2 on $mux $procmux$36656.
+    dead port 2/2 on $mux $procmux$19549.
+    dead port 2/2 on $mux $procmux$16800.
+    dead port 2/2 on $mux $procmux$37979.
+    dead port 2/2 on $mux $procmux$37123.
+    dead port 1/2 on $mux $procmux$19547.
+    dead port 2/2 on $mux $procmux$18918.
+    dead port 2/2 on $mux $procmux$18916.
+    dead port 2/2 on $mux $procmux$16281.
+    dead port 2/2 on $mux $procmux$14972.
+    dead port 1/2 on $mux $procmux$14970.
+    dead port 2/2 on $mux $procmux$14957.
+    dead port 1/2 on $mux $procmux$14955.
+    dead port 1/2 on $mux $procmux$14952.
+    dead port 1/2 on $mux $procmux$14949.
+    dead port 2/2 on $mux $procmux$16950.
+    dead port 2/2 on $mux $procmux$14940.
+    dead port 2/2 on $mux $procmux$14928.
+    dead port 2/2 on $mux $procmux$19534.
+    dead port 1/2 on $mux $procmux$19532.
+    dead port 2/2 on $mux $procmux$13335.
+    dead port 2/2 on $mux $procmux$12770.
+    dead port 2/2 on $mux $procmux$13340.
+    dead port 2/2 on $mux $procmux$13342.
+    dead port 2/2 on $mux $procmux$16400.
+    dead port 2/2 on $mux $procmux$13301.
+    dead port 1/2 on $mux $procmux$17103.
+    dead port 2/2 on $mux $procmux$17105.
+    dead port 2/2 on $mux $procmux$36200.
+    dead port 2/2 on $mux $procmux$18499.
+    dead port 2/2 on $mux $procmux$13294.
+    dead port 2/2 on $mux $procmux$36159.
+    dead port 2/2 on $mux $procmux$36147.
+    dead port 2/2 on $mux $procmux$36142.
+    dead port 2/2 on $mux $procmux$11763.
+    dead port 2/2 on $mux $procmux$12332.
+    dead port 2/2 on $mux $procmux$16795.
+    dead port 2/2 on $mux $procmux$12512.
+    dead port 1/2 on $mux $procmux$16670.
+    dead port 2/2 on $mux $procmux$37135.
+    dead port 2/2 on $mux $procmux$19227.
+    dead port 2/2 on $mux $procmux$16674.
+    dead port 2/2 on $mux $procmux$36093.
+    dead port 1/2 on $mux $procmux$12187.
+    dead port 2/2 on $mux $procmux$16258.
+    dead port 1/2 on $mux $procmux$16643.
+    dead port 2/2 on $mux $procmux$36561.
+    dead port 1/2 on $mux $procmux$12494.
+    dead port 2/2 on $mux $procmux$12488.
+    dead port 2/2 on $mux $procmux$11668.
+    dead port 1/2 on $mux $procmux$19529.
+    dead port 2/2 on $mux $procmux$14897.
+    dead port 2/2 on $mux $procmux$18184.
+    dead port 2/2 on $mux $procmux$11582.
+    dead port 1/2 on $mux $procmux$17332.
+    dead port 2/2 on $mux $procmux$36306.
+    dead port 1/2 on $mux $procmux$47.
+    dead port 2/2 on $mux $procmux$18883.
+    dead port 2/2 on $mux $procmux$34123.
+    dead port 2/2 on $mux $procmux$14874.
+    dead port 2/2 on $mux $procmux$18881.
+    dead port 1/2 on $mux $procmux$18879.
+    dead port 2/2 on $mux $procmux$19517.
+    dead port 2/2 on $mux $procmux$14846.
+    dead port 2/2 on $mux $procmux$16230.
+    dead port 2/2 on $mux $procmux$34121.
+    dead port 2/2 on $mux $procmux$18843.
+    dead port 2/2 on $mux $procmux$18841.
+    dead port 2/2 on $mux $procmux$14810.
+    dead port 1/2 on $mux $procmux$18839.
+    dead port 2/2 on $mux $procmux$12160.
+    dead port 2/2 on $mux $procmux$11506.
+    dead port 2/2 on $mux $procmux$35099.
+    dead port 2/2 on $mux $procmux$19258.
+    dead port 2/2 on $mux $procmux$37144.
+    dead port 2/2 on $mux $procmux$12129.
+    dead port 2/2 on $mux $procmux$35157.
+    dead port 2/2 on $mux $procmux$35107.
+    dead port 2/2 on $mux $procmux$36425.
+    dead port 2/2 on $mux $procmux$17199.
+    dead port 2/2 on $mux $procmux$11316.
+    dead port 2/2 on $mux $procmux$16886.
+    dead port 2/2 on $mux $procmux$18342.
+    dead port 2/2 on $mux $procmux$19674.
+    dead port 2/2 on $mux $procmux$19672.
+    dead port 2/2 on $mux $procmux$34609.
+    dead port 1/2 on $mux $procmux$148.
+    dead port 2/2 on $mux $procmux$14797.
+    dead port 2/2 on $mux $procmux$14795.
+    dead port 1/2 on $mux $procmux$18836.
+    dead port 1/2 on $mux $procmux$19296.
+    dead port 1/2 on $mux $procmux$195.
+    dead port 2/2 on $mux $procmux$17046.
+    dead port 2/2 on $mux $procmux$14765.
+    dead port 2/2 on $mux $procmux$14763.
+    dead port 1/2 on $mux $procmux$14761.
+    dead port 2/2 on $mux $procmux$14746.
+    dead port 2/2 on $mux $procmux$14744.
+    dead port 1/2 on $mux $procmux$14742.
+    dead port 2/2 on $mux $procmux$14726.
+    dead port 2/2 on $mux $procmux$14724.
+    dead port 1/2 on $mux $procmux$14722.
+    dead port 2/2 on $mux $procmux$14719.
+    dead port 2/2 on $mux $procmux$18810.
+    dead port 1/2 on $mux $procmux$188.
+    dead port 2/2 on $mux $procmux$19176.
+    dead port 2/2 on $mux $procmux$19492.
+    dead port 1/2 on $mux $procmux$12400.
+    dead port 2/2 on $mux $procmux$35645.
+    dead port 2/2 on $mux $procmux$35640.
+    dead port 1/2 on $mux $procmux$19670.
+    dead port 1/2 on $mux $procmux$19667.
+    dead port 1/2 on $mux $procmux$50.
+    dead port 2/2 on $mux $procmux$19298.
+    dead port 2/2 on $mux $procmux$13190.
+    dead port 2/2 on $mux $procmux$13188.
+    dead port 1/2 on $mux $procmux$17029.
+    dead port 1/2 on $mux $procmux$13186.
+    dead port 1/2 on $mux $procmux$13183.
+    dead port 2/2 on $mux $procmux$35595.
+    dead port 2/2 on $mux $procmux$13258.
+    dead port 1/2 on $mux $procmux$13256.
+    dead port 1/2 on $mux $procmux$13253.
+    dead port 1/2 on $mux $procmux$34.
+    dead port 2/2 on $mux $procmux$35585.
+    dead port 2/2 on $mux $procmux$36913.
+    dead port 2/2 on $mux $procmux$13238.
+    dead port 2/2 on $mux $procmux$13236.
+    dead port 2/2 on $mux $procmux$19149.
+    dead port 1/2 on $mux $procmux$13234.
+    dead port 1/2 on $mux $procmux$13231.
+    dead port 1/2 on $mux $procmux$13228.
+    dead port 1/2 on $mux $procmux$17026.
+    dead port 2/2 on $mux $procmux$19300.
+    dead port 2/2 on $mux $procmux$11593.
+    dead port 2/2 on $mux $procmux$16194.
+    dead port 2/2 on $mux $procmux$13204.
+    dead port 1/2 on $mux $procmux$132.
+    dead port 1/2 on $mux $procmux$19147.
+    dead port 2/2 on $mux $procmux$18464.
+    dead port 1/2 on $mux $procmux$17044.
+    dead port 2/2 on $mux $procmux$18393.
+    dead port 2/2 on $mux $procmux$13214.
+    dead port 1/2 on $mux $procmux$12354.
+    dead port 2/2 on $mux $procmux$11878.
+    dead port 2/2 on $mux $procmux$13212.
+    dead port 1/2 on $mux $procmux$13210.
+    dead port 2/2 on $mux $procmux$12498.
+    dead port 1/2 on $mux $procmux$13207.
+    dead port 2/2 on $mux $procmux$16181.
+    dead port 2/2 on $mux $procmux$35818.
+    dead port 2/2 on $mux $procmux$13180.
+    dead port 2/2 on $mux $procmux$17031.
+    dead port 2/2 on $mux $procmux$13119.
+    dead port 2/2 on $mux $procmux$16179.
+    dead port 1/2 on $mux $procmux$17195.
+    dead port 1/2 on $mux $procmux$16713.
+    dead port 1/2 on $mux $procmux$181.
+    dead port 1/2 on $mux $procmux$33333.
+    dead port 2/2 on $mux $procmux$16356.
+    dead port 2/2 on $mux $procmux$13094.
+    dead port 2/2 on $mux $procmux$13096.
+    dead port 1/2 on $mux $procmux$13092.
+    dead port 2/2 on $mux $procmux$35937.
+    dead port 2/2 on $mux $procmux$12358.
+    dead port 2/2 on $mux $procmux$12356.
+    dead port 1/2 on $mux $procmux$33326.
+    dead port 2/2 on $mux $procmux$11858.
+    dead port 2/2 on $mux $procmux$19135.
+    dead port 2/2 on $mux $procmux$17014.
+    dead port 2/2 on $mux $procmux$14685.
+    dead port 2/2 on $mux $procmux$14683.
+    dead port 1/2 on $mux $procmux$13089.
+    dead port 2/2 on $mux $procmux$16149.
+    dead port 1/2 on $mux $procmux$14681.
+    dead port 2/2 on $mux $procmux$14678.
+    dead port 2/2 on $mux $procmux$14644.
+    dead port 2/2 on $mux $procmux$14642.
+    dead port 1/2 on $mux $procmux$14640.
+    dead port 1/2 on $mux $procmux$14637.
+    dead port 2/2 on $mux $procmux$16147.
+    dead port 1/2 on $mux $procmux$37.
+    dead port 1/2 on $mux $procmux$16145.
+    dead port 2/2 on $mux $procmux$14622.
+    dead port 2/2 on $mux $procmux$14620.
+    dead port 1/2 on $mux $procmux$14618.
+    dead port 1/2 on $mux $procmux$18462.
+    dead port 1/2 on $mux $procmux$13112.
+    dead port 1/2 on $mux $procmux$14615.
+    dead port 1/2 on $mux $procmux$14612.
+    dead port 2/2 on $mux $procmux$14598.
+    dead port 2/2 on $mux $procmux$14596.
+    dead port 1/2 on $mux $procmux$14594.
+    dead port 1/2 on $mux $procmux$14591.
+    dead port 2/2 on $mux $procmux$14588.
+    dead port 2/2 on $mux $procmux$14574.
+    dead port 2/2 on $mux $procmux$14572.
+    dead port 1/2 on $mux $procmux$14570.
+    dead port 2/2 on $mux $procmux$18466.
+    dead port 1/2 on $mux $procmux$14567.
+    dead port 2/2 on $mux $procmux$14564.
+    dead port 1/2 on $mux $procmux$13115.
+    dead port 2/2 on $mux $procmux$13117.
+    dead port 2/2 on $mux $procmux$16130.
+    dead port 1/2 on $mux $procmux$19133.
+    dead port 2/2 on $mux $procmux$19364.
+    dead port 2/2 on $mux $procmux$16128.
+    dead port 2/2 on $mux $procmux$18759.
+    dead port 2/2 on $mux $procmux$13050.
+    dead port 2/2 on $mux $procmux$13048.
+    dead port 1/2 on $mux $procmux$13046.
+    dead port 1/2 on $mux $procmux$13043.
+    dead port 1/2 on $mux $procmux$13040.
+    dead port 1/2 on $mux $procmux$16126.
+    dead port 2/2 on $mux $procmux$19400.
+    dead port 2/2 on $mux $procmux$17266.
+    dead port 2/2 on $mux $procmux$19461.
+    dead port 1/7 on $pmux $procmux$20090.
+    dead port 2/7 on $pmux $procmux$20090.
+    dead port 3/7 on $pmux $procmux$20090.
+    dead port 4/7 on $pmux $procmux$20090.
+    dead port 5/7 on $pmux $procmux$20090.
+    dead port 7/7 on $pmux $procmux$20090.
+    dead port 2/2 on $mux $procmux$17268.
+    dead port 1/2 on $mux $procmux$19405.
+    dead port 2/2 on $mux $procmux$18732.
+    dead port 1/2 on $mux $procmux$18730.
+    dead port 2/2 on $mux $procmux$13026.
+    dead port 2/2 on $mux $procmux$13024.
+    dead port 2/2 on $mux $procmux$16110.
+    dead port 2/2 on $mux $procmux$18718.
+    dead port 2/2 on $mux $procmux$16108.
+    dead port 1/2 on $mux $procmux$12491.
+    dead port 2/2 on $mux $procmux$14503.
+    dead port 1/2 on $mux $procmux$16106.
+    dead port 2/2 on $mux $procmux$14501.
+    dead port 1/2 on $mux $procmux$145.
+    dead port 1/2 on $mux $procmux$14499.
+    dead port 1/2 on $mux $procmux$14496.
+    dead port 1/2 on $mux $procmux$13.
+    dead port 2/2 on $mux $procmux$14480.
+    dead port 2/2 on $mux $procmux$14478.
+    dead port 2/2 on $mux $procmux$19407.
+    dead port 1/2 on $mux $procmux$14476.
+    dead port 1/2 on $mux $procmux$14473.
+    dead port 2/2 on $mux $procmux$18566.
+    dead port 1/2 on $mux $procmux$18716.
+    dead port 2/2 on $mux $procmux$16103.
+    dead port 2/2 on $mux $procmux$18703.
+    dead port 1/2 on $mux $procmux$18701.
+    dead port 1/2 on $mux $procmux$12539.
+    dead port 1/2 on $mux $procmux$18698.
+    dead port 1/2 on $mux $procmux$18695.
+    dead port 2/2 on $mux $procmux$11308.
+    dead port 1/2 on $mux $procmux$161.
+    dead port 2/2 on $mux $procmux$13716.
+    dead port 2/2 on $mux $procmux$14434.
+    dead port 1/2 on $mux $procmux$22.
+    dead port 1/2 on $mux $procmux$17359.
+    dead port 2/2 on $mux $procmux$14432.
+    dead port 1/2 on $mux $procmux$17192.
+    dead port 1/2 on $mux $procmux$14430.
+    dead port 1/2 on $mux $procmux$14427.
+    dead port 1/2 on $mux $procmux$14424.
+    dead port 2/2 on $mux $procmux$14410.
+    dead port 2/2 on $mux $procmux$14408.
+    dead port 2/2 on $mux $procmux$18686.
+    dead port 1/2 on $mux $procmux$60.
+    dead port 1/2 on $mux $procmux$13784.
+    dead port 2/2 on $mux $procmux$13462.
+    dead port 2/2 on $mux $procmux$16820.
+    dead port 2/2 on $mux $procmux$12609.
+    dead port 2/2 on $mux $procmux$14363.
+    dead port 2/2 on $mux $procmux$13742.
+    dead port 2/2 on $mux $procmux$36518.
+    dead port 2/2 on $mux $procmux$12263.
+    dead port 2/2 on $mux $procmux$18660.
+    dead port 2/2 on $mux $procmux$13788.
+    dead port 2/2 on $mux $procmux$13786.
+    dead port 2/2 on $mux $procmux$14339.
+    dead port 1/2 on $mux $procmux$14337.
+    dead port 2/2 on $mux $procmux$14324.
+    dead port 1/2 on $mux $procmux$17189.
+    dead port 2/2 on $mux $procmux$16069.
+    dead port 2/2 on $mux $procmux$17575.
+    dead port 2/2 on $mux $procmux$16067.
+    dead port 2/2 on $mux $procmux$12979.
+    dead port 1/2 on $mux $procmux$16065.
+    dead port 2/2 on $mux $procmux$17562.
+    dead port 2/2 on $mux $procmux$12687.
+    dead port 2/2 on $mux $procmux$17560.
+    dead port 2/2 on $mux $procmux$13260.
+    dead port 2/2 on $mux $procmux$17173.
+    dead port 2/2 on $mux $procmux$14280.
+    dead port 2/2 on $mux $procmux$13740.
+    dead port 1/2 on $mux $procmux$13738.
+    dead port 2/2 on $mux $procmux$37176.
+    dead port 2/2 on $mux $procmux$16062.
+    dead port 2/2 on $mux $procmux$17175.
+    dead port 1/2 on $mux $procmux$13807.
+    dead port 1/2 on $mux $procmux$13804.
+    dead port 2/2 on $mux $procmux$17339.
+    dead port 1/2 on $mux $procmux$14278.
+    dead port 2/2 on $mux $procmux$16484.
+    dead port 2/2 on $mux $procmux$19443.
+    dead port 1/2 on $mux $procmux$63.
+    dead port 2/2 on $mux $procmux$16972.
+    dead port 2/2 on $mux $procmux$12544.
+    dead port 1/2 on $mux $procmux$13735.
+    dead port 2/2 on $mux $procmux$17353.
+    dead port 1/2 on $mux $procmux$17380.
+    dead port 1/2 on $mux $procmux$17383.
+    dead port 1/2 on $mux $procmux$13875.
+    dead port 2/2 on $mux $procmux$19778.
+    dead port 2/2 on $mux $procmux$13588.
+    dead port 2/2 on $mux $procmux$12955.
+    dead port 2/2 on $mux $procmux$19712.
+    dead port 1/2 on $mux $procmux$28.
+    dead port 1/2 on $mux $procmux$17264.
+    dead port 2/2 on $mux $procmux$18573.
+    dead port 1/2 on $mux $procmux$17335.
+    dead port 2/2 on $mux $procmux$13718.
+    dead port 2/2 on $mux $procmux$13632.
+    dead port 2/2 on $mux $procmux$12520.
+    dead port 2/2 on $mux $procmux$13671.
+    dead port 2/2 on $mux $procmux$13811.
+    dead port 2/2 on $mux $procmux$14265.
+    dead port 1/2 on $mux $procmux$14263.
+    dead port 1/2 on $mux $procmux$14260.
+    dead port 1/2 on $mux $procmux$14257.
+    dead port 2/2 on $mux $procmux$14248.
+    dead port 2/2 on $mux $procmux$13872.
+    dead port 2/2 on $mux $procmux$14236.
+    dead port 1/2 on $mux $procmux$13732.
+    dead port 1/2 on $mux $procmux$13568.
+    dead port 1/2 on $mux $procmux$12953.
+    dead port 2/2 on $mux $procmux$18530.
+    dead port 2/2 on $mux $procmux$14205.
+    dead port 1/2 on $mux $procmux$33359.
+    dead port 2/2 on $mux $procmux$17363.
+    dead port 1/2 on $mux $procmux$33356.
+    dead port 2/2 on $mux $procmux$14182.
+    dead port 2/2 on $mux $procmux$17530.
+    dead port 2/2 on $mux $procmux$17528.
+    dead port 1/2 on $mux $procmux$17526.
+    dead port 2/2 on $mux $procmux$17329.
+    dead port 1/2 on $mux $procmux$33366.
+    dead port 2/2 on $mux $procmux$17511.
+    dead port 2/2 on $mux $procmux$34683.
+    dead port 1/2 on $mux $procmux$17377.
+    dead port 2/2 on $mux $procmux$14154.
+    dead port 2/2 on $mux $procmux$17509.
+    dead port 2/2 on $mux $procmux$16028.
+    dead port 1/2 on $mux $procmux$17507.
+    dead port 1/2 on $mux $procmux$70.
+    dead port 2/2 on $mux $procmux$17361.
+    dead port 1/2 on $mux $procmux$17356.
+    dead port 1/2 on $mux $procmux$13645.
+    dead port 1/2 on $mux $procmux$13781.
+    dead port 2/2 on $mux $procmux$17337.
+    dead port 2/2 on $mux $procmux$13809.
+    dead port 2/2 on $mux $procmux$16026.
+    dead port 1/2 on $mux $procmux$16024.
+    dead port 2/2 on $mux $procmux$13573.
+    dead port 1/2 on $mux $procmux$16021.
+    dead port 1/2 on $mux $procmux$19398.
+    dead port 1/2 on $mux $procmux$13358.
+    dead port 1/2 on $mux $procmux$16500.
+    dead port 2/2 on $mux $procmux$13544.
+    dead port 1/2 on $mux $procmux$135.
+    dead port 2/2 on $mux $procmux$36936.
+    dead port 1/2 on $mux $procmux$33372.
+    dead port 1/2 on $mux $procmux$17241.
+    dead port 2/2 on $mux $procmux$12940.
+    dead port 2/2 on $mux $procmux$13513.
+    dead port 2/2 on $mux $procmux$16006.
+    dead port 2/2 on $mux $procmux$17243.
+    dead port 2/2 on $mux $procmux$16004.
+    dead port 1/2 on $mux $procmux$16002.
+    dead port 1/2 on $mux $procmux$13565.
+    dead port 1/2 on $mux $procmux$33385.
+    dead port 1/2 on $mux $procmux$73.
+    dead port 1/2 on $mux $procmux$13571.
+    dead port 1/2 on $mux $procmux$16798.
+    dead port 1/2 on $mux $procmux$12561.
+    dead port 2/2 on $mux $procmux$16802.
+    dead port 2/2 on $mux $procmux$13556.
+    dead port 2/2 on $mux $procmux$34473.
+    dead port 2/2 on $mux $procmux$19335.
+    dead port 2/2 on $mux $procmux$18426.
+    dead port 1/2 on $mux $procmux$12536.
+    dead port 1/2 on $mux $procmux$15999.
+    dead port 1/2 on $mux $procmux$16646.
+    dead port 1/2 on $mux $procmux$15996.
+    dead port 2/2 on $mux $procmux$18424.
+    dead port 1/2 on $mux $procmux$17238.
+    dead port 2/2 on $mux $procmux$12896.
+    dead port 1/2 on $mux $procmux$12894.
+    dead port 2/2 on $mux $procmux$18501.
+    dead port 2/2 on $mux $procmux$35192.
+    dead port 1/2 on $mux $procmux$12518.
+    dead port 2/2 on $mux $procmux$17090.
+    dead port 2/2 on $mux $procmux$19333.
+    dead port 2/2 on $mux $procmux$17002.
+    dead port 1/2 on $mux $procmux$33395.
+    dead port 2/2 on $mux $procmux$13647.
+    dead port 2/2 on $mux $procmux$12821.
+    dead port 1/2 on $mux $procmux$17261.
+    dead port 1/2 on $mux $procmux$18419.
+    dead port 1/2 on $mux $procmux$33388.
+    dead port 2/2 on $mux $procmux$15982.
+    dead port 1/2 on $mux $procmux$33401.
+    dead port 2/2 on $mux $procmux$15980.
+    dead port 1/2 on $mux $procmux$120.
+    dead port 1/2 on $mux $procmux$19253.
+    dead port 1/2 on $mux $procmux$15978.
+    dead port 2/2 on $mux $procmux$18210.
+    dead port 2/2 on $mux $procmux$12798.
+    dead port 2/2 on $mux $procmux$16650.
+    dead port 1/2 on $mux $procmux$12261.
+    dead port 1/2 on $mux $procmux$15975.
+    dead port 1/2 on $mux $procmux$80.
+    dead port 2/2 on $mux $procmux$17491.
+    dead port 2/2 on $mux $procmux$18627.
+    dead port 2/2 on $mux $procmux$17489.
+    dead port 1/2 on $mux $procmux$17487.
+    dead port 2/2 on $mux $procmux$17484.
+    dead port 2/2 on $mux $procmux$19441.
+    dead port 1/2 on $mux $procmux$33414.
+    dead port 2/2 on $mux $procmux$19435.
+    dead port 2/2 on $mux $procmux$14118.
+    dead port 2/2 on $mux $procmux$14105.
+    dead port 2/2 on $mux $procmux$14103.
+    dead port 2/2 on $mux $procmux$19433.
+    dead port 2/2 on $mux $procmux$12852.
+    dead port 2/2 on $mux $procmux$18609.
+    dead port 2/2 on $mux $procmux$15972.
+    dead port 2/2 on $mux $procmux$17450.
+    dead port 2/2 on $mux $procmux$17448.
+    dead port 2/2 on $mux $procmux$14073.
+    dead port 2/2 on $mux $procmux$14071.
+    dead port 1/2 on $mux $procmux$17446.
+    dead port 1/2 on $mux $procmux$14069.
+    dead port 2/2 on $mux $procmux$14054.
+    dead port 2/2 on $mux $procmux$14052.
+    dead port 1/2 on $mux $procmux$14050.
+    dead port 2/2 on $mux $procmux$17443.
+    dead port 2/2 on $mux $procmux$19749.
+    dead port 2/2 on $mux $procmux$14034.
+    dead port 2/2 on $mux $procmux$14032.
+    dead port 1/2 on $mux $procmux$14030.
+    dead port 2/2 on $mux $procmux$14027.
+    dead port 1/2 on $mux $procmux$33424.
+    dead port 2/2 on $mux $procmux$18601.
+    dead port 1/2 on $mux $procmux$83.
+    dead port 2/2 on $mux $procmux$13993.
+    dead port 2/2 on $mux $procmux$13991.
+    dead port 1/2 on $mux $procmux$13989.
+    dead port 2/2 on $mux $procmux$13986.
+    dead port 2/2 on $mux $procmux$17409.
+    dead port 2/2 on $mux $procmux$17407.
+    dead port 1/2 on $mux $procmux$17405.
+    dead port 1/2 on $mux $procmux$17402.
+    dead port 1/2 on $mux $procmux$33417.
+    dead port 2/2 on $mux $procmux$34216.
+    dead port 2/2 on $mux $procmux$16922.
+    dead port 2/2 on $mux $procmux$12689.
+    dead port 2/2 on $mux $procmux$16486.
+    dead port 2/2 on $mux $procmux$16873.
+    dead port 2/2 on $mux $procmux$16871.
+    dead port 2/2 on $mux $procmux$12602.
+    dead port 2/2 on $mux $procmux$34131.
+    dead port 2/2 on $mux $procmux$34133.
+    dead port 2/2 on $mux $procmux$19747.
+    dead port 2/2 on $mux $procmux$34141.
+    dead port 1/2 on $mux $procmux$13586.
+    dead port 2/2 on $mux $procmux$13952.
+    dead port 2/2 on $mux $procmux$13950.
+    dead port 1/2 on $mux $procmux$13948.
+    dead port 1/2 on $mux $procmux$13945.
+    dead port 2/2 on $mux $procmux$17245.
+    dead port 2/2 on $mux $procmux$13930.
+    dead port 2/2 on $mux $procmux$12719.
+    dead port 2/2 on $mux $procmux$13928.
+    dead port 1/2 on $mux $procmux$13926.
+    dead port 1/2 on $mux $procmux$13923.
+    dead port 1/2 on $mux $procmux$13920.
+    dead port 2/2 on $mux $procmux$19714.
+    dead port 2/2 on $mux $procmux$17387.
+    dead port 2/2 on $mux $procmux$13906.
+    dead port 2/2 on $mux $procmux$12721.
+    dead port 2/2 on $mux $procmux$13904.
+    dead port 1/2 on $mux $procmux$13902.
+    dead port 1/2 on $mux $procmux$13899.
+    dead port 2/2 on $mux $procmux$13896.
+    dead port 2/2 on $mux $procmux$34176.
+    dead port 2/2 on $mux $procmux$13882.
+    dead port 2/2 on $mux $procmux$13880.
+    dead port 2/2 on $mux $procmux$17385.
+    dead port 2/2 on $mux $procmux$34181.
+    dead port 2/2 on $mux $procmux$12734.
+    dead port 1/2 on $mux $procmux$13878.
+    dead port 2/2 on $mux $procmux$11867.
+    dead port 2/2 on $mux $procmux$15958.
+    dead port 2/2 on $mux $procmux$34195.
+    dead port 2/2 on $mux $procmux$34190.
+    dead port 1/2 on $mux $procmux$16837.
+    dead port 2/2 on $mux $procmux$15956.
+    dead port 2/2 on $mux $procmux$34207.
+    dead port 2/2 on $mux $procmux$16841.
+    dead port 2/2 on $mux $procmux$36168.
+    dead port 1/2 on $mux $procmux$12685.
+    dead port 1/2 on $mux $procmux$15954.
+    dead port 1/2 on $mux $procmux$15951.
+    dead port 1/2 on $mux $procmux$90.
+    dead port 2/2 on $mux $procmux$15747.
+    dead port 2/2 on $mux $procmux$12650.
+    dead port 2/2 on $mux $procmux$34619.
+    dead port 1/2 on $mux $procmux$19115.
+    dead port 2/2 on $mux $procmux$15948.
+    dead port 1/2 on $mux $procmux$12646.
+    dead port 2/2 on $mux $procmux$12643.
+    dead port 2/2 on $mux $procmux$12668.
+    dead port 2/2 on $mux $procmux$12670.
+    dead port 2/2 on $mux $procmux$15723.
+    dead port 2/2 on $mux $procmux$16839.
+    dead port 1/2 on $mux $procmux$15721.
+    dead port 2/2 on $mux $procmux$12607.
+    dead port 2/2 on $mux $procmux$12496.
+    dead port 2/2 on $mux $procmux$19120.
+    dead port 1/2 on $mux $procmux$16691.
+    dead port 2/2 on $mux $procmux$34248.
+    dead port 2/2 on $mux $procmux$15708.
+    dead port 1/2 on $mux $procmux$16667.
+    dead port 1/2 on $mux $procmux$12605.
+    dead port 2/2 on $mux $procmux$34629.
+    dead port 1/2 on $mux $procmux$12666.
+    dead port 1/2 on $mux $procmux$12184.
+    dead port 1/2 on $mux $procmux$33276.
+    dead port 2/2 on $mux $procmux$11487.
+    dead port 1/2 on $mux $procmux$33443.
+    dead port 2/2 on $mux $procmux$15664.
+    dead port 1/2 on $mux $procmux$39021.
+    dead port 2/2 on $mux $procmux$39028.
+    dead port 1/2 on $mux $procmux$15662.
+    dead port 1/2 on $mux $procmux$39031.
+    dead port 2/2 on $mux $procmux$39038.
+    dead port 1/2 on $mux $procmux$97.
+    dead port 2/2 on $mux $procmux$15887.
+    dead port 2/2 on $mux $procmux$16696.
+    dead port 1/2 on $mux $procmux$39041.
+    dead port 2/2 on $mux $procmux$39047.
+    dead port 2/2 on $mux $procmux$39049.
+    dead port 1/2 on $mux $procmux$16354.
+    dead port 2/2 on $mux $procmux$12189.
+    dead port 1/2 on $mux $procmux$39052.
+    dead port 2/2 on $mux $procmux$39058.
+    dead port 2/2 on $mux $procmux$15885.
+    dead port 2/2 on $mux $procmux$34669.
+    dead port 2/2 on $mux $procmux$39060.
+    dead port 1/2 on $mux $procmux$39063.
+    dead port 1/2 on $mux $procmux$39070.
+    dead port 1/2 on $mux $procmux$33288.
+    dead port 2/2 on $mux $procmux$12334.
+    dead port 1/2 on $mux $procmux$39085.
+    dead port 2/2 on $mux $procmux$36563.
+    dead port 2/2 on $mux $procmux$39092.
+    dead port 1/2 on $mux $procmux$39095.
+    dead port 2/2 on $mux $procmux$36616.
+    dead port 2/2 on $mux $procmux$39102.
+    dead port 1/2 on $mux $procmux$39105.
+    dead port 2/2 on $mux $procmux$34952.
+    dead port 2/2 on $mux $procmux$36133.
+    dead port 2/2 on $mux $procmux$39111.
+    dead port 2/2 on $mux $procmux$36128.
+    dead port 2/2 on $mux $procmux$39113.
+    dead port 1/2 on $mux $procmux$39116.
+    dead port 1/2 on $mux $procmux$168.
+    dead port 2/2 on $mux $procmux$12566.
+    dead port 1/2 on $mux $procmux$16694.
+    dead port 2/2 on $mux $procmux$12568.
+    dead port 1/2 on $mux $procmux$12564.
+    dead port 1/2 on $mux $procmux$12542.
+    dead port 1/2 on $mux $procmux$12423.
+    dead port 2/2 on $mux $procmux$39122.
+    dead port 2/2 on $mux $procmux$39124.
+    dead port 2/2 on $mux $procmux$12522.
+    dead port 1/2 on $mux $procmux$39127.
+    dead port 2/2 on $mux $procmux$34464.
+    dead port 2/2 on $mux $procmux$12427.
+    dead port 1/2 on $mux $procmux$15883.
+    dead port 2/2 on $mux $procmux$12404.
+    dead port 1/2 on $mux $procmux$39134.
+    dead port 2/2 on $mux $procmux$35183.
+    dead port 1/2 on $mux $procmux$15880.
+    dead port 2/2 on $mux $procmux$12402.
+    dead port 2/2 on $mux $procmux$35224.
+    dead port 2/2 on $mux $procmux$12106.
+    dead port 2/2 on $mux $procmux$34961.
+    dead port 2/2 on $mux $procmux$18269.
+    dead port 1/2 on $mux $procmux$16575.
+    dead port 1/2 on $mux $procmux$19256.
+    dead port 2/2 on $mux $procmux$15864.
+    dead port 1/2 on $mux $procmux$12397.
+    dead port 2/2 on $mux $procmux$12078.
+    dead port 2/2 on $mux $procmux$16577.
+    dead port 2/2 on $mux $procmux$15862.
+    dead port 1/2 on $mux $procmux$16572.
+    dead port 1/2 on $mux $procmux$15860.
+    dead port 2/2 on $mux $procmux$18301.
+    dead port 2/2 on $mux $procmux$16579.
+    dead port 2/2 on $mux $procmux$35330.
+    dead port 1/2 on $mux $procmux$12515.
+    dead port 2/2 on $mux $procmux$34496.
+    dead port 2/2 on $mux $procmux$18243.
+    dead port 1/2 on $mux $procmux$15857.
+    dead port 2/2 on $mux $procmux$12546.
+    dead port 2/2 on $mux $procmux$16556.
+    dead port 2/2 on $mux $procmux$16554.
+    dead port 1/2 on $mux $procmux$16549.
+    dead port 1/2 on $mux $procmux$16552.
+    dead port 1/2 on $mux $procmux$18299.
+    dead port 1/2 on $mux $procmux$19710.
+    dead port 2/2 on $mux $procmux$36647.
+    dead port 2/2 on $mux $procmux$36635.
+    dead port 1/2 on $mux $procmux$19118.
+    dead port 2/2 on $mux $procmux$34736.
+    dead port 2/2 on $mux $procmux$16510.
+    dead port 1/2 on $mux $procmux$16506.
+    dead port 2/2 on $mux $procmux$16508.
+    dead port 1/2 on $mux $procmux$16503.
+    dead port 2/2 on $mux $procmux$12287.
+    dead port 2/2 on $mux $procmux$36630.
+    dead port 2/2 on $mux $procmux$16664.
+    dead port 2/2 on $mux $procmux$35440.
+    dead port 2/2 on $mux $procmux$35449.
+    dead port 2/2 on $mux $procmux$35472.
+    dead port 2/2 on $mux $procmux$35542.
+    dead port 2/2 on $mux $procmux$16439.
+    dead port 2/2 on $mux $procmux$18192.
+    dead port 2/2 on $mux $procmux$13490.
+    dead port 2/2 on $mux $procmux$11962.
+    dead port 2/2 on $mux $procmux$36794.
+    dead port 2/2 on $mux $procmux$16822.
+    dead port 2/2 on $mux $procmux$36030.
+    dead port 2/2 on $mux $procmux$37282.
+    dead port 2/2 on $mux $procmux$15818.
+    dead port 2/2 on $mux $procmux$15816.
+    dead port 2/2 on $mux $procmux$11772.
+    dead port 1/2 on $mux $procmux$126.
+    dead port 2/2 on $mux $procmux$11573.
+    dead port 2/2 on $mux $procmux$11791.
+    dead port 2/2 on $mux $procmux$11783.
+    dead port 1/2 on $mux $procmux$15814.
+    dead port 1/2 on $mux $procmux$15811.
+    dead port 1/2 on $mux $procmux$15808.
+    dead port 2/2 on $mux $procmux$36073.
+    dead port 2/2 on $mux $procmux$11601.
+Removed 939 multiplexer ports.
+<suppressed ~13356 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ResetCube.
+    New input vector for $reduce_or cell $reset_cube_adapter_592: { \bad_295 \bad_278 \bad_213 \bad_212 \bad_211 \bad_210 \bad_209 \bad_208 \bad_207 \bad_206 \bad_205 \bad_204 \bad_203 \bad_202 \bad_201 \bad_200 \bad_199 \bad_198 \bad_197 \bad_196 \bad_195 \bad_194 \bad_193 \bad_192 \bad_191 \bad_190 \bad_189 \bad_188 \bad_187 \bad_186 \bad_185 \bad_184 \bad_183 \bad_182 \bad_181 \bad_180 \bad_179 \bad_178 \bad_177 \bad_176 \bad_175 \bad_174 \bad_173 \bad_172 \bad_171 \bad_170 \bad_169 \bad_168 \bad_167 \bad_166 \bad_165 \bad_164 \bad_163 \bad_162 \bad_161 \bad_160 \bad_159 \bad_158 \bad_157 \bad_156 \bad_155 \bad_154 \bad_153 \bad_152 \bad_151 \bad_150 \bad_149 \bad_148 \bad_147 \bad_146 \bad_145 \bad_144 \bad_143 \bad_142 \bad_141 \bad_140 \bad_139 \bad_138 \bad_137 \bad_136 \bad_135 \bad_134 \bad_133 \bad_132 \bad_131 \bad_130 \bad_129 \bad_128 \bad_127 \bad_126 \bad_125 \bad_124 \bad_123 \bad_122 \bad_121 \bad_120 \bad_119 \bad_118 \bad_117 \bad_116 \bad_115 \bad_114 \bad_113 \bad_112 \bad_111 \bad_110 \bad_109 \bad_108 \bad_107 \bad_106 \bad_105 \bad_104 \bad_103 \bad_102 \bad_101 \bad_100 \bad_99 \bad_98 \bad_97 \bad_96 \bad_95 \bad_94 \bad_93 \bad_92 \bad_91 \bad_90 \bad_89 \bad_88 \bad_87 \bad_86 \bad_85 \bad_84 \bad_83 \bad_82 \bad_81 \bad_80 \bad_79 \bad_78 \bad_77 \bad_76 \bad_75 \bad_74 \bad_73 \bad_72 \bad_71 \bad_70 \bad_69 \bad_68 \bad_67 \bad_66 \bad_65 \bad_64 \bad_63 \bad_62 \bad_61 \bad_60 \bad_59 \bad_58 \bad_57 \bad_56 \bad_55 \bad_54 \bad_53 \bad_52 \bad_51 \bad_50 \bad_49 \bad_48 \bad_47 \bad_46 \bad_45 \bad_44 \bad_43 \bad_42 \bad_41 \bad_40 \bad_39 \bad_38 \bad_37 \bad_36 \bad_35 \bad_34 \bad_33 \bad_32 \bad_31 \bad_30 \bad_29 \bad_28 \bad_27 \bad_0 }
+    New ctrl vector for $pmux cell $procmux$41311: $auto$opt_reduce.cc:137:opt_pmux$2
+    New ctrl vector for $pmux cell $procmux$35123: { $auto$jsonparse.cc:561:json_import$71110 $auto$jsonparse.cc:561:json_import$71106 $auto$jsonparse.cc:561:json_import$71103 }
+    New ctrl vector for $pmux cell $procmux$41330: $auto$opt_reduce.cc:137:opt_pmux$4
+    New ctrl vector for $pmux cell $procmux$35084: { $auto$jsonparse.cc:561:json_import$71110 $auto$jsonparse.cc:561:json_import$71106 }
+    New ctrl vector for $pmux cell $procmux$11823: $auto$opt_reduce.cc:137:opt_pmux$6
+    New ctrl vector for $pmux cell $procmux$11538: $auto$opt_reduce.cc:137:opt_pmux$8
+    New ctrl vector for $pmux cell $procmux$36099: { $auto$jsonparse.cc:561:json_import$70399 $auto$jsonparse.cc:561:json_import$70305 $auto$jsonparse.cc:561:json_import$70152 }
+    New ctrl vector for $pmux cell $procmux$36587: { $auto$jsonparse.cc:561:json_import$70045 $auto$jsonparse.cc:561:json_import$69800 $auto$jsonparse.cc:561:json_import$69785 }
+    New ctrl vector for $pmux cell $procmux$33591: { $auto$jsonparse.cc:561:json_import$72702 $auto$jsonparse.cc:561:json_import$72701 $auto$jsonparse.cc:561:json_import$72705 }
+    New ctrl vector for $pmux cell $procmux$11704: $auto$opt_reduce.cc:137:opt_pmux$10
+    New ctrl vector for $pmux cell $procmux$17726: $auto$opt_reduce.cc:137:opt_pmux$12
+    New ctrl vector for $pmux cell $procmux$11609: $auto$opt_reduce.cc:137:opt_pmux$14
+    New ctrl vector for $pmux cell $procmux$17718: $auto$opt_reduce.cc:137:opt_pmux$16
+    New ctrl vector for $pmux cell $procmux$11642: { $auto$jsonparse.cc:561:json_import$138455 $auto$jsonparse.cc:561:json_import$138316 $auto$opt_reduce.cc:137:opt_pmux$20 $auto$opt_reduce.cc:137:opt_pmux$18 }
+    New ctrl vector for $pmux cell $procmux$19497: { $auto$jsonparse.cc:561:json_import$123471 $auto$jsonparse.cc:561:json_import$123419 $auto$jsonparse.cc:561:json_import$123162 $auto$jsonparse.cc:561:json_import$123148 }
+    New ctrl vector for $pmux cell $procmux$11927: { $auto$jsonparse.cc:561:json_import$136516 $auto$jsonparse.cc:561:json_import$136377 $auto$opt_reduce.cc:137:opt_pmux$24 $auto$opt_reduce.cc:137:opt_pmux$22 }
+    New ctrl vector for $pmux cell $procmux$11941: $auto$opt_reduce.cc:137:opt_pmux$26
+    New ctrl vector for $pmux cell $procmux$11894: $auto$opt_reduce.cc:137:opt_pmux$28
+    New ctrl vector for $pmux cell $procmux$11904: { $auto$jsonparse.cc:561:json_import$136596 $auto$jsonparse.cc:561:json_import$136377 $auto$opt_reduce.cc:137:opt_pmux$32 $auto$opt_reduce.cc:137:opt_pmux$30 }
+    New ctrl vector for $pmux cell $procmux$11846: $auto$opt_reduce.cc:137:opt_pmux$34
+    New ctrl vector for $pmux cell $procmux$11714: { $auto$jsonparse.cc:561:json_import$137826 $auto$jsonparse.cc:561:json_import$137353 $auto$opt_reduce.cc:137:opt_pmux$38 $auto$opt_reduce.cc:137:opt_pmux$36 }
+    New ctrl vector for $pmux cell $procmux$19466: { $auto$jsonparse.cc:561:json_import$123471 $auto$jsonparse.cc:561:json_import$123436 $auto$jsonparse.cc:561:json_import$123162 }
+    New ctrl vector for $pmux cell $procmux$11656: $auto$opt_reduce.cc:137:opt_pmux$40
+    New ctrl vector for $pmux cell $procmux$11371: $auto$opt_reduce.cc:137:opt_pmux$42
+    New ctrl vector for $pmux cell $procmux$33836: { $auto$jsonparse.cc:561:json_import$72548 $auto$jsonparse.cc:561:json_import$72550 }
+    New ctrl vector for $pmux cell $procmux$33841: { $auto$jsonparse.cc:561:json_import$72547 $auto$jsonparse.cc:561:json_import$72546 $auto$jsonparse.cc:561:json_import$72550 }
+    New ctrl vector for $pmux cell $procmux$37523: { $auto$jsonparse.cc:561:json_import$68875 $auto$jsonparse.cc:561:json_import$68874 $auto$jsonparse.cc:561:json_import$68872 }
+    New ctrl vector for $pmux cell $procmux$33891: { $auto$jsonparse.cc:561:json_import$72529 $auto$jsonparse.cc:561:json_import$72528 $auto$jsonparse.cc:561:json_import$72527 }
+    New ctrl vector for $pmux cell $procmux$11524: { $auto$jsonparse.cc:561:json_import$139081 $auto$jsonparse.cc:561:json_import$138731 $auto$opt_reduce.cc:137:opt_pmux$46 $auto$opt_reduce.cc:137:opt_pmux$44 }
+    New ctrl vector for $pmux cell $procmux$33886: { $auto$jsonparse.cc:561:json_import$72530 $auto$jsonparse.cc:561:json_import$72527 }
+    New ctrl vector for $pmux cell $procmux$11419: $auto$opt_reduce.cc:137:opt_pmux$48
+    New ctrl vector for $pmux cell $procmux$33854: { $auto$opt_reduce.cc:137:opt_pmux$50 $auto$jsonparse.cc:561:json_import$72549 }
+    New ctrl vector for $pmux cell $procmux$34635: { $auto$jsonparse.cc:561:json_import$71482 $auto$jsonparse.cc:561:json_import$71245 $auto$jsonparse.cc:561:json_import$71232 }
+    New ctrl vector for $pmux cell $procmux$33586: { $auto$jsonparse.cc:561:json_import$72706 $auto$jsonparse.cc:561:json_import$72705 }
+    New ctrl vector for $pmux cell $procmux$33804: { $auto$opt_reduce.cc:137:opt_pmux$52 $auto$jsonparse.cc:561:json_import$72556 }
+    New ctrl vector for $pmux cell $procmux$18074: { $auto$opt_reduce.cc:137:opt_pmux$54 $auto$jsonparse.cc:561:json_import$125759 }
+    New ctrl vector for $pmux cell $procmux$11148: $auto$opt_reduce.cc:137:opt_pmux$56
+    New ctrl vector for $pmux cell $procmux$37561: { $auto$jsonparse.cc:561:json_import$68875 $auto$jsonparse.cc:561:json_import$68874 $auto$jsonparse.cc:561:json_import$68872 $auto$jsonparse.cc:561:json_import$68722 }
+    New ctrl vector for $pmux cell $procmux$11918: $auto$opt_reduce.cc:137:opt_pmux$58
+    New ctrl vector for $pmux cell $procmux$37191: { $auto$jsonparse.cc:561:json_import$69681 $auto$jsonparse.cc:561:json_import$69680 $auto$jsonparse.cc:561:json_import$69565 }
+    New ctrl vector for $pmux cell $procmux$11561: $auto$opt_reduce.cc:137:opt_pmux$60
+    New ctrl vector for $pmux cell $procmux$33604: { $auto$opt_reduce.cc:137:opt_pmux$62 $auto$jsonparse.cc:561:json_import$72704 }
+    New ctrl vector for $pmux cell $procmux$33904: { $auto$opt_reduce.cc:137:opt_pmux$64 $auto$jsonparse.cc:561:json_import$72531 }
+    New ctrl vector for $pmux cell $procmux$33935: { $auto$jsonparse.cc:561:json_import$72443 $auto$jsonparse.cc:561:json_import$72444 }
+    New ctrl vector for $pmux cell $procmux$11633: $auto$opt_reduce.cc:137:opt_pmux$66
+    New ctrl vector for $pmux cell $procmux$11452: { $auto$jsonparse.cc:561:json_import$139562 $auto$jsonparse.cc:561:json_import$139287 $auto$opt_reduce.cc:137:opt_pmux$70 $auto$opt_reduce.cc:137:opt_pmux$68 }
+    New ctrl vector for $pmux cell $procmux$33636: { $auto$jsonparse.cc:561:json_import$72688 $auto$jsonparse.cc:561:json_import$72687 }
+    New ctrl vector for $pmux cell $procmux$33641: { $auto$jsonparse.cc:561:json_import$72682 $auto$jsonparse.cc:561:json_import$72681 $auto$jsonparse.cc:561:json_import$72687 }
+    New ctrl vector for $pmux cell $procmux$33654: { $auto$opt_reduce.cc:137:opt_pmux$72 $auto$jsonparse.cc:561:json_import$72686 }
+    New ctrl vector for $pmux cell $procmux$11357: { $auto$jsonparse.cc:561:json_import$140364 $auto$jsonparse.cc:561:json_import$140030 $auto$opt_reduce.cc:137:opt_pmux$76 $auto$opt_reduce.cc:137:opt_pmux$74 }
+    New ctrl vector for $pmux cell $procmux$33686: { $auto$jsonparse.cc:561:json_import$72669 $auto$jsonparse.cc:561:json_import$72668 }
+    New ctrl vector for $pmux cell $procmux$33691: { $auto$jsonparse.cc:561:json_import$72665 $auto$jsonparse.cc:561:json_import$72664 $auto$jsonparse.cc:561:json_import$72668 }
+    New ctrl vector for $pmux cell $procmux$37036: { $auto$jsonparse.cc:561:json_import$69681 $auto$jsonparse.cc:561:json_import$69680 }
+    New ctrl vector for $pmux cell $procmux$34596: { $auto$jsonparse.cc:561:json_import$71482 $auto$jsonparse.cc:561:json_import$71245 }
+    New ctrl vector for $pmux cell $procmux$11514: $auto$opt_reduce.cc:137:opt_pmux$78
+    New ctrl vector for $pmux cell $procmux$11547: { $auto$jsonparse.cc:561:json_import$139221 $auto$jsonparse.cc:561:json_import$138731 $auto$opt_reduce.cc:137:opt_pmux$82 $auto$opt_reduce.cc:137:opt_pmux$80 }
+    New ctrl vector for $pmux cell $procmux$33704: { $auto$opt_reduce.cc:137:opt_pmux$84 $auto$jsonparse.cc:561:json_import$72667 }
+    New ctrl vector for $pmux cell $procmux$11619: { $auto$jsonparse.cc:561:json_import$138530 $auto$jsonparse.cc:561:json_import$138316 $auto$opt_reduce.cc:137:opt_pmux$88 $auto$opt_reduce.cc:137:opt_pmux$86 }
+    New ctrl vector for $pmux cell $procmux$11139: $auto$opt_reduce.cc:137:opt_pmux$90
+    New ctrl vector for $pmux cell $procmux$33736: { $auto$jsonparse.cc:561:json_import$72586 $auto$jsonparse.cc:561:json_import$72585 }
+    New ctrl vector for $pmux cell $procmux$33741: { $auto$jsonparse.cc:561:json_import$72582 $auto$jsonparse.cc:561:json_import$72581 $auto$jsonparse.cc:561:json_import$72585 }
+    New ctrl vector for $pmux cell $procmux$34147: { $auto$jsonparse.cc:561:json_import$71857 $auto$jsonparse.cc:561:json_import$71804 $auto$jsonparse.cc:561:json_import$71606 }
+    New ctrl vector for $pmux cell $procmux$33754: { $auto$opt_reduce.cc:137:opt_pmux$92 $auto$jsonparse.cc:561:json_import$72584 }
+    New ctrl vector for $pmux cell $procmux$11348: $auto$opt_reduce.cc:137:opt_pmux$94
+    New ctrl vector for $pmux cell $procmux$37676: { $auto$jsonparse.cc:561:json_import$68875 $auto$jsonparse.cc:561:json_import$68874 $auto$jsonparse.cc:561:json_import$68872 $auto$jsonparse.cc:561:json_import$68450 }
+    New ctrl vector for $pmux cell $procmux$34108: { $auto$jsonparse.cc:561:json_import$71857 $auto$jsonparse.cc:561:json_import$71804 }
+    New ctrl vector for $pmux cell $procmux$11728: $auto$opt_reduce.cc:137:opt_pmux$96
+    New ctrl vector for $pmux cell $procmux$33791: { $auto$jsonparse.cc:561:json_import$72563 $auto$jsonparse.cc:561:json_import$72562 $auto$jsonparse.cc:561:json_import$72559 }
+    New ctrl vector for $pmux cell $procmux$18061: { $auto$opt_reduce.cc:137:opt_pmux$98 $auto$jsonparse.cc:561:json_import$125759 }
+    New ctrl vector for $pmux cell $procmux$11443: $auto$opt_reduce.cc:137:opt_pmux$100
+    New ctrl vector for $pmux cell $procmux$20161: { $auto$opt_reduce.cc:137:opt_pmux$102 $auto$jsonparse.cc:561:json_import$121796 $auto$jsonparse.cc:561:json_import$121795 $auto$jsonparse.cc:561:json_import$121794 $auto$jsonparse.cc:561:json_import$121793 $auto$jsonparse.cc:561:json_import$121792 $auto$jsonparse.cc:561:json_import$121787 }
+    New ctrl vector for $pmux cell $procmux$36548: { $auto$jsonparse.cc:561:json_import$70045 $auto$jsonparse.cc:561:json_import$69800 }
+    New ctrl vector for $pmux cell $procmux$34263: { $auto$jsonparse.cc:561:json_import$71857 $auto$jsonparse.cc:561:json_import$71804 $auto$jsonparse.cc:561:json_import$71559 }
+    New ctrl vector for $pmux cell $procmux$17978: { $auto$opt_reduce.cc:137:opt_pmux$104 $auto$jsonparse.cc:561:json_import$125804 }
+    New ctrl vector for $pmux cell $procmux$17965: { $auto$opt_reduce.cc:137:opt_pmux$106 $auto$jsonparse.cc:561:json_import$125804 }
+    New ctrl vector for $pmux cell $procmux$11737: { $auto$jsonparse.cc:561:json_import$137752 $auto$jsonparse.cc:561:json_import$137353 $auto$opt_reduce.cc:137:opt_pmux$110 $auto$opt_reduce.cc:137:opt_pmux$108 }
+    New ctrl vector for $pmux cell $procmux$36215: { $auto$jsonparse.cc:561:json_import$70399 $auto$jsonparse.cc:561:json_import$70305 $auto$jsonparse.cc:561:json_import$70302 }
+    New ctrl vector for $pmux cell $procmux$36703: { $auto$jsonparse.cc:561:json_import$70045 $auto$jsonparse.cc:561:json_import$69800 $auto$jsonparse.cc:561:json_import$69734 }
+    New ctrl vector for $pmux cell $procmux$35611: { $auto$jsonparse.cc:561:json_import$70743 $auto$jsonparse.cc:561:json_import$70724 $auto$jsonparse.cc:561:json_import$70738 }
+    New ctrl vector for $pmux cell $procmux$11751: $auto$opt_reduce.cc:137:opt_pmux$112
+    New ctrl vector for $pmux cell $procmux$33786: { $auto$jsonparse.cc:561:json_import$72568 $auto$jsonparse.cc:561:json_import$72559 }
+    New ctrl vector for $pmux cell $procmux$35727: { $auto$jsonparse.cc:561:json_import$70743 $auto$jsonparse.cc:561:json_import$70724 $auto$jsonparse.cc:561:json_import$70652 }
+    New ctrl vector for $pmux cell $procmux$11466: $auto$opt_reduce.cc:137:opt_pmux$114
+    New ctrl vector for $pmux cell $procmux$34751: { $auto$jsonparse.cc:561:json_import$71482 $auto$jsonparse.cc:561:json_import$71245 $auto$jsonparse.cc:561:json_import$71187 }
+    New ctrl vector for $pmux cell $procmux$35239: { $auto$jsonparse.cc:561:json_import$71110 $auto$jsonparse.cc:561:json_import$71106 $auto$jsonparse.cc:561:json_import$71022 }
+    New ctrl vector for $pmux cell $procmux$11334: { $auto$jsonparse.cc:561:json_import$140444 $auto$jsonparse.cc:561:json_import$140030 $auto$opt_reduce.cc:137:opt_pmux$118 $auto$opt_reduce.cc:137:opt_pmux$116 }
+    New ctrl vector for $pmux cell $procmux$37075: { $auto$jsonparse.cc:561:json_import$69681 $auto$jsonparse.cc:561:json_import$69680 $auto$jsonparse.cc:561:json_import$69651 }
+    New ctrl vector for $pmux cell $procmux$18026: { $auto$opt_reduce.cc:137:opt_pmux$120 $auto$jsonparse.cc:561:json_import$125779 }
+    New ctrl vector for $pmux cell $procmux$11832: { $auto$jsonparse.cc:561:json_import$137079 $auto$jsonparse.cc:561:json_import$136932 $auto$opt_reduce.cc:137:opt_pmux$124 $auto$opt_reduce.cc:137:opt_pmux$122 }
+    New ctrl vector for $pmux cell $procmux$39209: $auto$opt_reduce.cc:137:opt_pmux$126
+    New ctrl vector for $pmux cell $procmux$35572: { $auto$jsonparse.cc:561:json_import$70743 $auto$jsonparse.cc:561:json_import$70724 }
+    New ctrl vector for $pmux cell $procmux$18013: { $auto$opt_reduce.cc:137:opt_pmux$128 $auto$jsonparse.cc:561:json_import$125779 }
+    New ctrl vector for $pmux cell $procmux$11324: $auto$opt_reduce.cc:137:opt_pmux$130
+    New ctrl vector for $pmux cell $procmux$11429: { $auto$jsonparse.cc:561:json_import$139701 $auto$jsonparse.cc:561:json_import$139287 $auto$opt_reduce.cc:137:opt_pmux$134 $auto$opt_reduce.cc:137:opt_pmux$132 }
+    New ctrl vector for $pmux cell $procmux$11809: { $auto$jsonparse.cc:561:json_import$137153 $auto$jsonparse.cc:561:json_import$136932 $auto$opt_reduce.cc:137:opt_pmux$138 $auto$opt_reduce.cc:137:opt_pmux$136 }
+    New ctrl vector for $pmux cell $procmux$11799: $auto$opt_reduce.cc:137:opt_pmux$140
+    New ctrl vector for $pmux cell $procmux$36060: { $auto$jsonparse.cc:561:json_import$70399 $auto$jsonparse.cc:561:json_import$70305 }
+    New ctrl vector for $pmux cell $procmux$19050: { $auto$jsonparse.cc:561:json_import$123893 $auto$jsonparse.cc:561:json_import$123892 $auto$jsonparse.cc:561:json_import$123907 }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$89: { $auto$jsonparse.cc:561:json_import$141008 $auto$jsonparse.cc:561:json_import$141137 $auto$jsonparse.cc:561:json_import$141138 $auto$jsonparse.cc:561:json_import$141139 }
+    New ctrl vector for $pmux cell $procmux$18633: { $auto$jsonparse.cc:561:json_import$124718 $auto$jsonparse.cc:561:json_import$124538 $auto$jsonparse.cc:561:json_import$124617 }
+    New ctrl vector for $pmux cell $procmux$18216: { $auto$jsonparse.cc:561:json_import$125311 $auto$jsonparse.cc:561:json_import$125294 $auto$jsonparse.cc:561:json_import$125189 }
+  Optimizing cells in module \ResetCube.
+Performed a total of 128 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetCube'.
+Computing hashes of 2832 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 2436 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 2269 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 2191 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 2148 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 2137 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+<suppressed ~2085 debug messages>
+Removed a total of 695 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+Removed 54 unused cells and 8470 unused wires.
+<suppressed ~55 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+<suppressed ~4 debug messages>
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ResetCube..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7139 debug messages>
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ResetCube.
+    New input vector for $reduce_or cell $reset_cube_adapter_592: { \bad_213 \bad_212 \bad_211 \bad_210 \bad_209 \bad_208 \bad_207 \bad_206 \bad_205 \bad_204 \bad_203 \bad_202 \bad_201 \bad_200 \bad_199 \bad_198 \bad_197 \bad_196 \bad_195 \bad_194 \bad_193 \bad_192 \bad_191 \bad_190 \bad_189 \bad_188 \bad_187 \bad_186 \bad_185 \bad_184 \bad_183 \bad_182 \bad_181 \bad_180 \bad_179 \bad_178 \bad_177 \bad_176 \bad_175 \bad_174 \bad_173 \bad_172 \bad_171 \bad_170 \bad_169 \bad_168 \bad_167 \bad_166 \bad_165 \bad_164 \bad_163 \bad_162 \bad_161 \bad_160 \bad_159 \bad_158 \bad_157 \bad_156 \bad_155 \bad_154 \bad_153 \bad_152 \bad_151 \bad_150 \bad_149 \bad_148 \bad_147 \bad_146 \bad_145 \bad_144 \bad_143 \bad_142 \bad_141 \bad_140 \bad_139 \bad_138 \bad_137 \bad_136 \bad_135 \bad_134 \bad_133 \bad_132 \bad_131 \bad_130 \bad_129 \bad_128 \bad_127 \bad_126 \bad_125 \bad_124 \bad_123 \bad_122 \bad_121 \bad_120 \bad_119 \bad_118 \bad_117 \bad_116 \bad_115 \bad_114 \bad_113 \bad_112 \bad_111 \bad_110 \bad_109 \bad_108 \bad_107 \bad_106 \bad_105 \bad_104 \bad_103 \bad_102 \bad_101 \bad_100 \bad_99 \bad_98 \bad_97 \bad_96 \bad_95 \bad_94 \bad_93 \bad_92 \bad_91 \bad_90 \bad_89 \bad_88 \bad_87 \bad_86 \bad_85 \bad_84 \bad_83 \bad_82 \bad_81 \bad_80 \bad_79 \bad_78 \bad_77 \bad_76 \bad_75 \bad_74 \bad_73 \bad_72 \bad_71 \bad_70 \bad_69 \bad_68 \bad_67 \bad_66 \bad_65 \bad_64 \bad_63 \bad_62 \bad_61 \bad_60 \bad_59 \bad_58 \bad_57 \bad_56 \bad_55 \bad_54 \bad_53 \bad_52 \bad_51 \bad_50 \bad_49 \bad_48 \bad_47 \bad_46 \bad_45 \bad_44 \bad_43 \bad_42 \bad_41 \bad_40 \bad_39 \bad_38 \bad_37 \bad_36 \bad_35 \bad_34 \bad_33 \bad_32 \bad_31 \bad_30 \bad_29 \bad_28 \bad_27 \bad_0 }
+    New ctrl vector for $pmux cell $procmux$11714: { $auto$opt_reduce.cc:137:opt_pmux$36 $auto$opt_reduce.cc:137:opt_pmux$38 $auto$opt_reduce.cc:137:opt_pmux$142 }
+    New ctrl vector for $pmux cell $procmux$11524: { $auto$opt_reduce.cc:137:opt_pmux$44 $auto$opt_reduce.cc:137:opt_pmux$46 $auto$opt_reduce.cc:137:opt_pmux$144 }
+    New ctrl vector for $pmux cell $procmux$14369: $auto$opt_reduce.cc:137:opt_pmux$146
+    New ctrl vector for $pmux cell $procmux$18666: { $auto$opt_reduce.cc:137:opt_pmux$148 $auto$jsonparse.cc:561:json_import$124472 $auto$jsonparse.cc:561:json_import$124328 $auto$jsonparse.cc:561:json_import$124063 }
+    New ctrl vector for $pmux cell $procmux$35123: { $auto$jsonparse.cc:561:json_import$70864 $auto$opt_reduce.cc:137:opt_pmux$150 }
+    New ctrl vector for $pmux cell $procmux$12985: $auto$opt_reduce.cc:137:opt_pmux$152
+    New ctrl vector for $pmux cell $procmux$17134: $auto$opt_reduce.cc:137:opt_pmux$154
+    New ctrl vector for $pmux cell $procmux$34635: { $auto$jsonparse.cc:561:json_import$71232 $auto$opt_reduce.cc:137:opt_pmux$156 }
+    New ctrl vector for $pmux cell $procmux$13677: $auto$opt_reduce.cc:137:opt_pmux$158
+    New ctrl vector for $pmux cell $procmux$35084: $auto$opt_reduce.cc:137:opt_pmux$160
+    New ctrl vector for $pmux cell $procmux$18633: { $auto$jsonparse.cc:561:json_import$124617 $auto$opt_reduce.cc:137:opt_pmux$162 }
+    New ctrl vector for $pmux cell $procmux$37191: { $auto$jsonparse.cc:561:json_import$68928 $auto$opt_reduce.cc:137:opt_pmux$164 }
+    New ctrl vector for $pmux cell $procmux$11927: { $auto$opt_reduce.cc:137:opt_pmux$22 $auto$opt_reduce.cc:137:opt_pmux$24 $auto$opt_reduce.cc:137:opt_pmux$166 }
+    New ctrl vector for $pmux cell $procmux$11452: { $auto$opt_reduce.cc:137:opt_pmux$68 $auto$opt_reduce.cc:137:opt_pmux$70 $auto$opt_reduce.cc:137:opt_pmux$168 }
+    New ctrl vector for $pmux cell $procmux$15061: $auto$opt_reduce.cc:137:opt_pmux$170
+    New ctrl vector for $pmux cell $procmux$11357: { $auto$opt_reduce.cc:137:opt_pmux$74 $auto$opt_reduce.cc:137:opt_pmux$76 $auto$opt_reduce.cc:137:opt_pmux$172 }
+    New ctrl vector for $pmux cell $procmux$37036: $auto$opt_reduce.cc:137:opt_pmux$174
+    New ctrl vector for $pmux cell $procmux$19083: { $auto$opt_reduce.cc:137:opt_pmux$176 $auto$jsonparse.cc:561:json_import$123891 $auto$jsonparse.cc:561:json_import$123601 $auto$jsonparse.cc:561:json_import$123517 }
+    New ctrl vector for $pmux cell $procmux$34596: $auto$opt_reduce.cc:137:opt_pmux$178
+    New ctrl vector for $pmux cell $procmux$11547: { $auto$opt_reduce.cc:137:opt_pmux$80 $auto$opt_reduce.cc:137:opt_pmux$82 $auto$opt_reduce.cc:137:opt_pmux$180 }
+    New ctrl vector for $pmux cell $procmux$11619: { $auto$opt_reduce.cc:137:opt_pmux$86 $auto$opt_reduce.cc:137:opt_pmux$88 $auto$opt_reduce.cc:137:opt_pmux$182 }
+    New ctrl vector for $pmux cell $procmux$16445: $auto$opt_reduce.cc:137:opt_pmux$184
+    New ctrl vector for $pmux cell $procmux$11642: { $auto$opt_reduce.cc:137:opt_pmux$18 $auto$opt_reduce.cc:137:opt_pmux$20 $auto$opt_reduce.cc:137:opt_pmux$186 }
+    New ctrl vector for $pmux cell $procmux$34147: { $auto$jsonparse.cc:561:json_import$71606 $auto$opt_reduce.cc:137:opt_pmux$188 }
+    New ctrl vector for $pmux cell $procmux$34108: $auto$opt_reduce.cc:137:opt_pmux$190
+    New ctrl vector for $pmux cell $procmux$15753: $auto$opt_reduce.cc:137:opt_pmux$192
+    New ctrl vector for $pmux cell $procmux$11904: { $auto$opt_reduce.cc:137:opt_pmux$30 $auto$opt_reduce.cc:137:opt_pmux$32 $auto$opt_reduce.cc:137:opt_pmux$194 }
+    New ctrl vector for $pmux cell $procmux$36548: $auto$opt_reduce.cc:137:opt_pmux$196
+    New ctrl vector for $pmux cell $procmux$34263: { $auto$jsonparse.cc:561:json_import$71559 $auto$opt_reduce.cc:137:opt_pmux$198 }
+    New ctrl vector for $pmux cell $procmux$11737: { $auto$opt_reduce.cc:137:opt_pmux$108 $auto$opt_reduce.cc:137:opt_pmux$110 $auto$opt_reduce.cc:137:opt_pmux$200 }
+    New ctrl vector for $pmux cell $procmux$36215: { $auto$jsonparse.cc:561:json_import$70098 $auto$opt_reduce.cc:137:opt_pmux$202 }
+    New ctrl vector for $pmux cell $procmux$36703: { $auto$jsonparse.cc:561:json_import$69734 $auto$opt_reduce.cc:137:opt_pmux$204 }
+    New ctrl vector for $pmux cell $procmux$35611: { $auto$jsonparse.cc:561:json_import$70507 $auto$opt_reduce.cc:137:opt_pmux$206 }
+    New ctrl vector for $pmux cell $procmux$36099: { $auto$jsonparse.cc:561:json_import$70152 $auto$opt_reduce.cc:137:opt_pmux$208 }
+    New ctrl vector for $pmux cell $procmux$35727: { $auto$jsonparse.cc:561:json_import$70462 $auto$opt_reduce.cc:137:opt_pmux$210 }
+    New ctrl vector for $pmux cell $procmux$36587: { $auto$jsonparse.cc:561:json_import$69785 $auto$opt_reduce.cc:137:opt_pmux$212 }
+    New ctrl vector for $pmux cell $procmux$34751: { $auto$jsonparse.cc:561:json_import$71187 $auto$opt_reduce.cc:137:opt_pmux$214 }
+    New ctrl vector for $pmux cell $procmux$35239: { $auto$jsonparse.cc:561:json_import$70818 $auto$opt_reduce.cc:137:opt_pmux$216 }
+    New ctrl vector for $pmux cell $procmux$11334: { $auto$opt_reduce.cc:137:opt_pmux$116 $auto$opt_reduce.cc:137:opt_pmux$118 $auto$opt_reduce.cc:137:opt_pmux$218 }
+    New ctrl vector for $pmux cell $procmux$37075: { $auto$jsonparse.cc:561:json_import$69100 $auto$opt_reduce.cc:137:opt_pmux$220 }
+    New ctrl vector for $pmux cell $procmux$18249: { $auto$opt_reduce.cc:137:opt_pmux$222 $auto$jsonparse.cc:561:json_import$125102 $auto$jsonparse.cc:561:json_import$124962 $auto$jsonparse.cc:561:json_import$124761 }
+    New ctrl vector for $pmux cell $procmux$12293: $auto$opt_reduce.cc:137:opt_pmux$224
+    New ctrl vector for $pmux cell $procmux$11832: { $auto$opt_reduce.cc:137:opt_pmux$122 $auto$opt_reduce.cc:137:opt_pmux$124 $auto$opt_reduce.cc:137:opt_pmux$226 }
+    New ctrl vector for $pmux cell $procmux$18216: { $auto$jsonparse.cc:561:json_import$125182 $auto$opt_reduce.cc:137:opt_pmux$228 }
+    New ctrl vector for $pmux cell $procmux$35572: $auto$opt_reduce.cc:137:opt_pmux$230
+    New ctrl vector for $pmux cell $procmux$11429: { $auto$opt_reduce.cc:137:opt_pmux$132 $auto$opt_reduce.cc:137:opt_pmux$134 $auto$opt_reduce.cc:137:opt_pmux$232 }
+    New ctrl vector for $pmux cell $procmux$11809: { $auto$opt_reduce.cc:137:opt_pmux$136 $auto$opt_reduce.cc:137:opt_pmux$138 $auto$opt_reduce.cc:137:opt_pmux$234 }
+    New ctrl vector for $pmux cell $procmux$36060: $auto$opt_reduce.cc:137:opt_pmux$236
+    New ctrl vector for $pmux cell $procmux$19050: { $auto$jsonparse.cc:561:json_import$123907 $auto$opt_reduce.cc:137:opt_pmux$238 }
+  Optimizing cells in module \ResetCube.
+Performed a total of 50 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetCube'.
+Computing hashes of 2128 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 2111 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+<suppressed ~51 debug messages>
+Removed a total of 17 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+Removed 0 unused cells and 19 unused wires.
+<suppressed ~1 debug messages>
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+
+2.7.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ResetCube..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7025 debug messages>
+
+2.7.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ResetCube.
+Performed a total of 0 changes.
+
+2.7.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetCube'.
+Computing hashes of 2111 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Removed a total of 0 cells.
+
+2.7.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+
+2.7.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+
+2.7.20. Finished fast OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$39214_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$39213_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$39212_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$39211_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$37570_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$37530_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$37526_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$37524_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$37084_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$37039_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$37037_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$36937_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$36914_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$36549_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$36449_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$36218_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$36086_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$35646_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$35620_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$35612_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$35132_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$35126_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$35118_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$34985_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$34962_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$34636_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$34497_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$34217_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$34124_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33915_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33906_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$33889_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33865_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33856_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$33839_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33815_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$33807_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33806_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33765_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33756_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$33739_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33715_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33706_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$33689_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33665_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33656_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$33639_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33615_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$33606_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$33589_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$33343_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$33342_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$33341_CMP0 ($eq).
+Removed top 2 bits (of 3) from mux cell ResetCube.$procmux$33320 ($mux).
+Removed top 2 bits (of 3) from mux cell ResetCube.$procmux$33282 ($mux).
+Removed top 2 bits (of 3) from mux cell ResetCube.$procmux$33263 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetCube.$procmux$3285 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetCube.$procmux$3279 ($mux).
+Removed top 1 bits (of 3) from mux cell ResetCube.$procmux$3273 ($mux).
+Removed top 3 bits (of 5) from mux cell ResetCube.$procmux$3262 ($mux).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$20314_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$20312_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$20170_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$20169_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$20168_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$20167_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$20166_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$20165_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$20159_CMP0 ($eq).
+Removed top 2 bits (of 3) from mux cell ResetCube.$procmux$20108 ($mux).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$19642_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$19502_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$19471_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$19177_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$19088_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$19055_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$18811_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$18671_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$18638_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$18394_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$18254_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$18211_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$18084_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$18076_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$18062_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$18036_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$18028_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$18014_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$17988_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$17980_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$17966_CMP0 ($eq).
+Removed top 1 bits (of 2) from mux cell ResetCube.$procmux$17925 ($mux).
+Removed top 1 bits (of 2) from mux cell ResetCube.$procmux$17887 ($mux).
+Removed top 2 bits (of 5) from port B of cell ResetCube.$procmux$17731_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell ResetCube.$procmux$17730_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell ResetCube.$procmux$17729_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell ResetCube.$procmux$17728_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$17047_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$17003_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$16980_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$16357_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$16313_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$16290_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$15748_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$15621_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$15598_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$15056_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$14929_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$14906_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$14364_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$14237_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$14214_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$13557_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$13545_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$13522_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$12882_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$12809_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$12807_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$12264_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$12161_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$12130_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11954_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11928_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$11922_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11921_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11920_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11919_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11905_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11859_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$11850_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11838_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11837_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11833_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11824_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11810_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11773_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11754_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11741_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11738_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11730_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$11721_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11715_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11669_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$11660_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11648_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11643_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11620_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11611_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11610_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11583_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$11542_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11539_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11530_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11529_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11525_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11499_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11488_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$11470_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11469_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11468_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11467_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11453_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11430_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11393_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$11375_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11374_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11373_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11372_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11358_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11335_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$procmux$11150_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11149_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$procmux$11146_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11123_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11122_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11121_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$procmux$11120_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ResetCube.$auto$opt_expr.cc:797:replace_const_cells$41708 ($and).
+Removed top 2 bits (of 6) from port Y of cell ResetCube.$auto$opt_expr.cc:797:replace_const_cells$41708 ($and).
+Removed top 2 bits (of 6) from port A of cell ResetCube.$auto$opt_expr.cc:797:replace_const_cells$41708 ($and).
+Removed top 1 bits (of 2) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226936 ($eq).
+Removed top 1 bits (of 3) from port A of cell ResetCube.$auto$demuxmap.cc:60:execute$226835 ($eq).
+Removed top 1 bits (of 3) from port A of cell ResetCube.$auto$demuxmap.cc:60:execute$226834 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226834 ($eq).
+Removed top 1 bits (of 3) from port A of cell ResetCube.$auto$demuxmap.cc:60:execute$226833 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226833 ($eq).
+Removed top 1 bits (of 3) from port A of cell ResetCube.$auto$demuxmap.cc:60:execute$226832 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226832 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226714 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226713 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226712 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226706 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226705 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$auto$demuxmap.cc:60:execute$226704 ($eq).
+Removed top 142 bits (of 217) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224325 ($mux).
+Removed top 142 bits (of 217) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224313 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224220 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224218 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224217 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224215 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224214 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224213 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224212 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224210 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224209 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224208 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224207 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224206 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224205 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224204 ($mux).
+Removed top 1 bits (of 5) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224203 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223916 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223876 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223875 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223873 ($mux).
+Removed top 97 bits (of 176) from mux cell ResetCube.$8675 ($mux).
+Removed top 97 bits (of 176) from mux cell ResetCube.$8674 ($mux).
+Removed top 1 bits (of 6) from port A of cell ResetCube.$8671 ($not).
+Removed top 96 bits (of 176) from mux cell ResetCube.$8669 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$8668 ($mux).
+Removed top 97 bits (of 176) from mux cell ResetCube.$8657 ($mux).
+Removed top 97 bits (of 176) from mux cell ResetCube.$8656 ($mux).
+Removed top 1 bits (of 6) from port A of cell ResetCube.$8653 ($not).
+Removed top 96 bits (of 176) from mux cell ResetCube.$8651 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$8650 ($mux).
+Removed top 97 bits (of 176) from mux cell ResetCube.$8638 ($mux).
+Removed top 97 bits (of 176) from mux cell ResetCube.$8637 ($mux).
+Removed top 97 bits (of 176) from mux cell ResetCube.$8636 ($mux).
+Removed top 1 bits (of 6) from port A of cell ResetCube.$8633 ($not).
+Removed top 97 bits (of 176) from mux cell ResetCube.$8632 ($mux).
+Removed top 97 bits (of 176) from mux cell ResetCube.$8631 ($mux).
+Removed top 1 bits (of 6) from port A of cell ResetCube.$8628 ($not).
+Removed top 175 bits (of 176) from mux cell ResetCube.$8116 ($mux).
+Removed top 175 bits (of 176) from mux cell ResetCube.$8115 ($mux).
+Removed top 170 bits (of 176) from mux cell ResetCube.$8109 ($mux).
+Removed top 170 bits (of 176) from mux cell ResetCube.$8108 ($mux).
+Removed top 169 bits (of 176) from mux cell ResetCube.$8102 ($mux).
+Removed top 169 bits (of 176) from mux cell ResetCube.$8101 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$8096 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$8095 ($mux).
+Removed top 168 bits (of 176) from mux cell ResetCube.$8089 ($mux).
+Removed top 168 bits (of 176) from mux cell ResetCube.$8088 ($mux).
+Removed top 161 bits (of 176) from mux cell ResetCube.$8076 ($mux).
+Removed top 161 bits (of 176) from mux cell ResetCube.$8075 ($mux).
+Removed top 161 bits (of 176) from mux cell ResetCube.$8071 ($mux).
+Removed top 161 bits (of 176) from mux cell ResetCube.$8070 ($mux).
+Removed top 166 bits (of 176) from mux cell ResetCube.$8066 ($mux).
+Removed top 166 bits (of 176) from mux cell ResetCube.$8065 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$8059 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$8058 ($mux).
+Removed top 1 bits (of 6) from port A of cell ResetCube.$7985 ($not).
+Removed top 2 bits (of 5) from port A of cell ResetCube.$7935 ($and).
+Removed top 1 bits (of 65) from port Y of cell ResetCube.$5663 ($sshr).
+Removed top 64 bits (of 65) from port B of cell ResetCube.$5654 ($add).
+Removed top 1 bits (of 65) from port A of cell ResetCube.$5653 ($add).
+Removed top 1 bits (of 65) from port B of cell ResetCube.$5653 ($add).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$5333 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$5283 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$5233 ($eq).
+Removed top 1 bits (of 3) from port A of cell ResetCube.$4708 ($not).
+Removed top 1 bits (of 2) from port B of cell ResetCube.$4564 ($eq).
+Removed top 61 bits (of 64) from port B of cell ResetCube.$4415 ($add).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$2408 ($eq).
+Removed top 1 bits (of 4) from port A of cell ResetCube.$2396 ($not).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$2294 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$2289 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$2284 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$2263 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$2196 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$2149 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$2092 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$2035 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$1968 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$1921 ($eq).
+Removed top 1 bits (of 6) from port A of cell ResetCube.$1772 ($not).
+Removed top 1 bits (of 6) from port A of cell ResetCube.$1765 ($not).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225547 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225439 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224925 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224889 ($mux).
+Removed top 142 bits (of 217) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224320 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223928 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223927 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223925 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223905 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223891 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225545 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225544 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225437 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225436 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225328 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224923 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224886 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224815 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223885 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223884 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223883 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223882 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223881 ($mux).
+Removed top 143 bits (of 218) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$223880 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225542 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225541 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225540 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225539 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225434 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225433 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225432 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225431 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224920 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224919 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224918 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224917 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224884 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224883 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224882 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224845 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225537 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225536 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225535 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225534 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225533 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225532 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225531 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225530 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225429 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225428 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225427 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225426 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225425 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225424 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225423 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225422 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225321 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225318 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225317 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225284 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224914 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224913 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224910 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224909 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224908 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224879 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224876 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224875 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224841 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224838 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224801 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224800 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225528 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225527 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225526 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225525 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225524 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225523 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225522 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225521 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225520 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225519 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225518 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225517 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225516 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225515 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225514 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225513 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225420 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225419 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225418 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225417 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225416 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225415 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225414 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225413 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225412 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225411 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225410 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225409 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225408 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225407 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225406 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225405 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$225261 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224906 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224905 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224904 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224903 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224902 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224901 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224900 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224899 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224898 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224897 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224896 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224895 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224894 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224893 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224892 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224891 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224865 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224864 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224862 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224861 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224834 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224833 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224831 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224830 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224827 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224824 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224796 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224787 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224786 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224785 ($mux).
+Removed top 96 bits (of 176) from mux cell ResetCube.$auto$bmuxmap.cc:86:execute$224784 ($mux).
+Removed top 96 bits (of 176) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225510.
+Removed top 96 bits (of 352) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225507.
+Removed top 96 bits (of 704) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225502.
+Removed top 96 bits (of 1408) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225493.
+Removed top 96 bits (of 2816) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225476.
+Removed top 96 bits (of 176) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225402.
+Removed top 96 bits (of 352) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225399.
+Removed top 96 bits (of 704) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225394.
+Removed top 96 bits (of 1408) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225385.
+Removed top 96 bits (of 2816) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225368.
+Removed top 1 bits (of 2) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225183.
+Removed top 2 bits (of 4) from wire ResetCube.$auto$bmuxmap.cc:84:execute$225178.
+Removed top 96 bits (of 176) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224924.
+Removed top 96 bits (of 352) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224921.
+Removed top 96 bits (of 704) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224916.
+Removed top 96 bits (of 1408) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224907.
+Removed top 96 bits (of 2816) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224890.
+Removed top 96 bits (of 176) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224816.
+Removed top 96 bits (of 352) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224813.
+Removed top 96 bits (of 704) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224808.
+Removed top 96 bits (of 1408) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224799.
+Removed top 96 bits (of 2816) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224782.
+Removed top 142 bits (of 217) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224314.
+Removed top 142 bits (of 434) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224311.
+Removed top 142 bits (of 868) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224306.
+Removed top 1 bits (of 5) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224219.
+Removed top 1 bits (of 10) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224216.
+Removed top 1 bits (of 20) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224211.
+Removed top 1 bits (of 40) from wire ResetCube.$auto$bmuxmap.cc:84:execute$224202.
+Removed top 143 bits (of 218) from wire ResetCube.$auto$bmuxmap.cc:84:execute$223877.
+Removed top 143 bits (of 436) from wire ResetCube.$auto$bmuxmap.cc:84:execute$223874.
+Removed top 143 bits (of 872) from wire ResetCube.$auto$bmuxmap.cc:84:execute$223869.
+Removed top 143 bits (of 1744) from wire ResetCube.$auto$bmuxmap.cc:84:execute$223860.
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+Removed 0 unused cells and 4033 unused wires.
+<suppressed ~1 debug messages>
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+<suppressed ~2 debug messages>
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetCube'.
+Computing hashes of 2109 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+Removed 3 unused cells and 2 unused wires.
+<suppressed ~4 debug messages>
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Executing SORT pass.
+
+2.13. Printing statistics.
+
+=== ResetCube ===
+
+        +----------Local Count, excluding submodules.
+        | 
+    20394 wires
+   145690 wire bits
+     6291 public wires
+    97631 public wire bits
+     6291 ports
+    97631 port bits
+     2106 cells
+        5   $add
+       51   $and
+      359   $eq
+       11   $ge
+       47   $logic_and
+       56   $logic_not
+        2   $lt
+     1152   $mux
+        5   $ne
+       22   $not
+       11   $or
+      111   $pmux
+      156   $reduce_bool
+      116   $reduce_or
+        1   $sshr
+        1   $xor
+
+2.14. Executing CHECK pass (checking for obvious problems).
+Checking module ResetCube...
+Found and reported 0 problems.
+
+3. Executing SETUNDEF pass (replace undef values with defined constants).
+
+4. Executing CHECK pass (checking for obvious problems).
+Checking module ResetCube...
+Found and reported 0 problems.
+
+5. Executing JSON backend.

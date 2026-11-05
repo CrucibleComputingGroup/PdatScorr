@@ -1,0 +1,103 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/compile/run.ys' --
+
+1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv
+Parsing SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv' to AST representation.
+Generating RTLIL representation for module `\Tiny'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \Tiny
+
+2.2. Analyzing design hierarchy..
+Top module:  \Tiny
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:7$proc$10 in module Tiny.
+Marked 1 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:6$proc$9 in module Tiny.
+Marked 1 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:5$proc$7 in module Tiny.
+Marked 1 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:4$proc$5 in module Tiny.
+Marked 1 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:3$proc$3 in module Tiny.
+Marked 1 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:2$proc$1 in module Tiny.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_ni in `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:7$proc$10'.
+Found async reset \rst_ni in `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:6$proc$9'.
+Found async reset \other_rst in `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:5$proc$7'.
+Found async reset \rst_ni in `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:4$proc$5'.
+Found async reset \rst_ni in `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:3$proc$3'.
+Found async reset \rst_ni in `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:2$proc$1'.
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:7$proc$10'.
+     1/1: $0\g[0:0]
+Creating decoders for process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:6$proc$9'.
+     1/1: $0\f[0:0]
+Creating decoders for process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:5$proc$7'.
+     1/1: $0\e[0:0]
+Creating decoders for process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:4$proc$5'.
+     1/1: $0\c[0:0]
+Creating decoders for process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:3$proc$3'.
+     1/1: $0\b[0:0]
+Creating decoders for process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:2$proc$1'.
+     1/1: $0\a[0:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\Tiny.\g' using process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:7$proc$10'.
+  created $adff cell `$procdff$16' with positive edge clock and positive level reset.
+Creating register for signal `\Tiny.\f' using process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:6$proc$9'.
+  created $adff cell `$procdff$19' with positive edge clock and positive level reset.
+Creating register for signal `\Tiny.\e' using process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:5$proc$7'.
+  created $adff cell `$procdff$24' with positive edge clock and positive level reset.
+Creating register for signal `\Tiny.\c' using process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:4$proc$5'.
+  created $adff cell `$procdff$29' with positive edge clock and positive level reset.
+Creating register for signal `\Tiny.\b' using process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:3$proc$3'.
+  created $adff cell `$procdff$34' with negative edge clock and positive level reset.
+Creating register for signal `\Tiny.\a' using process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:2$proc$1'.
+  created $adff cell `$procdff$39' with positive edge clock and positive level reset.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:7$proc$10'.
+Removing empty process `Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:6$proc$9'.
+Removing empty process `Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:5$proc$7'.
+Removing empty process `Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:4$proc$5'.
+Removing empty process `Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:3$proc$3'.
+Removing empty process `Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_wrong_clock_reset_and_unk0/rtl/source.sv:2$proc$1'.
+Cleaned up 0 empty switches.
+
+4. Executing SETUNDEF pass (replace undef values with defined constants).
+
+5. Executing FLATTEN pass (flatten design).
+
+6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Tiny.
+<suppressed ~11 debug messages>
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Tiny..
+Removed 10 unused cells and 22 unused wires.
+<suppressed ~11 debug messages>
+
+8. Executing JSON backend.

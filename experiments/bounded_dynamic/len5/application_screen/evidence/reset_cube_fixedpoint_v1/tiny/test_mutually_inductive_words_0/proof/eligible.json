@@ -1,0 +1,112 @@
+[
+  {
+    "name": "$procdff$12",
+    "cell": {
+      "hide_name": 1,
+      "type": "$adff",
+      "parameters": {
+        "ARST_POLARITY": "00000000000000000000000000000000",
+        "ARST_VALUE": "101",
+        "CLK_POLARITY": "1",
+        "WIDTH": "00000000000000000000000000000011"
+      },
+      "attributes": {
+        "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_mutually_inductive_words_0/rtl/source.sv:2.7-3.33"
+      },
+      "port_directions": {
+        "ARST": "input",
+        "CLK": "input",
+        "D": "input",
+        "Q": "output"
+      },
+      "connections": {
+        "ARST": [
+          3
+        ],
+        "CLK": [
+          2
+        ],
+        "D": [
+          4,
+          5,
+          6
+        ],
+        "Q": [
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "width": 3,
+    "q": [
+      7,
+      8,
+      9
+    ],
+    "reset_value": [
+      "1",
+      "0",
+      "1"
+    ],
+    "reset_pin": "ARST",
+    "reset_polarity": 0,
+    "clock_polarity": 1,
+    "enable_polarity": null
+  },
+  {
+    "name": "$procdff$7",
+    "cell": {
+      "hide_name": 1,
+      "type": "$adff",
+      "parameters": {
+        "ARST_POLARITY": "00000000000000000000000000000000",
+        "ARST_VALUE": "101",
+        "CLK_POLARITY": "1",
+        "WIDTH": "00000000000000000000000000000011"
+      },
+      "attributes": {
+        "src": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_mutually_inductive_words_0/rtl/source.sv:2.7-3.33"
+      },
+      "port_directions": {
+        "ARST": "input",
+        "CLK": "input",
+        "D": "input",
+        "Q": "output"
+      },
+      "connections": {
+        "ARST": [
+          3
+        ],
+        "CLK": [
+          2
+        ],
+        "D": [
+          7,
+          8,
+          9
+        ],
+        "Q": [
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    "width": 3,
+    "q": [
+      4,
+      5,
+      6
+    ],
+    "reset_value": [
+      "1",
+      "0",
+      "1"
+    ],
+    "reset_pin": "ARST",
+    "reset_polarity": 0,
+    "clock_polarity": 1,
+    "enable_polarity": null
+  }
+]

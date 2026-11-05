@@ -1,0 +1,39 @@
+
+3. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk_i
+Import def constraint for this timestep: \rst_ni
+Import def constraint for this timestep: \d
+Imported 1 cells to SAT database.
+Import proof-constraint: \cube_bad = 1'0
+Final proof equation: \cube_bad = 1'0
+Import show expression: \d
+Import show expression: \rst_ni
+Import show expression: \clk_i
+Import show expression: \cube_bad
+Import show expression: \bad_1
+Import show expression: \bad_0
+
+Solving problem with 37 variables and 88 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Signal Name             Dec       Hex           Bin
+  --------------- ----------- --------- -------------
+  \bad_0                    0         0             0
+  \bad_1                    1         1             1
+  \clk_i                    0         0             0
+  \cube_bad                 1         1             1
+  \d                        1         1             1
+  \rst_ni                   1         1             1
+Dumping SAT model to WaveJSON file '/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_descending_cube_rechecks_0/proof/round_0/counterexample.json'.

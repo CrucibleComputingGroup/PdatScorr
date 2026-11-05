@@ -184,6 +184,14 @@ source theorem must be replayed before transferring conclusions through the
 existing pointwise substitutions; no internal occupancy or tag assumption is
 introduced.
 
+The [automatic reset-constant pass](application_screen/RESET_CUBE.md) also
+reaches a fixed point of 42 whole FF words, 583 bits, in seven conservative
+rounds. Source-bound reset-base and joint induction checks prove the complete
+remaining set; discarded hypotheses are not retained. Independent review
+confirms the exact patch. Eight bits occur in the native gate abstraction's
+inactive MUL/DIV arbitration state. These program-only constants are additional
+proof simplifications; their state count is not a timing or area result.
+
 The next proof simplification follows a closed program-only chain: the certified
 decoder excludes MUL/DIV dispatch, the native issue register preserves that
 exclusion, and the original insertion gates therefore never admit either unit.

@@ -1,0 +1,35 @@
+
+3. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Import set-constraint: \rst_ni = 1'0
+Final constraint equation: \rst_ni = 1'0
+Import def constraint for this timestep: \clk_i
+Import def constraint for this timestep: \rst_ni
+Import def constraint for this timestep: \free_state_0
+Import def constraint for this timestep: \free_state_1
+Imported 7 cells to SAT database.
+Import proof-constraint: \cube_bad = 1'0
+Final proof equation: \cube_bad = 1'0
+Import show expression: \free_state_1
+Import show expression: \free_state_0
+Import show expression: \rst_ni
+Import show expression: \clk_i
+Import show expression: \cube_bad
+Import show expression: \bad_1
+Import show expression: \bad_0
+
+Solving problem with 196 variables and 513 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

@@ -1,0 +1,97 @@
+{
+  "status": "empty_cube_no_simplification",
+  "query_only": true,
+  "accepted_optimization": false,
+  "input_sha256": "36a17775e123628c6ee683017e07e4f76f7d558ebe34d8e58cbf54c24eae4109",
+  "runner_sha256": "d3723f7a96bebd21ba9cd06021a0ac928cebc048bbadec02c7910e31180dca28",
+  "yosys_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+  "eligibility": {
+    "top": "Tiny",
+    "clock": "clk_i",
+    "reset": "rst_ni",
+    "clock_polarity": 1,
+    "reset_polarity": 0,
+    "eligible_words": 1,
+    "eligible_bits": 1,
+    "rejected_state_cells": {
+      "$procdff$9": "Not a supported asynchronously reset FF word"
+    },
+    "native_memory_arrays": 0
+  },
+  "rounds": [
+    {
+      "candidate_words": 1,
+      "candidate_bits": 1,
+      "proof": {
+        "symbolize_execution": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_nonresettable_state_is_ar0/proof/round_0/symbolize/run.ys"
+          ],
+          "returncode": 0,
+          "timeout": false,
+          "seconds": 0.012781976256519556,
+          "script_sha256": "684d3d10b7706f005428272697dca56c3464ec52de03a89fb47f4db8319a0974",
+          "log_sha256": "a9ff4b610df751342fbcceaea27386d38ee1bd2e63bd823977002da0d4442250"
+        },
+        "projection_sha256": "7240bac01fe762459276182ffd57a2188e8d2f65db8fdfa0fc84d846aa78aadd",
+        "new_environmental_premises": [],
+        "source_cell_adapter_semantics": "Reset overrides enable; otherwise source D updates when native enable is active and source Q holds when inactive. Base observes reset-visible native Q. All clocks/resets/polarities and constant reset words are bound to original cells.",
+        "status": "counterexample",
+        "execution": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_nonresettable_state_is_ar0/proof/round_0/execution/run.ys"
+          ],
+          "returncode": 0,
+          "timeout": false,
+          "seconds": 0.0155095593072474,
+          "script_sha256": "d782b0cae9bbae86e281cd09ee3c7386652a073610f9ba058d7efbf304ebc0fd",
+          "log_sha256": "ff98bfa14d98a0ac0c33ef7c36ca83b226c8ecf2839a17816cc66c174de14f21"
+        },
+        "binary_choice_exposure": {
+          "before_prep": [],
+          "after_prep": [],
+          "semantics": "Every symbolic output becomes a fresh unrestricted binary top input. No symbolic value is fixed or omitted."
+        },
+        "lowered_sha256": "4a8f49dc8477087f70cf032b5d7ec5b77d6ce165981675d83f9ad1ba3607ed61",
+        "lowered_cells": 1,
+        "lowered_cell_types": {
+          "$mux": 1
+        },
+        "lowered_input_bits": 4,
+        "initial_cofactor_output_constants": {
+          "$procdff$8": 6
+        },
+        "sat_execution": {
+          "argv": [
+            "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+            "-Q",
+            "-T",
+            "-s",
+            "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_nonresettable_state_is_ar0/proof/round_0/sat_execution/run.ys"
+          ],
+          "returncode": 0,
+          "timeout": false,
+          "seconds": 0.01517827669158578,
+          "script_sha256": "1999201045096b40f4ee49e2392d5f1bd71baa18d38040e9ed9e88f804ff5990",
+          "log_sha256": "7fd0abf53b4f499f70634ee214dcfd3301fc1d8017e3861b96ed81be0c65d62b"
+        },
+        "sat_log_sha256": "91a04af4161c902c1bbbfb67ad4c6cf8936a1a10c04300f7d923b9dae682e9eb",
+        "refuted_words": [
+          "$procdff$8"
+        ],
+        "counterexample_sha256": "033ed84e1b887f207f384a92d1c5e6010570d7a6642cf4f3a42210fc01f1916f"
+      }
+    }
+  ],
+  "selected_words": [],
+  "selected_bits": 0,
+  "scope": "Reset-conditioned whole-word constant facts; no timing, occupancy, readiness, program-order or admission premise."
+}

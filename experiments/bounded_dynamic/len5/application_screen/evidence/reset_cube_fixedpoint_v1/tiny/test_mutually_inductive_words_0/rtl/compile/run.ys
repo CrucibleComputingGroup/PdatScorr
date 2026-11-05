@@ -1,0 +1,8 @@
+read_verilog -sv "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_mutually_inductive_words_0/rtl/source.sv"
+hierarchy -top Tiny
+proc -noopt
+setundef -anyseq
+flatten
+opt_expr -keepdc
+opt_clean
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_mutually_inductive_words_0/rtl/source.json"

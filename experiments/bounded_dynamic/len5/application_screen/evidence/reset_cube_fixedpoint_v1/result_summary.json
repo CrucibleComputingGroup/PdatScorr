@@ -1,0 +1,191 @@
+{
+  "status": "reset_cube_certified_query_patch_only",
+  "accepted_hardware_optimization": false,
+  "query_only": true,
+  "source_run": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_native_fixedpoint_v1",
+  "source_summary_sha256": "e8edf8b0719181821398feeefaeded183749e467a69c8abf9cc5a9756b62cd50",
+  "original_property_free_input_sha256": "bb52d686f974809e0bebd4e2b373414ec9a53af34cff5a6a48d1e5ab2465307b",
+  "runner_sources_sha256": {
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/reset_cube.py": "d3723f7a96bebd21ba9cd06021a0ac928cebc048bbadec02c7910e31180dca28",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/reset_cube_fixedpoint.py": "3c1c28ff8024e4af598e0b9490cb4ca6f1746614d877e5c164ea4ab9b8fb88dc",
+    "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/reset_cube_report.py": "38082f75b064d35553984bc207d774e6bd61687eb1e32db30b0ba8c678fb8555"
+  },
+  "initial_prepare_only_summary": {
+    "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_native_prepare_v1/summary.json",
+    "sha256": "e3b56ec42c2384452f0b57a8e0384230f25d7231579b344f5f0dff54a4bf93ca",
+    "eligible_words": 1138,
+    "eligible_bits": 21882,
+    "cofactor": {
+      "constant_zero": 1127,
+      "constant_one": 0,
+      "dynamic": 11
+    },
+    "native_sat_queries": 0
+  },
+  "rounds": [
+    {
+      "index": 0,
+      "candidate_words": 1138,
+      "candidate_bits": 21882,
+      "kept_words": 1127,
+      "discarded_words": 11,
+      "prepared_cells": 8
+    },
+    {
+      "index": 1,
+      "candidate_words": 1127,
+      "candidate_bits": 21733,
+      "kept_words": 683,
+      "discarded_words": 444,
+      "prepared_cells": 841
+    },
+    {
+      "index": 2,
+      "candidate_words": 683,
+      "candidate_bits": 14712,
+      "kept_words": 530,
+      "discarded_words": 153,
+      "prepared_cells": 902
+    },
+    {
+      "index": 3,
+      "candidate_words": 530,
+      "candidate_bits": 11353,
+      "kept_words": 296,
+      "discarded_words": 234,
+      "prepared_cells": 2810
+    },
+    {
+      "index": 4,
+      "candidate_words": 296,
+      "candidate_bits": 6934,
+      "kept_words": 108,
+      "discarded_words": 188,
+      "prepared_cells": 2106
+    },
+    {
+      "index": 5,
+      "candidate_words": 108,
+      "candidate_bits": 2563,
+      "kept_words": 42,
+      "discarded_words": 66,
+      "prepared_cells": 284
+    },
+    {
+      "index": 6,
+      "candidate_words": 42,
+      "candidate_bits": 583,
+      "kept_words": 42,
+      "discarded_words": 0,
+      "prepared_cells": 0
+    }
+  ],
+  "certified_words": 42,
+  "certified_bits": 583,
+  "groups": {
+    "DIV pipeline/operands/arbiters": {
+      "words": 19,
+      "bits": 421
+    },
+    "MUL pipeline/operands/arbiters": {
+      "words": 7,
+      "bits": 146
+    },
+    "store-buffer speculative flags": {
+      "words": 16,
+      "bits": 16
+    }
+  },
+  "final_proofs": {
+    "induction": {
+      "status": "proved_combinationally",
+      "source_projection_sha256": "3ed85a2c52d7acd0c8eced14881b7b52a9edd64359bb75ee0c3e4d52a871d518",
+      "lowered_sha256": "5c1079c00b5c92572bc2f28e69babea1b1d494847f0a37c92c099a8227d452ae",
+      "sat_log_sha256": "a6b8be9904399907283583059be6afcfb5c5a9f7d5458319ecfb432358634e6f",
+      "sat_execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_native_fixedpoint_v1/final_induction/sat_execution/run.ys"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 0.48974693892523646,
+        "script_sha256": "93b5d5a95825dc439194c89ed353c398625136484f598acf841ce89844d7ebeb",
+        "log_sha256": "81b151a6aca5f870ce6c1ae994020f6a377607a8a437a55847b8bc06fa7260b9"
+      },
+      "lowered_cells": 0,
+      "reset_premise": null,
+      "source_projection_reconstructed_exactly": true
+    },
+    "base": {
+      "status": "proved_combinationally",
+      "source_projection_sha256": "ee6c70eea28be2f121447d574c2ad9bf95b8a501964342eadf241a43a8986b73",
+      "lowered_sha256": "4cab112540772d07497840327cb99dcbe241b10e8910013450b09a2d1f29f33e",
+      "sat_log_sha256": "e092350cf8bd01ad55d7ea153f2969ad85d97e859aced769f25b34b74f4c8cb5",
+      "sat_execution": {
+        "argv": [
+          "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+          "-Q",
+          "-T",
+          "-s",
+          "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_native_fixedpoint_v1/final_base/sat_execution/run.ys"
+        ],
+        "returncode": 0,
+        "timeout": false,
+        "seconds": 0.5115149980410933,
+        "script_sha256": "c20e05a7753e42f3ab16d93560cc10aed9eb44647d014adc20c15dee2e9beeb0",
+        "log_sha256": "8d066f84101ad5a51d1b7853752ebe7d1c4093b7e9f3d9a684c973965efed101"
+      },
+      "lowered_cells": 62,
+      "reset_premise": {
+        "rst_ni": 0
+      },
+      "source_projection_reconstructed_exactly": true
+    }
+  },
+  "graph_audit": {
+    "exact_graph_audit": true,
+    "whole_ff_words_removed": 42,
+    "constant_bits": 583,
+    "all_other_cell_functions_preserved": true,
+    "native_memories_preserved": true,
+    "formal_cells_added": 0
+  },
+  "query_only_patch_sha256": "6192d7a41d51a0e11e8e4bb2b13128fc767ba7e4061cce27612ef7ee727e2323",
+  "selected_words_sha256": "496aa9e135f7f68fd4ac91980715afce383efdd3a6b15bf3162a28f70f294535",
+  "patch_sha256": "0466e4be74fb98b2b8b8d6a94421c2ba8407d677eb5d21c71ab7bd85484e5f23",
+  "elapsed_seconds": 106.54655366297811,
+  "final_proof_seconds": 23.23323761485517,
+  "source_dependency_count": 284,
+  "source_dependencies_verified": true,
+  "validation": {
+    "tests_passed": 16,
+    "execution": {
+      "argv": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/unit/test_reset_cube.py",
+        "tests/unit/test_reset_cube_fixedpoint.py",
+        "--basetemp",
+        "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1"
+      ],
+      "returncode": 0,
+      "seconds": 1.3361656619235873,
+      "log_sha256": "ce4ca2cba8e82e14165eda7b11438b286676f522db5a05de766b54b33bd9b601",
+      "test_source_sha256": {
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/tests/unit/test_reset_cube.py": "95d0dfc4571ec449501807d9ddc31cf4251a7563d6984ae253a0e46270eab39f",
+        "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/tests/unit/test_reset_cube_fixedpoint.py": "1aecf43d7f83f5b92f58bfe22a0b15fea13696bd6a4c9b8639aa5f9df45435b1"
+      }
+    },
+    "includes_false_fixedpoint_negative": true
+  },
+  "new_admission_or_timing_premises": [],
+  "main_query_integrated": false,
+  "physical_map_performed": false,
+  "interpretation": "A source-bound, reset-conditioned constant cube for a separately proved property-free input graph. Native arithmetic is retained. The two final combinational SAT checks establish reset base and simultaneous transition closure. This is additional proof-model simplification, not an ALU admission theorem, timing savings, or accepted hardware optimization."
+}

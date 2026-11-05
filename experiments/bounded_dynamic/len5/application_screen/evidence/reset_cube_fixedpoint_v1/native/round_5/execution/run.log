@@ -1,0 +1,260 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_native_fixedpoint_v1/round_5/execution/run.ys' --
+
+1. Executing JSON frontend.
+Importing module ResetCube from JSON tree.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \ResetCube
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \ResetCube
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+<suppressed ~2945 debug messages>
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module ResetCube...
+Found and reported 0 problems.
+
+2.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+Removed 16067 unused cells and 191621 unused wires.
+<suppressed ~16068 debug messages>
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetCube'.
+Computing hashes of 558 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 540 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 395 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 387 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+<suppressed ~513 debug messages>
+Removed a total of 171 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ResetCube..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$41136.
+    dead port 2/2 on $mux $procmux$41607.
+    dead port 1/2 on $mux $procmux$41288.
+    dead port 1/2 on $mux $procmux$41139.
+    dead port 2/2 on $mux $procmux$41590.
+    dead port 1/2 on $mux $procmux$41298.
+    dead port 2/2 on $mux $procmux$41577.
+    dead port 1/2 on $mux $procmux$41130.
+    dead port 2/2 on $mux $procmux$41626.
+    dead port 1/2 on $mux $procmux$41125.
+    dead port 2/2 on $mux $procmux$41588.
+    dead port 1/2 on $mux $procmux$41291.
+    dead port 2/2 on $mux $procmux$41127.
+    dead port 2/2 on $mux $procmux$41618.
+    dead port 2/2 on $mux $procmux$41598.
+    dead port 1/2 on $mux $procmux$41636.
+    dead port 1/2 on $mux $procmux$41145.
+    dead port 2/2 on $mux $procmux$41596.
+    dead port 2/2 on $mux $procmux$41628.
+    dead port 2/2 on $mux $procmux$41605.
+Removed 20 multiplexer ports.
+<suppressed ~2088 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ResetCube.
+    New input vector for $reduce_or cell $reset_cube_adapter_216: { \bad_107 \bad_106 \bad_105 \bad_104 \bad_103 \bad_102 \bad_101 \bad_100 \bad_99 \bad_98 \bad_97 \bad_96 \bad_95 \bad_94 \bad_93 \bad_92 \bad_91 \bad_90 \bad_89 \bad_88 \bad_87 \bad_86 \bad_85 \bad_84 \bad_83 \bad_82 \bad_81 \bad_80 \bad_79 \bad_78 \bad_77 \bad_76 \bad_75 \bad_74 \bad_73 \bad_72 \bad_71 \bad_70 \bad_69 \bad_68 \bad_67 \bad_66 \bad_65 \bad_64 \bad_63 \bad_62 \bad_61 \bad_60 \bad_59 \bad_58 \bad_57 \bad_56 \bad_55 \bad_54 \bad_53 \bad_52 \bad_51 \bad_50 \bad_49 \bad_48 \bad_47 \bad_46 \bad_45 \bad_44 \bad_43 \bad_42 }
+    New ctrl vector for $pmux cell $procmux$41311: $auto$opt_reduce.cc:137:opt_pmux$2
+    New ctrl vector for $pmux cell $procmux$41330: $auto$opt_reduce.cc:137:opt_pmux$4
+    New ctrl vector for $pmux cell $procmux$20047: $auto$opt_reduce.cc:137:opt_pmux$6
+    New ctrl vector for $pmux cell $procmux$17718: $auto$opt_reduce.cc:137:opt_pmux$8
+  Optimizing cells in module \ResetCube.
+Performed a total of 5 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetCube'.
+Computing hashes of 371 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 366 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 286 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Computing hashes of 284 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+<suppressed ~261 debug messages>
+Removed a total of 87 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+Removed 0 unused cells and 2707 unused wires.
+<suppressed ~1 debug messages>
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+
+2.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ResetCube..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~634 debug messages>
+
+2.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ResetCube.
+Performed a total of 0 changes.
+
+2.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetCube'.
+Computing hashes of 284 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Removed a total of 0 cells.
+
+2.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+
+2.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+
+2.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 3 bits (of 4) from mux cell ResetCube.$procmux$41633 ($mux).
+Removed top 1 bits (of 2) from port B of cell ResetCube.$procmux$41615_CMP0 ($eq).
+Removed top 1 bits (of 32) from mux cell ResetCube.$procmux$41586 ($mux).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$41334_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$41333_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell ResetCube.$procmux$41238_CMP0 ($eq).
+Removed top 7 bits (of 8) from mux cell ResetCube.$procmux$41134 ($mux).
+Removed top 1 bits (of 3) from port B of cell ResetCube.$procmux$20048_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ResetCube.$procmux$20032_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell ResetCube.$procmux$17720_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$auto$demuxmap.cc:64:execute$222364 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$auto$demuxmap.cc:64:execute$222361 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$auto$demuxmap.cc:64:execute$222022 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$auto$demuxmap.cc:64:execute$221935 ($eq).
+Removed top 2 bits (of 4) from port B of cell ResetCube.$auto$demuxmap.cc:64:execute$221731 ($eq).
+Removed top 3 bits (of 4) from port B of cell ResetCube.$auto$demuxmap.cc:64:execute$221680 ($eq).
+Removed top 1 bits (of 4) from port B of cell ResetCube.$auto$demuxmap.cc:64:execute$221650 ($eq).
+Removed top 1 bits (of 3) from port A of cell ResetCube.$706 ($not).
+Removed top 1 bits (of 5) from port A of cell ResetCube.$56 ($not).
+Removed top 4 bits (of 5) from port B of cell ResetCube.$417 ($eq).
+Removed top 16 bits (of 32) from port B of cell ResetCube.$415 ($eq).
+Removed top 59 bits (of 121) from mux cell ResetCube.$134 ($mux).
+Removed top 1 bits (of 121) from mux cell ResetCube.$127 ($mux).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+Removed 0 unused cells and 71 unused wires.
+<suppressed ~1 debug messages>
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ResetCube.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ResetCube'.
+Computing hashes of 284 cells of `\ResetCube'.
+Finding duplicate cells in `\ResetCube'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ResetCube..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Executing SORT pass.
+
+2.13. Printing statistics.
+
+=== ResetCube ===
+
+        +----------Local Count, excluding submodules.
+        | 
+    26565 wires
+   133699 wire bits
+     6291 public wires
+   101814 public wire bits
+     6291 ports
+   101814 port bits
+      284 cells
+        9   $and
+       31   $eq
+        2   $ge
+        4   $logic_and
+        4   $logic_not
+        1   $lt
+      166   $mux
+       16   $ne
+        7   $not
+        2   $or
+        1   $pmux
+        1   $reduce_and
+       34   $reduce_bool
+        5   $reduce_or
+        1   $xor
+
+2.14. Executing CHECK pass (checking for obvious problems).
+Checking module ResetCube...
+Found and reported 0 problems.
+
+3. Executing SETUNDEF pass (replace undef values with defined constants).
+
+4. Executing CHECK pass (checking for obvious problems).
+Checking module ResetCube...
+Found and reported 0 problems.
+
+5. Executing JSON backend.

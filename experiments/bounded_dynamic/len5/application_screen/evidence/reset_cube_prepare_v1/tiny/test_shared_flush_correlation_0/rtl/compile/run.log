@@ -1,0 +1,68 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_shared_flush_correlation_0/rtl/compile/run.ys' --
+
+1. Executing Verilog-2005 frontend: /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_shared_flush_correlation_0/rtl/source.sv
+Parsing SystemVerilog input from `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_shared_flush_correlation_0/rtl/source.sv' to AST representation.
+Generating RTLIL representation for module `\Tiny'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \Tiny
+
+2.2. Analyzing design hierarchy..
+Top module:  \Tiny
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_shared_flush_correlation_0/rtl/source.sv:3$proc$2 in module Tiny.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_ni in `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_shared_flush_correlation_0/rtl/source.sv:3$proc$2'.
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_shared_flush_correlation_0/rtl/source.sv:3$proc$2'.
+     1/1: $0\q[0:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\Tiny.\q' using process `\Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_shared_flush_correlation_0/rtl/source.sv:3$proc$2'.
+  created $adff cell `$procdff$9' with positive edge clock and positive level reset.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `Tiny.$/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_tiny_v1/test_shared_flush_correlation_0/rtl/source.sv:3$proc$2'.
+Cleaned up 0 empty switches.
+
+4. Executing SETUNDEF pass (replace undef values with defined constants).
+
+5. Executing FLATTEN pass (flatten design).
+
+6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Tiny.
+<suppressed ~2 debug messages>
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Tiny..
+Removed 2 unused cells and 5 unused wires.
+<suppressed ~3 debug messages>
+
+8. Executing JSON backend.

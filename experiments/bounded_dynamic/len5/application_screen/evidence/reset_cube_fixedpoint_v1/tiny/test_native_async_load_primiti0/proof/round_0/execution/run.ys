@@ -1,0 +1,5 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_native_async_load_primiti0/proof/round_0/binary_inputs_before_prep.json"
+prep -top ResetCube
+setundef -anyseq
+check -assert
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/reset_cube_all_tiny_v1/test_native_async_load_primiti0/proof/round_0/normalized_symbolic.json"
