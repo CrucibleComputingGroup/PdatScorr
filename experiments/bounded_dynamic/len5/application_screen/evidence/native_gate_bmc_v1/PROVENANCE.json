@@ -1,0 +1,394 @@
+{
+  "status": "counterexample_in_abstraction_only",
+  "accepted_optimization": false,
+  "unbounded_certificate": false,
+  "counterexample_frame": 29,
+  "reported_no_counterexample_frames": null,
+  "requested_frames": 128,
+  "requested_seconds": 120,
+  "actual_solver_seconds": 63.01624873280525,
+  "input_header": [
+    "aig",
+    "15559",
+    "1581",
+    "684",
+    "1",
+    "13294"
+  ],
+  "input_sha256": "0a94a91031d3ea078987237e1ff3c50a9fe997b6790e34f93e92a4cf0f232e38",
+  "exact_map_replay": true,
+  "all_source_dependencies_revalidated": true,
+  "source_dependency_count": 291,
+  "native_hardware_sha256": "2426b17743dfc23d806d5c544f9c6ebbc722909ed01442f0cb41403a11ad4b48",
+  "native_source_query_arithmetic_retained": true,
+  "toy_outcomes": [
+    {
+      "directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0",
+      "status": "bounded_only_no_certificate",
+      "summary_sha256": "5690db2c6e38bf14ba81e2bc3cc39549d2aa74b5f6db2e07e84795844b61c9f0"
+    },
+    {
+      "directory": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1",
+      "status": "counterexample_in_abstraction_only",
+      "summary_sha256": "4eac1522c68083188582e5616f7c4c7572ccf0ed643e6149e01ed3df72edf8f6"
+    }
+  ],
+  "source_gate_map": {
+    "sha256": "51a131e00f032578d3ba79c9cf31cebc7dadf310658e9d620623798beb135045",
+    "original_path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_gla_v1/final_map.aig",
+    "existing_compact_copy": "../native_gate_solver_v1/query/final_map.aig.gz"
+  },
+  "interpretation": "Bounded diagnostic of an overapproximation only. A validated counterexample is not a native execution until concretized; bounded absence is not an unbounded certificate. No PDR or refinement follows automatically.",
+  "artifacts": [
+    {
+      "path": "query/bmc/bmc.log",
+      "sha256": "c5c41791fe9cab0aedb4a731b731494bfc5247147a072a551da9d3fe315c67c2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/bmc/bmc.log",
+      "source_sha256": "c5c41791fe9cab0aedb4a731b731494bfc5247147a072a551da9d3fe315c67c2",
+      "gzip": false
+    },
+    {
+      "path": "query/bmc/bmc.status",
+      "sha256": "5b1e79fd991c2f31ca1b674d5d91a94f951fd5982330283a1e25497fb80b2e49",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/bmc/bmc.status",
+      "source_sha256": "5b1e79fd991c2f31ca1b674d5d91a94f951fd5982330283a1e25497fb80b2e49",
+      "gzip": false
+    },
+    {
+      "path": "query/bmc/counterexample.aiw",
+      "sha256": "f1f27de54952f3ccd5ea8f1bcf98949cb42067e2ef445ca619a2ae373b635f04",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/bmc/counterexample.aiw",
+      "source_sha256": "f1f27de54952f3ccd5ea8f1bcf98949cb42067e2ef445ca619a2ae373b635f04",
+      "gzip": false
+    },
+    {
+      "path": "query/bmc/gate_bmc.py",
+      "sha256": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/bmc/gate_bmc.py",
+      "source_sha256": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208",
+      "gzip": false
+    },
+    {
+      "path": "query/bmc/summary.json",
+      "sha256": "9196d85cfd5ba1378ff2d9732eeb335dada87fc601f0bb68d05aa79a9755b5f5",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/bmc/summary.json",
+      "source_sha256": "9196d85cfd5ba1378ff2d9732eeb335dada87fc601f0bb68d05aa79a9755b5f5",
+      "gzip": false
+    },
+    {
+      "path": "query/bmc/validate_cex.log",
+      "sha256": "364cb89db4c5b89b40a1affe41377b4309656e6fb968af8c301eb166d2abe80b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/bmc/validate_cex.log",
+      "source_sha256": "364cb89db4c5b89b40a1affe41377b4309656e6fb968af8c301eb166d2abe80b",
+      "gzip": false
+    },
+    {
+      "path": "query/map_replay/derive.log",
+      "sha256": "601c0af173f6460af081eb21cdc23e79a92565d36ab5c302187a6e2279474438",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/map_replay/derive.log",
+      "source_sha256": "601c0af173f6460af081eb21cdc23e79a92565d36ab5c302187a6e2279474438",
+      "gzip": false
+    },
+    {
+      "path": "query/map_replay/rederived.aig.gz",
+      "sha256": "c33ec5f6b5402dffa1d313216f1ae1a84193dd352f4c9838a1df62fce19383b2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/map_replay/rederived.aig",
+      "source_sha256": "0a94a91031d3ea078987237e1ff3c50a9fe997b6790e34f93e92a4cf0f232e38",
+      "gzip": true
+    },
+    {
+      "path": "query/summary.json.gz",
+      "sha256": "9ca0d93fd7fadc0715db386ef5c5e1e69b689d5055d8a924281f050da542aad6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/summary.json",
+      "source_sha256": "af0484630942adbd105d6f54e419b31e27a204183296626573c784ea3b514da7",
+      "gzip": true
+    },
+    {
+      "path": "query/wrapper_sources/gate_bmc.py",
+      "sha256": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/wrapper_sources/gate_bmc.py",
+      "source_sha256": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208",
+      "gzip": false
+    },
+    {
+      "path": "query/wrapper_sources/gate_pdr.py",
+      "sha256": "d1d3e267608241ed7a3bfb34dc7774675651bc21da4beb98cb3a89b4e6ef47ac",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/wrapper_sources/gate_pdr.py",
+      "source_sha256": "d1d3e267608241ed7a3bfb34dc7774675651bc21da4beb98cb3a89b4e6ef47ac",
+      "gzip": false
+    },
+    {
+      "path": "query/wrapper_sources/gate_solver.py",
+      "sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/wrapper_sources/gate_solver.py",
+      "source_sha256": "9a5762df30b95437743f094ff3e388bb44bd16a7652263c85f7b98d06a8694ba",
+      "gzip": false
+    },
+    {
+      "path": "query/wrapper_sources/native_gate_bmc.py",
+      "sha256": "3b94572ee162cc5b563982eec70cdf4646d9cfece492d5d55166e80947b38fef",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/wrapper_sources/native_gate_bmc.py",
+      "source_sha256": "3b94572ee162cc5b563982eec70cdf4646d9cfece492d5d55166e80947b38fef",
+      "gzip": false
+    },
+    {
+      "path": "query/wrapper_sources/native_gate_solver.py",
+      "sha256": "c549483e9d0798cdb4e354aa1e8fcddf7afc48316e728c65f978e58cf5b2b0bf",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/wrapper_sources/native_gate_solver.py",
+      "source_sha256": "c549483e9d0798cdb4e354aa1e8fcddf7afc48316e728c65f978e58cf5b2b0bf",
+      "gzip": false
+    },
+    {
+      "path": "query/wrapper_sources/solve_prepared.py",
+      "sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/wrapper_sources/solve_prepared.py",
+      "source_sha256": "5f4807a9b2def139afcfe4d5ce4d36674551574b82b7d9a33cfd19b217c69ec6",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/bmc/bmc.log",
+      "sha256": "6a347a1ec0b08c23b737db56f526f8c4ed1b17f0da9eaeb61f52cc88a10a10c2",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/bmc/bmc.log",
+      "source_sha256": "6a347a1ec0b08c23b737db56f526f8c4ed1b17f0da9eaeb61f52cc88a10a10c2",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/bmc/bmc.status",
+      "sha256": "6d8339787488cf97d56e5d5c1d2006bd4ccec403460667da0b81764e0dad363e",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/bmc/bmc.status",
+      "source_sha256": "6d8339787488cf97d56e5d5c1d2006bd4ccec403460667da0b81764e0dad363e",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/bmc/gate_bmc.py",
+      "sha256": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/bmc/gate_bmc.py",
+      "source_sha256": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/bmc/summary.json",
+      "sha256": "5690db2c6e38bf14ba81e2bc3cc39549d2aa74b5f6db2e07e84795844b61c9f0",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/bmc/summary.json",
+      "source_sha256": "5690db2c6e38bf14ba81e2bc3cc39549d2aa74b5f6db2e07e84795844b61c9f0",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/fold.log",
+      "sha256": "0b580b4bbe61b2b23da1ccba8c9031cf8995ca032a68fb613a4236c4d93b2c8d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/fold.log",
+      "source_sha256": "0b580b4bbe61b2b23da1ccba8c9031cf8995ca032a68fb613a4236c4d93b2c8d",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/folded.aig.gz",
+      "sha256": "e5971ced1bb1fdbd989280045d9ecd8dad7d6bac54a1f6fd10287ad3d7f17d28",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/folded.aig",
+      "source_sha256": "93745e5f40fd3cb3973bd6ccef4c74cbd8d7d1eb60877b26058b435d3158fc51",
+      "gzip": true
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/model/export.log",
+      "sha256": "2afc49bfbdcb16a15564813763e0de6f4274c617b57a8db84a8a1491a0385a60",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/model/export.log",
+      "source_sha256": "2afc49bfbdcb16a15564813763e0de6f4274c617b57a8db84a8a1491a0385a60",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/model/export.ys",
+      "sha256": "e31359c7fa9d95d2ddaf40116627d7df370d27fcaa173e5f23bcae30c3e71b8f",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/model/export.ys",
+      "source_sha256": "e31359c7fa9d95d2ddaf40116627d7df370d27fcaa173e5f23bcae30c3e71b8f",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/model/model.json",
+      "sha256": "ef6d143980562028a1b260f824b1fac056f7a78e3831f399fa49b25e7bff47ee",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/model/model.json",
+      "source_sha256": "ef6d143980562028a1b260f824b1fac056f7a78e3831f399fa49b25e7bff47ee",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/model/preparation.json",
+      "sha256": "14646b5f2d69c90cfa8c68a4e56ac68a4686a802b68a320f6124acdd937f0842",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/model/preparation.json",
+      "source_sha256": "14646b5f2d69c90cfa8c68a4e56ac68a4686a802b68a320f6124acdd937f0842",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/model/prepare.log",
+      "sha256": "4c085e2a470f7a3cf221cca9f778a7308e677a917ea2a0fee829f67c554e8b1b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/model/prepare.log",
+      "source_sha256": "4c085e2a470f7a3cf221cca9f778a7308e677a917ea2a0fee829f67c554e8b1b",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/model/prepare.ys",
+      "sha256": "2458983657b4f632235dc89164c54f7b38a2aca0efd76a66926d34ecc244b605",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/model/prepare.ys",
+      "source_sha256": "2458983657b4f632235dc89164c54f7b38a2aca0efd76a66926d34ecc244b605",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/model/query.aig.gz",
+      "sha256": "e22cfc43e635e26031781ca5375607aee358044693954e20c750cf18ed5c4b55",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/model/query.aig",
+      "source_sha256": "f99a762995a9cca464d4dcbb47b4926a96c35381cdcdbe3358303d23e3554903",
+      "gzip": true
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and0/model/toy.sv",
+      "sha256": "057567544d3c0066522bf051c1664dc866fc66f162423aa874f49ca13714b9c7",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and0/model/toy.sv",
+      "source_sha256": "057567544d3c0066522bf051c1664dc866fc66f162423aa874f49ca13714b9c7",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/bmc/bmc.log",
+      "sha256": "9f62cd99da62d477a73336bcd222f1c7a8d5590fbc6516840d4acc3ea3cb6b8e",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/bmc/bmc.log",
+      "source_sha256": "9f62cd99da62d477a73336bcd222f1c7a8d5590fbc6516840d4acc3ea3cb6b8e",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/bmc/bmc.status",
+      "sha256": "2772a65ebaeb0c22a558481c8b71a215da779e1a2122ef954c2f075687a75c3c",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/bmc/bmc.status",
+      "source_sha256": "2772a65ebaeb0c22a558481c8b71a215da779e1a2122ef954c2f075687a75c3c",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/bmc/counterexample.aiw",
+      "sha256": "091d071f57a989aebfa46e7ee90e13b4d6e8665c860027667bcdba252b7ceac7",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/bmc/counterexample.aiw",
+      "source_sha256": "091d071f57a989aebfa46e7ee90e13b4d6e8665c860027667bcdba252b7ceac7",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/bmc/gate_bmc.py",
+      "sha256": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/bmc/gate_bmc.py",
+      "source_sha256": "3e6c72e2432ca12e2ccf6e2d22f8422b8b431bca66f751337b7cb5922b298208",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/bmc/summary.json",
+      "sha256": "4eac1522c68083188582e5616f7c4c7572ccf0ed643e6149e01ed3df72edf8f6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/bmc/summary.json",
+      "source_sha256": "4eac1522c68083188582e5616f7c4c7572ccf0ed643e6149e01ed3df72edf8f6",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/bmc/validate_cex.log",
+      "sha256": "5f7c0bfb157a8d4d8146f38d0759c3099c4557ce3f10586f30e77c9614ecdf74",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/bmc/validate_cex.log",
+      "source_sha256": "5f7c0bfb157a8d4d8146f38d0759c3099c4557ce3f10586f30e77c9614ecdf74",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/fold.log",
+      "sha256": "7a2896948d5100c3f2411aadfeb40563222ad8bc855808c146d390667fdc1914",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/fold.log",
+      "source_sha256": "7a2896948d5100c3f2411aadfeb40563222ad8bc855808c146d390667fdc1914",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/folded.aig.gz",
+      "sha256": "0a976e7dc2f3605eabe2d704fa35e29b1bcafb3fd834e0097f18248d84e787b4",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/folded.aig",
+      "source_sha256": "5d19054b5455c58a3eac6b43779c708692119734408e3dcb464b5c9f85e8e438",
+      "gzip": true
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/model/export.log",
+      "sha256": "fd0e4250df7b3fa64acfe199a22e5995dadcf17eceb19cbb75fce9186aa3133b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/model/export.log",
+      "source_sha256": "fd0e4250df7b3fa64acfe199a22e5995dadcf17eceb19cbb75fce9186aa3133b",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/model/export.ys",
+      "sha256": "e2535d790761084f01f1e5e5c82f2f3774b8096541514a0d3253c0f6413a0b3b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/model/export.ys",
+      "source_sha256": "e2535d790761084f01f1e5e5c82f2f3774b8096541514a0d3253c0f6413a0b3b",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/model/model.json",
+      "sha256": "87f35fbb0ef0d2741bd6949a9d4e4abee183bd70dfed69c6773f78aadd77314e",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/model/model.json",
+      "source_sha256": "87f35fbb0ef0d2741bd6949a9d4e4abee183bd70dfed69c6773f78aadd77314e",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/model/preparation.json",
+      "sha256": "2f7fc1fb1ea08cce7c27d8630a9ae55ba1c19c9cd57ab445b6df95bcb50f2de3",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/model/preparation.json",
+      "source_sha256": "2f7fc1fb1ea08cce7c27d8630a9ae55ba1c19c9cd57ab445b6df95bcb50f2de3",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/model/prepare.log",
+      "sha256": "a734633a77d6fb6171bc499736efc65623085f42e5ba59416c6925c37ad6eb6d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/model/prepare.log",
+      "source_sha256": "a734633a77d6fb6171bc499736efc65623085f42e5ba59416c6925c37ad6eb6d",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/model/prepare.ys",
+      "sha256": "43c7c6b2e4eaf260c406080bff6b80485efdeccb8d6a680365fe4aa3ab7f2007",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/model/prepare.ys",
+      "source_sha256": "43c7c6b2e4eaf260c406080bff6b80485efdeccb8d6a680365fe4aa3ab7f2007",
+      "gzip": false
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/model/query.aig.gz",
+      "sha256": "077e26b6cc6f8d10c0b04059a10da8a9a9e322fd89fa72a60f577d624290a586",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/model/query.aig",
+      "source_sha256": "c47fb133d96f241d5ce29fac369aa694c0c212d58f0c893c6a372d4a9e8caefa",
+      "gzip": true
+    },
+    {
+      "path": "toys/test_real_bounded_positive_and1/model/toy.sv",
+      "sha256": "396b701975819cbfa2502b1f9414d55a1a8256ca3da9eb0dbbaed1c375b916d0",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/gate_bmc_smoke_v2/test_real_bounded_positive_and1/model/toy.sv",
+      "source_sha256": "396b701975819cbfa2502b1f9414d55a1a8256ca3da9eb0dbbaed1c375b916d0",
+      "gzip": false
+    },
+    {
+      "path": "source_prepared_summary.json.gz",
+      "sha256": "f126c1acc5c5d57b2fcc820a32d46982caa0e85e08888041e039379f3ca0ff5b",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_prepare_v1/summary.json",
+      "source_sha256": "6b551342f51dfb34f19a1e11aa4af0428ca9d61a7bee1409b11dd5f525a623c6",
+      "gzip": true
+    },
+    {
+      "path": "source_gla_summary.json",
+      "sha256": "7d40e9a107b58ae3845beba8df801f99914b82a8e77864e55e457e241e42f11d",
+      "source": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_gla_v1/summary.json",
+      "source_sha256": "7d40e9a107b58ae3845beba8df801f99914b82a8e77864e55e457e241e42f11d",
+      "gzip": false
+    },
+    {
+      "path": "collector_source.py",
+      "sha256": "8e051bebbb6534ec881a50b3325e11699aba8d65f840db89b6f406527b77f3f6",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/application_screen/collect_native_bmc.py",
+      "source_sha256": "8e051bebbb6534ec881a50b3325e11699aba8d65f840db89b6f406527b77f3f6",
+      "gzip": false
+    },
+    {
+      "path": "test_gate_bmc.py",
+      "sha256": "be61cd9463044a1c7603a06d7a59e36412d0c70ac54d5bc684362d9bb9786d82",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/tests/unit/test_gate_bmc.py",
+      "source_sha256": "be61cd9463044a1c7603a06d7a59e36412d0c70ac54d5bc684362d9bb9786d82",
+      "gzip": false
+    },
+    {
+      "path": "test_native_gate_bmc.py",
+      "sha256": "cca0fa9c1e41665f955ee92a74c7a9ff0a3e636c410a591f71bb8a706b2e3891",
+      "source": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/tests/unit/test_native_gate_bmc.py",
+      "source_sha256": "cca0fa9c1e41665f955ee92a74c7a9ff0a3e636c410a591f71bb8a706b2e3891",
+      "gzip": false
+    }
+  ]
+}

@@ -159,6 +159,11 @@ Its [first 600-second GLA run](application_screen/NATIVE_GATE_SOLVER.md) also
 remained unknown, timing out in frame 29 without a proof-thread call or a
 validated counterexample. The retained 684-latch abstraction is diagnostic
 evidence only.
+A subsequent [bounded check](application_screen/NATIVE_GATE_BMC.md) validated
+a frame-29 counterexample in that abstraction in 63.016 seconds. It has not
+been concretized against the native query. Direct PDR on this unchanged map
+cannot establish safety; further work must refine the abstraction or prove
+additional native invariants, rather than treat the timeout as a certificate.
 
 The next proof simplification follows a closed program-only chain: the certified
 decoder excludes MUL/DIV dispatch, the native issue register preserves that

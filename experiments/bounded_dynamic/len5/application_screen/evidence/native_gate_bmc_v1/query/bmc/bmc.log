@@ -1,0 +1,38 @@
+ABC command line: "read_aiger "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_gla_v1/abstracted.aig"; bmc3 -F 128 -T 120 -v; write_status "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_map_bmc_v1/bmc/bmc.status"".
+
+Running "bmc3". PI/PO/Reg = 1581/1/684. And =  13294. Lev =    55. ObjNums =  7703.
+Params: FramesMax = 128. Start = 0. ConfLimit = 0. TimeOut = 120. SolveAll = 0.
+   0 + : Var =     320. Cla =      735. Conf =      0. Learn =      0.    0 MB   4 MB     0.02 sec 
+   1 + : Var =    2602. Cla =     7263. Conf =      0. Learn =      0.    0 MB   4 MB     0.02 sec 
+   2 + : Var =    6646. Cla =    19140. Conf =      0. Learn =      0.    0 MB   4 MB     0.02 sec 
+   3 + : Var =   11452. Cla =    33458. Conf =      0. Learn =      0.    0 MB   5 MB     0.02 sec 
+   4 + : Var =   16513. Cla =    48613. Conf =      0. Learn =      0.    0 MB   5 MB     0.03 sec 
+   5 + : Var =   21754. Cla =    64368. Conf =      0. Learn =      0.    0 MB   6 MB     0.03 sec 
+   6 + : Var =   27303. Cla =    80955. Conf =      0. Learn =      0.    0 MB   6 MB     0.03 sec 
+   7 + : Var =   33126. Cla =    98492. Conf =      0. Learn =      0.    0 MB   8 MB     0.03 sec 
+   8 + : Var =   38990. Cla =   116169. Conf =      0. Learn =      0.    0 MB   8 MB     0.04 sec 
+   9 + : Var =   44898. Cla =   133963. Conf =      4. Learn =      3.    0 MB   8 MB     0.04 sec 
+  10 + : Var =   50837. Cla =   151875. Conf =     14. Learn =     12.    0 MB  12 MB     0.04 sec 
+  11 + : Var =   56782. Cla =   169803. Conf =     57. Learn =     54.    0 MB  13 MB     0.05 sec 
+  12 + : Var =   62731. Cla =   187740. Conf =    187. Learn =    183.    0 MB  13 MB     0.06 sec 
+  13 + : Var =   68682. Cla =   205686. Conf =    426. Learn =    421.    0 MB  14 MB     0.08 sec 
+  14 + : Var =   74633. Cla =   223632. Conf =    543. Learn =    535.    0 MB  14 MB     0.10 sec 
+  15 + : Var =   80584. Cla =   241578. Conf =    697. Learn =    688.    0 MB  15 MB     0.12 sec 
+  16 + : Var =   86535. Cla =   259524. Conf =   1118. Learn =   1107.    0 MB  16 MB     0.19 sec 
+  17 + : Var =   92486. Cla =   277470. Conf =   1763. Learn =   1748.    1 MB  17 MB     0.30 sec 
+  18 + : Var =   98437. Cla =   295416. Conf =   2501. Learn =   2483.    1 MB  20 MB     0.45 sec 
+  19 + : Var =  104388. Cla =   313362. Conf =   3905. Learn =   3882.    1 MB  27 MB     0.70 sec 
+  20 + : Var =  110339. Cla =   331308. Conf =   5675. Learn =   5651.    1 MB  30 MB     1.08 sec 
+  21 + : Var =  116290. Cla =   349254. Conf =   8796. Learn =   8770.    1 MB  37 MB     1.91 sec 
+  22 + : Var =  122241. Cla =   367200. Conf =  13248. Learn =  10815.    1 MB  41 MB     3.17 sec 
+  23 + : Var =  128192. Cla =   385146. Conf =  21154. Learn =  13427.    1 MB  44 MB     5.84 sec 
+  24 + : Var =  134143. Cla =   403092. Conf =  27642. Learn =  16706.    1 MB  48 MB     8.30 sec 
+  25 + : Var =  140094. Cla =   421038. Conf =  37643. Learn =  19171.    1 MB  50 MB    12.75 sec 
+  26 + : Var =  146045. Cla =   438984. Conf =  54455. Learn =  21479.    1 MB  48 MB    21.42 sec 
+  27 + : Var =  151996. Cla =   456930. Conf =  79114. Learn =  28196.    1 MB  60 MB    37.87 sec 
+  28 + : Var =  157947. Cla =   474876. Conf = 109057. Learn =  33031.    1 MB  64 MB    59.22 sec 
+  29 + : Var =  163898. Cla =   492822. Conf = 114975. Learn =  38949.    1 MB  84 MB    62.80 sec  
+Runtime:  CNF = 0.1 sec (0.1 %)  UNSAT = 59.1 sec (94.1 %)  SAT = 3.6 sec (5.7 %)  UNDEC = 0.0 sec (0.0 %)
+LStart(P) = 10000  LDelta(Q) = 2000  LRatio(R) = 80  ReduceDB = 15  Vars = 163898  Used = 163898 (100.00 %)
+Buffs = 6230. Dups = 0.   Hash hits = 28.  Hash misses = 123950.  UniProps = 0.
+Output 0 of miter "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/harvard_rom_inactive_fu_native_gla_v1/abstracted" was asserted in frame 29. Time =    62.81 sec
