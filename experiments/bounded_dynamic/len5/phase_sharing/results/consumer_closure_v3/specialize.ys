@@ -1,0 +1,18 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/consumer_closure_v3/consumer_miter.json"
+hierarchy -check -top ConsumerClosure
+flatten
+check -assert
+select -assert-none t:$dff t:$dffe t:$adff t:$adffe t:$anyseq t:$assert t:$assume
+select *
+design -save unrestricted
+delete -input w:cdb_valid
+connect -nounset -set cdb_valid 1'0
+opt -keepdc
+check -assert
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/consumer_closure_v3/invalid_model.json"
+design -load unrestricted
+delete -input w:cdb_valid
+connect -nounset -set cdb_valid 1'1
+opt -keepdc
+check -assert
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/consumer_closure_v3/valid_model.json"

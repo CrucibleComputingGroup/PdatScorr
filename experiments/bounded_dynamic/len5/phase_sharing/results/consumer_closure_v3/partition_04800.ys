@@ -1,0 +1,5 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/consumer_closure_v3/partition_04800.json"
+hierarchy -check -top ConsumerClosure
+opt_clean
+check -assert
+sat -verify -prove equal 1

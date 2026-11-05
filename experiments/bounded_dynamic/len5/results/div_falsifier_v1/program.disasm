@@ -1,0 +1,62 @@
+
+program.elf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <_start>:
+   0:	40000e93          	li	t4,1024
+   4:	000ebf03          	ld	t5,0(t4)
+   8:	00300f93          	li	t6,3
+   c:	09ff1c63          	bne	t5,t6,a4 <fail>
+  10:	fff00293          	li	t0,-1
+  14:	03e2d3b3          	divu	t2,t0,t5
+
+0000000000000018 <consumers>:
+  18:	00138513          	addi	a0,t2,1
+  1c:	00238593          	addi	a1,t2,2
+  20:	00338613          	addi	a2,t2,3
+  24:	00438693          	addi	a3,t2,4
+  28:	00538713          	addi	a4,t2,5
+  2c:	00638793          	addi	a5,t2,6
+  30:	00738813          	addi	a6,t2,7
+  34:	00838893          	addi	a7,t2,8
+  38:	05555e37          	lui	t3,0x5555
+  3c:	555e0e1b          	addiw	t3,t3,1365 # 5555555 <__global_pointer$+0x555394d>
+  40:	00ce1e13          	slli	t3,t3,0xc
+  44:	555e0e13          	addi	t3,t3,1365
+  48:	00ce1e13          	slli	t3,t3,0xc
+  4c:	555e0e13          	addi	t3,t3,1365
+  50:	00ce1e13          	slli	t3,t3,0xc
+  54:	555e0e13          	addi	t3,t3,1365
+  58:	05c39663          	bne	t2,t3,a4 <fail>
+  5c:	001e0e13          	addi	t3,t3,1
+  60:	05c51263          	bne	a0,t3,a4 <fail>
+  64:	001e0e13          	addi	t3,t3,1
+  68:	03c59e63          	bne	a1,t3,a4 <fail>
+  6c:	001e0e13          	addi	t3,t3,1
+  70:	03c61a63          	bne	a2,t3,a4 <fail>
+  74:	001e0e13          	addi	t3,t3,1
+  78:	03c69663          	bne	a3,t3,a4 <fail>
+  7c:	001e0e13          	addi	t3,t3,1
+  80:	03c71263          	bne	a4,t3,a4 <fail>
+  84:	001e0e13          	addi	t3,t3,1
+  88:	01c79e63          	bne	a5,t3,a4 <fail>
+  8c:	001e0e13          	addi	t3,t3,1
+  90:	01c81a63          	bne	a6,t3,a4 <fail>
+  94:	001e0e13          	addi	t3,t3,1
+  98:	01c89663          	bne	a7,t3,a4 <fail>
+  9c:	00000293          	li	t0,0
+  a0:	0080006f          	j	a8 <exit>
+
+00000000000000a4 <fail>:
+  a4:	00100293          	li	t0,1
+
+00000000000000a8 <exit>:
+  a8:	20000337          	lui	t1,0x20000
+  ac:	1003031b          	addiw	t1,t1,256 # 20000100 <__global_pointer$+0x1fffe4f8>
+  b0:	00530023          	sb	t0,0(t1)
+  b4:	0000006f          	j	b4 <exit+0xc>
+	...
+ 400:	00000003          	.word	0x00000003
+ 404:	00000000          	.word	0x00000000

@@ -1,0 +1,167 @@
+{
+  "scope": "Negative finite architectural trace: prompt memory service alone does not exclude any ALU RS slot. No optimization result or universal proof.",
+  "upstream_commit": "14291dcc5bef181085d001c5a29e7f4fc4cbc8e9",
+  "simulator_manifest_sha256": "26db1ea23a772770f9e31c044e59d2e565e0bb9f21d13823185cc2266027d45a",
+  "binary_sha256": "7290cd3484500111be15ea39a670586e7c5e351bcb885c538063a7aa60ed2d01",
+  "core_rebuilt": false,
+  "core_rtl_source_edits": false,
+  "capacities": {
+    "ROB_DEPTH": 32,
+    "IQ_DEPTH": 4,
+    "LDBUFF_DEPTH": 8,
+    "STBUFF_DEPTH": 16,
+    "ALU_RS_DEPTH": 8,
+    "MULT_RS_DEPTH": 4,
+    "DIV_RS_DEPTH": 4,
+    "BU_RS_DEPTH": 4,
+    "RAS_DEPTH": 8
+  },
+  "memory_pipe_num": 2,
+  "fetch_fifo_depth": 2,
+  "run_returncode": 0,
+  "program_checks_passed": true,
+  "expected_dividend": "0xffffffffffffffff",
+  "expected_divisor": 3,
+  "expected_quotient": "0x5555555555555555",
+  "consumer_immediates": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "actual_memory_load_response_latency_cycles": 3,
+  "compile_commands": [
+    [
+      "riscv64-linux-gnu-gcc",
+      "-march=rv64im",
+      "-mabi=lp64",
+      "-nostdlib",
+      "-static",
+      "-Wl,-Ttext=0",
+      "-Wl,--build-id=none",
+      "program.S",
+      "-o",
+      "program.elf"
+    ],
+    [
+      "riscv64-linux-gnu-objcopy",
+      "-O",
+      "verilog",
+      "program.elf",
+      "program.hex"
+    ]
+  ],
+  "run_command": [
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_simulation_ooo/obj_dir/Vtb_bare",
+    "+firmware=/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/div_falsifier_v1/program.hex",
+    "--max_cycles=2000",
+    "--dump_waves=true",
+    "--dump_trace=true",
+    "--log_level=LOG_LOW"
+  ],
+  "conversion_command": [
+    "/usr/bin/fst2vcd",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/div_falsifier_v1/logs/waves.fst",
+    "-o",
+    "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/div_falsifier_v1/all.vcd"
+  ],
+  "raw_fst_sha256": "5ca2b519364e08cbc6eb07b92b15867958d96f209b04a8f51c0b10acec3ec465",
+  "raw_vcd_sha256": "06616c502695426332effd4c94d9ebb7d3025f55d3b1de3d6545a61f6ee252d5",
+  "witness": {
+    "max_live_entries": 8,
+    "first_maximum": {
+      "time": 59,
+      "cycle_pre_edge": 29,
+      "insert": 1,
+      "new_idx": 0,
+      "remove": 0,
+      "cdb_idx": 0,
+      "live_pre": 7,
+      "live_post": 8,
+      "states_post": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "all_eight_rs1_pending": true,
+    "first_all_pending": {
+      "time": 59,
+      "cycle_pre_edge": 29,
+      "insert": 1,
+      "new_idx": 0,
+      "remove": 0,
+      "cdb_idx": 0,
+      "live_pre": 7,
+      "live_post": 8,
+      "states_post": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "state_encoding": {
+      "EMPTY": 0,
+      "RS1_PENDING": 1
+    },
+    "selected_signal_names": [
+      "TOP.tb_bare.clk_i",
+      "TOP.tb_bare.curr_cycle",
+      "TOP.tb_bare.rst_ni",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.cdb_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[0]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[1]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[2]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[3]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[4]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[5]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[6]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[7]",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[0].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[0].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[1].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[1].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[2].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[2].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[3].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[3].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[4].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[4].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[5].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[5].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[6].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[6].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[7].dest_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[7].rs1_rob_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.insert",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.new_idx",
+      "TOP.tb_bare.u_datapath.u_backend.u_exec_stage.u_alu_unit.u_arith_rs.remove"
+    ]
+  },
+  "script_sha256": "c666ff9523956ae31df420aa8b983776080a6bf159b9f5cf08d28461a212a4bc",
+  "artifact_sha256": {
+    "program.S": "9ea3c9df77761adbf5d43948fa9e9fcab281fe5a08cea539dd5239381af38f1d",
+    "program.hex": "986572a70733f1c3dc5342df25fc5640ae02aedd10d5b1780564875a125b56ab",
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "program.disasm": "b2f55fbf36c0725d5c1036a071fe1d284dcefb8f2ff4a8dadfab85d6b25e663d",
+    "run.log": "a9e457fd0c4ecf6c51335026c82af94d82bd07c34719e137f37c154f5432b3dc",
+    "occupancy.csv": "a29a8814480bf5df356506a63cdd809ef20daca44662a88ae077f460ae07dc7a",
+    "rs_state.vcd": "47c74e08aefff65e2cd3e644c45393c019739a0840634de23ecfb296d3a16c0d",
+    "logs/sim-trace.log": "907d2ea7e8a82462a9ff1afb5ffa9cef2a52efe0ba89a04eb614ebcd0e859135",
+    "logs/qualification_events.csv": "f95d07ff984880e4aa3f7f0de006c307f9617357a4e61ff29eeb828cdb7bde67"
+  }
+}

@@ -1,8 +1,11 @@
 # LEN5 frontend qualification and timing-candidate review
 
 This directory qualifies a smaller genuine out-of-order target for automatic
-Pscorr optimization under timing contracts. It contains no Pscorr gain, area
-measurement, queue-resizing result, or manually cut implementation.
+Pscorr optimization under timing contracts. Qualification is separate from the
+subsequent [storage inventory and screened plan](STORAGE_SAVINGS_PLAN.md),
+[unchanged-core mapped baseline](results/native_area_v1/summary.json), and
+[DIV occupancy counterexample](results/div_falsifier_v1/summary.json).
+These results establish no timing-derived storage saving or queue-resizing gain.
 
 **Qualification passed:** unchanged pre-FPU RTL elaborates, normalized structural
 checks pass, and a self-checking smoke passes with an actual tagged memory
@@ -75,7 +78,12 @@ requests/responses. These changes drive no core state or handshakes.
 The external memory model uses `PIPE_NUM=2`; this is a model setting, not a core
 capacity change or an assertion that every request has exactly two cycles of
 latency. The observed smoke's load response arrives three monitor cycles after
-acceptance. The build/run manifests bind all core and testbench
+acceptance. Instruction responses bypass their final answer register in the
+original testbench: their unstalled latency is two cycles, with longer intervals
+under backpressure. The separate [instruction-spacing screen](application_screen/FETCH_SPACING.md)
+measures actual accepted fetches, flush cancellations, response handshakes, and
+load exceptions while preserving FIFO2 and all core capacities.
+The build/run manifests bind all core and testbench
 hashes and commands. The smoke checks an integer loop and a store/load result;
 it also checks a preinitialized load and a dependent ADDI. It does not qualify
 the full ISA.

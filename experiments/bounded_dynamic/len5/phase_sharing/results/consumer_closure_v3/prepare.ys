@@ -1,0 +1,12 @@
+read_rtlil "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/normalized.il"
+hierarchy -check -top datapath
+select -assert-none t:$assert t:$assume t:$check
+select *
+bwmuxmap
+bmuxmap
+demuxmap
+memory_map
+setundef -anyseq
+opt -keepdc
+check -assert
+write_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/consumer_closure_v3/consumer_original.json"

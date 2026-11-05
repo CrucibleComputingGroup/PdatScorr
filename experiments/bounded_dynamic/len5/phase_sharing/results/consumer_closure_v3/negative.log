@@ -1,0 +1,49 @@
+
+-- Executing script file `/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/consumer_closure_v3/negative.ys' --
+
+1. Executing JSON frontend.
+Importing module ConsumerClosure from JSON tree.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ConsumerClosure
+
+2.2. Analyzing design hierarchy..
+Top module:  \ConsumerClosure
+Removed 0 unused modules.
+
+3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ConsumerClosure..
+
+4. Executing CHECK pass (checking for obvious problems).
+Checking module ConsumerClosure...
+Found and reported 0 problems.
+
+5. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 10499 cells to SAT database.
+Import proof-constraint: \equal = 1'1
+Final proof equation: \equal = 1'1
+Import show expression: \cdb_payload_0
+Import show expression: \cdb_payload_1
+
+Solving problem with 1860314 variables and 4981809 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Signal Name                 Dec       Hex                                                                            Bin
+  ------------------- ----------- --------- ------------------------------------------------------------------------------
+  \cdb_payload_0               --        --    110011111111111111111111111010111101111111111111111101111111111111111111111
+  \cdb_payload_1               --        --    101100100000010000001001000011001110111111111111111011000000001001000011111
+Dumping SAT model to WaveJSON file '/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/consumer_closure_v3/valid_counterexample.json'.
