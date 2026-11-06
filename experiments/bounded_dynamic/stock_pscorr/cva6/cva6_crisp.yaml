@@ -1,0 +1,36 @@
+# CRISP configuration for CVA6 d33a4fb9, stock cv32a60x (HPDcache), top module cva6.
+# ISA assumptions constrain the 32-bit word entering the decoder whenever the issue
+# stage holds a valid fetch entry (pscorr_isa_word, defined in id_stage by the driver).
+# Interface timing is stated on the AXI ports of the top module.
+core_name: "cva6"
+architecture: "rv32"
+injection:
+  module_path: "cva6.id_stage_i"
+  description: "CVA6 id_stage - decoder input of a valid fetch entry"
+signals:
+  clk: "clk_i"
+  rst_n: "rst_ni"
+  instruction_data: "pscorr_isa_word"
+  pc: "pscorr_isa_word"
+  # Compressed instructions are expanded before the decoder: the word is always 32-bit.
+  has_compressed_check: false
+  channels:
+    rd:                         # AR request -> last R beat, per AXI ID
+      req_valid: "noc_req_o.ar_valid"
+      req_ready: "noc_resp_i.ar_ready"
+      req_tag: "noc_req_o.ar.id"
+      tag_width: 4
+      rsp_valid: "noc_resp_i.r_valid && noc_resp_i.r.last"
+      rsp_ready: "noc_req_o.r_ready"
+      rsp_tag: "noc_resp_i.r.id"
+    wr:                         # AW request -> B response, per AXI ID
+      req_valid: "noc_req_o.aw_valid"
+      req_ready: "noc_resp_i.aw_ready"
+      req_tag: "noc_req_o.aw.id"
+      tag_width: 4
+      rsp_valid: "noc_resp_i.b_valid"
+      rsp_ready: "noc_req_o.b_ready"
+      rsp_tag: "noc_resp_i.b.id"
+    wdata:                      # W beats (acceptance only)
+      req_valid: "noc_req_o.w_valid"
+      req_ready: "noc_resp_i.w_ready"

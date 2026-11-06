@@ -1,0 +1,19 @@
+# CRISP configuration for the mechanism test: the ldq_top memory port as a tagged channel.
+core_name: "ldq"
+architecture: "rv32"
+injection:
+  module_path: "ldq_top"
+  description: "ldq_top - interface timing on the memory channel"
+signals:
+  clk: "clk_i"
+  rst_n: "rst_ni"
+  instruction_data: "in_addr_i"
+  pc: "req_addr_o"
+  channels:
+    mem:
+      req_valid: "req_valid_o"
+      req_ready: "req_ready_i"
+      req_tag: "req_tag_o"
+      tag_width: 3
+      rsp_valid: "rsp_valid_i"
+      rsp_tag: "rsp_tag_i"

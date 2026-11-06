@@ -1,0 +1,41 @@
+# CRISP compiler configuration for LEN5 (pre-FPU commit 14291dc, top module datapath).
+# ISA assumptions constrain the instruction-memory read data at the datapath port,
+# the same site Rocket uses (its instruction-memory response data).
+core_name: "len5"
+architecture: "rv64"
+injection:
+  module_path: "datapath"
+  description: "LEN5 datapath - ISA constraints on the instruction-memory read data"
+signals:
+  instruction_data: "instr_rdata_i"
+  pc: "instr_addr_o"
+  # LEN5 implements no compressed instructions: every fetched word must be an allowed
+  # 32-bit instruction, so the generator must not exempt words with bits [1:0] != 11.
+  has_compressed_check: false
+  clk: "clk_i"
+  rst_n: "rst_ni"
+  # Memory channels for interface wait-time bounds (response_latency / grant_latency).
+  # Load and store requests carry the buffer index as tag (BUFF_IDX_LEN = 4 bits).
+  channels:
+    instr:
+      req_valid: "instr_req_o"
+      req_ready: "instr_gnt_i"
+      rsp_valid: "instr_rvalid_i"
+      rsp_ready: "instr_rready_o"
+      max_outstanding: 4
+    data_load:
+      req_valid: "data_load_req_o"
+      req_ready: "data_load_gnt_i"
+      req_tag: "data_load_tag_o"
+      tag_width: 4
+      rsp_valid: "data_load_rvalid_i"
+      rsp_ready: "data_load_rready_o"
+      rsp_tag: "data_load_tag_i"
+    data_store:
+      req_valid: "data_store_req_o"
+      req_ready: "data_store_gnt_i"
+      req_tag: "data_store_tag_o"
+      tag_width: 4
+      rsp_valid: "data_store_rvalid_i"
+      rsp_ready: "data_store_rready_o"
+      rsp_tag: "data_store_tag_i"
