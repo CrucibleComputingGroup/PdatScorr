@@ -1,0 +1,103 @@
+{
+  "status": "exported",
+  "scope": "Closed native platform model for ternary reachability: immutable ROM, zero fault payload, exact fetch-acceptance gap, three-cycle nonfaulting data service with arbitrary load values",
+  "design": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/candidate_whole_core.json",
+  "design_sha256": "371a91db44e992635c234ba339907654b62a6800c43d787561cea2bbbbe67b7e",
+  "program_hex_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+  "rom_image_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+  "instruction_acceptance_gap": 1,
+  "instruction_fault_payload": "zero",
+  "admission_threshold_property": 1,
+  "reset_model": "reset asserted in the initial frame, unconstrained afterwards ($initstate -> !rst_ni)",
+  "flip_flop_bits": 24157,
+  "flip_flop_types": {
+    "$adff": 0,
+    "$aldff": 23643,
+    "$dff": 0,
+    "$dffe": 514
+  },
+  "core_export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_v2/core_export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 0.9685824918560684,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_v2/core_export.log",
+    "log_sha256": "7bd71244e42a84ebb217465efa3f832f991e60100efdc0b276c47d13b80f6e59"
+  },
+  "core_json_sha256": "8422ead41e51d750cbcbfad7d85a67cd22759da7bf8e987117d26be416b96255",
+  "platform_sha256": "f0f81a413d75a8dde82f9654d8b1777eb90b635028e4eefdb17fc2dec24ad95b",
+  "helpers_sha256": {
+    "export_closed.py": "a85c3059147abd9304a16e2abfbf936343337718da7546fc4ccf140e849ab2cc",
+    "formal_screen.py": "b8bbf3e87461700b274c5bd169085bcb626812196572a4b3cee4de8ddd25199f",
+    "program_rom.py": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+    "temporal.py": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b"
+  },
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_v2/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 14.415001524612308,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_v2/prepare.log",
+    "log_sha256": "42504ea76987d98790d2edd5bc89465176f9eaf76482e760f024b574250da264"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "screen_json_sha256": "1ca6380e61f9783a18a510315a2449cf9990b9fb1275462da6773771527d0152",
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_v2/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 23.751417404972017,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_v2/export.log",
+    "log_sha256": "b43d43b74e9ad09b47960ba90b5b1ea3b245f8f0a1cb4fc312654462489acb61"
+  },
+  "aig_header": [
+    "aig",
+    "671648",
+    "34684",
+    "24459",
+    "24293",
+    "612505",
+    "3",
+    "1",
+    "0",
+    "0"
+  ],
+  "aig_sha256": "ee2318d4dc7c3fa6ae9acb3d2c68d4e08abf28eb39e6279237db588aaf4abc4d",
+  "aig_map_sha256": "6dcb6833f2ab047e4fd9ba2875b007877e7145300c70275d8133856a64f454ed",
+  "manifest_sha256": "b2209ecd7883529432ee24921a3aa74fbf2f424266219c78488854d6e25192d0",
+  "reset_input_index": 1
+}

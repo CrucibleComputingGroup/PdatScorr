@@ -1,0 +1,77 @@
+{
+  "status": "matched",
+  "reach_summary_sha256": "9aa586252008b521e4eebc2bd489cfba5e20d0d766ff44e0c46c2f11d0025691",
+  "trace_sha256": "fe2b1bc8776cb23a23d80e552c992f61f2bcad61fc252ceecda9d2e71627bc92",
+  "evidence": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/evidence/streaming_gap1_v1",
+  "evidence_sha256": {
+    "fetch_responses.csv": "695fa1ba9530c284178990a9424092c1a2a47480443707852da00277258cf87f",
+    "occupancy.csv": "787bc7b2002c44f6008a9284bd60d38cdaca511749e00cbd36c672bf5c79a683",
+    "accepted_stores.csv": "fc7b20ee88143fcf2e2c8c6dc090f64eafa002d12f3e52a323d6f2c6b3d74da6",
+    "load_responses.csv": "d7c3ea88f9a1f467b7ea1cd6f841104984c9b10fec71703887f4492f96ffb915",
+    "platform_edges.csv": "d5e3a75c7f21daa7c2cdf7f0cec35b8dbdd7ea81ff7db820bd73d3c0af740c24"
+  },
+  "gap": 1,
+  "cycle_offset": 9,
+  "window_frames": 857,
+  "comparisons": [
+    {
+      "name": "alu_rs_admissions",
+      "simulated": 260,
+      "formal_in_window": 260,
+      "match": true,
+      "only_simulated": [],
+      "only_formal": []
+    },
+    {
+      "name": "fetch_requests",
+      "simulated": 532,
+      "formal_in_window": 532,
+      "match": true,
+      "only_simulated": [],
+      "only_formal": []
+    },
+    {
+      "name": "flushes",
+      "simulated": 7,
+      "formal_in_window": 7,
+      "match": true,
+      "only_simulated": [],
+      "only_formal": []
+    },
+    {
+      "name": "stores",
+      "simulated": 65,
+      "formal_in_window": 65,
+      "match": true,
+      "only_simulated": [],
+      "only_formal": []
+    },
+    {
+      "name": "load_requests",
+      "simulated": 65,
+      "formal_in_window": 65,
+      "match": true,
+      "only_simulated": [],
+      "only_formal": []
+    }
+  ],
+  "formal_alu_rows_admitted_in_window": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "formal_alu_rows_admitted_all_frames": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "script_sha256": "3ae07bfc251917d8e64fc6ee3e76c91ca6f7c3053bf4c678e4d9855e58416fd7"
+}

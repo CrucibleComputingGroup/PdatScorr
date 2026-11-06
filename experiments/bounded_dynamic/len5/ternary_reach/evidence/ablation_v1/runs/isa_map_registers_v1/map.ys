@@ -1,0 +1,14 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/candidate_whole_core.json"
+hierarchy -check -top datapath
+check -assert
+select -assert-none t:$assume t:$assert t:$cover t:$check t:$anyseq t:$anyconst
+select *
+bwmuxmap
+bmuxmap
+demuxmap
+memory_map
+synth -top datapath
+dfflibmap -liberty "/opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib"
+abc -liberty "/opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib"
+clean
+tee -o "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/isa_map_registers_v1/stat.json" stat -json -liberty "/opt/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib"

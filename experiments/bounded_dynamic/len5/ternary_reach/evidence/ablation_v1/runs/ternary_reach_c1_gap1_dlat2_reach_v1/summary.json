@@ -1,0 +1,114 @@
+{
+  "status": "certified",
+  "model": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat2_v1",
+  "model_aig_sha256": "ad98941e33f306f8591b394d2d1f1b5c4fb927f5e1314027b09f6a2ccc6e2578",
+  "model_manifest_sha256": "b2209ecd7883529432ee24921a3aa74fbf2f424266219c78488854d6e25192d0",
+  "design_sha256": "371a91db44e992635c234ba339907654b62a6800c43d787561cea2bbbbe67b7e",
+  "instruction_acceptance_gap": 1,
+  "frames": 4096,
+  "max_period": 2048,
+  "compile": {
+    "argv": [
+      "gcc",
+      "-O2",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-o",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat2_reach_v1/tsim",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat2_reach_v1/tsim.c"
+    ],
+    "stderr": "",
+    "compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "binary_sha256": "94577d240c5131384037b74c90bbbe8d3088209c993dbe709422a77013e2251c"
+  },
+  "script_sha256": "d99cfedadbdbff8ce2532668e86cc1a8a4275f30cdcf4f59bcdeaf0e39c778e9",
+  "tsim_source_sha256": "02e84707654a65e8054a95035bcdd82c1cbc93cb58e0d148259feeb0c5f44c18",
+  "run": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat2_reach_v1/tsim",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat2_v1/screen.aig",
+      "1",
+      "4096",
+      "2048",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat2_reach_v1/tsim"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat2_reach_v1/tsim",
+    "executable_sha256": "94577d240c5131384037b74c90bbbe8d3088209c993dbe709422a77013e2251c",
+    "timeout": false,
+    "seconds": 90.56265549780801,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat2_reach_v1/tsim.log",
+    "log_sha256": "14f8c6603c32aaf41b9428755117ea7556519c823a935bc0e2696ed9162c7ffb"
+  },
+  "result": {
+    "header": "671056 34610 24385 24293 612061 3 1",
+    "frames": "4096",
+    "period": "256",
+    "period_initial_diff": "3",
+    "widening_rounds": "54",
+    "closed": "1",
+    "entry_ok": "1",
+    "cycle_x_latches": "2856",
+    "final_frame_x_latches": "2688",
+    "property_checks": "8703",
+    "property_failures": "0",
+    "rereset_uncovered": "0",
+    "outputs_constant": "15369",
+    "outputs_varying": "8924",
+    "outputs_never": "0",
+    "invariant_ok": "1"
+  },
+  "flip_flop_bits": 24157,
+  "constant_bits": 15254,
+  "constant_zero_bits": 15236,
+  "constant_one_bits": 18,
+  "reset_value_mismatches": 0,
+  "never_evaluated": 0,
+  "alu_rs_rows": {
+    "0": {
+      "bits": 220,
+      "constant_bits": 220
+    },
+    "1": {
+      "bits": 220,
+      "constant_bits": 127
+    },
+    "2": {
+      "bits": 220,
+      "constant_bits": 114
+    },
+    "3": {
+      "bits": 220,
+      "constant_bits": 5
+    },
+    "4": {
+      "bits": 220,
+      "constant_bits": 5
+    },
+    "5": {
+      "bits": 220,
+      "constant_bits": 67
+    },
+    "6": {
+      "bits": 220,
+      "constant_bits": 67
+    },
+    "7": {
+      "bits": 220,
+      "constant_bits": 64
+    }
+  },
+  "main_trajectory_alu_admissions": {
+    "1": 55,
+    "2": 58,
+    "3": 29,
+    "4": 31,
+    "5": 30,
+    "6": 27,
+    "7": 30
+  },
+  "trace_sha256": "b572193a48496b29f779d096db3f3018d6e4a785cfd7b2dfd459fb7827f62b87",
+  "constants_sha256": "fd03365ff7c8b7e79b83c1423f485f40856a414e04bb72e7b438c40ef7fbcf3b",
+  "components_sha256": "433862c6681decc4e7c9eb6527f216e08da1bf5d104ec54ea85a61ad7abc5565"
+}

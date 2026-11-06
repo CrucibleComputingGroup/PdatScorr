@@ -1,0 +1,7 @@
+read_json "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_v2/core.json"
+hierarchy -check -top datapath
+rename datapath ObservedCore
+bwmuxmap
+bmuxmap
+demuxmap
+write_verilog "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_v2/core.v"

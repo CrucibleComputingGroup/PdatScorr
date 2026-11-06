@@ -1,0 +1,934 @@
+{
+ "u_backend.u_cdb.u_cdb_arbiter.rem_valid_q": {
+  "bits": 5,
+  "constant_bits": 3
+ },
+ "u_backend.u_commit_stage.comm_reg_csr_op": {
+  "bits": 3,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.except_code": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.except_raised": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.instr_pc": {
+  "bits": 64,
+  "constant_bits": 60
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.instruction": {
+  "bits": 32,
+  "constant_bits": 1
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.mem_clear": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.mem_crit": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.order_crit": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.rd_idx": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.rd_upd": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.res_ready": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.comm_reg_data.data.res_value": {
+  "bits": 64,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.comm_reg_data.rob_idx": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.comm_reg_valid": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_commit_cu.curr_state": {
+  "bits": 5,
+  "constant_bits": 1
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].except_code": {
+  "bits": 160,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].except_raised": {
+  "bits": 32,
+  "constant_bits": 32
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].instr_pc": {
+  "bits": 2048,
+  "constant_bits": 1920
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].instruction": {
+  "bits": 1024,
+  "constant_bits": 88
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].mem_clear": {
+  "bits": 32,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].mem_crit": {
+  "bits": 32,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].order_crit": {
+  "bits": 32,
+  "constant_bits": 32
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].rd_idx": {
+  "bits": 160,
+  "constant_bits": 28
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].rd_upd": {
+  "bits": 32,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].res_ready": {
+  "bits": 32,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.data[*].res_value": {
+  "bits": 2048,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.data_valid[*]": {
+  "bits": 32,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.head_idx": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.u_clear_counter.count_o": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.u_tail_counter.count_o": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_commit_stage.u_rob.u_work_counter.count_o": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_csrs.hpmcounter3": {
+  "bits": 64,
+  "constant_bits": 0
+ },
+ "u_backend.u_csrs.hpmcounter4": {
+  "bits": 64,
+  "constant_bits": 57
+ },
+ "u_backend.u_csrs.hpmcounter5": {
+  "bits": 64,
+  "constant_bits": 57
+ },
+ "u_backend.u_csrs.hpmcounter6": {
+  "bits": 64,
+  "constant_bits": 57
+ },
+ "u_backend.u_csrs.mcause.except_code": {
+  "bits": 63,
+  "constant_bits": 63
+ },
+ "u_backend.u_csrs.mcause.intr": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_csrs.mcycle": {
+  "bits": 64,
+  "constant_bits": 0
+ },
+ "u_backend.u_csrs.mepc": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_csrs.minstret": {
+  "bits": 64,
+  "constant_bits": 0
+ },
+ "u_backend.u_csrs.mscratch": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_csrs.mstatus_mie": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_csrs.mstatus_mpie": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_csrs.mstatus_mpp": {
+  "bits": 2,
+  "constant_bits": 2
+ },
+ "u_backend.u_csrs.mtval": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_csrs.mtvec.base": {
+  "bits": 62,
+  "constant_bits": 62
+ },
+ "u_backend.u_csrs.mtvec.mode": {
+  "bits": 2,
+  "constant_bits": 2
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.except_raised_q": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_out_reg.gen_spill_cell_gen.a_data_q.ctl": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_out_reg.gen_spill_cell_gen.a_data_q.rob_idx": {
+  "bits": 5,
+  "constant_bits": 5
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_out_reg.gen_spill_cell_gen.a_data_q.rs1_value": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_out_reg.gen_spill_cell_gen.a_data_q.rs2_value": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_out_reg.gen_spill_cell_gen.b_data_q.ctl": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_out_reg.gen_spill_cell_gen.b_data_q.rob_idx": {
+  "bits": 5,
+  "constant_bits": 5
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_out_reg.gen_spill_cell_gen.b_data_q.rs1_value": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_out_reg.gen_spill_cell_gen.b_data_q.rs2_value": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_out_reg.gen_spill_cell_gen.u_spill_cell_cu.curr_state": {
+  "bits": 3,
+  "constant_bits": 2
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.cnt_q": {
+  "bits": 6,
+  "constant_bits": 6
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.comp_inv_q": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.div_res_zero_q": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.id_q": {
+  "bits": 5,
+  "constant_bits": 5
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.op_a_q": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.op_b_neg_one_q": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.op_b_q": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.op_b_zero_q": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.rem_sel_q": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.res_inv_q": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.res_q": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.u_serdiv.state_q": {
+  "bits": 2,
+  "constant_bits": 2
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div.word_op_q": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.curr_state[*]": {
+  "bits": 12,
+  "constant_bits": 12
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.data[*].dest_rob_idx": {
+  "bits": 20,
+  "constant_bits": 20
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.data[*].eu_ctl": {
+  "bits": 16,
+  "constant_bits": 16
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.data[*].except_code": {
+  "bits": 20,
+  "constant_bits": 20
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.data[*].except_raised": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.data[*].res_value": {
+  "bits": 256,
+  "constant_bits": 256
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.data[*].rs1_rob_idx": {
+  "bits": 20,
+  "constant_bits": 20
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.data[*].rs1_value": {
+  "bits": 256,
+  "constant_bits": 256
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.data[*].rs2_rob_idx": {
+  "bits": 20,
+  "constant_bits": 20
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.data[*].rs2_value": {
+  "bits": 256,
+  "constant_bits": 256
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.gen_div_unit.u_div_unit.u_div_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult.ctl_q": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult.rob_idx_q": {
+  "bits": 5,
+  "constant_bits": 5
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult.rs1_value_q": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult.rs2_value_q": {
+  "bits": 64,
+  "constant_bits": 64
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult.valid_q": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.curr_state[*]": {
+  "bits": 12,
+  "constant_bits": 12
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[*].dest_rob_idx": {
+  "bits": 20,
+  "constant_bits": 20
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[*].eu_ctl": {
+  "bits": 16,
+  "constant_bits": 16
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[*].except_code": {
+  "bits": 20,
+  "constant_bits": 20
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[*].except_raised": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[*].res_value": {
+  "bits": 256,
+  "constant_bits": 256
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[*].rs1_rob_idx": {
+  "bits": 20,
+  "constant_bits": 20
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[*].rs1_value": {
+  "bits": 256,
+  "constant_bits": 256
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[*].rs2_rob_idx": {
+  "bits": 20,
+  "constant_bits": 20
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.data[*].rs2_value": {
+  "bits": 256,
+  "constant_bits": 256
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.gen_mult_unit.u_mult_unit.gen_parallel_mult_unit.u_mult_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[*]": {
+  "bits": 24,
+  "constant_bits": 5
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[*].dest_rob_idx": {
+  "bits": 40,
+  "constant_bits": 5
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[*].eu_ctl": {
+  "bits": 32,
+  "constant_bits": 31
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[*].except_code": {
+  "bits": 40,
+  "constant_bits": 5
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[*].except_raised": {
+  "bits": 8,
+  "constant_bits": 8
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[*].res_value": {
+  "bits": 512,
+  "constant_bits": 175
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[*].rs1_rob_idx": {
+  "bits": 40,
+  "constant_bits": 5
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[*].rs1_value": {
+  "bits": 512,
+  "constant_bits": 176
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[*].rs2_rob_idx": {
+  "bits": 40,
+  "constant_bits": 10
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[*].rs2_value": {
+  "bits": 512,
+  "constant_bits": 248
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": {
+  "bits": 8,
+  "constant_bits": 3
+ },
+ "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": {
+  "bits": 8,
+  "constant_bits": 8
+ },
+ "u_backend.u_exec_stage.u_branch_unit.call_confirm_q": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_branch_unit.res_q.mispredict": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_branch_unit.res_q.pc": {
+  "bits": 64,
+  "constant_bits": 61
+ },
+ "u_backend.u_exec_stage.u_branch_unit.res_q.taken": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_branch_unit.res_q.target": {
+  "bits": 64,
+  "constant_bits": 60
+ },
+ "u_backend.u_exec_stage.u_branch_unit.ret_confirm_q": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_cu.curr_state": {
+  "bits": 3,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.curr_state[*]": {
+  "bits": 12,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].branch_type": {
+  "bits": 16,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].curr_pc": {
+  "bits": 256,
+  "constant_bits": 244
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].dest_rob_idx": {
+  "bits": 20,
+  "constant_bits": 2
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].except_raised": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].imm_value": {
+  "bits": 256,
+  "constant_bits": 16
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].mispredicted": {
+  "bits": 4,
+  "constant_bits": 2
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].rs1_rob_idx": {
+  "bits": 20,
+  "constant_bits": 4
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].rs1_value": {
+  "bits": 256,
+  "constant_bits": 235
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].rs2_rob_idx": {
+  "bits": 20,
+  "constant_bits": 20
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].rs2_value": {
+  "bits": 256,
+  "constant_bits": 256
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].taken": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.data[*].target_link": {
+  "bits": 256,
+  "constant_bits": 240
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.u_addr_counter.count_o": {
+  "bits": 2,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.u_head_counter.count_o": {
+  "bits": 2,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.u_tail_counter.count_o": {
+  "bits": 2,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache.data[*].st_idx": {
+  "bits": 64,
+  "constant_bits": 32
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache.data[*].valid": {
+  "bits": 16,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.curr_state[*]": {
+  "bits": 32,
+  "constant_bits": 8
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.data[*].dest_rob_idx": {
+  "bits": 40,
+  "constant_bits": 10
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.data[*].except_code": {
+  "bits": 40,
+  "constant_bits": 40
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.data[*].except_raised": {
+  "bits": 8,
+  "constant_bits": 8
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.data[*].imm_addr_value": {
+  "bits": 512,
+  "constant_bits": 467
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.data[*].load_type": {
+  "bits": 32,
+  "constant_bits": 16
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.data[*].rs1_rob_idx": {
+  "bits": 40,
+  "constant_bits": 12
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.data[*].rs1_value": {
+  "bits": 512,
+  "constant_bits": 467
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.data[*].value": {
+  "bits": 512,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.store_dep[*]": {
+  "bits": 8,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.store_dep_idx[*]": {
+  "bits": 32,
+  "constant_bits": 12
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.u_addr_counter.count_o": {
+  "bits": 3,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.u_head_counter.count_o": {
+  "bits": 3,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.u_mem_counter.count_o": {
+  "bits": 3,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.u_tail_counter.count_o": {
+  "bits": 3,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.curr_state[*]": {
+  "bits": 64,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].dest_rob_idx": {
+  "bits": 80,
+  "constant_bits": 29
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].except_code": {
+  "bits": 80,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].except_raised": {
+  "bits": 16,
+  "constant_bits": 16
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].imm_addr_value": {
+  "bits": 1024,
+  "constant_bits": 942
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].rs1_rob_idx": {
+  "bits": 80,
+  "constant_bits": 29
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].rs1_value": {
+  "bits": 1024,
+  "constant_bits": 942
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].rs2_rob_idx": {
+  "bits": 80,
+  "constant_bits": 31
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].rs2_value": {
+  "bits": 1024,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].speculative": {
+  "bits": 16,
+  "constant_bits": 16
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[*].store_type": {
+  "bits": 64,
+  "constant_bits": 32
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.latest_idx": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.u_addr_counter.count_o": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.u_clear_counter.count_o": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.u_head_counter.count_o": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.u_mem_counter.count_o": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.u_tail_counter.count_o": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_int_regstat.busy_rob_idx[*]": {
+  "bits": 155,
+  "constant_bits": 127
+ },
+ "u_backend.u_int_regstat.gen_busy_counters[*].u_rob_cnt.count_o": {
+  "bits": 186,
+  "constant_bits": 169
+ },
+ "u_backend.u_int_rf.rf_data[*]": {
+  "bits": 1984,
+  "constant_bits": 1831
+ },
+ "u_backend.u_issue_stage.ireg_data_out.assigned_eu": {
+  "bits": 3,
+  "constant_bits": 1
+ },
+ "u_backend.u_issue_stage.ireg_data_out.curr_pc": {
+  "bits": 64,
+  "constant_bits": 60
+ },
+ "u_backend.u_issue_stage.ireg_data_out.eu_ctl": {
+  "bits": 4,
+  "constant_bits": 1
+ },
+ "u_backend.u_issue_stage.ireg_data_out.except_code": {
+  "bits": 5,
+  "constant_bits": 4
+ },
+ "u_backend.u_issue_stage.ireg_data_out.except_raised": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_issue_stage.ireg_data_out.imm_value": {
+  "bits": 64,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.instr": {
+  "bits": 32,
+  "constant_bits": 1
+ },
+ "u_backend.u_issue_stage.ireg_data_out.mem_crit": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.order_crit": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_issue_stage.ireg_data_out.pred_taken": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.pred_target": {
+  "bits": 64,
+  "constant_bits": 60
+ },
+ "u_backend.u_issue_stage.ireg_data_out.rd_idx": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.rd_upd": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.rs1_idx": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.rs1_is_pc": {
+  "bits": 1,
+  "constant_bits": 1
+ },
+ "u_backend.u_issue_stage.ireg_data_out.rs1_req": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.rs2_idx": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.rs2_is_imm": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.rs2_req": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.ireg_data_out.skip_eu": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.u_issue_cu.curr_state": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.u_issue_fifo.data[*].curr_pc": {
+  "bits": 256,
+  "constant_bits": 240
+ },
+ "u_backend.u_issue_stage.u_issue_fifo.data[*].except_code": {
+  "bits": 20,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.u_issue_fifo.data[*].except_raised": {
+  "bits": 4,
+  "constant_bits": 4
+ },
+ "u_backend.u_issue_stage.u_issue_fifo.data[*].instruction": {
+  "bits": 128,
+  "constant_bits": 4
+ },
+ "u_backend.u_issue_stage.u_issue_fifo.data[*].pred_taken": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.u_issue_fifo.data[*].pred_target": {
+  "bits": 256,
+  "constant_bits": 240
+ },
+ "u_backend.u_issue_stage.u_issue_fifo.data_valid[*]": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.u_issue_fifo.u_head_counter.count_o": {
+  "bits": 2,
+  "constant_bits": 0
+ },
+ "u_backend.u_issue_stage.u_issue_fifo.u_tail_counter.count_o": {
+  "bits": 2,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_bpu.u_btb.btb_q[*].tag": {
+  "bits": 928,
+  "constant_bits": 928
+ },
+ "u_fetch_stage.u_bpu.u_btb.btb_q[*].target": {
+  "bits": 992,
+  "constant_bits": 987
+ },
+ "u_fetch_stage.u_bpu.u_btb.btb_q[*].valid": {
+  "bits": 16,
+  "constant_bits": 14
+ },
+ "u_fetch_stage.u_bpu.u_gshare.history": {
+  "bits": 4,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_bpu.u_gshare.pht_q[*]": {
+  "bits": 32,
+  "constant_bits": 24
+ },
+ "u_fetch_stage.u_early_jump_unit.curr_state": {
+  "bits": 2,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_early_jump_unit.u_ras.ras_addr[*]": {
+  "bits": 512,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_early_jump_unit.u_ras.ras_confirmed": {
+  "bits": 8,
+  "constant_bits": 8
+ },
+ "u_fetch_stage.u_early_jump_unit.u_ras.ras_valid": {
+  "bits": 8,
+  "constant_bits": 8
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.except_code": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.except_raised": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.instr": {
+  "bits": 32,
+  "constant_bits": 1
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.pred_data.hit": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.pred_data.pc": {
+  "bits": 64,
+  "constant_bits": 60
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.pred_data.taken": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.pred_data.target": {
+  "bits": 64,
+  "constant_bits": 60
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.except_code": {
+  "bits": 5,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.except_raised": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.instr": {
+  "bits": 32,
+  "constant_bits": 1
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.hit": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.pc": {
+  "bits": 64,
+  "constant_bits": 60
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.taken": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.target": {
+  "bits": 64,
+  "constant_bits": 60
+ },
+ "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.u_spill_cell_cu.curr_state": {
+  "bits": 3,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo.data[*].hit": {
+  "bits": 2,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo.data[*].pc": {
+  "bits": 128,
+  "constant_bits": 119
+ },
+ "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo.data[*].taken": {
+  "bits": 2,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo.data[*].target": {
+  "bits": 128,
+  "constant_bits": 120
+ },
+ "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo.u_head_counter.count_o": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo.u_tail_counter.count_o": {
+  "bits": 1,
+  "constant_bits": 0
+ },
+ "u_fetch_stage.u_pc_gen.pc_o": {
+  "bits": 64,
+  "constant_bits": 59
+ }
+}

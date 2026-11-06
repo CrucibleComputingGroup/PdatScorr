@@ -1,0 +1,7354 @@
+{
+  "status": "passed",
+  "scope": "Gate-level co-simulation of mapped substituted cores against the original core RTL.",
+  "model": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_v2",
+  "model_aig_sha256": "06167f520a061988bbc5132b21ec89556bed66e693f6ab6bd20f569a4cf7c975",
+  "gap": 2,
+  "reach": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_reach_v1",
+  "constants_sha256": "d44bce0e5ab49a7e6260aeb81470d29264be3368a45e1222bdde869f37a403b0",
+  "checked_constant_bits": 16172,
+  "design_sha256": "371a91db44e992635c234ba339907654b62a6800c43d787561cea2bbbbe67b7e",
+  "evidence": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/len5/program_platform/evidence/streaming_v1",
+  "data_image_sha256": "c9a6283883d242500dbe2fc626e94eb133ed8779742278c8b8fcde764a125f00",
+  "netlists": [
+    {
+      "name": "gap2",
+      "netlist_dir": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_netlist_v1",
+      "netlist_summary_sha256": "05fd297a0f80a456126b794e650c4ff68bb321bbc076b9444d89d5bdc9ed2b1b",
+      "netlist_sha256": "55bba7b24bfd5075991768efafba416fca372c10b1a9516fd86e1e1cc3be847d",
+      "cell_area": 410015.7376,
+      "cells": 47810,
+      "substitute_design_sha256": "f87da809dc9ad381bd633d2c21c99421fa0beb818d1976eaefd7e48324270101",
+      "constant_sources": [
+        {
+          "gap": 2,
+          "model_aig_sha256": "06167f520a061988bbc5132b21ec89556bed66e693f6ab6bd20f569a4cf7c975"
+        }
+      ],
+      "certified_for_this_platform": true,
+      "role": "equivalence check"
+    },
+    {
+      "name": "gap12",
+      "netlist_dir": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap12_netlist_v1",
+      "netlist_summary_sha256": "6fa900b6de30bbb964a3538055480dd039cdb6558d279083f40135da6f2b3668",
+      "netlist_sha256": "097f16dfc79b08d840ff0d6757440c956b3b9f46ea4f46bcd3476545c3a1deea",
+      "cell_area": 457547.5744,
+      "cells": 53049,
+      "substitute_design_sha256": "aa1c885594dd8701c6a24fd6673d72ec269559a147d67e57bcd496166222f2b3",
+      "constant_sources": [
+        {
+          "gap": 1,
+          "model_aig_sha256": "ee2318d4dc7c3fa6ae9acb3d2c68d4e08abf28eb39e6279237db588aaf4abc4d"
+        },
+        {
+          "gap": 2,
+          "model_aig_sha256": "06167f520a061988bbc5132b21ec89556bed66e693f6ab6bd20f569a4cf7c975"
+        }
+      ],
+      "certified_for_this_platform": true,
+      "role": "equivalence check"
+    }
+  ],
+  "liberty_sha256": "e064286ab5bbfe7bd6de13c4271205ee43305e56169387324da1c1e09f2fedde",
+  "cell_model_types": [
+    "sky130_fd_sc_hd__a2111o_1",
+    "sky130_fd_sc_hd__a2111oi_0",
+    "sky130_fd_sc_hd__a211o_1",
+    "sky130_fd_sc_hd__a211oi_1",
+    "sky130_fd_sc_hd__a21bo_1",
+    "sky130_fd_sc_hd__a21boi_0",
+    "sky130_fd_sc_hd__a21o_1",
+    "sky130_fd_sc_hd__a21oi_1",
+    "sky130_fd_sc_hd__a221o_1",
+    "sky130_fd_sc_hd__a221oi_1",
+    "sky130_fd_sc_hd__a222oi_1",
+    "sky130_fd_sc_hd__a22o_1",
+    "sky130_fd_sc_hd__a22oi_1",
+    "sky130_fd_sc_hd__a2bb2oi_1",
+    "sky130_fd_sc_hd__a311o_1",
+    "sky130_fd_sc_hd__a311oi_1",
+    "sky130_fd_sc_hd__a31o_1",
+    "sky130_fd_sc_hd__a31oi_1",
+    "sky130_fd_sc_hd__a32o_1",
+    "sky130_fd_sc_hd__a32oi_1",
+    "sky130_fd_sc_hd__a41o_1",
+    "sky130_fd_sc_hd__a41oi_1",
+    "sky130_fd_sc_hd__and2_0",
+    "sky130_fd_sc_hd__and3_1",
+    "sky130_fd_sc_hd__and3b_1",
+    "sky130_fd_sc_hd__and4_1",
+    "sky130_fd_sc_hd__and4b_1",
+    "sky130_fd_sc_hd__clkinv_1",
+    "sky130_fd_sc_hd__dfrtp_1",
+    "sky130_fd_sc_hd__dfstp_1",
+    "sky130_fd_sc_hd__edfxtp_1",
+    "sky130_fd_sc_hd__lpflow_inputiso1p_1",
+    "sky130_fd_sc_hd__lpflow_isobufsrc_1",
+    "sky130_fd_sc_hd__maj3_1",
+    "sky130_fd_sc_hd__mux2_1",
+    "sky130_fd_sc_hd__mux2i_1",
+    "sky130_fd_sc_hd__mux4_2",
+    "sky130_fd_sc_hd__nand2_1",
+    "sky130_fd_sc_hd__nand2b_1",
+    "sky130_fd_sc_hd__nand3_1",
+    "sky130_fd_sc_hd__nand3b_1",
+    "sky130_fd_sc_hd__nand4_1",
+    "sky130_fd_sc_hd__nand4b_1",
+    "sky130_fd_sc_hd__nand4bb_1",
+    "sky130_fd_sc_hd__nor2_1",
+    "sky130_fd_sc_hd__nor2b_1",
+    "sky130_fd_sc_hd__nor3_1",
+    "sky130_fd_sc_hd__nor3b_1",
+    "sky130_fd_sc_hd__nor4_1",
+    "sky130_fd_sc_hd__nor4b_1",
+    "sky130_fd_sc_hd__nor4bb_1",
+    "sky130_fd_sc_hd__o2111a_1",
+    "sky130_fd_sc_hd__o2111ai_1",
+    "sky130_fd_sc_hd__o211a_1",
+    "sky130_fd_sc_hd__o211ai_1",
+    "sky130_fd_sc_hd__o21a_1",
+    "sky130_fd_sc_hd__o21ai_0",
+    "sky130_fd_sc_hd__o21ba_1",
+    "sky130_fd_sc_hd__o21bai_1",
+    "sky130_fd_sc_hd__o221a_1",
+    "sky130_fd_sc_hd__o221ai_1",
+    "sky130_fd_sc_hd__o22a_1",
+    "sky130_fd_sc_hd__o22ai_1",
+    "sky130_fd_sc_hd__o2bb2ai_1",
+    "sky130_fd_sc_hd__o311a_1",
+    "sky130_fd_sc_hd__o311ai_0",
+    "sky130_fd_sc_hd__o31a_1",
+    "sky130_fd_sc_hd__o31ai_1",
+    "sky130_fd_sc_hd__o32a_1",
+    "sky130_fd_sc_hd__o32ai_1",
+    "sky130_fd_sc_hd__o41a_1",
+    "sky130_fd_sc_hd__o41ai_1",
+    "sky130_fd_sc_hd__or3_1",
+    "sky130_fd_sc_hd__or3b_1",
+    "sky130_fd_sc_hd__or4_1",
+    "sky130_fd_sc_hd__or4b_1",
+    "sky130_fd_sc_hd__xnor2_1",
+    "sky130_fd_sc_hd__xnor3_1",
+    "sky130_fd_sc_hd__xor2_1"
+  ],
+  "core_output_bits": 297,
+  "core_outputs": [
+    {
+      "port": "mem_flush_o",
+      "lsb": 0,
+      "width": 1
+    },
+    {
+      "port": "irq_id_o",
+      "lsb": 1,
+      "width": 5
+    },
+    {
+      "port": "irq_ack_o",
+      "lsb": 6,
+      "width": 1
+    },
+    {
+      "port": "instr_we_o",
+      "lsb": 7,
+      "width": 1
+    },
+    {
+      "port": "instr_rready_o",
+      "lsb": 8,
+      "width": 1
+    },
+    {
+      "port": "instr_req_o",
+      "lsb": 9,
+      "width": 1
+    },
+    {
+      "port": "instr_addr_o",
+      "lsb": 10,
+      "width": 64
+    },
+    {
+      "port": "data_store_we_o",
+      "lsb": 74,
+      "width": 1
+    },
+    {
+      "port": "data_store_wdata_o",
+      "lsb": 75,
+      "width": 64
+    },
+    {
+      "port": "data_store_tag_o",
+      "lsb": 139,
+      "width": 4
+    },
+    {
+      "port": "data_store_rready_o",
+      "lsb": 143,
+      "width": 1
+    },
+    {
+      "port": "data_store_req_o",
+      "lsb": 144,
+      "width": 1
+    },
+    {
+      "port": "data_store_be_o",
+      "lsb": 145,
+      "width": 8
+    },
+    {
+      "port": "data_store_addr_o",
+      "lsb": 153,
+      "width": 64
+    },
+    {
+      "port": "data_load_we_o",
+      "lsb": 217,
+      "width": 1
+    },
+    {
+      "port": "data_load_tag_o",
+      "lsb": 218,
+      "width": 4
+    },
+    {
+      "port": "data_load_rready_o",
+      "lsb": 222,
+      "width": 1
+    },
+    {
+      "port": "data_load_req_o",
+      "lsb": 223,
+      "width": 1
+    },
+    {
+      "port": "data_load_be_o",
+      "lsb": 224,
+      "width": 8
+    },
+    {
+      "port": "data_load_addr_o",
+      "lsb": 232,
+      "width": 64
+    },
+    {
+      "port": "core_sleep_o",
+      "lsb": 296,
+      "width": 1
+    }
+  ],
+  "initial_state": "zero (harness registers: shared random)",
+  "verilator": "Verilator 5.055 devel rev v5.054-55-gc0e51cadc (mod)",
+  "x_assign": "0",
+  "build": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/verilator",
+      "--binary",
+      "-j",
+      "40",
+      "--x-assign",
+      "0",
+      "--x-initial",
+      "unique",
+      "-Wno-fatal",
+      "-Wno-lint",
+      "-Wno-style",
+      "-Wno-MULTIDRIVEN",
+      "--top-module",
+      "tb",
+      "-Mdir",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/obj",
+      "-o",
+      "simv",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/cells.v",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/sim_core_orig.v",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/platform_orig.sv",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/netlist_gap2.v",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/gate_gap2.v",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/platform_gap2.sv",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/netlist_gap12.v",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/gate_gap12.v",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/platform_gap12.sv",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap2_gatesim_x0_v1/tb.sv"
+    ],
+    "returncode": 0,
+    "seconds": 291.2,
+    "log_sha256": "e9df7ebe67c70df71664d20603d79e4727960243fe8a2588cec24a809d180f5a"
+  },
+  "sources_sha256": {
+    "cells.v": "7b6fa32a549c6a3836e534fa60b659800f8c79bcee4dbb547ba9d97b3a6a01a6",
+    "sim_core_orig.v": "8628f1ef00c763d26b0052b695d0ecac043f994c91414df485dfbb2f2fdecc90",
+    "platform_orig.sv": "1a919d2811aeeee869701792330c5568f35beb9597ec8e23497f61040280a817",
+    "netlist_gap2.v": "4373ef98337ada6b34d58d70832b7164575bfce153f2719fa0c608573e7f4eae",
+    "gate_gap2.v": "3b0e493045dd58b6d7a458b7d0d2816c0d599f18f51cc4b00829e062bcda9915",
+    "platform_gap2.sv": "4f0cd4441047daab9e70098b26fcd65d617ddd2d7d8aa29df0061fde25ef051a",
+    "netlist_gap12.v": "0b4ac65ed22209a91b5c79f72bc03d3d143503d49a25e178f23f819929d1cee3",
+    "gate_gap12.v": "e2ae9cb6751d297a051c07bc41a42898117aa923273b304d26c3a61241025d2f",
+    "platform_gap12.sv": "1a26a24f58f41f65f3f35be2304821449c210b1dcdc101fb21e0de04548534af",
+    "tb.sv": "a8daa740d03d35cb0e434030cf9c3fe4f1729e8fd220bfd5cc828b415a7a7e67",
+    "image.hex": "9d62523a804ed74ca2566be207e2153fecd6428409a443ce5864f111cae724ad"
+  },
+  "script_sha256": "6679d88b2988b3e6bf7bf54f6a2560a7941eb558970d247d2f4c57e14ba15af1",
+  "failures": [],
+  "runs": [
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12591,
+        "6": 12685,
+        "7": 26034
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1717,
+      "rereset_events": 689,
+      "fetches": 98312,
+      "loads": 12869,
+      "stores": 12492,
+      "flushes": 711,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "b4e4eaff6ce1e3f7",
+      "seed": 1,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 78.6,
+      "log_sha256": "01e98613f7bb82121196129fe075f71e5bac0ae4050b279ae6dfb484c52e3e5e"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7746,
+        "6": 7762,
+        "7": 15776
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 423,
+      "rereset_events": 175,
+      "fetches": 99493,
+      "loads": 7869,
+      "stores": 7802,
+      "flushes": 413,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "90efa5f59b4dc9c3",
+      "seed": 2,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 75.6,
+      "log_sha256": "39fa0fabfaffbb8af4947adb8e76f2f30be59bc767040bd0ecb5082ee4c3e2d5"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3379,
+        "6": 3382,
+        "7": 6870
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 172,
+      "rereset_events": 60,
+      "fetches": 99794,
+      "loads": 3433,
+      "stores": 3420,
+      "flushes": 196,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "25ef36989ffc2cbf",
+      "seed": 3,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 76.9,
+      "log_sha256": "ff00fc51dc784b71b5d56a8654d54a9e422159cacdb60c5c6dd5772e04a7597f"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "57a00151ee53860a",
+      "seed": 4,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 73.5,
+      "log_sha256": "c1b72a57c1a998a4b618039f5e6012286d95fc4a823266813ce6b6b48a8768ec"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12571,
+        "6": 12651,
+        "7": 26015
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1692,
+      "rereset_events": 685,
+      "fetches": 98319,
+      "loads": 12865,
+      "stores": 12478,
+      "flushes": 715,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "4071a348f152a94e",
+      "seed": 5,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 80.9,
+      "log_sha256": "79c8a87faf5ae0da22d4a8dbfce88250fbb361cd8f6f182ba851daaae7a202f4"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7460,
+        "6": 7470,
+        "7": 15182
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 469,
+      "rereset_events": 174,
+      "fetches": 99485,
+      "loads": 7569,
+      "stores": 7507,
+      "flushes": 380,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "8646fe6f707c3280",
+      "seed": 6,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 74.7,
+      "log_sha256": "ad53f29ffc24d5209ffb349579e60ece9ac807aa91c738213d18c90d9660e9a4"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3796,
+        "6": 3796,
+        "7": 7714
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 150,
+      "rereset_events": 67,
+      "fetches": 99784,
+      "loads": 3852,
+      "stores": 3845,
+      "flushes": 227,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "d97689cf2b47360a",
+      "seed": 7,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 75.1,
+      "log_sha256": "e443a64c3be0935fbd256c4d81d3ea3dd36ac242789e5f2849fc508252f59e99"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 99996,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "e56035728b19db09",
+      "seed": 8,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 73.1,
+      "log_sha256": "0ec0a9155d4b47d3af297aa325bfc8e6892a2507fb560e149c96773ea7845fb4"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12479,
+        "6": 12555,
+        "7": 25769
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1574,
+      "rereset_events": 628,
+      "fetches": 98443,
+      "loads": 12765,
+      "stores": 12395,
+      "flushes": 669,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "0950ef4f730cf373",
+      "seed": 9,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 83.1,
+      "log_sha256": "627ebe2951cc47ba8d5879a4aa4ba65ceb77e948904e324786ccefc742e2f537"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8723,
+        "6": 8744,
+        "7": 17784
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 553,
+      "rereset_events": 212,
+      "fetches": 99384,
+      "loads": 8865,
+      "stores": 8791,
+      "flushes": 460,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "0cc9342a0408b6e6",
+      "seed": 10,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 81.1,
+      "log_sha256": "8eb729f4149fa8eff67387417ba04973af15e6d8cf28ff8804db3dfb9c764b52"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3700,
+        "6": 3703,
+        "7": 7520
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 167,
+      "rereset_events": 64,
+      "fetches": 99787,
+      "loads": 3757,
+      "stores": 3750,
+      "flushes": 220,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "27be52b22410e87a",
+      "seed": 11,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 74.0,
+      "log_sha256": "658daaddbfdd2b210797768a18de1c3558cf02503b5c3ab115e48ec6aee0ceba"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "83a28be8c47ae17a",
+      "seed": 12,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 76.4,
+      "log_sha256": "6605a004ff5b918a2580642e450250f42d2c2703da41c360a2d2d83039ed51a2"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12613,
+        "6": 12690,
+        "7": 26110
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1778,
+      "rereset_events": 696,
+      "fetches": 98296,
+      "loads": 12926,
+      "stores": 12507,
+      "flushes": 694,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "7e8ba0d8f04b7e19",
+      "seed": 13,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 77.5,
+      "log_sha256": "b0e6f3afcaccab5bf3afe9f1905136ed31484cbd8aeb5ed76a94a93446d54b41"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8913,
+        "6": 8940,
+        "7": 18160
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 539,
+      "rereset_events": 221,
+      "fetches": 99385,
+      "loads": 9052,
+      "stores": 8954,
+      "flushes": 432,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "9f24c16805627c47",
+      "seed": 14,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 76.0,
+      "log_sha256": "15c36072e331e80d74acea7635b62c06c437e042aae3a9f6ba62809c418c1228"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3459,
+        "6": 3461,
+        "7": 7033
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 177,
+      "rereset_events": 66,
+      "fetches": 99782,
+      "loads": 3511,
+      "stores": 3496,
+      "flushes": 201,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "57891e0451777400",
+      "seed": 15,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 75.4,
+      "log_sha256": "e83727425f6481f0607e2bf457b46fcf6750ab398bee7d3a42a9789152b1b80b"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a4bcca6d46b41f47",
+      "seed": 16,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 74.9,
+      "log_sha256": "de6e08e690e5247da22106b941146fa8c8ca72765360e3464f9344719ce1f31c"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12429,
+        "6": 12514,
+        "7": 25678
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1655,
+      "rereset_events": 663,
+      "fetches": 98376,
+      "loads": 12695,
+      "stores": 12347,
+      "flushes": 699,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "276d723c82221505",
+      "seed": 17,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 78.5,
+      "log_sha256": "5599e9c36f0c8c43a17b80e10c4710b0f072bda1587ad86e7ead273489b42681"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7966,
+        "6": 7974,
+        "7": 16210
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 461,
+      "rereset_events": 179,
+      "fetches": 99469,
+      "loads": 8081,
+      "stores": 8024,
+      "flushes": 422,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "f83ec59f913a4666",
+      "seed": 18,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 78.8,
+      "log_sha256": "32d7a54a03b44ce5b0faf66f2f325973111aa51c4a9f7136575a77e1dd91056b"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4455,
+        "6": 4457,
+        "7": 9053
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 197,
+      "rereset_events": 78,
+      "fetches": 99743,
+      "loads": 4520,
+      "stores": 4512,
+      "flushes": 255,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "410906bfb503f89e",
+      "seed": 19,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 72.3,
+      "log_sha256": "23f82acc39996d1351d2c486357800b9e1d483061fc483788993f0bb6cbf9b22"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "4b514e6595396f6f",
+      "seed": 20,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 73.3,
+      "log_sha256": "dd2ce2b65f12703767d4e018b6b3158b55ee764b858d477f2fb1678bfde9d214"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12508,
+        "6": 12596,
+        "7": 25850
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1709,
+      "rereset_events": 681,
+      "fetches": 98335,
+      "loads": 12777,
+      "stores": 12390,
+      "flushes": 684,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "d1956ccc79f3c0fb",
+      "seed": 21,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 82.4,
+      "log_sha256": "7f1a83c5787020c024bbbc86b6a9ddff50457642e1973b2d479010bd21643df3"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8757,
+        "6": 8775,
+        "7": 17846
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 531,
+      "rereset_events": 208,
+      "fetches": 99395,
+      "loads": 8893,
+      "stores": 8822,
+      "flushes": 456,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "af3cad0b0b0791f1",
+      "seed": 22,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 76.1,
+      "log_sha256": "697251df0c2ea1145c3ab4113eb326700812eaa28fd513038a59fd4dc50e56d0"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3494,
+        "6": 3495,
+        "7": 7102
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 150,
+      "rereset_events": 63,
+      "fetches": 99799,
+      "loads": 3549,
+      "stores": 3534,
+      "flushes": 204,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "2f2c0d623e15d432",
+      "seed": 23,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 76.4,
+      "log_sha256": "53d4d69228a0040b9cad1edf8535b1955b43669c6f53fd2bd8cae792b07d6897"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "684efa9867515dd2",
+      "seed": 24,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 74.1,
+      "log_sha256": "c0c40e642879b1a9f1d6050c68b65bf856410b0be20dc68b1c1ae470bf5b50a8"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12447,
+        "6": 12523,
+        "7": 25709
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1632,
+      "rereset_events": 644,
+      "fetches": 98403,
+      "loads": 12729,
+      "stores": 12360,
+      "flushes": 689,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "2ea29c5581354b9e",
+      "seed": 25,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 77.9,
+      "log_sha256": "963a8683c4b37b33d9082f2b918dbdfb6898879a1a2f75ab8574935bfe6e6d66"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8313,
+        "6": 8332,
+        "7": 16931
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 494,
+      "rereset_events": 204,
+      "fetches": 99423,
+      "loads": 8439,
+      "stores": 8373,
+      "flushes": 444,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "015704a1100ab24d",
+      "seed": 26,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 77.8,
+      "log_sha256": "5aa1508da0a74b527c71ac6233a07ddb6d40549106283aeee16f4648f5117f0a"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3715,
+        "6": 3717,
+        "7": 7555
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 193,
+      "rereset_events": 74,
+      "fetches": 99769,
+      "loads": 3769,
+      "stores": 3756,
+      "flushes": 209,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "3e66d20cc0b7e9f8",
+      "seed": 27,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 74.6,
+      "log_sha256": "ebb4a8f5034e2a4ba7b5acadf0bb889b4b2149cefea362a87ade210253e20770"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "bf69a5bbc0aac490",
+      "seed": 28,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 75.1,
+      "log_sha256": "184970943dc987fe47c7d4b485c7f354daf309b24e5af9350baeb8fe5c4ea485"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12671,
+        "6": 12769,
+        "7": 26225
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1659,
+      "rereset_events": 672,
+      "fetches": 98354,
+      "loads": 12988,
+      "stores": 12566,
+      "flushes": 701,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "2e9c44a46907ed3b",
+      "seed": 29,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 80.2,
+      "log_sha256": "117c71925f536a5c9cb3d053fd436a3dadf813c6b7100cdb06efd99553f28a5a"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8606,
+        "6": 8617,
+        "7": 17540
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 509,
+      "rereset_events": 206,
+      "fetches": 99406,
+      "loads": 8743,
+      "stores": 8654,
+      "flushes": 440,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "4ed73ad4928f86a6",
+      "seed": 30,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 77.6,
+      "log_sha256": "249879215472371bd02e1594cb9420150349f68aeb7c3e63d180cc660c7abc3c"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3418,
+        "6": 3420,
+        "7": 6948
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 139,
+      "rereset_events": 58,
+      "fetches": 99809,
+      "loads": 3472,
+      "stores": 3466,
+      "flushes": 206,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "907f935466e4abe0",
+      "seed": 31,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 75.0,
+      "log_sha256": "7afcd36c3204a3bc7aacf928ecd39bf79a65c3b9777202d2ed2f7027234af5a6"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "56b1dfafba5509a9",
+      "seed": 32,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 73.0,
+      "log_sha256": "2fc6767bafbfb94f5084cb1c70895c296700264b2c19bc3dd8b7f8cd0ddd3771"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12471,
+        "6": 12557,
+        "7": 25797
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1651,
+      "rereset_events": 670,
+      "fetches": 98369,
+      "loads": 12756,
+      "stores": 12376,
+      "flushes": 704,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "7e7ab51223931104",
+      "seed": 33,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 81.7,
+      "log_sha256": "b0382ca3b265bd39b03d2235498065b5d09313b3403d7edc816ec6b6da1a2e49"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8056,
+        "6": 8074,
+        "7": 16418
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 493,
+      "rereset_events": 195,
+      "fetches": 99441,
+      "loads": 8184,
+      "stores": 8106,
+      "flushes": 419,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "861635683d320f28",
+      "seed": 34,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 79.8,
+      "log_sha256": "fb84deb326b8c5386b53eba46e73a3d1eafa419eab3c80e595892098294d2b59"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4241,
+        "6": 4245,
+        "7": 8620
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 184,
+      "rereset_events": 73,
+      "fetches": 99756,
+      "loads": 4307,
+      "stores": 4295,
+      "flushes": 248,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "458f575eb0131e36",
+      "seed": 35,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 76.1,
+      "log_sha256": "c902845d0b389df745ecc31f025a5aab936da58c10a3f13632b98648ad965ae2"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 99996,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "826b42c2dde5e68b",
+      "seed": 36,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 72.8,
+      "log_sha256": "ee3ed6a125da7a2301107f9752f88ca08bfb2c48432e238d7c3ebcf41a18323d"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12495,
+        "6": 12576,
+        "7": 25852
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1758,
+      "rereset_events": 676,
+      "fetches": 98316,
+      "loads": 12797,
+      "stores": 12401,
+      "flushes": 695,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "c7d8339d20c3c319",
+      "seed": 37,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 79.4,
+      "log_sha256": "e7c8d0d362c247cd650b7e7b06a4725d9105c35b64e7a4f89e757d3527f696eb"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8505,
+        "6": 8519,
+        "7": 17316
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 474,
+      "rereset_events": 196,
+      "fetches": 99445,
+      "loads": 8635,
+      "stores": 8561,
+      "flushes": 438,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "714b33063aa8fd8d",
+      "seed": 38,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 78.8,
+      "log_sha256": "bd50f5f221a146375dc65d1c58403d3e52e616400323b24c672408ff46decb21"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 2932,
+        "6": 2935,
+        "7": 5960
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 131,
+      "rereset_events": 52,
+      "fetches": 99830,
+      "loads": 2978,
+      "stores": 2969,
+      "flushes": 175,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "4e2b8065e6e4f2f5",
+      "seed": 39,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 78.6,
+      "log_sha256": "3c2c3082562790465b01f0aefa0f1ca8bb366a3b4f4d285d4fd6ce4a8eebb953"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "4986ca12a84b0cae",
+      "seed": 40,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 72.7,
+      "log_sha256": "ba8ea61dc6f8583892117c0fec08abdba6828c33287a0e9f6686751bd6adc315"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12443,
+        "6": 12519,
+        "7": 25691
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1599,
+      "rereset_events": 633,
+      "fetches": 98434,
+      "loads": 12709,
+      "stores": 12355,
+      "flushes": 677,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "10f1551a798c5ad1",
+      "seed": 41,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 52.4,
+      "log_sha256": "baff46b6ba6150b0f34123612ac6346414610d61981d700289afae374f5ebd36"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7997,
+        "6": 8010,
+        "7": 16272
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 421,
+      "rereset_events": 176,
+      "fetches": 99490,
+      "loads": 8119,
+      "stores": 8057,
+      "flushes": 422,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "bd9eaa74b085a650",
+      "seed": 42,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 50.6,
+      "log_sha256": "18760b5ce40967aef88cf671c92e789f4e66a3b50d097bf9ffa13237ec984d38"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3383,
+        "6": 3384,
+        "7": 6878
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 170,
+      "rereset_events": 64,
+      "fetches": 99788,
+      "loads": 3433,
+      "stores": 3423,
+      "flushes": 199,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "067b0808e771a5fd",
+      "seed": 43,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 45.3,
+      "log_sha256": "b6377ec74179972cd24df13513e60fd2d0a912e912d8a7c53499ff3ca13706fe"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a09f26b0805eb496",
+      "seed": 44,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 46.9,
+      "log_sha256": "ca403c864f0a615a9a3b17a03a2d1f386dd321562f6d917fe3242a408e639ec4"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12449,
+        "6": 12550,
+        "7": 25830
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1771,
+      "rereset_events": 697,
+      "fetches": 98281,
+      "loads": 12776,
+      "stores": 12359,
+      "flushes": 719,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a76f9923199a8de1",
+      "seed": 45,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 49.7,
+      "log_sha256": "d8349c7f73944995e422d15c6a4c44f44643302cd905be47910e0ef40a2b5540"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8888,
+        "6": 8912,
+        "7": 18085
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 510,
+      "rereset_events": 200,
+      "fetches": 99417,
+      "loads": 9018,
+      "stores": 8939,
+      "flushes": 437,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "9c74e6a40a1b7425",
+      "seed": 46,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 49.0,
+      "log_sha256": "0129ef57192569e12474e867affb05f78556bed0f42da34c0dd63648ca780b41"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3853,
+        "6": 3856,
+        "7": 7831
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 186,
+      "rereset_events": 74,
+      "fetches": 99765,
+      "loads": 3910,
+      "stores": 3892,
+      "flushes": 217,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "d5ce7d101272c5f2",
+      "seed": 47,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 46.7,
+      "log_sha256": "fc6b2fec393cd9d2a5bb5c08a1a5147813f9500897a126ae8b761ad074fbd507"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "f14bf1aa1511ef4e",
+      "seed": 48,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 46.1,
+      "log_sha256": "24463d6eca2514b00fae38a6d482d0a4202bba2a58a89aa26cddfb780e94185e"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12680,
+        "6": 12764,
+        "7": 26143
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1626,
+      "rereset_events": 640,
+      "fetches": 98400,
+      "loads": 12941,
+      "stores": 12558,
+      "flushes": 672,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "31d7b85992b2026b",
+      "seed": 49,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 50.2,
+      "log_sha256": "5b71294147c35df1a61ad34878146e8eed16a33b4a4bce17e97085c4ed54d22c"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8008,
+        "6": 8026,
+        "7": 16318
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 506,
+      "rereset_events": 198,
+      "fetches": 99421,
+      "loads": 8132,
+      "stores": 8065,
+      "flushes": 433,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "0f88a80c4639ed1d",
+      "seed": 50,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 48.9,
+      "log_sha256": "e0e348bc23fa55b0d1eec01c4dfc20e67ebf2d58558a783d5d410ab8241535d7"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3455,
+        "6": 3459,
+        "7": 7026
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 156,
+      "rereset_events": 63,
+      "fetches": 99801,
+      "loads": 3510,
+      "stores": 3497,
+      "flushes": 194,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "9f037b1f86cd6e2a",
+      "seed": 51,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 45.2,
+      "log_sha256": "50c08b0867ef821ef46b5bc404c6fd4e51629a8f7dbe52f8d9de53e5d9a62b4a"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "bb2d92a414969629",
+      "seed": 52,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 44.8,
+      "log_sha256": "43e526a46e96336c08966365d9d38dd512fcbabdbd67923f216e09e813de65eb"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12452,
+        "6": 12538,
+        "7": 25724
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1656,
+      "rereset_events": 662,
+      "fetches": 98364,
+      "loads": 12724,
+      "stores": 12344,
+      "flushes": 707,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "1aa20ea1a829e60e",
+      "seed": 53,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 47.3,
+      "log_sha256": "b1b7c200f2e91b99fcfebbe834b09137e56b5e8ba28c2c37f7ea31e0b0acdf58"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8664,
+        "6": 8679,
+        "7": 17635
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 503,
+      "rereset_events": 207,
+      "fetches": 99428,
+      "loads": 8788,
+      "stores": 8708,
+      "flushes": 416,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "f25ddd8737a017c6",
+      "seed": 54,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 48.0,
+      "log_sha256": "5f90dbb6e57b4b8afa6ba2b9200204a8de775358769b77c3cde20f592c781baa"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3789,
+        "6": 3792,
+        "7": 7705
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 169,
+      "rereset_events": 67,
+      "fetches": 99778,
+      "loads": 3850,
+      "stores": 3841,
+      "flushes": 226,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "e2717a5539837ea1",
+      "seed": 55,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 45.5,
+      "log_sha256": "4146118b4e7bb683eadb3cab1a9133652f3f9625c76725bd27a1840006047a23"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 99996,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "7ca65002ac8d802b",
+      "seed": 56,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 45.8,
+      "log_sha256": "7dc133b269523b8f7110c0bed2f9536c251b3f489eb25ce0b6c9644d36054feb"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12697,
+        "6": 12780,
+        "7": 26268
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1643,
+      "rereset_events": 679,
+      "fetches": 98374,
+      "loads": 12990,
+      "stores": 12605,
+      "flushes": 673,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "595baaa244faf0fe",
+      "seed": 57,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 50.4,
+      "log_sha256": "e7f4ad57301d4cd13e56bbf193ec37969bef5652c2572136ef924a19b4a55aad"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7956,
+        "6": 7971,
+        "7": 16210
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 465,
+      "rereset_events": 189,
+      "fetches": 99463,
+      "loads": 8082,
+      "stores": 8014,
+      "flushes": 417,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "7318a3cc3d6d3fb4",
+      "seed": 58,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 47.6,
+      "log_sha256": "1749f9feb56f03d355a5bda1a36bef286276c51e6da24bacb9bfd0d9ea8178ef"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3274,
+        "6": 3277,
+        "7": 6654
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 149,
+      "rereset_events": 58,
+      "fetches": 99808,
+      "loads": 3325,
+      "stores": 3314,
+      "flushes": 190,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "50bd63826f389608",
+      "seed": 59,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 46.4,
+      "log_sha256": "761aa05898ba0fe93d8f18b09f9856ce506f09e0707dcb1de713e2256879fba2"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "68e6aefef8f5ea76",
+      "seed": 60,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 42.5,
+      "log_sha256": "03bbeae3c05009434a7fc282c58d487c745a9d03ba7a70d12084321169552da7"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12626,
+        "6": 12706,
+        "7": 26097
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1711,
+      "rereset_events": 671,
+      "fetches": 98336,
+      "loads": 12915,
+      "stores": 12517,
+      "flushes": 690,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "ecaa35782f13af1c",
+      "seed": 61,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 49.8,
+      "log_sha256": "d2a4e314a486f0031d45533d988d79db70d10ad4d61e59e555f832ba6c019572"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7865,
+        "6": 7886,
+        "7": 16035
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 473,
+      "rereset_events": 194,
+      "fetches": 99449,
+      "loads": 7992,
+      "stores": 7923,
+      "flushes": 426,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "c4d5cd064ac7b142",
+      "seed": 62,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 46.2,
+      "log_sha256": "40d0d8b49c67cc6cc9b3682cf7ce172477f7ca6f70be9f029baf0b80905f680c"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3080,
+        "6": 3083,
+        "7": 6265
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 139,
+      "rereset_events": 55,
+      "fetches": 99818,
+      "loads": 3131,
+      "stores": 3119,
+      "flushes": 180,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "b77b75f4f6930eca",
+      "seed": 63,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 46.3,
+      "log_sha256": "a3c8e274c2d559eac9e6ce1b336c2fc64cfb4c4fa16d040a5a3a83b252615942"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "88768832085151b2",
+      "seed": 64,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 43.5,
+      "log_sha256": "54edb96ba0805d17918eb333f405ec9295f22b4d2e37c82867fcf36ba2d39ca8"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12487,
+        "6": 12570,
+        "7": 25802
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1647,
+      "rereset_events": 672,
+      "fetches": 98366,
+      "loads": 12765,
+      "stores": 12375,
+      "flushes": 693,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "6fe9f0eb3e9b35c9",
+      "seed": 65,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 49.4,
+      "log_sha256": "74aa575fad9a62e4a0e19536c690930c71c995e46cc7b1292ca9468778ba7fe5"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7252,
+        "6": 7260,
+        "7": 14768
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 419,
+      "rereset_events": 165,
+      "fetches": 99510,
+      "loads": 7366,
+      "stores": 7318,
+      "flushes": 406,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "40571343d8f74331",
+      "seed": 66,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 47.7,
+      "log_sha256": "bcc4f1818066d234c9e2c169d533d1000c8f8cde1642e526ba8c5a002653e7ec"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4669,
+        "6": 4673,
+        "7": 9501
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 210,
+      "rereset_events": 88,
+      "fetches": 99721,
+      "loads": 4746,
+      "stores": 4727,
+      "flushes": 274,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "001daf27c4eb87fe",
+      "seed": 67,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 44.7,
+      "log_sha256": "8612ac2299066078b85169f94ad8d06c4989e029b6f3d62576dc26a8843c22dd"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "7b6a72fa5833644c",
+      "seed": 68,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 42.8,
+      "log_sha256": "a96359209dd1abd27c67525947595482241e762d7ba7efa07ef03f2874bb41d4"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12539,
+        "6": 12627,
+        "7": 25917
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1597,
+      "rereset_events": 646,
+      "fetches": 98421,
+      "loads": 12837,
+      "stores": 12447,
+      "flushes": 674,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "8cd841b6b67159b1",
+      "seed": 69,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 49.6,
+      "log_sha256": "2bce9f57e77cf3eadf70ca7e6f56248ae6d851559a96111dfe27d1fefacc69ab"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7937,
+        "6": 7954,
+        "7": 16181
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 468,
+      "rereset_events": 193,
+      "fetches": 99455,
+      "loads": 8062,
+      "stores": 7994,
+      "flushes": 420,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "5aebc77ca75addc4",
+      "seed": 70,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 46.0,
+      "log_sha256": "a5f3268ecaf25818862605922d41269cbec3dc03965d4b6d20358e1ff8129474"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3429,
+        "6": 3432,
+        "7": 6970
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 166,
+      "rereset_events": 61,
+      "fetches": 99792,
+      "loads": 3483,
+      "stores": 3470,
+      "flushes": 200,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "f81e8737e313ba82",
+      "seed": 71,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 42.9,
+      "log_sha256": "34b15dcfaf240098eb7c1c5c88f4361a484b6845c13caeb983676343302afd40"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 99996,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "842ce56f85de37a2",
+      "seed": 72,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 42.3,
+      "log_sha256": "c7daea992e5d0ed61bbd3785ddd080d7c930a649172a5a709ec333306c79eb9a"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12672,
+        "6": 12758,
+        "7": 26229
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1737,
+      "rereset_events": 679,
+      "fetches": 98306,
+      "loads": 12971,
+      "stores": 12594,
+      "flushes": 709,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "c34e7eb1763e3306",
+      "seed": 73,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 49.6,
+      "log_sha256": "6a336e30d941906bb9f7d76d5362e543171839a489f14bf249b2d22fa89a775a"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8592,
+        "6": 8615,
+        "7": 17503
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 508,
+      "rereset_events": 204,
+      "fetches": 99416,
+      "loads": 8722,
+      "stores": 8646,
+      "flushes": 435,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "22d5c924d7052a39",
+      "seed": 74,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 47.4,
+      "log_sha256": "63f4cf601eca0e90a2d40f651f5332da1d28cb7304844b2ac761ed80ec46e0db"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3855,
+        "6": 3856,
+        "7": 7833
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 157,
+      "rereset_events": 68,
+      "fetches": 99781,
+      "loads": 3913,
+      "stores": 3900,
+      "flushes": 222,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "fca5ffb9a52657a5",
+      "seed": 75,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 45.6,
+      "log_sha256": "e642f4e3d707d4088ae43936b15814a3f2f451c5972e7a74f7c1a15223ce1d43"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a4cca6cbf30c129c",
+      "seed": 76,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 42.3,
+      "log_sha256": "f830737f91d63c321a43422052503f0c4c5d7523b942439738425a21805bedc2"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12549,
+        "6": 12627,
+        "7": 25988
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1795,
+      "rereset_events": 703,
+      "fetches": 98249,
+      "loads": 12848,
+      "stores": 12456,
+      "flushes": 740,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "d61c22d1f71572e4",
+      "seed": 77,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 48.1,
+      "log_sha256": "5ae05be77a16f9fd82e38f61a40c494e001359fa7a3128f18ff3c251552a444e"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8771,
+        "6": 8783,
+        "7": 17854
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 507,
+      "rereset_events": 202,
+      "fetches": 99407,
+      "loads": 8903,
+      "stores": 8832,
+      "flushes": 471,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "54b3212fee884180",
+      "seed": 78,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 46.7,
+      "log_sha256": "efea5722664fc963164157d702a28814f4732396eada295f2f024a1d07ac0371"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3707,
+        "6": 3708,
+        "7": 7532
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 167,
+      "rereset_events": 64,
+      "fetches": 99783,
+      "loads": 3762,
+      "stores": 3755,
+      "flushes": 218,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "8d109fa5ac94237e",
+      "seed": 79,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 44.7,
+      "log_sha256": "bf8f0ccfc6bdfb286aa0a5e508e729e27ec85112646481036b21abaf94ac925b"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 99996,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "78463c4f8efc61fb",
+      "seed": 80,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 43.1,
+      "log_sha256": "21a91bd248e69ef86c1eedc25fd437dd722edb0a69e1acb04b40cb48d5ec3e4d"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12397,
+        "6": 12488,
+        "7": 25590
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1549,
+      "rereset_events": 626,
+      "fetches": 98454,
+      "loads": 12657,
+      "stores": 12336,
+      "flushes": 689,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "9bb3dcd17822c053",
+      "seed": 81,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 40.1,
+      "log_sha256": "6f44f24ba2c284b69c7ffb4a640bdbb920beaae37e5eca3ff1d14ee5270657c1"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 9052,
+        "6": 9088,
+        "7": 18485
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 669,
+      "rereset_events": 246,
+      "fetches": 99292,
+      "loads": 9211,
+      "stores": 9102,
+      "flushes": 473,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "2d6a7bb669474e91",
+      "seed": 82,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 39.4,
+      "log_sha256": "b6749ea66bfbf99e39f5b645652aec497ffce74f48a3a2e07cb64324bb0e5135"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3396,
+        "6": 3398,
+        "7": 6906
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 129,
+      "rereset_events": 63,
+      "fetches": 99814,
+      "loads": 3448,
+      "stores": 3439,
+      "flushes": 197,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "00d88fea19297ea1",
+      "seed": 83,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 37.0,
+      "log_sha256": "72c0ff0f92389f1b60cdb78651e2c58b1b5c71a710c1d9f17d35f875ff329a96"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "c1ba7dfc693b3336",
+      "seed": 84,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 35.5,
+      "log_sha256": "a0e2bb0034166452499528f70148b790629919ce7ed85e097c1cf82a3083662f"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12579,
+        "6": 12671,
+        "7": 26070
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1786,
+      "rereset_events": 715,
+      "fetches": 98250,
+      "loads": 12883,
+      "stores": 12473,
+      "flushes": 708,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "8adb77f280447179",
+      "seed": 85,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 40.2,
+      "log_sha256": "3e4e6e7540cace6a1acf08285089f74e84591cecacfeb2a3804121acd69dc7c5"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8384,
+        "6": 8400,
+        "7": 17088
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 533,
+      "rereset_events": 206,
+      "fetches": 99407,
+      "loads": 8516,
+      "stores": 8440,
+      "flushes": 424,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "3a936272dc0b6e2e",
+      "seed": 86,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 39.2,
+      "log_sha256": "3234399cccd20f91134a9835d3bd2763f40ed973eca969b68815387298ab051a"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4337,
+        "6": 4343,
+        "7": 8827
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 215,
+      "rereset_events": 87,
+      "fetches": 99728,
+      "loads": 4405,
+      "stores": 4386,
+      "flushes": 246,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "e057fa1f48a89fc9",
+      "seed": 87,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 37.1,
+      "log_sha256": "782e9084a81fe4fae059e2cae5d65e214c2320469191b3bbe10e579600a60e02"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "da98ead0edb8eb5f",
+      "seed": 88,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 36.9,
+      "log_sha256": "dcd34b2315951d4339fe0702cdebc579daa0322055e6f473608afc3f03f5c749"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12503,
+        "6": 12583,
+        "7": 25922
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1818,
+      "rereset_events": 718,
+      "fetches": 98235,
+      "loads": 12813,
+      "stores": 12405,
+      "flushes": 734,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "255a819455bc9c14",
+      "seed": 89,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 39.9,
+      "log_sha256": "18d8c3ee30df981fbe5c87d84284e029e55a89103641ad61caf482019baa7dcd"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7705,
+        "6": 7714,
+        "7": 15708
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 488,
+      "rereset_events": 190,
+      "fetches": 99442,
+      "loads": 7831,
+      "stores": 7765,
+      "flushes": 429,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "14c47fd8253944aa",
+      "seed": 90,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 39.4,
+      "log_sha256": "e997bb7b4fd4bc408f0d741fa98cfdc4efa8fd9695412c97b3083563c7e6f436"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3737,
+        "6": 3738,
+        "7": 7592
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 156,
+      "rereset_events": 62,
+      "fetches": 99791,
+      "loads": 3794,
+      "stores": 3786,
+      "flushes": 222,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "d401cec03b037641",
+      "seed": 91,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 37.9,
+      "log_sha256": "2b68ec81d37f67cff71af25e9ad91ca7577bd4198ae5e942e209258bd8a3599b"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "c6565c2692781dc2",
+      "seed": 92,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 36.8,
+      "log_sha256": "0cda66dcb2a64273de1a673af83d10850eba63966ad92a998657da973737b235"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12378,
+        "6": 12474,
+        "7": 25550
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1568,
+      "rereset_events": 619,
+      "fetches": 98453,
+      "loads": 12658,
+      "stores": 12313,
+      "flushes": 688,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "402c9236d8fb36d5",
+      "seed": 93,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 41.5,
+      "log_sha256": "dcf03c142f5dc31993c5b661347f68013e21c815874c5b52919c5ca15d6294ee"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8389,
+        "6": 8396,
+        "7": 17092
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 489,
+      "rereset_events": 209,
+      "fetches": 99427,
+      "loads": 8516,
+      "stores": 8433,
+      "flushes": 426,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "1c1e99b2257d28bc",
+      "seed": 94,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 39.3,
+      "log_sha256": "28995da1c9631df1de383375aec906fb7b4fd865875ebb4c05cdecfe605328de"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4335,
+        "6": 4337,
+        "7": 8809
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 214,
+      "rereset_events": 78,
+      "fetches": 99740,
+      "loads": 4398,
+      "stores": 4385,
+      "flushes": 244,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "563a4648a34d1381",
+      "seed": 95,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 37.4,
+      "log_sha256": "aae2e612e231bea16670ee26612e0f95dc0acd997e16797c22eb12c21920c2a1"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 99996,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a5d187960b5fe750",
+      "seed": 96,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 35.5,
+      "log_sha256": "10505953e5d0781effd17a35b7df4f8a34c640cea088b196c582cc991b98d259"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12498,
+        "6": 12579,
+        "7": 25775
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1501,
+      "rereset_events": 615,
+      "fetches": 98503,
+      "loads": 12771,
+      "stores": 12400,
+      "flushes": 655,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "90f15ad62480064f",
+      "seed": 97,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 40.6,
+      "log_sha256": "2269bdf30dfd085a96a01fffc0549f604ea028278b85911831fa269d94b27925"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8123,
+        "6": 8139,
+        "7": 16553
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 527,
+      "rereset_events": 199,
+      "fetches": 99410,
+      "loads": 8254,
+      "stores": 8169,
+      "flushes": 431,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "c57dafa6eb5e16bc",
+      "seed": 98,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 39.2,
+      "log_sha256": "ac547acecb82d2a5b113c73cdb76e70dba4cbbacd72c33aceb21e58236ab285a"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3631,
+        "6": 3636,
+        "7": 7389
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 178,
+      "rereset_events": 71,
+      "fetches": 99773,
+      "loads": 3689,
+      "stores": 3675,
+      "flushes": 213,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "b861ed684df44421",
+      "seed": 99,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 37.2,
+      "log_sha256": "7822b7f5c9346fbe9b6e25250bb2436a9bae907949ec46678fab26f902880b3d"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "5e317eba5feac512",
+      "seed": 100,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 36.5,
+      "log_sha256": "e372ac930b340cc56aaea53bdf22211e20140bf640065fd8b2e4972e1049da86"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12646,
+        "6": 12742,
+        "7": 26153
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1668,
+      "rereset_events": 687,
+      "fetches": 98332,
+      "loads": 12936,
+      "stores": 12544,
+      "flushes": 713,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "0b9222ad33ccc0a6",
+      "seed": 101,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 40.9,
+      "log_sha256": "9190030aea481cfff6118c09a5d8b3cbe7789d008af122e168d5b6941fd9f9fc"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8214,
+        "6": 8228,
+        "7": 16744
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 513,
+      "rereset_events": 199,
+      "fetches": 99420,
+      "loads": 8346,
+      "stores": 8277,
+      "flushes": 443,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "416f0f7b8f05b695",
+      "seed": 102,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 39.0,
+      "log_sha256": "8ba7321b20cc3b1f74f663b227c4d32724c7b5d92fe2d6d8b66ed95ae8dbaf13"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3847,
+        "6": 3855,
+        "7": 7834
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 179,
+      "rereset_events": 76,
+      "fetches": 99769,
+      "loads": 3912,
+      "stores": 3893,
+      "flushes": 221,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a8e6f6ebbe48ad3c",
+      "seed": 103,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 37.1,
+      "log_sha256": "318bc073850b46751bf1c9605e2e6cd71c56c2e676d08ad418a7d08bd68748b6"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 99996,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "f1f42156ddf57f4c",
+      "seed": 104,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 35.9,
+      "log_sha256": "2c85ca01dffd83d2e7b217104bcac0982fd2a26c3e363cf92da9b4052edbc186"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12556,
+        "6": 12640,
+        "7": 25970
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1687,
+      "rereset_events": 674,
+      "fetches": 98360,
+      "loads": 12852,
+      "stores": 12456,
+      "flushes": 685,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "177a84f3a96bc5e7",
+      "seed": 105,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 41.5,
+      "log_sha256": "b5d59628c21ae32583223637a500cf6939e80d3b3d51cff4fb627ffd6f993f00"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8899,
+        "6": 8920,
+        "7": 18112
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 536,
+      "rereset_events": 215,
+      "fetches": 99386,
+      "loads": 9028,
+      "stores": 8940,
+      "flushes": 451,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "74dbe77c8fd1b759",
+      "seed": 106,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 40.0,
+      "log_sha256": "66fe687d528a97d66c54a5d28afab3cde8cd4d03b0747b483e0370097b3c71f5"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3847,
+        "6": 3850,
+        "7": 7821
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 191,
+      "rereset_events": 71,
+      "fetches": 99763,
+      "loads": 3908,
+      "stores": 3892,
+      "flushes": 225,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "edb2402c4f8d7e21",
+      "seed": 107,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 37.6,
+      "log_sha256": "875a14e94047a0882efcd4c2f6bf228bd5e1c921a6c7de4b179e3a1a96c96d3a"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 99996,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "259232b0de558071",
+      "seed": 108,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 35.7,
+      "log_sha256": "0e4a4e3aae339f9bcd7344922fe22460485629d9f887f4d13023e6e860640ea9"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12642,
+        "6": 12725,
+        "7": 26170
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1765,
+      "rereset_events": 700,
+      "fetches": 98276,
+      "loads": 12941,
+      "stores": 12540,
+      "flushes": 712,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "89dbdc0250860315",
+      "seed": 109,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 39.8,
+      "log_sha256": "8b65891ea3dcdf833e42fa2951c3291a0cfb71ab8e79f98d8c2d4b3a33df4803"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8241,
+        "6": 8264,
+        "7": 16810
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 496,
+      "rereset_events": 201,
+      "fetches": 99428,
+      "loads": 8384,
+      "stores": 8302,
+      "flushes": 432,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "e43eadd6cb3b1f76",
+      "seed": 110,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 38.7,
+      "log_sha256": "17fa81220e0b0e38ec98b6dbcd6419b72c02cb80ced0a256dff2e3b399113cf2"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3661,
+        "6": 3663,
+        "7": 7436
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 159,
+      "rereset_events": 61,
+      "fetches": 99793,
+      "loads": 3716,
+      "stores": 3706,
+      "flushes": 207,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "d7e88ad0398d6367",
+      "seed": 111,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 38.1,
+      "log_sha256": "27f1fa81b023294e7079ffb0ac6284e42b545dab58034c1bf6242f8cda1f2bf9"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "4fe25deef4881f87",
+      "seed": 112,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 34.9,
+      "log_sha256": "d6fb255ab8c3972972f72f9565e662a0c1560404178660c9dca7f111b5e7d140"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12631,
+        "6": 12720,
+        "7": 26095
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1651,
+      "rereset_events": 653,
+      "fetches": 98369,
+      "loads": 12912,
+      "stores": 12529,
+      "flushes": 686,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "731c185a1ed9d223",
+      "seed": 113,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 40.3,
+      "log_sha256": "99c5dc4b26032951558119c9c1db637ed31f3d8da6daaa5196979f31c4d14132"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8433,
+        "6": 8452,
+        "7": 17185
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 494,
+      "rereset_events": 199,
+      "fetches": 99424,
+      "loads": 8572,
+      "stores": 8494,
+      "flushes": 444,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a61ac6a8dbff8269",
+      "seed": 114,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 39.2,
+      "log_sha256": "91855225fb2678337934209c41af536125dd5aec29797d2a3175199a0feb7596"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 4177,
+        "6": 4180,
+        "7": 8494
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 205,
+      "rereset_events": 80,
+      "fetches": 99749,
+      "loads": 4241,
+      "stores": 4222,
+      "flushes": 240,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "f6529ca761349703",
+      "seed": 115,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 36.6,
+      "log_sha256": "f511ee99238726315f976fad1217f7649c699d8546f1e74aca74248f89d14af6"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "1a437fa2e1c78312",
+      "seed": 116,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 35.4,
+      "log_sha256": "cb0d242972f3d833d222d041b9253b33ca818a48da0bedd646f974cb74f9e4ac"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12503,
+        "6": 12572,
+        "7": 25824
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1632,
+      "rereset_events": 652,
+      "fetches": 98397,
+      "loads": 12777,
+      "stores": 12407,
+      "flushes": 691,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "8e2c42353470052a",
+      "seed": 117,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 39.7,
+      "log_sha256": "6e2d9978b56873763f296e2dbd5bba4ae5689d816e64c7d38177791a51631f3b"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8621,
+        "6": 8639,
+        "7": 17557
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 524,
+      "rereset_events": 200,
+      "fetches": 99408,
+      "loads": 8751,
+      "stores": 8687,
+      "flushes": 451,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "f8da5e5231257bbc",
+      "seed": 118,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 40.1,
+      "log_sha256": "4b3366a35aab60227bbdc17a5ebfb8ed4ff90d8a8cec3b86b27467e0c2453cea"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3398,
+        "6": 3401,
+        "7": 6916
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 173,
+      "rereset_events": 66,
+      "fetches": 99785,
+      "loads": 3454,
+      "stores": 3441,
+      "flushes": 204,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "0ee1187589efb66d",
+      "seed": 119,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 36.7,
+      "log_sha256": "f93c6ba6100d87f9d3a4ac137cb79b5cd57c7accc90e6cad04b526113aa2394e"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "83ad7ecddca365ae",
+      "seed": 120,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 35.7,
+      "log_sha256": "86bc2d38712e3a3432177cd3d3f235494aa43d3ca56ac08927ae1c2defec42fc"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12623,
+        "6": 12721,
+        "7": 26156
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1788,
+      "rereset_events": 731,
+      "fetches": 98230,
+      "loads": 12935,
+      "stores": 12501,
+      "flushes": 749,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "de2372c412d1afdf",
+      "seed": 121,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 39.3,
+      "log_sha256": "217d77ad0f3beabbd1c648e4fb342022c697faa1f458c6a5b084028b8383a523"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 8478,
+        "6": 8494,
+        "7": 17271
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 506,
+      "rereset_events": 196,
+      "fetches": 99422,
+      "loads": 8612,
+      "stores": 8542,
+      "flushes": 440,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a5f9cfb9f00d502e",
+      "seed": 122,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 37.1,
+      "log_sha256": "63bc82feede9106d961ca8937e00234ae5dc970acf075724cae9058737f8f184"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3350,
+        "6": 3351,
+        "7": 6806
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 127,
+      "rereset_events": 58,
+      "fetches": 99814,
+      "loads": 3400,
+      "stores": 3392,
+      "flushes": 200,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "6dccb41f350fc0c8",
+      "seed": 123,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 35.4,
+      "log_sha256": "392bc76be78ae3679028601b58ef3f7a246e7324405adca93d85cbde3a4bda6a"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 99997,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "854602ef0bd8b16f",
+      "seed": 124,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 33.5,
+      "log_sha256": "75b75455f20faa16a289bb330675de88adfc6a99bf745773aa550d16742be370"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 12483,
+        "6": 12574,
+        "7": 25870
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 300,
+      "reset_frames": 1767,
+      "rereset_events": 710,
+      "fetches": 98282,
+      "loads": 12794,
+      "stores": 12382,
+      "flushes": 708,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "5dd624268664e0e6",
+      "seed": 125,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 300,
+      "returncode": 0,
+      "seconds": 37.6,
+      "log_sha256": "942a0cdb50274c0858b3b5dfd272fbd45614e3888dcdd3d240f96c69e555db4d"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7565,
+        "6": 7582,
+        "7": 15414
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 1000,
+      "reset_frames": 463,
+      "rereset_events": 176,
+      "fetches": 99478,
+      "loads": 7685,
+      "stores": 7617,
+      "flushes": 396,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a07c0abf9a78cf86",
+      "seed": 126,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 1000,
+      "returncode": 0,
+      "seconds": 36.3,
+      "log_sha256": "7adc6e0cf6a190a2a636d37669fc6731894e8ecc85583ad0c0d12c6fdf822bd9"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 3554,
+        "6": 3557,
+        "7": 7227
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 3000,
+      "reset_frames": 159,
+      "rereset_events": 64,
+      "fetches": 99789,
+      "loads": 3609,
+      "stores": 3603,
+      "flushes": 214,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "547c34fbd400e7aa",
+      "seed": 127,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 3000,
+      "returncode": 0,
+      "seconds": 35.2,
+      "log_sha256": "0c90951f9bfda638e8b7eb1cff80bc03a5e909a84d871316bb7464839066a113"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 200000,
+      "image_mode": 0,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 99996,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "c538e267430dffd5",
+      "seed": 128,
+      "image": false,
+      "cycles": 200000,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 33.1,
+      "log_sha256": "b71b9842d19e78e4229d0a048598cf1bf9e331719be3cd0b89c23b0c10c5c0f1"
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 1940,
+      "image_mode": 1,
+      "reset_period_arg": 0,
+      "reset_frames": 1,
+      "rereset_events": 0,
+      "fetches": 967,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "edeb887f3f6cd954",
+      "seed": 1001,
+      "image": true,
+      "cycles": 1940,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 0.4,
+      "log_sha256": "3a1f4977c2aef491d4160961338597675ee9d49d7529a7336db217806ce86992",
+      "image_stores": {
+        "recorded": 65,
+        "simulated": 65,
+        "values_match": true,
+        "cycle_shifts": [
+          9
+        ],
+        "store_log_sha256": "4b135d08dc9016ed04af2e2d7170ca3e9eb22e22011afb2630c109e691c46d65"
+      }
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 1940,
+      "image_mode": 1,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 967,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a1efcb0613b9e733",
+      "seed": 1002,
+      "image": true,
+      "cycles": 1940,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 0.4,
+      "log_sha256": "066cadaa0cb605cec2e549b0e692ad9572d8875e841c9a9ae0514b7c243433ec",
+      "image_stores": {
+        "recorded": 65,
+        "simulated": 65,
+        "values_match": true,
+        "cycle_shifts": [
+          8
+        ],
+        "store_log_sha256": "2dc390eaea9fc83ec5372fcb9c622e2537c2d0c59c3d8529c5a34dec2e624b32"
+      }
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 1940,
+      "image_mode": 1,
+      "reset_period_arg": 0,
+      "reset_frames": 2,
+      "rereset_events": 0,
+      "fetches": 967,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "a1efcb0613b9e733",
+      "seed": 1003,
+      "image": true,
+      "cycles": 1940,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 0.4,
+      "log_sha256": "0ad709150df8cc09aa753df8401df0e023fd70f677d50f909a23fbd4f690b919",
+      "image_stores": {
+        "recorded": 65,
+        "simulated": 65,
+        "values_match": true,
+        "cycle_shifts": [
+          8
+        ],
+        "store_log_sha256": "2dc390eaea9fc83ec5372fcb9c622e2537c2d0c59c3d8529c5a34dec2e624b32"
+      }
+    },
+    {
+      "adm": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 64,
+        "6": 64,
+        "7": 130
+      },
+      "mism": {
+        "0": {
+          "cycles": 0,
+          "first": -1
+        },
+        "1": {
+          "cycles": 0,
+          "first": -1
+        }
+      },
+      "bits": [],
+      "simulated_cycles": 1940,
+      "image_mode": 1,
+      "reset_period_arg": 0,
+      "reset_frames": 3,
+      "rereset_events": 0,
+      "fetches": 966,
+      "loads": 65,
+      "stores": 65,
+      "flushes": 4,
+      "reset_admissions": 0,
+      "const_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "prop_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "service_fail": {
+        "cycles": 0,
+        "first": -1
+      },
+      "digest": "07edeaba85d37800",
+      "seed": 1004,
+      "image": true,
+      "cycles": 1940,
+      "reset_period": 0,
+      "returncode": 0,
+      "seconds": 0.4,
+      "log_sha256": "3907c56cfeb2865102d8b2bd310098c5edc16e05c770b1e791539e0a424b30ff",
+      "image_stores": {
+        "recorded": 65,
+        "simulated": 65,
+        "values_match": true,
+        "cycle_shifts": [
+          7
+        ],
+        "store_log_sha256": "8cbe3776c7d3293a8145ade0c68068743edc52f5575b6980a5df0c302cf4ffd1"
+      }
+    }
+  ],
+  "totals": {
+    "runs": 132,
+    "cycles": 25607760,
+    "rereset_events": 29974,
+    "alu_rs_admissions_by_row": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 787044,
+      "6": 790407,
+      "7": 1615223
+    },
+    "constant_violation_cycles": 0,
+    "admission_property_violation_cycles": 0,
+    "service_assertion_violation_cycles": 0,
+    "equivalence_mismatch_cycles": {
+      "gap2": 0,
+      "gap12": 0
+    },
+    "distinct_trace_digests": 131
+  },
+  "negative_controls": {}
+}

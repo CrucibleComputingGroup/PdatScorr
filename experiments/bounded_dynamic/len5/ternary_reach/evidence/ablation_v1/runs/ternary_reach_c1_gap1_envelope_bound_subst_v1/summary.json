@@ -1,0 +1,50 @@
+{
+  "status": "substituted_simulation_bound",
+  "design": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/candidate_whole_core.json",
+  "design_sha256": "371a91db44e992635c234ba339907654b62a6800c43d787561cea2bbbbe67b7e",
+  "constant_sources": [
+    {
+      "path": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_random_timing_witness_v2/program_only_bound.json",
+      "sha256": "7b5e3b0914b243e3c2e150ad753c9655e961a7e854c964443128ce0d7c1a10f8",
+      "gap": null,
+      "model_aig_sha256": null,
+      "constant_bits": 14934
+    }
+  ],
+  "applied_constant_bits": 14934,
+  "applied_zero_bits": 14916,
+  "applied_one_bits": 18,
+  "rewired_connections": {
+    "$add.A": 402,
+    "$aldff.D": 16,
+    "$and.A": 2052,
+    "$bmux.A": 121714,
+    "$bmux.S": 1,
+    "$bwmux.A": 3911,
+    "$bwmux.B": 1856,
+    "$demux.S": 1,
+    "$eq.A": 1949,
+    "$eq.B": 503,
+    "$gt.A": 64,
+    "$gt.B": 64,
+    "$logic_not.A": 776,
+    "$mul.A": 32,
+    "$mul.B": 32,
+    "$mux.A": 11183,
+    "$mux.B": 6443,
+    "$mux.S": 36,
+    "$not.A": 20,
+    "$or.A": 114,
+    "$or.B": 5,
+    "$pmux.A": 5017,
+    "$pmux.B": 1010,
+    "$reduce_and.A": 16,
+    "$reduce_or.A": 87,
+    "$sub.A": 175,
+    "$xor.B": 2,
+    "module_output.instr_addr_o": 59
+  },
+  "output_design_sha256": "19a5cceb5d34d0ce36e33b3babfc67e98d7c461b354dc731b80d67b4929d71ff",
+  "applied_constants_sha256": "e742cd2a703c4d31ed82cf6b45e71cf92e76a97932355cd8940016f24949d3f4",
+  "script_sha256": "9c725047f32b76b76487fc63e46a26b5068fe6e57198e6492a9a95a657d23d33"
+}

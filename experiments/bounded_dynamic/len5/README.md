@@ -6,6 +6,10 @@ subsequent [storage inventory and screened plan](STORAGE_SAVINGS_PLAN.md),
 [unchanged-core mapped baseline](results/native_area_v1/summary.json), and
 [DIV occupancy counterexample](results/div_falsifier_v1/summary.json).
 These results establish no timing-derived storage saving or queue-resizing gain.
+The timing ablation itself is in [ternary_reach](ternary_reach/README.md). There,
+Pscorr given LEN5's fixed native timing removes at least 18,408.9 µm² (1.31% of
+the original core) beyond its program-only bound, with capacities and runtime
+unchanged.
 
 **Qualification passed:** unchanged pre-FPU RTL elaborates, normalized structural
 checks pass, and a self-checking smoke passes with an actual tagged memory

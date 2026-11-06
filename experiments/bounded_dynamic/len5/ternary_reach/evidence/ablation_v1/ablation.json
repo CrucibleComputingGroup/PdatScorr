@@ -1,0 +1,1425 @@
+{
+  "status": "ablation_recorded",
+  "question": "Pscorr with ISA/program constraints versus the same constraints plus fixed timing, on unchanged LEN5 RTL and capacities, at equal runtime",
+  "rows": [
+    {
+      "row": "A0",
+      "variant": "Original fixed LEN5",
+      "information": "none",
+      "evidence": "mapped original",
+      "deployment": "any",
+      "flip_flop_constants": 0,
+      "cell_area_um2": 1400805.984001,
+      "cells": 160447,
+      "design_sha256": "eed81f042c055fd218116838f154535efdf2534e6cb78a83aba79a6d58bf4131",
+      "reduction_vs_A0_percent": 0.0,
+      "increment_vs_P_um2": null,
+      "increment_vs_P_percent_of_A0": null,
+      "increment_vs_P_percent_of_P": null,
+      "program_cycles": null,
+      "equal_runtime_to_P": true,
+      "legal_on_LEN5": true,
+      "map_run": "isa_map_original_v1",
+      "substitution_run": null
+    },
+    {
+      "row": "C1",
+      "variant": "Pscorr: program-word decoder + architectural RF",
+      "information": "ISA/program",
+      "evidence": "conditionally certified (instruction domain)",
+      "deployment": "any",
+      "flip_flop_constants": 0,
+      "cell_area_um2": 1227165.6992,
+      "cells": 136304,
+      "design_sha256": "371a91db44e992635c234ba339907654b62a6800c43d787561cea2bbbbe67b7e",
+      "reduction_vs_A0_percent": 12.3957,
+      "increment_vs_P_um2": null,
+      "increment_vs_P_percent_of_A0": null,
+      "increment_vs_P_percent_of_P": null,
+      "program_cycles": null,
+      "equal_runtime_to_P": true,
+      "legal_on_LEN5": true,
+      "map_run": "isa_map_registers_v1",
+      "substitution_run": null
+    },
+    {
+      "row": "P",
+      "variant": "C1 + flip-flop constants under every legal data timing",
+      "information": "ISA/program, any legal timing",
+      "evidence": "simulation bound, not certified",
+      "deployment": "any legal timing",
+      "flip_flop_constants": 14934,
+      "cell_area_um2": 473208.8448,
+      "cells": 53533,
+      "design_sha256": "19a5cceb5d34d0ce36e33b3babfc67e98d7c461b354dc731b80d67b4929d71ff",
+      "reduction_vs_A0_percent": 66.2188,
+      "increment_vs_P_um2": null,
+      "increment_vs_P_percent_of_A0": null,
+      "increment_vs_P_percent_of_P": null,
+      "program_cycles": null,
+      "equal_runtime_to_P": true,
+      "legal_on_LEN5": true,
+      "map_run": "gap1_envelope_bound_map_v1",
+      "substitution_run": "gap1_envelope_bound_subst_v1"
+    },
+    {
+      "row": "T3",
+      "variant": "C1 + constants at the fixed native timing",
+      "information": "ISA/program + fixed timing (fetch gap 1, data latency 3)",
+      "evidence": "certified (ternary reach) + RTL co-simulation",
+      "deployment": "fetch gap 1, data latency 3 (this study's native platform)",
+      "flip_flop_constants": 15255,
+      "cell_area_um2": 454799.9392,
+      "cells": 52299,
+      "design_sha256": "2fa2467e3bd2ebd43cddc0d50f8a9d17060326474bb0d006240a9daa82272cd9",
+      "reduction_vs_A0_percent": 67.533,
+      "increment_vs_P_um2": 18408.9056,
+      "increment_vs_P_percent_of_A0": 1.3142,
+      "increment_vs_P_percent_of_P": 3.8902,
+      "program_cycles": 805,
+      "equal_runtime_to_P": true,
+      "legal_on_LEN5": true,
+      "map_run": "gap1_map_v2",
+      "substitution_run": "gap1_subst_v2"
+    },
+    {
+      "row": "T2",
+      "variant": "C1 + constants at fixed data latency 2",
+      "information": "ISA/program + fixed timing (fetch gap 1, data latency 2)",
+      "evidence": "certified (ternary reach)",
+      "deployment": "fetch gap 1, data latency 2 (legal interface timing with the native instruction pipeline)",
+      "flip_flop_constants": 15254,
+      "cell_area_um2": 456261.3408,
+      "cells": 53955,
+      "design_sha256": "aed212a8693af6f6987941fda21946466759e14719db3b375ec0a5cdd8dfc0f6",
+      "reduction_vs_A0_percent": 67.4287,
+      "increment_vs_P_um2": 16947.504,
+      "increment_vs_P_percent_of_A0": 1.2098,
+      "increment_vs_P_percent_of_P": 3.5814,
+      "program_cycles": null,
+      "equal_runtime_to_P": true,
+      "legal_on_LEN5": true,
+      "map_run": "gap1_dlat2_map_v1",
+      "substitution_run": "gap1_dlat2_subst_v1"
+    },
+    {
+      "row": "T1",
+      "variant": "C1 + constants at fixed data latency 1",
+      "information": "ISA/program + fixed timing (fetch gap 1, data latency 1)",
+      "evidence": "certified (ternary reach)",
+      "deployment": "fetch gap 1, data latency 1 (legal interface timing with the native instruction pipeline)",
+      "flip_flop_constants": 15128,
+      "cell_area_um2": 466330.9984,
+      "cells": 53035,
+      "design_sha256": "ec3d00c43f7ebe49c0cc9f1a7389c4002797b5848e1ecbc466ba8a3b902d63cb",
+      "reduction_vs_A0_percent": 66.7098,
+      "increment_vs_P_um2": 6877.8464,
+      "increment_vs_P_percent_of_A0": 0.491,
+      "increment_vs_P_percent_of_P": 1.4534,
+      "program_cycles": null,
+      "equal_runtime_to_P": true,
+      "legal_on_LEN5": true,
+      "map_run": "gap1_dlat1_map_v1",
+      "substitution_run": "gap1_dlat1_subst_v1"
+    },
+    {
+      "row": "G12",
+      "variant": "C1 + constants common to fetch gaps 1 and 2",
+      "information": "ISA/program + fetch gap 1 or 2, data latency 3",
+      "evidence": "certified (ternary reach) + RTL and gate-level co-simulation",
+      "deployment": "fetch gap 1 (also valid at gap 2), data latency 3",
+      "flip_flop_constants": 15194,
+      "cell_area_um2": 457547.5744,
+      "cells": 53049,
+      "design_sha256": "aa1c885594dd8701c6a24fd6673d72ec269559a147d67e57bcd496166222f2b3",
+      "reduction_vs_A0_percent": 67.3368,
+      "increment_vs_P_um2": 15661.2704,
+      "increment_vs_P_percent_of_A0": 1.118,
+      "increment_vs_P_percent_of_P": 3.3096,
+      "program_cycles": 805,
+      "equal_runtime_to_P": true,
+      "legal_on_LEN5": true,
+      "map_run": "gap12_map_v2",
+      "substitution_run": "gap12_subst_v2"
+    },
+    {
+      "row": "G2",
+      "variant": "C1 + constants at fetch gap 2 (outside LEN5's fetch contract)",
+      "information": "ISA/program + fixed timing (fetch gap 2, data latency 3)",
+      "evidence": "certified (ternary reach) + RTL and gate-level co-simulation",
+      "deployment": "fetch gap 2, data latency 3 (outside LEN5's fetch contract)",
+      "flip_flop_constants": 16172,
+      "cell_area_um2": 410015.7376,
+      "cells": 47810,
+      "design_sha256": "f87da809dc9ad381bd633d2c21c99421fa0beb818d1976eaefd7e48324270101",
+      "reduction_vs_A0_percent": 70.73,
+      "increment_vs_P_um2": 63193.1072,
+      "increment_vs_P_percent_of_A0": 4.5112,
+      "increment_vs_P_percent_of_P": 13.3542,
+      "program_cycles": 931,
+      "equal_runtime_to_P": false,
+      "legal_on_LEN5": false,
+      "map_run": "gap2_map_v2",
+      "substitution_run": "gap2_subst_v2"
+    }
+  ],
+  "notes": {
+    "P": "Optimistic bound, not certified: K1 minus every bit witnessed varying in any legal-envelope run. A certified program-only constant set from the same engine would be a subset of P (assuming it certifies nothing outside K1 and mapping is monotone), so each increment over P is a lower bound.",
+    "equal_runtime": "Each row is C1 with flip-flops that are constant in its deployment replaced by their constants, so in that deployment it produces A0's outputs in the same cycles (certified by ternary reachability relative to C1 for T3, T2, T1, G12, and G2; simulation evidence only for P; C1 under its instruction-domain condition). Runtime is the deployment's: 805 cycles for the program at the native timing (fetch gap 1, data latency 3). Data latencies 2 and 1 were not timed.",
+    "data_latency": "LEN5's memory emulator replies after 1 + PIPE_NUM cycles with its data answer register skipped (this study's platform: PIPE_NUM=2, three cycles). Latencies 2 and 1 need PIPE_NUM 1 or 0, which also shortens instruction responses; T2 and T1 keep the native instruction pipeline, so they model legal interface timings, not an emulator setting.",
+    "G2": "Fetch gap 2 is outside LEN5's fetch contract (a refusal can lose a redirect) and the program takes 931 cycles instead of 805.",
+    "C1": "Conditionally certified under the instruction-domain assumption; see isa_baseline/evidence/final."
+  },
+  "legal_envelope": [
+    {
+      "run": "random_timing_witness_v2",
+      "max_reply_delay": 3,
+      "runs": 1088,
+      "cycles": 1026147840,
+      "loads": 34319490,
+      "stores": 33724090,
+      "witnessed_varying_in_K1": 321,
+      "witnessed_varying_only_in_this_run": 0
+    },
+    {
+      "run": "random_timing_witness_lat64_v1",
+      "max_reply_delay": 64,
+      "runs": 1088,
+      "cycles": 1026147840,
+      "loads": 11271012,
+      "stores": 10660365,
+      "witnessed_varying_in_K1": 321,
+      "witnessed_varying_only_in_this_run": 0
+    },
+    {
+      "run": "timing_envelope_sweep_v1/lat4",
+      "max_reply_delay": 4,
+      "runs": 48,
+      "cycles": 2136960,
+      "loads": 53659,
+      "stores": 52747,
+      "witnessed_varying_in_K1": 321,
+      "witnessed_varying_only_in_this_run": 0
+    },
+    {
+      "run": "timing_envelope_sweep_v1/lat5",
+      "max_reply_delay": 5,
+      "runs": 48,
+      "cycles": 2136960,
+      "loads": 51194,
+      "stores": 50313,
+      "witnessed_varying_in_K1": 321,
+      "witnessed_varying_only_in_this_run": 0
+    },
+    {
+      "run": "timing_envelope_sweep_v1/lat6",
+      "max_reply_delay": 6,
+      "runs": 48,
+      "cycles": 2136960,
+      "loads": 49164,
+      "stores": 48314,
+      "witnessed_varying_in_K1": 321,
+      "witnessed_varying_only_in_this_run": 0
+    },
+    {
+      "run": "timing_envelope_sweep_v1/lat8",
+      "max_reply_delay": 8,
+      "runs": 48,
+      "cycles": 2136960,
+      "loads": 46820,
+      "stores": 45947,
+      "witnessed_varying_in_K1": 319,
+      "witnessed_varying_only_in_this_run": 0
+    },
+    {
+      "run": "timing_envelope_sweep_v1/lat12",
+      "max_reply_delay": 12,
+      "runs": 48,
+      "cycles": 2136960,
+      "loads": 41957,
+      "stores": 41038,
+      "witnessed_varying_in_K1": 321,
+      "witnessed_varying_only_in_this_run": 0
+    },
+    {
+      "run": "timing_envelope_sweep_v1/lat16",
+      "max_reply_delay": 16,
+      "runs": 48,
+      "cycles": 2136960,
+      "loads": 38178,
+      "stores": 37265,
+      "witnessed_varying_in_K1": 296,
+      "witnessed_varying_only_in_this_run": 0
+    },
+    {
+      "run": "timing_envelope_sweep_v1/lat32",
+      "max_reply_delay": 32,
+      "runs": 48,
+      "cycles": 2136960,
+      "loads": 27417,
+      "stores": 26529,
+      "witnessed_varying_in_K1": 215,
+      "witnessed_varying_only_in_this_run": 0
+    },
+    {
+      "run": "timing_envelope_sweep_v1/lat64",
+      "max_reply_delay": 64,
+      "runs": 48,
+      "cycles": 2136960,
+      "loads": 18334,
+      "stores": 17443,
+      "witnessed_varying_in_K1": 215,
+      "witnessed_varying_only_in_this_run": 0
+    }
+  ],
+  "negative_controls": [
+    {
+      "run": "random_timing_witness_v1",
+      "envelope": "unbounded",
+      "replaced_timing": {
+        "fetch_gate": "testbench input (periodic 1-4 or random 10-90% per regime)",
+        "data_service": "random grants 25-100%, in-order replies, reply rate 5-100% per cycle, at most 16 outstanding per channel"
+      },
+      "runs": 1040,
+      "failing_seeds": 3,
+      "failures": 3,
+      "failure_kinds": {
+        "stores differ from the recorded RTL simulation": 3
+      },
+      "lost_redirects": null,
+      "max_outstanding_loads": 2
+    },
+    {
+      "run": "random_timing_witness_refuse1_v1",
+      "envelope": "refuse1",
+      "replaced_timing": {
+        "fetch_gate": "testbench input (periodic 1-4 or random 10-90% per regime), forced open after one refusing cycle (records that one refusal is illegal; expected to fail)",
+        "data_service": "random grants 25-100% per regime; in-order replies, each requested 1-3 cycles after its acceptance (per regime: one fixed delay of 1-3, or uniform per request); at most 8 outstanding per channel",
+        "max_reply_delay": 3
+      },
+      "runs": 24,
+      "failing_seeds": 14,
+      "failures": 19,
+      "failure_kinds": {
+        "lost_redirects (monitor)": 14,
+        "store_sequence_fail (monitor)": 3,
+        "stores differ from the recorded RTL simulation": 1,
+        "store count after the last reset differs from the reference": 1
+      },
+      "lost_redirects": 126,
+      "max_outstanding_loads": 1
+    },
+    {
+      "run": "random_timing_witness_wide_v1",
+      "envelope": "wide",
+      "replaced_timing": {
+        "fetch_gate": "testbench input (periodic 1-4 or random 10-90% per regime), unbounded refusals",
+        "data_service": "random grants 25-100% per regime; in-order replies, each requested 1-7 cycles after its acceptance (per regime: one fixed delay of 1-7, or uniform per request); at most 8 outstanding per channel (monitor self-test, expected to fail)",
+        "max_reply_delay": 7
+      },
+      "runs": 48,
+      "failing_seeds": 35,
+      "failures": 85,
+      "failure_kinds": {
+        "lost_redirects (monitor)": 35,
+        "store_sequence_fail (monitor)": 33,
+        "store count after the last reset differs from the reference": 10,
+        "stores differ from the recorded RTL simulation": 7
+      },
+      "lost_redirects": 468,
+      "max_outstanding_loads": 1
+    }
+  ],
+  "constant_set_sizes": {
+    "K1": 15255,
+    "K2": 16172,
+    "Kd2": 15254,
+    "Kd1": 15128,
+    "K12": 15194,
+    "P": 14934
+  },
+  "constant_set_relations": {
+    "P": {
+      "K1": {
+        "minus": 0,
+        "value_conflicts": 0
+      },
+      "Kd2": {
+        "minus": 0,
+        "value_conflicts": 0
+      },
+      "Kd1": {
+        "minus": 0,
+        "value_conflicts": 0
+      },
+      "K12": {
+        "minus": 0,
+        "value_conflicts": 0
+      },
+      "K2": {
+        "minus": 0,
+        "value_conflicts": 0
+      }
+    },
+    "K1": {
+      "P": {
+        "minus": 321,
+        "value_conflicts": 0
+      },
+      "Kd2": {
+        "minus": 7,
+        "value_conflicts": 0
+      },
+      "Kd1": {
+        "minus": 131,
+        "value_conflicts": 0
+      },
+      "K12": {
+        "minus": 61,
+        "value_conflicts": 0
+      },
+      "K2": {
+        "minus": 61,
+        "value_conflicts": 0
+      }
+    },
+    "Kd2": {
+      "P": {
+        "minus": 320,
+        "value_conflicts": 0
+      },
+      "K1": {
+        "minus": 6,
+        "value_conflicts": 0
+      },
+      "Kd1": {
+        "minus": 128,
+        "value_conflicts": 0
+      },
+      "K12": {
+        "minus": 66,
+        "value_conflicts": 0
+      },
+      "K2": {
+        "minus": 60,
+        "value_conflicts": 0
+      }
+    },
+    "Kd1": {
+      "P": {
+        "minus": 194,
+        "value_conflicts": 0
+      },
+      "K1": {
+        "minus": 4,
+        "value_conflicts": 0
+      },
+      "Kd2": {
+        "minus": 2,
+        "value_conflicts": 0
+      },
+      "K12": {
+        "minus": 4,
+        "value_conflicts": 0
+      },
+      "K2": {
+        "minus": 0,
+        "value_conflicts": 0
+      }
+    },
+    "K12": {
+      "P": {
+        "minus": 260,
+        "value_conflicts": 0
+      },
+      "K1": {
+        "minus": 0,
+        "value_conflicts": 0
+      },
+      "Kd2": {
+        "minus": 6,
+        "value_conflicts": 0
+      },
+      "Kd1": {
+        "minus": 70,
+        "value_conflicts": 0
+      },
+      "K2": {
+        "minus": 0,
+        "value_conflicts": 0
+      }
+    },
+    "K2": {
+      "P": {
+        "minus": 1238,
+        "value_conflicts": 0
+      },
+      "K1": {
+        "minus": 978,
+        "value_conflicts": 0
+      },
+      "Kd2": {
+        "minus": 978,
+        "value_conflicts": 0
+      },
+      "Kd1": {
+        "minus": 1044,
+        "value_conflicts": 0
+      },
+      "K12": {
+        "minus": 978,
+        "value_conflicts": 0
+      }
+    }
+  },
+  "differences": {
+    "K1-P": {
+      "bits": 321,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 306,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel": 6,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_value": 184,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 58,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_value": 58,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache.data[].st_idx": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": 6,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_rob_idx": 5,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[]": 1
+      },
+      "by_alu_rs_row": {
+        "1": 14,
+        "2": 108,
+        "5": 62,
+        "6": 62,
+        "7": 60,
+        "other": 15
+      }
+    },
+    "Kd2-P": {
+      "bits": 320,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 307,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 4,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_value": 184,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_value": 59,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 58,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache.data[].st_idx": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_rob_idx": 5,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 4,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[]": 1
+      },
+      "by_alu_rs_row": {
+        "1": 14,
+        "2": 109,
+        "5": 62,
+        "6": 62,
+        "7": 60,
+        "other": 13
+      }
+    },
+    "Kd1-P": {
+      "bits": 194,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 184,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 1,
+        "u_backend.u_cdb.u_cdb_arbiter": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_value": 62,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_value": 58,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 58,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache.data[].st_idx": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_rob_idx": 5,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[]": 1,
+        "u_backend.u_cdb.u_cdb_arbiter.rem_valid_q": 1
+      },
+      "by_alu_rs_row": {
+        "1": 14,
+        "2": 108,
+        "5": 62,
+        "other": 10
+      }
+    },
+    "K12-P": {
+      "bits": 260,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 246,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel": 5,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_value": 124,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_value": 58,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 58,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache.data[].st_idx": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_rob_idx": 5,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": 5,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[]": 1
+      },
+      "by_alu_rs_row": {
+        "1": 14,
+        "2": 108,
+        "5": 62,
+        "6": 62,
+        "other": 14
+      }
+    },
+    "K2-P": {
+      "bits": 1238,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 1111,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen": 48,
+        "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer": 28,
+        "u_backend.u_int_regstat.gen_busy_counters[].u_rob_cnt": 11,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 6,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer": 6,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel": 5,
+        "u_backend.u_exec_stage.u_branch_unit.u_branch_rs": 4,
+        "u_backend.u_commit_stage.u_rob": 4,
+        "u_backend.u_cdb.u_cdb_arbiter": 2,
+        "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo": 1,
+        "u_fetch_stage.u_early_jump_unit": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.u_spill_cell_cu": 1,
+        "u_backend.u_issue_stage.u_issue_fifo": 1,
+        "u_fetch_stage.u_pc_gen": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_value": 382,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_value": 316,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 315,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.instr": 31,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_rob_idx": 25,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].except_code": 20,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_rob_idx": 20,
+        "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.store_dep_idx[]": 20,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].dest_rob_idx": 20,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[]": 13,
+        "u_backend.u_int_regstat.gen_busy_counters[].u_rob_cnt.count_o": 11,
+        "u_backend.u_exec_stage.u_load_store_unit.gen_store_load_fwd.u_l0_cache.data[].st_idx": 8,
+        "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.store_dep[]": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 6,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": 5,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.except_code": 5,
+        "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.curr_state[]": 4,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.target": 4,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.pc": 4,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[].rs1_rob_idx": 3,
+        "u_backend.u_commit_stage.u_rob.data[].instruction": 3,
+        "u_backend.u_cdb.u_cdb_arbiter.rem_valid_q": 2,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.hit": 1,
+        "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo.data[].pc": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.taken": 1,
+        "u_fetch_stage.u_early_jump_unit.curr_state": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.except_raised": 1,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[].rs1_value": 1,
+        "u_backend.u_commit_stage.u_rob.data[].rd_idx": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.u_spill_cell_cu.curr_state": 1,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[].dest_rob_idx": 1,
+        "u_backend.u_issue_stage.u_issue_fifo.data[].instruction": 1,
+        "u_fetch_stage.u_pc_gen.pc_o": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.except_raised": 1,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[].imm_addr_value": 1
+      },
+      "by_alu_rs_row": {
+        "1": 107,
+        "2": 215,
+        "3": 215,
+        "4": 215,
+        "5": 177,
+        "6": 177,
+        "7": 5,
+        "other": 127
+      }
+    },
+    "K1-Kd2": {
+      "bits": 7,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel": 5,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": 5,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 1
+      },
+      "by_alu_rs_row": {
+        "2": 1,
+        "other": 6
+      }
+    },
+    "Kd2-K1": {
+      "bits": 6,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 4,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 2
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 4,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_value": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 1
+      },
+      "by_alu_rs_row": {
+        "2": 2,
+        "other": 4
+      }
+    },
+    "K1-Kd1": {
+      "bits": 131,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 124,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel": 6,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_value": 122,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": 6,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_value": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 1
+      },
+      "by_alu_rs_row": {
+        "2": 2,
+        "6": 62,
+        "7": 60,
+        "other": 7
+      }
+    },
+    "Kd1-K1": {
+      "bits": 4,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 2,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 1,
+        "u_backend.u_cdb.u_cdb_arbiter": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_value": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 1,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 1,
+        "u_backend.u_cdb.u_cdb_arbiter.rem_valid_q": 1
+      },
+      "by_alu_rs_row": {
+        "2": 2,
+        "other": 2
+      }
+    },
+    "K2-K1": {
+      "bits": 978,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 865,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen": 48,
+        "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer": 28,
+        "u_backend.u_int_regstat.gen_busy_counters[].u_rob_cnt": 11,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer": 6,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel": 5,
+        "u_backend.u_commit_stage.u_rob": 4,
+        "u_backend.u_exec_stage.u_branch_unit.u_branch_rs": 4,
+        "u_backend.u_cdb.u_cdb_arbiter": 2,
+        "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo": 1,
+        "u_fetch_stage.u_early_jump_unit": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.u_spill_cell_cu": 1,
+        "u_backend.u_issue_stage.u_issue_fifo": 1,
+        "u_fetch_stage.u_pc_gen": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_value": 258,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_value": 258,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].res_value": 257,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.instr": 31,
+        "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.store_dep_idx[]": 20,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs1_rob_idx": 20,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_rob_idx": 20,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].except_code": 20,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].dest_rob_idx": 20,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.curr_state[]": 12,
+        "u_backend.u_int_regstat.gen_busy_counters[].u_rob_cnt.count_o": 11,
+        "u_backend.u_exec_stage.u_load_store_unit.u_load_buffer.store_dep[]": 8,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_cdb_sel.rem_valid_q": 5,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.except_code": 5,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.target": 4,
+        "u_backend.u_exec_stage.u_branch_unit.u_branch_rs.curr_state[]": 4,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.pc": 4,
+        "u_backend.u_commit_stage.u_rob.data[].instruction": 3,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[].rs1_rob_idx": 3,
+        "u_backend.u_cdb.u_cdb_arbiter.rem_valid_q": 2,
+        "u_backend.u_commit_stage.u_rob.data[].rd_idx": 1,
+        "u_fetch_stage.u_mem_if.u_pred_fifo.gen_fifo.data[].pc": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.taken": 1,
+        "u_fetch_stage.u_early_jump_unit.curr_state": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.except_raised": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.u_spill_cell_cu.curr_state": 1,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[].dest_rob_idx": 1,
+        "u_backend.u_issue_stage.u_issue_fifo.data[].instruction": 1,
+        "u_fetch_stage.u_pc_gen.pc_o": 1,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[].imm_addr_value": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.b_data_q.pred_data.hit": 1,
+        "u_fetch_stage.u_mem_if.u_ans_reg.gen_spill_cell_gen.a_data_q.except_raised": 1,
+        "u_backend.u_exec_stage.u_load_store_unit.u_store_buffer.data[].rs1_value": 1
+      },
+      "by_alu_rs_row": {
+        "1": 93,
+        "2": 107,
+        "3": 215,
+        "4": 215,
+        "5": 115,
+        "6": 115,
+        "7": 5,
+        "other": 113
+      }
+    },
+    "K1-K2": {
+      "bits": 61,
+      "by_instance": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs": 60,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel": 1
+      },
+      "by_field": {
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.data[].rs2_value": 60,
+        "u_backend.u_exec_stage.u_alu_unit.u_arith_rs.gen_rr_arbiters.u_ex_sel.rem_valid_q": 1
+      },
+      "by_alu_rs_row": {
+        "7": 60,
+        "other": 1
+      }
+    }
+  },
+  "alu_rs_rows_certified": {
+    "K1": {
+      "0": {
+        "bits": 220,
+        "constant_bits": 220
+      },
+      "1": {
+        "bits": 220,
+        "constant_bits": 127
+      },
+      "2": {
+        "bits": 220,
+        "constant_bits": 113
+      },
+      "3": {
+        "bits": 220,
+        "constant_bits": 5
+      },
+      "4": {
+        "bits": 220,
+        "constant_bits": 5
+      },
+      "5": {
+        "bits": 220,
+        "constant_bits": 67
+      },
+      "6": {
+        "bits": 220,
+        "constant_bits": 67
+      },
+      "7": {
+        "bits": 220,
+        "constant_bits": 64
+      }
+    },
+    "K2": {
+      "0": {
+        "bits": 220,
+        "constant_bits": 220
+      },
+      "1": {
+        "bits": 220,
+        "constant_bits": 220
+      },
+      "2": {
+        "bits": 220,
+        "constant_bits": 220
+      },
+      "3": {
+        "bits": 220,
+        "constant_bits": 220
+      },
+      "4": {
+        "bits": 220,
+        "constant_bits": 220
+      },
+      "5": {
+        "bits": 220,
+        "constant_bits": 182
+      },
+      "6": {
+        "bits": 220,
+        "constant_bits": 182
+      },
+      "7": {
+        "bits": 220,
+        "constant_bits": 9
+      }
+    },
+    "Kd2": {
+      "0": {
+        "bits": 220,
+        "constant_bits": 220
+      },
+      "1": {
+        "bits": 220,
+        "constant_bits": 127
+      },
+      "2": {
+        "bits": 220,
+        "constant_bits": 114
+      },
+      "3": {
+        "bits": 220,
+        "constant_bits": 5
+      },
+      "4": {
+        "bits": 220,
+        "constant_bits": 5
+      },
+      "5": {
+        "bits": 220,
+        "constant_bits": 67
+      },
+      "6": {
+        "bits": 220,
+        "constant_bits": 67
+      },
+      "7": {
+        "bits": 220,
+        "constant_bits": 64
+      }
+    },
+    "Kd1": {
+      "0": {
+        "bits": 220,
+        "constant_bits": 220
+      },
+      "1": {
+        "bits": 220,
+        "constant_bits": 127
+      },
+      "2": {
+        "bits": 220,
+        "constant_bits": 113
+      },
+      "3": {
+        "bits": 220,
+        "constant_bits": 5
+      },
+      "4": {
+        "bits": 220,
+        "constant_bits": 5
+      },
+      "5": {
+        "bits": 220,
+        "constant_bits": 67
+      },
+      "6": {
+        "bits": 220,
+        "constant_bits": 5
+      },
+      "7": {
+        "bits": 220,
+        "constant_bits": 4
+      }
+    }
+  },
+  "validation": {
+    "fixed_timing_witnesses": [
+      {
+        "run": "gap1_witness_v1",
+        "constants": "K1",
+        "runs": 132,
+        "cycles": 25607256,
+        "certified_bits_witnessed_varying": 0
+      },
+      {
+        "run": "gap2_witness_v1",
+        "constants": "K2",
+        "runs": 132,
+        "cycles": 25607760,
+        "certified_bits_witnessed_varying": 0
+      }
+    ],
+    "rtl_cosimulation": [
+      {
+        "run": "gap1_cosim_x0_v2",
+        "platform_gap": 1,
+        "runs": 132,
+        "cycles": 25607256,
+        "constants_checked": "K1",
+        "x_assign": "0",
+        "variants": [
+          {
+            "variant": "gap2",
+            "role": "negative control"
+          },
+          {
+            "variant": "gap12",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap1",
+            "role": "equivalence check"
+          }
+        ],
+        "equivalence_mismatch_cycles": {
+          "gap2": 25353020,
+          "gap12": 0,
+          "gap1": 0
+        },
+        "negative_controls_diverged": {
+          "gap2": "132/132"
+        }
+      },
+      {
+        "run": "gap1_cosim_x1_v2",
+        "platform_gap": 1,
+        "runs": 132,
+        "cycles": 25607256,
+        "constants_checked": "K1",
+        "x_assign": "1",
+        "variants": [
+          {
+            "variant": "gap2",
+            "role": "negative control"
+          },
+          {
+            "variant": "gap12",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap1",
+            "role": "equivalence check"
+          }
+        ],
+        "equivalence_mismatch_cycles": {
+          "gap2": 25353020,
+          "gap12": 0,
+          "gap1": 0
+        },
+        "negative_controls_diverged": {
+          "gap2": "132/132"
+        }
+      },
+      {
+        "run": "gap2_cosim_x0_v2",
+        "platform_gap": 2,
+        "runs": 132,
+        "cycles": 25607760,
+        "constants_checked": "K2",
+        "x_assign": "0",
+        "variants": [
+          {
+            "variant": "gap2",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap12",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap1",
+            "role": "negative control"
+          }
+        ],
+        "equivalence_mismatch_cycles": {
+          "gap2": 0,
+          "gap12": 0,
+          "gap1": 11270512
+        },
+        "negative_controls_diverged": {
+          "gap1": "132/132"
+        }
+      },
+      {
+        "run": "gap2_cosim_x1_v2",
+        "platform_gap": 2,
+        "runs": 132,
+        "cycles": 25607760,
+        "constants_checked": "K2",
+        "x_assign": "1",
+        "variants": [
+          {
+            "variant": "gap2",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap12",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap1",
+            "role": "negative control"
+          }
+        ],
+        "equivalence_mismatch_cycles": {
+          "gap2": 0,
+          "gap12": 0,
+          "gap1": 11270512
+        },
+        "negative_controls_diverged": {
+          "gap1": "132/132"
+        }
+      }
+    ],
+    "gate_level_cosimulation": [
+      {
+        "run": "gap1_gatesim_x0_v1",
+        "platform_gap": 1,
+        "runs": 132,
+        "cycles": 25607256,
+        "constants_checked": "K1",
+        "x_assign": "0",
+        "initial_state": "zero (harness registers: shared random)",
+        "variants": [
+          {
+            "variant": "gap12",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap2",
+            "role": "negative control"
+          }
+        ],
+        "equivalence_mismatch_cycles": {
+          "gap12": 0,
+          "gap2": 25235349
+        },
+        "negative_controls_diverged": {
+          "gap2": "132/132"
+        }
+      },
+      {
+        "run": "gap1_gatesim_x1_v1",
+        "platform_gap": 1,
+        "runs": 132,
+        "cycles": 25607256,
+        "constants_checked": "K1",
+        "x_assign": "1",
+        "initial_state": "zero (harness registers: shared random)",
+        "variants": [
+          {
+            "variant": "gap12",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap2",
+            "role": "negative control"
+          }
+        ],
+        "equivalence_mismatch_cycles": {
+          "gap12": 0,
+          "gap2": 25235349
+        },
+        "negative_controls_diverged": {
+          "gap2": "132/132"
+        }
+      },
+      {
+        "run": "gap2_gatesim_x0_v1",
+        "platform_gap": 2,
+        "runs": 132,
+        "cycles": 25607760,
+        "constants_checked": "K2",
+        "x_assign": "0",
+        "initial_state": "zero (harness registers: shared random)",
+        "variants": [
+          {
+            "variant": "gap2",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap12",
+            "role": "equivalence check"
+          }
+        ],
+        "equivalence_mismatch_cycles": {
+          "gap2": 0,
+          "gap12": 0
+        },
+        "negative_controls_diverged": {}
+      },
+      {
+        "run": "gap2_gatesim_x1_v1",
+        "platform_gap": 2,
+        "runs": 132,
+        "cycles": 25607760,
+        "constants_checked": "K2",
+        "x_assign": "1",
+        "initial_state": "zero (harness registers: shared random)",
+        "variants": [
+          {
+            "variant": "gap2",
+            "role": "equivalence check"
+          },
+          {
+            "variant": "gap12",
+            "role": "equivalence check"
+          }
+        ],
+        "equivalence_mismatch_cycles": {
+          "gap2": 0,
+          "gap12": 0
+        },
+        "negative_controls_diverged": {}
+      }
+    ],
+    "netlists": [
+      {
+        "run": "gap12_netlist_v1",
+        "cell_area": 457547.5744,
+        "cells": 53049,
+        "equals_area_run": true
+      },
+      {
+        "run": "gap2_netlist_v1",
+        "cell_area": 410015.7376,
+        "cells": 47810,
+        "equals_area_run": true
+      }
+    ],
+    "trace_audits": [
+      {
+        "run": "gap1_audit_v1",
+        "constants": "K1",
+        "status": "matched",
+        "window_frames": 857,
+        "formal_alu_rows_admitted": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "run": "gap2_audit_v1",
+        "constants": "K2",
+        "status": "matched",
+        "window_frames": 983,
+        "formal_alu_rows_admitted": [
+          5,
+          6,
+          7
+        ]
+      }
+    ]
+  },
+  "script_versions": {
+    "cosim.py": {
+      "current_sha256": "1ef24372d2aa341a07affda2dc6bf716cdc0bfcfba2e0118911dd177f512ca60",
+      "recorded": {
+        "1ef24372d2aa341a07affda2dc6bf716cdc0bfcfba2e0118911dd177f512ca60": {
+          "runs": [
+            "ternary_reach_c1_gap1_cosim_x0_v2",
+            "ternary_reach_c1_gap1_cosim_x1_v2",
+            "ternary_reach_c1_gap1_gatesim_x0_v1",
+            "ternary_reach_c1_gap1_gatesim_x1_v1",
+            "ternary_reach_c1_gap2_cosim_x0_v2",
+            "ternary_reach_c1_gap2_cosim_x1_v2",
+            "ternary_reach_c1_gap2_gatesim_x0_v1",
+            "ternary_reach_c1_gap2_gatesim_x1_v1"
+          ],
+          "current": true
+        }
+      }
+    },
+    "export_closed.py": {
+      "current_sha256": "b526eab979aa3ca76ba590f69c8d352c88c125a0ca648bde1254b271c28c2d9f",
+      "recorded": {
+        "1d895bc2ba8bd4fa21417b1b475853ede4d4e0dc32d9f416b0435bc388b3ec24": {
+          "runs": [
+            "ternary_reach_c1_gap1_dlat1_v1",
+            "ternary_reach_c1_gap1_dlat2_v1"
+          ],
+          "current": false,
+          "outputs_regenerated_identically_by_current_script": true
+        },
+        "a85c3059147abd9304a16e2abfbf936343337718da7546fc4ccf140e849ab2cc": {
+          "runs": [
+            "ternary_reach_c1_gap1_v2",
+            "ternary_reach_c1_gap2_v2"
+          ],
+          "current": false,
+          "outputs_regenerated_identically_by_current_script": true
+        }
+      }
+    },
+    "gatesim.py": {
+      "current_sha256": "6679d88b2988b3e6bf7bf54f6a2560a7941eb558970d247d2f4c57e14ba15af1",
+      "recorded": {
+        "6679d88b2988b3e6bf7bf54f6a2560a7941eb558970d247d2f4c57e14ba15af1": {
+          "runs": [
+            "ternary_reach_c1_gap1_gatesim_x0_v1",
+            "ternary_reach_c1_gap1_gatesim_x1_v1",
+            "ternary_reach_c1_gap2_gatesim_x0_v1",
+            "ternary_reach_c1_gap2_gatesim_x1_v1"
+          ],
+          "current": true
+        }
+      }
+    },
+    "map_netlist.py": {
+      "current_sha256": "ae0f5ce4408642db48a29e0eba62444914fc19ecbb4acfbddaabd2a43a25d946",
+      "recorded": {
+        "ae0f5ce4408642db48a29e0eba62444914fc19ecbb4acfbddaabd2a43a25d946": {
+          "runs": [
+            "ternary_reach_c1_gap12_netlist_v1",
+            "ternary_reach_c1_gap1_gatesim_x0_v1",
+            "ternary_reach_c1_gap1_gatesim_x1_v1",
+            "ternary_reach_c1_gap2_gatesim_x0_v1",
+            "ternary_reach_c1_gap2_gatesim_x1_v1",
+            "ternary_reach_c1_gap2_netlist_v1"
+          ],
+          "current": true
+        }
+      }
+    },
+    "reach.py": {
+      "current_sha256": "d99cfedadbdbff8ce2532668e86cc1a8a4275f30cdcf4f59bcdeaf0e39c778e9",
+      "recorded": {
+        "d99cfedadbdbff8ce2532668e86cc1a8a4275f30cdcf4f59bcdeaf0e39c778e9": {
+          "runs": [
+            "ternary_reach_c1_gap1_dlat1_reach_v1",
+            "ternary_reach_c1_gap1_dlat2_reach_v1",
+            "ternary_reach_c1_gap1_reach_v1",
+            "ternary_reach_c1_gap2_reach_v1"
+          ],
+          "current": true
+        }
+      }
+    },
+    "substitute.py": {
+      "current_sha256": "9c725047f32b76b76487fc63e46a26b5068fe6e57198e6492a9a95a657d23d33",
+      "recorded": {
+        "827916c432b49209a6850689902e72e7e34b3656ab379e700d324366dbad9037": {
+          "runs": [
+            "ternary_reach_c1_gap12_subst_v2",
+            "ternary_reach_c1_gap1_subst_v2",
+            "ternary_reach_c1_gap2_subst_v2"
+          ],
+          "current": false,
+          "outputs_regenerated_identically_by_current_script": true
+        },
+        "9c725047f32b76b76487fc63e46a26b5068fe6e57198e6492a9a95a657d23d33": {
+          "runs": [
+            "ternary_reach_c1_gap1_dlat1_subst_v1",
+            "ternary_reach_c1_gap1_dlat2_subst_v1",
+            "ternary_reach_c1_gap1_envelope_bound_subst_v1"
+          ],
+          "current": true
+        }
+      }
+    },
+    "timing_witness.py": {
+      "current_sha256": "b02d4e56c7713754abbfeb8a84798721caf4bd0ec964df8ecdfa966fd3ac3c8e",
+      "recorded": {
+        "018332915385e73bc6ae568558f3c8d3419be25cfd3b37bd3ebf7dc4300869b4": {
+          "runs": [
+            "ternary_reach_c1_random_timing_witness_v1"
+          ],
+          "current": false,
+          "outputs_regenerated_identically_by_current_script": true
+        },
+        "b02d4e56c7713754abbfeb8a84798721caf4bd0ec964df8ecdfa966fd3ac3c8e": {
+          "runs": [
+            "ternary_reach_c1_random_timing_witness_lat64_v1",
+            "ternary_reach_c1_random_timing_witness_refuse1_v1",
+            "ternary_reach_c1_random_timing_witness_v2",
+            "ternary_reach_c1_random_timing_witness_wide_v1",
+            "ternary_reach_c1_timing_envelope_sweep_v1/lat12",
+            "ternary_reach_c1_timing_envelope_sweep_v1/lat16",
+            "ternary_reach_c1_timing_envelope_sweep_v1/lat32",
+            "ternary_reach_c1_timing_envelope_sweep_v1/lat4",
+            "ternary_reach_c1_timing_envelope_sweep_v1/lat5",
+            "ternary_reach_c1_timing_envelope_sweep_v1/lat6",
+            "ternary_reach_c1_timing_envelope_sweep_v1/lat64",
+            "ternary_reach_c1_timing_envelope_sweep_v1/lat8"
+          ],
+          "current": true
+        }
+      }
+    },
+    "witness.py": {
+      "current_sha256": "53d852d2109093e1392114565f12ab3e2a5a667bbff66c78de4c4b6565dad13e",
+      "recorded": {
+        "53d852d2109093e1392114565f12ab3e2a5a667bbff66c78de4c4b6565dad13e": {
+          "runs": [
+            "ternary_reach_c1_gap1_witness_v1",
+            "ternary_reach_c1_gap2_witness_v1"
+          ],
+          "current": true
+        }
+      }
+    }
+  },
+  "superseded_runs": {
+    "ternary_reach_c1_gap1_v1": {
+      "status": "running",
+      "reason": "export left at status running; superseded by gap1_v2"
+    },
+    "ternary_reach_c1_gap2_v1": {
+      "status": "running",
+      "reason": "export left at status running; superseded by gap2_v2"
+    },
+    "ternary_reach_c1_gap1_subst_v1": {
+      "status": "substituted",
+      "reason": "its map (gap1_map_v1) failed Yosys check -assert: an output port wire kept the flip-flop net and gained the constant; substitute.py v2 rewires the port's net name too"
+    },
+    "ternary_reach_c1_gap2_subst_v1": {
+      "status": "substituted",
+      "reason": "as gap1_subst_v1"
+    },
+    "ternary_reach_c1_gap12_subst_v1": {
+      "status": "substituted",
+      "reason": "as gap1_subst_v1"
+    },
+    "ternary_reach_c1_gap1_map_v1": {
+      "status": "failed",
+      "reason": "failed (see gap1_subst_v1)"
+    },
+    "ternary_reach_c1_gap2_map_v1": {
+      "status": "failed",
+      "reason": "failed (see gap1_subst_v1)"
+    },
+    "ternary_reach_c1_gap12_map_v1": {
+      "status": "failed",
+      "reason": "failed (see gap1_subst_v1)"
+    },
+    "ternary_reach_c1_gap1_witness_smoke_v1": {
+      "status": "passed",
+      "reason": "harness smoke test"
+    },
+    "ternary_reach_c1_gap2_gatesim_smoke_v1": {
+      "status": "passed",
+      "reason": "harness smoke test"
+    },
+    "ternary_reach_c1_random_timing_witness_smoke_v1": {
+      "status": "passed",
+      "reason": "harness smoke test"
+    },
+    "ternary_reach_c1_gap2_cosim_x0_v1": {
+      "status": "passed",
+      "reason": "18-run first pass; superseded by gap2_cosim_x{0,1}_v2 (132 runs each)"
+    },
+    "ternary_reach_c1_provenance_v1": {
+      "status": "reproduced",
+      "reason": "reproduced; repeated as provenance_v2 after a docstring-only correction of export_closed.py"
+    }
+  }
+}

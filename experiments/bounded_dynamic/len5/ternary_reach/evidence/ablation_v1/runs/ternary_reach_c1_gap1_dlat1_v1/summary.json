@@ -1,0 +1,104 @@
+{
+  "status": "exported",
+  "scope": "Closed native platform model for ternary reachability: immutable ROM, zero fault payload, exact fetch-acceptance gap, one-cycle nonfaulting data service with arbitrary load values",
+  "data_reply_latency": 1,
+  "design": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/program_registers_v2/candidate_whole_core.json",
+  "design_sha256": "371a91db44e992635c234ba339907654b62a6800c43d787561cea2bbbbe67b7e",
+  "program_hex_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+  "rom_image_sha256": "0cc2996ee1024e464538f2c67a532bb6c39e1ec43feaf814b50c5cbc63b4c34d",
+  "instruction_acceptance_gap": 1,
+  "instruction_fault_payload": "zero",
+  "admission_threshold_property": 1,
+  "reset_model": "reset asserted in the initial frame, unconstrained afterwards ($initstate -> !rst_ni)",
+  "flip_flop_bits": 24157,
+  "flip_flop_types": {
+    "$adff": 0,
+    "$aldff": 23643,
+    "$dff": 0,
+    "$dffe": 514
+  },
+  "core_export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat1_v1/core_export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 6.381421947386116,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat1_v1/core_export.log",
+    "log_sha256": "f4af49c35766664e362f8ae5d833dab5735dc97a22785078c8538e3365a532be"
+  },
+  "core_json_sha256": "8422ead41e51d750cbcbfad7d85a67cd22759da7bf8e987117d26be416b96255",
+  "platform_sha256": "9b952caffeb5e693e6c9da8134290116e07ab74f113d1dcece0b5f048577e075",
+  "helpers_sha256": {
+    "export_closed.py": "1d895bc2ba8bd4fa21417b1b475853ede4d4e0dc32d9f416b0435bc388b3ec24",
+    "formal_screen.py": "b8bbf3e87461700b274c5bd169085bcb626812196572a4b3cee4de8ddd25199f",
+    "program_rom.py": "bc4a76f62a19abb513fe56cd8009db3c7fbc336372b682328a83b5a3fd44552c",
+    "temporal.py": "22e1e695fb443e1c2dce47bd583d2e8e32e9019f627a65f5f418a79199adb35b"
+  },
+  "prepare": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat1_v1/prepare.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 82.96275063091889,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat1_v1/prepare.log",
+    "log_sha256": "5e2ddd8c52331181752f933343a5877b98bbcfb21a87204dc0b8a75a38b7f0e6"
+  },
+  "clock_model": {
+    "clocks": [
+      [
+        [
+          2
+        ],
+        1
+      ]
+    ],
+    "model": "single shared global step, validated after async2sync/dffunmap"
+  },
+  "screen_json_sha256": "895335378d6972e0a50fb99899f4279dbff547ae276fc1e1f7b7ecf833907b4e",
+  "export": {
+    "argv": [
+      "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat1_v1/export.ys"
+    ],
+    "returncode": 0,
+    "executable": "/home/allenjin/Projects/DAC_pscorr/tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys",
+    "executable_sha256": "7c3e3396b38c129dd7485be5a0a0f0da8e495a94c8fd486059e3bea043a588d6",
+    "timeout": false,
+    "seconds": 133.74237114191055,
+    "log": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/ternary_reach_c1_gap1_dlat1_v1/export.log",
+    "log_sha256": "89b35756bebc0b0dd784dcf00cc23e0e153760e66aef6823848c4ed05448b474"
+  },
+  "aig_header": [
+    "aig",
+    "670464",
+    "34536",
+    "24311",
+    "24293",
+    "611617",
+    "3",
+    "1",
+    "0",
+    "0"
+  ],
+  "aig_sha256": "219801fc2a3b55227f94127f5498d3f29b84ba2ac2e16feb26281b965884321e",
+  "aig_map_sha256": "2f40f38b21bf2191ebacddec1089f0d5cb7407d3c78d0fe9e276fff1787508f4",
+  "manifest_sha256": "b2209ecd7883529432ee24921a3aa74fbf2f424266219c78488854d6e25192d0",
+  "reset_input_index": 1
+}

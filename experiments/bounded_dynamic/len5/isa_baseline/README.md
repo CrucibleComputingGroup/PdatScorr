@@ -4,7 +4,8 @@ These are Pscorr contributions: automatic native-logic specialization using ISA
 or program facts, followed by conditional equivalence and ordinary synthesis.
 The comparison needed next is **the same Pscorr baseline plus proved timing or
 microarchitectural information**. No additional whole-core saving from timing
-has been established here. The ISA/program baseline is not presumed weak, and
+has been established here; that comparison is in
+[ternary_reach](../ternary_reach/README.md). The ISA/program baseline is not presumed weak, and
 the passes below are not an upper bound on program-only Pscorr.
 
 | Fixed whole-core variant | Mapped cell area | Cells | Reduction |
