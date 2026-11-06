@@ -1,0 +1,60 @@
+ABC command line: "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_reset_v1/rijndael_Oz_variant_original/rocket_yosys.aig; strash; scorr -c -m -F 5 -C 30000 -S 20 -v; constr -r; removepo -N 122; removepo -N 121; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_reset_v1/rijndael_Oz_variant_original/rocket_post_abc.aig".
+
+Warning: The last 2 outputs are interpreted as constraints.
+Warning: Performing scorr with 2 constraints.
+output 4 failed in frame 0.
+output 34 failed in frame 0.
+output 35 failed in frame 0.
+output 86 failed in frame 0.
+output 88 failed in frame 0.
+output 4 failed in frame 1.
+output 34 failed in frame 1.
+output 35 failed in frame 1.
+output 86 failed in frame 1.
+output 88 failed in frame 1.
+output 4 failed in frame 2.
+output 34 failed in frame 2.
+output 35 failed in frame 2.
+output 86 failed in frame 2.
+output 88 failed in frame 2.
+output 4 failed in frame 3.
+output 34 failed in frame 3.
+output 35 failed in frame 3.
+output 86 failed in frame 3.
+output 88 failed in frame 3.
+output 4 failed in frame 4.
+output 34 failed in frame 4.
+output 35 failed in frame 4.
+output 86 failed in frame 4.
+output 88 failed in frame 4.
+output 4 failed in frame 5.
+output 34 failed in frame 5.
+output 35 failed in frame 5.
+output 86 failed in frame 5.
+output 88 failed in frame 5.
+Before BMC: Equiv classes: Const1 = 39366. Class =     8. Lit = 39510.
+After  BMC: Equiv classes: Const1 =   160. Class =  3257. Lit =  3524.
+  0 : C =    159. Cl =   3257. LR =  7462. NR =181599. F =    0. - T =     0.17 sec
+  1 : C =    157. Cl =   3257. LR =  7461. NR =181732. F =    0. - T =     0.40 sec
+  2 : C =    157. Cl =   3257. LR =  7473. NR =182270. F =    0. - T =     0.16 sec
+Parameters: F = 5. AddF = 20. C-lim = 30000. Constr = 2. MaxLev = 0. Mem = 6.09 MB.
+AIG       : PI = 2451. PO = 123. Latch = 2233. Node = 37287.  Ave SAT vars = 0.
+SAT calls : Proof = 8266. Cex = 13982. Fail = 0. Lits proved = 3521.
+SAT solver: Vars max = 95331. Calls max = 1048. Recycles = 0. Sim rounds = 0.
+NBeg = 37287. NEnd = 32600. (Gain =  12.57 %).  RBeg = 2233. REnd = 2227. (Gain =   0.27 %).
+BMC         =    16.38 sec ( 95.63 %)
+Spec reduce =     0.12 sec (  0.70 %)
+Mark cones  =     0.00 sec (  0.00 %)
+Sim SAT     =     3.83 sec ( 22.34 %)
+SAT solving =    12.56 sec ( 73.36 %)
+  unsat     =     0.60 sec (  3.52 %)
+  sat       =    11.96 sec ( 69.86 %)
+  undecided =     0.00 sec (  0.00 %)
+Other       =   -15.76 sec (-92.03 %)
+TOTAL       =    17.13 sec (100.00 %)
+Statistics reflecting the use of constraints:
+Total cones  =  41971.  Constraint cones =    205. (  0.49 %)
+Total equivs =   3521.  Removed equivs   =      0. (  0.00 %)
+NBeg = 36034. NEnd = 31531. (Gain =  12.50 %).  RBeg = 2193. REnd = 2188. (Gain =   0.23 %).
+Constraints are converted to be primary outputs.
+[1;37m/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_reset_v1/rijndael_Oz_variant_original/rocket_yosys:[0m i/o = 2451/  121  lat = 2227  and =  31771  lev = 71

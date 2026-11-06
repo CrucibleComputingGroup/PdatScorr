@@ -1,0 +1,28 @@
+{
+  "paper_run": "/home/allenjin/Projects/DAC_pscorr/experiments/PdatProjectForrocket/PdatScorr/output/tarfind_variant_original",
+  "flow": "reset",
+  "depth": 5,
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_reset_v1/tarfind_variant_original/rocket_yosys.aig; strash; scorr -c -m -F 5 -C 30000 -S 20 -v; constr -r; removepo -N 122; removepo -N 121; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_reset_v1/tarfind_variant_original/rocket_post_abc.aig",
+  "core_injected_sha256": "50e45853914ba0d584f80c409c9eda8d0c35f193b35d1687737c86498cd4d01c",
+  "wrapper_sha256": "7e0b21ccbe82a218f04196d7d33113eb08df3e478ae8b65be0bdbf8fe6d0adee",
+  "script_sha256": "36bf91c46d23fed48149754023255fafe18e468ac7854199a9096d7a5c4b6312",
+  "yosys_aig": {
+    "pi": 2451,
+    "po": 123,
+    "c": 2,
+    "lat": 2233,
+    "and": 37268
+  },
+  "post_abc": {
+    "pi": 2451,
+    "po": 121,
+    "c": 0,
+    "lat": 2226,
+    "and": 31735
+  },
+  "scorr_seconds": 15.98,
+  "cell_area": 152479.9904,
+  "paper_area": 109790.2976,
+  "status": "ok",
+  "wall_seconds": 67.9
+}

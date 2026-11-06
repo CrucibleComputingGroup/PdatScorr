@@ -139,6 +139,7 @@ def main() -> int:
     ap.add_argument("--pattern-signal", default=None, help="signal named in the ISA assumptions (default --word)")
     ap.add_argument("--aligned-control-flow", action="store_true", help="see aligned(): stimulus refinement only")
     ap.add_argument("--reset", default="rst_ni")
+    ap.add_argument("--reset-active-high", action="store_true")
     ap.add_argument("--cycles", type=int, default=1000)
     ap.add_argument("--rounds", type=int, default=16)
     ap.add_argument("--seed", type=int, default=1)
@@ -182,7 +183,7 @@ def main() -> int:
 
     # 3. spec
     ins, outs = parse_map(out / "pre.map")
-    spec = [f"reset_n {ins[(args.reset, 0)]}", f"rereset {args.rereset}"]
+    spec = [f"{'reset_p' if args.reset_active_high else 'reset_n'} {ins[(args.reset, 0)]}", f"rereset {args.rereset}"]
     isa = list(run.glob("assumptions_isa.sv")) or list(run.glob("**/isa.sv"))
     if args.profile == "cva6":
         pats = patterns(isa[0], args.pattern_signal or "pscorr_isa_word") if isa else []

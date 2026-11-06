@@ -1,0 +1,28 @@
+{
+  "paper_run": "/home/allenjin/Projects/DAC_pscorr/experiments/PdatProjectForrocket/PdatScorr/output/libstatemate_variant_original",
+  "flow": "stock",
+  "depth": 5,
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_repro_stock_statemate_v1/rocket_yosys.aig; strash; cycle 100; scorr -c -m -F 5 -C 30000 -S 20 -v; constr -r; removepo -N 121; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_repro_stock_statemate_v1/rocket_post_abc.aig",
+  "core_injected_sha256": "be79ebfad94b417d8b605d1b37019e7ecef0413f29ed2158a15136af714183b3",
+  "wrapper_sha256": "479a5ec1c42de10cc7bb9282b35f3a2011eaf84ed6545c6600a45b7d4b834bc9",
+  "script_sha256": "36bf91c46d23fed48149754023255fafe18e468ac7854199a9096d7a5c4b6312",
+  "yosys_aig": {
+    "pi": 2451,
+    "po": 122,
+    "c": 1,
+    "lat": 2232,
+    "and": 37243
+  },
+  "post_abc": {
+    "pi": 2451,
+    "po": 121,
+    "c": 0,
+    "lat": 1605,
+    "and": 16092
+  },
+  "scorr_seconds": 29.53,
+  "cell_area": 83676.5024,
+  "paper_area": 83676.5024,
+  "status": "ok",
+  "wall_seconds": 73.0
+}

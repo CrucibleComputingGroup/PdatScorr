@@ -17,6 +17,13 @@
  *
  * Spec lines (indices are AIGER input / output positions):
  *   reset_n <pi>                         active-low reset: low in cycle 0, rare later
+ *   reset_p <pi>                         active-high reset (same schedule)
+ *   reset_cycles <n>                     hold reset for the first n cycles (default 1)
+ *   preamble_addi <cycles>               after each reset, drive only ADDI rd,x0,imm words with
+ *                                        rd cycling 1..31 for this many cycles, so architectural
+ *                                        registers are written before random code reads them
+ *   compare_from <t>                     compare outputs from cycle t (1 for synchronous
+ *                                        resets, whose cycle 0 still shows power-up state)
  *   rereset <per-mille>                  probability of a later reset cycle
  *   word <pi0..pi31>                     32 inputs of an instruction word, bit 0 first;
  *                                        several word lines give several lanes
@@ -142,7 +149,7 @@ int main(int argc, char **argv) {
     }
     unsigned I = pre.I;
     char *kind = calloc(I, 1);              /* 0 random, 1 reset, 2 word bit, 3 const1, 4 driven by channel */
-    int word[64][32], nlanes = 0, reset_pi = -1, rereset = 0;
+    int word[64][32], nlanes = 0, reset_pi = -1, rereset = 0, reset_high = 0, compare_from = 0, preamble = 0, reset_cycles = 1;
     unsigned masks[512], pats[512]; int npat = 0;
     Chan *ch = calloc(MAXCH, sizeof(Chan)); int nch = 0;
     int *qn = calloc(pre.O + 1, sizeof(int)); int (*qs)[4] = calloc(pre.O + 1, sizeof(int[4]));
@@ -150,7 +157,12 @@ int main(int argc, char **argv) {
     if (!sf) { perror(argv[3]); return 2; }
     char key[64];
     while (fscanf(sf, "%63s", key) == 1) {
-        if (!strcmp(key, "reset_n")) { if (fscanf(sf, "%d", &reset_pi) != 1) return 2; kind[reset_pi] = 1; }
+        if (!strcmp(key, "reset_n") || !strcmp(key, "reset_p")) {
+            if (fscanf(sf, "%d", &reset_pi) != 1) return 2; kind[reset_pi] = 1; reset_high = key[6] == 'p';
+        }
+        else if (!strcmp(key, "reset_cycles")) { if (fscanf(sf, "%d", &reset_cycles) != 1) return 2; }
+        else if (!strcmp(key, "preamble_addi")) { if (fscanf(sf, "%d", &preamble) != 1) return 2; }
+        else if (!strcmp(key, "compare_from")) { if (fscanf(sf, "%d", &compare_from) != 1) return 2; }
         else if (!strcmp(key, "rereset")) { if (fscanf(sf, "%d", &rereset) != 1) return 2; }
         else if (!strcmp(key, "word")) { if (nlanes == 64) return 2; for (int b = 0; b < 32; b++) { if (fscanf(sf, "%d", &word[nlanes][b]) != 1) return 2; kind[word[nlanes][b]] = 2; } nlanes++; }
         else if (!strcmp(key, "pattern")) { if (fscanf(sf, "%x %x", &masks[npat], &pats[npat]) != 2) return 2; npat++; }
@@ -181,6 +193,7 @@ int main(int argc, char **argv) {
     long long *mm_out = calloc(pre.O + 1, sizeof(long long));
     long long compared = 0, mismatch_cycles = 0, violated_traces = 0, live_trace_cycles = 0;
     long long first_mm_round = -1, first_mm_cycle = -1, first_mm_out = -1;
+    long *since_reset = calloc(64, sizeof(long));
     for (long r = 0; r < rounds; r++) {
         reset_state(&pre); reset_state(&post);
         for (int k = 0; k < nch; k++) {
@@ -190,18 +203,21 @@ int main(int argc, char **argv) {
         W alive = ~(W)0, mm_any = 0;
         for (long t = 0; t < cycles; t++) {
             W rstn = ~(W)0;
-            if (t == 0) rstn = 0;
+            if (t < reset_cycles) rstn = 0;
             else if (rereset) for (int j = 0; j < 64; j++) if ((int)(rnd() % 1000) < rereset) rstn &= ~((W)1 << j);
             for (unsigned i = 0; i < I; i++) {
                 if (kind[i] == 0) pi[i] = rnd();
                 else if (kind[i] == 3) pi[i] = ~(W)0;
             }
-            pi[reset_pi] = rstn;
+            pi[reset_pi] = reset_high ? ~rstn : rstn;
+            for (int j = 0; j < 64; j++) since_reset[j] = ((rstn >> j) & 1) ? since_reset[j] + 1 : 0;
             for (int l = 0; l < nlanes; l++) {
                 for (int b = 0; b < 32; b++) pi[word[l][b]] = 0;
                 for (int j = 0; j < 64; j++) {
                     unsigned w = (unsigned)rnd();
                     if (npat) { int p = (int)(rnd() % (unsigned)npat); w = (w & ~masks[p]) | pats[p]; }
+                    if (since_reset[j] < preamble)   /* ADDI x(1 + t mod 31), x0, imm */
+                        w = (w & 0xFFF00000u) | ((unsigned)(1 + since_reset[j] % 31) << 7) | 0x13u;
                     for (int b = 0; b < 32; b++) if ((w >> b) & 1) pi[word[l][b]] |= (W)1 << j;
                 }
             }
@@ -245,7 +261,7 @@ int main(int argc, char **argv) {
             }
             W mm = 0;
             for (unsigned o = 0; o < pre.O; o++) {
-                W d = (lit(&pre, pre.out[o]) ^ lit(&post, post.out[o])) & alive;
+                W d = (lit(&pre, pre.out[o]) ^ lit(&post, post.out[o])) & alive & (t >= compare_from ? ~(W)0 : 0);
                 for (int k = 0; k < qn[o]; k++) d &= lit(&pre, pre.out[qs[o][k]]);
                 mm_out[o] += __builtin_popcountll(d);
                 if (d && first_mm_round < 0) { first_mm_round = r; first_mm_cycle = t; first_mm_out = o; }

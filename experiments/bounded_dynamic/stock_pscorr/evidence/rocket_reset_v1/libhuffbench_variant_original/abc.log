@@ -1,0 +1,58 @@
+ABC command line: "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_reset_v1/libhuffbench_variant_original/rocket_yosys.aig; strash; scorr -c -m -F 5 -C 30000 -S 20 -v; constr -r; removepo -N 122; removepo -N 121; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_reset_v1/libhuffbench_variant_original/rocket_post_abc.aig".
+
+Warning: The last 2 outputs are interpreted as constraints.
+Warning: Performing scorr with 2 constraints.
+output 4 failed in frame 0.
+output 34 failed in frame 0.
+output 35 failed in frame 0.
+output 86 failed in frame 0.
+output 88 failed in frame 0.
+output 4 failed in frame 1.
+output 34 failed in frame 1.
+output 35 failed in frame 1.
+output 86 failed in frame 1.
+output 88 failed in frame 1.
+output 4 failed in frame 2.
+output 34 failed in frame 2.
+output 35 failed in frame 2.
+output 86 failed in frame 2.
+output 88 failed in frame 2.
+output 4 failed in frame 3.
+output 34 failed in frame 3.
+output 35 failed in frame 3.
+output 86 failed in frame 3.
+output 88 failed in frame 3.
+output 4 failed in frame 4.
+output 34 failed in frame 4.
+output 35 failed in frame 4.
+output 86 failed in frame 4.
+output 88 failed in frame 4.
+output 4 failed in frame 5.
+output 34 failed in frame 5.
+output 35 failed in frame 5.
+output 86 failed in frame 5.
+output 88 failed in frame 5.
+Before BMC: Equiv classes: Const1 = 39432. Class =     8. Lit = 39494.
+After  BMC: Equiv classes: Const1 =   203. Class =  3278. Lit =  3611.
+  0 : C =    203. Cl =   3278. LR =  6509. NR =159811. F =    0. - T =     0.11 sec
+Parameters: F = 5. AddF = 20. C-lim = 30000. Constr = 2. MaxLev = 0. Mem = 6.09 MB.
+AIG       : PI = 2451. PO = 123. Latch = 2233. Node = 37271.  Ave SAT vars = 0.
+SAT calls : Proof = 5216. Cex = 13838. Fail = 0. Lits proved = 3611.
+SAT solver: Vars max = 75645. Calls max = 810. Recycles = 0. Sim rounds = 0.
+NBeg = 37271. NEnd = 32481. (Gain =  12.85 %).  RBeg = 2233. REnd = 2223. (Gain =   0.45 %).
+BMC         =    18.04 sec ( 99.35 %)
+Spec reduce =     0.03 sec (  0.19 %)
+Mark cones  =     0.00 sec (  0.00 %)
+Sim SAT     =     3.33 sec ( 18.34 %)
+SAT solving =    14.27 sec ( 78.60 %)
+  unsat     =     0.18 sec (  0.99 %)
+  sat       =    14.09 sec ( 77.62 %)
+  undecided =     0.00 sec (  0.00 %)
+Other       =   -17.52 sec (-96.48 %)
+TOTAL       =    18.15 sec (100.00 %)
+Statistics reflecting the use of constraints:
+Total cones  =  41955.  Constraint cones =    189. (  0.45 %)
+Total equivs =   3611.  Removed equivs   =      0. (  0.00 %)
+NBeg = 36034. NEnd = 31412. (Gain =  12.83 %).  RBeg = 2193. REnd = 2184. (Gain =   0.41 %).
+Constraints are converted to be primary outputs.
+[1;37m/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_reset_v1/libhuffbench_variant_original/rocket_yosys:[0m i/o = 2451/  121  lat = 2223  and =  31665  lev = 71
