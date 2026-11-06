@@ -1,0 +1,64 @@
+read_slang --single-unit --no-implicit-memories --top datapath -D SYNTHESIS /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/packages/util_pkg.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/packages/len5_config_pkg.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/packages/len5_pkg.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/packages/instr_pkg.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/packages/csr_pkg.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/packages/fetch_pkg.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/packages/expipe_pkg.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/packages/memory_pkg.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/age_based_sel.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/byte_selector.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/fair_2way_arbiter.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/fifo_comb_ready.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/fifo_nohs.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/fifo.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/modn_counter.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/modn_counter_load.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/one_hot_shift_reg.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/prio_2way_arbiter.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/prio_enc.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/rr_arbiter.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/sign_extender.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/spill_cell_cu.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/spill_cell_ext_cu.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/spill_cell_ext.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/spill_cell_flush_cu.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/spill_cell_flush.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/spill_cell.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/ssram.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/common/updown_counter.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/frontend/pc_gen.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/frontend/fetch_mem_if.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/frontend/fetch_stage.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/frontend/bpu.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/frontend/btb.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/frontend/gshare.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/frontend/ras.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/frontend/early_jump_unit.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/register-file/int_regstat.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/register-file/int_rf.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/register-file/csrs.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/cdb/cdb_arbiter.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/cdb/cdb.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/commit-unit/commit_decoder.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/commit-unit/commit_stage.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/commit-unit/rob.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/commit-unit/commit_cu.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/alu_unit.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/alu.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/arith_rs.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/arith_rs_serial.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/branch_cu.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/branch_rs.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/branch_unit.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/div_unit.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/div.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/serdiv.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/lzc.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/exec_stage.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/mult_unit.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/mult.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/sermult.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/op_only_rs.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/exec-units/op_only_unit.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/issue-unit/issue_cu.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/issue-unit/issue_decoder.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/issue-unit/issue_queue.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_dec_embench_k1_v1/ud/issue_stage.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/load-store-unit/address_adder.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/load-store-unit/l0_cache.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/load-store-unit/load_buffer.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/load-store-unit/store_buffer.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/load-store-unit/load_store_unit.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend/source/rtl/expipe/backend.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_dec_embench_k1_v1/ud/datapath.sv
+# Prepare the design for synthesis using datapath as top
+hierarchy -check -top datapath
+
+# Flatten to enable sequential optimizations across module boundaries
+flatten
+
+# Do basic optimization but preserve sequential structure (registers)
+# proc converts processes to netlists but keeps flip-flops
+proc
+opt
+
+# Map memory and do basic synthesis preserving sequential structure
+# Keep $assume cells intact - they will be exported as AIGER constraints (C field)
+memory
+techmap
+opt
+
+# Export to AIGER format which natively supports constraints (assumptions)
+# AIGER is better than BLIF because:
+# 1. Constraints are part of the format
+# 2. ABC can read and use them for optimization
+# 3. Sequential structure is preserved
+
+# Simplify all DFFs to the most basic type for AIGER export
+# AIGER only supports simple positive-edge D-type flip-flops
+
+# Step 1: Convert async resets to sync (becomes mux + simple DFF)
+async2sync
+
+# Step 2: Use simplemap to break down high-level DFF types to gate-level primitives
+simplemap
+
+# Step 3: Use dfflegalize to convert ALL DFF types to simple $_DFF_P_ only
+# Allow init values 0 and 1 - write_aiger will handle them
+# This expands resets, enables, etc. into combinational logic + simple DFF
+# Use -mince 99999 to force expansion of ALL clock enables (don't keep any)
+dfflegalize -cell $_DFF_P_ 01 -mince 99999
+
+# Do NOT run opt here - it will re-add enables via opt_dff!
+# Just run clean to remove unused wires
+clean
+
+# Step 4: Replace undefined (x/z) values with defined values
+# AIGER doesn't support x or z
+setundef -zero
+
+# Step 5: Convert all combinational logic to AIG (AND + NOT)
+aigmap
+
+# Clean up but don't optimize DFFs
+clean
+
+# Export to AIGER with constraints
+# AIGER format: latches + AND gates + constraints (bad state properties)
+# -zinit maps init values to zero during export
+write_aiger -zinit /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_dec_embench_k1_v1/ud/len5_yosys.aig
+
+# NOTE: External ABC will be run by the shell script to optimize this AIGER:
+#   abc -c "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_dec_embench_k1_v1/ud/len5_yosys.aig; strash; scorr; dc2; dretime; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_dec_embench_k1_v1/ud/len5_post_abc.aig"
+# The optimized AIGER ({output_aig}_post_abc.aig) is the final output for sequential optimization.
+
+# For gate-level synthesis, the synth_to_gates.sh script will read the optimized AIGER
+# and map it to the PDK standard cells.

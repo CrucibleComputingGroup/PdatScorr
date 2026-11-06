@@ -170,7 +170,7 @@ def main() -> int:
     elif (args.word, 0) in ins:
         spec.append("word " + " ".join(str(ins[(args.word, b)]) for b in range(32)))
         if isa:
-            for mask, val in patterns(isa[0], args.word):
+            for mask, val in patterns(isa[0], args.pattern_signal or args.word):
                 spec.append(f"pattern {mask} {val}")
     if args.channels and args.profile == "ports":
         import yaml

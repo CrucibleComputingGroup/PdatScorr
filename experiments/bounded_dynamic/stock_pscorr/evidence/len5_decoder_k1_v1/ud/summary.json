@@ -1,0 +1,40 @@
+{
+  "script_sha256": "a506660564a7cef9631da9681ee3fe2c6f4b4ad7c57309db83d2fa9b12e436e6",
+  "depth": 1,
+  "top": "datapath",
+  "flow": "reset",
+  "isa_site": "decoder",
+  "frontend_dir": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend",
+  "frontend_manifest_sha256": "227f443329f5b2cbb5ef03b760110bf08eedfda552aa338ef45ee8dfc498aa9e",
+  "dsl": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/stock_pscorr/len5/crisp/embench/ud.dsl",
+  "dsl_sha256": "0037ff7586db14d26a8ede05904e27e10a1c7aad57cae26e30d9da3da51ab0e2",
+  "crisp_checkout": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/PdatDslBoundedDynamic",
+  "crisp_head": "6b25a55b9beece1c2ae4253a343c00694cc2bac1",
+  "crisp_codegen_sha256": "d686026f8e03d8f93dec82f929bb55b139731b5f12394e3148f0754b42f7d981",
+  "config_sha256": "fc7be9bbeb8a0c374c034083a1c00e1442c8bd4b8396ff0687c679c9fe160724",
+  "assumptions_isa_sha256": "41f32bfdaf29c72a4c62402561dda2ad900e18fd88d5ba71df3ce1748a4998c8",
+  "extra_sva": {},
+  "yosys_seconds": 58.64,
+  "yosys_aig": {
+    "pi": 23860,
+    "po": 299,
+    "c": 2,
+    "lat": 23699,
+    "and": 470110
+  },
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_dec_embench_k1_v1/ud/len5_yosys.aig; strash; scorr -c -m -F 1 -C 30000 -S 20 -v; constr -r; removepo -N 298; removepo -N 297; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_dec_embench_k1_v1/ud/len5_post_abc.aig",
+  "abc_seconds": 18580.95,
+  "abc_returncode": 0,
+  "post_abc": {
+    "pi": 23860,
+    "po": 297,
+    "c": 0,
+    "lat": 23683,
+    "and": 386435
+  },
+  "gates_seconds": 778.72,
+  "gates_returncode": 0,
+  "cell_area": 1776541.344,
+  "cells": 279229,
+  "status": "ok"
+}

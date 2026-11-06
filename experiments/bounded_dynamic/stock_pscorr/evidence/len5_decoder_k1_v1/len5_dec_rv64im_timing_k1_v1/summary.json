@@ -1,0 +1,41 @@
+{
+  "script_sha256": "a506660564a7cef9631da9681ee3fe2c6f4b4ad7c57309db83d2fa9b12e436e6",
+  "depth": 1,
+  "top": "datapath",
+  "flow": "reset",
+  "isa_site": "decoder",
+  "frontend_dir": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend",
+  "frontend_manifest_sha256": "227f443329f5b2cbb5ef03b760110bf08eedfda552aa338ef45ee8dfc498aa9e",
+  "assumptions_timing_sha256": "15e6d2762baf291799453d2d191c90fd219e64fcb8feb90fef9d984604a62d53",
+  "dsl": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/stock_pscorr/len5/crisp/rv64im_timing.dsl",
+  "dsl_sha256": "15c26ab08aa9579a25eec95a15ec0ad88f0eeb4901c12466a53009dee389635c",
+  "crisp_checkout": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/PdatDslBoundedDynamic",
+  "crisp_head": "6b25a55b9beece1c2ae4253a343c00694cc2bac1",
+  "crisp_codegen_sha256": "d686026f8e03d8f93dec82f929bb55b139731b5f12394e3148f0754b42f7d981",
+  "config_sha256": "fc7be9bbeb8a0c374c034083a1c00e1442c8bd4b8396ff0687c679c9fe160724",
+  "assumptions_isa_sha256": "fc1d8cb5fe9e28f05fec9a296f69b0108e3cc812391208f48aa6fdfaf4850077",
+  "extra_sva": {},
+  "yosys_seconds": 58.4,
+  "yosys_aig": {
+    "pi": 23967,
+    "po": 338,
+    "c": 41,
+    "lat": 23806,
+    "and": 471917
+  },
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_dec_rv64im_timing_k1_v1/len5_yosys.aig; strash; scorr -c -m -F 1 -C 30000 -S 20 -v; constr -r; removepo -N 337; removepo -N 336; removepo -N 335; removepo -N 334; removepo -N 333; removepo -N 332; removepo -N 331; removepo -N 330; removepo -N 329; removepo -N 328; removepo -N 327; removepo -N 326; removepo -N 325; removepo -N 324; removepo -N 323; removepo -N 322; removepo -N 321; removepo -N 320; removepo -N 319; removepo -N 318; removepo -N 317; removepo -N 316; removepo -N 315; removepo -N 314; removepo -N 313; removepo -N 312; removepo -N 311; removepo -N 310; removepo -N 309; removepo -N 308; removepo -N 307; removepo -N 306; removepo -N 305; removepo -N 304; removepo -N 303; removepo -N 302; removepo -N 301; removepo -N 300; removepo -N 299; removepo -N 298; removepo -N 297; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_dec_rv64im_timing_k1_v1/len5_post_abc.aig",
+  "abc_seconds": 15148.19,
+  "abc_returncode": 0,
+  "post_abc": {
+    "pi": 23967,
+    "po": 297,
+    "c": 0,
+    "lat": 23683,
+    "and": 386524
+  },
+  "gates_seconds": 842.61,
+  "gates_returncode": 0,
+  "cell_area": 1771191.2128,
+  "cells": 278293,
+  "status": "ok"
+}
