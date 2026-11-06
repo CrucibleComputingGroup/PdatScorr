@@ -1,0 +1,30 @@
+{
+  "run": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_reset_rv32im_axi2_k1_v1",
+  "recorded_aig_sha256": "74565db5666869b23e8eccb855b6bed3503b17195b36818f81cb6363cdb51ba5",
+  "regenerated_identical": true,
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/val_cva6_rv32im_axi2_k1_v1/pre.aig; strash; scorr -c -m -F 1 -C 30000 -S 20 -v; constr -r; removepo -N 5651; removepo -N 5650; removepo -N 5649; removepo -N 5648; removepo -N 5647; removepo -N 5646; removepo -N 5645; removepo -N 5644; removepo -N 5643; removepo -N 5642; removepo -N 5641; removepo -N 5640; removepo -N 5639; removepo -N 5638; removepo -N 5637; removepo -N 5636; removepo -N 5635; removepo -N 5634; removepo -N 5633; removepo -N 5632; removepo -N 5631; removepo -N 5630; removepo -N 5629; removepo -N 5628; removepo -N 5627; removepo -N 5626; removepo -N 5625; removepo -N 5624; removepo -N 5623; removepo -N 5622; removepo -N 5621; removepo -N 5620; removepo -N 5619; removepo -N 5618; removepo -N 5617; removepo -N 5616; removepo -N 5615; removepo -N 5614; removepo -N 5613; rewrite -l; balance -l; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/val_cva6_rv32im_axi2_k1_v1/post.aig",
+  "post_sha256": "d8ccbc2f2d829151f766b483641dece307983bdbe97b644f5bcb77f1a3f8630b",
+  "spec_lines": 65,
+  "patterns": 48,
+  "channels": [
+    "rd=2",
+    "wr=2",
+    "wdata=0"
+  ],
+  "cosim_source_sha256": "23e049f4c43be1bbcfd95015bce2f340028be9f868f078f00f9a69892de1bf0d",
+  "result": {
+    "rounds": 16,
+    "traces": 1024,
+    "cycles": 2000,
+    "live_trace_cycles": 372014,
+    "constraint_violating_traces": 1012,
+    "compared_output_bits": 2088114582,
+    "mismatch_trace_cycles": 0,
+    "first_mismatch": [
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "status": "match"
+}

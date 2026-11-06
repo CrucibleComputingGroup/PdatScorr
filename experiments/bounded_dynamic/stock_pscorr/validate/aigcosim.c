@@ -1,6 +1,9 @@
 /* Bit-parallel co-simulation of two AIGER models with constrained stimulus.
  *
- * Usage: aigcosim <pre.aig> <post.aig> <spec> <cycles> <rounds> <seed>
+ * Usage: aigcosim <pre.aig> <post.aig> <spec> <cycles> <rounds> <seed> [changed.txt]
+ *
+ * With changed.txt, the indices of pre's latches that ever differ from their initial
+ * value on a live trace (from cycle 1 on) are written there, one per line.
  *
  * pre.aig is the model before ABC (its AIGER constraints are the CRISP assumptions);
  * post.aig is the model after `scorr` with the constraints removed. Both have the same
@@ -121,7 +124,7 @@ typedef struct {
 } Chan;
 
 int main(int argc, char **argv) {
-    if (argc != 7) { fprintf(stderr, "usage: aigcosim pre post spec cycles rounds seed\n"); return 2; }
+    if (argc != 7 && argc != 8) { fprintf(stderr, "usage: aigcosim pre post spec cycles rounds seed [changed.txt]\n"); return 2; }
     Aig pre, post;
     read_aig(argv[1], &pre);
     read_aig(argv[2], &post);
@@ -163,6 +166,7 @@ int main(int argc, char **argv) {
     if (reset_pi < 0) { fprintf(stderr, "spec needs reset_n\n"); return 2; }
 
     W *pi = calloc(I, sizeof(W));
+    W *changed = calloc(pre.L + 1, sizeof(W));
     long long compared = 0, mismatch_cycles = 0, violated_traces = 0, live_trace_cycles = 0;
     long long first_mm_round = -1, first_mm_cycle = -1, first_mm_out = -1;
     for (long r = 0; r < rounds; r++) {
@@ -233,6 +237,9 @@ int main(int argc, char **argv) {
                 if (d && first_mm_round < 0) { first_mm_round = r; first_mm_cycle = t; first_mm_out = o; }
                 mm |= d;
             }
+            if (t >= 1)
+                for (unsigned i = 0; i < pre.L; i++)
+                    changed[i] |= (pre.val[pre.I + 1 + i] ^ (pre.latch_init[i] ? ~(W)0 : 0)) & alive;
             mismatch_cycles += __builtin_popcountll(mm);
             mm_any |= mm;
             live_trace_cycles += __builtin_popcountll(alive);
@@ -268,6 +275,11 @@ int main(int argc, char **argv) {
             step(&pre);
             step(&post);
         }
+    }
+    if (argc == 8) {
+        FILE *cf = fopen(argv[7], "w");
+        for (unsigned i = 0; i < pre.L; i++) if (changed[i]) fprintf(cf, "%u\n", i);
+        fclose(cf);
     }
     printf("{\"rounds\": %ld, \"traces\": %ld, \"cycles\": %ld, \"live_trace_cycles\": %lld, "
            "\"constraint_violating_traces\": %lld, \"compared_output_bits\": %lld, \"mismatch_trace_cycles\": %lld, "

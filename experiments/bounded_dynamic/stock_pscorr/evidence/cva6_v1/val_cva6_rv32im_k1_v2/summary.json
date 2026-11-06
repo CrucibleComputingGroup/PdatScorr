@@ -1,0 +1,26 @@
+{
+  "run": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_reset_rv32im_k1_v1",
+  "recorded_aig_sha256": "aa3edd65773d14a698c641678518d5ffc973047a2fa8f65bb476af6ccf480360",
+  "regenerated_identical": true,
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/val_cva6_rv32im_k1_v2/pre.aig; strash; scorr -c -m -F 1 -C 30000 -S 20 -v; constr -r; removepo -N 5614; removepo -N 5613; rewrite -l; balance -l; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/val_cva6_rv32im_k1_v2/post.aig",
+  "post_sha256": "7210a85de1f1ea6e9c0690631a34d30de6323bb2d39894272656ad625cfe50c9",
+  "spec_lines": 60,
+  "patterns": 48,
+  "channels": [],
+  "cosim_source_sha256": "23e049f4c43be1bbcfd95015bce2f340028be9f868f078f00f9a69892de1bf0d",
+  "result": {
+    "rounds": 16,
+    "traces": 1024,
+    "cycles": 2000,
+    "live_trace_cycles": 1106907,
+    "constraint_violating_traces": 726,
+    "compared_output_bits": 6213068991,
+    "mismatch_trace_cycles": 0,
+    "first_mismatch": [
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "status": "match"
+}

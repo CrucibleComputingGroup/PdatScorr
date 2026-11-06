@@ -54,4 +54,58 @@ There are two deliberate changes. The main idea stays the same.
 
 ## Results
 
-(filled in as runs complete; see the per-core sections below)
+### CVA6: in-order core with a non-blocking HPDcache
+
+The design is CVA6 d33a4fb9, stock cv32a60x, with no configuration edits:
+
+- RV32 with B, C and Zcb, no FPU and no MMU;
+- 2-way 2 KB I$ and D$;
+- HPDcache with a 2-way MSHR, a 4-entry replay table and an 8-entry write buffer.
+
+Each outstanding request has its own AXI ID, and responses may come back out of
+order. The flow uses reset semantics, and every run uses the same frontend, the same
+black-boxed SRAMs and the same mapping.
+
+The timing rows add `grant_latency 0` on AR, AW and W, and per-ID
+`response_latency N` on reads (last R beat) and writes (B).
+
+| CRISP | Depth | Latches | AND gates | scorr time (s) | Cell area (µm²) | vs unconstrained | vs RV32IM |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| none | 5 | 7,216 → 6,401 | 211,634 → 151,820 | 5,217 | 630,835 | — | — |
+| RV32IM | 5 | 7,216 → 6,341 | 211,885 → 144,912 | 4,840 | 610,204 | 3.27% | — |
+| RV32IM + AXI ≤ 2 | 5 | → 6,286 | → 144,495 | 4,785 | 606,827 | 3.81% | 0.55% |
+| RV32IM + AXI ≤ 4 | 5 | → 6,286 | → 144,476 | 5,318 | 603,135 | 4.39% | 1.16% |
+| RV32IM + AXI ≤ 8 | 5 | → 6,286 | → 144,456 | 4,800 | 604,514 | 4.17% | 0.93% |
+
+At depth 1 the results are almost the same: 6,345 and 6,290 latches. The runs take
+about 17 minutes there, against about 80 minutes at depth 5.
+
+An exact latency (`response_latency rd N N`, the same for writes) gives the same
+structure as an upper bound:
+
+- N = 2: 6,291 latches and 144,535 AND gates;
+- N = 4: 6,290 latches and 144,547 AND gates.
+
+Both are at depth 1.
+
+**The timing increment is small.** The three timing rows give the same 6,286
+latches, and their AND counts differ by at most 39. Their areas still spread by
+3,700 µm² (0.6%), which is mapping noise from `abc -liberty -fast`. Structurally,
+the bounds remove 55 latches (0.9%) and about 420 AND gates (0.3%) beyond RV32IM.
+
+The reasons:
+
+- **MSHR.** CVA6 sizes its MSHR ways to its own load buffer (`mshrWays =
+  NrLoadBufEntries` = 2). In an in-order core, the number of outstanding misses is
+  capped by the core, not by memory latency.
+- **Write buffer.** Entries stay open for coalescing for a configured time, so the
+  store rate and that window fill it.
+- **Replay table.** It has only 4 entries.
+
+**Validation.** The AIG before and after ABC was co-simulated under stimulus that
+satisfies every assumption. Instruction words are legal RV32IM words in all I$
+SRAM lanes and AXI read data, with aligned control-flow targets. Neither run
+mismatched on any output:
+
+- RV32IM: 3.8M live trace-cycles;
+- RV32IM + AXI ≤ 2: 2.3M live trace-cycles.

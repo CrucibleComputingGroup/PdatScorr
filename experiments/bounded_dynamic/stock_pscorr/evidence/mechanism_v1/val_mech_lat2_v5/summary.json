@@ -1,0 +1,28 @@
+{
+  "run": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_crisp_reset_final_v1/lat2",
+  "recorded_aig_sha256": "e550101db8d5aa9c53268c9dd530282ef1718caf7a6bc4290d6ab33815331391",
+  "regenerated_identical": true,
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/val_mech_lat2_v5/pre.aig; strash; scorr -c -m -F 4 -C 30000 -S 20; constr -r; removepo -N 48; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/val_mech_lat2_v5/post.aig",
+  "post_sha256": "8d77aa510cd189bd3b52470a29af383a0371f05677f26a0c1be75b01ef2d1c76",
+  "spec_lines": 4,
+  "patterns": 0,
+  "channels": [
+    "mem=2"
+  ],
+  "cosim_source_sha256": "ae3a881a79055355ea4aef0f7ad2bab0b2ccf36af912cf8aab35d98bd56ecc23",
+  "result": {
+    "rounds": 8,
+    "traces": 512,
+    "cycles": 400,
+    "live_trace_cycles": 204800,
+    "constraint_violating_traces": 0,
+    "compared_output_bits": 7782400,
+    "mismatch_trace_cycles": 0,
+    "first_mismatch": [
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "status": "match"
+}

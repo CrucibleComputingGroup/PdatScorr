@@ -44,9 +44,29 @@ CVA6_REQ = {"r_ready": (0, 1), "ar_valid": (1, 1), "ar.id": (127, 4), "b_ready":
 CVA6_ICACHE_DATA = "gen_cache_hpd.i_cache_subsystem.i_cva6_icache.gen_sram[{}].data_sram.rdata_o"
 
 
+def aligned(pats):
+    """Stimulus refinement: keep control-flow targets 4-byte aligned.
+
+    Branch and JAL offsets get imm[1] = 0 and JALR is restricted to rs1 = x0 with
+    imm[1:0] = 0. Every resulting word still satisfies its (mask, value) pattern, so
+    the stimulus still satisfies the ISA assumptions; it only avoids fetching a word
+    split across two instructions on a core with compressed-instruction support.
+    """
+    out = []
+    for m, v in pats:
+        m, v = int(m, 16), int(v, 16)
+        op = v & 0x7F
+        extra = {0x63: 1 << 8, 0x6F: 1 << 21, 0x67: (0x1F << 15) | (0x3 << 20)}.get(op, 0) if m & 0x7F == 0x7F else 0
+        out.append((f"{m | extra:08x}", f"{v & ~extra:08x}"))
+    return out
+
+
 def cva6_spec(ins, outs, isa_patterns, channels):
     width = lambda d, n: sum(1 for (name, _b) in d if name == n)
-    assert width(ins, "noc_resp_i") == 146 and width(outs, "noc_req_o") == 374, "unexpected AXI struct widths"
+    # The map omits constant output bits, so only the input width is checked; every
+    # request bit used below must be present (a missing key raises).
+    assert width(ins, "noc_resp_i") == 146, "unexpected AXI response struct width"
+    assert max(b for (n, b) in outs if n == "noc_req_o") <= 373, "unexpected AXI request struct width"
     ri = lambda m, k=0: ins[("noc_resp_i", CVA6_RESP[m][0] + k)]
     ro = lambda m, k=0: outs[("noc_req_o", CVA6_REQ[m][0] + k)]
     spec = []
@@ -95,6 +115,7 @@ def main() -> int:
     ap.add_argument("--profile", choices=("ports", "cva6"), default="ports",
                     help="ports: word and channels are top-level ports; cva6: CVA6 AXI structs and I$ SRAM lanes")
     ap.add_argument("--pattern-signal", default=None, help="signal named in the ISA assumptions (default --word)")
+    ap.add_argument("--aligned-control-flow", action="store_true", help="see aligned(): stimulus refinement only")
     ap.add_argument("--reset", default="rst_ni")
     ap.add_argument("--cycles", type=int, default=1000)
     ap.add_argument("--rounds", type=int, default=16)
@@ -138,6 +159,8 @@ def main() -> int:
     isa = list(run.glob("assumptions_isa.sv")) or list(run.glob("**/isa.sv"))
     if args.profile == "cva6":
         pats = patterns(isa[0], args.pattern_signal or "pscorr_isa_word") if isa else []
+        if args.aligned_control_flow:
+            pats = aligned(pats)
         spec += cva6_spec(ins, outs, pats, args.channels)
     elif (args.word, 0) in ins:
         spec.append("word " + " ".join(str(ins[(args.word, b)]) for b in range(32)))

@@ -1,0 +1,82 @@
+[
+  {
+    "lat": 1,
+    "depth": 4,
+    "frontend": "slang",
+    "before": {
+      "pi": 336,
+      "po": 49,
+      "c": 11,
+      "lat": 298,
+      "and": 3527
+    },
+    "after": {
+      "pi": 336,
+      "po": 38,
+      "c": 0,
+      "lat": 141,
+      "and": 1137
+    },
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_crisp_reset_final_slang_v1/lat1/ldq_yosys.aig; strash; scorr -c -m -F 4 -C 30000 -S 20; constr -r; removepo -N 48; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; scleanup; print_stats"
+  },
+  {
+    "lat": 2,
+    "depth": 4,
+    "frontend": "slang",
+    "before": {
+      "pi": 336,
+      "po": 49,
+      "c": 11,
+      "lat": 298,
+      "and": 3519
+    },
+    "after": {
+      "pi": 336,
+      "po": 38,
+      "c": 0,
+      "lat": 177,
+      "and": 1556
+    },
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_crisp_reset_final_slang_v1/lat2/ldq_yosys.aig; strash; scorr -c -m -F 4 -C 30000 -S 20; constr -r; removepo -N 48; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; scleanup; print_stats"
+  },
+  {
+    "lat": 3,
+    "depth": 4,
+    "frontend": "slang",
+    "before": {
+      "pi": 344,
+      "po": 49,
+      "c": 11,
+      "lat": 306,
+      "and": 3639
+    },
+    "after": {
+      "pi": 344,
+      "po": 38,
+      "c": 0,
+      "lat": 213,
+      "and": 1829
+    },
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_crisp_reset_final_slang_v1/lat3/ldq_yosys.aig; strash; scorr -c -m -F 4 -C 30000 -S 20; constr -r; removepo -N 48; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; scleanup; print_stats"
+  },
+  {
+    "lat": 4,
+    "depth": 4,
+    "frontend": "slang",
+    "before": {
+      "pi": 344,
+      "po": 49,
+      "c": 11,
+      "lat": 306,
+      "and": 3631
+    },
+    "after": {
+      "pi": 344,
+      "po": 38,
+      "c": 0,
+      "lat": 248,
+      "and": 2174
+    },
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_crisp_reset_final_slang_v1/lat4/ldq_yosys.aig; strash; scorr -c -m -F 4 -C 30000 -S 20; constr -r; removepo -N 48; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; scleanup; print_stats"
+  }
+]

@@ -1,0 +1,386 @@
+[
+  {
+    "variant": "none",
+    "depth": 1,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 273,
+      "and": 2997
+    },
+    "after_stock": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "after_cleanup": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "abc_seconds": 0.07,
+    "yosys_seconds": 0.48,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/none_k1/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 1 -C 30000 -S 20 -v; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/none_k1/post_abc.aig"
+  },
+  {
+    "variant": "none",
+    "depth": 2,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 273,
+      "and": 2997
+    },
+    "after_stock": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "after_cleanup": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "abc_seconds": 0.09,
+    "yosys_seconds": 0.44,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/none_k2/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 2 -C 30000 -S 20 -v; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/none_k2/post_abc.aig"
+  },
+  {
+    "variant": "none",
+    "depth": 4,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 273,
+      "and": 2997
+    },
+    "after_stock": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "after_cleanup": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "abc_seconds": 0.11,
+    "yosys_seconds": 0.48,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/none_k4/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 4 -C 30000 -S 20 -v; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/none_k4/post_abc.aig"
+  },
+  {
+    "variant": "none",
+    "depth": 8,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 273,
+      "and": 2997
+    },
+    "after_stock": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "after_cleanup": {
+      "pi": 312,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "abc_seconds": 0.13,
+    "yosys_seconds": 0.57,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/none_k8/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 8 -C 30000 -S 20 -v; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/none_k8/post_abc.aig"
+  },
+  {
+    "variant": "STALL_BOUND",
+    "depth": 1,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 315,
+      "po": 40,
+      "c": 2,
+      "lat": 276,
+      "and": 3031
+    },
+    "after_stock": {
+      "pi": 315,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "after_cleanup": {
+      "pi": 315,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "abc_seconds": 0.16,
+    "yosys_seconds": 0.66,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/STALL_BOUND_k1/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 1 -C 30000 -S 20 -v; constr -r; removepo -N 39; removepo -N 38; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/STALL_BOUND_k1/post_abc.aig"
+  },
+  {
+    "variant": "STALL_BOUND",
+    "depth": 2,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 315,
+      "po": 40,
+      "c": 2,
+      "lat": 276,
+      "and": 3031
+    },
+    "after_stock": {
+      "pi": 315,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "after_cleanup": {
+      "pi": 315,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "abc_seconds": 0.13,
+    "yosys_seconds": 0.6,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/STALL_BOUND_k2/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 2 -C 30000 -S 20 -v; constr -r; removepo -N 39; removepo -N 38; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/STALL_BOUND_k2/post_abc.aig"
+  },
+  {
+    "variant": "STALL_BOUND",
+    "depth": 4,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 315,
+      "po": 40,
+      "c": 2,
+      "lat": 276,
+      "and": 3031
+    },
+    "after_stock": {
+      "pi": 315,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "after_cleanup": {
+      "pi": 315,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "abc_seconds": 0.18,
+    "yosys_seconds": 0.58,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/STALL_BOUND_k4/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 4 -C 30000 -S 20 -v; constr -r; removepo -N 39; removepo -N 38; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/STALL_BOUND_k4/post_abc.aig"
+  },
+  {
+    "variant": "STALL_BOUND",
+    "depth": 8,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 315,
+      "po": 40,
+      "c": 2,
+      "lat": 276,
+      "and": 3031
+    },
+    "after_stock": {
+      "pi": 315,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "after_cleanup": {
+      "pi": 315,
+      "po": 38,
+      "c": 0,
+      "lat": 272,
+      "and": 1882
+    },
+    "abc_seconds": 0.29,
+    "yosys_seconds": 0.53,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/STALL_BOUND_k8/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 8 -C 30000 -S 20 -v; constr -r; removepo -N 39; removepo -N 38; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/STALL_BOUND_k8/post_abc.aig"
+  },
+  {
+    "variant": "TAG_LATENCY",
+    "depth": 1,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 352,
+      "po": 48,
+      "c": 10,
+      "lat": 313,
+      "and": 3611
+    },
+    "after_stock": {
+      "pi": 352,
+      "po": 38,
+      "c": 0,
+      "lat": 175,
+      "and": 1078
+    },
+    "after_cleanup": {
+      "pi": 352,
+      "po": 38,
+      "c": 0,
+      "lat": 175,
+      "and": 1078
+    },
+    "abc_seconds": 0.09,
+    "yosys_seconds": 0.9,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/TAG_LATENCY_k1/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 1 -C 30000 -S 20 -v; constr -r; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/TAG_LATENCY_k1/post_abc.aig"
+  },
+  {
+    "variant": "TAG_LATENCY",
+    "depth": 2,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 352,
+      "po": 48,
+      "c": 10,
+      "lat": 313,
+      "and": 3611
+    },
+    "after_stock": {
+      "pi": 352,
+      "po": 38,
+      "c": 0,
+      "lat": 175,
+      "and": 1078
+    },
+    "after_cleanup": {
+      "pi": 352,
+      "po": 38,
+      "c": 0,
+      "lat": 175,
+      "and": 1078
+    },
+    "abc_seconds": 0.1,
+    "yosys_seconds": 0.54,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/TAG_LATENCY_k2/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 2 -C 30000 -S 20 -v; constr -r; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/TAG_LATENCY_k2/post_abc.aig"
+  },
+  {
+    "variant": "TAG_LATENCY",
+    "depth": 4,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 352,
+      "po": 48,
+      "c": 10,
+      "lat": 313,
+      "and": 3611
+    },
+    "after_stock": {
+      "pi": 352,
+      "po": 38,
+      "c": 0,
+      "lat": 175,
+      "and": 1078
+    },
+    "after_cleanup": {
+      "pi": 352,
+      "po": 38,
+      "c": 0,
+      "lat": 175,
+      "and": 1078
+    },
+    "abc_seconds": 0.13,
+    "yosys_seconds": 0.55,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/TAG_LATENCY_k4/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 4 -C 30000 -S 20 -v; constr -r; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/TAG_LATENCY_k4/post_abc.aig"
+  },
+  {
+    "variant": "TAG_LATENCY",
+    "depth": 8,
+    "params": {
+      "LAT": 2
+    },
+    "status": "ok",
+    "before": {
+      "pi": 352,
+      "po": 48,
+      "c": 10,
+      "lat": 313,
+      "and": 3611
+    },
+    "after_stock": {
+      "pi": 352,
+      "po": 38,
+      "c": 0,
+      "lat": 175,
+      "and": 1078
+    },
+    "after_cleanup": {
+      "pi": 352,
+      "po": 38,
+      "c": 0,
+      "lat": 175,
+      "and": 1078
+    },
+    "abc_seconds": 0.16,
+    "yosys_seconds": 0.56,
+    "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/TAG_LATENCY_k8/ldq_yosys.aig; strash; cycle 100; scorr -c -m -F 8 -C 30000 -S 20 -v; constr -r; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; print_stats; scleanup; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/mech_v1/TAG_LATENCY_k8/post_abc.aig"
+  }
+]

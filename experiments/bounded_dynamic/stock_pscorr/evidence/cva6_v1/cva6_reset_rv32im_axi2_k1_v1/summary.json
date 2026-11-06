@@ -1,0 +1,37 @@
+{
+  "script_sha256": "98c179583f5bc9b4b1577fbf8116bb7490e58eabbed95cb5a55016d83fad5d6b",
+  "depth": 1,
+  "top": "cva6",
+  "flow": "reset",
+  "survey_dir": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_survey_v1",
+  "filelist_sha256": "30afe8e83c6433ddd9002589bff3a4a6f456854cbfed08daa375db323a56f44e",
+  "assumptions_timing_sha256": "d6d2fd7dc1991e743b008a7d9148919e0b43fa801e4744635aefd76683b44bb8",
+  "dsl": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/stock_pscorr/cva6/crisp/rv32im_axi2.dsl",
+  "dsl_sha256": "0c4b810a30090122b36c646bb498f8e1472d0a3c5af61bac80d6a4674e62db65",
+  "crisp_checkout": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/PdatDslBoundedDynamic",
+  "crisp_head": "7661dc39e5b71e754794a9e3c1c04ed58634e300",
+  "config_sha256": "7f35be1c9f189181973f435e020a18ecc67599dee79f6e2cd46873bf348e1bdc",
+  "assumptions_isa_sha256": "14822aef74297ba71924fe9b57e0de797152baebc91ab90a09dbcd2306458c6e",
+  "yosys_seconds": 44.84,
+  "yosys_aig": {
+    "pi": 8357,
+    "po": 5652,
+    "c": 39,
+    "lat": 7312,
+    "and": 213535
+  },
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_reset_rv32im_axi2_k1_v1/cva6_yosys.aig; strash; scorr -c -m -F 1 -C 30000 -S 20 -v; constr -r; removepo -N 5651; removepo -N 5650; removepo -N 5649; removepo -N 5648; removepo -N 5647; removepo -N 5646; removepo -N 5645; removepo -N 5644; removepo -N 5643; removepo -N 5642; removepo -N 5641; removepo -N 5640; removepo -N 5639; removepo -N 5638; removepo -N 5637; removepo -N 5636; removepo -N 5635; removepo -N 5634; removepo -N 5633; removepo -N 5632; removepo -N 5631; removepo -N 5630; removepo -N 5629; removepo -N 5628; removepo -N 5627; removepo -N 5626; removepo -N 5625; removepo -N 5624; removepo -N 5623; removepo -N 5622; removepo -N 5621; removepo -N 5620; removepo -N 5619; removepo -N 5618; removepo -N 5617; removepo -N 5616; removepo -N 5615; removepo -N 5614; removepo -N 5613; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_reset_rv32im_axi2_k1_v1/cva6_post_abc.aig",
+  "abc_seconds": 1003.23,
+  "post_abc": {
+    "pi": 8357,
+    "po": 5613,
+    "c": 0,
+    "lat": 6290,
+    "and": 144540
+  },
+  "gates_seconds": 170.7,
+  "gates_returncode": 0,
+  "cell_area": 607099.756799,
+  "cells": 103793,
+  "status": "ok"
+}

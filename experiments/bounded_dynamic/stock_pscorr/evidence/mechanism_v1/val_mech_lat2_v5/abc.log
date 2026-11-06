@@ -1,0 +1,11 @@
+ABC command line: "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/val_mech_lat2_v5/pre.aig; strash; scorr -c -m -F 4 -C 30000 -S 20; constr -r; removepo -N 48; removepo -N 47; removepo -N 46; removepo -N 45; removepo -N 44; removepo -N 43; removepo -N 42; removepo -N 41; removepo -N 40; removepo -N 39; removepo -N 38; rewrite -l; balance -l; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/val_mech_lat2_v5/post.aig".
+
+Warning: The last 11 outputs are interpreted as constraints.
+Warning: Performing scorr with 11 constraints.
+output 17 failed in frame 0.
+output 17 failed in frame 1.
+output 16 failed in frame 2.
+output 17 failed in frame 2.
+output 17 failed in frame 3.
+output 17 failed in frame 4.
+Constraints are converted to be primary outputs.
