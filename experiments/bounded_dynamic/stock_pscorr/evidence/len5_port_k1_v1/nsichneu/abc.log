@@ -1,0 +1,111 @@
+ABC command line: "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_embench_reset_k1_v1/nsichneu/len5_yosys.aig; strash; scorr -c -m -F 1 -C 30000 -S 20 -v; constr -r; removepo -N 298; removepo -N 297; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_embench_reset_k1_v1/nsichneu/len5_post_abc.aig".
+
+Warning: The last 2 outputs are interpreted as constraints.
+Warning: Performing scorr with 2 constraints.
+output 69 failed in frame 0.
+output 139 failed in frame 0.
+output 148 failed in frame 0.
+output 149 failed in frame 0.
+output 218 failed in frame 0.
+output 69 failed in frame 1.
+output 139 failed in frame 1.
+output 148 failed in frame 1.
+output 149 failed in frame 1.
+output 218 failed in frame 1.
+Before BMC: Equiv classes: Const1 = 493646. Class =     1. Lit = 493776.
+After  BMC: Equiv classes: Const1 = 398796. Class = 23810. Lit = 469794.
+  0 : C = 397706. Cl =  24326. LR = 69535. NR = 47359. F =    0. - T =     7.18 sec
+  1 : C = 397409. Cl =  24359. LR = 69616. NR = 48628. F =    0. - T =     0.61 sec
+  2 : C = 395422. Cl =  24478. LR = 70102. NR = 50031. F =    0. - T =     3.49 sec
+  3 : C = 392061. Cl =  24779. LR = 70758. NR = 53196. F =    0. - T =     7.24 sec
+  4 : C = 386865. Cl =  25447. LR = 71551. NR = 58730. F =    0. - T =     9.38 sec
+  5 : C = 357965. Cl =  27061. LR = 73653. NR = 73590. F =    0. - T =    55.27 sec
+  6 : C = 311434. Cl =  32493. LR = 80066. NR =111307. F =    0. - T =   173.82 sec
+  7 : C = 210194. Cl =  38032. LR = 91235. NR =222363. F =  410. - T =  3490.32 sec
+  8 : C = 181776. Cl =  38687. LR = 88543. NR =335399. F =   12. - T =   554.05 sec
+  9 : C = 147682. Cl =  41121. LR = 80697. NR =428514. F =    0. - T =   753.50 sec
+ 10 : C = 122081. Cl =  42189. LR = 74545. NR =523250. F =    0. - T =  1466.84 sec
+ 11 : C = 109516. Cl =  42773. LR = 65120. NR =580544. F =    0. - T =   614.31 sec
+ 12 : C = 101439. Cl =  42922. LR = 63034. NR =614302. F =    0. - T =   800.65 sec
+ 13 : C =  88891. Cl =  44481. LR = 60562. NR =638917. F =    0. - T =   470.66 sec
+ 14 : C =  80263. Cl =  45721. LR = 59654. NR =659945. F =    0. - T =   413.40 sec
+ 15 : C =  70133. Cl =  45171. LR = 60040. NR =682184. F =    0. - T =   574.12 sec
+ 16 : C =  66550. Cl =  44971. LR = 58516. NR =697003. F =    0. - T =   212.22 sec
+ 17 : C =  60300. Cl =  45471. LR = 58405. NR =707014. F =    0. - T =   250.83 sec
+ 18 : C =  56686. Cl =  45513. LR = 58340. NR =717124. F =    0. - T =   197.63 sec
+ 19 : C =  51775. Cl =  45561. LR = 58250. NR =726662. F =    0. - T =   221.50 sec
+ 20 : C =  48622. Cl =  45378. LR = 58152. NR =735759. F =    0. - T =   250.12 sec
+ 21 : C =  41568. Cl =  46854. LR = 57655. NR =745484. F =    0. - T =   293.77 sec
+ 22 : C =  32430. Cl =  48846. LR = 57258. NR =758803. F =    0. - T =   415.50 sec
+ 23 : C =  17973. Cl =  47990. LR = 58482. NR =784067. F =    0. - T =  1000.51 sec
+ 24 : C =  16965. Cl =  47831. LR = 55255. NR =800263. F =    0. - T =   102.29 sec
+ 25 : C =  15156. Cl =  48065. LR = 55154. NR =803586. F =    0. - T =   142.17 sec
+ 26 : C =  14144. Cl =  47908. LR = 55055. NR =806911. F =    0. - T =   117.77 sec
+ 27 : C =  12736. Cl =  47944. LR = 54954. NR =810034. F =    0. - T =   126.20 sec
+ 28 : C =  11728. Cl =  47785. LR = 54852. NR =813155. F =    0. - T =   116.38 sec
+ 29 : C =   9516. Cl =  48216. LR = 54752. NR =816681. F =    0. - T =   192.42 sec
+ 30 : C =   8500. Cl =  48062. LR = 54655. NR =820211. F =    0. - T =   142.94 sec
+ 31 : C =   7090. Cl =  48099. LR = 54554. NR =823337. F =    0. - T =   149.49 sec
+ 32 : C =   6082. Cl =  47940. LR = 54452. NR =826459. F =    0. - T =   102.58 sec
+ 33 : C =   4273. Cl =  48173. LR = 54352. NR =829783. F =    0. - T =   142.24 sec
+ 34 : C =   3261. Cl =  48016. LR = 54253. NR =833109. F =    0. - T =   111.64 sec
+ 35 : C =   1852. Cl =  48052. LR = 54152. NR =836239. F =    0. - T =   123.78 sec
+ 36 : C =   1314. Cl =  47791. LR = 54056. NR =838764. F =    0. - T =    96.36 sec
+ 37 : C =   1294. Cl =  47688. LR = 53729. NR =839497. F =    0. - T =    47.58 sec
+ 38 : C =   1286. Cl =  47690. LR = 53625. NR =839530. F =    0. - T =    30.62 sec
+ 39 : C =   1278. Cl =  47692. LR = 53625. NR =839548. F =    0. - T =    25.45 sec
+ 40 : C =   1270. Cl =  47694. LR = 53625. NR =839566. F =    0. - T =    27.29 sec
+ 41 : C =   1262. Cl =  47696. LR = 53625. NR =839584. F =    0. - T =    26.74 sec
+ 42 : C =   1254. Cl =  47698. LR = 53625. NR =839602. F =    0. - T =    22.81 sec
+ 43 : C =   1246. Cl =  47700. LR = 53625. NR =839620. F =    0. - T =    19.52 sec
+ 44 : C =   1238. Cl =  47702. LR = 53625. NR =839638. F =    0. - T =    24.52 sec
+ 45 : C =   1230. Cl =  47704. LR = 53625. NR =839656. F =    0. - T =    18.51 sec
+ 46 : C =   1222. Cl =  47706. LR = 53625. NR =839674. F =    0. - T =    22.14 sec
+ 47 : C =   1214. Cl =  47708. LR = 53625. NR =839692. F =    0. - T =    23.33 sec
+ 48 : C =   1206. Cl =  47710. LR = 53625. NR =839710. F =    0. - T =    24.84 sec
+ 49 : C =   1198. Cl =  47712. LR = 53625. NR =839728. F =    0. - T =    20.99 sec
+ 50 : C =   1190. Cl =  47714. LR = 53625. NR =839746. F =    0. - T =    17.52 sec
+ 51 : C =   1182. Cl =  47716. LR = 53625. NR =839764. F =    0. - T =    19.81 sec
+ 52 : C =   1174. Cl =  47718. LR = 53625. NR =839782. F =    0. - T =    33.00 sec
+ 53 : C =   1166. Cl =  47720. LR = 53625. NR =839800. F =    0. - T =    28.30 sec
+ 54 : C =   1158. Cl =  47722. LR = 53625. NR =839818. F =    0. - T =    24.96 sec
+ 55 : C =   1150. Cl =  47724. LR = 53625. NR =839836. F =    0. - T =    22.53 sec
+ 56 : C =   1142. Cl =  47726. LR = 53625. NR =839854. F =    0. - T =    21.53 sec
+ 57 : C =   1134. Cl =  47728. LR = 53625. NR =839872. F =    0. - T =    21.48 sec
+ 58 : C =   1126. Cl =  47730. LR = 53625. NR =839890. F =    0. - T =    22.90 sec
+ 59 : C =   1118. Cl =  47732. LR = 53625. NR =839908. F =    0. - T =    19.70 sec
+ 60 : C =   1110. Cl =  47734. LR = 53625. NR =839926. F =    0. - T =    17.68 sec
+ 61 : C =   1102. Cl =  47736. LR = 53625. NR =839944. F =    0. - T =    23.31 sec
+ 62 : C =   1094. Cl =  47738. LR = 53625. NR =839962. F =    0. - T =    24.98 sec
+ 63 : C =   1086. Cl =  47740. LR = 53625. NR =839980. F =    0. - T =    23.24 sec
+ 64 : C =   1078. Cl =  47742. LR = 53625. NR =839998. F =    0. - T =    23.07 sec
+ 65 : C =   1070. Cl =  47744. LR = 53625. NR =840016. F =    0. - T =    17.72 sec
+ 66 : C =   1062. Cl =  47746. LR = 53625. NR =840034. F =    0. - T =    21.00 sec
+ 67 : C =   1054. Cl =  47748. LR = 53625. NR =840052. F =    0. - T =    19.99 sec
+ 68 : C =   1046. Cl =  47750. LR = 53625. NR =840070. F =    0. - T =    19.68 sec
+ 69 : C =   1038. Cl =  47752. LR = 53625. NR =840088. F =    0. - T =    21.35 sec
+ 70 : C =   1030. Cl =  47754. LR = 53625. NR =840106. F =    0. - T =    21.38 sec
+ 71 : C =   1022. Cl =  47756. LR = 53625. NR =840124. F =    0. - T =    22.24 sec
+ 72 : C =   1018. Cl =  47757. LR = 53625. NR =840138. F =    0. - T =    20.67 sec
+ 73 : C =   1018. Cl =  47757. LR = 53623. NR =840142. F =    0. - T =    18.33 sec
+Parameters: F = 1. AddF = 20. C-lim = 30000. Constr = 2. MaxLev = 0. Mem = 24.79 MB.
+AIG       : PI = 23860. PO = 299. Latch = 23699. Node = 470078.  Ave SAT vars = 0.
+SAT calls : Proof = 1999077. Cex = 145760. Fail = 422. Lits proved = 58235.
+SAT solver: Vars max = 539578. Calls max = 41747. Recycles = 0. Sim rounds = 0.
+NBeg = 470078. NEnd = 409518. (Gain =  12.88 %).  RBeg = 23699. REnd = 23643. (Gain =   0.24 %).
+BMC         =   226.11 sec (  1.51 %)
+Spec reduce =    15.53 sec (  0.10 %)
+Mark cones  =     0.00 sec (  0.00 %)
+Sim SAT     =  1562.13 sec ( 10.42 %)
+SAT solving = 13243.98 sec ( 88.34 %)
+  unsat     =  1328.07 sec (  8.86 %)
+  sat       =  9031.97 sec ( 60.24 %)
+  undecided =  2884.20 sec ( 19.24 %)
+Other       =   -55.32 sec ( -0.37 %)
+TOTAL       = 14992.43 sec (100.00 %)
+Statistics reflecting the use of constraints:
+Total cones  = 517637.  Constraint cones =    138. (  0.03 %)
+Total equivs =  58235.  Removed equivs   =      0. (  0.00 %)
+NBeg = 465728. NEnd = 405301. (Gain =  12.97 %).  RBeg = 23698. REnd = 23643. (Gain =   0.23 %).
+Constraints are converted to be primary outputs.
+[1;37m/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_embench_reset_k1_v1/nsichneu/len5_yosys:[0m i/o =23860/  297  lat =23643  and = 387167  lev =108

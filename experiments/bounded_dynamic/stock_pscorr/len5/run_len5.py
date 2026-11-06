@@ -48,6 +48,11 @@ YOSYS_SLANG = WS / "tools/oss-cad-suite-20261104/oss-cad-suite/bin/yosys"
 CRISP_DEFAULT = WS / "code/PdatProject/PdatDslBoundedDynamic"
 ABC = "/usr/local/bin/abc"
 TOP = "datapath"
+ISA_WORD = """
+  // Pscorr: the word entering the issue decoder from a valid issue-queue entry without a
+  // fetch exception (a NOP otherwise); the word the CRISP ISA assumptions constrain.
+  wire [31:0] pscorr_isa_word = (iq_cu_valid && !iq_data_out.except_raised) ? iq_data_out.instruction : 32'h00000013;
+"""
 RESET_FIRST = """
   // Pscorr reset semantics: reset is applied in the first cycle and is free afterwards
   logic pscorr_first_cycle_q = 1'b1;
@@ -81,6 +86,8 @@ def main() -> int:
     ap.add_argument("--crisp", type=Path, default=CRISP_DEFAULT, help="CRISP generator checkout")
     ap.add_argument("--depth", type=int, default=5)
     ap.add_argument("--flow", choices=("stock", "reset"), default="reset")
+    ap.add_argument("--isa-site", choices=("port", "decoder"), default="port",
+                    help="port: instr_rdata_i at the datapath; decoder: the issue decoder input (issue_stage)")
     ap.add_argument("--output", type=Path, required=True)
     ap.add_argument("--skip-gates", action="store_true")
     ap.add_argument("--abc-timeout", type=int, default=86400)
@@ -88,17 +95,21 @@ def main() -> int:
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=False)
     rec: dict = {"script_sha256": sha(Path(__file__)), "depth": args.depth, "top": TOP, "flow": args.flow,
+                 "isa_site": args.isa_site,
                  "frontend_dir": str(FRONTEND), "frontend_manifest_sha256": sha(FRONTEND / "manifest.json")}
 
     # 1-2. CRISP -> SVA, injection
-    code = ""
+    code, isa_code = "", ""
     if args.dsl:
         env = dict(os.environ, PYTHONPATH=str(args.crisp))
         rc, secs = run([sys.executable, "-m", "pdat_dsl", "codegen", "--config", str(args.config.resolve()),
                         str(args.dsl.resolve()), str(out / "assumptions_isa.sv")], out, out / "codegen.log", env)
         if rc:
             raise SystemExit(f"codegen failed: {out/'codegen.log'}")
-        code += (out / "assumptions_isa.sv").read_text()
+        if args.isa_site == "decoder":
+            isa_code = ISA_WORD + (out / "assumptions_isa.sv").read_text()
+        else:
+            code += (out / "assumptions_isa.sv").read_text()
         timing = out / "assumptions_isa_timing.sv"
         if timing.exists():
             code += "\n" + timing.read_text()
@@ -126,6 +137,13 @@ def main() -> int:
     files = (FRONTEND / "frontend.ys").read_text().splitlines()[0].split()
     files = [f for f in files if f.endswith(".sv")]
     files = [str(dp) if f == "source/rtl/datapath.sv" else str(FRONTEND / f) for f in files]
+    if isa_code:
+        isrc = FRONTEND / "source/rtl/expipe/issue-unit/issue_stage.sv"
+        (out / "inject_issue_stage.sv").write_text(isa_code)
+        subprocess.run([sys.executable, str(REPO / "scripts/inject_checker.py"), "--assumptions-file",
+                        str(out / "inject_issue_stage.sv"), str(isrc), str(out / "issue_stage.sv")],
+                       check=True, stdout=subprocess.DEVNULL)
+        files = [str(out / "issue_stage.sv") if f == str(isrc) else f for f in files]
     script = (f"read_slang --single-unit --no-implicit-memories --top {TOP} -D SYNTHESIS {' '.join(files)}\n"
               + _generate_synthesis_commands(TOP, str(out / "len5")))
     (out / "synth.ys").write_text(script)

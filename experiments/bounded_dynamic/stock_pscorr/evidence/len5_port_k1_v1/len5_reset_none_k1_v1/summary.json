@@ -1,0 +1,32 @@
+{
+  "script_sha256": "a63c374733ab0a6852c3684725562657e11cfc1fca88c6058f3568536de96eba",
+  "depth": 1,
+  "top": "datapath",
+  "flow": "reset",
+  "frontend_dir": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/len5/build/pre_fpu_frontend",
+  "frontend_manifest_sha256": "227f443329f5b2cbb5ef03b760110bf08eedfda552aa338ef45ee8dfc498aa9e",
+  "extra_sva": {},
+  "yosys_seconds": 51.25,
+  "yosys_aig": {
+    "pi": 23860,
+    "po": 298,
+    "c": 1,
+    "lat": 23699,
+    "and": 469954
+  },
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_reset_none_k1_v1/len5_yosys.aig; strash; scorr -c -m -F 1 -C 30000 -S 20 -v; constr -r; removepo -N 297; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/len5_reset_none_k1_v1/len5_post_abc.aig",
+  "abc_seconds": 14887.42,
+  "abc_returncode": 0,
+  "post_abc": {
+    "pi": 23860,
+    "po": 297,
+    "c": 0,
+    "lat": 23683,
+    "and": 387627
+  },
+  "gates_seconds": 667.39,
+  "gates_returncode": 0,
+  "cell_area": 1777210.736,
+  "cells": 278553,
+  "status": "ok"
+}

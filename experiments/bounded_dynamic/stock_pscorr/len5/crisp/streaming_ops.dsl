@@ -1,0 +1,67 @@
+version 2
+
+# The streaming kernel's instruction operations (the ISA-operation domain of the
+# earlier LEN5 decoder study): LUI ADDI ADDIW LD SD BNE SB JAL
+
+include RV32I
+include RV32M
+include RV64I
+include RV64M
+
+forbid ADD
+forbid ADDW
+forbid AND
+forbid ANDI
+forbid AUIPC
+forbid BEQ
+forbid BGE
+forbid BGEU
+forbid BLT
+forbid BLTU
+forbid DIV
+forbid DIVU
+forbid DIVUW
+forbid DIVW
+forbid EBREAK
+forbid ECALL
+forbid FENCE
+forbid JALR
+forbid LB
+forbid LBU
+forbid LH
+forbid LHU
+forbid LW
+forbid LWU
+forbid MUL
+forbid MULH
+forbid MULHSU
+forbid MULHU
+forbid MULW
+forbid OR
+forbid ORI
+forbid REM
+forbid REMU
+forbid REMUW
+forbid REMW
+forbid SH
+forbid SLL
+forbid SLLI
+forbid SLLIW
+forbid SLLW
+forbid SLT
+forbid SLTI
+forbid SLTIU
+forbid SLTU
+forbid SRA
+forbid SRAI
+forbid SRAIW
+forbid SRAW
+forbid SRL
+forbid SRLI
+forbid SRLIW
+forbid SRLW
+forbid SUB
+forbid SUBW
+forbid SW
+forbid XOR
+forbid XORI

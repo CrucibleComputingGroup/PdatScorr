@@ -54,6 +54,38 @@ There are two deliberate changes. The main idea stays the same.
 
 ## Results
 
+### LEN5, ISA constraint at the fetch port: nothing reaches the decoder
+
+The ISA assumption here sits where Rocket's does: on the instruction-memory read data
+at the core's port, `instr_rdata_i`. All rows use depth 1 and reset semantics; the
+bundle is [`evidence/len5_port_k1_v1`](evidence/len5_port_k1_v1/).
+
+| CRISP | Latches after | AND gates after | scorr time (s) | Cell area (µm²) |
+|---|---:|---:|---:|---:|
+| no scorr (stock map of the unchanged AIG) | 23,698 | 469,953 | — | 1,996,366 |
+| none | 23,683 | 387,627 | 14,887 | 1,777,211 |
+| RV64IM | 23,643 | 387,244 | 15,221 | 1,771,052 |
+| RV64IM + bounded interface timing | 23,643 | 387,235 | 14,554 | 1,775,165 |
+| RV64IM + exact native timing | 23,643 | 387,263 | 14,800 | 1,774,353 |
+| 19 Embench RV64IM subsets (21–44 of 65 instructions) | 23,643 | 387,136–387,244 | 14,214–15,081 | 1,774,249–1,776,063 |
+
+None of these constraints changes the design beyond mapping noise. Even workloads
+that forbid whole groups of instructions save nothing.
+
+The reason is the injection site. LEN5 keeps the raw instruction word in a fetch
+spill register and its 4-entry issue queue, and decodes it only at issue. To use the
+port constraint, `scorr` would have to prove that the stored word lies in the allowed
+set. That fact is neither a constant nor an equivalence, so `scorr` cannot express it.
+
+Rocket and Ibex inject at (or next to) decode. The decoder-site rows below inject at
+the issue decoder input, valid entries only, as for CVA6.
+
+The 11% gap between "no scorr" and every other row comes from ABC's
+`rewrite -l; balance -l` and the mapping. It is not a constraint effect.
+
+The `sglib-combined` row was validated by AIG co-simulation: 2.05M live trace-cycles,
+with no violated assumption and no output mismatch.
+
 ### CVA6: in-order core with a non-blocking HPDcache
 
 The design is CVA6 d33a4fb9, stock cv32a60x, with no configuration edits:

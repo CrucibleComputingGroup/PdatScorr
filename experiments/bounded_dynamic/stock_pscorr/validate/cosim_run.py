@@ -122,6 +122,7 @@ def main() -> int:
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--rereset", type=int, default=2, help="per-mille probability of a later reset cycle")
     ap.add_argument("--abc-command", help="ABC command (default: the run's summary.json command)")
+    ap.add_argument("--post", type=Path, help="use this post-ABC AIG (the run's own output) instead of rerunning ABC")
     ap.add_argument("--output", type=Path, required=True)
     args = ap.parse_args()
     run, out = args.run.resolve(), args.output.resolve()
@@ -140,18 +141,22 @@ def main() -> int:
     if not identical:
         raise SystemExit(f"regenerated AIGER differs from {recorded}")
 
-    # 2. post-ABC model from the run's ABC command
-    if args.abc_command:
+    # 2. post-ABC model: the run's own output, or regenerated with the run's ABC command
+    if args.post:
+        shutil.copyfile(args.post, out / "post.aig")
+        cmd = "(run output) " + str(args.post)
+    elif args.abc_command:
         cmd = args.abc_command
     else:
         cmd = json.loads((run / "summary.json").read_text())["abc_command"]
-    cmd = re.sub(r"read_aiger [^;\s]+", f"read_aiger {regen}", cmd)
-    cmd = re.sub(r"write_aiger [^;\s]+", f"write_aiger {out/'post.aig'}", cmd)
-    cmd = cmd.replace(" print_stats;", "")
-    abc = subprocess.run(["abc", "-c", cmd], capture_output=True, text=True)
-    (out / "abc.log").write_text(abc.stdout + abc.stderr)
-    if abc.returncode or not (out / "post.aig").exists():
-        raise SystemExit("abc failed")
+    if not args.post:
+        cmd = re.sub(r"read_aiger [^;\s]+", f"read_aiger {regen}", cmd)
+        cmd = re.sub(r"write_aiger [^;\s]+", f"write_aiger {out/'post.aig'}", cmd)
+        cmd = cmd.replace(" print_stats;", "")
+        abc = subprocess.run(["abc", "-c", cmd], capture_output=True, text=True)
+        (out / "abc.log").write_text(abc.stdout + abc.stderr)
+        if abc.returncode or not (out / "post.aig").exists():
+            raise SystemExit("abc failed")
 
     # 3. spec
     ins, outs = parse_map(out / "pre.map")
