@@ -53,6 +53,12 @@ ISA_WORD = """
   // fetch exception (a NOP otherwise); the word the CRISP ISA assumptions constrain.
   wire [31:0] pscorr_isa_word = (iq_cu_valid && !iq_data_out.except_raised) ? iq_data_out.instruction : 32'h00000013;
 """
+ISA_WORD_VALID = """
+  // Pscorr: the word entering the issue decoder from any valid issue-queue entry (a NOP
+  // otherwise); the word the CRISP ISA assumptions constrain. Every value the issue
+  // register latches (ireg_en = iq_cu_valid & cu_iq_ready) is then a constrained decode.
+  wire [31:0] pscorr_isa_word = iq_cu_valid ? iq_data_out.instruction : 32'h00000013;
+"""
 RESET_FIRST = """
   // Pscorr reset semantics: reset is applied in the first cycle and is free afterwards
   logic pscorr_first_cycle_q = 1'b1;
@@ -86,8 +92,9 @@ def main() -> int:
     ap.add_argument("--crisp", type=Path, default=CRISP_DEFAULT, help="CRISP generator checkout")
     ap.add_argument("--depth", type=int, default=5)
     ap.add_argument("--flow", choices=("stock", "reset"), default="reset")
-    ap.add_argument("--isa-site", choices=("port", "decoder"), default="port",
-                    help="port: instr_rdata_i at the datapath; decoder: the issue decoder input (issue_stage)")
+    ap.add_argument("--isa-site", choices=("port", "decoder", "decoder-valid"), default="port",
+                    help="port: instr_rdata_i at the datapath; decoder: the issue decoder input of valid "
+                         "entries without a fetch exception; decoder-valid: of every valid entry")
     ap.add_argument("--output", type=Path, required=True)
     ap.add_argument("--skip-gates", action="store_true")
     ap.add_argument("--abc-timeout", type=int, default=86400)
@@ -106,8 +113,9 @@ def main() -> int:
                         str(args.dsl.resolve()), str(out / "assumptions_isa.sv")], out, out / "codegen.log", env)
         if rc:
             raise SystemExit(f"codegen failed: {out/'codegen.log'}")
-        if args.isa_site == "decoder":
-            isa_code = ISA_WORD + (out / "assumptions_isa.sv").read_text()
+        if args.isa_site in ("decoder", "decoder-valid"):
+            word = ISA_WORD if args.isa_site == "decoder" else ISA_WORD_VALID
+            isa_code = word + (out / "assumptions_isa.sv").read_text()
         else:
             code += (out / "assumptions_isa.sv").read_text()
         timing = out / "assumptions_isa_timing.sv"

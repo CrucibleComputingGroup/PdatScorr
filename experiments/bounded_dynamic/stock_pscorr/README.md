@@ -86,6 +86,28 @@ The 11% gap between "no scorr" and every other row comes from ABC's
 The `sglib-combined` row was validated by AIG co-simulation: 2.05M live trace-cycles,
 with no violated assumption and no output mismatch.
 
+### LEN5, ISA constraint at the issue decoder
+
+**First attempt (`--isa-site decoder`).** The constraint applied to valid
+issue-queue entries without a fetch exception. It still removed almost nothing: the
+streaming kernel's 8 operations, with no multiply or divide, gave 1,771,060 µm²,
+23,683 latches and 386,475 AND gates.
+
+The issue register loads on every valid entry (`ireg_en = iq_cu_valid &
+cu_iq_ready`), including entries with a fetch exception, and dispatch reads
+`ex_valid[ireg.assigned_eu]`. An exception-flagged entry with an arbitrary word can
+therefore leave a multiply-unit code in the register. Ruling that out needs an
+implication between the control state and the register's contents, which `scorr`
+cannot express.
+
+**Second attempt (`--isa-site decoder-valid`).** The constraint applies to every valid
+entry. That is no stronger than the port constraint, which applies to every word.
+Every value the issue register latches is then a constrained decode, and plain
+induction can show that it never selects an unused unit.
+
+A vacuity check found no violation of the decoder-site assumption: with legal words
+at the port, it holds on every trace over 1.02M live trace-cycles.
+
 ### CVA6: in-order core with a non-blocking HPDcache
 
 The design is CVA6 d33a4fb9, stock cv32a60x, with no configuration edits:
