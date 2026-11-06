@@ -1,0 +1,73 @@
+read_slang -j 8 --top cva6 --no-implicit-memories -D SYNTHESIS -D HPDCACHE_ASSERT_OFF --blackboxed-module sram_cache --blackboxed-module hpdcache_sram_1rw --blackboxed-module hpdcache_sram_wbyteenable_1rw --blackboxed-module hpdcache_sram_wmask_1rw -f files.f
+delete =sram_cache =hpdcache_sram_1rw =hpdcache_sram_wbyteenable_1rw =hpdcache_sram_wmask_1rw
+read_verilog -sv -lib -defer /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_survey_v1/bb/sram_cache_bb.sv /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_survey_v1/bb/hpdcache_sram_bb.sv
+# CVA6's own assertions and covers are not part of the contract; CRISP assumptions stay
+hierarchy -top cva6
+chformal -assert -remove
+chformal -cover -remove
+# Prepare the design for synthesis using cva6 as top
+hierarchy -check -top cva6
+
+# Flatten to enable sequential optimizations across module boundaries
+flatten
+
+# SRAM macros: pins become top-level ports (read data unconstrained)
+expose -evert t:*sram*
+
+# Do basic optimization but preserve sequential structure (registers)
+# proc converts processes to netlists but keeps flip-flops
+proc
+opt
+
+# Map memory and do basic synthesis preserving sequential structure
+# Keep $assume cells intact - they will be exported as AIGER constraints (C field)
+memory
+techmap
+opt
+
+# Export to AIGER format which natively supports constraints (assumptions)
+# AIGER is better than BLIF because:
+# 1. Constraints are part of the format
+# 2. ABC can read and use them for optimization
+# 3. Sequential structure is preserved
+
+# Simplify all DFFs to the most basic type for AIGER export
+# AIGER only supports simple positive-edge D-type flip-flops
+
+# Step 1: Convert async resets to sync (becomes mux + simple DFF)
+async2sync
+
+# Step 2: Use simplemap to break down high-level DFF types to gate-level primitives
+simplemap
+
+# Step 3: Use dfflegalize to convert ALL DFF types to simple $_DFF_P_ only
+# Allow init values 0 and 1 - write_aiger will handle them
+# This expands resets, enables, etc. into combinational logic + simple DFF
+# Use -mince 99999 to force expansion of ALL clock enables (don't keep any)
+dfflegalize -cell $_DFF_P_ 01 -mince 99999
+
+# Do NOT run opt here - it will re-add enables via opt_dff!
+# Just run clean to remove unused wires
+clean
+
+# Step 4: Replace undefined (x/z) values with defined values
+# AIGER doesn't support x or z
+setundef -zero
+
+# Step 5: Convert all combinational logic to AIG (AND + NOT)
+aigmap
+
+# Clean up but don't optimize DFFs
+clean
+
+# Export to AIGER with constraints
+# AIGER format: latches + AND gates + constraints (bad state properties)
+# -zinit maps init values to zero during export
+write_aiger -zinit /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_paper_stock_k5_v1/libnsichneu/cva6_yosys.aig
+
+# NOTE: External ABC will be run by the shell script to optimize this AIGER:
+#   abc -c "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_paper_stock_k5_v1/libnsichneu/cva6_yosys.aig; strash; scorr; dc2; dretime; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_paper_stock_k5_v1/libnsichneu/cva6_post_abc.aig"
+# The optimized AIGER ({output_aig}_post_abc.aig) is the final output for sequential optimization.
+
+# For gate-level synthesis, the synth_to_gates.sh script will read the optimized AIGER
+# and map it to the PDK standard cells.

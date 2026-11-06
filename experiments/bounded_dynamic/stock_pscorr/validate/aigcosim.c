@@ -1,6 +1,6 @@
 /* Bit-parallel co-simulation of two AIGER models with constrained stimulus.
  *
- * Usage: aigcosim <pre.aig> <post.aig> <spec> <cycles> <rounds> <seed> [changed.txt]
+ * Usage: aigcosim <pre.aig> <post.aig> <spec> <cycles> <rounds> <seed> [changed.txt [mismatch.txt]]
  *
  * With changed.txt, the indices of pre's latches that ever differ from their initial
  * value on a live trace (from cycle 1 on) are written there, one per line.
@@ -30,6 +30,9 @@
  *                                        it is 0 while rvalid is random (non-final beats)
  *   inorder <maxlat> <req_po> <rdy_po|-1> <rvalid_pi>
  *                                        in-order channel, response held until taken
+ *   qualify <po> <n> <q_po...>           compare output po only in cycles where the n
+ *                                        outputs q_po of pre are all 1 (e.g. SRAM write
+ *                                        data only while the SRAM is selected and writing)
  * All other inputs are uniformly random every cycle.
  */
 #include <stdint.h>
@@ -72,9 +75,12 @@ static void read_aig(const char *path, Aig *g) {
         g->latch_init[i] = (k == 2) ? b : 0;
         if (k == 2 && b != 0 && b != 1) { fprintf(stderr, "%s: uninitialized latch %u\n", path, i); exit(2); }
     }
-    g->out = calloc(g->O + 1, sizeof(unsigned));
+    /* ABC writes outputs as bad-state literals when constraints are present: read them as outputs */
+    unsigned nout = g->O ? g->O : g->B;
+    g->out = calloc(nout + 1, sizeof(unsigned));
     for (unsigned i = 0; i < g->O; i++) if (fscanf(f, "%u\n", &g->out[i]) != 1) exit(2);
-    for (unsigned i = 0; i < g->B; i++) { unsigned x; if (fscanf(f, "%u\n", &x) != 1) exit(2); }
+    for (unsigned i = 0; i < g->B; i++) { unsigned x; if (fscanf(f, "%u\n", &x) != 1) exit(2); if (!g->O) g->out[i] = x; }
+    if (!g->O) { g->O = g->B; g->B = 0; }
     g->cons = calloc(g->C + 1, sizeof(unsigned));
     for (unsigned i = 0; i < g->C; i++) if (fscanf(f, "%u\n", &g->cons[i]) != 1) exit(2);
     g->and0 = malloc((g->A + 1) * sizeof(unsigned));
@@ -124,7 +130,7 @@ typedef struct {
 } Chan;
 
 int main(int argc, char **argv) {
-    if (argc != 7 && argc != 8) { fprintf(stderr, "usage: aigcosim pre post spec cycles rounds seed [changed.txt]\n"); return 2; }
+    if (argc < 7 || argc > 9) { fprintf(stderr, "usage: aigcosim pre post spec cycles rounds seed [changed.txt]\n"); return 2; }
     Aig pre, post;
     read_aig(argv[1], &pre);
     read_aig(argv[2], &post);
@@ -139,6 +145,7 @@ int main(int argc, char **argv) {
     int word[64][32], nlanes = 0, reset_pi = -1, rereset = 0;
     unsigned masks[512], pats[512]; int npat = 0;
     Chan *ch = calloc(MAXCH, sizeof(Chan)); int nch = 0;
+    int *qn = calloc(pre.O + 1, sizeof(int)); int (*qs)[4] = calloc(pre.O + 1, sizeof(int[4]));
     FILE *sf = fopen(argv[3], "r");
     if (!sf) { perror(argv[3]); return 2; }
     char key[64];
@@ -147,6 +154,10 @@ int main(int argc, char **argv) {
         else if (!strcmp(key, "rereset")) { if (fscanf(sf, "%d", &rereset) != 1) return 2; }
         else if (!strcmp(key, "word")) { if (nlanes == 64) return 2; for (int b = 0; b < 32; b++) { if (fscanf(sf, "%d", &word[nlanes][b]) != 1) return 2; kind[word[nlanes][b]] = 2; } nlanes++; }
         else if (!strcmp(key, "pattern")) { if (fscanf(sf, "%x %x", &masks[npat], &pats[npat]) != 2) return 2; npat++; }
+        else if (!strcmp(key, "qualify")) {
+            int o, n; if (fscanf(sf, "%d %d", &o, &n) != 2 || n > 4) return 2;
+            qn[o] = n; for (int k = 0; k < n; k++) if (fscanf(sf, "%d", &qs[o][k]) != 1) return 2;
+        }
         else if (!strcmp(key, "const1")) { int p; if (fscanf(sf, "%d", &p) != 1) return 2; kind[p] = 3; }
         else if (!strcmp(key, "tagged") || !strcmp(key, "inorder")) {
             Chan *c = &ch[nch++];
@@ -167,6 +178,7 @@ int main(int argc, char **argv) {
 
     W *pi = calloc(I, sizeof(W));
     W *changed = calloc(pre.L + 1, sizeof(W));
+    long long *mm_out = calloc(pre.O + 1, sizeof(long long));
     long long compared = 0, mismatch_cycles = 0, violated_traces = 0, live_trace_cycles = 0;
     long long first_mm_round = -1, first_mm_cycle = -1, first_mm_out = -1;
     for (long r = 0; r < rounds; r++) {
@@ -234,6 +246,8 @@ int main(int argc, char **argv) {
             W mm = 0;
             for (unsigned o = 0; o < pre.O; o++) {
                 W d = (lit(&pre, pre.out[o]) ^ lit(&post, post.out[o])) & alive;
+                for (int k = 0; k < qn[o]; k++) d &= lit(&pre, pre.out[qs[o][k]]);
+                mm_out[o] += __builtin_popcountll(d);
                 if (d && first_mm_round < 0) { first_mm_round = r; first_mm_cycle = t; first_mm_out = o; }
                 mm |= d;
             }
@@ -276,7 +290,12 @@ int main(int argc, char **argv) {
             step(&post);
         }
     }
-    if (argc == 8) {
+    if (argc == 9) {
+        FILE *mf = fopen(argv[8], "w");
+        for (unsigned o = 0; o < pre.O; o++) if (mm_out[o]) fprintf(mf, "%u %lld\n", o, mm_out[o]);
+        fclose(mf);
+    }
+    if (argc >= 8) {
         FILE *cf = fopen(argv[7], "w");
         for (unsigned i = 0; i < pre.L; i++) if (changed[i]) fprintf(cf, "%u\n", i);
         fclose(cf);

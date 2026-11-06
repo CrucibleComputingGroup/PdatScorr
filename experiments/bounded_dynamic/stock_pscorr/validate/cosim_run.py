@@ -91,6 +91,28 @@ def cva6_spec(ins, outs, isa_patterns, channels):
     return spec
 
 
+def sram_qualifiers(outs):
+    """Exposed SRAM pins are compared only when they matter: write data and byte
+    enables while the macro is selected and writing, addresses while it is selected."""
+    by_inst = {}
+    for (name, bit), idx in outs.items():
+        if "sram" in name and "." in name:
+            inst, pin = name.rsplit(".", 1)
+            by_inst.setdefault(inst, {}).setdefault(pin, {})[bit] = idx
+    lines = []
+    for inst, pins in by_inst.items():
+        sel = pins.get("req_i", pins.get("cs", {})).get(0)
+        we = pins.get("we_i", pins.get("we", {})).get(0)
+        if sel is None:
+            continue
+        for pin, bits in pins.items():
+            if pin in ("wdata_i", "wdata", "wbyteenable", "wmask", "wuser_i", "be_i") and we is not None:
+                lines += [f"qualify {i} 2 {sel} {we}" for i in bits.values()]
+            elif pin in ("addr_i", "addr", "we_i", "we"):
+                lines += [f"qualify {i} 1 {sel}" for i in bits.values()]
+    return lines
+
+
 def parse_map(path: Path):
     ins, outs = {}, {}
     for line in path.read_text().splitlines():
@@ -167,6 +189,7 @@ def main() -> int:
         if args.aligned_control_flow:
             pats = aligned(pats)
         spec += cva6_spec(ins, outs, pats, args.channels)
+        spec += sram_qualifiers(outs)
     elif (args.word, 0) in ins:
         spec.append("word " + " ".join(str(ins[(args.word, b)]) for b in range(32)))
         if isa:

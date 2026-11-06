@@ -1,0 +1,36 @@
+{
+  "script_sha256": "98c179583f5bc9b4b1577fbf8116bb7490e58eabbed95cb5a55016d83fad5d6b",
+  "depth": 5,
+  "top": "cva6",
+  "flow": "stock",
+  "survey_dir": "/home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_survey_v1",
+  "filelist_sha256": "30afe8e83c6433ddd9002589bff3a4a6f456854cbfed08daa375db323a56f44e",
+  "dsl": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/BoundedDynamicPscorr/experiments/bounded_dynamic/stock_pscorr/cva6/crisp/paper_workloads/picojpeg_test.dsl",
+  "dsl_sha256": "6284d913ad1a13c0f545cab62bde63a6afdf03a36e07cd78e2a7536719658f2c",
+  "crisp_checkout": "/home/allenjin/Projects/DAC_pscorr/code/PdatProject/PdatDslBoundedDynamic",
+  "crisp_head": "6b25a55b9beece1c2ae4253a343c00694cc2bac1",
+  "config_sha256": "7f35be1c9f189181973f435e020a18ecc67599dee79f6e2cd46873bf348e1bdc",
+  "assumptions_isa_sha256": "a3496ce5291478c1290ee7e9202bc94066f1b2e3a2cd8e84cc1ca7c5b4d5efa9",
+  "yosys_seconds": 46.8,
+  "yosys_aig": {
+    "pi": 8261,
+    "po": 5614,
+    "c": 1,
+    "lat": 7215,
+    "and": 211848
+  },
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_paper_stock_k5_v1/picojpeg_test/cva6_yosys.aig; strash; cycle 100; scorr -c -m -F 5 -C 30000 -S 20 -v; constr -r; removepo -N 5613; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/cva6_paper_stock_k5_v1/picojpeg_test/cva6_post_abc.aig",
+  "abc_seconds": 11345.4,
+  "post_abc": {
+    "pi": 8261,
+    "po": 5613,
+    "c": 0,
+    "lat": 6136,
+    "and": 129583
+  },
+  "gates_seconds": 167.22,
+  "gates_returncode": 0,
+  "cell_area": 549877.376,
+  "cells": 96130,
+  "status": "ok"
+}
