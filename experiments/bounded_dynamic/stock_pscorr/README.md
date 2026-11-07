@@ -163,3 +163,41 @@ mismatched on any output:
 
 - RV32IM: 3.8M live trace-cycles;
 - RV32IM + AXI ≤ 2: 2.3M live trace-cycles.
+
+### CVA6 on the paper's 21 workloads (Generality and Scalability)
+
+The paper's 21 Rocket workload CRISP files run unchanged on CVA6
+([`cva6/crisp/paper_workloads`](cva6/crisp/paper_workloads/)). The runs use depth 5
+and reset semantics, and the data are in
+[`evidence/cva6_paper_reset_v1`](evidence/cva6_paper_reset_v1/):
+
+- **Area:** geomean 3.45% smaller than CVA6's full-RV32IM core (610,204 µm²), up to
+  9.14%. The seven RV32I-only workloads save about 9.1%; the rest save 0–0.7%.
+- **scorr time:** median 1.7 h, maximum 2.6 h, under heavy server load.
+- **Validation:** statemate and basicmath were co-simulated against the original
+  from reset with arbitrary power-up values: no mismatch over 1.28M and 1.51M live
+  trace-cycles.
+
+This is the CVA6 data of the paper's combined Rocket/CVA6 figure (paper commit
+`8feeabe`).
+
+### The stock `cycle 100` start state
+
+The stock ABC command starts scorr from the state left by a random, unconstrained
+100-cycle simulation. That state fixes a value for every register without a reset.
+The scorr result is then equivalent to the original only from that state.
+
+- **Rocket.** Of its roughly 2,200 registers, only 47 have a reset.
+  - With arbitrary power-up values (reset semantics, or the post-reset flow), the
+    paper's workloads save 0.2–0.4%.
+  - With registers that have no reset powering up as zero, the paper's numbers come
+    back: statemate 83,162 µm² against 83,677.
+  - A program-level check ([`evidence/rocket_programs_v1`](evidence/rocket_programs_v1/))
+    shows the paper's optimized Rocket nevertheless computes the same results. For
+    256 random programs from statemate's instructions, the store sequences are
+    identical to the original Rocket under any power-up state. A negative control,
+    the statemate core on full-RV32IM programs, matches on only 3/256.
+  - The interface-level differences seen from other power-up states therefore change
+    timing and speculation, not program results. The paper's Rocket data are kept.
+- **CVA6.** It resets nearly all its core registers, and its reset-semantics results
+  are validated cycle-exact from any power-up state.
