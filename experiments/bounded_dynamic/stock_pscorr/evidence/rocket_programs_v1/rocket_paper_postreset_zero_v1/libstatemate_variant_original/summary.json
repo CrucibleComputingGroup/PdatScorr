@@ -1,0 +1,30 @@
+{
+  "paper_run": "/home/allenjin/Projects/DAC_pscorr/experiments/PdatProjectForrocket/PdatScorr/output/libstatemate_variant_original",
+  "flow": "postreset-zero",
+  "depth": 5,
+  "abc_command": "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_postreset_zero_v1/libstatemate_variant_original/rocket_yosys.aig; strash; scorr -c -m -F 5 -C 30000 -S 20 -v; constr -r; removepo -N 121; rewrite -l; balance -l; print_stats; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_postreset_zero_v1/libstatemate_variant_original/rocket_post_abc.aig",
+  "reset_cycles": 16,
+  "postreset": "47 wires given post-reset initial values (47 initialized in simulation)",
+  "core_injected_sha256": "be79ebfad94b417d8b605d1b37019e7ecef0413f29ed2158a15136af714183b3",
+  "wrapper_sha256": "479a5ec1c42de10cc7bb9282b35f3a2011eaf84ed6545c6600a45b7d4b834bc9",
+  "script_sha256": "947d115f9cf6badae7265daf69d5ec7891201c92150eba9166cc915f081464c2",
+  "yosys_aig": {
+    "pi": 220,
+    "po": 122,
+    "c": 1,
+    "lat": 2231,
+    "and": 30550
+  },
+  "post_abc": {
+    "pi": 220,
+    "po": 121,
+    "c": 0,
+    "lat": 1605,
+    "and": 15851
+  },
+  "scorr_seconds": 20.46,
+  "cell_area": 83162.2592,
+  "paper_area": 83676.5024,
+  "status": "ok",
+  "wall_seconds": 46.6
+}

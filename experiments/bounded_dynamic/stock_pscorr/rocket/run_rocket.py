@@ -11,6 +11,11 @@ for file locations, so the ISA constraint is the paper's byte for byte.
 --flow reset  adds the reset-first assumption to the wrapper (reset is active high in
               Rocket) and drops `cycle 100`, so scorr's base case starts from reset and
               registers without a reset keep arbitrary initial values.
+--flow postreset  starts scorr from the state after a 16-cycle reset sequence: Rocket's
+              reset is synchronous, so in the reset cycle itself registers still show
+              power-up values. The sequence is simulated from all-X state (postreset_init.py);
+              registers with a reset take their reset values, registers without one stay
+              arbitrary. No reset-first assumption; `cycle 100` is dropped; reset is free.
 Mapping uses the same scripts/synth_to_gates.sh as the paper.
 """
 from __future__ import annotations
@@ -51,7 +56,8 @@ def stats(text: str):
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--paper-run", required=True, help="e.g. libstatemate_variant_original")
-    ap.add_argument("--flow", choices=("stock", "reset"), required=True)
+    ap.add_argument("--flow", choices=("stock", "reset", "postreset", "postreset-zero"), required=True)
+    ap.add_argument("--reset-cycles", type=int, default=16)
     ap.add_argument("--output", type=Path, required=True)
     args = ap.parse_args()
     src = PAPER_RUNS / args.paper_run
@@ -73,8 +79,27 @@ def main() -> int:
     ys = re.sub(r"write_aiger -zinit \S+", f"write_aiger -zinit {out/'rocket_yosys.aig'}", ys)
     ys = ys.replace(OLD, str(WS))
     assert OLD not in ys
-    (out / "synth.ys").write_text(ys)
     t0 = time.time()
+    if args.flow in ("postreset", "postreset-zero"):
+        cut = ys.index("async2sync")
+        cut = ys.rfind("\n", 0, cut) + 1
+        (out / "synth_stage1.ys").write_text(ys[:cut] + f"write_rtlil {out/'stage1.il'}\n")
+        zero = "# explicit assumption: registers without a reset power up as 0\nsetundef -zero -init\n" \
+            if args.flow == "postreset-zero" else ""
+        (out / "synth.ys").write_text(f"read_rtlil {out/'stage1_init.il'}\n" + zero + ys[cut:])
+        y = subprocess.run(["synlig", "-s", "synth_stage1.ys"], cwd=out, capture_output=True, text=True)
+        (out / "yosys_stage1.log").write_text(y.stdout + y.stderr)
+        if y.returncode:
+            raise SystemExit(f"synlig failed: {out/'yosys_stage1.log'}")
+        here = Path(__file__).resolve().parent.parent
+        pr = subprocess.run([sys.executable, str(here / "postreset_init.py"), "synlig", str(out / "stage1.il"),
+                             str(out / "stage1_init.il"), "--clock", "clock", "--reset", "reset",
+                             "--cycles", str(args.reset_cycles)], cwd=out, capture_output=True, text=True)
+        (out / "postreset.log").write_text(pr.stdout + pr.stderr)
+        if pr.returncode:
+            raise SystemExit(f"postreset_init failed: {out/'postreset.log'}")
+    else:
+        (out / "synth.ys").write_text(ys)
     y = subprocess.run(["synlig", "-s", "synth.ys"], cwd=out, capture_output=True, text=True)
     (out / "yosys.log").write_text(y.stdout + y.stderr)
     if y.returncode:
@@ -95,6 +120,8 @@ def main() -> int:
     (out / "gates_run.log").write_text(g.stdout + g.stderr)
     area = re.findall(r"Chip area for (?:top )?module '[^']*':\s*([0-9.]+)", g.stdout)
     rec = {"paper_run": str(src), "flow": args.flow, "depth": 5, "abc_command": cmd,
+           "reset_cycles": args.reset_cycles if args.flow.startswith("postreset") else None,
+           "postreset": (out / "postreset.log").read_text().strip() if args.flow.startswith("postreset") else None,
            "core_injected_sha256": sha(core), "wrapper_sha256": sha(wrapper), "script_sha256": sha(Path(__file__)),
            "yosys_aig": pre, "post_abc": stats(a.stdout)[-1] if stats(a.stdout) else None,
            "scorr_seconds": float(tot[-1]) if tot else None, "cell_area": float(area[-1]) if area else None,

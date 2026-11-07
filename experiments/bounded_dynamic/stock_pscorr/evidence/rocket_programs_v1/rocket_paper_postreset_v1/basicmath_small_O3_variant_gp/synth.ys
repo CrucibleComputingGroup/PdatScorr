@@ -1,0 +1,37 @@
+read_rtlil /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_postreset_v1/basicmath_small_O3_variant_gp/stage1_init.il
+async2sync
+
+# Step 2: Use simplemap to break down high-level DFF types to gate-level primitives
+simplemap
+
+# Step 3: Use dfflegalize to convert ALL DFF types to simple $_DFF_P_ only
+# Allow init values 0 and 1 - write_aiger will handle them
+# This expands resets, enables, etc. into combinational logic + simple DFF
+# Use -mince 99999 to force expansion of ALL clock enables (don't keep any)
+dfflegalize -cell $_DFF_P_ 01 -mince 99999
+
+# Do NOT run opt here - it will re-add enables via opt_dff!
+# Just run clean to remove unused wires
+clean
+
+# Step 4: Replace undefined (x/z) values with defined values
+# AIGER doesn't support x or z
+setundef -zero
+
+# Step 5: Convert all combinational logic to AIG (AND + NOT)
+aigmap
+
+# Clean up but don't optimize DFFs
+clean
+
+# Export to AIGER with constraints
+# AIGER format: latches + AND gates + constraints (bad state properties)
+# -zinit maps init values to zero during export
+write_aiger -zinit /home/allenjin/Projects/DAC_pscorr/experiments/bounded_dynamic/stock_pscorr/build/rocket_paper_postreset_v1/basicmath_small_O3_variant_gp/rocket_yosys.aig
+
+# NOTE: External ABC will be run by the shell script to optimize this AIGER:
+#   abc -c "read_aiger /home/allenjin/Projects/DAC_pscorr/experiments/PdatProjectForrocket/PdatScorr/output/basicmath_small_O3_variant_gp/rocket_optimized_yosys.aig; strash; scorr; dc2; dretime; write_aiger /home/allenjin/Projects/DAC_pscorr/experiments/PdatProjectForrocket/PdatScorr/output/basicmath_small_O3_variant_gp/rocket_optimized_post_abc.aig"
+# The optimized AIGER ({output_aig}_post_abc.aig) is the final output for sequential optimization.
+
+# For gate-level synthesis, the synth_to_gates.sh script will read the optimized AIGER
+# and map it to the PDK standard cells.
