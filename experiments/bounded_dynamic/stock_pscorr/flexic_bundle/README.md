@@ -94,7 +94,9 @@ paper's numbers:
 
 1. `read_aiger`, then generic optimization;
 2. `dfflibmap -liberty` for flip-flops;
-3. `abc -liberty -fast` for logic;
+3. ABC's `strash; dretime; map` with the Liberty file for logic. This is the script
+   that `abc -fast` runs in Yosys 0.33. Newer Yosys no longer accepts `-fast`, so the
+   script is given explicitly; with Yosys 0.33 both give identical netlists;
 4. `stat -liberty` for the area.
 
 Area is in the Liberty file's area unit (µm² for SKY130).
@@ -106,8 +108,10 @@ area is then incomplete.
 If you use another synthesis tool, synthesize `optimized_generic.v`. Use the top and
 clock from `manifest.csv`, and apply the same flow to every design.
 
-Yosys 0.33 reproduces the SKY130 numbers exactly. Other versions also work, but use
-one version for all designs.
+Yosys 0.33 reproduces the SKY130 numbers exactly. Newer versions also run, but shift
+the areas slightly. With a Yosys 0.70 build, the SKY130 geomean reduction is 10.1%
+for Rocket (unchanged) and 2.9% for CVA6 (3.45% with 0.33); see
+`check_sky130_yosys070/`. Use one version for all designs.
 
 ## Provenance
 

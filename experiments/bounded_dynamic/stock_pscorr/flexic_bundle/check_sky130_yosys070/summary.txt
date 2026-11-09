@@ -1,0 +1,18 @@
+Liberty: /mnt/shared/pdk/skywater-pdk/libraries/sky130_fd_sc_hd/latest/timing/sky130_fd_sc_hd__tt_025C_1v80.lib
+Area unit: as defined by the Liberty file (SKY130: um^2)
+
+cva6 / fig4_generality: 21 designs
+  RV32IM reference area: 606646.8224
+  geomean reduction 2.94%, max 8.64%, min -0.58%
+
+ibex / table4_timing: 3 designs
+  RV32IM + timing            126686.5024 vs 126749.0624 without timing: 0.05% reduction
+  RV32IM_no_mul + timing     99665.5872 vs 99581.7568 without timing: -0.08% reduction
+  RV32I + timing             89921.2416 vs 89893.7152 without timing: -0.03% reduction
+
+rocket / fig4_generality: 21 designs
+  RV32IM reference area: 113012.1376
+  geomean reduction 10.13%, max 25.97%, min 0.05%
+
+failed: 0 
+flagged (see note column): 0

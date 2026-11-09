@@ -4,7 +4,10 @@
 #   map_area.sh LIBERTY AIG TOP CLOCK OUT_PREFIX
 #
 # The commands are exactly those that produced the paper's SKY130 areas (Yosys 0.33):
-# flip-flops via dfflibmap, logic via `abc -liberty -fast`, area from `stat -liberty`.
+# flip-flops via dfflibmap, logic via ABC's `strash; dretime; map`, area from
+# `stat -liberty`. That ABC script is what `abc -fast` runs for Liberty mapping in
+# Yosys 0.33; newer Yosys no longer accepts `-fast`, so it is given explicitly.
+# With Yosys 0.33 both forms give identical netlists.
 # Writes OUT_PREFIX.ys, OUT_PREFIX.log, OUT_PREFIX.gates.v and prints the area.
 # Set YOSYS=/path/to/yosys to choose the binary (default: yosys on PATH).
 set -euo pipefail
@@ -26,7 +29,7 @@ opt
 techmap
 opt
 dfflibmap -liberty $LIB
-abc -liberty $LIB -fast
+abc -liberty $LIB -script "+strash;dretime;map"
 opt_clean
 rename -top $TOP
 write_verilog -noattr -noexpr -nohex $OUT.gates.v
