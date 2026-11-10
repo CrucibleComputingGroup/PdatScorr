@@ -1,8 +1,9 @@
 # FlexIC results
 
-`results.csv` and `summary.txt` are the output of `run_all.py` for all 70 designs of this
-bundle, mapped to the FlexIC Gen3 standard-cell library G3SC_T5 v1.0.1 (typical corner,
-1.5 V, 25 °C).
+`results.csv` and `summary.txt` are the output of `run_all.py` for the 70 Rocket, CVA6 and
+Ibex Table 4 designs of this bundle, mapped to the FlexIC Gen3 standard-cell library
+G3SC_T5 v1.0.1 (typical corner, 1.5 V, 25 °C). The 13 Ibex Fig. 3 designs were added to
+the bundle later and are not in these results yet.
 
 The run was made by Jonathan Postelnik on ccg-rhel with Yosys 0.70 (YoWASP build). It
 used this bundle's recipe, with ABC's `strash; dretime; map` written out explicitly; that

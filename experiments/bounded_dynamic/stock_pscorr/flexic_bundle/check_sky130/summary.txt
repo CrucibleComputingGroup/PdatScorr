@@ -5,6 +5,25 @@ cva6 / fig4_generality: 21 designs
   RV32IM reference area: 610203.9840
   geomean reduction 3.45%, max 9.14%, min -0.04%
 
+ibex / fig3_isa: 4 designs
+  reference RV32IM: 126176.0128
+  RV32I        89873.6960  normalized 0.7123 (28.77% reduction)
+  No Shifts    87447.6192  normalized 0.6931 (30.69% reduction)
+  No Branches  89643.4752  normalized 0.7105 (28.95% reduction)
+  Arith Only   82400.2784  normalized 0.6531 (34.69% reduction)
+
+ibex / fig3_registers: 3 designs
+  reference 32 regs: 89873.6960
+  16 regs      65470.2912  normalized 0.7285 (27.15% reduction)
+  8 regs       53531.3408  normalized 0.5956 (40.44% reduction)
+  4 regs       47324.1376  normalized 0.5266 (47.34% reduction)
+
+ibex / fig3_width: 3 designs
+  reference 32-bit: 89851.1744
+  24-bit       75737.6384  normalized 0.8429 (15.71% reduction)
+  16-bit       61993.2064  normalized 0.6900 (31.00% reduction)
+  8-bit        47125.1968  normalized 0.5245 (47.55% reduction)
+
 ibex / table4_timing: 3 designs
   RV32IM + timing            126622.6912 vs 126860.4192 without timing: 0.19% reduction
   RV32IM_no_mul + timing     99075.0208 vs 99206.3968 without timing: 0.13% reduction

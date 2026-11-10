@@ -4,7 +4,7 @@
     python3 run_all.py --liberty /path/to/flexic.lib [--jobs 4] [--out DIR] [--only rocket]
 
 Writes DIR/results.csv (one row per design: area, its reference's area, normalized
-area) and DIR/summary.txt (per-study geomean/min/max, as in the paper).
+area) and DIR/summary.txt (the paper's statistics per study).
 Re-running with the same --out reuses designs that already have an area.
 Use --only to select designs whose id contains the given text (e.g. "ibex/").
 """
@@ -101,6 +101,13 @@ def main() -> int:
             for t in group:
                 lines.append(f"  {t['label']:<26s} {t['area']:.4f} vs {t['reference_area']:.4f} without timing: "
                              f"{100 * (1 - t['normalized_area']):.2f}% reduction")
+        elif study.startswith("fig3_"):
+            # One line per configuration, normalized to the group's reference (paper Fig. 3).
+            ref = allrows[group[0]["reference_id"]]
+            lines.append(f"  reference {ref['label']}: {group[0]['reference_area']:.4f}")
+            for t in group:
+                lines.append(f"  {t['label']:<12s} {t['area']:.4f}  normalized {t['normalized_area']:.4f} "
+                             f"({100 * (1 - t['normalized_area']):.2f}% reduction)")
         else:
             refs = sorted({t["reference_area"] for t in group})
             lines.append(f"  RV32IM reference area: " + ", ".join(f"{x:.4f}" for x in refs))
