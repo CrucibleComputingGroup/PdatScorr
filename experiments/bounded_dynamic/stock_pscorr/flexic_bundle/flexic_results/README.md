@@ -86,3 +86,37 @@ This explains the direction of the differences:
   against 20.0 and 27.4 in SKY130;
 - arithmetic only: 5.1 points of flip-flops and 26.4 of logic, against 3.4 and 31.3;
 - 8-bit data: 26.2 points of flip-flops and 22.6 of logic, against 18.2 and 29.4.
+
+### FMax
+
+`fig3_fmax.txt` gives the critical path of each of the 13 designs in FlexIC, received as
+pasted text on 2026-11-09. The tool and the timing constraints were not recorded.
+
+Checks:
+
+- The `fmax_MHz` column equals 1000 / `critical_path_ns`, rounded to three decimals.
+- "32 regs" and "RV32I", the same configuration, have the same critical path.
+
+FMax and its ratio to each group's reference:
+
+| Group | Configuration | FlexIC | | SKY130 (paper) | |
+|---|---|---|---|---|---|
+| Registers | 32 | 4.59 kHz | 1.00 | 26.90 MHz | 1.00 |
+| | 16 | 9.87 kHz | 2.15 | 38.32 MHz | 1.42 |
+| | 8 | 12.80 kHz | 2.79 | 44.39 MHz | 1.65 |
+| | 4 | 16.43 kHz | 3.58 | 48.45 MHz | 1.80 |
+| ISA subset | RV32IM | 5.06 kHz | 1.00 | 22.0 MHz | 1.00 |
+| | RV32I | 4.59 kHz | 0.91 | 26.9 MHz | 1.22 |
+| | No Shifts | 4.39 kHz | 0.87 | 28.5 MHz | 1.30 |
+| | No Branches | 4.53 kHz | 0.90 | 27.5 MHz | 1.25 |
+| | Arith Only | 6.03 kHz | 1.19 | 27.9 MHz | 1.27 |
+| Data width | 32-bit | 4.91 kHz | 1.00 | 27.10 MHz | 1.00 |
+| | 24-bit | 5.69 kHz | 1.16 | 32.01 MHz | 1.18 |
+| | 16-bit | 7.19 kHz | 1.46 | 39.19 MHz | 1.45 |
+| | 8-bit | 11.61 kHz | 2.36 | 44.32 MHz | 1.64 |
+
+Fewer or narrower registers raise FMax more in FlexIC than in SKY130. Three ISA subsets
+are slower than RV32IM in FlexIC, by up to 13%. For scale, "32 regs" and "32-bit" are the
+same RV32I configuration written in two constraint syntaxes, and their FlexIC critical
+paths differ by 7.0%; in SKY130 their FMax differs by 0.7%.
+
