@@ -59,6 +59,16 @@ def depth(aig_path):
     return max(lev)
 
 
+def abc_seconds(log):
+    """Run time that ABC reports for the induction proof on the product machine."""
+    value = ""
+    if os.path.isfile(log):
+        for line in open(log, errors="replace"):
+            if line.startswith("TOTAL"):
+                value = "%.1f" % float(line.split("=")[1].split("sec")[0])
+    return value
+
+
 def failing(aig, mapfile, cfg, operands):
     spec = "mul=%s,div=%s,add=%s,shift=%s" % tuple(cfg)
     names = ct.allowed_set(spec)
@@ -122,69 +132,66 @@ def main():
                "logic_depth", "tested", "failing"], rows)
 
     # 3. Corrected core: module-level baseline, PwF without and with error injection.
-    rows, inj_rows, ctl_rows = [], [], []
-    for cfg in CFGS:
-        b = os.path.join(out, "base_fixed", cfg, "baseline")
-        p = os.path.join(out, "pwf_fixed", cfg, "riscvsinglecycle_optimized")
-        e = os.path.join(out, "pwf_fixed_inject", cfg, "riscvsinglecycle_optimized")
-        r = unit_flags(cfg)
-        ba, pa, ea = area(b + "_gates.log"), area(p + "_gates.log"), area(e + "_gates.log")
-        r["baseline_um2"] = "%.2f" % ba
-        r["baseline_and_gates"] = ands(b + "_post_abc.aig")
-        r["baseline_tested"], r["baseline_failing"] = failing(b + "_post_abc.aig", b + ".portmap", cfg, operands)
-        r["pwf_sweep_only_um2"] = "%.2f" % pa
-        r["pwf_sweep_only_and_gates"] = ands(p + "_post_abc.aig")
-        r["pwf_sweep_only_tested"], r["pwf_sweep_only_failing"] = failing(p + "_post_abc.aig", pwf_map, cfg, operands)
-        r["pwf_sweep_only_vs_baseline_pct"] = "%+.2f" % (100.0 * (pa / ba - 1.0))
-        r["pwf_um2"] = "%.2f" % ea
-        r["pwf_and_gates"] = ands(e + "_post_abc.aig")
-        r["pwf_tested"], r["pwf_failing"] = failing(e + "_post_abc.aig", e + "_yosys.portmap", cfg, operands)
-        r["pwf_vs_baseline_pct"] = "%+.2f" % (100.0 * (ea / ba - 1.0))
-        rows.append(r)
+    #    The paper's table uses the runs in which the constraint holds in every cycle
+    #    (pwf_fixed_inreset); the runs with the generated constraint, which exempts the
+    #    cycles with reset asserted (pwf_fixed), are tabulated beside them.
+    names = ["published_rissp_column.csv", "published_pwf_column.csv", "minfix_pwf.csv"]
+    for runs, suffix in (("pwf_fixed_inreset", ""), ("pwf_fixed", "_reset_exempt")):
+        rows, inj_rows, ctl_rows = [], [], []
+        for cfg in CFGS:
+            b = os.path.join(out, "base_fixed", cfg, "baseline")
+            p = os.path.join(out, runs, cfg, "riscvsinglecycle_optimized")
+            e = os.path.join(out, runs + "_inject", cfg, "riscvsinglecycle_optimized")
+            r = unit_flags(cfg)
+            ba, pa, ea = area(b + "_gates.log"), area(p + "_gates.log"), area(e + "_gates.log")
+            r["baseline_um2"] = "%.2f" % ba
+            r["baseline_and_gates"] = ands(b + "_post_abc.aig")
+            r["baseline_tested"], r["baseline_failing"] = failing(b + "_post_abc.aig", b + ".portmap", cfg, operands)
+            r["sweep_only_um2"] = "%.2f" % pa
+            r["sweep_only_and_gates"] = ands(p + "_post_abc.aig")
+            r["sweep_only_tested"], r["sweep_only_failing"] = failing(p + "_post_abc.aig", pwf_map, cfg, operands)
+            r["sweep_only_vs_baseline_pct"] = "%+.2f" % (100.0 * (pa / ba - 1.0))
+            r["pwf_um2"] = "%.2f" % ea
+            r["pwf_and_gates"] = ands(e + "_post_abc.aig")
+            r["pwf_tested"], r["pwf_failing"] = failing(e + "_post_abc.aig", e + "_yosys.portmap", cfg, operands)
+            r["pwf_vs_baseline_pct"] = "%+.2f" % (100.0 * (ea / ba - 1.0))
+            rows.append(r)
 
-        rep = json.load(open(os.path.join(out, "pwf_fixed_inject", cfg, "injection_report.json")))
-        last = rep["proofs"][-1] if rep["proofs"] else None
-        inj_rows.append(dict(unit_flags(cfg), candidates=" ".join(rep["candidates"]), accepted=" ".join(rep["accepted"]),
-                             proofs=len(rep["proofs"]),
-                             proof_seconds="%.1f" % sum(x["seconds"] for x in rep["proofs"]),
-                             disagreement_outputs=last["disagreements_checked"] if last else "",
-                             simulated_instructions=last["simulation"]["permitted_instructions_executed"] if last else "",
-                             simulated_disagreement="" if not last else (
-                                 "none" if last["simulation"]["first_disagreement_cycle"] is None else "yes")))
-        ctl_path = os.path.join(out, "pwf_fixed_inject_control", cfg, "control_report.json")
-        ctl = json.load(open(ctl_path)) if os.path.isfile(ctl_path) else {"controls": []}
-        for c in ctl["controls"]:
-            sim = c["simulation"]["first_disagreement_cycle"]
-            ctl_rows.append(dict(config=cfg, site=c["sites"][0], proof="proved" if c["proved"] else "rejected",
-                                 detail=c.get("proof", ""), outputs_not_proved=c.get("outputs_not_proved", ""),
-                                 simulation="no disagreement" if sim is None else "disagreement in cycle %d" % sim,
-                                 seconds="%.1f" % c["seconds"]))
-    write(os.path.join(results, "corrected_core.csv"),
-          ["config", "mul", "div", "add", "shift", "baseline_um2", "baseline_and_gates", "baseline_tested",
-           "baseline_failing", "pwf_sweep_only_um2", "pwf_sweep_only_and_gates", "pwf_sweep_only_tested",
-           "pwf_sweep_only_failing", "pwf_sweep_only_vs_baseline_pct", "pwf_um2", "pwf_and_gates", "pwf_tested",
-           "pwf_failing", "pwf_vs_baseline_pct"], rows)
-    write(os.path.join(results, "error_injection.csv"),
-          ["config", "mul", "div", "add", "shift", "candidates", "accepted", "proofs", "proof_seconds",
-           "disagreement_outputs", "simulated_instructions", "simulated_disagreement"], inj_rows)
-    write(os.path.join(results, "error_injection_controls.csv"),
-          ["config", "site", "proof", "detail", "outputs_not_proved", "simulation", "seconds"], ctl_rows)
+            rep = json.load(open(os.path.join(out, runs + "_inject", cfg, "injection_report.json")))
+            last = rep["proofs"][-1] if rep["proofs"] else None
+            proof_log = os.path.join(out, runs + "_inject", cfg, "inject_all_proof.log")
+            inj_rows.append(dict(
+                unit_flags(cfg), candidates=" ".join(rep["candidates"]), accepted=" ".join(rep["accepted"]),
+                proofs=len(rep["proofs"]),
+                step_seconds="%.1f" % sum(x["seconds"] for x in rep["proofs"]),
+                abc_proof_seconds=abc_seconds(proof_log) if last else "",
+                disagreement_outputs=last["disagreements_checked"] if last else "",
+                simulated_instructions=last["simulation"]["permitted_instructions_executed"] if last else "",
+                simulated_disagreement="" if not last else (
+                    "none" if last["simulation"]["first_disagreement_cycle"] is None else "yes")))
+            ctl_path = os.path.join(out, runs + "_inject_control", cfg, "control_report.json")
+            ctl = json.load(open(ctl_path)) if os.path.isfile(ctl_path) else {"controls": []}
+            for c in ctl["controls"]:
+                sim = c["simulation"]["first_disagreement_cycle"]
+                ctl_rows.append(dict(config=cfg, site=c["sites"][0], proof="proved" if c["proved"] else "rejected",
+                                     detail=c.get("proof", ""), outputs_not_proved=c.get("outputs_not_proved", ""),
+                                     simulation="no disagreement" if sim is None else "disagreement in cycle %d" % sim,
+                                     seconds="%.1f" % c["seconds"]))
+        write(os.path.join(results, "corrected_core%s.csv" % suffix),
+              ["config", "mul", "div", "add", "shift", "baseline_um2", "baseline_and_gates", "baseline_tested",
+               "baseline_failing", "sweep_only_um2", "sweep_only_and_gates", "sweep_only_tested",
+               "sweep_only_failing", "sweep_only_vs_baseline_pct", "pwf_um2", "pwf_and_gates", "pwf_tested",
+               "pwf_failing", "pwf_vs_baseline_pct"], rows)
+        write(os.path.join(results, "error_injection%s.csv" % suffix),
+              ["config", "mul", "div", "add", "shift", "candidates", "accepted", "proofs", "step_seconds",
+               "abc_proof_seconds", "disagreement_outputs", "simulated_instructions", "simulated_disagreement"],
+              inj_rows)
+        write(os.path.join(results, "error_injection_controls%s.csv" % suffix),
+              ["config", "site", "proof", "detail", "outputs_not_proved", "simulation", "seconds"], ctl_rows)
+        names += ["corrected_core%s.csv" % suffix, "error_injection%s.csv" % suffix,
+                  "error_injection_controls%s.csv" % suffix]
 
-    # 4. Sweep only, with the constraint also holding during reset.
-    reset_rows = []
-    for r in rows:
-        cfg = r["config"]
-        p = os.path.join(out, "pwf_fixed_inreset", cfg, "riscvsinglecycle_optimized")
-        reset_rows.append(dict(unit_flags(cfg), baseline_um2=r["baseline_um2"],
-                               sweep_reset_exempt_um2=r["pwf_sweep_only_um2"],
-                               sweep_constraint_in_reset_um2="%.2f" % area(p + "_gates.log"),
-                               sweep_constraint_in_reset_and_gates=ands(p + "_post_abc.aig")))
-    write(os.path.join(results, "sweep_constraint_in_reset.csv"),
-          ["config", "mul", "div", "add", "shift", "baseline_um2", "sweep_reset_exempt_um2",
-           "sweep_constraint_in_reset_um2", "sweep_constraint_in_reset_and_gates"], reset_rows)
-
-    for name in ("published_rissp_column.csv", "published_pwf_column.csv", "minfix_pwf.csv", "corrected_core.csv",
-                 "sweep_constraint_in_reset.csv", "error_injection.csv", "error_injection_controls.csv"):
+    for name in names:
         print("==", name)
         with open(os.path.join(results, name)) as f:
             for line in f:

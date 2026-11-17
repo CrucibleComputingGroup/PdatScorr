@@ -4,8 +4,9 @@
   crosscheck.py PRODUCT.aig GOLD.portmap ASSUMPTIONS.sv [--cycles N] [--seed S]
 
 Simulates the product machine of miter.py from the reset state with random permitted
-instructions, random memory data and occasional reset pulses during which the instruction
-is arbitrary (the generated constraint exempts reset). Reports whether the constraint held
+instructions, random memory data and occasional reset pulses. During a pulse the instruction
+is arbitrary if the constraint exempts reset, as the generated one does, and permitted
+otherwise. Reports whether the constraint held
 in every simulated cycle and the first cycle, if any, in which a disagreement output is 1.
 A proved injection must show no disagreement; a rejected one is expected to show one.
 """
@@ -58,6 +59,8 @@ def encode(name, rnd):
 
 
 def simulate_product(product, portmap, assumptions, cycles=400, seed=1):
+    # While reset is asserted the instruction is arbitrary only if the constraint exempts reset.
+    reset_exempt = "!rst_n ||" in open(assumptions).read()
     aig = read_aig(product)
     ins, _ = read_map(portmap)
     permitted = sorted(set(re.findall(r"//\s*([A-Z]+)\s*$", open(assumptions).read(), re.M)))
@@ -75,7 +78,7 @@ def simulate_product(product, portmap, assumptions, cycles=400, seed=1):
         in_reset = [rnd.random() < 0.02 for _ in range(W)]
         words, data = [], []
         for p in range(W):
-            if in_reset[p]:
+            if in_reset[p] and reset_exempt:
                 words.append(rnd.getrandbits(32))            # arbitrary while reset is asserted
             else:
                 words.append(encode(rnd.choice(permitted), rnd))
@@ -113,7 +116,7 @@ def simulate_product(product, portmap, assumptions, cycles=400, seed=1):
             first_bad = cycle
             break
         latch = [lit(n) for n in aig["latch_next"]]
-    return {"cycles": cycles, "traces": W, "permitted_instructions_executed": executed,
+    return {"cycles": cycles, "traces": W, "permitted_instructions_executed": executed, "reset_exempt": reset_exempt,
             "constraint_held": constraint_ok, "first_disagreement_cycle": first_bad}
 
 

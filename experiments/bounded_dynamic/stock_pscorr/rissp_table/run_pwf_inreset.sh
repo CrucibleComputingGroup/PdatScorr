@@ -15,6 +15,7 @@ P=riscvsinglecycle_optimized
 mkdir -p "$DST"
 grep -q 'assume (!rst_n || ' "$SRC/${P}_id_stage.sv"
 sed 's/assume (!rst_n || /assume (/' "$SRC/${P}_id_stage.sv" > "$DST/${P}_id_stage.sv"
+sed 's/assume (!rst_n || /assume (/' "$SRC/${P}_assumptions.sv" > "$DST/${P}_assumptions.sv"
 sed "s#$SRC/#$DST/#g" "$SRC/${P}_synth.ys" > "$DST/${P}_synth.ys"
 export SLPP_ALL="$DST/slpp_all"
 (cd "$DST" && synlig -s "${P}_synth.ys") > "$DST/${P}_yosys.log" 2>&1

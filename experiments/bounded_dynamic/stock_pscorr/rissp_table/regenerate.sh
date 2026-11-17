@@ -66,16 +66,18 @@ sed -e "s#^write_aiger -zinit .*#write_aiger -zinit -map $OUT/maps/saved.portmap
 cmp "$OUT/maps/saved/check.aig" "$SAVED/mul1_div1_add1_shift1/yosys.aig"
 rm -rf "$OUT/maps/pwf/slpp_all" "$OUT/maps/saved/slpp_all"
 
-# 4. PwF with error injection on the corrected core, and the negative controls of its proof.
-"$HERE/run_injection.sh" "$OUT" > "$OUT/logs/run_injection.log" 2>&1
-
-#    Variant of the sweep-only runs in which the constraint also holds during reset.
+# 4. Sweep-only runs with the constraint holding in every cycle (the paper's table); the
+#    pwf_fixed runs above use the generated constraint, which exempts reset.
 for cfg in $CFGS; do
   [ -f "$OUT/pwf_fixed_inreset/$cfg/riscvsinglecycle_optimized_gates.log" ] && continue
   "$HERE/run_pwf_inreset.sh" "$OUT/pwf_fixed/$cfg" "$OUT/pwf_fixed_inreset/$cfg" \
     > "$OUT/logs/pwf_fixed_inreset_$cfg.log" 2>&1 &
 done
 wait
+
+#    PwF with error injection and the negative controls of its proof, for both constraints.
+"$HERE/run_injection.sh" "$OUT" pwf_fixed_inreset > "$OUT/logs/run_injection_inreset.log" 2>&1
+"$HERE/run_injection.sh" "$OUT" pwf_fixed > "$OUT/logs/run_injection.log" 2>&1
 
 # 5. Tables: results/*.csv next to this script.
 python3 "$HERE/tabulate.py" "$OUT" "$SAVED" "$HERE/results"
