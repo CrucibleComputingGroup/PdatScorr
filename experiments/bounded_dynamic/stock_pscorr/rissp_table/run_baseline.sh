@@ -26,8 +26,9 @@ sed "s#core_root: \".*\"#core_root: \"$RUN/core\"#" "$PSCORR_SYNTHESIS_DIR/confi
 BASE=$RUN/baseline
 cd "$PSCORR_SYNTHESIS_DIR"
 python3 scripts/make_synthesis_script.py --config "$RUN/riscvsinglecycle.yaml" -o "${BASE}_synth.ys" -a "$BASE" > "$RUN/make_script.log" 2>&1
-# Also write the input/output map of the AIG, which the instruction-level test needs.
-sed -i -E "s#^write_aiger -zinit (.*)#write_aiger -zinit -map ${BASE}.map \1#" "${BASE}_synth.ys"
+# Also write the input/output map of the AIG, which the instruction-level test needs. The
+# name must not end in .map: the front end reads *.map files in its working directory.
+sed -i -E "s#^write_aiger -zinit (.*)#write_aiger -zinit -map ${BASE}.portmap \1#" "${BASE}_synth.ys"
 export SLPP_ALL="$RUN/slpp_all"
 (cd "$RUN" && synlig -s "$(basename "${BASE}_synth.ys")") > "${BASE}_yosys.log" 2>&1
 # The ABC command of synth_core.sh, without the constraint-removal commands.

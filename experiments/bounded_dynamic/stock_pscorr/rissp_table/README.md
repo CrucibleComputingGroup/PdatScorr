@@ -9,31 +9,40 @@ them, and regenerates the comparison on a core whose instructions work.
 
 The published advantage of PwF (44–50% with the divider present, 22% with every unit
 present) comes from a divider that does not work in any netlist of the table. On a
-corrected core, PwF as it was run for the table is never smaller than the module-level
-baseline.
+corrected core:
 
-| Subset (Mul Div Add Shift) | Published RISSP | Published PwF | Corrected baseline | Corrected PwF | PwF against baseline |
-|---|---|---|---|---|---|
-| none | 33148.04 | 32205.90 | 30994.73 | 104335.07 | +236.6% |
-| Shift | 36862.85 | 35661.70 | 34321.67 | 86644.35 | +152.4% |
-| Add | 35940.72 | 32205.90 | 32362.29 | 82979.58 | +156.4% |
-| Add, Shift | 39303.95 | 35609.20 | 35733.02 | 86454.17 | +141.9% |
-| Div | 60857.12 | 31996.90 | 65590.41 | 106195.60 | +61.9% |
-| Div, Shift | 64291.66 | 35521.60 | 68431.88 | 109314.84 | +59.7% |
-| Div, Add | 63397.05 | 31950.60 | 65958.26 | 105750.17 | +60.3% |
-| Div, Add, Shift | 66939.20 | 35376.40 | 69639.29 | 109272.30 | +56.9% |
-| Mul | 85254.27 | 77455.50 | 78507.80 | 106225.63 | +35.3% |
-| Mul, Shift | 82890.75 | 81249.20 | 83830.40 | 110528.51 | +31.9% |
-| Mul, Add | 85784.77 | 77583.20 | 80069.29 | 105419.86 | +31.7% |
-| Mul, Add, Shift | 88697.57 | 80835.00 | 83948.01 | 108761.81 | +29.6% |
-| Mul, Div | 81197.88 | 77586.90 | 105174.62 | 106429.57 | +1.2% |
-| Mul, Div, Shift | 83980.54 | 80808.80 | 107799.64 | 109309.84 | +1.4% |
-| Mul, Div, Add | 100503.89 | 77327.90 | 105637.56 | 105767.69 | +0.1% |
-| all | 104164.90 | 80835.00 | 109648.91 | 109122.16 | −0.5% |
+- **PwF with error injection matches module-level removal** in every subset, from the
+  complete core and without unit switches in the RTL: +0.24% in area on geometric mean
+  (−1.7% to +5.8%), and −0.26% to +0.18% in AND gates. The largest area
+  difference, +5.8% for Mul+Add+Shift, comes with an AND-gate difference of −0.02% and
+  is noise of the technology mapper: with ABC's default mapping instead of the flow's
+  `-fast`, the same two netlists map to 73,731 µm² (baseline) and 72,404 µm² (PwF).
+- **PwF without error injection** (constraint and sweep only, which is how the published
+  column was produced) removes the shifter, but neither the multiplier nor the divider:
+  it is −0.5% to +236.6% against the baseline.
 
-Areas are SKY130 HD in µm². The corrected columns are in `results/corrected_core.csv`;
-all 32 corrected netlists pass the instruction-level test on the instructions of their
-own subset.
+| Subset (Mul Div Add Shift) | Published RISSP | Published PwF | Corrected baseline | PwF without error injection | PwF | Without injection, against baseline | PwF against baseline |
+|---|---|---|---|---|---|---|---|
+| none | 33148.04 | 32205.90 | 30994.73 | 104335.07 | 30965.95 | +236.6% | −0.1% |
+| Shift | 36862.85 | 35661.70 | 34321.67 | 86644.35 | 34372.97 | +152.4% | +0.1% |
+| Add | 35940.72 | 32205.90 | 32362.29 | 82979.58 | 32153.34 | +156.4% | −0.7% |
+| Add, Shift | 39303.95 | 35609.20 | 35733.02 | 86454.17 | 35645.44 | +141.9% | −0.2% |
+| Div | 60857.12 | 31996.90 | 65590.41 | 106195.60 | 64667.02 | +61.9% | −1.4% |
+| Div, Shift | 64291.66 | 35521.60 | 68431.88 | 109314.84 | 68689.63 | +59.7% | +0.4% |
+| Div, Add | 63397.05 | 31950.60 | 65958.26 | 105750.17 | 66616.39 | +60.3% | +1.0% |
+| Div, Add, Shift | 66939.20 | 35376.40 | 69639.29 | 109272.30 | 70098.48 | +56.9% | +0.7% |
+| Mul | 85254.27 | 77455.50 | 78507.80 | 106225.63 | 79344.85 | +35.3% | +1.1% |
+| Mul, Shift | 82890.75 | 81249.20 | 83830.40 | 110528.51 | 82386.52 | +31.9% | −1.7% |
+| Mul, Add | 85784.77 | 77583.20 | 80069.29 | 105419.86 | 80036.76 | +31.7% | −0.0% |
+| Mul, Add, Shift | 88697.57 | 80835.00 | 83948.01 | 108761.81 | 88810.18 | +29.6% | +5.8% |
+| Mul, Div | 81197.88 | 77586.90 | 105174.62 | 106429.57 | 104383.86 | +1.2% | −0.8% |
+| Mul, Div, Shift | 83980.54 | 80808.80 | 107799.64 | 109309.84 | 108153.73 | +1.4% | +0.3% |
+| Mul, Div, Add | 100503.89 | 77327.90 | 105637.56 | 105767.69 | 105645.07 | +0.1% | +0.0% |
+| all | 104164.90 | 80835.00 | 109648.91 | 109122.16 | 109122.16 | −0.5% | −0.5% |
+
+Areas are SKY130 HD in µm²; the last two columns are relative to the corrected baseline.
+The corrected columns are in `results/corrected_core.csv`. All 48 corrected netlists pass
+the instruction-level test on the instructions of their own subset.
 
 ## Where the published numbers come from
 
@@ -134,14 +143,59 @@ unobservable, not constant, and a sweep that merges equivalent nodes cannot remo
 - **Baseline** (`run_baseline.sh`): the corrected core with its unit switches, through
   the front end, Yosys script, ABC script (`cycle 100` included) and gate mapping of the
   PwF flow. No constraint.
-- **PwF**: the checkout's `synth_core.sh --core riscvsinglecycle --gates`, unchanged, on
-  the corrected core with all units present.
+- **PwF without error injection**: the checkout's `synth_core.sh --core riscvsinglecycle
+  --gates`, unchanged, on the corrected core with all units present.
+- **PwF**: the same, with the error-injection step of the next section before the sweep.
 
-Not covered: the flow's ODC step. It is not part of the published numbers, and in the
-experiment checkout its monitor code is specific to Ibex and fails to parse for this
-core. With `ENABLE_ADDER = 0` the baseline also drops the subtraction that the control
-unit requests during branches; the result is unused there, but it does reach the address
-output, which PwF must preserve.
+All three use the same mapping and observation boundary, and the two PwF columns the
+same generated constraint. The constraint has the form
+`!rst_n || permitted(instruction)`: it exempts the cycles in which reset is asserted.
+This matters for the sweep-only column in the four subsets without multiply and divide.
+There the unit's select is constant outside reset, but during reset the registers read
+as zero and a division by zero returns all ones, so the unit's result is not constant
+and the sweep keeps the unit (83,000–104,000 µm²). With the constraint also holding
+during reset (`run_pwf_inreset.sh`), the sweep alone reaches 32,237, 35,622, 32,406 and
+35,708 µm² in these four subsets (`results/sweep_constraint_in_reset.csv`); the other
+twelve change by at most 0.4%. Error injection does not depend on this.
+
+## Error injection
+
+`error_injection/` applies the paper's microarchitecture-aware error injection
+(Section 4.2) to this core. The ODC step of the experiment checkout is not used: its
+monitor code is specific to Ibex and fails to parse for this core, and it knows only the
+multiply/divide unit as a whole.
+
+- **Microarchitecture description** (`microarchitecture.json`): the four unit results
+  that enter the result multiplexers (`mul_result`, `div_result`, the subtract/compare
+  result `adder_result`, `shifter_result`) with the instructions that select each, and
+  the observation boundary: instruction address and data-memory strobes in every cycle,
+  data-memory address and write data in the cycles with a request. The register file is
+  state and is covered by the sequential proof.
+- **Candidates**: the unit results whose instructions the constraint forbids entirely.
+- **Injection** (`inject.py`): each candidate is forced to 0 in the netlist, after
+  `proc` in the flow's own Yosys script.
+- **Proof** (`miter.py`): the product of the original and the injected core, both from
+  the reset state and under the constraint, has one output per observed bit that is 1
+  when the two disagree. ABC's `scorr` on the product proves by 1-induction that every
+  such output is constant 0; otherwise the candidate is rejected.
+- **Simulation check** (`crosscheck.py`): independent of the proof, the same product is
+  simulated with random permitted instructions, random memory data and reset pulses with
+  arbitrary instructions. This is finite evidence, not a proof.
+
+Outcome (`results/error_injection.csv`): in all 15 subsets with a candidate, every
+candidate is accepted by one joint proof (27–76 s including the synthesis of the
+injected core), and about 25,000 simulated instructions per subset show no disagreement.
+
+With the data-memory address observed in every cycle (`inject.py --strict`), the
+injection at the subtract/compare result is rejected: the control unit requests a
+subtraction during branches, and its result reaches the address output although no
+request is made. For Mul+Div this leaves 105,555 µm² instead of 104,384 µm².
+
+Negative controls (`results/error_injection_controls.csv`): in every subset, an
+injection at each unit whose instructions are permitted, and at the address adder, must
+be rejected. All 48 controls (32 at units, 16 at the address adder) are rejected by
+the proof itself, none by its time limit, and the simulation finds a disagreement in
+every one.
 
 ## The instruction-level test
 
@@ -155,18 +209,23 @@ own subset. `tools/aigsim.py` is the bit-parallel AIG simulator underneath.
 ## How to regenerate
 
 ```bash
-./regenerate.sh      # about 5 min (64 runs in parallel); writes $WS/experiments/rissp_table_regen/final
+./regenerate.sh      # writes $WS/experiments/rissp_table_regen/final
 ```
 
-The script assembles the three cores, runs the PwF flow on each and the baseline on the
-corrected one, and writes `results/*.csv`.
+The script assembles the three cores, runs the PwF flow on each, the baseline and the
+error-injection step on the corrected one, and writes `results/*.csv`. The synthesis
+runs take about 5 minutes and the accepted injections about 5 more; the negative
+controls, whose proofs must fail, take up to 15 minutes each (median 78 s).
 
 | File | Content |
 |---|---|
 | `results/published_rissp_column.csv` | the 16 saved baseline netlists: area, AND gates, logic depth, failing instructions |
 | `results/published_pwf_column.csv` | PwF on the paper-era core: published and regenerated area, failing instructions |
 | `results/minfix_pwf.csv` | PwF on the core with only the divider's `case` rewritten |
-| `results/corrected_core.csv` | baseline and PwF on the corrected core |
+| `results/corrected_core.csv` | baseline, PwF without error injection and PwF on the corrected core |
+| `results/sweep_constraint_in_reset.csv` | PwF without error injection when the constraint also holds during reset |
+| `results/error_injection.csv` | per subset: candidates, accepted injections, proof time, simulation check |
+| `results/error_injection_controls.csv` | the negative controls of the proof |
 
 Environment of the run of 2026-11-17 on ccg-ubuntu: PdatScorr `c523401` with the
 checkout's uncommitted changes, PdatRiscvDsl `b5a5f33` with the checkout's uncommitted

@@ -1,0 +1,45 @@
+{
+  "comment": "Microarchitecture description of the single-cycle core for error injection: the unit results that enter the result multiplexers, with the instructions that select each, and the architectural observation boundary.",
+  "result_sites": [
+    {
+      "name": "mul",
+      "signal": "datapath_inst.mdu_inst.mul_result",
+      "width": 32,
+      "instructions": ["MUL", "MULH", "MULHSU", "MULHU"]
+    },
+    {
+      "name": "div",
+      "signal": "datapath_inst.mdu_inst.div_result",
+      "width": 32,
+      "instructions": ["DIV", "DIVU", "REM", "REMU"]
+    },
+    {
+      "name": "compare",
+      "signal": "datapath_inst.alu_inst.adder_result",
+      "width": 32,
+      "instructions": ["SUB", "SLT", "SLTI", "SLTU", "SLTIU"]
+    },
+    {
+      "name": "shift",
+      "signal": "datapath_inst.alu_inst.shifter_result",
+      "width": 32,
+      "instructions": ["SLL", "SLLI", "SRL", "SRLI", "SRA", "SRAI"]
+    }
+  ],
+  "control_sites": [
+    {
+      "name": "address_adder",
+      "signal": "datapath_inst.alu_inst.add_result",
+      "width": 32,
+      "comment": "Never a candidate: forms load and store addresses. Used only as a negative control of the proof."
+    }
+  ],
+  "observation_boundary": {
+    "comment": "The memory interface; the register file is state and is covered by the sequential proof. Address and write data of the data memory are observed in the cycles in which a request is made.",
+    "every_cycle": ["imem_addr", "dmem_we", "dmem_re"],
+    "when_requested": [
+      {"signals": ["dmem_addr"], "request": ["dmem_we", "dmem_re"]},
+      {"signals": ["dmem_wdata"], "request": ["dmem_we"]}
+    ]
+  }
+}

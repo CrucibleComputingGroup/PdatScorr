@@ -10,8 +10,8 @@
 #   fixed   complete M extension and an address adder that is always present
 #           (cores/fixed/mdu.sv, cores/fixed/alu.sv)
 # The PwF flow (the checkout's synth_core.sh, constraint + sequential sweep) runs on all
-# three for the 16 subsets; the module-level baseline (run_baseline.sh) runs on fixed.
-# All 64 runs start in parallel; allow about 5 minutes.
+# three for the 16 subsets; the module-level baseline (run_baseline.sh) and PwF with error
+# injection (run_injection.sh) run on fixed. Runs of one kind start in parallel.
 set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 export WS=${WS:-/home/allenjin/Projects/DAC_pscorr}
@@ -54,17 +54,28 @@ wait
 #    the ports as the front end read them, which differs between the two flows.
 #    (a) PwF flow: rerun one generated script with -map and check the AIG is unchanged.
 mkdir -p "$OUT/maps/pwf" "$OUT/maps/saved"
-sed -e "s#^write_aiger -zinit .*#write_aiger -zinit -map $OUT/maps/pwf.map $OUT/maps/pwf/check.aig#" \
+sed -e "s#^write_aiger -zinit .*#write_aiger -zinit -map $OUT/maps/pwf.portmap $OUT/maps/pwf/check.aig#" \
   "$OUT/pwf_paper/0000/riscvsinglecycle_optimized_synth.ys" > "$OUT/maps/pwf/synth_map.ys"
 (cd "$OUT/maps/pwf" && SLPP_ALL="$OUT/maps/pwf/slpp_all" synlig -s synth_map.ys > synlig.log 2>&1)
 cmp "$OUT/maps/pwf/check.aig" "$OUT/pwf_paper/0000/riscvsinglecycle_optimized_yosys.aig"
 #    (b) Saved RISSP-column runs: rerun the saved script of the full configuration.
 cp "$SAVED"/mul1_div1_add1_shift1/target_sv/*.sv "$OUT/maps/saved/"
-sed -e "s#^write_aiger -zinit .*#write_aiger -zinit -map $OUT/maps/saved.map $OUT/maps/saved/check.aig#" \
+sed -e "s#^write_aiger -zinit .*#write_aiger -zinit -map $OUT/maps/saved.portmap $OUT/maps/saved/check.aig#" \
   "$SAVED/mul1_div1_add1_shift1/synth_script.ys" > "$OUT/maps/saved/synth_map.ys"
 (cd "$OUT/maps/saved" && SLPP_ALL="$OUT/maps/saved/slpp_all" synlig -s synth_map.ys > synlig.log 2>&1)
 cmp "$OUT/maps/saved/check.aig" "$SAVED/mul1_div1_add1_shift1/yosys.aig"
 rm -rf "$OUT/maps/pwf/slpp_all" "$OUT/maps/saved/slpp_all"
 
-# 4. Tables: results/*.csv next to this script.
+# 4. PwF with error injection on the corrected core, and the negative controls of its proof.
+"$HERE/run_injection.sh" "$OUT" > "$OUT/logs/run_injection.log" 2>&1
+
+#    Variant of the sweep-only runs in which the constraint also holds during reset.
+for cfg in $CFGS; do
+  [ -f "$OUT/pwf_fixed_inreset/$cfg/riscvsinglecycle_optimized_gates.log" ] && continue
+  "$HERE/run_pwf_inreset.sh" "$OUT/pwf_fixed/$cfg" "$OUT/pwf_fixed_inreset/$cfg" \
+    > "$OUT/logs/pwf_fixed_inreset_$cfg.log" 2>&1 &
+done
+wait
+
+# 5. Tables: results/*.csv next to this script.
 python3 "$HERE/tabulate.py" "$OUT" "$SAVED" "$HERE/results"
